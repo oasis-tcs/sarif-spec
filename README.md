@@ -13,7 +13,7 @@
 
 <p>A static analysis tool is a program that examines programming artifacts in order to detect problems, without executing the program. Software developers use a variety of static analysis tools to assess the quality of their programs. To form an overall picture of program quality, developers must often aggregate the results produced by all of these tools. This aggregation is more difficult if each tool produces output in a different format. A standard output format would make it feasible for developers and teams to view, understand, interact with, and manage the results produced by all the tools that they use.</p>
 
-<p>Submission <a href="https://issues.oasis-open.org/browse/TCADMIN-2759">request</a> from David Keaton: we expect to populate this repository from the existing one found here: <a href="https://github.com/sarif-standard/sarif-spec">https://github.com/sarif-standard/sarif-spec</a>.</p>
+<p>Submission <a href="https://issues.oasis-open.org/browse/TCADMIN-2759">request</a> from David Keaton (SARIF TC Co-Chair): we expect to populate this repository from the existing one found here: <a href="https://github.com/sarif-standard/sarif-spec">https://github.com/sarif-standard/sarif-spec</a>.</p>
 
 </div>
 
