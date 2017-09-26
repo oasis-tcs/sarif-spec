@@ -51,7 +51,7 @@ will:
 # Issue labels
 
 We will track the workflow status of issues in the repo with a set of labels.
-These labels are mostly a subset of the tags in the [original spec repo](https://github.com/sarif-standard/sarif-spec):
+These labels are mostly a subset of the labels in the [original spec repo](https://github.com/sarif-standard/sarif-spec):
 
 - `bug`: The issue prevents the file format from correctly and consistently representing the information necessary to support the scenarios for which it is designed.
 - `enhancement`: The proposal adds support to the spec for a new scenario, or provide richer support for a supported scenario.
@@ -65,8 +65,8 @@ These labels are mostly a subset of the tags in the [original spec repo](https:/
 - `prototype-needed`: The practicality of implementing the proposed change is unclear; the change should be prototyped in code before being considered for adoption.
 - `question`: The issue is a request for information, not a proposal to change the format or the documentation.
 - `ready-for-approval`: The issue has been discussed and a resolution reached, the spec has been edited with change tracking to reflect the change, and the change is ready for approval at the next TC meeting.
-- `resolved-by-design`: If the issue is a bug, this tag means that the existing behavior is as intended and will not be changed.
+- `resolved-by-design`: If the issue is a bug, this label means that the existing behavior is as intended and will not be changed.
 - `resolved-deferred`: The issue is deferred for consideration in a future version of the specification.
 - `resolved-duplicate`: The issue is a duplicate of another.
 - `resolved-fixed`: The changes to the spec have been approved at a TC meeting and have been merged into the Working Draft.
-- `resolved-wont-fix`: If the issue is a bug, this tag means that the bug will not be fixed. (This should be rare!) If the issue is an enhancement, this tag means that the TC has decided not to incorporate the proposed change into the spec.
+- `resolved-wont-fix`: If the issue is a bug, this label means that the bug will not be fixed. (This should be rare!) If the issue is an enhancement, this label means that the TC has decided not to incorporate the proposed change into the spec.
