@@ -39,8 +39,7 @@ will:
     4. Rename the “provisional” draft to the next version number (in this example,
     renaming `sarif-v1.0-wd02-provisional.docx` to `sarif-v1.0-wd03-provisional.docx`).
 
-* This process (with additional details) will be documented in the file `Workflow.md` in
-  the repository.
+* This process will be documented in the file `Workflow.md` in the repository.
 
 * Changes to this process will be requested by opening an issue in the repository, and
   must be approved at a TC meeting.
