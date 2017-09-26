@@ -1,9 +1,9 @@
-#Introduction
+# Introduction
 
 This document presents the principles that govern how the SARIF TC incorporates changes
 into the SARIF spec, and describes the workflow for incorporating agreed-upon changes.
 
-#Principals and process
+# Principals and process
 
 * We encourage discussion on the public issues. The Editors will ensure that issues are
 filed in the GitHub repo, and will "curate" them by applying issue labels, ensuring
@@ -48,7 +48,8 @@ will:
 * Changes to this process will be requested by opening an issue in the repository, and
   must be approved at a TC meeting.
 
-#Issue labels
+# Issue labels
+
 We will track the workflow status of issues in the repo with a set of labels.
 These labels are mostly a subset of the tags in the [original spec repo](https://github.com/sarif-standard/sarif-spec):
 
