@@ -19,9 +19,8 @@ number, for example `sarif-v1.0-wd02-provisional.docx`.
 * The Editors will make all changes in the provisional copy, with change tracking enabled.
 
 * Issues that are ready for final approval or which warrant discussion on the telecon will
-be identified with the label `ready-for-approval`in advance of each meeting. Relevant
-tracked changes and open comments in the current provisional working draft will also
-reflect this status.
+be identified with the label `ready-for-approval`in advance of each meeting. The Editor
+will also add a comment to the provisional document stating that the proposal is ready.
 
 * After telecon approval/rejection, the Editors will "Accept" or "Reject" the relevant
 changes in the Word document, remove the relevant comments from the document, and close
