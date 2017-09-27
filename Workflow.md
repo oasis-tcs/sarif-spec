@@ -51,6 +51,10 @@ number (for example `sarif-v1.0-wd02-provisional.docx`).
     1. Place a comment at the top of the change draft stating that the proposal requires
     further discussion.
 
+    1. Push the latest version of the change draft to the repo.
+
+       **NOTE**: This does *not* require a PR.
+
 1. If the TC approves a change (or one of a set of competing changes), the Editors will:
 
     1. Transfer the changes from the approved change draft to the provisional draft, with change tracking enabled.
