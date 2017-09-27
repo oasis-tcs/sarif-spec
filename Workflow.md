@@ -5,46 +5,93 @@ into the SARIF spec, and describes the workflow for incorporating agreed-upon ch
 
 # Principals and process
 
-* We encourage discussion on the public issues. The Editors will ensure that issues are
+1. We encourage discussion on the public issues. The Editors will ensure that issues are
 filed in the GitHub repo, and will "curate" them by applying issue labels, ensuring
-content from other sources (email) is recorded in the GitHub issue, etc.
+content from other sources (email) is recorded in the GitHub issue, _etc._
 
-* Any issues that require time-sensitive discussion will be driven through the mailing
+1. Any issues that require time-sensitive discussion will be driven through the mailing
 list (this should be rare).
 
-* Once a revision of the Working Draft has been accepted (for example,
+1. Once a revision of the Working Draft has been accepted (for example,
 `sarif-v1.0-wd01.docx`), the Editors will create a "provisional" draft with the next
-number, for example `sarif-v1.0-wd02-provisional.docx`.
+number (for example `sarif-v1.0-wd02-provisional.docx`).
 
-* The Editors will make all changes in the provisional copy, with change tracking enabled.
+1. When a change is proposed, the Editors will push a copy of the _current_ Working Draft
+    to the Drafts folder of the repo.
+    The copy will have a name of the form `sarif-issue-<issueNumber>-<mnemonic>.docx`.
+    We refer to this copy as a "change draft".
 
-* Issues that are ready for final approval or which warrant discussion on the telecon will
-be identified with the label `ready-for-approval`in advance of each meeting. The Editor
-will also add a comment to the provisional document stating that the proposal is ready.
+    **NOTE**: This does *not* require a PR.
 
-* After telecon approval/rejection, the Editors will "Accept" or "Reject" the relevant
-changes in the Word document, remove the relevant comments from the document, and close
-the GitHub issue, labeling it as either `resolved-fixed` or `resolved-wont-fix`.
+    The "mnemonic" is a short string (at most a few words) that distinguishes
+    this change from other, competing proposals that address the same issue.
+    For example, if there are two competing proposals to address Issue #&#xfeff;3,
+    there might be two change drafts:
 
-* At certain times, the TC might decide to capture the current state of the Working Draft
-in a _revised_ Working Draft (with the next revision number). In that case, the Editors
+    * `sarif-issue-3-multiple-classifications.docx`
+
+    * `sarif-issue-3-single-classification.docx`
+
+1. The Editors will make all changes in the change draft, with change tracking enabled.
+
+1. When an issue is ready for final approval, the Editors will:
+
+    1. Label the issue `ready-for-approval`.
+
+    1. Place a comment at the top of the change draft stating that the proposal is ready.
+
+    1. Push the latest version of the change draft to the repo.
+
+           **NOTE**: This does *not* require a PR.
+
+1. If an issue requires further discussion at the next TC meeting, the Editors will:
+
+    1. Label the issue `discussion-ongoing`.
+
+    1. Place a comment at the top of the change draft stating that the proposal requires
+    further discussion.
+
+1. If the TC approves a change (or one of a set of competing changes), the Editors will:
+
+    1. Transfer the changes from the approved change draft to the provisional draft, with change tracking enabled.
+
+    1. Label the issue `resolved-fixed`.
+
+    1. Close the issue.
+
+    1. Place a comment at the top of the approved change draft stating that the proposal was approved.
+
+    1. Place a comment at the top of any competing change draft stating that the proposal was rejected.
+
+1. If the TC rejects a change (or rejects every one of a set of competing changes),
+and if the TC further decides not to continue to address the issue, the Editors will:
+
+    1. Label the issue `resolved-wont-fix`.
+
+    1. Close the issue.
+
+    1. Place a comment at the top of every associated change draft stating that the proposal
+    was rejected.
+
+1. At certain times, the TC might decide to capture the current state of the provisional draft
+in a revised Working Draft (with the next revision number). In that case, the Editors
 will:
+
     1. Copy the provisional draft (say, `sarif-v1.0-wd02-provisional.docx`) to a file
-    with the correct name for the next "real" draft (in this example, copying
+    with the correct name for the next Working Draft (in this example, copying
     `sarif-v1.0-wd02-provisional.docx` to `sarif-v1.0-wd02.docx`).
 
-    2. _Revert all change-tracked changes, and remove all comments_ in the real draft
-    (because none of those changes will have been accepted yet.
+    2. Accept all change-tracked changes, and remove all comments.
 
-    3. Modify the metadata in the real draft so that the correct document identifier (in
+    3. Modify the document metadata so that the correct document identifier (in
     this example, `sarif-v1.0-wd02`) appears in the document footer.
 
-    4. Rename the “provisional” draft to the next version number (in this example,
+    4. Rename the provisional draft to the next version number (in this example,
     renaming `sarif-v1.0-wd02-provisional.docx` to `sarif-v1.0-wd03-provisional.docx`).
 
-* This process will be documented in the file `Workflow.md` in the repository.
+1. This process will be documented in the file `Workflow.md` in the repository.
 
-* Changes to this process will be requested by opening an issue in the repository, and
+1. Changes to this process will be requested by opening an issue in the repository, and
   must be approved at a TC meeting.
 
 # Issue labels
@@ -63,6 +110,7 @@ These labels are mostly a subset of the labels in the [original spec repo](https
 - `process`: The issue relates to the process of producing the TC's work products, rather than to the content of the work products themselves.
 - `prototype-needed`: The practicality of implementing the proposed change is unclear; the change should be prototyped in code before being considered for adoption.
 - `question`: The issue is a request for information, not a proposal to change the format or the documentation.
+- `discussion-ongoing`: The issue requires further discussion at the next TC meeting.
 - `ready-for-approval`: The issue has been discussed and a resolution reached, the spec has been edited with change tracking to reflect the change, and the change is ready for approval at the next TC meeting.
 - `resolved-by-design`: If the issue is a bug, this label means that the existing behavior is as intended and will not be changed.
 - `resolved-deferred`: The issue is deferred for consideration in a future version of the specification.
