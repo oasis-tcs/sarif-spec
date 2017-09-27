@@ -42,7 +42,7 @@ number (for example `sarif-v1.0-wd02-provisional.docx`).
 
     1. Push the latest version of the change draft to the repo.
 
-           **NOTE**: This does *not* require a PR.
+       **NOTE**: This does *not* require a PR.
 
 1. If an issue requires further discussion at the next TC meeting, the Editors will:
 
@@ -77,16 +77,16 @@ and if the TC further decides not to continue to address the issue, the Editors 
 in a revised Working Draft (with the next revision number). In that case, the Editors
 will:
 
-    1. Copy the provisional draft (say, `sarif-v1.0-wd02-provisional.docx`) to a file
-    with the correct name for the next Working Draft (in this example, copying
-    `sarif-v1.0-wd02-provisional.docx` to `sarif-v1.0-wd02.docx`).
+    1. Accept all change-tracked changes in the provisional draft
+    (for example, `sarif-v1.0-wd02-provisional.docx`), and remove all comments.
+    
+    1. Modify the document metadata in the provisional draft so that the correct document identifier
+    (in this example, `sarif-v1.0-wd02`) appears in the document footer.
 
-    2. Accept all change-tracked changes, and remove all comments.
+    1. Copy the provisional draft  to a file with the correct name for the next Working Draft
+    (in this example, copying `sarif-v1.0-wd02-provisional.docx` to `sarif-v1.0-wd02.docx`).
 
-    3. Modify the document metadata so that the correct document identifier (in
-    this example, `sarif-v1.0-wd02`) appears in the document footer.
-
-    4. Rename the provisional draft to the next version number (in this example,
+    1. Rename the provisional draft to the next version number (in this example,
     renaming `sarif-v1.0-wd02-provisional.docx` to `sarif-v1.0-wd03-provisional.docx`).
 
 1. This process will be documented in the file `Workflow.md` in the repository.
