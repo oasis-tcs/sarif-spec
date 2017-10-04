@@ -42,7 +42,7 @@ number (for example `sarif-v1.0-wd02-provisional.docx`).
 
     1. Push the latest version of the change draft to the repo.
 
-           **NOTE**: This does *not* require a PR.
+       **NOTE**: This does *not* require a PR.
 
 1. If an issue requires further discussion at the next TC meeting, the Editors will:
 
@@ -53,13 +53,13 @@ number (for example `sarif-v1.0-wd02-provisional.docx`).
 
     1. Push the latest version of the change draft to the repo.
 
-           **NOTE**: This does *not* require a PR.
+       **NOTE**: This does *not* require a PR.
 
 1. If the TC approves a change (or one of a set of competing changes), the Editors will:
 
     1. Merge the changes from the approved change draft into the provisional draft, with change tracking enabled.
 
-           **NOTE**: We can use Word's "Combine documents" feature (on the Review tab of the ribbon) to accomplish this easily.
+       **NOTE**: We can use Word's "Combine documents" feature (on the Review tab of the ribbon) to accomplish this easily.
 
     1. Label the issue `resolved-fixed`.
 
