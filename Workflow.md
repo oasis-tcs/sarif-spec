@@ -14,10 +14,11 @@ list (this should be rare).
 
 1. Once a revision of the Working Draft has been accepted (for example,
 `sarif-v1.0-wd01.docx`), the Editors will create a "provisional" draft with the next
-number (for example `sarif-v1.0-wd02-provisional.docx`).
+number (for example `sarif-v1.0-wd02-provisional.docx`)
+in the Documents\ProvisionalDrafts folder of the repo.
 
-1. When a change is proposed, the Editors will push a copy of the _current_ Working Draft
-    to the Drafts folder of the repo.
+1. When a change is proposed, the Editors will push a copy of the _current_ provisional draft
+    to the Documents\ChangeDrafts folder of the repo.
     The copy will have a name of the form `sarif-issue-<issueNumber>-<mnemonic>.docx`.
     We refer to this copy as a "change draft".
 
