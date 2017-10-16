@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Static Analysis Results Interchange Format (SARIF) TC Meeting #3 September 27, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='3f9145fcdc5d6f349d586f1e0251d2ddefc523e14756905b6b665084810c1384c315e6ce2c07e75f63a1131efd623c65e3aa5e61828bbe9f6d68e0ba6b7f61c8' -->
+</head>
+
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Static Analysis Results Interchange Format (SARIF) TC Meeting #3 September 27, 2017</h1>
+<p>Acting chair: David</p>
+<pre>Chat transcript from room: sarif
+From 2017-09-27 16:37 UTC until 18:23 UTC
+</pre>
+
+<h2 id="1">1. Call to Order and Welcome</h2>
+<p>Chair: Called the meeting to order @ 16:37 UTC.</p>
+
+<h2 id="2">2. Roll call</h2>
+<p>All participants recorded their attendance on the OASIS meeting calendar - <b>quorum</b> was reached.
+<blockquote>
+<p>All participants were kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page or directly visit the per event direct "record my attendace link":
+<br><a href="https://www.oasis-open.org/apps/org/workgroup/sarif/record_my_attendance.php?event_id=46021&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/sarif/record_my_attendance.php?event_id=46021&amp;confirmed=1</a>, Thanks</p>
+</blockquote>
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/event.php?event_id=46021">normative attendance sheet for this meeting (event_id=46021)</a>.</p>
+<h3 id="2.1">2.1 Participants</h3>
+<h4 id="2.1.1">2.1.1 Voting Members present</h4>
+<p class="note">Note: Inaugural call special rule applies - registrated before some date and present in first meeting leads to voting member status already in that meeting.</p>
+
+<pre>
+Chris Wysopal (CA Technologies)
+David Keaton (Individual)
+Douglas Smith (Kestrel Technology)
+Jim Kupsch (SWAMP)
+Laurence Golding (Individual)
+Luke Cartey (Semmle)
+Mel Llaguno (Synopsys)
+Michael Fanning (Microsoft)
+Paul Anderson (GrammaTech, Inc.)
+Stefan Hagen (Individual)
+Yekaterina ONeil (Novell)
+</pre>
+<h4 id="2.1.2">2.1.2 Members present</h4>
+<p class="note">Note: Despite the (mis-)calculations of the tool in the TC workspace, it is sufficient to participate in two subsequent meetings of a TC to obtain voting rights after that meeting.</p>
+<pre>
+Henny Sipma (Kestrel Technology)
+Ken Prole (Code Dx, Inc.)
+Pooya Mehregan (Security Compass)
+Sunny Chatterjee (Microsoft)
+</pre>
+<h4 id="2.1.3">2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<pre>
+Andrew Browne (Oracle)
+Vadim Okun (NIST)
+</pre>
+<h3 id="2.2">2.2 Voting Right Changes Effective After The Roll call of this Meeting</h3>
+<h4 id="2.2.1">2.2.1 Members who gained Voting Rights</h4>
+<pre>
+Henny Sipma (Kestrel Technology)
+Pooya Mehregan (Security Compass)
+Sunny Chatterjee (Microsoft)
+</pre>
+<h4 id="2.2.2">2.2.2 Members who lost Voting Rights</h4>
+<pre>
+Ram Jeyaraman (Microsoft)
+Philip Royer (Phantom)
+Duncan Sparrell (sFractal Consulting LLC)
+</pre>
+
+<h2 id="3">3. Review Agenda</h2>
+<p>Agenda draft published at <a href="https://www.oasis-open.org/committees/download.php/61661/agenda_20170927.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61661/agenda_20170927.html</a> - content given below to support the reader:</p>
+<pre>
+1. Opening Activities
+  1.1 Opening comments (Co-Chair Keaton)
+  1.2 Introduction of participants/roll call (Co-Chair Cartey)
+  1.3 Procedures for this meeting (Co-Chair Keaton)
+  1.4 Approval of agenda (Co-Chair Keaton)
+	URL: https://www.oasis-open.org/committees/download.php/61661/agenda_20170927.html
+  1.5 Approval of previous minutes [Minutes of 2017-09-20 Meeting#2] (Co-Chair Keaton)
+	URL: https://www.oasis-open.org/committees/download.php/61655/sarif-minutes-20170920-meeting-2.html
+  1.6 Review of action items and resolutions (Secretary Hagen)
+  1.7 Identification of SARIF TC voting members (Co-Chair Cartey)
+	1.7.1 Prospective members attending their first meeting
+	1.7.2 Members attaining voting rights at the end of this meeting
+	1.7.3 Members losing voting rights if they have not joined this meeting by the time it ends
+	1.7.4 Members who previously lost voting rights who are attending this meeting
+	1.7.5 Members who have declared a leave of absence
+2. Future Meetings
+  2.1 Discuss future meeting schedule [Doodle poll] (Co-Chair Keaton)
+	The Doodle poll went out for various teleconference starting times on the dates below. 
+		The selected time was 09:30-11:30 Pacific (16:30 UTC summer time/17:30 UTC winter time).
+			Teleconferences (Wednesdays):
+				October 11
+				October 25
+				November 8
+				November 29
+				December 13
+				January 10
+	Face-to-face meeting (reminder from last meeting):
+		January 22-23 (tentative)
+3. Adopt Driving Principles
+  3.1 Discuss what principles will guide the work (Co-Editor Fanning)
+	Discussion began at the previous meeting. 
+	A summary of the results is in the SARIF TC's github issue #1 for consideration at this 
+		meeting. [https://github.com/oasis-tcs/sarif-spec/issues/1]
+	If a motion is made to adopt the principles as amended, consider the motion.
+4. Begin document review (time permitting)
+  4.1 Start reviewing the working draft from the beginning, collecting questions and comments (Co-Editor Fanning)
+5. Other Business
+6. Resolutions and Decisions reached (by 10 minutes prior to scheduled meeting end)
+  6.1 End debate of other issues by 10 minutes prior to scheduled meeting end and follow the agenda from this point (Co-Chair Keaton)
+  6.2 Review of Decisions Reached (Secretary Hagen)
+  6.3 Review of Action Items (Secretary Hagen)
+7. Next Meeting
+8. Adjournment
+</pre>
+<p>Michael: Suggest amend/replace item 4.1 in the agenda with the following 5 items:</p>
+<pre>
+1. Add help property to a rule
+2. Repository details
+3. Formatting of results
+4. What about the ability of converters to decorate SARIF
+5. Computed fingerprints
+</pre>
+<p>David: No discussion, no objections the agenda is adopted as amended.</p>
+
+<h2 id="4">4. Approval of previous minutes from 2017-09-20 Meeting #2</h2>
+<p>Minutes at <a href="https://www.oasis-open.org/committees/download.php/61655/sarif-minutes-20170920-meeting-2.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61655/sarif-minutes-20170920-meeting-2.html</a></p>
+<p>David: No objections. Minutes approved unchanged as published</p>
+
+<h2 id="5">5. Review of action items and resolutions</h2>
+<ul>
+<li>Stefan to create Doodle poll.<br>
+	<b>Status</b>: Done.<br> 
+	<b>Details</b>: Input contributed by 13 members; The selected time was 09:30-11:30 Pacific (16:30 UTC summer time/17:30 UTC winter time). Teleconferences (Wednesdays):<ul>
+		<li>October 11, 2017</li>
+		<li>October 25, 2017</li>
+		<li>November 08, 2017</li>
+		<li>November 29, 2017</li>
+		<li>December 13, 2017</li>
+		<li>January 10, 2018</li>
+	</ul></li>
+<li>Laurence to publish the editor revision transcribed into OASIS workproduct format via kavi<br>
+	<b>Status</b>: Done.<br> 
+	<b>Details</b>: URL: <a href="https://www.oasis-open.org/committees/download.php/61618/sarif-v1.0-wd01.docx" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61618/sarif-v1.0-wd01.docx</a></li>
+<li>Editors to transfer issues on github from former sarif to new sarif-tc OASIS repo:<br>
+	<b>Status</b>: Done. <br>
+	<b>Details</b>: URL: <a href="https://github.com/oasis-tcs/sarif-spec/issues" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues</a></li>
+<li>Michael to combine minutes and his collected notes from previous meeting on principles to produce suggested principles for the next meeting. Ref: <a href="https://www.oasis-open.org/committees/download.php/61655/sarif-minutes-20170920-meeting-2.html#7.1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61655/sarif-minutes-20170920-meeting-2.html#7.1</a><br>
+	<b>Status</b>: Done.<br>
+	<b>Details</b>: URL: <a href="https://github.com/oasis-tcs/sarif-spec/issues/1" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/1</a></li>
+</ul>
+
+<h2 id="6">6. Future Meetings</h2>
+<h3 id="6.1">6.1 Discuss future meeting schedule [Doodle poll]</h3>
+<p>A doodle poll <a href="https://doodle.com/poll/khs54abdxfvmdgpa" rel="noopener noreferrer" target="_blank">https://doodle.com/poll/khs54abdxfvmdgpa</a> had been created and the URL distributed on the TC mailing list on "Mon, 25 Sep 2017 04:13:12 -0700 (PDT)": <a href="https://lists.oasis-open.org/archives/sarif/201709/msg00026.html" rel="noopener noreferrer" target="_blank">https://lists.oasis-open.org/archives/sarif/201709/msg00026.html</a></p>
+<p>Stefan: Suggests meeting best fit meeting schedule via E-Mail at <a href="https://lists.oasis-open.org/archives/sarif/201709/msg00031.html" rel="noopener noreferrer" target="_blank">https://lists.oasis-open.org/archives/sarif/201709/msg00031.html</a> and based on status of doodle poll:</p>
+<pre>
+	October  11 16:30-18:30 UTC (13/13)
+	October  25 16:30-18:30 UTC (12/13)
+	November 08 17:30-19:30 UTC (12/13) DE, US and UK now winter time
+	November 29 17:30-19:30 UTC (10/13) ... winter time
+	December 13 17:30-19:30 UTC (11/13) ... winter time
+	January  10 17:30-19:30 UTC (13/13) ... winter time
+</pre>
+<p><b>Note</b>:</p>
+<blockquote>
+<ul>
+<li>US switches back on November 05 to winter time</li>
+<li>DE, and UK both switch back on October 29 to winter time</li>
+</ul>
+</blockquote>
+<p>David: Shortly presents the selected meeting times from the doodle poll and the dates listed</p>
+<p><b>Stefan</b>: I <b>move</b> to adopt these meeting times (for the regular teleconferences). <b>Michael</b> seconds.</p>
+<p>David: No discussion, no objections, motion carries</p>
+
+<h2 id="7">7. Adopt Driving Principles</h2>
+<h3 id="7.1">7.1 Discuss what principles will guide the work</h3>
+<p>Discussion began at the previous meeting. </p>
+<p>A summary of the results is in the SARIF TC's github issue #1 for consideration at this meeting. <a href="https://github.com/oasis-tcs/sarif-spec/issues/1" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/1</a></p>
+<p>If a motion is made to adopt the principles as amended, consider the motion.</p>
+<p>All look at the latest document referenced from this issue / pull request: <a href="https://github.com/oasis-tcs/sarif-spec/pull/45/files" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/pull/45/files</a></p>
+<p>Laurence: Asks, if not supporting LifeCycle removal of existing properties is planned/intended</p>
+<p>Michael: No, not intended. He suggests to identify any tipping point to not get pulled into divergent topics, but to describe enough to expose sufficient context (finding a balance to allow basics, but focus on obvious and essential). BaselineId is such a key minimal data allowing a post processing tool to continue</p>
+<p>Paul: suggests that item 7 should be modified</p>
+<p>Michael agrees, that there is some loss, not supporting all possible result structures and use cases (like JIRA integration use case mentioned by Paul)</p>
+<p>Stefan: Discussed document provided as service to the reader here:</p>
+<blockquote>
+<ol>
+<li>The primary purpose of SARIF is to enable low cost development of rich functionality (viewers, work item filers, etc.) that operates against a broad range of SARIF producers. A key design principle for all SARIF properties, therefore, is that any proposed data should be clearly useful in a consumption scenario.</li>
+<li>As an important but secondary concern, SARIF is designed to allow the output of existing tools to be normalized to a common format. In order to support the ability for consumers to process, display, etc., this information in an appropriate and consistent way, it must be possible to normalize any proposed SARIF data to a common form.</li>
+<li>The SARIF format specification should clearly describe the semantic meaning and intended purpose for all properties, to assist producers in populating this data with values that drive effective consumption.</li>
+<li>SARIF defines a range of data that shall be expressed in order to best support static analysis tooling. The specification describes a JSON implementation of this standard. It should be possible to define other implementations (such as XML).</li>
+<li>SARIF is designed for static analysis tools and any concept that generally applies for this scenario shall be considered for the format. SARIF can clearly be used for many dynamic analysis scenarios and we should consider augmenting the format for this class of tooling, but not in cases where what is proposed is applicable to the dynamic analysis domain only.</li>
+<li>SARIF is domain-agnostic; that is, it does not contain objects or properties that are specific to a single domain, such as security or compliance. However, SARIF might define specific values for properties that are specific to a single domain. For example, the proposed result.taxonomies property might define a dictionary entry whose key invokes a standard classification for memory safety issues only.</li>
+<li>The SARIF design is focused on expressing results as produced by a tool at a specific point-in-time and current excludes detailed thinking related to results management (associated result work item, false positive evaluation, etc.). These concepts may be addressed by defining or proposing 'profiles' that broaden SARIF's design surface area, contingent on progress with core work.</li>
+</ol>
+</blockquote>
+<p>Stefan: (end of cited document)</p>
+<p>Laurence: suggests shifting perspective from principles of first implementation towards principles of which perspectives to approach in which version of the format (some important topics later, not in version say initial, restricted); he does not want to shut down discussion, but preserve the thrust</p>
+<p>Michael: agrees that this is important to name and think through the most important domains the members contribute (like formerly discussed with Paul); so that we have some thoughts on how to proceed when those domains will be applied (possibly in later versions)</p>
+<p>David: asks if there is other discussion</p>
+<p>David: further asks, what is the preferred way of carrying forward with these seven points?</p>
+<p><b>Stefan</b> I <b>move</b> we follow the seven guiding principles. <b>Laurence</b> seconds.</p>
+<p>David: No discussion, no objections, the motion carries</p>
+
+<h2 id="8">8. Begin document review</h2>
+<p>URL: <a href="https://www.oasis-open.org/committees/download.php/61618/sarif-v1.0-wd01.docx" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61618/sarif-v1.0-wd01.docx</a></p>
+<h3 id="8.1">8.1 Review five issues as amended</h3>
+<h4 id="8.1.1">8.1.1 Issue #27 - Add help property to a rule <a href="https://github.com/oasis-tcs/sarif-spec/issues/27" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/27</a></h4>
+<p>Luke: is in favour of the proposal of issue#27</p>
+<p>Laurence: agrees with Michael, that markdown and html and of course text are good formats for this, but of course all need security and dialect guards enabled</p>
+<p>Jim: agrees with the security concerns of html esp. w.r.t. embedding fragments, and thus advises against it, but agrees with using text and markdown if dialects/flavours are chosen/clear</p>
+<p>Laurence: asks, if someone is willing to take an action to select a safe and widely used flavour of markdown?
+<p>Ken: suggests maybe github?</p>
+<p>Laurence: There is this issue: <a href="https://github.com/github/markup/issues/245" rel="noopener noreferrer" target="_blank">https://github.com/github/markup/issues/245</a></p>
+<p>Laurence: volunteers to investigate</p>
+
+<h4 id="8.1.2">8.1.2 Issue #14 - Should we allow file identity to be specified by reference to a commit... " <a href="https://github.com/oasis-tcs/sarif-spec/issues/14" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/14</a></h4>
+<p>Luke: asks, if this is file level info?</p>
+<p>Michael: states, maybe yes, but there might be mixed situations</p>
+<p>All discuss multiplicity/dimension of entries/properties</p>
+<p>Jim: suggests maybe a map of repos including a default?</p>
+<p>Jim: adds, that git can nest repositories, so a structure should be able to map that into our structures</p>
+<p>Michael: agrees, that the main intended use case, is fetch the file to be able to overlay results (display association)</p>
+<p>Jim and Michael: come to agreement on how to proceed in this regard</p>
+<p>Laurence: asks, if someone will take an action to actually amend the issue with our findings/results?</p>
+<p>Michael: will take this action item, if not someone else on the call will want to do this?</p>
+<p>Michael takes this action</p>
+
+<h4 id="8.1.3">8.1.3 Issue #33 - Should we allow formatting in messages? <a href="https://github.com/oasis-tcs/sarif-spec/issues/33" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/33</a></h4>
+<p>Luke: mentions, that we may want to add links and then also to make them understandable in the markdown for the consumer</p>
+<p>Michael: agrees entirely</p>
+<p>Luke and Michael: both think in terms of published micro format for this</p>
+<p>All discuss if there is prior art or proven way to construct such a microformat</p>
+<p>Luke: suggests use cases and round trip navigation experiences enabled by the Semmle products</p>
+<p>All discuss further details on html element level ...</p>
+<p>Michael: takes the action to compare a couple of embedding strategies for those location info relating also to cross referencing (Paul is in favour)</p>
+
+<h4 id="8.1.4">8.1.4 Issue #15 - Document how converters should provide notifications <a href="https://github.com/oasis-tcs/sarif-spec/issues/15" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/15</a></h4>
+<p>Laurence: suggests, the IDs themselves encode the source context (partially)</p>
+<p>All discuss about the issue - adding historical context</p>
+<p>Jim: suggests adding provenance</p>
+<p>Michael: asks if Jim encountered in SWAMP situations where this would have been useful?</p>
+<p>Jim: states, that yes! Example errors during execution, he would like to be able offering partial results to the customers (which currently complain, that there are none)</p>
+<p>Michael: likes this and imagines we can add to this issue</p>
+<p>Michael: thinks that IDs might be enriched with target semantics like number of processors used while encountering some error</p>
+
+<h4 id="8.1.5">8.1.5 Issue #10 - Do we want an array of computedFingerprints on result? <a href="https://github.com/oasis-tcs/sarif-spec/issues/10" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/10</a></h4>
+<p>Luke: informs, that Semmle products do fingerprinting via  region matching, and sink only might not suffice</p>
+<p>All discuss on generalisations of changes based on region addressing</p>
+<p>Michael: thinks that this is an interesting extension of the currently considered model of fingerprint application</p>
+<p>Michael: understands 1) there could be different methods for fingerprinting (the issue) but also 2) also any location contributing to the result might ...</p>
+<p>Michael: asks how do the correlations among regions are made in practice? ... in such an array.</p>
+<p>Laurence: Association of the fingerprint is currently on the result</p>
+<p>Michael: understands the proposal from Luke to put the fingerprint on the location</p>
+<p>Yekatarina: explains the way their products generate the hash/number related to the results (complicated formula) - in the end it is just a number associated per result</p>
+<p>All continue discussion rigidness vs. flexibility of the fingerprinting that lead to the current idea of fingerprints in SARIF draft</p>
+<p>Paul: reports, that their tool does such a fingerprinting based summary but he adds that fingerprints are kind of pristine that is not changeable, so some tool error situation some backup data structure might be helpful to provide some plan b provisioning of info in case the first try fingerprint association does fail</p>
+<p>All continue discussing the issue</p>
+<p>David: reminds of the time</p>
+<p>Jim: agrees that the fingerprint is tool specific, it should relate to the result, it might be useful to have a dictionary as there might be more than one, maybe also suggest a version ordering with rules one could use to base decisions on.</p>
+<p>Michael: will add these inputs to the issues</p>
+<p>All agree, that it is not yet clear how we will exactly proceed: Offer one or more fingerprints is not decided yet.</p>
+
+<h2 id="9">9. Any other business</h2>
+<p>No other business</p>
+
+<h2 id="10">10. Resolutions and Decisions reached</h2>
+<h3 id="10.1">10.1 Review of Decisions Reached</h3>
+<blockquote>
+<ol>
+<li>agreed meeting times</li>
+<li>principles were agreed</li>
+</ol>
+</blockquote>
+
+<h3 id="10.2">10.2 Review of Action Items</h3>
+<blockquote>
+<ol>
+<li>Officers to create the meetings for the agreed meeting times</li>
+<li>Michael to accept/merge the pull request https://github.com/oasis-tcs/sarif-spec/pull/45 to expose these principles as agreed</li>
+<li>Laurence to investigate which safe and widely used flavour of markdown we might use</li>
+<li>Michael to amend the Issue #14 - Should we allow file identity to be specified by reference to a commit... with results from the meeting discussion</li>
+<li>Michael to compare a couple of embedding strategies for those location info relating also to cross referencing</li>
+<li>Michael will combine notes he took and the minutes as inputs to integrate them in the issues</li>
+</ol>
+</blockquote>
+
+<h2 id="11">11. Next meeting</h2>
+<p>All: Next meeting will start 2017-OCT-11 16:30 UTC with a duration of 2 hours</p>
+
+<h2 id="12">12. Adjourn</h2>
+<p>The meeting was adjourned at 18:23 UTC.</p>
+
+</div>
+</body>
+</html>

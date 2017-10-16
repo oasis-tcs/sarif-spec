@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Static Analysis Results Interchange Format (SARIF) TC Meeting #1 September 06, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='530c8cb4a505224f2b3b5434399dc524fba6020ced3d16936517043db757c780143f6fc492cbe1a187fdb63f9f24044b410c7adf5675ddfa0e292352585884ea' -->
+</head>
+
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Static Analysis Results Interchange Format (SARIF) TC Meeting #1 September 06, 2017</h1>
+<p>Acting convener: Ram</p>
+<pre>Chat transcript from room: sariftc
+From 2017-09-06 16:05 UTC until 18:18 UTC
+</pre>
+
+<h2 id="1">1. Call to Order and Welcome</h2>
+<p>Convener: Called the meeting to order @ 16:05 UTC.</p>
+
+<h2 id="2">2. Roll call</h2>
+<p>All participants recorded their attendance on the OASIS meeting calendar - <b>quorum</b> was reached.
+<blockquote>
+<p>All participants were kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page or directly visit the per event direct "record my attendace link":
+<br><a href="https://www.oasis-open.org/apps/org/workgroup/sarif/record_my_attendance.php?event_id=45798&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/sarif/record_my_attendance.php?event_id=45798&amp;confirmed=1</a>, Thanks</p>
+</blockquote>
+
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/event.php?event_id=45798">normative attendance sheet for this meeting (event_id=45798)</a>.</p>
+<h3 id="2.1">2.1 Participants</h3>
+<h4 id="2.1.1">2.1.1 Voting Members present</h4>
+<p class="note">Note: Inaugural call special rule applies - registrated before some date and present in first meeting leads to voting member status already in that meeting.</p>
+<pre>
+Chris Wysopal (CA Technologies)
+David Keaton (Individual)
+Douglas Smith (Kestrel Technology)
+Duncan Sparrell (sFractal Consulting LLC)
+Jim Kupsch (SWAMP)
+Joseph Feiman (CA Technologies)
+Kevin Greene (DHS Office of Cybersecurity and Communications (CS&amp;C))
+Larry Hines (Novell)
+Laurence Golding (Microsoft)
+Luke Cartey (Semmle)
+Mel Llaguno (Synopsys)
+Michael Fanning (Microsoft)
+Paul Anderson (GrammaTech, Inc.)
+Philip Royer (Phantom)
+Ram Jeyaraman (Microsoft)
+Stefan Hagen (Individual)
+Vamshi Basupalli (SWAMP)
+Yekaterina ONeil (Hewlett Packard Enterprise (HPE))
+</pre>
+<h4 id="2.1.2">2.1.2 Members present</h4>
+<p class="note">Note: Despite the (mis-)calculations of the tool in the TC workspace, it is sufficient to participate in two subsequent meetings of a TC to obtain voting rights after that meeting.</p>
+<pre>
+Ken Prole (Code Dx Inc.)
+</pre>
+<h4 id="2.1.3">2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<pre>
+Andrew Browne (Oracle)
+</pre>
+<h3 id="2.2">2.2 Voting Right Changes Effective After The Roll call of this Meeting</h3>
+<h4 id="2.2.1">2.2.1 Members who gained Voting Rights</h4>
+<pre>
+Chris Wysopal (CA Technologies)
+David Keaton (Individual)
+Douglas Smith (Kestrel Technology)
+Duncan Sparrell (sFractal Consulting LLC)
+Jim Kupsch (SWAMP)
+Joseph Feiman (CA Technologies)
+Kevin Greene (DHS Office of Cybersecurity and Communications (CS&amp;C))
+Larry Hines (Novell)
+Laurence Golding (Microsoft)
+Luke Cartey (Semmle)
+Mel Llaguno (Synopsys)
+Michael Fanning (Microsoft)
+Paul Anderson (GrammaTech, Inc.)
+Philip Royer (Phantom)
+Ram Jeyaraman (Microsoft)
+Stefan Hagen (Individual)
+Vamshi Basupalli (SWAMP)
+Yekaterina ONeil (Hewlett Packard Enterprise (HPE))
+</pre>
+<h4 id="2.2.2">2.2.2 Members who lost Voting Rights</h4>
+<pre>
+None
+</pre>
+
+<h2 id="3">3. Review Agenda</h2>
+<p>Ram: Shorty presented the tentative agenda:</p>
+<pre>
+ 1) Welcome
+ 2) Roll call (and confirm voting members) [Convener]
+ 3) Review agenda [Convener]
+ 4) Election of Chair(s) [Convener]
+ 5) Election of Secretary and Specification Editor(s) [Chair]
+ 6) Review TC charter and timeline, and call for contributions [Chair]
+ 7) Overview of TC process and tools (including Jira bug tracking) [TC administrator]
+ 8) Acknowledge and review contributions [Chair]
+ 9) Future meetings (teleconference meetings plus potential future F2F meetings)
+10) Any other business
+</pre>
+<p>Convener: No objections. Agenda approved unchanged as published.</p>
+
+<h2 id="4">4. Election of Chair(s)</h2>
+<p><b>Laurence</b> I <b>move</b> that we appoint David Keaton and Luke Cartey as co-Chairs of the SARIF TC. <b>Stefan</b> seconds.</p>
+<p>Convener: No further discussion. No objection to unanimous consent. Motion passes.</p>
+<p>Ram: Convener hands over to the elected Co-Chairs</p>
+<p>Acting chair: David Keaton</p>
+
+<h2 id="5">5. Election of Secretary and Specification Editor(s)</h2>
+<h3 id="5.1">5.1 Election of Secretary</h3>
+
+<p><b>Laurence</b> I <b>nominate</b> Stefan Hagen as TC secretary of the SARIF TC. <b>Michael</b> seconds.
+<p>Chair: No further discussion. No objection to unanimous consent. Stefan is elected as Secretary of this TC.</p>
+
+<h3 id="5.2">5.2 Election of Specification Editor(s)</h3>
+<p><b>Michael</b> I <b>nominate</b> Laurence Golding as specification editor.</p>
+<p><b>Laurence</b> I <b>nominate</b> myself and Michael Fanning as co-Editors of the specification. <b>Stefan</b> seconds.</p>
+<p>Chair: Nominations closed.</p>
+<p>Chair: No further discussion. No objections. Laurence and Michael are elected as co-Editors of this specification</p>
+
+<h2 id="6">6. Review TC charter and timeline, and call for contributions</h2>
+
+<h3 id="6.1">6.1 Review TC charter</h3>
+
+<p>TC Charter publicly accessible at: <a href="https://www.oasis-open.org/committees/sarif/charter.php" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/sarif/charter.php</a></p>
+
+<p>Chair: No objections. Charter adopted.</p>
+
+<h3 id="6.2">6.2 Review TC Timeline</h3>
+
+<p>Chair: Hands over to Laurence for presentation of tentative Timeline</p>
+<p>Laurence: Walks all thorugh the proposal for the timeline</p>
+<p>Stefan: Publicly accessible link to the timeline proposal presented is:
+<a href="https://www.oasis-open.org/committees/download.php/61518/SARIF%20TC%20Timeline.pptx" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61518/SARIF TC Timeline.pptx</a></p>
+
+<p>Duncan: Welcomes the timeline although it seems aggressive</p>
+<p>Ram: Asks, if the spec as currently formulated will harmonise with existing tools</p>
+<p>Laurence: Mentions, that the current input revision for the spec is already well fitting the tool landscape.</p>
+<p>Michael: Interoperability testing is critical to drive a quality specification</p>
+<p>Chet: Informs, that TC administration can support technically with the open projects approach and with intro events and will be happy to do so</p>
+<p>Laurence: Asks, if these intro events will happen in sequence or in parallel to the review calls of the specification publication process?</p>
+<p>Chet: Answers, that this is up to the TC to decide, well within the constraints, of course, that any intro must be based upon some existing shared facts</p>
+<p>Laurence: Further asks, if there might be partial exclusions possible, e.g. excluding section so and so, as still in flux?</p>
+<p>Chet: Mentions CTI TC as prior occurrences of such partial interop events</p>
+<p>Ram: Mentions, that this is less process ruled, but more TC defined (best) for pulling in most of the industry in intro tests</p>
+<p>Duncan: What will be the working methods? In particular where will the work products reside? If there is an initial draft - where is it? open question: will we address dynamic analysis scenarios?</p>
+<p>Ram: Chet will walk us through the TC process, document folder, etc.</p>
+<p>Michael: Discussing applicability of SARIF to dynamic analysis should be an early topic (Relayed questions from Skype chat, about ability to integrate dynamic analysis (like with fuzzers) to put it on the "track record")</p>
+
+<h3 id="6.3">6.3 Call for contributions</h3>
+
+<p>Chair: Calls for anyone having a written contribution she wants us to consider</p>
+
+<p>Laurence: Has the contribution ready and will add this to kavi workspace, and after that talk about what he submitted</p>
+<p>Ram: Suggests, that Laurence uses the comment field of the upload form to include the contribution statement</p>
+<p>Stefan: The resulting public link is: <a href="https://www.oasis-open.org/committees/download.php/61525/Static%20Analysis%20Results%20Interchange%20Format%20%28SARIF%29.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61525/Static Analysis Results Interchange Format (SARIF).html</a></p>
+
+<p>Michael: Link to (now soon deprecated) master is here: <a href="https://rawgit.com/sarif-standard/sarif-spec/master/Static%20Analysis%20Results%20Interchange%20Format%20(SARIF).html" rel="noopener noreferrer" target="_blank">https://rawgit.com/sarif-standard/sarif-spec/master/Static Analysis Results Interchange Format (SARIF).html</a></p>
+
+<p>Chet: Shortly informs everyone about the rules and consequences for contributions under the OASIS rules</p>
+<p>Stefan: As service URL describing TC process at OASIS and also the terms and meanings at OASIS where specifically defined: <a href="https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26</a></p>
+
+
+<p>Stefan: Technical kavi handling note: Quick Add does bypass any ability to comment during upload</p>
+
+<p>Chair: Hands over to Laurence to walk all through the motivational slides for the contribution</p>
+<p>Laurence walks all through motivational slides for the contribution at: <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/download.php/61527/SARIF%20TC%20Contribution%20Overview.pptx" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/sarif/download.php/61527/SARIF TC Contribution Overview.pptx</a></p>
+
+<p>All: Discuss implications and clarify details to grow a shared understanding</p>
+<p>Laurence: States, that the proposed format of SARIF is more flexible (not only static ...) than anticipated, but in this TC the focus is currently assumed to be more on the static aspect (in contrast to compositional or dynamic analysis)</p>
+<p>Michael: Adds, that address static analysis first was a good start, but maybe along the way, we may decide to widen the scope, to better serve dynamic or other aspects and as long as this is aligned with our chapter.</p>
+<p>Laurence: States, that both quality and security shall be served by the final spec</p>
+<p>Kevin: Contributes a link to the research he has funded around this area: <a href="https://www.fbo.gov/index?s=opportunity&amp;mode=form&amp;id=08c964597fe81a759b165eb46ba30f78&amp;tab=core&amp;_cview=0" rel="noopener noreferrer" target="_blank">https://www.fbo.gov/index?s=opportunity&amp;mode=form&amp;id=08c964597fe81a759b165eb46ba30f78&amp;tab=core&amp;_cview=0</a> and suggests the members take a look at the research i.e. Hybrid Analysis Mapping (HAM).</p>
+<p>Philip: Kindly asks for links to other projects that have already been integrated via converters</p>
+<p>Laurence: Currently has no explicit list, but it is embedded in the repo, as the converters themselves document this (cppcheck, ...)</p>
+<p>Michael: Shortly names some (outside of microsoft tooling).</p>
+<p>Laurence: Kindly asks for an action item on him, to contribute such a list to the TC</p>
+<p>Hereby granted ;-)</p>
+<p>Michael: Answers question from Paul on how the results management can be addressed best for enabling metadata exchange in the ecosystem</p>
+<p>Laurence: Suggests, that he might propose at some time, to in any case not slow down publication of the format in it's current scope, but try adding the report format related aspects for some time</p>
+<p>All: Discussion continues about the amount of programming languages and there intermix that will be covered presumably</p>
+<p>Joseph: Asks, about considerations for cross domain support</p>
+<p>Laurence: follows up with stating, that it is usual to run multiple tools with different strengths inside a single domain (like e.g. security or quality)</p>
+<p>Kevin: Expects the multi tool integration support, as in the field multiple tools reduce false positive count and minimise the gaps</p>
+<p>All: No further discussion</p>
+
+<p>Laurence: Continues the presentation of the contribution</p>
+
+<p>Kevin: Contributes another link. A link to NSA Center for Assured Software (CAS) Tool study: <a href="https://samate.nist.gov/docs/CAS%202012%20Static%20Analysis%20Tool%20Study%20Methodology.pdf" rel="noopener noreferrer" target="_blank">CAS 2012 Static Analysis Tool Study Methodology.pdf</a></p>
+
+<p>Michael and Laurence: Emphasize, that the dynamic analysis tool or web scanning tool support is just thought of as an optional bonus, but they do not think, that the reports from those tools are not substantially different - thus if there is interest and support from the TC it might be possible</p>
+
+<p>Chair: Asks, if there are any further contributions?</p>
+
+<p>Paul: Comments, that he has seen several proposed formats, and thinks the one contributed here is in his opinion far superior.</p>
+<p>Kevin: Contributes another link to one of his R&amp;D programs underway now. The goal is to modernize open-source static analysis tools.  He sees tremendous synergies with SARIF: <a href="https://www.fbo.gov/utils/view?id=4a1745db09f002f2609e5ada47b8a622" rel="noopener noreferrer" target="_blank">https://www.fbo.gov/utils/view?id=4a1745db09f002f2609e5ada47b8a622 (CSD_BAA_Call_STAMP_Amend_00003.pdf)</a></p>
+
+<p>Chair: Notes, that there are no further contributions this time</p>
+
+<h2 id="7">7. Overview of TC process and tools (including Jira bug tracking)</h2>
+
+
+<p>Chair: Hands over to Chet for OASIS presentation</p>
+
+<p>Chet: Walks all through he slides <a href="https://www.oasis-open.org/committees/download.php/61441/SARIF-09-06-17.pptx" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61441/SARIF-09-06-17.pptx</a>
+<p>Chet: Hint for tracking requests to OASIS administration in TC Admin JIRA at <a href="https://issues.oasis-open.org/issues/?jql=project%20%3D%20TCADMIN%20AND%20status%20%3D%20Open%20ORDER%20BY%20priority%20DESC" rel="noopener noreferrer" target="_blank">https://issues.oasis-open.org/issues/?jql=project = TCADMIN AND status = Open ORDER BY priority DESC</a></p>
+<p>Paul: Asks, if a proxy might be sent if not possible to attend some day</p>
+<p>Chet: Answers, that no</p>
+<p>Stefan: Mentions, that depending on the handling of the TC, and abiding with Robert's rules, one can register online and thus state, that all business conducted is in his sense</p>
+
+<h2 id="8">8. Acknowledge and review contributions</h2>
+<p>The TC already acknowledged and reviewed the sole contribution in section <a href="#6.3">6.3</a></p>
+
+<h2 id="9">9. Future meetings (teleconference meetings plus potential future F2F meetings)</h2>
+<p>David: Suggests to meet every other week</p>
+
+<h3 id="9.1">9.1 Date and time of next meeting</h3>
+<p>David: Suggests to meet already next week same weekday and time for the second meeting</p>
+<p>Stefan: Regrets, as he will not be available next wednesday</p>
+<p>Paul: Regrets, as he will also not be available on that day</p>
+<p>Chair: Suggested is to meet two weeks from today and half an hour later than todays start</p>
+<p>All: Next meeting will start 2017-09-20 16:30 UTC with a duration of 2 hours</p>
+
+<h2 id="10">10. Any other business</h2>
+<p>No other business</p>
+
+<h2 id="11">11. Adjourn</h2>
+<p><b>Laurence</b> <b>moves</b> to adjourn. <b>Michael</b> seconds.</p>
+<p>The meeting was adjourned at 18:18 UTC.</p>
+
+</div>
+</body>
+</html>
