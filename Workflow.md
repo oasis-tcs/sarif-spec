@@ -35,6 +35,8 @@ in the Documents\ProvisionalDrafts folder of the repo.
 
 1. The Editors will make all changes in the change draft, with change tracking enabled.
 
+1. The Editors will inform the TC of the location of the change draft, and will invite comments on the draft in the associated GitHub issue. 
+
 1. When an issue is ready for final approval, the Editors will:
 
     1. Label the issue `ready-for-approval`.
@@ -55,6 +57,16 @@ in the Documents\ProvisionalDrafts folder of the repo.
     1. Push the latest version of the change draft to the repo.
 
        **NOTE**: This does *not* require a PR.
+
+1. The TC decides whether to approve the change at the next TC meeting, as follows:
+
+    1. The Editors announce the impending vote by including an item in the meeting agenda.
+
+    1. When the agenda item arises, one of the Editors moves that the change be adopted.
+
+    1. The motion is debated as usual under Robert's Rules (although ideally, any controversy will have been resolved in previous meetings or in the GitHub issue discussion thread).
+
+    1. A simple majority vote adopts the motion to incorporate the changes from the change draft into the current Provisional Draft.
 
 1. If the TC approves a change (or one of a set of competing changes), the Editors will:
 
