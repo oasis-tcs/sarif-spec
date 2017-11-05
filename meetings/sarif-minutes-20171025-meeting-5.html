@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Static Analysis Results Interchange Format (SARIF) TC Meeting #5 October 25, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='ce898f27fbecd8b090e16be9cc2753a565ea4feaeaaf944176cf37a30667229a1b2d60b021f180131bdc2af209b6f6a4b2cd48756c1ce93875ddcaa085378241' -->
+</head>
+
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Static Analysis Results Interchange Format (SARIF) TC Meeting #5 October 25, 2017</h1>
+<p>Acting chair: David</p>
+<pre>Chat transcript from room: sarif
+From 2017-10-25 16:39 UTC until 18:25 UTC
+</pre>
+
+<h2 id="1">1. Call to Order and Welcome</h2>
+<p>Chair: Called the meeting to order @ 16:39 UTC.</p>
+
+<h2 id="2">2. Roll call</h2>
+<p>All participants recorded their attendance on the OASIS meeting calendar - <b>quorum</b> was reached.
+<blockquote>
+<p>All participants were kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page or directly visit the per event direct "record my attendace link":
+<br><a href="https://www.oasis-open.org/apps/org/workgroup/sarif/record_my_attendance.php?event_id=46132&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/sarif/record_my_attendance.php?event_id=46132&amp;confirmed=1</a>, Thanks</p>
+</blockquote>
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/event.php?event_id=46132">normative attendance sheet for this meeting (event_id=46132)</a>.</p>
+<h3 id="2.1">2.1 Participants</h3>
+<h4 id="2.1.1">2.1.1 Voting Members present</h4>
+
+<pre>
+Chris Wysopal (CA Technologies)
+David Keaton (Individual)
+Douglas Smith (Kestrel Technology)
+Jim Kupsch (SWAMP)
+Laurence Golding (Individual)
+Luke Cartey (Semmle)
+Mel Llaguno (Synopsys)
+Michael Fanning (Microsoft)
+Paul Anderson (GrammaTech, Inc.)
+Stefan Hagen (Individual)
+Yekaterina ONeil (Novell)
+</pre>
+<h4 id="2.1.2">2.1.2 Members present</h4>
+<p class="note">Note: Despite the (mis-)calculations of the tool in the TC workspace, it is sufficient to participate in two subsequent meetings of a TC to obtain voting rights after that meeting.</p>
+<pre>
+Henny Sipma (Kestrel Technology)
+Ken Prole (Code Dx, Inc.)
+Pooya Mehregan (Security Compass)
+Sunny Chatterjee (Microsoft)
+</pre>
+<h4 id="2.1.3">2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<pre>
+Andrew Browne (Oracle)
+Vadim Okun (NIST)
+</pre>
+<h3 id="2.2">2.2 Voting Right Changes Effective After The Roll call of this Meeting</h3>
+<h4 id="2.2.1">2.2.1 Members who gained Voting Rights</h4>
+<pre>
+Henny Sipma (Kestrel Technology)
+Pooya Mehregan (Security Compass)
+Sunny Chatterjee (Microsoft)
+</pre>
+<h4 id="2.2.2">2.2.2 Members who lost Voting Rights</h4>
+<pre>
+Ram Jeyaraman (Microsoft)
+Philip Royer (Phantom)
+Duncan Sparrell (sFractal Consulting LLC)
+</pre>
+
+<h2 id="3">3. Review Agenda</h2>
+<p>Agenda draft published at <a href="https://www.oasis-open.org/committees/download.php/61861/agenda_20171025.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61861/agenda_20171025.html</a> - content given below to support the reader:</p>
+<pre>
+1. Opening Activities
+  1.1 Opening comments (Co-Chair Keaton)
+  1.2 Introduction of participants/roll call (Co-Chair Cartey)
+  1.3 Procedures for this meeting (Co-Chair Keaton)
+  1.4 Approval of agenda (Co-Chair Keaton)
+  URL = https://www.oasis-open.org/committees/download.php/61861/agenda_20171025.html
+  1.5 Approval of previous minutes [Minutes of 2017-09-27 Meeting#3] (Co-Chair Keaton)
+  URL = https://www.oasis-open.org/committees/download.php/61800/sarif-minutes-20171011-meeting-4.html
+  1.6 Review of action items and resolutions (Secretary Hagen)
+    - Officers to create the meetings for the agreed meeting times
+    Status: Done
+    - Michael to create a new issue to continue the conversation on namespaces and tool level &lt;placeholder for better term&gt;
+    Status: Done
+    Details: #59 - Consider a tool validation or 'selectivity' annotation
+    URL: https://github.com/oasis-tcs/sarif-spec/issues/59
+  1.7 Identification of SARIF TC voting members (Co-Chair Cartey)
+  1.7.1 Prospective members attending their first meeting
+  1.7.2 Members attaining voting rights at the end of this meeting
+  1.7.3 Members losing voting rights if they have not joined this meeting by the time it ends
+  1.7.4 Members who previously lost voting rights who are attending this meeting
+  1.7.5 Members who have declared a leave of absence
+2. Future Meetings
+  2.1 Future meeting schedule (Co-Chair Keaton)
+  Teleconferences (Wednesdays at 09:30 Pacific):
+    November 8
+    November 29
+    December 13
+    January 10
+  Face-to-face meeting
+    January 22-23 (tentative)
+3. Continuation of last meeting's discussions (Co-Editor Fanning)
+  3.1 Announcements<br>
+  3.2 Final disposition of items begun at last meeting
+  3.2.1 Consider adding namespaces to tags #56 https://github.com/oasis-tcs/sarif-spec/issues/56
+  3.2.2 Should we allow formatting in messages?
+    - # 33 - https://github.com/oasis-tcs/sarif-spec/issues/33
+    - # 57 - https://github.com/oasis-tcs/sarif-spec/issues/57
+    - # 61 - https://github.com/oasis-tcs/sarif-spec/issues/61
+  3.3 Consider adding 'rank' or 'probability' property # 58 https://github.com/oasis-tcs/sarif-spec/issues/58
+  3.4 Consider restructuring SARIF to be location, not results-focused # 55 https://github.com/oasis-tcs/sarif-spec/issues/55
+  3.5 Add a help property to rule # 27 https://github.com/oasis-tcs/sarif-spec/issues/27
+  3.6 Consider a tool validation or 'selectivity' annotation # 59 https://github.com/oasis-tcs/sarif-spec/issues/59
+4. Other Business
+5. Resolutions and Decisions reached (by 10 minutes prior to scheduled meeting end)
+  5.1 End debate of other issues by 10 minutes prior to scheduled meeting end and follow the agenda from this point (Co-Chair Keaton)
+  5.2 Review of Decisions Reached (Secretary Hagen)
+  5.3 Review of Action Items (Secretary Hagen)
+6. Next Meeting
+  November 08, 2017 / 09:30-11:30 PT / 17:30-19:30 UTC
+7. Adjournment
+</pre>
+<p><b>Michael</b>: I <b>move</b> to approve the agenda. <b>Stefan</b> seconds.</p>
+<p>David: No discussion, no objections, agenda is adopted</p>
+
+<h2 id="4">4. Approval of previous minutes from 2017-09-27 Meeting #3</h2>
+<p>Minutes at <a href="https://www.oasis-open.org/committees/download.php/61664/sarif-minutes-20170927-meeting-3.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61664/sarif-minutes-20170927-meeting-3.html</a></p>
+<p><b>Michael</b>: I <b>move</b> to approve the minutes. <b>Laurence</b> seconds.</p>
+<p>David: No discussion, no objections, the minutes are approved unchanged as published</p>
+
+<h2 id="5">5. Review of action items and resolutions</h2>
+<ul>
+<li>Officers to create the meetings for the agreed meeting times<br>
+  <b>Status</b>:Done</li>
+<li>Michael create a new issue to continue the conversation on namespaces and tool level &lt;placeholder for better term&gt;<br>
+  <b>Status</b>: Done<br>
+  <b>Details</b>: #59 - Consider a tool validation or 'selectivity' annotation<br>
+  <b>URL:</b> <a href="https://github.com/oasis-tcs/sarif-spec/issues/59" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/59</a></li>
+</ul>
+
+<h2 id="6">6. Future Meetings</h2>
+<h3 id="6.1">6.1 Future meeting schedule (Teleconferences)</h3>
+<pre>
+November 08 17:30-19:30 UTC (12/13) DE, US and UK now winter time
+November 29 17:30-19:30 UTC (10/13) ... winter time
+December 13 17:30-19:30 UTC (11/13) ... winter time
+January  10 17:30-19:30 UTC (13/13) ... winter time
+</pre>
+<p><b>Note</b>:</p>
+<blockquote>
+<ul>
+<li>US switches back on November 05 to winter time</li>
+<li>DE, and UK both switch back on October 29 to winter time</li>
+</ul>
+</blockquote>
+<h3 id="6.2">6.2 Face-to-face meeting</h3>
+<pre>
+January 22-23 (tentative)
+</pre>
+
+<h2 id="7">7. Continuation of last meeting's discussions</h2>
+<h3 id="7.1">7.1 Announcements</h3>
+<p>Michael: Editors went through the issues</p>
+<p>Michael: Wants to discuss tag additions in todays meeting ... Also namespace tags coming from other sources</p>
+<p>Michael: Property bag and data association with tags is slightly different (tags is a reserved key in a property bag)</p>
+<p>Michael: Informs the group that there is some spec content and the editors deem ready to agree upon</p>
+<p>Michael: Encourages everyone folows along with the pull request language</p>
+<p>Laurence: A change draft in document/changedrafts is created with a special naming convention (@Laurence please add specifics)</p>
+<p>Laurence: Further explains some procedure for the git workflow, like pull change push</p>
+
+<h3 id="7.2">7.2 Final disposition of items begun at last meeting</h3>
+<h4 id="7.2.1">7.2.1 Consider adding namespaces to tags #56 <a href="https://github.com/oasis-tcs/sarif-spec/issues/56" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/56</a></h4>
+
+<h4 id="7.2.2">7.2.2 Should we allow formatting in messages?</h4>
+<ol>
+  <li># 33 - <a href="https://github.com/oasis-tcs/sarif-spec/issues/33" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/33</a></li>
+  <li># 57 - <a href="https://github.com/oasis-tcs/sarif-spec/issues/57" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/57</a></li>
+  <li># 61 - <a href="https://github.com/oasis-tcs/sarif-spec/issues/61" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/61</a></li>
+</ol>
+<p>Michael: Summarizes the current status of evaluation and alternative proposals for link embedding</p>
+<p>Michael: asks if we can drop the markdown support, or objections?</p>
+<p>Laurence: supports this. He wants to state, that JSON Schema might support the message format option in the future via this mechanism</p>
+<p>Laurence: Example of proposed embedded link format from Change Draft:
+<p>Laurence: </p>
+<pre>
+"results": [
+  {
+    "ruleId": "JS1012",
+    "fullMessage": "Tainted data was introduced [here](Input.js(15,9,16,13))."
+  }
+]
+</pre>
+<p>Paul: is not much in favor of dropping</p>
+<p>Paul: would like to retain some formating aspects, to not lose benefit offered in tools (readability)</p>
+<p>Michael: tries to balance benefits and risks for other users (enforcement to support)</p>
+<p>Paul: notes, that he would have to write an exporter twice (for formated and unformated one)</p>
+<p>All discuss the issue</p>
+<p>Paul: states, that at least keeping bullet points would leave him less unhappy</p>
+<p>Laurence: reminds everyone, that markdown was also designed the way it is, as it looks ok unrendered and asks for additional details from Pauls use cases</p>
+<p>Paul: had a custom XML dialect for the markup (like subscripts etc.) and he would be able to share</p>
+<p>Michael: would be interested in seeing this dialect</p>
+<p>Jim: thinks some kind of markup would be useful</p>
+<p>Jim: mentions, that this should allow easy separation of categories</p>
+<p>All discuss</p>
+<p>Jim: would like to have a three level info triple as code (up to 8 characters long, than about 100 characters long than for e.g. beginner programmer unconstrained length info like e.g. 2 pages rendered on SQL injection ... so a power analyst can easily go over thousands of results, without being distracted by repetitive text</p>
+<p>All continue to discuss in the light of SARIF design principles</p>
+<p>Yekatarina: explains, that fortify does similar things to what Paul Anderson described on his tool set. Both have very limited markup, like formatting bold italics etc and links. They even do this for the abstract with replacement tags to make it easier to use</p>
+<p>Yekaterina: Fortify also has custom markup (limited set of HTML tags) together with "placeholders" (variables, links)</p>
+<p>Michael: kindly requests if Yekatarina could share some documentation (esp. on the placeholders) so we can consider this in analysis</p>
+<p>All discuss</p>
+<p>Michael: wonders, if a fairly substantive report that uses the full set of markup tags from Yekatarina and Paul so the TC can analyse and make suggestiosn for a subset</p>
+<p>Paul: substitution is done on their tool when the warning is rendered, right? Yekatarina approves this understanding</p>
+<p>All agree, that display of formatted info based on SARIF will always be harder than in the native tool</p>
+<p>Laurence: if linkback from sarif to native source report would be possible, that would be optimal</p>
+<p>Laurence emphasizes, that sarif does not mix up message and codeflow, but keeps this separate</p>
+<p>Michael and Laurence suggest to showcase a visual studio plugin that works on message presentation of that "stuff" (scribe only crude sketching)</p>
+<p>David: <a href="https://github.com/oasis-tcs/sarif-spec/issues/57" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/57</a></p>
+<p>All discuss the region issue</p>
+<p>Laurence: suggests to discuss offline with Michael to reach consensus before discussing in TC</p>
+<p>Laurence: <a href="https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/ChangeDrafts/sarif-v1.0-issue-57-61-embedded-link-and-region-specifier.docx" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/ChangeDrafts/sarif-v1.0-issue-57-61-embedded-link-and-region-specifier.docx</a></p>
+<p>Action on Michael and Laurence to discuss above link target</p>
+<p>All discuss</p>
+<p>Jim: asks, if SARIF already has a list of locations?</p>
+<p>Laurence: A result object specifies a single location where detected, but the SARIF result may list all locations of that finding (e.g. partial class)</p>
+<p>Laurence: mentions as second kind of location the code flows -- a sequence of locations that the tool steps through to detect the result.</p>
+<p>Laurence: Third zero or more related locations may be stated</p>
+<p>Jim: referred to all of these three kinds</p>
+<p>Michael: There is a unique ID concept in SARIF for this: it is the URL</p>
+<p>Michael: The rest of the locations could refer to that.</p>
+<p>All discuss on how a consumer has an easier task, when providing a direct URL instead of a reference e.g. 701 and then look that up.</p>
+<p>Discussion continues on embedded links versus related locations concept</p>
+<p>Paul: Thanks for a great discusssion. (as he has to drop off)
+<p>Michael: summarizes his understanding of possibilities of current proposal as possibly allowing to remove related regions if users fall in love with URI everywhere ...</p>
+<p>Laurence: thinks this should not indicate removal of related regions</p>
+<p>Jim: also thinks these remain useful</p>
+<p>Michael: dislikes about related regions, as it is not clear where to anchor the referring / relations in all cases</p>
+<p>All discuss</p>
+<p>Stefan: - # 61 - <a href="https://github.com/oasis-tcs/sarif-spec/issues/61" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/61</a></p>
+<p>Laurence: suggests to construct a parallel document with a competing proposal</p>
+<p>Michael: relates the current discussion to  3.4 Consider restructuring SARIF to be location, not results-focused #55 <a href="https://github.com/oasis-tcs/sarif-spec/issues/55" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/55</a></p>
+<p>MichaelTake feedback and make a finished proposal for URL protocol to add a fragemtn for a region</p>
+<p>MichaelAlternatively add a fragment to target locations</p>
+<p>Paul and Yekatarina to provide samples for documenting their use of markup</p>
+
+<h3 id="7.3">7.3 Consider adding 'rank' or 'probability' property # 58 <a href="https://github.com/oasis-tcs/sarif-spec/issues/58" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/58</a></h3>
+<p>Michael: summarizes the issue</p>
+<p>Jim: has one concern for rank info go into the property bag, might lose some info for context</p>
+<p>Michael: suggests that we could use namespace tags as prefix to resolve collisions, Jim is in fear of</p>
+<p>Michael: thinks, that if one can map rank into 0 or 1 value, this could lead to inclusion of the proposal</p>
+<p>Laurence: thinks, it is not good to put a reserved property name into the spec, when it is well defined, as this should end up as a first class element.</p>
+<p>Michael: confirms, that rank is strictly for sorting, not for certainty</p>
+<p>All discuss on recoverable certain semantics when aggregating multi tool results</p>
+<p>Laurence: <a href="https://github.com/oasis-tcs/sarif-spec/issues/48" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/48</a></p>
+<p>Stefan: Summary: "End-to-end results management concepts"</p>
+<p>Mel: rank and probability are not of much use in this context, but more confidence (from the tool)</p>
+
+<h2 id="8">8. Any Other Business</h2>
+<p>No other business</p>
+
+<h2 id="9">9. Resolutions and Decisions reached</h2>
+<h3 id="9.1">9.1 Review of Decisions Reached</h3>
+
+<blockquote>
+<ol>
+<li>A suggested workflow for comments on changed docs in specific folder by pull, edit, push cycle</li>
+</ol>
+</blockquote>
+
+<h3 id="9.2">9.2 Review of Action Items</h3>
+<blockquote>
+<ol>
+<li>Action on Michael and Laurence to prepare offline consensus based on proposal embedded in <a href="https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/ChangeDrafts/sarif-v1.0-issue-57-61-embedded-link-and-region-specifier.docx" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/ChangeDrafts/sarif-v1.0-issue-57-61-embedded-link-and-region-specifier.docx</a></li>
+<li>Editors to take the provided feedback and make a finished proposal for URL protocol to add a fragemtn for a region</li>
+<li>Editors to in addition to propose how to alternatively add a fragment to target locations proposal</li>
+<li>Paul Anderson and Yekatarina to provide samples for documenting their use of markup</li>
+<li>Michael alternate proposals for region identifier</li>
+</ol>
+</blockquote>
+
+<h2 id="10">10. Next meeting</h2>
+<p>All: Next meeting will start 2017-NOV-08 17:30 UTC with a duration of 2 hours</p>
+
+<h2 id="11">11. Adjourn</h2>
+<p>The meeting was adjourned at 18:25 UTC.</p>
+
+</div>
+</body>
+</html>
