@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Static Analysis Results Interchange Format (SARIF) TC Meeting #7 November 29, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='9bd2e7d57c467f6c7a829e23196128fff6c7b0e8e71309e0a85ec1770d5f0d267b7f02d6ad375c8b2d9774ad528d6e257002bc7dc39566d6bcab27e1273b2aa0' -->
+</head>
+
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Static Analysis Results Interchange Format (SARIF) TC Meeting #7 November 29, 2017</h1>
+<p>Acting chair: David</p>
+<pre>Chat transcript from room: sarif
+From 2017-11-29 16:33 UTC until 18:25 UTC
+</pre>
+
+<h2 id="1">1. Call to Order and Welcome</h2>
+<p>Chair: Called the meeting to order @ 16:33 UTC.</p>
+
+<h2 id="2">2. Roll call</h2>
+<p>All participants recorded their attendance on the OASIS meeting calendar - <b>quorum</b> was reached.
+<blockquote>
+<p>All participants were kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page or directly visit the per event direct "record my attendace link":
+<br><a href="https://www.oasis-open.org/apps/org/workgroup/sarif/record_my_attendance.php?event_id=46134&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/sarif/record_my_attendance.php?event_id=46134&amp;confirmed=1</a>, Thanks</p>
+</blockquote>
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/event.php?event_id=46134">normative attendance sheet for this meeting (event_id=46134)</a>.</p>
+<h3 id="2.1">2.1 Participants</h3>
+<h4 id="2.1.1">2.1.1 Voting Members present</h4>
+<pre>
+Andrew Pardoe (Microsoft)
+David Keaton (Individual)
+Douglas Smith (Kestrel Technology)
+Henny Sipma (Kestrel Technology)
+Jim Kupsch (SWAMP)
+Larry Hines (Micro Focus)
+Laurence Golding (Individual)
+Luke Cartey (Semmle)
+Mel Llaguno (Synopsys)
+Michael Fanning (Microsoft)
+Pooya Mehregan (Security Compass)
+Stefan Hagen (Individual)
+Sunny Chatterjee (Microsoft)
+Vamshi Basupalli (SWAMP)
+Yekaterina ONeil (Micro Focus )
+</pre>
+<h4 id="2.1.2">2.1.2 Members present</h4>
+<p class="note">Note: Despite the (mis-)calculations of the tool in the TC workspace, it is sufficient to participate in two subsequent meetings of a TC to obtain voting rights after that meeting.</p>
+<pre>
+Chris Wysopal (CA Technologies)
+Hendrik Buchwald (RIPS Technologies)
+Nikolai Mansourov (Object Management Group)
+</pre>
+<h4 id="2.1.3">2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/sarif/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<pre>
+None.</pre>
+<h3 id="2.2">2.2 Voting Right Changes Effective After The Roll call of this Meeting</h3>
+<h4 id="2.2.1">2.2.1 Members who gained Voting Rights</h4>
+<pre>
+Hendrik Buchwald (RIPS Technologies)
+</pre>
+<h4 id="2.2.2">2.2.2 Members who lost Voting Rights</h4>
+<pre>
+Ken Prole (Code Dx, Inc.)
+</pre>
+
+<h2 id="3">3. Review Agenda</h2>
+<p>Agenda draft published at <a href="https://www.oasis-open.org/committees/download.php/62100/agenda_20171129.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/62100/agenda_20171129.html</a> - content given below to support the reader:</p>
+<pre>
+1. Opening Activities
+  1.1 Opening comments (Co-Chair Keaton)
+  1.2 Introduction of participants/roll call (Co-Chair Cartey)
+  1.3 Procedures for this meeting (Co-Chair Keaton)
+  1.4 Approval of agenda (Co-Chair Keaton)
+      URL = https://www.oasis-open.org/committees/download.php/62100/agenda_20171129.html
+  1.5 Approval of previous minutes [Minutes of 2017-11-08 Meeting#6] (Co-Chair Keaton)
+      URL = https://www.oasis-open.org/committees/download.php/61988/sarif-minutes-20171108-meeting-6.html
+  1.6 Review of action items and resolutions (Secretary Hagen)
+  1.7 Identification of SARIF TC voting members (Co-Chair Cartey)
+    1.7.1 Prospective members attending their first meeting
+    1.7.2 Members attaining voting rights at the end of this meeting
+    1.7.3 Members losing voting rights if they have not joined this meeting by the time it ends
+    1.7.4 Members who previously lost voting rights who are attending this meeting
+    1.7.5 Members who have declared a leave of absence 
+2. Future Meetings
+  2.1 Future meeting schedule (Co-Chair Keaton)
+    Teleconferences (Wednesdays at 09:30 PST / 17:30 UTC):
+    December 13
+    January 10
+    Face-to-face meeting
+    January 22-23 (tentative)
+3. Resolution of github issues (Co-Editor Fanning)
+  3.1 Editors' report
+  3.2 Approval of reviewed changes
+    3.2.1 Consider adding namespaces to tags [#56]
+    3.2.2 Add a help property to rule [#27]
+  3.3 Announce final review of proposals
+    3.3.1 Consider specifying a format for links embedded in our plain text messages [#61]
+    3.3.2 Should we allow formatting in messages? [#33]
+    3.3.3 Rejected: Consider URL protocol to reference internal files and provide an associated region [#57]
+    3.3.4 Consider providing a physicalLocation on a stack frame [#69]
+    3.3.5 Announcement of any other issues ready for review
+  3.4 Resolve items discussed at earlier meetings
+    3.4.1 Consider adding 'rank' or 'probability' property [#58]
+  3.5 Begin discussions
+    3.5.1 Extensions to code flows
+      3.5.1.1 Add ACL.annotations member [#30]
+      3.5.1.2 Represent exceptions in code flows [#28]
+      3.5.1.3 Should the result object support graph information? [#46]
+    3.5.2 Consider restructuring SARIF to be location, not results-focused [#55]
+    3.5.3 Consider a tool validation or 'selectivity' annotation [#59]
+4. Other Business
+5. Resolutions and Decisions reached (by 10 minutes prior to scheduled meeting end)
+  5.1 End debate of other issues by 10 minutes prior to scheduled meeting end and follow the agenda from this point (Co-Chair Keaton)
+  5.2 Review of Decisions Reached (Secretary Hagen)
+  5.3 Review of Action Items (Secretary Hagen) 
+6. Next Meeting
+  6.1 December 13, 2017 / 09:30-11:30 PST / 17:30-19:30 UTC 
+7. Adjournment
+</pre>
+<blockquote><em>Note: Issue URLs are constructed by appending the issue number (without the '#') 
+to the base URL https://github.com/oasis-tcs/sarif-spec/issues/</em></blockquote>
+<p><b>Michael</b>: I <b>move</b> to approve the agenda. <b>Laurence</b> seconds.</p>
+<p>David: No discussion, no objections, agenda is adopted</p>
+
+<h2 id="4">4. Approval of previous minutes from 2017-11-08 Meeting #56</h2>
+<p>Minutes at <a href="https://www.oasis-open.org/committees/download.php/61988/sarif-minutes-20171108-meeting-6.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61988/sarif-minutes-20171108-meeting-6.html</a></p>
+<p><b>Laurence</b>: I <b>move</b> to approve the minutes. <b>Michael</b> seconds.</p>
+<p>David: No discussion, no objections, the minutes are approved unchanged as published</p>
+
+<h2 id="5">5. Review of action items and resolutions</h2>
+<p>Stefan: Discussion on alternatives to embedding links started on the mailing list</p>
+<p>Laurence: There is a proposal discussed later in Editors' report ahenda item</p>
+
+<h2 id="6">6. Future Meetings</h2>
+<h3 id="6.1">6.1 Future meeting schedule (Teleconferences)</h3>
+<pre>
+December 13 17:30-19:30 UTC 
+January  10 17:30-19:30 UTC 
+</pre>
+<h3 id="6.2">6.2 Face-to-face meeting</h3>
+<p>David: Will send around a mail to accelerate the process, as January is approaching fast</p>
+<pre>
+January 22-23 (tentative)
+</pre>i
+
+
+<h2 id="7">7. Resolution of github issues</h2>
+<h3 id="7.1">7.1 Editors' report</h3>
+<p>Laurence: walks all through the editor report at <a href="https://github.com/oasis-tcs/sarif-spec/blob/master/EditorsReports/Editor's%20report%202017-11-29.md" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/blob/master/EditorsReports/Editor's%20report%202017-11-29.md</a></p>
+
+<h3 id="7.2">7.2 Approval of reviewed changes</h3>
+
+<h4 id="7.2.1">7.2.1 Consider adding namespaces to tags - #56</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/56" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/56</a></p>
+<p><b>Laurence</b>: I <b>move</b> to adopt the changes proposed in Ã¤56. <b>Luke</b> seconds.</p>
+<p>David: No discussion, no objections, the motion carries. issue #56 is resolved as proposed</p>
+
+<h4 id="7.2.2">7.2.2 Add a help property to rule - #27</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/27" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/27</a></p>
+<p><b>Laurence</b>: I <b>move</b> to resolve the issue #27 as proposed. Seconded</p>
+<p>David:  No discussion, no objections, the motion carries. Issue #27 is resolved as proposed</p>
+
+<h3 id="7.3">7.3 Announce final review of proposals</h3>
+
+<h4 id="7.3.1">7.3.1 Consider specifying a format for links embedded in our plain text messages - #61</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/61" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/61</a></p>
+<p>All discuss the issue</p>
+<p>Stefan: Consensus seems to have been reached, Laurence will incorporate the changes from the meeting</p>
+
+<h4 id="7.3.2">7.3.2 Should we allow formatting in messages? - #33</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/33" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/33</a></p>
+<p>Michael: shortly introduces the status</p>
+<p>Laurence: explains the current proposal</p>
+[19:04] Stefan Hagen: All discuss the consequences like precluding generators constructing multiple formats per run etc.
+<p>Michael: mentions, that as last resort for one off needs, one can always put this in the property bag</p>
+<p>Luke: mentions, that implementers and users of the spec may always fall back on plain text, if markdown is deemed to insecure, but others may use markdown for emphasising, display enhancements etc.</p>
+
+<h4 id="7.3.3">7.3.3 Rejected: Consider URL protocol to reference internal files and provide an associated region - #57</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/57" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/57</a></p>
+<p>Stefan: Acceptable to everyone to table this issue</p>
+<p><b>Stefan</b>: I <b>move</b> to close issue #57 as won't fix. <b>Laurence</b> seconds.</p>
+<p>David: No discussion, no objection, motion carries, issue #57 closed as won't fix</p>
+
+<h4 id="7.3.4">7.3.4 Consider providing a physicalLocation on a stack frame - #69</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/69" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/69</a></p>
+<p>Michael shortly summarises current status</p>
+<p>Laurence: details on why stack frame was not catering for all location attributes initially, but then it was considered to be worthwhile to add physical locations and hint at possibly missing attributes in that case</p>
+
+<h4 id="7.3.5">7.3.5 Announcement of any other issues ready for review</h4>
+
+<h3 id="7.4">7.4 Resolve items discussed at earlier meetings</h3>
+
+<h4 id="7.4.1">7.4.1 Consider adding 'rank' or 'probability' property - #58</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/58" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/58</a></p>
+<p>Laurence: summarises the current proposal</p>
+<p>All discuss the bounded rank proposal</p>
+<p>Laurence: will update the issue proposals / drafts to reflective discussion outcome</p>
+<p>All express the will to not specify properties, that will presumably not hold enough semantics</p>
+<p>Michael; suggests to bundle these issues for next teleconference and in the meantime start a discussion on github.</p>
+<p>Nikolai: offers to start a writeup, as he will not be able to participate on December, 13 for the teleconference.</p>
+<p>Stefan: Action on the editors and Nikolai to start a discussion track on github</p>
+<p><b>Laurence</b>: I <b>move</b> to resolve issues #61, #33, and #69 as proposed including the resolution reached in this meeting and kindly requests from the editors supported by Nikolai that they will form a consolidated proposal to be discussed next meeting, <b>Stefan</b> seconds.</p >
+<p>David: No discussion, no objections, the motion carries.</p>
+
+
+<h3 id="7.5">7.5 Begin discussions</h3>
+<h4 id="7.5.1">7.5.1 Extensions to code flows</h4>
+<p>Michael: summarises all three related issues shortly (cf. following subsections)</p>
+<p>Michael: also kindly asks all members, having specific ideas in these regards, to please send mail to the list</p>
+<p>All discuss the extensions to code flow</p>
+<p>Luke and the editors will work on examples for the extensions</p>
+
+<h5 id="7.5.1.1">7.5.1.1 Add ACL.annotations member - #30</h5>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/30" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/30</a></p>
+
+<h5 id="7.5.1.2">7.5.1.2 Represent exceptions in code flows - #28</h5>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/28" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/28</a></p>
+
+<h5 id="7.5.1.3">7.5.1.3 Should the result object support graph information? - #46</h5>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/46" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/46</a></p>
+
+<h4 id="7.5.2">7.5.2 Consider restructuring SARIF to be location, not results-focused - #55</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/55" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/55</a></p>
+<p>Michael: summarises the issue</p>
+<p>All discuss the issue and strong feelings about the proposal</p>
+<p>Stefan: suggests to somehow suggest ordering hints in or aside of the spec</p>
+<p>Laurence: takes the action to file an issue.</p>
+<p>Stefan: suggests that this could also become a nonstandard track note async produced thus not slowing down the main spec</p>
+<p>Nikolai; suggests some language / patterns as accepted by a community he is engaged with</p>
+<p>Stefan: Knowledge discovery metamodel - Representation of datatypes in KDM is aligned with ISO standard ISO/IEC 11404 (see also General Purpose Datatypes).</p>
+<p>All discuss that a tabled idea has already been implemented in the ISO standard ISO/IEC 11404 note from wikipedia:</p>
+<blockquote>ISO/IEC 11404, General Purpose Datatypes (GPD), are a collection of datatypes defined independently of any particular programming language or implementation. These datatypes can be used to describe interfaces to existing libraries without having to specify the language (such as Fortran or C).<br>
+The first edition of this standard was published in 1996 under the title "Language-independent datatypes". The standard was revised by the responsible ISO sub-committee (JTC1/SC22 - Information Technology - Programming languages). The revised version has the new title "General Purpose Datatypes".</blockquote>
+<p>Stefan: Freely available from ISO under the usual license agreement: http://standards.iso.org/ittf/PubliclyAvailableStandards/c039479_ISO_IEC_11404_2007(E).zip</p>
+<p>Michael: mentions that one could get back on BSON for random access support as another scenario for efficient access to SARIF files</p>
+
+<h4 id="7.5.3">7.5.3 Consider a tool validation or 'selectivity' annotation - #59</h4>
+<p><a href="https://github.com/oasis-tcs/sarif-spec/issues/59" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/59</a></p>
+<p>Skipped</p>
+
+<h2 id="8">8. Any Other Business</h2>
+<p>No other business</p>
+
+<h2 id="9">9. Resolutions and Decisions reached</h2>
+<h3 id="9.1">9.1 Review of Decisions Reached</h3>
+<blockquote>
+<ol>
+<li>Issue #56 is resolved as proposed</li>
+<li>Issue #27 is resolved as proposed</li>
+<li>Issue #57 closed as won't fix</li>
+<li>Issues #61, #33, and #69 as proposed to be consolidated into future issue (cf. below section 9.2 action item 2)</li>
+</ol>
+</blockquote>
+
+<h3 id="9.2">9.2 Review of Action Items</h3>
+<blockquote>
+<ol>
+<li>Action on Laurence to incorporate the changes for "Consider specifying a format for links embedded in our plain text messages [#61]" from the meeting</li>
+<li>Action on the editors supported by Nikolai to form a consolidated proposal for issues #61, #33, and #69 to be discussed next meeting</li>
+<li>Action on Luke and the editors will work on examples for the extensions to code flows</li>
+<li>Action on Laurence to add an issue for JSON ordering and further hints<br>
+<b>Update after the meeting</b>: Issue #70 "Document recommendations for serialization order" <a href="https://github.com/oasis-tcs/sarif-spec/issues/70" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/sarif-spec/issues/70</a> has been opened</li>
+<li>Action on Nikolai to write proposal for rank</li>
+</ol>
+</blockquote>
+
+<h2 id="10">10. Next meeting</h2>
+<p>All: Next meeting will start 2017-DEC-13 17:30-19:30 UTC / 09:30-11:30 PST</p>
+
+<h2 id="11">11. Adjourn</h2>
+<p>The meeting was adjourned at 18:25 UTC.</p>
+
+</div>
+</body>
+</html>
