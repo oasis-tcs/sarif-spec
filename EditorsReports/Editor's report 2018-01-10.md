@@ -36,4 +36,4 @@ Presented at TC Meeting #8, January 10, 2018
 
     1. Issue [#65](https://github.com/oasis-tcs/sarif-spec/issues/65): Ensure all syntax specifications are in EBNF
     
-    2. Issue [#73](https://github.com/oasis-tcs/sarif-spec/issues/73): Alphbetize terms
+    2. Issue [#73](https://github.com/oasis-tcs/sarif-spec/issues/73): Alphabetize terms
