@@ -31,3 +31,9 @@ Presented at TC Meeting #8, January 10, 2018
 4. The formal spec language for the following issue, which the previous Editor's Report said would be ready for approval at this meeting, was postponed because the issue is still under discussion:
 
     1. Issue [#58](https://github.com/oasis-tcs/sarif-spec/issues/58): Consider adding 'rank' or 'probability' property
+
+5. We plan to make purely editorial changes to address the following issues for the next TC meeting:
+
+    1. Issue [#65](https://github.com/oasis-tcs/sarif-spec/issues/65): Ensure all syntax specifications are in EBNF
+    
+    2. Issue [#73](https://github.com/oasis-tcs/sarif-spec/issues/73): Alphbetize terms
