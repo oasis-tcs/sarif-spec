@@ -30,5 +30,7 @@ Presented at TC Meeting #9, January 31, 2018
      
 2. The formal spec language for the following issues was made available for review on the specified dates, and we will move for their adoption in today's meeting:
 
-    1. Issue [#66](https://github.com/oasis-tcs/sarif-spec/issues/66): "Enable traceability from converted SARIF file to original analysis tool log file" -- made available on January 13th, 2018.
+    1. Issue [#63](https://github.com/oasis-tcs/sarif-spec/issues/63): "Clarify that the keys in the run.files dictionary must be distinct when normalized" -- made available on January 20th, 2018.
+
+    2. Issue [#66](https://github.com/oasis-tcs/sarif-spec/issues/66): "Enable traceability from converted SARIF file to original analysis tool log file" -- made available on January 20th, 2018.
 
