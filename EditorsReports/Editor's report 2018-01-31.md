@@ -34,3 +34,11 @@ Presented at TC Meeting #9, January 31, 2018
 
     2. Issue [#66](https://github.com/oasis-tcs/sarif-spec/issues/66): "Enable traceability from converted SARIF file to original analysis tool log file" -- made available on January 20th, 2018.
 
+3. Per discussion at the most recent teleconference (Meeting #8), the following issue is closed (we will not consider it further for SARIF v2):
+
+    1. Issue [#46](https://github.com/oasis-tcs/sarif-spec/issues/46): "Consider: should the result object support graph information?"
+
+4. The following issues are deferred to the next teleconference, when all interested parties can attend:
+
+    1. Issue [#55](https://github.com/oasis-tcs/sarif-spec/issues/55): "Consider restructuring SARIF to be location, not results-focused"
+
