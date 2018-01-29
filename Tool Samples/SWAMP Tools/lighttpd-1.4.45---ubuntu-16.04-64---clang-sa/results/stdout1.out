@@ -1,0 +1,5 @@
+scan-build: Using '/home/kupsch/tools/clang-sa-3.8.0/bin/clang' for static analysis
+scan-build: Analysis run complete.
+scan-build: Analysis results (plist files) deposited in '/home/kupsch/results/clang-sa_results1/2017-12-16-142506-11976-1'
+scan-build: 4 bugs found.
+scan-build: Run 'scan-view /home/kupsch/results/clang-sa_results1/2017-12-16-142506-11976-1' to examine bug reports.

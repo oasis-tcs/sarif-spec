@@ -1,0 +1,362 @@
++ '[' -z /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer ']'
++ export MAKEFLAGS=w
++ MAKEFLAGS=w
++ export MAKELEVEL=3
++ MAKELEVEL=3
++ export MFLAGS=-w
++ MFLAGS=-w
++ export PWD=/home/kupsch/build/pkg1/lighttpd-1.4.45/src
++ PWD=/home/kupsch/build/pkg1/lighttpd-1.4.45/src
++ export SHLVL=4
++ SHLVL=4
++ export _=/usr/bin/gcc
++ _=/usr/bin/gcc
++ cd /home/kupsch/build/pkg1/lighttpd-1.4.45/src
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -g -O2 -o lemon ./lemon.c
++ export DUALCASE=1
++ DUALCASE=1
++ export MAKELEVEL=4
++ MAKELEVEL=4
++ export SHLVL=6
++ SHLVL=6
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_flv_streaming.lo -MD -MP -MF .deps/mod_flv_streaming.Tpo -c mod_flv_streaming.c -fPIC -DPIC -o .libs/mod_flv_streaming.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_flv_streaming.o -g -O2 -Wl,-soname -Wl,mod_flv_streaming.so -o .libs/mod_flv_streaming.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_evasive.lo -MD -MP -MF .deps/mod_evasive.Tpo -c mod_evasive.c -fPIC -DPIC -o .libs/mod_evasive.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_evasive.o -g -O2 -Wl,-soname -Wl,mod_evasive.so -o .libs/mod_evasive.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_webdav_la-mod_webdav.lo -MD -MP -MF .deps/mod_webdav_la-mod_webdav.Tpo -c mod_webdav.c -fPIC -DPIC -o .libs/mod_webdav_la-mod_webdav.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_webdav_la-mod_webdav.o -g -O2 -Wl,-soname -Wl,mod_webdav.so -o .libs/mod_webdav.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_cgi.lo -MD -MP -MF .deps/mod_cgi.Tpo -c mod_cgi.c -fPIC -DPIC -o .libs/mod_cgi.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_cgi.o -g -O2 -Wl,-soname -Wl,mod_cgi.so -o .libs/mod_cgi.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_scgi.lo -MD -MP -MF .deps/mod_scgi.Tpo -c mod_scgi.c -fPIC -DPIC -o .libs/mod_scgi.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_scgi.o -g -O2 -Wl,-soname -Wl,mod_scgi.so -o .libs/mod_scgi.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_staticfile.lo -MD -MP -MF .deps/mod_staticfile.Tpo -c mod_staticfile.c -fPIC -DPIC -o .libs/mod_staticfile.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_staticfile.o -g -O2 -Wl,-soname -Wl,mod_staticfile.so -o .libs/mod_staticfile.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_dirlisting.lo -MD -MP -MF .deps/mod_dirlisting.Tpo -c mod_dirlisting.c -fPIC -DPIC -o .libs/mod_dirlisting.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_dirlisting.o -lpcre -g -O2 -Wl,-soname -Wl,mod_dirlisting.so -o .libs/mod_dirlisting.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_indexfile.lo -MD -MP -MF .deps/mod_indexfile.Tpo -c mod_indexfile.c -fPIC -DPIC -o .libs/mod_indexfile.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_indexfile.o -g -O2 -Wl,-soname -Wl,mod_indexfile.so -o .libs/mod_indexfile.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_setenv.lo -MD -MP -MF .deps/mod_setenv.Tpo -c mod_setenv.c -fPIC -DPIC -o .libs/mod_setenv.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_setenv.o -g -O2 -Wl,-soname -Wl,mod_setenv.so -o .libs/mod_setenv.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_alias.lo -MD -MP -MF .deps/mod_alias.Tpo -c mod_alias.c -fPIC -DPIC -o .libs/mod_alias.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_alias.o -g -O2 -Wl,-soname -Wl,mod_alias.so -o .libs/mod_alias.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_userdir.lo -MD -MP -MF .deps/mod_userdir.Tpo -c mod_userdir.c -fPIC -DPIC -o .libs/mod_userdir.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_userdir.o -g -O2 -Wl,-soname -Wl,mod_userdir.so -o .libs/mod_userdir.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_rrdtool.lo -MD -MP -MF .deps/mod_rrdtool.Tpo -c mod_rrdtool.c -fPIC -DPIC -o .libs/mod_rrdtool.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_rrdtool.o -g -O2 -Wl,-soname -Wl,mod_rrdtool.so -o .libs/mod_rrdtool.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_usertrack.lo -MD -MP -MF .deps/mod_usertrack.Tpo -c mod_usertrack.c -fPIC -DPIC -o .libs/mod_usertrack.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_usertrack.o -g -O2 -Wl,-soname -Wl,mod_usertrack.so -o .libs/mod_usertrack.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_proxy.lo -MD -MP -MF .deps/mod_proxy.Tpo -c mod_proxy.c -fPIC -DPIC -o .libs/mod_proxy.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_proxy.o -g -O2 -Wl,-soname -Wl,mod_proxy.so -o .libs/mod_proxy.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_ssi_exprparser.lo -MD -MP -MF .deps/mod_ssi_exprparser.Tpo -c mod_ssi_exprparser.c -fPIC -DPIC -o .libs/mod_ssi_exprparser.o
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_ssi_expr.lo -MD -MP -MF .deps/mod_ssi_expr.Tpo -c mod_ssi_expr.c -fPIC -DPIC -o .libs/mod_ssi_expr.o
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_ssi.lo -MD -MP -MF .deps/mod_ssi.Tpo -c mod_ssi.c -fPIC -DPIC -o .libs/mod_ssi.o
+mod_ssi.c:1294:19: warning: The left operand of '<' is a garbage value
+                if (st.st_mtime < include_file_last_mtime)
+                    ~~~~~~~~~~~ ^
+1 warning generated.
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_ssi_exprparser.o .libs/mod_ssi_expr.o .libs/mod_ssi.o -g -O2 -Wl,-soname -Wl,mod_ssi.so -o .libs/mod_ssi.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_secdownload.lo -MD -MP -MF .deps/mod_secdownload.Tpo -c mod_secdownload.c -fPIC -DPIC -o .libs/mod_secdownload.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_secdownload.o -g -O2 -Wl,-soname -Wl,mod_secdownload.so -o .libs/mod_secdownload.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_expire.lo -MD -MP -MF .deps/mod_expire.Tpo -c mod_expire.c -fPIC -DPIC -o .libs/mod_expire.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_expire.o -g -O2 -Wl,-soname -Wl,mod_expire.so -o .libs/mod_expire.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_evhost.lo -MD -MP -MF .deps/mod_evhost.Tpo -c mod_evhost.c -fPIC -DPIC -o .libs/mod_evhost.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_evhost.o -g -O2 -Wl,-soname -Wl,mod_evhost.so -o .libs/mod_evhost.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_simple_vhost.lo -MD -MP -MF .deps/mod_simple_vhost.Tpo -c mod_simple_vhost.c -fPIC -DPIC -o .libs/mod_simple_vhost.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_simple_vhost.o -g -O2 -Wl,-soname -Wl,mod_simple_vhost.so -o .libs/mod_simple_vhost.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_fastcgi.lo -MD -MP -MF .deps/mod_fastcgi.Tpo -c mod_fastcgi.c -fPIC -DPIC -o .libs/mod_fastcgi.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_fastcgi.o -g -O2 -Wl,-soname -Wl,mod_fastcgi.so -o .libs/mod_fastcgi.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_extforward.lo -MD -MP -MF .deps/mod_extforward.Tpo -c mod_extforward.c -fPIC -DPIC -o .libs/mod_extforward.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_extforward.o -g -O2 -Wl,-soname -Wl,mod_extforward.so -o .libs/mod_extforward.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_access.lo -MD -MP -MF .deps/mod_access.Tpo -c mod_access.c -fPIC -DPIC -o .libs/mod_access.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_access.o -g -O2 -Wl,-soname -Wl,mod_access.so -o .libs/mod_access.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_compress.lo -MD -MP -MF .deps/mod_compress.Tpo -c mod_compress.c -fPIC -DPIC -o .libs/mod_compress.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_compress.o -lz -g -O2 -Wl,-soname -Wl,mod_compress.so -o .libs/mod_compress.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_deflate.lo -MD -MP -MF .deps/mod_deflate.Tpo -c mod_deflate.c -fPIC -DPIC -o .libs/mod_deflate.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_deflate.o -lz -g -O2 -Wl,-soname -Wl,mod_deflate.so -o .libs/mod_deflate.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_auth.lo -MD -MP -MF .deps/mod_auth.Tpo -c mod_auth.c -fPIC -DPIC -o .libs/mod_auth.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_auth.o -g -O2 -Wl,-soname -Wl,mod_auth.so -o .libs/mod_auth.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_authn_file.lo -MD -MP -MF .deps/mod_authn_file.Tpo -c mod_authn_file.c -fPIC -DPIC -o .libs/mod_authn_file.o
+mod_authn_file.c:302:47: warning: Access to field 'ptr' results in a dereference of a null pointer (loaded from variable 'username')
+            && http_auth_match_rules(require, username->ptr, NULL, NULL))
+                                              ^~~~~~~~~~~~~
+1 warning generated.
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_authn_file.o -lcrypt -g -O2 -Wl,-soname -Wl,mod_authn_file.so -o .libs/mod_authn_file.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_rewrite.lo -MD -MP -MF .deps/mod_rewrite.Tpo -c mod_rewrite.c -fPIC -DPIC -o .libs/mod_rewrite.o
+mod_rewrite.c:397:28: warning: Access to field 'ptr' results in a dereference of a null pointer (loaded from field 'match_buf')
+                        pcre_get_substring_list(p->match_buf->ptr, ovec, n, &list);
+                                                ^~~~~~~~~~~~~~~~~
+1 warning generated.
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_rewrite.o -lpcre -g -O2 -Wl,-soname -Wl,mod_rewrite.so -o .libs/mod_rewrite.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_redirect.lo -MD -MP -MF .deps/mod_redirect.Tpo -c mod_redirect.c -fPIC -DPIC -o .libs/mod_redirect.o
+mod_redirect.c:222:28: warning: Access to field 'ptr' results in a dereference of a null pointer (loaded from field 'match_buf')
+                        pcre_get_substring_list(p->match_buf->ptr, ovec, n, &list);
+                                                ^~~~~~~~~~~~~~~~~
+1 warning generated.
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_redirect.o -lpcre -g -O2 -Wl,-soname -Wl,mod_redirect.so -o .libs/mod_redirect.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_status.lo -MD -MP -MF .deps/mod_status.Tpo -c mod_status.c -fPIC -DPIC -o .libs/mod_status.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_status.o -g -O2 -Wl,-soname -Wl,mod_status.so -o .libs/mod_status.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_accesslog.lo -MD -MP -MF .deps/mod_accesslog.Tpo -c mod_accesslog.c -fPIC -DPIC -o .libs/mod_accesslog.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_accesslog.o -g -O2 -Wl,-soname -Wl,mod_accesslog.so -o .libs/mod_accesslog.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT mod_uploadprogress.lo -MD -MP -MF .deps/mod_uploadprogress.Tpo -c mod_uploadprogress.c -fPIC -DPIC -o .libs/mod_uploadprogress.o
++ export LANG=C
++ LANG=C
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -shared -fPIC -DPIC .libs/mod_uploadprogress.o -g -O2 -Wl,-soname -Wl,mod_uploadprogress.so -o .libs/mod_uploadprogress.so
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ export SHLVL=5
++ SHLVL=5
++ unset DUALCASE
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -DDEBUG_PROC_OPEN -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT proc_open-proc_open.o -MD -MP -MF .deps/proc_open-proc_open.Tpo -c -o proc_open-proc_open.o proc_open.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -DDEBUG_PROC_OPEN -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT proc_open-buffer.o -MD -MP -MF .deps/proc_open-buffer.Tpo -c -o proc_open-buffer.o buffer.c
++ export DUALCASE=1
++ DUALCASE=1
++ export LANG=C
++ LANG=C
++ export SHLVL=6
++ SHLVL=6
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -o proc_open proc_open-proc_open.o proc_open-buffer.o
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ export SHLVL=5
++ SHLVL=5
++ unset DUALCASE
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT test_buffer.o -MD -MP -MF .deps/test_buffer.Tpo -c -o test_buffer.o test_buffer.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT buffer.o -MD -MP -MF .deps/buffer.Tpo -c -o buffer.o buffer.c
++ export DUALCASE=1
++ DUALCASE=1
++ export LANG=C
++ LANG=C
++ export SHLVL=6
++ SHLVL=6
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -o test_buffer test_buffer.o buffer.o
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ export SHLVL=5
++ SHLVL=5
++ unset DUALCASE
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT test_base64.o -MD -MP -MF .deps/test_base64.Tpo -c -o test_base64.o test_base64.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT base64.o -MD -MP -MF .deps/base64.Tpo -c -o base64.o base64.c
++ export DUALCASE=1
++ DUALCASE=1
++ export LANG=C
++ LANG=C
++ export SHLVL=6
++ SHLVL=6
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -o test_base64 test_base64.o base64.o buffer.o
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ export SHLVL=5
++ SHLVL=5
++ unset DUALCASE
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT test_configfile.o -MD -MP -MF .deps/test_configfile.Tpo -c -o test_configfile.o test_configfile.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT array.o -MD -MP -MF .deps/array.Tpo -c -o array.o array.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT data_string.o -MD -MP -MF .deps/data_string.Tpo -c -o data_string.o data_string.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT keyvalue.o -MD -MP -MF .deps/keyvalue.Tpo -c -o keyvalue.o keyvalue.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT vector.o -MD -MP -MF .deps/vector.Tpo -c -o vector.o vector.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT log.o -MD -MP -MF .deps/log.Tpo -c -o log.o log.c
++ export DUALCASE=1
++ DUALCASE=1
++ export LANG=C
++ LANG=C
++ export SHLVL=6
++ SHLVL=6
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -o test_configfile test_configfile.o buffer.o array.o data_string.o keyvalue.o vector.o log.o -lpcre
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ export SHLVL=5
++ SHLVL=5
++ unset DUALCASE
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-server.o -MD -MP -MF .deps/lighttpd-server.Tpo -c -o lighttpd-server.o server.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-response.o -MD -MP -MF .deps/lighttpd-response.Tpo -c -o lighttpd-response.o response.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-connections.o -MD -MP -MF .deps/lighttpd-connections.Tpo -c -o lighttpd-connections.o connections.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network.o -MD -MP -MF .deps/lighttpd-network.Tpo -c -o lighttpd-network.o network.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_write.o -MD -MP -MF .deps/lighttpd-network_write.Tpo -c -o lighttpd-network_write.o network_write.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_linux_sendfile.o -MD -MP -MF .deps/lighttpd-network_linux_sendfile.Tpo -c -o lighttpd-network_linux_sendfile.o network_linux_sendfile.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_write_mmap.o -MD -MP -MF .deps/lighttpd-network_write_mmap.Tpo -c -o lighttpd-network_write_mmap.o network_write_mmap.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_write_no_mmap.o -MD -MP -MF .deps/lighttpd-network_write_no_mmap.Tpo -c -o lighttpd-network_write_no_mmap.o network_write_no_mmap.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_freebsd_sendfile.o -MD -MP -MF .deps/lighttpd-network_freebsd_sendfile.Tpo -c -o lighttpd-network_freebsd_sendfile.o network_freebsd_sendfile.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_writev.o -MD -MP -MF .deps/lighttpd-network_writev.Tpo -c -o lighttpd-network_writev.o network_writev.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_solaris_sendfilev.o -MD -MP -MF .deps/lighttpd-network_solaris_sendfilev.Tpo -c -o lighttpd-network_solaris_sendfilev.o network_solaris_sendfilev.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_openssl.o -MD -MP -MF .deps/lighttpd-network_openssl.Tpo -c -o lighttpd-network_openssl.o network_openssl.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-network_darwin_sendfile.o -MD -MP -MF .deps/lighttpd-network_darwin_sendfile.Tpo -c -o lighttpd-network_darwin_sendfile.o network_darwin_sendfile.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-configfile.o -MD -MP -MF .deps/lighttpd-configfile.Tpo -c -o lighttpd-configfile.o configfile.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-configparser.o -MD -MP -MF .deps/lighttpd-configparser.Tpo -c -o lighttpd-configparser.o configparser.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-request.o -MD -MP -MF .deps/lighttpd-request.Tpo -c -o lighttpd-request.o request.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-proc_open.o -MD -MP -MF .deps/lighttpd-proc_open.Tpo -c -o lighttpd-proc_open.o proc_open.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-base64.o -MD -MP -MF .deps/lighttpd-base64.Tpo -c -o lighttpd-base64.o base64.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-buffer.o -MD -MP -MF .deps/lighttpd-buffer.Tpo -c -o lighttpd-buffer.o buffer.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-log.o -MD -MP -MF .deps/lighttpd-log.Tpo -c -o lighttpd-log.o log.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-keyvalue.o -MD -MP -MF .deps/lighttpd-keyvalue.Tpo -c -o lighttpd-keyvalue.o keyvalue.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-chunk.o -MD -MP -MF .deps/lighttpd-chunk.Tpo -c -o lighttpd-chunk.o chunk.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-http_chunk.o -MD -MP -MF .deps/lighttpd-http_chunk.Tpo -c -o lighttpd-http_chunk.o http_chunk.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-stream.o -MD -MP -MF .deps/lighttpd-stream.Tpo -c -o lighttpd-stream.o stream.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-fdevent.o -MD -MP -MF .deps/lighttpd-fdevent.Tpo -c -o lighttpd-fdevent.o fdevent.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-stat_cache.o -MD -MP -MF .deps/lighttpd-stat_cache.Tpo -c -o lighttpd-stat_cache.o stat_cache.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-plugin.o -MD -MP -MF .deps/lighttpd-plugin.Tpo -c -o lighttpd-plugin.o plugin.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-joblist.o -MD -MP -MF .deps/lighttpd-joblist.Tpo -c -o lighttpd-joblist.o joblist.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-etag.o -MD -MP -MF .deps/lighttpd-etag.Tpo -c -o lighttpd-etag.o etag.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-array.o -MD -MP -MF .deps/lighttpd-array.Tpo -c -o lighttpd-array.o array.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-data_string.o -MD -MP -MF .deps/lighttpd-data_string.Tpo -c -o lighttpd-data_string.o data_string.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-data_array.o -MD -MP -MF .deps/lighttpd-data_array.Tpo -c -o lighttpd-data_array.o data_array.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-data_integer.o -MD -MP -MF .deps/lighttpd-data_integer.Tpo -c -o lighttpd-data_integer.o data_integer.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-md5.o -MD -MP -MF .deps/lighttpd-md5.Tpo -c -o lighttpd-md5.o md5.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-data_fastcgi.o -MD -MP -MF .deps/lighttpd-data_fastcgi.Tpo -c -o lighttpd-data_fastcgi.o data_fastcgi.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-vector.o -MD -MP -MF .deps/lighttpd-vector.Tpo -c -o lighttpd-vector.o vector.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-fdevent_select.o -MD -MP -MF .deps/lighttpd-fdevent_select.Tpo -c -o lighttpd-fdevent_select.o fdevent_select.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-fdevent_libev.o -MD -MP -MF .deps/lighttpd-fdevent_libev.Tpo -c -o lighttpd-fdevent_libev.o fdevent_libev.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-fdevent_poll.o -MD -MP -MF .deps/lighttpd-fdevent_poll.Tpo -c -o lighttpd-fdevent_poll.o fdevent_poll.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-fdevent_linux_sysepoll.o -MD -MP -MF .deps/lighttpd-fdevent_linux_sysepoll.Tpo -c -o lighttpd-fdevent_linux_sysepoll.o fdevent_linux_sysepoll.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-fdevent_solaris_devpoll.o -MD -MP -MF .deps/lighttpd-fdevent_solaris_devpoll.Tpo -c -o lighttpd-fdevent_solaris_devpoll.o fdevent_solaris_devpoll.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-fdevent_solaris_port.o -MD -MP -MF .deps/lighttpd-fdevent_solaris_port.Tpo -c -o lighttpd-fdevent_solaris_port.o fdevent_solaris_port.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-fdevent_freebsd_kqueue.o -MD -MP -MF .deps/lighttpd-fdevent_freebsd_kqueue.Tpo -c -o lighttpd-fdevent_freebsd_kqueue.o fdevent_freebsd_kqueue.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-data_config.o -MD -MP -MF .deps/lighttpd-data_config.Tpo -c -o lighttpd-data_config.o data_config.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-inet_ntop_cache.o -MD -MP -MF .deps/lighttpd-inet_ntop_cache.Tpo -c -o lighttpd-inet_ntop_cache.o inet_ntop_cache.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-crc32.o -MD -MP -MF .deps/lighttpd-crc32.Tpo -c -o lighttpd-crc32.o crc32.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-connections-glue.o -MD -MP -MF .deps/lighttpd-connections-glue.Tpo -c -o lighttpd-connections-glue.o connections-glue.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-configfile-glue.o -MD -MP -MF .deps/lighttpd-configfile-glue.Tpo -c -o lighttpd-configfile-glue.o configfile-glue.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-http-header-glue.o -MD -MP -MF .deps/lighttpd-http-header-glue.Tpo -c -o lighttpd-http-header-glue.o http-header-glue.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-http_auth.o -MD -MP -MF .deps/lighttpd-http_auth.Tpo -c -o lighttpd-http_auth.o http_auth.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-rand.o -MD -MP -MF .deps/lighttpd-rand.Tpo -c -o lighttpd-rand.o rand.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-splaytree.o -MD -MP -MF .deps/lighttpd-splaytree.Tpo -c -o lighttpd-splaytree.o splaytree.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-status_counter.o -MD -MP -MF .deps/lighttpd-status_counter.Tpo -c -o lighttpd-status_counter.o status_counter.c
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-safe_memclear.o -MD -MP -MF .deps/lighttpd-safe_memclear.Tpo -c -o lighttpd-safe_memclear.o safe_memclear.c
++ export DUALCASE=1
++ DUALCASE=1
++ export LANG=C
++ LANG=C
++ export SHLVL=6
++ SHLVL=6
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -o lighttpd lighttpd-server.o lighttpd-response.o lighttpd-connections.o lighttpd-network.o lighttpd-network_write.o lighttpd-network_linux_sendfile.o lighttpd-network_write_mmap.o lighttpd-network_write_no_mmap.o lighttpd-network_freebsd_sendfile.o lighttpd-network_writev.o lighttpd-network_solaris_sendfilev.o lighttpd-network_openssl.o lighttpd-network_darwin_sendfile.o lighttpd-configfile.o lighttpd-configparser.o lighttpd-request.o lighttpd-proc_open.o lighttpd-base64.o lighttpd-buffer.o lighttpd-log.o lighttpd-keyvalue.o lighttpd-chunk.o lighttpd-http_chunk.o lighttpd-stream.o lighttpd-fdevent.o lighttpd-stat_cache.o lighttpd-plugin.o lighttpd-joblist.o lighttpd-etag.o lighttpd-array.o lighttpd-data_string.o lighttpd-data_array.o lighttpd-data_integer.o lighttpd-md5.o lighttpd-data_fastcgi.o lighttpd-vector.o lighttpd-fdevent_select.o lighttpd-fdevent_libev.o lighttpd-fdevent_poll.o lighttpd-fdevent_linux_sysepoll.o lighttpd-fdevent_solaris_devpoll.o lighttpd-fdevent_solaris_port.o lighttpd-fdevent_freebsd_kqueue.o lighttpd-data_config.o lighttpd-inet_ntop_cache.o lighttpd-crc32.o lighttpd-connections-glue.o lighttpd-configfile-glue.o lighttpd-http-header-glue.o lighttpd-http_auth.o lighttpd-rand.o lighttpd-splaytree.o lighttpd-status_counter.o lighttpd-safe_memclear.o -Wl,--export-dynamic -lpcre -ldl
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ export SHLVL=5
++ SHLVL=5
++ unset DUALCASE
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -DHAVE_CONFIG_H -DHAVE_VERSION_H '-DLIBRARY_DIR="/usr/local/lib"' '-DSBIN_DIR="/usr/local/sbin"' -I. -I.. -D_REENTRANT -D__EXTENSIONS__ -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGE_FILES -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -MT lighttpd-angel.o -MD -MP -MF .deps/lighttpd-angel.Tpo -c -o lighttpd-angel.o lighttpd-angel.c
++ export DUALCASE=1
++ DUALCASE=1
++ export LANG=C
++ LANG=C
++ export SHLVL=6
++ SHLVL=6
++ /home/kupsch/tools/clang-sa-3.8.0/bin/scan-build/bin/../libexec/ccc-analyzer -g -O2 -Wall -W -Wshadow -pedantic -std=gnu99 -o lighttpd-angel lighttpd-angel.o

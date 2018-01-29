@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1" sequence="0" timestamp="1513616846000" analysisTimestamp="1513616896775" release="">
+  <Project projectName="twitter4j-3.0.3">
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$4.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/http/alternative/HttpClientImpl.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyRelatedResults.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$5.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazySimilarPlaces.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$15.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyTrends.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyQueryResult.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyIDs.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$10.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyStatus.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyPagableResponseList.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyPlace.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$12.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$6.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyOEmbed.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$1.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$7.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$3.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/VersionAppEngine.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$2.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyTwitterAPIConfiguration.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyAccountTotals.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$11.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyUserList.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyResponseList.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$8.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/TwitterRuntimeException.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyUser.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$14.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$13.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/AppEngineTwitterImpl.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyAccountSettings.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/z_T4JInternalLazyFactory$9.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyRelationship.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazyDirectMessage.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes/twitter4j/internal/json/LazySavedSearch.class</Jar>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-core/target/twitter4j-core-3.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/.m2/repository/com/google/appengine/appengine-api-1.0-sdk/1.7.3/appengine-api-1.0-sdk-1.7.3.jar</AuxClasspathEntry>
+    <SrcDir>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/src/main/java</SrcDir>
+    <Plugin id="com.h3xstream.findsecbugs" enabled="true"/>
+    <Plugin id="com.mebigfatguy.fbcontrib" enabled="true"/>
+  </Project>
+  <BugInstance type="BED_BOGUS_EXCEPTION_DECLARATION" priority="2" rank="7" abbrev="BED" category="CORRECTNESS" instanceHash="2c7bf70aeb8b18806bba0301ad199e6d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non derivable method declares throwing an exception that isn&apos;t thrown</ShortMessage>
+    <LongMessage>Non derivable method twitter4j.internal.http.alternative.AppEngineHttpResponseImpl.disconnect() declares throwing an exception that isn&apos;t thrown</LongMessage>
+    <Class classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" primary="true">
+      <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" start="43" end="207" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java">
+        <Message>At AppEngineHttpResponseImpl.java:[lines 43-207]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.http.alternative.AppEngineHttpResponseImpl</Message>
+    </Class>
+    <Method classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" name="disconnect" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" start="131" end="134" startBytecode="0" endBytecode="85" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java"/>
+      <Message>In method twitter4j.internal.http.alternative.AppEngineHttpResponseImpl.disconnect()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" primary="true" start="131" end="131" startBytecode="0" endBytecode="0" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java">
+      <Message>At AppEngineHttpResponseImpl.java:[line 131]</Message>
+    </SourceLine>
+    <String value="java.io.IOException">
+      <Message>Value java.io.IOException</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="df6ff9ea147fdce8cb5c105c124044a0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in twitter4j.internal.http.alternative.AppEngineHttpResponseImpl.inputStreamToString(InputStream): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" primary="true">
+      <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" start="43" end="207" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java">
+        <Message>At AppEngineHttpResponseImpl.java:[lines 43-207]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.http.alternative.AppEngineHttpResponseImpl</Message>
+    </Class>
+    <Method classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" name="inputStreamToString" signature="(Ljava/io/InputStream;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" start="188" end="202" startBytecode="0" endBytecode="234" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java"/>
+      <Message>In method twitter4j.internal.http.alternative.AppEngineHttpResponseImpl.inputStreamToString(InputStream)</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="72" end="79" startBytecode="0" endBytecode="146" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" primary="true" start="190" end="190" startBytecode="20" endBytecode="20" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java">
+      <Message>At AppEngineHttpResponseImpl.java:[line 190]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="fc84bb336248e82d907c4e765b1b070e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.http.alternative.AppEngineHttpResponseImpl.ensureResponseEvaluated() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" primary="true">
+      <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" start="43" end="207" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java">
+        <Message>At AppEngineHttpResponseImpl.java:[lines 43-207]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.http.alternative.AppEngineHttpResponseImpl</Message>
+    </Class>
+    <Method classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" name="ensureResponseEvaluated" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" start="139" end="185" startBytecode="0" endBytecode="652" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java"/>
+      <Message>In method twitter4j.internal.http.alternative.AppEngineHttpResponseImpl.ensureResponseEvaluated()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" primary="true" start="165" end="165" startBytecode="228" endBytecode="228" sourcefile="AppEngineHttpResponseImpl.java" sourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" relSourcepath="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java">
+      <Message>At AppEngineHttpResponseImpl.java:[line 165]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="3c9d8b39ea11ec7982740050490e0c5b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyAccountSettings.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyAccountSettings" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyAccountSettings" start="35" end="165" sourcefile="LazyAccountSettings.java" sourcepath="twitter4j/internal/json/LazyAccountSettings.java" relSourcepath="twitter4j/internal/json/LazyAccountSettings.java">
+        <Message>At LazyAccountSettings.java:[lines 35-165]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyAccountSettings</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyAccountSettings" name="getTarget" signature="()Ltwitter4j/AccountSettings;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyAccountSettings" start="43" end="50" startBytecode="0" endBytecode="121" sourcefile="LazyAccountSettings.java" sourcepath="twitter4j/internal/json/LazyAccountSettings.java" relSourcepath="twitter4j/internal/json/LazyAccountSettings.java"/>
+      <Message>In method twitter4j.internal.json.LazyAccountSettings.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyAccountSettings" primary="true" start="47" end="47" startBytecode="36" endBytecode="36" sourcefile="LazyAccountSettings.java" sourcepath="twitter4j/internal/json/LazyAccountSettings.java" relSourcepath="twitter4j/internal/json/LazyAccountSettings.java">
+      <Message>At LazyAccountSettings.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="abda7252e1e7c032c71721225d4decd2" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyAccountTotals.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyAccountTotals" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyAccountTotals" start="38" end="118" sourcefile="LazyAccountTotals.java" sourcepath="twitter4j/internal/json/LazyAccountTotals.java" relSourcepath="twitter4j/internal/json/LazyAccountTotals.java">
+        <Message>At LazyAccountTotals.java:[lines 38-118]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyAccountTotals</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyAccountTotals" name="getTarget" signature="()Ltwitter4j/AccountTotals;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyAccountTotals" start="46" end="53" startBytecode="0" endBytecode="121" sourcefile="LazyAccountTotals.java" sourcepath="twitter4j/internal/json/LazyAccountTotals.java" relSourcepath="twitter4j/internal/json/LazyAccountTotals.java"/>
+      <Message>In method twitter4j.internal.json.LazyAccountTotals.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyAccountTotals" primary="true" start="50" end="50" startBytecode="36" endBytecode="36" sourcefile="LazyAccountTotals.java" sourcepath="twitter4j/internal/json/LazyAccountTotals.java" relSourcepath="twitter4j/internal/json/LazyAccountTotals.java">
+      <Message>At LazyAccountTotals.java:[line 50]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="73b885704e783d5d1ed96a9da1c142f3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyDirectMessage.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyDirectMessage" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyDirectMessage" start="37" end="149" sourcefile="LazyDirectMessage.java" sourcepath="twitter4j/internal/json/LazyDirectMessage.java" relSourcepath="twitter4j/internal/json/LazyDirectMessage.java">
+        <Message>At LazyDirectMessage.java:[lines 37-149]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyDirectMessage</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyDirectMessage" name="getTarget" signature="()Ltwitter4j/DirectMessage;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyDirectMessage" start="45" end="52" startBytecode="0" endBytecode="121" sourcefile="LazyDirectMessage.java" sourcepath="twitter4j/internal/json/LazyDirectMessage.java" relSourcepath="twitter4j/internal/json/LazyDirectMessage.java"/>
+      <Message>In method twitter4j.internal.json.LazyDirectMessage.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyDirectMessage" primary="true" start="49" end="49" startBytecode="36" endBytecode="36" sourcefile="LazyDirectMessage.java" sourcepath="twitter4j/internal/json/LazyDirectMessage.java" relSourcepath="twitter4j/internal/json/LazyDirectMessage.java">
+      <Message>At LazyDirectMessage.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="b5772f0059b423725d3576a4e709258b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyIDs.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyIDs" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyIDs" start="40" end="105" sourcefile="LazyIDs.java" sourcepath="twitter4j/internal/json/LazyIDs.java" relSourcepath="twitter4j/internal/json/LazyIDs.java">
+        <Message>At LazyIDs.java:[lines 40-105]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyIDs</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyIDs" name="getTarget" signature="()Ltwitter4j/IDs;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyIDs" start="48" end="55" startBytecode="0" endBytecode="121" sourcefile="LazyIDs.java" sourcepath="twitter4j/internal/json/LazyIDs.java" relSourcepath="twitter4j/internal/json/LazyIDs.java"/>
+      <Message>In method twitter4j.internal.json.LazyIDs.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyIDs" primary="true" start="52" end="52" startBytecode="36" endBytecode="36" sourcefile="LazyIDs.java" sourcepath="twitter4j/internal/json/LazyIDs.java" relSourcepath="twitter4j/internal/json/LazyIDs.java">
+      <Message>At LazyIDs.java:[line 52]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="976c30230c938367e9690e34f4e5e469" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyOEmbed.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyOEmbed" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyOEmbed" start="34" end="137" sourcefile="LazyOEmbed.java" sourcepath="twitter4j/internal/json/LazyOEmbed.java" relSourcepath="twitter4j/internal/json/LazyOEmbed.java">
+        <Message>At LazyOEmbed.java:[lines 34-137]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyOEmbed</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyOEmbed" name="getTarget" signature="()Ltwitter4j/OEmbed;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyOEmbed" start="42" end="49" startBytecode="0" endBytecode="121" sourcefile="LazyOEmbed.java" sourcepath="twitter4j/internal/json/LazyOEmbed.java" relSourcepath="twitter4j/internal/json/LazyOEmbed.java"/>
+      <Message>In method twitter4j.internal.json.LazyOEmbed.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyOEmbed" primary="true" start="46" end="46" startBytecode="36" endBytecode="36" sourcefile="LazyOEmbed.java" sourcepath="twitter4j/internal/json/LazyOEmbed.java" relSourcepath="twitter4j/internal/json/LazyOEmbed.java">
+      <Message>At LazyOEmbed.java:[line 46]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="769dfb0e84d552ab63de9a61143f5905" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyPlace.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyPlace" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyPlace" start="11" end="127" sourcefile="LazyPlace.java" sourcepath="twitter4j/internal/json/LazyPlace.java" relSourcepath="twitter4j/internal/json/LazyPlace.java">
+        <Message>At LazyPlace.java:[lines 11-127]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyPlace</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyPlace" name="getTarget" signature="()Ltwitter4j/Place;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyPlace" start="27" end="34" startBytecode="0" endBytecode="121" sourcefile="LazyPlace.java" sourcepath="twitter4j/internal/json/LazyPlace.java" relSourcepath="twitter4j/internal/json/LazyPlace.java"/>
+      <Message>In method twitter4j.internal.json.LazyPlace.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyPlace" primary="true" start="31" end="31" startBytecode="36" endBytecode="36" sourcefile="LazyPlace.java" sourcepath="twitter4j/internal/json/LazyPlace.java" relSourcepath="twitter4j/internal/json/LazyPlace.java">
+      <Message>At LazyPlace.java:[line 31]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="f0dee42919ac67721b4be59c0047d834" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyQueryResult.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyQueryResult" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyQueryResult" start="33" end="127" sourcefile="LazyQueryResult.java" sourcepath="twitter4j/internal/json/LazyQueryResult.java" relSourcepath="twitter4j/internal/json/LazyQueryResult.java">
+        <Message>At LazyQueryResult.java:[lines 33-127]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyQueryResult</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyQueryResult" name="getTarget" signature="()Ltwitter4j/QueryResult;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyQueryResult" start="43" end="50" startBytecode="0" endBytecode="125" sourcefile="LazyQueryResult.java" sourcepath="twitter4j/internal/json/LazyQueryResult.java" relSourcepath="twitter4j/internal/json/LazyQueryResult.java"/>
+      <Message>In method twitter4j.internal.json.LazyQueryResult.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyQueryResult" primary="true" start="47" end="47" startBytecode="40" endBytecode="40" sourcefile="LazyQueryResult.java" sourcepath="twitter4j/internal/json/LazyQueryResult.java" relSourcepath="twitter4j/internal/json/LazyQueryResult.java">
+      <Message>At LazyQueryResult.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE" instanceHash="ec74c440aadb2940fc7ab6d0eaea4ea2" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class twitter4j.internal.json.LazyQueryResult defines non-transient non-serializable instance field res</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyQueryResult" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyQueryResult" start="33" end="127" sourcefile="LazyQueryResult.java" sourcepath="twitter4j/internal/json/LazyQueryResult.java" relSourcepath="twitter4j/internal/json/LazyQueryResult.java">
+        <Message>At LazyQueryResult.java:[lines 33-127]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyQueryResult</Message>
+    </Class>
+    <Field classname="twitter4j.internal.json.LazyQueryResult" name="res" signature="Ltwitter4j/internal/http/HttpResponse;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyQueryResult" sourcefile="LazyQueryResult.java" sourcepath="twitter4j/internal/json/LazyQueryResult.java" relSourcepath="twitter4j/internal/json/LazyQueryResult.java">
+        <Message>In LazyQueryResult.java</Message>
+      </SourceLine>
+      <Message>Field twitter4j.internal.json.LazyQueryResult.res</Message>
+    </Field>
+    <Type descriptor="Ltwitter4j/internal/http/HttpResponse;" role="TYPE_FOUND">
+      <SourceLine classname="twitter4j.internal.http.HttpResponse" start="37" end="233" sourcefile="HttpResponse.java" sourcepath="twitter4j/internal/http/HttpResponse.java">
+        <Message>At HttpResponse.java:[lines 37-233]</Message>
+      </SourceLine>
+      <Message>Actual type twitter4j.internal.http.HttpResponse</Message>
+    </Type>
+    <SourceLine classname="twitter4j.internal.json.LazyQueryResult" sourcefile="LazyQueryResult.java" sourcepath="twitter4j/internal/json/LazyQueryResult.java" relSourcepath="twitter4j/internal/json/LazyQueryResult.java" synthetic="true">
+      <Message>In LazyQueryResult.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="aed8843c60ef4ddf8bc59bf31071e1a0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyRelatedResults.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyRelatedResults" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyRelatedResults" start="35" end="106" sourcefile="LazyRelatedResults.java" sourcepath="twitter4j/internal/json/LazyRelatedResults.java" relSourcepath="twitter4j/internal/json/LazyRelatedResults.java">
+        <Message>At LazyRelatedResults.java:[lines 35-106]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyRelatedResults</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyRelatedResults" name="getTarget" signature="()Ltwitter4j/RelatedResults;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyRelatedResults" start="43" end="50" startBytecode="0" endBytecode="121" sourcefile="LazyRelatedResults.java" sourcepath="twitter4j/internal/json/LazyRelatedResults.java" relSourcepath="twitter4j/internal/json/LazyRelatedResults.java"/>
+      <Message>In method twitter4j.internal.json.LazyRelatedResults.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyRelatedResults" primary="true" start="47" end="47" startBytecode="36" endBytecode="36" sourcefile="LazyRelatedResults.java" sourcepath="twitter4j/internal/json/LazyRelatedResults.java" relSourcepath="twitter4j/internal/json/LazyRelatedResults.java">
+      <Message>At LazyRelatedResults.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="e8b00a04db4828d6225b089e64d67240" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyRelationship.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyRelationship" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyRelationship" start="42" end="190" sourcefile="LazyRelationship.java" sourcepath="twitter4j/internal/json/LazyRelationship.java" relSourcepath="twitter4j/internal/json/LazyRelationship.java">
+        <Message>At LazyRelationship.java:[lines 42-190]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyRelationship</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyRelationship" name="getTarget" signature="()Ltwitter4j/Relationship;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyRelationship" start="50" end="57" startBytecode="0" endBytecode="121" sourcefile="LazyRelationship.java" sourcepath="twitter4j/internal/json/LazyRelationship.java" relSourcepath="twitter4j/internal/json/LazyRelationship.java"/>
+      <Message>In method twitter4j.internal.json.LazyRelationship.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyRelationship" primary="true" start="54" end="54" startBytecode="36" endBytecode="36" sourcefile="LazyRelationship.java" sourcepath="twitter4j/internal/json/LazyRelationship.java" relSourcepath="twitter4j/internal/json/LazyRelationship.java">
+      <Message>At LazyRelationship.java:[line 54]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="10bdb1815f0c5299a1a0360edfbe4b2e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyResponseList.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyResponseList" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyResponseList" start="33" end="165" sourcefile="LazyResponseList.java" sourcepath="twitter4j/internal/json/LazyResponseList.java" relSourcepath="twitter4j/internal/json/LazyResponseList.java">
+        <Message>At LazyResponseList.java:[lines 33-165]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyResponseList</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyResponseList" name="getTarget" signature="()Ltwitter4j/ResponseList;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyResponseList" start="39" end="46" startBytecode="0" endBytecode="130" sourcefile="LazyResponseList.java" sourcepath="twitter4j/internal/json/LazyResponseList.java" relSourcepath="twitter4j/internal/json/LazyResponseList.java"/>
+      <Message>In method twitter4j.internal.json.LazyResponseList.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyResponseList" primary="true" start="43" end="43" startBytecode="27" endBytecode="27" sourcefile="LazyResponseList.java" sourcepath="twitter4j/internal/json/LazyResponseList.java" relSourcepath="twitter4j/internal/json/LazyResponseList.java">
+      <Message>At LazyResponseList.java:[line 43]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="22d91addbd9323fa98c3d6be86cdd0e7" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazySavedSearch.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazySavedSearch" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazySavedSearch" start="33" end="110" sourcefile="LazySavedSearch.java" sourcepath="twitter4j/internal/json/LazySavedSearch.java" relSourcepath="twitter4j/internal/json/LazySavedSearch.java">
+        <Message>At LazySavedSearch.java:[lines 33-110]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazySavedSearch</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazySavedSearch" name="getTarget" signature="()Ltwitter4j/SavedSearch;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazySavedSearch" start="49" end="56" startBytecode="0" endBytecode="121" sourcefile="LazySavedSearch.java" sourcepath="twitter4j/internal/json/LazySavedSearch.java" relSourcepath="twitter4j/internal/json/LazySavedSearch.java"/>
+      <Message>In method twitter4j.internal.json.LazySavedSearch.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazySavedSearch" primary="true" start="53" end="53" startBytecode="36" endBytecode="36" sourcefile="LazySavedSearch.java" sourcepath="twitter4j/internal/json/LazySavedSearch.java" relSourcepath="twitter4j/internal/json/LazySavedSearch.java">
+      <Message>At LazySavedSearch.java:[line 53]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="64fd85df3171c9e9bff51ee54f1d8363" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyStatus.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyStatus" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyStatus" start="29" end="319" sourcefile="LazyStatus.java" sourcepath="twitter4j/internal/json/LazyStatus.java" relSourcepath="twitter4j/internal/json/LazyStatus.java">
+        <Message>At LazyStatus.java:[lines 29-319]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyStatus</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyStatus" name="getTarget" signature="()Ltwitter4j/Status;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyStatus" start="45" end="52" startBytecode="0" endBytecode="121" sourcefile="LazyStatus.java" sourcepath="twitter4j/internal/json/LazyStatus.java" relSourcepath="twitter4j/internal/json/LazyStatus.java"/>
+      <Message>In method twitter4j.internal.json.LazyStatus.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyStatus" primary="true" start="49" end="49" startBytecode="36" endBytecode="36" sourcefile="LazyStatus.java" sourcepath="twitter4j/internal/json/LazyStatus.java" relSourcepath="twitter4j/internal/json/LazyStatus.java">
+      <Message>At LazyStatus.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="200f8cd01c0a4a5f4b55c512865b26d5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyTrends.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyTrends" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyTrends" start="31" end="111" sourcefile="LazyTrends.java" sourcepath="twitter4j/internal/json/LazyTrends.java" relSourcepath="twitter4j/internal/json/LazyTrends.java">
+        <Message>At LazyTrends.java:[lines 31-111]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyTrends</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyTrends" name="getTarget" signature="()Ltwitter4j/Trends;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyTrends" start="47" end="54" startBytecode="0" endBytecode="121" sourcefile="LazyTrends.java" sourcepath="twitter4j/internal/json/LazyTrends.java" relSourcepath="twitter4j/internal/json/LazyTrends.java"/>
+      <Message>In method twitter4j.internal.json.LazyTrends.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyTrends" primary="true" start="51" end="51" startBytecode="36" endBytecode="36" sourcefile="LazyTrends.java" sourcepath="twitter4j/internal/json/LazyTrends.java" relSourcepath="twitter4j/internal/json/LazyTrends.java">
+      <Message>At LazyTrends.java:[line 51]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="3863f1e2aaff4c1dc8ec718aa06ef83" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyTwitterAPIConfiguration.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyTwitterAPIConfiguration" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyTwitterAPIConfiguration" start="35" end="110" sourcefile="LazyTwitterAPIConfiguration.java" sourcepath="twitter4j/internal/json/LazyTwitterAPIConfiguration.java" relSourcepath="twitter4j/internal/json/LazyTwitterAPIConfiguration.java">
+        <Message>At LazyTwitterAPIConfiguration.java:[lines 35-110]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyTwitterAPIConfiguration</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyTwitterAPIConfiguration" name="getTarget" signature="()Ltwitter4j/TwitterAPIConfiguration;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyTwitterAPIConfiguration" start="43" end="50" startBytecode="0" endBytecode="121" sourcefile="LazyTwitterAPIConfiguration.java" sourcepath="twitter4j/internal/json/LazyTwitterAPIConfiguration.java" relSourcepath="twitter4j/internal/json/LazyTwitterAPIConfiguration.java"/>
+      <Message>In method twitter4j.internal.json.LazyTwitterAPIConfiguration.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyTwitterAPIConfiguration" primary="true" start="47" end="47" startBytecode="36" endBytecode="36" sourcefile="LazyTwitterAPIConfiguration.java" sourcepath="twitter4j/internal/json/LazyTwitterAPIConfiguration.java" relSourcepath="twitter4j/internal/json/LazyTwitterAPIConfiguration.java">
+      <Message>At LazyTwitterAPIConfiguration.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="4cdf6ee8a017281a9c72a075960313f1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyUser.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyUser" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyUser" start="30" end="435" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java">
+        <Message>At LazyUser.java:[lines 30-435]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyUser</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyUser" name="getTarget" signature="()Ltwitter4j/User;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyUser" start="46" end="53" startBytecode="0" endBytecode="121" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java"/>
+      <Message>In method twitter4j.internal.json.LazyUser.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyUser" primary="true" start="50" end="50" startBytecode="36" endBytecode="36" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java">
+      <Message>At LazyUser.java:[line 50]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="IL_INFINITE_RECURSIVE_LOOP" priority="1" rank="9" abbrev="IL" category="CORRECTNESS" instanceHash="34eaf5bc3bda59c2fe36f89dfca5a30f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="674">
+    <ShortMessage>An apparent infinite recursive loop</ShortMessage>
+    <LongMessage>There is an apparent infinite recursive loop in twitter4j.internal.json.LazyUser.getProfileImageUrlHttps()</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyUser" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyUser" start="30" end="435" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java">
+        <Message>At LazyUser.java:[lines 30-435]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyUser</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyUser" name="getProfileImageUrlHttps" signature="()Ljava/net/URL;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyUser" start="164" end="164" startBytecode="0" endBytecode="46" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java"/>
+      <Message>In method twitter4j.internal.json.LazyUser.getProfileImageUrlHttps()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyUser" primary="true" start="164" end="164" startBytecode="1" endBytecode="1" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java">
+      <Message>At LazyUser.java:[line 164]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="TR_TAIL_RECURSION" priority="2" rank="18" abbrev="TR" category="PERFORMANCE" instanceHash="536f367aad6640fefd107f7b0cee716c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method employs tail recursion</ShortMessage>
+    <LongMessage>Method twitter4j.internal.json.LazyUser.getProfileImageUrlHttps() employs tail recursion</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyUser" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyUser" start="30" end="435" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java">
+        <Message>At LazyUser.java:[lines 30-435]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyUser</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyUser" name="getProfileImageUrlHttps" signature="()Ljava/net/URL;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyUser" start="164" end="164" startBytecode="0" endBytecode="46" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java"/>
+      <Message>In method twitter4j.internal.json.LazyUser.getProfileImageUrlHttps()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyUser" primary="true" start="164" end="164" startBytecode="1" endBytecode="1" sourcefile="LazyUser.java" sourcepath="twitter4j/internal/json/LazyUser.java" relSourcepath="twitter4j/internal/json/LazyUser.java">
+      <Message>At LazyUser.java:[line 164]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" priority="1" rank="15" abbrev="EXS" category="STYLE" instanceHash="881ed5ed3a934c1c9ec5d23720bac64f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unconstrained method converts checked exception to unchecked</ShortMessage>
+    <LongMessage>Unconstrained method twitter4j.internal.json.LazyUserList.getTarget() converts checked exception to unchecked</LongMessage>
+    <Class classname="twitter4j.internal.json.LazyUserList" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyUserList" start="29" end="190" sourcefile="LazyUserList.java" sourcepath="twitter4j/internal/json/LazyUserList.java" relSourcepath="twitter4j/internal/json/LazyUserList.java">
+        <Message>At LazyUserList.java:[lines 29-190]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.internal.json.LazyUserList</Message>
+    </Class>
+    <Method classname="twitter4j.internal.json.LazyUserList" name="getTarget" signature="()Ltwitter4j/UserList;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.internal.json.LazyUserList" start="45" end="52" startBytecode="0" endBytecode="121" sourcefile="LazyUserList.java" sourcepath="twitter4j/internal/json/LazyUserList.java" relSourcepath="twitter4j/internal/json/LazyUserList.java"/>
+      <Message>In method twitter4j.internal.json.LazyUserList.getTarget()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.internal.json.LazyUserList" primary="true" start="49" end="49" startBytecode="36" endBytecode="36" sourcefile="LazyUserList.java" sourcepath="twitter4j/internal/json/LazyUserList.java" relSourcepath="twitter4j/internal/json/LazyUserList.java">
+      <Message>At LazyUserList.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="IL_INFINITE_RECURSIVE_LOOP" abbrev="IL" category="CORRECTNESS" cweid="674">
+    <ShortDescription>An apparent infinite recursive loop</ShortDescription>
+    <Details><![CDATA[
+
+<p>This method unconditionally invokes itself. This would seem to indicate
+an infinite recursive loop that will result in a stack overflow.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BED_BOGUS_EXCEPTION_DECLARATION" abbrev="BED" category="CORRECTNESS">
+    <ShortDescription>Non derivable method declares throwing an exception that isn&apos;t thrown</ShortDescription>
+    <Details><![CDATA[
+			
+			<p>This method declares that it throws a checked exception that it does not throw. As this method is
+			either a constructor, static method or private method, there is no reason for this method to declare
+			the exception in its throws clause, and just causes calling methods to unnecessarily handle an exception
+			that will never be thrown. The exception in question should be removed from the throws clause.</p>
+			
+		]]></Details>
+  </BugPattern>
+  <BugPattern type="SE_BAD_FIELD" abbrev="Se" category="BAD_PRACTICE">
+    <ShortDescription>Non-transient non-serializable instance field in serializable class</ShortDescription>
+    <Details><![CDATA[
+
+<p> This Serializable class defines a non-primitive instance field which is neither transient,
+Serializable, or <code>java.lang.Object</code>, and does not appear to implement
+the <code>Externalizable</code> interface or the
+<code>readObject()</code> and <code>writeObject()</code> methods.&nbsp;
+Objects of this class will not be deserialized correctly if a non-Serializable
+object is stored in this field.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="TR_TAIL_RECURSION" abbrev="TR" category="PERFORMANCE">
+    <ShortDescription>Method employs tail recursion</ShortDescription>
+    <Details><![CDATA[
+			
+			<p>This method recursively calls itself as the last statement of the method
+			(Tail Recursion). This method can be easily refactored into a simple loop, which
+			will make it more performant, and reduce the stack size requirements.</p>
+			
+		]]></Details>
+  </BugPattern>
+  <BugPattern type="EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS" abbrev="EXS" category="STYLE">
+    <ShortDescription>Unconstrained method converts checked exception to unchecked</ShortDescription>
+    <Details><![CDATA[
+			
+			<p>This method is not constrained by an interface or superclass, but converts a caught checked exception
+			to unchecked exception and thrown. It would be more appropriate just to throw the checked exception, adding
+			the exception to the throws clause of the method.</p>
+			
+		]]></Details>
+  </BugPattern>
+  <BugCode abbrev="Se">
+    <Description>Incorrect definition of Serializable class</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="IL">
+    <Description>Infinite Loop</Description>
+  </BugCode>
+  <BugCode abbrev="BED">
+    <Description>Bogus Exception Declaration</Description>
+  </BugCode>
+  <BugCode abbrev="TR">
+    <Description>Tail Recursion</Description>
+  </BugCode>
+  <BugCode abbrev="EXS">
+    <Description>Exception Softening</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Mon, 18 Dec 2017 11:07:26 -0600" total_classes="39" referenced_classes="220" total_bugs="22" total_size="1309" num_packages="3" java_version="1.7.0_95" vm_version="24.95-b01" cpu_seconds="63.98" clock_seconds="32.65" peak_mbytes="267.06" alloc_mbytes="3564.50" gc_seconds="0.34" priority_2="3" priority_1="19">
+    <FileStats path="twitter4j/AppEngineTwitterImpl.java" bugCount="0" size="8"/>
+    <FileStats path="twitter4j/TwitterRuntimeException.java" bugCount="0" size="5"/>
+    <FileStats path="twitter4j/VersionAppEngine.java" bugCount="0" size="11"/>
+    <FileStats path="twitter4j/internal/http/alternative/AppEngineHttpResponseImpl.java" bugCount="3" size="95" bugHash="47eb6afae1ca066d61027a888f95ea4c"/>
+    <FileStats path="twitter4j/internal/http/alternative/HttpClientImpl.java" bugCount="0" size="69"/>
+    <FileStats path="twitter4j/internal/json/LazyAccountSettings.java" bugCount="1" size="47" bugHash="55e226f9acd2f3dc3cb04de54ee06ebe"/>
+    <FileStats path="twitter4j/internal/json/LazyAccountTotals.java" bugCount="1" size="37" bugHash="8fa6b7ca40991cf52c18ffa963a9c86a"/>
+    <FileStats path="twitter4j/internal/json/LazyDirectMessage.java" bugCount="1" size="55" bugHash="053920c3a686478efc091cc747503c36"/>
+    <FileStats path="twitter4j/internal/json/LazyIDs.java" bugCount="1" size="39" bugHash="e6edeac14fed3c3aef29511ad44b2c47"/>
+    <FileStats path="twitter4j/internal/json/LazyOEmbed.java" bugCount="1" size="43" bugHash="48802a898d5dfb02a51b3580b41029cd"/>
+    <FileStats path="twitter4j/internal/json/LazyPagableResponseList.java" bugCount="0" size="11"/>
+    <FileStats path="twitter4j/internal/json/LazyPlace.java" bugCount="1" size="59" bugHash="aab1104a158bdfdf688af9617dc78abf"/>
+    <FileStats path="twitter4j/internal/json/LazyQueryResult.java" bugCount="2" size="52" bugHash="6d9e78a4e3813ac1af36df882ba22200"/>
+    <FileStats path="twitter4j/internal/json/LazyRelatedResults.java" bugCount="1" size="35" bugHash="6aa91fe710a2fee47d5756c6d0411a8a"/>
+    <FileStats path="twitter4j/internal/json/LazyRelationship.java" bugCount="1" size="51" bugHash="455296385a1ede925eb99d802e2cd52a"/>
+    <FileStats path="twitter4j/internal/json/LazyResponseList.java" bugCount="1" size="74" bugHash="312d43015bde9864aee4f1127f2470b2"/>
+    <FileStats path="twitter4j/internal/json/LazySavedSearch.java" bugCount="1" size="43" bugHash="cb86f421b7ad5206bacc2ccc17a6af3e"/>
+    <FileStats path="twitter4j/internal/json/LazySimilarPlaces.java" bugCount="0" size="20"/>
+    <FileStats path="twitter4j/internal/json/LazyStatus.java" bugCount="1" size="79" bugHash="efd8240aa9f34b20447cf51cf5031782"/>
+    <FileStats path="twitter4j/internal/json/LazyTrends.java" bugCount="1" size="41" bugHash="3f0197a8bdbb1226ebcc60e86b1e7103"/>
+    <FileStats path="twitter4j/internal/json/LazyTwitterAPIConfiguration.java" bugCount="1" size="43" bugHash="a209a42f30d186f66524dfe792e06fbf"/>
+    <FileStats path="twitter4j/internal/json/LazyUser.java" bugCount="3" size="133" bugHash="ae7ad9b1fd32a41fcbeb87c4bdee5026"/>
+    <FileStats path="twitter4j/internal/json/LazyUserList.java" bugCount="1" size="55" bugHash="bb22e2a4dbab023b19ca6786a9043913"/>
+    <FileStats path="twitter4j/internal/json/z_T4JInternalLazyFactory.java" bugCount="0" size="204"/>
+    <PackageStats package="twitter4j" total_bugs="0" total_types="3" total_size="24">
+      <ClassStats class="twitter4j.AppEngineTwitterImpl" sourceFile="AppEngineTwitterImpl.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="twitter4j.TwitterRuntimeException" sourceFile="TwitterRuntimeException.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="twitter4j.VersionAppEngine" sourceFile="VersionAppEngine.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="twitter4j.internal.http.alternative" total_bugs="3" total_types="2" total_size="164" priority_2="1" priority_1="2">
+      <ClassStats class="twitter4j.internal.http.alternative.AppEngineHttpResponseImpl" sourceFile="AppEngineHttpResponseImpl.java" interface="false" size="95" bugs="3" priority_2="1" priority_1="2"/>
+      <ClassStats class="twitter4j.internal.http.alternative.HttpClientImpl" sourceFile="HttpClientImpl.java" interface="false" size="69" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="twitter4j.internal.json" total_bugs="19" total_types="34" total_size="1121" priority_2="2" priority_1="17">
+      <ClassStats class="twitter4j.internal.json.LazyAccountSettings" sourceFile="LazyAccountSettings.java" interface="false" size="47" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyAccountTotals" sourceFile="LazyAccountTotals.java" interface="false" size="37" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyDirectMessage" sourceFile="LazyDirectMessage.java" interface="false" size="55" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyIDs" sourceFile="LazyIDs.java" interface="false" size="39" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyOEmbed" sourceFile="LazyOEmbed.java" interface="false" size="43" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyPagableResponseList" sourceFile="LazyPagableResponseList.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.LazyPlace" sourceFile="LazyPlace.java" interface="false" size="59" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyQueryResult" sourceFile="LazyQueryResult.java" interface="false" size="52" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyRelatedResults" sourceFile="LazyRelatedResults.java" interface="false" size="35" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyRelationship" sourceFile="LazyRelationship.java" interface="false" size="51" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyResponseList" sourceFile="LazyResponseList.java" interface="false" size="74" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazySavedSearch" sourceFile="LazySavedSearch.java" interface="false" size="43" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazySimilarPlaces" sourceFile="LazySimilarPlaces.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.LazyStatus" sourceFile="LazyStatus.java" interface="false" size="79" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyTrends" sourceFile="LazyTrends.java" interface="false" size="41" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyTwitterAPIConfiguration" sourceFile="LazyTwitterAPIConfiguration.java" interface="false" size="43" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.LazyUser" sourceFile="LazyUser.java" interface="false" size="133" bugs="3" priority_2="1" priority_1="2"/>
+      <ClassStats class="twitter4j.internal.json.LazyUserList" sourceFile="LazyUserList.java" interface="false" size="55" bugs="1" priority_1="1"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="96" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$1" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$10" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$11" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$12" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$13" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$14" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$15" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$2" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$3" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$4" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$5" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$6" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$7" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$8" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.internal.json.z_T4JInternalLazyFactory$9" sourceFile="z_T4JInternalLazyFactory.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="2406" invocations="802" avgMicrosecondsPerInvocation="3000" maxMicrosecondsPerInvocation="106931" standardDeviationMircosecondsPerInvocation="7057"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.collect.CollectStatistics" totalMilliseconds="2229" invocations="220" avgMicrosecondsPerInvocation="10135" maxMicrosecondsPerInvocation="348166" standardDeviationMircosecondsPerInvocation="29730"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="2178" invocations="220" avgMicrosecondsPerInvocation="9901" maxMicrosecondsPerInvocation="217570" standardDeviationMircosecondsPerInvocation="23872"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="2118" invocations="220" avgMicrosecondsPerInvocation="9631" maxMicrosecondsPerInvocation="222266" standardDeviationMircosecondsPerInvocation="24019"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="1403" invocations="755" avgMicrosecondsPerInvocation="1859" maxMicrosecondsPerInvocation="94381" standardDeviationMircosecondsPerInvocation="6039"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="665" invocations="220" avgMicrosecondsPerInvocation="3022" maxMicrosecondsPerInvocation="123665" standardDeviationMircosecondsPerInvocation="12738"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="661" invocations="220" avgMicrosecondsPerInvocation="3004" maxMicrosecondsPerInvocation="63618" standardDeviationMircosecondsPerInvocation="7456"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="645" invocations="423" avgMicrosecondsPerInvocation="1524" maxMicrosecondsPerInvocation="56214" standardDeviationMircosecondsPerInvocation="3812"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="617" invocations="430" avgMicrosecondsPerInvocation="1436" maxMicrosecondsPerInvocation="102787" standardDeviationMircosecondsPerInvocation="5871"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="617" invocations="438" avgMicrosecondsPerInvocation="1409" maxMicrosecondsPerInvocation="80290" standardDeviationMircosecondsPerInvocation="5591"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="534" invocations="429" avgMicrosecondsPerInvocation="1245" maxMicrosecondsPerInvocation="78688" standardDeviationMircosecondsPerInvocation="4659"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="529" invocations="434" avgMicrosecondsPerInvocation="1220" maxMicrosecondsPerInvocation="57877" standardDeviationMircosecondsPerInvocation="4406"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="528" invocations="220" avgMicrosecondsPerInvocation="2403" maxMicrosecondsPerInvocation="139893" standardDeviationMircosecondsPerInvocation="10430"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="524" invocations="220" avgMicrosecondsPerInvocation="2383" maxMicrosecondsPerInvocation="85406" standardDeviationMircosecondsPerInvocation="7367"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="488" invocations="369" avgMicrosecondsPerInvocation="1325" maxMicrosecondsPerInvocation="39921" standardDeviationMircosecondsPerInvocation="4252"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="482" invocations="818" avgMicrosecondsPerInvocation="590" maxMicrosecondsPerInvocation="18768" standardDeviationMircosecondsPerInvocation="1580"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.collect.CollectMethodsReturningImmutableCollections" totalMilliseconds="475" invocations="220" avgMicrosecondsPerInvocation="2161" maxMicrosecondsPerInvocation="95839" standardDeviationMircosecondsPerInvocation="7789"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.taintanalysis.TaintDataflowEngine" totalMilliseconds="470" invocations="430" avgMicrosecondsPerInvocation="1093" maxMicrosecondsPerInvocation="48708" standardDeviationMircosecondsPerInvocation="3386"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="360" invocations="220" avgMicrosecondsPerInvocation="1638" maxMicrosecondsPerInvocation="34210" standardDeviationMircosecondsPerInvocation="4573"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="342" invocations="431" avgMicrosecondsPerInvocation="794" maxMicrosecondsPerInvocation="46254" standardDeviationMircosecondsPerInvocation="2794"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="315" invocations="428" avgMicrosecondsPerInvocation="737" maxMicrosecondsPerInvocation="27726" standardDeviationMircosecondsPerInvocation="2406"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="307" invocations="761" avgMicrosecondsPerInvocation="404" maxMicrosecondsPerInvocation="15172" standardDeviationMircosecondsPerInvocation="1390"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="283" invocations="220" avgMicrosecondsPerInvocation="1290" maxMicrosecondsPerInvocation="42513" standardDeviationMircosecondsPerInvocation="4588"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="232" invocations="220" avgMicrosecondsPerInvocation="1055" maxMicrosecondsPerInvocation="17383" standardDeviationMircosecondsPerInvocation="2695"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="214" invocations="220" avgMicrosecondsPerInvocation="974" maxMicrosecondsPerInvocation="43230" standardDeviationMircosecondsPerInvocation="5376"/>
+      <ClassProfile name="edu.umd.cs.findbugs.NonReportingDetectorToDetector2Adapter" totalMilliseconds="207" invocations="3378" avgMicrosecondsPerInvocation="61" maxMicrosecondsPerInvocation="60016" standardDeviationMircosecondsPerInvocation="1145"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="197" invocations="431" avgMicrosecondsPerInvocation="457" maxMicrosecondsPerInvocation="126329" standardDeviationMircosecondsPerInvocation="6105"/>
+      <ClassProfile name="edu.umd.cs.findbugs.DetectorToDetector2Adapter" totalMilliseconds="173" invocations="13842" avgMicrosecondsPerInvocation="12" maxMicrosecondsPerInvocation="12489" standardDeviationMircosecondsPerInvocation="191"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="165" invocations="422" avgMicrosecondsPerInvocation="391" maxMicrosecondsPerInvocation="13548" standardDeviationMircosecondsPerInvocation="1482"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.scala.ScalaSensitiveDataExposureDetector" totalMilliseconds="152" invocations="39" avgMicrosecondsPerInvocation="3917" maxMicrosecondsPerInvocation="93102" standardDeviationMircosecondsPerInvocation="14685"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.password.IntuitiveHardcodePasswordDetector" totalMilliseconds="150" invocations="39" avgMicrosecondsPerInvocation="3866" maxMicrosecondsPerInvocation="100288" standardDeviationMircosecondsPerInvocation="15783"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="135" invocations="430" avgMicrosecondsPerInvocation="314" maxMicrosecondsPerInvocation="15456" standardDeviationMircosecondsPerInvocation="1085"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="122" invocations="220" avgMicrosecondsPerInvocation="558" maxMicrosecondsPerInvocation="30419" standardDeviationMircosecondsPerInvocation="2618"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SerializableIdiom" totalMilliseconds="116" invocations="39" avgMicrosecondsPerInvocation="2981" maxMicrosecondsPerInvocation="18309" standardDeviationMircosecondsPerInvocation="4339"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="116" invocations="13" avgMicrosecondsPerInvocation="8943" maxMicrosecondsPerInvocation="16595" standardDeviationMircosecondsPerInvocation="5778"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="114" invocations="39" avgMicrosecondsPerInvocation="2947" maxMicrosecondsPerInvocation="23095" standardDeviationMircosecondsPerInvocation="4723"/>
+      <ClassProfile name="edu.umd.cs.findbugs.StackMapAnalyzer$StackMapAnalysisFactory" totalMilliseconds="107" invocations="330" avgMicrosecondsPerInvocation="327" maxMicrosecondsPerInvocation="14365" standardDeviationMircosecondsPerInvocation="1530"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.aws.AwsQueryInjectionDetector" totalMilliseconds="106" invocations="39" avgMicrosecondsPerInvocation="2741" maxMicrosecondsPerInvocation="53280" standardDeviationMircosecondsPerInvocation="8450"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.scala.XssMvcApiDetector" totalMilliseconds="103" invocations="39" avgMicrosecondsPerInvocation="2655" maxMicrosecondsPerInvocation="16806" standardDeviationMircosecondsPerInvocation="3987"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.file.PathTraversalDetector" totalMilliseconds="99" invocations="39" avgMicrosecondsPerInvocation="2561" maxMicrosecondsPerInvocation="18007" standardDeviationMircosecondsPerInvocation="3803"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteSuppressedWarnings" totalMilliseconds="98" invocations="220" avgMicrosecondsPerInvocation="445" maxMicrosecondsPerInvocation="20236" standardDeviationMircosecondsPerInvocation="2064"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.detect.CommonsHashcodeBuilderToHashcode" totalMilliseconds="96" invocations="39" avgMicrosecondsPerInvocation="2481" maxMicrosecondsPerInvocation="75941" standardDeviationMircosecondsPerInvocation="12004"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.redirect.UnvalidatedRedirectDetector" totalMilliseconds="94" invocations="39" avgMicrosecondsPerInvocation="2428" maxMicrosecondsPerInvocation="11929" standardDeviationMircosecondsPerInvocation="3239"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="93" invocations="39" avgMicrosecondsPerInvocation="2400" maxMicrosecondsPerInvocation="13435" standardDeviationMircosecondsPerInvocation="3193"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

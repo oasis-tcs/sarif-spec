@@ -1,0 +1,2 @@
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/test-classes/twitter4j/internal/http/LazyHttpClientImpl.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/test-classes/twitter4j/GAETwitterTest.class

@@ -1,0 +1,828 @@
+<!doctype html>
+<html>
+<head>
+<title>mod_authn_file.c</title>
+<style type="text/css">
+ body { color:#000000; background-color:#ffffff }
+ body { font-family:Helvetica, sans-serif; font-size:10pt }
+ h1 { font-size:14pt }
+ .code { border-collapse:collapse; width:100%; }
+ .code { font-family: "Monospace", monospace; font-size:10pt }
+ .code { line-height: 1.2em }
+ .comment { color: green; font-style: oblique }
+ .keyword { color: blue }
+ .string_literal { color: red }
+ .directive { color: darkmagenta }
+ .expansion { display: none; }
+ .macro:hover .expansion { display: block; border: 2px solid #FF0000; padding: 2px; background-color:#FFF0F0; font-weight: normal;   -webkit-border-radius:5px;  -webkit-box-shadow:1px 1px 7px #000; position: absolute; top: -1em; left:10em; z-index: 1 } 
+ .macro { color: darkmagenta; background-color:LemonChiffon; position: relative }
+ .num { width:2.5em; padding-right:2ex; background-color:#eeeeee }
+ .num { text-align:right; font-size:8pt }
+ .num { color:#444444 }
+ .line { padding-left: 1ex; border-left: 3px solid #ccc }
+ .line { white-space: pre }
+ .msg { -webkit-box-shadow:1px 1px 7px #000 }
+ .msg { -webkit-border-radius:5px }
+ .msg { font-family:Helvetica, sans-serif; font-size:8pt }
+ .msg { float:left }
+ .msg { padding:0.25em 1ex 0.25em 1ex }
+ .msg { margin-top:10px; margin-bottom:10px }
+ .msg { font-weight:bold }
+ .msg { max-width:60em; word-wrap: break-word; white-space: pre-wrap }
+ .msgT { padding:0x; spacing:0x }
+ .msgEvent { background-color:#fff8b4; color:#000000 }
+ .msgControl { background-color:#bbbbbb; color:#000000 }
+ .mrange { background-color:#dfddf3 }
+ .mrange { border-bottom:1px solid #6F9DBE }
+ .PathIndex { font-weight: bold; padding:0px 5px; margin-right:5px; }
+ .PathIndex { -webkit-border-radius:8px }
+ .PathIndexEvent { background-color:#bfba87 }
+ .PathIndexControl { background-color:#8c8c8c }
+ .PathNav a { text-decoration:none; font-size: larger }
+ .CodeInsertionHint { font-weight: bold; background-color: #10dd10 }
+ .CodeRemovalHint { background-color:#de1010 }
+ .CodeRemovalHint { border-bottom:1px solid #6F9DBE }
+ table.simpletable {
+   padding: 5px;
+   font-size:12pt;
+   margin:20px;
+   border-collapse: collapse; border-spacing: 0px;
+ }
+ td.rowname {
+   text-align:right; font-weight:bold; color:#444444;
+   padding-right:2ex; }
+</style>
+</head>
+<body>
+<!-- BUGDESC Access to field 'ptr' results in a dereference of a null pointer (loaded from variable 'username') -->
+
+<!-- BUGTYPE Dereference of null pointer -->
+
+<!-- BUGCATEGORY Logic error -->
+
+<!-- BUGFILE /home/kupsch/build/pkg1/lighttpd-1.4.45/src/mod_authn_file.c -->
+
+<!-- FILENAME mod_authn_file.c -->
+
+<!-- FUNCTIONNAME mod_authn_file_htdigest_basic -->
+
+<!-- ISSUEHASHCONTENTOFLINEINCONTEXT b48b3ef9a18ad9cb04542f11d6e5fe33 -->
+
+<!-- BUGLINE 302 -->
+
+<!-- BUGCOLUMN 47 -->
+
+<!-- BUGPATHLENGTH 3 -->
+
+<!-- BUGMETAEND -->
+<!-- REPORTHEADER -->
+<h3>Bug Summary</h3>
+<table class="simpletable">
+<tr><td class="rowname">File:</td><td>mod_authn_file.c</td></tr>
+<tr><td class="rowname">Location:</td><td><a href="#EndPath">line 302, column 47</a></td></tr>
+<tr><td class="rowname">Description:</td><td>Access to field 'ptr' results in a dereference of a null pointer (loaded from variable 'username')</td></tr>
+</table>
+<!-- REPORTSUMMARYEXTRA -->
+<h3>Annotated Source Code</h3>
+<table class="code">
+<tr><td class="num" id="LN1">1</td><td class="line"><span class='directive'>#include "first.h"</span></td></tr>
+<tr><td class="num" id="LN2">2</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN3">3</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN4">4</td><td class="line"><span class='comment'>/*(htpasswd)*/</span></td></tr>
+<tr><td class="num" id="LN5">5</td><td class="line"><span class='directive'>#ifdef <span class='macro'>HAVE_CRYPT_H<span class='expansion'>1</span></span></span></td></tr>
+<tr><td class="num" id="LN6">6</td><td class="line"><span class='directive'># include &lt;crypt.h&gt;</span></td></tr>
+<tr><td class="num" id="LN7">7</td><td class="line"><span class='directive'>#elif defined(<span class='macro'>__linux__<span class='expansion'>1</span></span>)</span></td></tr>
+<tr><td class="num" id="LN8">8</td><td class="line"><span class='comment'>/* linux needs _XOPEN_SOURCE */</span></td></tr>
+<tr><td class="num" id="LN9">9</td><td class="line"><span class='directive'># define <span class='macro'>_XOPEN_SOURCE<span class='expansion'>700</span></span></span></td></tr>
+<tr><td class="num" id="LN10">10</td><td class="line"><span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN11">11</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN12">12</td><td class="line"><span class='directive'>#if defined(HAVE_LIBCRYPT) &amp;&amp; !defined(HAVE_CRYPT)</span></td></tr>
+<tr><td class="num" id="LN13">13</td><td class="line"><span class='comment'>/* always assume crypt() is present if we have -lcrypt */</span></td></tr>
+<tr><td class="num" id="LN14">14</td><td class="line"><span class='directive'># define HAVE_CRYPT</span></td></tr>
+<tr><td class="num" id="LN15">15</td><td class="line"><span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN16">16</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN17">17</td><td class="line"><span class='directive'>#include "base.h"</span></td></tr>
+<tr><td class="num" id="LN18">18</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN19">19</td><td class="line"><span class='directive'>#ifdef USE_OPENSSL</span></td></tr>
+<tr><td class="num" id="LN20">20</td><td class="line"><span class='directive'>#include "base64.h"</span></td></tr>
+<tr><td class="num" id="LN21">21</td><td class="line"><span class='directive'>#include &lt;openssl/md4.h&gt;</span></td></tr>
+<tr><td class="num" id="LN22">22</td><td class="line"><span class='directive'>#include &lt;openssl/sha.h&gt;</span></td></tr>
+<tr><td class="num" id="LN23">23</td><td class="line"><span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN24">24</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN25">25</td><td class="line"><span class='directive'>#include "safe_memclear.h"</span></td></tr>
+<tr><td class="num" id="LN26">26</td><td class="line"><span class='comment'>/*(htpasswd)*/</span></td></tr>
+<tr><td class="num" id="LN27">27</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN28">28</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN29">29</td><td class="line"><span class='directive'>#include "plugin.h"</span></td></tr>
+<tr><td class="num" id="LN30">30</td><td class="line"><span class='directive'>#include "http_auth.h"</span></td></tr>
+<tr><td class="num" id="LN31">31</td><td class="line"><span class='directive'>#include "log.h"</span></td></tr>
+<tr><td class="num" id="LN32">32</td><td class="line"><span class='directive'>#include "response.h"</span></td></tr>
+<tr><td class="num" id="LN33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN34">34</td><td class="line"><span class='directive'>#include "inet_ntop_cache.h"</span></td></tr>
+<tr><td class="num" id="LN35">35</td><td class="line"><span class='directive'>#include "base64.h"</span></td></tr>
+<tr><td class="num" id="LN36">36</td><td class="line"><span class='directive'>#include "md5.h"</span></td></tr>
+<tr><td class="num" id="LN37">37</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN38">38</td><td class="line"><span class='directive'>#include &lt;sys/types.h&gt;</span></td></tr>
+<tr><td class="num" id="LN39">39</td><td class="line"><span class='directive'>#include &lt;sys/stat.h&gt;</span></td></tr>
+<tr><td class="num" id="LN40">40</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN41">41</td><td class="line"><span class='directive'>#include &lt;stdlib.h&gt;</span></td></tr>
+<tr><td class="num" id="LN42">42</td><td class="line"><span class='directive'>#include &lt;string.h&gt;</span></td></tr>
+<tr><td class="num" id="LN43">43</td><td class="line"><span class='directive'>#include &lt;<span class='macro'>errno<span class='expansion'>(*__errno_location ())</span></span>.h&gt;</span></td></tr>
+<tr><td class="num" id="LN44">44</td><td class="line"><span class='directive'>#include &lt;fcntl.h&gt;</span></td></tr>
+<tr><td class="num" id="LN45">45</td><td class="line"><span class='directive'>#include &lt;unistd.h&gt;</span></td></tr>
+<tr><td class="num" id="LN46">46</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN47">47</td><td class="line"><span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN48">48</td><td class="line"> <span class='comment'>* htdigest, htpasswd, plain auth backends</span></td></tr>
+<tr><td class="num" id="LN49">49</td><td class="line"> <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN50">50</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN51">51</td><td class="line"><span class='keyword'>typedef</span> <span class='keyword'>struct</span> {</td></tr>
+<tr><td class="num" id="LN52">52</td><td class="line">    buffer *auth_plain_groupfile;</td></tr>
+<tr><td class="num" id="LN53">53</td><td class="line">    buffer *auth_plain_userfile;</td></tr>
+<tr><td class="num" id="LN54">54</td><td class="line">    buffer *auth_htdigest_userfile;</td></tr>
+<tr><td class="num" id="LN55">55</td><td class="line">    buffer *auth_htpasswd_userfile;</td></tr>
+<tr><td class="num" id="LN56">56</td><td class="line">} plugin_config;</td></tr>
+<tr><td class="num" id="LN57">57</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN58">58</td><td class="line"><span class='keyword'>typedef</span> <span class='keyword'>struct</span> {</td></tr>
+<tr><td class="num" id="LN59">59</td><td class="line">    <span class='macro'>PLUGIN_DATA<span class='expansion'>size_t id</span></span>;</td></tr>
+<tr><td class="num" id="LN60">60</td><td class="line">    plugin_config **config_storage;</td></tr>
+<tr><td class="num" id="LN61">61</td><td class="line">    plugin_config conf;</td></tr>
+<tr><td class="num" id="LN62">62</td><td class="line">} plugin_data;</td></tr>
+<tr><td class="num" id="LN63">63</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN64">64</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_htdigest_digest(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> <span class='keyword'>char</span> *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *realm, <span class='keyword'>unsigned</span> <span class='keyword'>char</span> HA1[16]);</td></tr>
+<tr><td class="num" id="LN65">65</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_htdigest_basic(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> http_auth_require_t *require, <span class='keyword'>const</span> buffer *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *pw);</td></tr>
+<tr><td class="num" id="LN66">66</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_plain_digest(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> <span class='keyword'>char</span> *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *realm, <span class='keyword'>unsigned</span> <span class='keyword'>char</span> HA1[16]);</td></tr>
+<tr><td class="num" id="LN67">67</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_plain_basic(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> http_auth_require_t *require, <span class='keyword'>const</span> buffer *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *pw);</td></tr>
+<tr><td class="num" id="LN68">68</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_htpasswd_basic(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> http_auth_require_t *require, <span class='keyword'>const</span> buffer *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *pw);</td></tr>
+<tr><td class="num" id="LN69">69</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN70">70</td><td class="line"><span class='macro'>INIT_FUNC(mod_authn_file_init)<span class='expansion'>static void *mod_authn_file_init(void)</span></span> {</td></tr>
+<tr><td class="num" id="LN71">71</td><td class="line">    <span class='keyword'>static</span> http_auth_backend_t http_auth_backend_htdigest =</td></tr>
+<tr><td class="num" id="LN72">72</td><td class="line">      { <span class='string_literal'>"htdigest"</span>, mod_authn_file_htdigest_basic, mod_authn_file_htdigest_digest, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> };</td></tr>
+<tr><td class="num" id="LN73">73</td><td class="line">    <span class='keyword'>static</span> http_auth_backend_t http_auth_backend_htpasswd =</td></tr>
+<tr><td class="num" id="LN74">74</td><td class="line">      { <span class='string_literal'>"htpasswd"</span>, mod_authn_file_htpasswd_basic, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> };</td></tr>
+<tr><td class="num" id="LN75">75</td><td class="line">    <span class='keyword'>static</span> http_auth_backend_t http_auth_backend_plain =</td></tr>
+<tr><td class="num" id="LN76">76</td><td class="line">      { <span class='string_literal'>"plain"</span>, mod_authn_file_plain_basic, mod_authn_file_plain_digest, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> };</td></tr>
+<tr><td class="num" id="LN77">77</td><td class="line">    plugin_data *p = calloc(1, <span class='keyword'>sizeof</span>(*p));</td></tr>
+<tr><td class="num" id="LN78">78</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN79">79</td><td class="line">    <span class='comment'>/* register http_auth_backend_htdigest */</span></td></tr>
+<tr><td class="num" id="LN80">80</td><td class="line">    http_auth_backend_htdigest.p_d = p;</td></tr>
+<tr><td class="num" id="LN81">81</td><td class="line">    http_auth_backend_set(&amp;http_auth_backend_htdigest);</td></tr>
+<tr><td class="num" id="LN82">82</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN83">83</td><td class="line">    <span class='comment'>/* register http_auth_backend_htpasswd */</span></td></tr>
+<tr><td class="num" id="LN84">84</td><td class="line">    http_auth_backend_htpasswd.p_d = p;</td></tr>
+<tr><td class="num" id="LN85">85</td><td class="line">    http_auth_backend_set(&amp;http_auth_backend_htpasswd);</td></tr>
+<tr><td class="num" id="LN86">86</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN87">87</td><td class="line">    <span class='comment'>/* register http_auth_backend_plain */</span></td></tr>
+<tr><td class="num" id="LN88">88</td><td class="line">    http_auth_backend_plain.p_d = p;</td></tr>
+<tr><td class="num" id="LN89">89</td><td class="line">    http_auth_backend_set(&amp;http_auth_backend_plain);</td></tr>
+<tr><td class="num" id="LN90">90</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN91">91</td><td class="line">    <span class='keyword'>return</span> p;</td></tr>
+<tr><td class="num" id="LN92">92</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN93">93</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN94">94</td><td class="line"><span class='macro'>FREE_FUNC(mod_authn_file_free)<span class='expansion'>static handler_t mod_authn_file_free(server *srv, void *p_d)</span></span> {</td></tr>
+<tr><td class="num" id="LN95">95</td><td class="line">    plugin_data *p = p_d;</td></tr>
+<tr><td class="num" id="LN96">96</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN97">97</td><td class="line">    <span class='macro'>UNUSED(srv)<span class='expansion'>( (void)(srv) )</span></span>;</td></tr>
+<tr><td class="num" id="LN98">98</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN99">99</td><td class="line">    <span class='keyword'>if</span> (!p) <span class='keyword'>return</span> HANDLER_GO_ON;</td></tr>
+<tr><td class="num" id="LN100">100</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN101">101</td><td class="line">    <span class='keyword'>if</span> (p-&gt;config_storage) {</td></tr>
+<tr><td class="num" id="LN102">102</td><td class="line">        size_t i;</td></tr>
+<tr><td class="num" id="LN103">103</td><td class="line">        <span class='keyword'>for</span> (i = 0; i &lt; srv-&gt;config_context-&gt;used; i++) {</td></tr>
+<tr><td class="num" id="LN104">104</td><td class="line">            plugin_config *s = p-&gt;config_storage[i];</td></tr>
+<tr><td class="num" id="LN105">105</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN106">106</td><td class="line">            <span class='keyword'>if</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> == s) <span class='keyword'>continue</span>;</td></tr>
+<tr><td class="num" id="LN107">107</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN108">108</td><td class="line">            buffer_free(s-&gt;auth_plain_groupfile);</td></tr>
+<tr><td class="num" id="LN109">109</td><td class="line">            buffer_free(s-&gt;auth_plain_userfile);</td></tr>
+<tr><td class="num" id="LN110">110</td><td class="line">            buffer_free(s-&gt;auth_htdigest_userfile);</td></tr>
+<tr><td class="num" id="LN111">111</td><td class="line">            buffer_free(s-&gt;auth_htpasswd_userfile);</td></tr>
+<tr><td class="num" id="LN112">112</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN113">113</td><td class="line">            free(s);</td></tr>
+<tr><td class="num" id="LN114">114</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN115">115</td><td class="line">        free(p-&gt;config_storage);</td></tr>
+<tr><td class="num" id="LN116">116</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN117">117</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN118">118</td><td class="line">    free(p);</td></tr>
+<tr><td class="num" id="LN119">119</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN120">120</td><td class="line">    <span class='keyword'>return</span> HANDLER_GO_ON;</td></tr>
+<tr><td class="num" id="LN121">121</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN122">122</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN123">123</td><td class="line"><span class='macro'>SETDEFAULTS_FUNC(mod_authn_file_set_defaults)<span class='expansion'>static handler_t mod_authn_file_set_defaults(server *srv, void<br> *p_d)</span></span> {</td></tr>
+<tr><td class="num" id="LN124">124</td><td class="line">    plugin_data *p = p_d;</td></tr>
+<tr><td class="num" id="LN125">125</td><td class="line">    size_t i;</td></tr>
+<tr><td class="num" id="LN126">126</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN127">127</td><td class="line">    config_values_t cv[] = {</td></tr>
+<tr><td class="num" id="LN128">128</td><td class="line">        { <span class='string_literal'>"auth.backend.plain.groupfile"</span>,   <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION }, <span class='comment'>/* 0 */</span></td></tr>
+<tr><td class="num" id="LN129">129</td><td class="line">        { <span class='string_literal'>"auth.backend.plain.userfile"</span>,    <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION }, <span class='comment'>/* 1 */</span></td></tr>
+<tr><td class="num" id="LN130">130</td><td class="line">        { <span class='string_literal'>"auth.backend.htdigest.userfile"</span>, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION }, <span class='comment'>/* 2 */</span></td></tr>
+<tr><td class="num" id="LN131">131</td><td class="line">        { <span class='string_literal'>"auth.backend.htpasswd.userfile"</span>, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION }, <span class='comment'>/* 3 */</span></td></tr>
+<tr><td class="num" id="LN132">132</td><td class="line">        { <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>,                             <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, T_CONFIG_UNSET, T_CONFIG_SCOPE_UNSET }</td></tr>
+<tr><td class="num" id="LN133">133</td><td class="line">    };</td></tr>
+<tr><td class="num" id="LN134">134</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN135">135</td><td class="line">    p-&gt;config_storage = calloc(1, srv-&gt;config_context-&gt;used * <span class='keyword'>sizeof</span>(plugin_config *));</td></tr>
+<tr><td class="num" id="LN136">136</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN137">137</td><td class="line">    <span class='keyword'>for</span> (i = 0; i &lt; srv-&gt;config_context-&gt;used; i++) {</td></tr>
+<tr><td class="num" id="LN138">138</td><td class="line">        data_config <span class='keyword'>const</span>* config = (data_config <span class='keyword'>const</span>*)srv-&gt;config_context-&gt;data[i];</td></tr>
+<tr><td class="num" id="LN139">139</td><td class="line">        plugin_config *s;</td></tr>
+<tr><td class="num" id="LN140">140</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN141">141</td><td class="line">        s = calloc(1, <span class='keyword'>sizeof</span>(plugin_config));</td></tr>
+<tr><td class="num" id="LN142">142</td><td class="line">        s-&gt;auth_plain_groupfile = buffer_init();</td></tr>
+<tr><td class="num" id="LN143">143</td><td class="line">        s-&gt;auth_plain_userfile = buffer_init();</td></tr>
+<tr><td class="num" id="LN144">144</td><td class="line">        s-&gt;auth_htdigest_userfile = buffer_init();</td></tr>
+<tr><td class="num" id="LN145">145</td><td class="line">        s-&gt;auth_htpasswd_userfile = buffer_init();</td></tr>
+<tr><td class="num" id="LN146">146</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN147">147</td><td class="line">        cv[0].destination = s-&gt;auth_plain_groupfile;</td></tr>
+<tr><td class="num" id="LN148">148</td><td class="line">        cv[1].destination = s-&gt;auth_plain_userfile;</td></tr>
+<tr><td class="num" id="LN149">149</td><td class="line">        cv[2].destination = s-&gt;auth_htdigest_userfile;</td></tr>
+<tr><td class="num" id="LN150">150</td><td class="line">        cv[3].destination = s-&gt;auth_htpasswd_userfile;</td></tr>
+<tr><td class="num" id="LN151">151</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN152">152</td><td class="line">        p-&gt;config_storage[i] = s;</td></tr>
+<tr><td class="num" id="LN153">153</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN154">154</td><td class="line">        <span class='keyword'>if</span> (0 != config_insert_values_global(srv, config-&gt;value, cv, i == 0 ? T_CONFIG_SCOPE_SERVER : T_CONFIG_SCOPE_CONNECTION)) {</td></tr>
+<tr><td class="num" id="LN155">155</td><td class="line">            <span class='keyword'>return</span> HANDLER_ERROR;</td></tr>
+<tr><td class="num" id="LN156">156</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN157">157</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN158">158</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN159">159</td><td class="line">    <span class='keyword'>return</span> HANDLER_GO_ON;</td></tr>
+<tr><td class="num" id="LN160">160</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN161">161</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN162">162</td><td class="line"><span class='directive'>#define PATCH(x) \</span></td></tr>
+<tr><td class="num" id="LN163">163</td><td class="line">    <span class='directive'>p-&gt;conf.x = s-&gt;x;</span></td></tr>
+<tr><td class="num" id="LN164">164</td><td class="line"><span class='keyword'>static</span> <span class='keyword'>int</span> mod_authn_file_patch_connection(server *srv, connection *con, plugin_data *p) {</td></tr>
+<tr><td class="num" id="LN165">165</td><td class="line">    size_t i, j;</td></tr>
+<tr><td class="num" id="LN166">166</td><td class="line">    plugin_config *s = p-&gt;config_storage[0];</td></tr>
+<tr><td class="num" id="LN167">167</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN168">168</td><td class="line">    PATCH(auth_plain_groupfile);</td></tr>
+<tr><td class="num" id="LN169">169</td><td class="line">    PATCH(auth_plain_userfile);</td></tr>
+<tr><td class="num" id="LN170">170</td><td class="line">    PATCH(auth_htdigest_userfile);</td></tr>
+<tr><td class="num" id="LN171">171</td><td class="line">    PATCH(auth_htpasswd_userfile);</td></tr>
+<tr><td class="num" id="LN172">172</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN173">173</td><td class="line">    <span class='comment'>/* skip the first, the global context */</span></td></tr>
+<tr><td class="num" id="LN174">174</td><td class="line">    <span class='keyword'>for</span> (i = 1; i &lt; srv-&gt;config_context-&gt;used; i++) {</td></tr>
+<tr><td class="num" id="LN175">175</td><td class="line">        data_config *dc = (data_config *)srv-&gt;config_context-&gt;data[i];</td></tr>
+<tr><td class="num" id="LN176">176</td><td class="line">        s = p-&gt;config_storage[i];</td></tr>
+<tr><td class="num" id="LN177">177</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN178">178</td><td class="line">        <span class='comment'>/* condition didn't match */</span></td></tr>
+<tr><td class="num" id="LN179">179</td><td class="line">        <span class='keyword'>if</span> (!config_check_cond(srv, con, dc)) <span class='keyword'>continue</span>;</td></tr>
+<tr><td class="num" id="LN180">180</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN181">181</td><td class="line">        <span class='comment'>/* merge config */</span></td></tr>
+<tr><td class="num" id="LN182">182</td><td class="line">        <span class='keyword'>for</span> (j = 0; j &lt; dc-&gt;value-&gt;used; j++) {</td></tr>
+<tr><td class="num" id="LN183">183</td><td class="line">            data_unset *du = dc-&gt;value-&gt;data[j];</td></tr>
+<tr><td class="num" id="LN184">184</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN185">185</td><td class="line">            <span class='keyword'>if</span> (buffer_is_equal_string(du-&gt;key, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>"auth.backend.plain.groupfile"</span>)<span class='expansion'>"auth.backend.plain.groupfile", ("auth.backend.plain.groupfile"<br>) ? sizeof("auth.backend.plain.groupfile") - 1 : 0</span></span>)) {</td></tr>
+<tr><td class="num" id="LN186">186</td><td class="line">                PATCH(auth_plain_groupfile);</td></tr>
+<tr><td class="num" id="LN187">187</td><td class="line">            } <span class='keyword'>else</span> <span class='keyword'>if</span> (buffer_is_equal_string(du-&gt;key, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>"auth.backend.plain.userfile"</span>)<span class='expansion'>"auth.backend.plain.userfile", ("auth.backend.plain.userfile"<br>) ? sizeof("auth.backend.plain.userfile") - 1 : 0</span></span>)) {</td></tr>
+<tr><td class="num" id="LN188">188</td><td class="line">                PATCH(auth_plain_userfile);</td></tr>
+<tr><td class="num" id="LN189">189</td><td class="line">            } <span class='keyword'>else</span> <span class='keyword'>if</span> (buffer_is_equal_string(du-&gt;key, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>"auth.backend.htdigest.userfile"</span>)<span class='expansion'>"auth.backend.htdigest.userfile", ("auth.backend.htdigest.userfile"<br>) ? sizeof("auth.backend.htdigest.userfile") - 1 : 0</span></span>)) {</td></tr>
+<tr><td class="num" id="LN190">190</td><td class="line">                PATCH(auth_htdigest_userfile);</td></tr>
+<tr><td class="num" id="LN191">191</td><td class="line">            } <span class='keyword'>else</span> <span class='keyword'>if</span> (buffer_is_equal_string(du-&gt;key, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>"auth.backend.htpasswd.userfile"</span>)<span class='expansion'>"auth.backend.htpasswd.userfile", ("auth.backend.htpasswd.userfile"<br>) ? sizeof("auth.backend.htpasswd.userfile") - 1 : 0</span></span>)) {</td></tr>
+<tr><td class="num" id="LN192">192</td><td class="line">                PATCH(auth_htpasswd_userfile);</td></tr>
+<tr><td class="num" id="LN193">193</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN194">194</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN195">195</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN196">196</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN197">197</td><td class="line">    <span class='keyword'>return</span> 0;</td></tr>
+<tr><td class="num" id="LN198">198</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN199">199</td><td class="line"><span class='directive'>#undef PATCH</span></td></tr>
+<tr><td class="num" id="LN200">200</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN201">201</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN202">202</td><td class="line"><span class='keyword'>static</span> <span class='keyword'>int</span> mod_authn_file_htdigest_get(server *srv, <span class='keyword'>const</span> buffer *auth_fn, <span class='keyword'>const</span> buffer *username, <span class='keyword'>const</span> buffer *realm, <span class='keyword'>unsigned</span> <span class='keyword'>char</span> HA1[16]) {</td></tr>
+<tr><td class="num" id="LN203">203</td><td class="line">    FILE *fp;</td></tr>
+<tr><td class="num" id="LN204">204</td><td class="line">    <span class='keyword'>char</span> f_user[1024];</td></tr>
+<tr><td class="num" id="LN205">205</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN206">206</td><td class="line">    <span class='keyword'>if</span> (buffer_string_is_empty(auth_fn)) <span class='keyword'>return</span> -1;</td></tr>
+<tr><td class="num" id="LN207">207</td><td class="line">    <span class='keyword'>if</span> (buffer_is_empty(username) || buffer_is_empty(realm)) <span class='keyword'>return</span> -1;</td></tr>
+<tr><td class="num" id="LN208">208</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN209">209</td><td class="line">    fp = fopen(auth_fn-&gt;ptr, <span class='string_literal'>"r"</span>);</td></tr>
+<tr><td class="num" id="LN210">210</td><td class="line">    <span class='keyword'>if</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> == fp) {</td></tr>
+<tr><td class="num" id="LN211">211</td><td class="line">        log_error_write(srv, <span class='macro'>__FILE__<span class='expansion'>"mod_authn_file.c"</span></span>, <span class='macro'>__LINE__<span class='expansion'>211</span></span>, <span class='string_literal'>"sbss"</span>, <span class='string_literal'>"opening digest-userfile"</span>, auth_fn, <span class='string_literal'>"failed:"</span>, strerror(<span class='macro'>errno<span class='expansion'>(*__errno_location ())</span></span>));</td></tr>
+<tr><td class="num" id="LN212">212</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN213">213</td><td class="line">        <span class='keyword'>return</span> -1;</td></tr>
+<tr><td class="num" id="LN214">214</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN215">215</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN216">216</td><td class="line">    <span class='keyword'>while</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> != fgets(f_user, <span class='keyword'>sizeof</span>(f_user), fp)) {</td></tr>
+<tr><td class="num" id="LN217">217</td><td class="line">        <span class='keyword'>char</span> *f_pwd, *f_realm;</td></tr>
+<tr><td class="num" id="LN218">218</td><td class="line">        size_t u_len, r_len;</td></tr>
+<tr><td class="num" id="LN219">219</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN220">220</td><td class="line">        <span class='comment'>/* skip blank lines and comment lines (beginning '#') */</span></td></tr>
+<tr><td class="num" id="LN221">221</td><td class="line">        <span class='keyword'>if</span> (f_user[0] == '#' || f_user[0] == '\n' || f_user[0] == '\0') <span class='keyword'>continue</span>;</td></tr>
+<tr><td class="num" id="LN222">222</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN223">223</td><td class="line">        <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN224">224</td><td class="line">         <span class='comment'>* htdigest format</span></td></tr>
+<tr><td class="num" id="LN225">225</td><td class="line">         <span class='comment'>*</span></td></tr>
+<tr><td class="num" id="LN226">226</td><td class="line">         <span class='comment'>* user:realm:md5(user:realm:password)</span></td></tr>
+<tr><td class="num" id="LN227">227</td><td class="line">         <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN228">228</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN229">229</td><td class="line">        <span class='keyword'>if</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> == (f_realm = <span class='macro'>strchr(f_user, ':')<span class='expansion'>(__extension__ (__builtin_constant_p (':') &amp;&amp; !__builtin_constant_p<br> (f_user) &amp;&amp; (':') == '\0' ? (char *) __rawmemchr (f_user<br>, ':') : __builtin_strchr (f_user, ':')))</span></span>)) {</td></tr>
+<tr><td class="num" id="LN230">230</td><td class="line">            log_error_write(srv, <span class='macro'>__FILE__<span class='expansion'>"mod_authn_file.c"</span></span>, <span class='macro'>__LINE__<span class='expansion'>230</span></span>, <span class='string_literal'>"sbs"</span>,</td></tr>
+<tr><td class="num" id="LN231">231</td><td class="line">                    <span class='string_literal'>"parsed error in"</span>, auth_fn,</td></tr>
+<tr><td class="num" id="LN232">232</td><td class="line">                    <span class='string_literal'>"expected 'username:realm:hashed password'"</span>);</td></tr>
+<tr><td class="num" id="LN233">233</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN234">234</td><td class="line">            <span class='keyword'>continue</span>; <span class='comment'>/* skip bad lines */</span></td></tr>
+<tr><td class="num" id="LN235">235</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN236">236</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN237">237</td><td class="line">        <span class='keyword'>if</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> == (f_pwd = <span class='macro'>strchr(f_realm + 1, ':')<span class='expansion'>(__extension__ (__builtin_constant_p (':') &amp;&amp; !__builtin_constant_p<br> (f_realm + 1) &amp;&amp; (':') == '\0' ? (char *) __rawmemchr<br> (f_realm + 1, ':') : __builtin_strchr (f_realm + 1, ':')))</span></span>)) {</td></tr>
+<tr><td class="num" id="LN238">238</td><td class="line">            log_error_write(srv, <span class='macro'>__FILE__<span class='expansion'>"mod_authn_file.c"</span></span>, <span class='macro'>__LINE__<span class='expansion'>238</span></span>, <span class='string_literal'>"sbs"</span>,</td></tr>
+<tr><td class="num" id="LN239">239</td><td class="line">                    <span class='string_literal'>"parsed error in"</span>, auth_fn,</td></tr>
+<tr><td class="num" id="LN240">240</td><td class="line">                    <span class='string_literal'>"expected 'username:realm:hashed password'"</span>);</td></tr>
+<tr><td class="num" id="LN241">241</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN242">242</td><td class="line">            <span class='keyword'>continue</span>; <span class='comment'>/* skip bad lines */</span></td></tr>
+<tr><td class="num" id="LN243">243</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN244">244</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN245">245</td><td class="line">        <span class='comment'>/* get pointers to the fields */</span></td></tr>
+<tr><td class="num" id="LN246">246</td><td class="line">        u_len = f_realm - f_user;</td></tr>
+<tr><td class="num" id="LN247">247</td><td class="line">        f_realm++;</td></tr>
+<tr><td class="num" id="LN248">248</td><td class="line">        r_len = f_pwd - f_realm;</td></tr>
+<tr><td class="num" id="LN249">249</td><td class="line">        f_pwd++;</td></tr>
+<tr><td class="num" id="LN250">250</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN251">251</td><td class="line">        <span class='keyword'>if</span> (buffer_string_length(username) == u_len &amp;&amp;</td></tr>
+<tr><td class="num" id="LN252">252</td><td class="line">            (buffer_string_length(realm) == r_len) &amp;&amp;</td></tr>
+<tr><td class="num" id="LN253">253</td><td class="line">            (0 == <span class='macro'>strncmp(username-&gt;ptr, f_user, u_len)<span class='expansion'>(__extension__ (__builtin_constant_p (u_len) &amp;&amp; ((__builtin_constant_p<br> (username-&gt;ptr) &amp;&amp; strlen (username-&gt;ptr) &lt;<br> ((size_t) (u_len))) || (__builtin_constant_p (f_user) &amp;&amp;<br> strlen (f_user) &lt; ((size_t) (u_len)))) ? __extension__ ({<br> size_t __s1_len, __s2_len; (__builtin_constant_p (username-&gt;<br>ptr) &amp;&amp; __builtin_constant_p (f_user) &amp;&amp; (__s1_len<br> = __builtin_strlen (username-&gt;ptr), __s2_len = __builtin_strlen<br> (f_user), (!((size_t)(const void *)((username-&gt;ptr) + 1) -<br> (size_t)(const void *)(username-&gt;ptr) == 1) || __s1_len &gt;=<br> 4) &amp;&amp; (!((size_t)(const void *)((f_user) + 1) - (size_t<br>)(const void *)(f_user) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp<br> (username-&gt;ptr, f_user) : (__builtin_constant_p (username<br>-&gt;ptr) &amp;&amp; ((size_t)(const void *)((username-&gt;ptr<br>) + 1) - (size_t)(const void *)(username-&gt;ptr) == 1) &amp;&amp;<br> (__s1_len = __builtin_strlen (username-&gt;ptr), __s1_len &lt;<br> 4) ? (__builtin_constant_p (f_user) &amp;&amp; ((size_t)(const<br> void *)((f_user) + 1) - (size_t)(const void *)(f_user) == 1)<br> ? __builtin_strcmp (username-&gt;ptr, f_user) : (__extension__<br> ({ const unsigned char *__s2 = (const unsigned char *) (const<br> char *) (f_user); int __result = (((const unsigned char *) (<br>const char *) (username-&gt;ptr))[0] - __s2[0]); if (__s1_len<br> &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned<br> char *) (const char *) (username-&gt;ptr))[1] - __s2[1]); if<br> (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const<br> unsigned char *) (const char *) (username-&gt;ptr))[2] - __s2<br>[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result =<br> (((const unsigned char *) (const char *) (username-&gt;ptr))<br>[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (f_user<br>) &amp;&amp; ((size_t)(const void *)((f_user) + 1) - (size_t)<br>(const void *)(f_user) == 1) &amp;&amp; (__s2_len = __builtin_strlen<br> (f_user), __s2_len &lt; 4) ? (__builtin_constant_p (username<br>-&gt;ptr) &amp;&amp; ((size_t)(const void *)((username-&gt;ptr<br>) + 1) - (size_t)(const void *)(username-&gt;ptr) == 1) ? __builtin_strcmp<br> (username-&gt;ptr, f_user) : (- (__extension__ ({ const unsigned<br> char *__s2 = (const unsigned char *) (const char *) (username<br>-&gt;ptr); int __result = (((const unsigned char *) (const char<br> *) (f_user))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>f_user))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>f_user))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result<br> == 0) __result = (((const unsigned char *) (const char *) (f_user<br>))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (username<br>-&gt;ptr, f_user)))); }) : strncmp (username-&gt;ptr, f_user,<br> u_len)))</span></span>) &amp;&amp;</td></tr>
+<tr><td class="num" id="LN254">254</td><td class="line">            (0 == <span class='macro'>strncmp(realm-&gt;ptr, f_realm, r_len)<span class='expansion'>(__extension__ (__builtin_constant_p (r_len) &amp;&amp; ((__builtin_constant_p<br> (realm-&gt;ptr) &amp;&amp; strlen (realm-&gt;ptr) &lt; ((size_t<br>) (r_len))) || (__builtin_constant_p (f_realm) &amp;&amp; strlen<br> (f_realm) &lt; ((size_t) (r_len)))) ? __extension__ ({ size_t<br> __s1_len, __s2_len; (__builtin_constant_p (realm-&gt;ptr) &amp;&amp;<br> __builtin_constant_p (f_realm) &amp;&amp; (__s1_len = __builtin_strlen<br> (realm-&gt;ptr), __s2_len = __builtin_strlen (f_realm), (!((<br>size_t)(const void *)((realm-&gt;ptr) + 1) - (size_t)(const void<br> *)(realm-&gt;ptr) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((<br>size_t)(const void *)((f_realm) + 1) - (size_t)(const void *)<br>(f_realm) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (realm<br>-&gt;ptr, f_realm) : (__builtin_constant_p (realm-&gt;ptr) &amp;&amp;<br> ((size_t)(const void *)((realm-&gt;ptr) + 1) - (size_t)(const<br> void *)(realm-&gt;ptr) == 1) &amp;&amp; (__s1_len = __builtin_strlen<br> (realm-&gt;ptr), __s1_len &lt; 4) ? (__builtin_constant_p (f_realm<br>) &amp;&amp; ((size_t)(const void *)((f_realm) + 1) - (size_t<br>)(const void *)(f_realm) == 1) ? __builtin_strcmp (realm-&gt;<br>ptr, f_realm) : (__extension__ ({ const unsigned char *__s2 =<br> (const unsigned char *) (const char *) (f_realm); int __result<br> = (((const unsigned char *) (const char *) (realm-&gt;ptr))[<br>0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) {<br> __result = (((const unsigned char *) (const char *) (realm-&gt;<br>ptr))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result ==<br> 0) { __result = (((const unsigned char *) (const char *) (realm<br>-&gt;ptr))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result<br> == 0) __result = (((const unsigned char *) (const char *) (realm<br>-&gt;ptr))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p<br> (f_realm) &amp;&amp; ((size_t)(const void *)((f_realm) + 1) -<br> (size_t)(const void *)(f_realm) == 1) &amp;&amp; (__s2_len =<br> __builtin_strlen (f_realm), __s2_len &lt; 4) ? (__builtin_constant_p<br> (realm-&gt;ptr) &amp;&amp; ((size_t)(const void *)((realm-&gt;<br>ptr) + 1) - (size_t)(const void *)(realm-&gt;ptr) == 1) ? __builtin_strcmp<br> (realm-&gt;ptr, f_realm) : (- (__extension__ ({ const unsigned<br> char *__s2 = (const unsigned char *) (const char *) (realm-&gt;<br>ptr); int __result = (((const unsigned char *) (const char *)<br> (f_realm))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>f_realm))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>f_realm))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result<br> == 0) __result = (((const unsigned char *) (const char *) (f_realm<br>))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (realm<br>-&gt;ptr, f_realm)))); }) : strncmp (realm-&gt;ptr, f_realm, r_len<br>)))</span></span>)) {</td></tr>
+<tr><td class="num" id="LN255">255</td><td class="line">            <span class='comment'>/* found */</span></td></tr>
+<tr><td class="num" id="LN256">256</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN257">257</td><td class="line">            size_t pwd_len = strlen(f_pwd);</td></tr>
+<tr><td class="num" id="LN258">258</td><td class="line">            <span class='keyword'>if</span> (f_pwd[pwd_len-1] == '\n') --pwd_len;</td></tr>
+<tr><td class="num" id="LN259">259</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN260">260</td><td class="line">            fclose(fp);</td></tr>
+<tr><td class="num" id="LN261">261</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN262">262</td><td class="line">            <span class='keyword'>return</span> http_auth_md5_hex2bin(f_pwd, pwd_len, HA1);</td></tr>
+<tr><td class="num" id="LN263">263</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN264">264</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN265">265</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN266">266</td><td class="line">    fclose(fp);</td></tr>
+<tr><td class="num" id="LN267">267</td><td class="line">    <span class='keyword'>return</span> -1;</td></tr>
+<tr><td class="num" id="LN268">268</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN269">269</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN270">270</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_htdigest_digest(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> <span class='keyword'>char</span> *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *realm, <span class='keyword'>unsigned</span> <span class='keyword'>char</span> HA1[16]) {</td></tr>
+<tr><td class="num" id="LN271">271</td><td class="line">    plugin_data *p = (plugin_data *)p_d;</td></tr>
+<tr><td class="num" id="LN272">272</td><td class="line">    buffer *username_buf = buffer_init_string(username);</td></tr>
+<tr><td class="num" id="LN273">273</td><td class="line">    buffer *realm_buf = buffer_init_string(realm);</td></tr>
+<tr><td class="num" id="LN274">274</td><td class="line">    <span class='keyword'>int</span> rc;</td></tr>
+<tr><td class="num" id="LN275">275</td><td class="line">    mod_authn_file_patch_connection(srv, con, p);</td></tr>
+<tr><td class="num" id="LN276">276</td><td class="line">    rc = mod_authn_file_htdigest_get(srv, p-&gt;conf.auth_htdigest_userfile, username_buf, realm_buf, HA1);</td></tr>
+<tr><td class="num" id="LN277">277</td><td class="line">    buffer_free(realm_buf);</td></tr>
+<tr><td class="num" id="LN278">278</td><td class="line">    buffer_free(username_buf);</td></tr>
+<tr><td class="num" id="LN279">279</td><td class="line">    <span class='macro'>UNUSED(con)<span class='expansion'>( (void)(con) )</span></span>;</td></tr>
+<tr><td class="num" id="LN280">280</td><td class="line">    <span class='keyword'>return</span> (0 == rc) ? HANDLER_GO_ON : HANDLER_ERROR;</td></tr>
+<tr><td class="num" id="LN281">281</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN282">282</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN283">283</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_htdigest_basic(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> http_auth_require_t *require, <span class='keyword'>const</span> buffer *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *pw) {</td></tr>
+<tr><td class="num" id="LN284">284</td><td class="line">    plugin_data *p = (plugin_data *)p_d;</td></tr>
+<tr><td class="num" id="LN285">285</td><td class="line">    li_MD5_CTX Md5Ctx;</td></tr>
+<tr><td class="num" id="LN286">286</td><td class="line">    <span class='keyword'>unsigned</span> <span class='keyword'>char</span> HA1[16];</td></tr>
+<tr><td class="num" id="LN287">287</td><td class="line">    <span class='keyword'>unsigned</span> <span class='keyword'>char</span> htdigest[16];</td></tr>
+<tr><td class="num" id="LN288">288</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN289">289</td><td class="line">    mod_authn_file_patch_connection(srv, con, p);</td></tr>
+<tr><td class="num" id="LN290">290</td><td class="line">    <span class='keyword'>if</span> (mod_authn_file_htdigest_get(srv, p-&gt;conf.auth_htdigest_userfile, username, require-&gt;realm, htdigest)) <span class='keyword'>return</span> HANDLER_ERROR;</td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path1" class="msg msgControl" style="margin-left:5ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">1</div></td><td>Taking false branch</td><td><div class="PathNav"><a href="#Path2" title="Next event (2)">&#x2192;</a></div></td></tr></table></div></td></tr>
+<tr><td class="num" id="LN291">291</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN292">292</td><td class="line">    li_MD5_Init(&amp;Md5Ctx);</td></tr>
+<tr><td class="num" id="LN293">293</td><td class="line">    li_MD5_Update(&amp;Md5Ctx, <span class='macro'>CONST_BUF_LEN(username)<span class='expansion'>((username) ? (username)-&gt;ptr : ((void*)0)), buffer_string_length<br>(username)</span></span>);</td></tr>
+<tr><td class="num"></td><td class="line"><div id="Path2" class="msg msgControl" style="margin-left:28ex; max-width:100em"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexControl">2</div></td><td><div class="PathNav"><a href="#Path1" title="Previous event (1)">&#x2190;</a></div></td></td><td>Within the expansion of the macro 'CONST_BUF_LEN':
+</td><td><div class="PathNav"><a href="#EndPath" title="Next event (3)">&#x2192;</a></div></td></tr></table><div class="msg msgEvent" style="width:94%; margin-left:5px"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">a</div></td><td valign="top">Assuming 'username' is null</td></tr></table></div>
+</div></td></tr>
+<tr><td class="num" id="LN294">294</td><td class="line">    li_MD5_Update(&amp;Md5Ctx, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>":"</span>)<span class='expansion'>":", (":") ? sizeof(":") - 1 : 0</span></span>);</td></tr>
+<tr><td class="num" id="LN295">295</td><td class="line">    li_MD5_Update(&amp;Md5Ctx, <span class='macro'>CONST_BUF_LEN(require-&gt;realm)<span class='expansion'>((require-&gt;realm) ? (require-&gt;realm)-&gt;ptr : ((void*)<br>0)), buffer_string_length(require-&gt;realm)</span></span>);</td></tr>
+<tr><td class="num" id="LN296">296</td><td class="line">    li_MD5_Update(&amp;Md5Ctx, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>":"</span>)<span class='expansion'>":", (":") ? sizeof(":") - 1 : 0</span></span>);</td></tr>
+<tr><td class="num" id="LN297">297</td><td class="line">    li_MD5_Update(&amp;Md5Ctx, (<span class='keyword'>unsigned</span> <span class='keyword'>char</span> *)pw, strlen(pw));</td></tr>
+<tr><td class="num" id="LN298">298</td><td class="line">    li_MD5_Final(HA1, &amp;Md5Ctx);</td></tr>
+<tr><td class="num" id="LN299">299</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN300">300</td><td class="line">    <span class='macro'>UNUSED(con)<span class='expansion'>( (void)(con) )</span></span>;</td></tr>
+<tr><td class="num" id="LN301">301</td><td class="line">    <span class='keyword'>return</span> (0 == memcmp(HA1, htdigest, <span class='keyword'>sizeof</span>(HA1))</td></tr>
+<tr><td class="num" id="LN302">302</td><td class="line">            &amp;&amp; http_auth_match_rules(require, <span class="mrange">username</span>-&gt;ptr, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>))</td></tr>
+<tr><td class="num"></td><td class="line"><div id="EndPath" class="msg msgEvent" style="margin-left:47ex"><table class="msgT"><tr><td valign="top"><div class="PathIndex PathIndexEvent">3</div></td><td><div class="PathNav"><a href="#Path2" title="Previous event (2)">&#x2190;</a></div></td></td><td>Access to field 'ptr' results in a dereference of a null pointer (loaded from variable 'username')</td></tr></table></div></td></tr>
+<tr><td class="num" id="LN303">303</td><td class="line">      ? HANDLER_GO_ON</td></tr>
+<tr><td class="num" id="LN304">304</td><td class="line">      : HANDLER_ERROR;</td></tr>
+<tr><td class="num" id="LN305">305</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN306">306</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN307">307</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN308">308</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN309">309</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN310">310</td><td class="line"><span class='keyword'>static</span> <span class='keyword'>int</span> mod_authn_file_htpasswd_get(server *srv, <span class='keyword'>const</span> buffer *auth_fn, <span class='keyword'>const</span> buffer *username, buffer *password) {</td></tr>
+<tr><td class="num" id="LN311">311</td><td class="line">    FILE *fp;</td></tr>
+<tr><td class="num" id="LN312">312</td><td class="line">    <span class='keyword'>char</span> f_user[1024];</td></tr>
+<tr><td class="num" id="LN313">313</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN314">314</td><td class="line">    <span class='keyword'>if</span> (buffer_is_empty(username)) <span class='keyword'>return</span> -1;</td></tr>
+<tr><td class="num" id="LN315">315</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN316">316</td><td class="line">    <span class='keyword'>if</span> (buffer_string_is_empty(auth_fn)) <span class='keyword'>return</span> -1;</td></tr>
+<tr><td class="num" id="LN317">317</td><td class="line">    fp = fopen(auth_fn-&gt;ptr, <span class='string_literal'>"r"</span>);</td></tr>
+<tr><td class="num" id="LN318">318</td><td class="line">    <span class='keyword'>if</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> == fp) {</td></tr>
+<tr><td class="num" id="LN319">319</td><td class="line">        log_error_write(srv, <span class='macro'>__FILE__<span class='expansion'>"mod_authn_file.c"</span></span>, <span class='macro'>__LINE__<span class='expansion'>319</span></span>, <span class='string_literal'>"sbss"</span>,</td></tr>
+<tr><td class="num" id="LN320">320</td><td class="line">                <span class='string_literal'>"opening plain-userfile"</span>, auth_fn, <span class='string_literal'>"failed:"</span>, strerror(<span class='macro'>errno<span class='expansion'>(*__errno_location ())</span></span>));</td></tr>
+<tr><td class="num" id="LN321">321</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN322">322</td><td class="line">        <span class='keyword'>return</span> -1;</td></tr>
+<tr><td class="num" id="LN323">323</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN324">324</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN325">325</td><td class="line">    <span class='keyword'>while</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> != fgets(f_user, <span class='keyword'>sizeof</span>(f_user), fp)) {</td></tr>
+<tr><td class="num" id="LN326">326</td><td class="line">        <span class='keyword'>char</span> *f_pwd;</td></tr>
+<tr><td class="num" id="LN327">327</td><td class="line">        size_t u_len;</td></tr>
+<tr><td class="num" id="LN328">328</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN329">329</td><td class="line">        <span class='comment'>/* skip blank lines and comment lines (beginning '#') */</span></td></tr>
+<tr><td class="num" id="LN330">330</td><td class="line">        <span class='keyword'>if</span> (f_user[0] == '#' || f_user[0] == '\n' || f_user[0] == '\0') <span class='keyword'>continue</span>;</td></tr>
+<tr><td class="num" id="LN331">331</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN332">332</td><td class="line">        <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN333">333</td><td class="line">         <span class='comment'>* htpasswd format</span></td></tr>
+<tr><td class="num" id="LN334">334</td><td class="line">         <span class='comment'>*</span></td></tr>
+<tr><td class="num" id="LN335">335</td><td class="line">         <span class='comment'>* user:crypted passwd</span></td></tr>
+<tr><td class="num" id="LN336">336</td><td class="line">         <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN337">337</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN338">338</td><td class="line">        <span class='keyword'>if</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> == (f_pwd = <span class='macro'>strchr(f_user, ':')<span class='expansion'>(__extension__ (__builtin_constant_p (':') &amp;&amp; !__builtin_constant_p<br> (f_user) &amp;&amp; (':') == '\0' ? (char *) __rawmemchr (f_user<br>, ':') : __builtin_strchr (f_user, ':')))</span></span>)) {</td></tr>
+<tr><td class="num" id="LN339">339</td><td class="line">            log_error_write(srv, <span class='macro'>__FILE__<span class='expansion'>"mod_authn_file.c"</span></span>, <span class='macro'>__LINE__<span class='expansion'>339</span></span>, <span class='string_literal'>"sbs"</span>,</td></tr>
+<tr><td class="num" id="LN340">340</td><td class="line">                    <span class='string_literal'>"parsed error in"</span>, auth_fn,</td></tr>
+<tr><td class="num" id="LN341">341</td><td class="line">                    <span class='string_literal'>"expected 'username:hashed password'"</span>);</td></tr>
+<tr><td class="num" id="LN342">342</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN343">343</td><td class="line">            <span class='keyword'>continue</span>; <span class='comment'>/* skip bad lines */</span></td></tr>
+<tr><td class="num" id="LN344">344</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN345">345</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN346">346</td><td class="line">        <span class='comment'>/* get pointers to the fields */</span></td></tr>
+<tr><td class="num" id="LN347">347</td><td class="line">        u_len = f_pwd - f_user;</td></tr>
+<tr><td class="num" id="LN348">348</td><td class="line">        f_pwd++;</td></tr>
+<tr><td class="num" id="LN349">349</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN350">350</td><td class="line">        <span class='keyword'>if</span> (buffer_string_length(username) == u_len &amp;&amp;</td></tr>
+<tr><td class="num" id="LN351">351</td><td class="line">            (0 == <span class='macro'>strncmp(username-&gt;ptr, f_user, u_len)<span class='expansion'>(__extension__ (__builtin_constant_p (u_len) &amp;&amp; ((__builtin_constant_p<br> (username-&gt;ptr) &amp;&amp; strlen (username-&gt;ptr) &lt;<br> ((size_t) (u_len))) || (__builtin_constant_p (f_user) &amp;&amp;<br> strlen (f_user) &lt; ((size_t) (u_len)))) ? __extension__ ({<br> size_t __s1_len, __s2_len; (__builtin_constant_p (username-&gt;<br>ptr) &amp;&amp; __builtin_constant_p (f_user) &amp;&amp; (__s1_len<br> = __builtin_strlen (username-&gt;ptr), __s2_len = __builtin_strlen<br> (f_user), (!((size_t)(const void *)((username-&gt;ptr) + 1) -<br> (size_t)(const void *)(username-&gt;ptr) == 1) || __s1_len &gt;=<br> 4) &amp;&amp; (!((size_t)(const void *)((f_user) + 1) - (size_t<br>)(const void *)(f_user) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp<br> (username-&gt;ptr, f_user) : (__builtin_constant_p (username<br>-&gt;ptr) &amp;&amp; ((size_t)(const void *)((username-&gt;ptr<br>) + 1) - (size_t)(const void *)(username-&gt;ptr) == 1) &amp;&amp;<br> (__s1_len = __builtin_strlen (username-&gt;ptr), __s1_len &lt;<br> 4) ? (__builtin_constant_p (f_user) &amp;&amp; ((size_t)(const<br> void *)((f_user) + 1) - (size_t)(const void *)(f_user) == 1)<br> ? __builtin_strcmp (username-&gt;ptr, f_user) : (__extension__<br> ({ const unsigned char *__s2 = (const unsigned char *) (const<br> char *) (f_user); int __result = (((const unsigned char *) (<br>const char *) (username-&gt;ptr))[0] - __s2[0]); if (__s1_len<br> &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned<br> char *) (const char *) (username-&gt;ptr))[1] - __s2[1]); if<br> (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const<br> unsigned char *) (const char *) (username-&gt;ptr))[2] - __s2<br>[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result =<br> (((const unsigned char *) (const char *) (username-&gt;ptr))<br>[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (f_user<br>) &amp;&amp; ((size_t)(const void *)((f_user) + 1) - (size_t)<br>(const void *)(f_user) == 1) &amp;&amp; (__s2_len = __builtin_strlen<br> (f_user), __s2_len &lt; 4) ? (__builtin_constant_p (username<br>-&gt;ptr) &amp;&amp; ((size_t)(const void *)((username-&gt;ptr<br>) + 1) - (size_t)(const void *)(username-&gt;ptr) == 1) ? __builtin_strcmp<br> (username-&gt;ptr, f_user) : (- (__extension__ ({ const unsigned<br> char *__s2 = (const unsigned char *) (const char *) (username<br>-&gt;ptr); int __result = (((const unsigned char *) (const char<br> *) (f_user))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>f_user))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>f_user))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result<br> == 0) __result = (((const unsigned char *) (const char *) (f_user<br>))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (username<br>-&gt;ptr, f_user)))); }) : strncmp (username-&gt;ptr, f_user,<br> u_len)))</span></span>)) {</td></tr>
+<tr><td class="num" id="LN352">352</td><td class="line">            <span class='comment'>/* found */</span></td></tr>
+<tr><td class="num" id="LN353">353</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN354">354</td><td class="line">            size_t pwd_len = strlen(f_pwd);</td></tr>
+<tr><td class="num" id="LN355">355</td><td class="line">            <span class='keyword'>if</span> (f_pwd[pwd_len-1] == '\n') --pwd_len;</td></tr>
+<tr><td class="num" id="LN356">356</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN357">357</td><td class="line">            buffer_copy_string_len(password, f_pwd, pwd_len);</td></tr>
+<tr><td class="num" id="LN358">358</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN359">359</td><td class="line">            fclose(fp);</td></tr>
+<tr><td class="num" id="LN360">360</td><td class="line">            <span class='keyword'>return</span> 0;</td></tr>
+<tr><td class="num" id="LN361">361</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN362">362</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN363">363</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN364">364</td><td class="line">    fclose(fp);</td></tr>
+<tr><td class="num" id="LN365">365</td><td class="line">    <span class='keyword'>return</span> -1;</td></tr>
+<tr><td class="num" id="LN366">366</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN367">367</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN368">368</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_plain_digest(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> <span class='keyword'>char</span> *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *realm, <span class='keyword'>unsigned</span> <span class='keyword'>char</span> HA1[16]) {</td></tr>
+<tr><td class="num" id="LN369">369</td><td class="line">    plugin_data *p = (plugin_data *)p_d;</td></tr>
+<tr><td class="num" id="LN370">370</td><td class="line">    buffer *username_buf = buffer_init_string(username);</td></tr>
+<tr><td class="num" id="LN371">371</td><td class="line">    buffer *password_buf = buffer_init();<span class='comment'>/* password-string from auth-backend */</span></td></tr>
+<tr><td class="num" id="LN372">372</td><td class="line">    <span class='keyword'>int</span> rc;</td></tr>
+<tr><td class="num" id="LN373">373</td><td class="line">    mod_authn_file_patch_connection(srv, con, p);</td></tr>
+<tr><td class="num" id="LN374">374</td><td class="line">    rc = mod_authn_file_htpasswd_get(srv, p-&gt;conf.auth_plain_userfile, username_buf, password_buf);</td></tr>
+<tr><td class="num" id="LN375">375</td><td class="line">    <span class='keyword'>if</span> (0 == rc) {</td></tr>
+<tr><td class="num" id="LN376">376</td><td class="line">        <span class='comment'>/* generate password from plain-text */</span></td></tr>
+<tr><td class="num" id="LN377">377</td><td class="line">        li_MD5_CTX Md5Ctx;</td></tr>
+<tr><td class="num" id="LN378">378</td><td class="line">        li_MD5_Init(&amp;Md5Ctx);</td></tr>
+<tr><td class="num" id="LN379">379</td><td class="line">        li_MD5_Update(&amp;Md5Ctx, (<span class='keyword'>unsigned</span> <span class='keyword'>char</span> *)username_buf-&gt;ptr, buffer_string_length(username_buf));</td></tr>
+<tr><td class="num" id="LN380">380</td><td class="line">        li_MD5_Update(&amp;Md5Ctx, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>":"</span>)<span class='expansion'>":", (":") ? sizeof(":") - 1 : 0</span></span>);</td></tr>
+<tr><td class="num" id="LN381">381</td><td class="line">        li_MD5_Update(&amp;Md5Ctx, (<span class='keyword'>unsigned</span> <span class='keyword'>char</span> *)realm, strlen(realm));</td></tr>
+<tr><td class="num" id="LN382">382</td><td class="line">        li_MD5_Update(&amp;Md5Ctx, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>":"</span>)<span class='expansion'>":", (":") ? sizeof(":") - 1 : 0</span></span>);</td></tr>
+<tr><td class="num" id="LN383">383</td><td class="line">        li_MD5_Update(&amp;Md5Ctx, (<span class='keyword'>unsigned</span> <span class='keyword'>char</span> *)password_buf-&gt;ptr, buffer_string_length(password_buf));</td></tr>
+<tr><td class="num" id="LN384">384</td><td class="line">        li_MD5_Final(HA1, &amp;Md5Ctx);</td></tr>
+<tr><td class="num" id="LN385">385</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN386">386</td><td class="line">    buffer_free(password_buf);</td></tr>
+<tr><td class="num" id="LN387">387</td><td class="line">    buffer_free(username_buf);</td></tr>
+<tr><td class="num" id="LN388">388</td><td class="line">    <span class='macro'>UNUSED(con)<span class='expansion'>( (void)(con) )</span></span>;</td></tr>
+<tr><td class="num" id="LN389">389</td><td class="line">    <span class='keyword'>return</span> (0 == rc) ? HANDLER_GO_ON : HANDLER_ERROR;</td></tr>
+<tr><td class="num" id="LN390">390</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN391">391</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN392">392</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_plain_basic(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> http_auth_require_t *require, <span class='keyword'>const</span> buffer *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *pw) {</td></tr>
+<tr><td class="num" id="LN393">393</td><td class="line">    plugin_data *p = (plugin_data *)p_d;</td></tr>
+<tr><td class="num" id="LN394">394</td><td class="line">    buffer *password_buf = buffer_init();<span class='comment'>/* password-string from auth-backend */</span></td></tr>
+<tr><td class="num" id="LN395">395</td><td class="line">    <span class='keyword'>int</span> rc;</td></tr>
+<tr><td class="num" id="LN396">396</td><td class="line">    mod_authn_file_patch_connection(srv, con, p);</td></tr>
+<tr><td class="num" id="LN397">397</td><td class="line">    rc = mod_authn_file_htpasswd_get(srv, p-&gt;conf.auth_plain_userfile, username, password_buf);</td></tr>
+<tr><td class="num" id="LN398">398</td><td class="line">    <span class='keyword'>if</span> (0 == rc) {</td></tr>
+<tr><td class="num" id="LN399">399</td><td class="line">        rc = buffer_is_equal_string(password_buf, pw, strlen(pw)) ? 0 : -1;</td></tr>
+<tr><td class="num" id="LN400">400</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN401">401</td><td class="line">    buffer_free(password_buf);</td></tr>
+<tr><td class="num" id="LN402">402</td><td class="line">    <span class='macro'>UNUSED(con)<span class='expansion'>( (void)(con) )</span></span>;</td></tr>
+<tr><td class="num" id="LN403">403</td><td class="line">    <span class='keyword'>return</span> 0 == rc &amp;&amp; http_auth_match_rules(require, username-&gt;ptr, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>)</td></tr>
+<tr><td class="num" id="LN404">404</td><td class="line">      ? HANDLER_GO_ON</td></tr>
+<tr><td class="num" id="LN405">405</td><td class="line">      : HANDLER_ERROR;</td></tr>
+<tr><td class="num" id="LN406">406</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN407">407</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN408">408</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN409">409</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN410">410</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN411">411</td><td class="line"><span class='comment'>/**</span></td></tr>
+<tr><td class="num" id="LN412">412</td><td class="line"> <span class='comment'>* the $apr1$ handling is taken from apache 1.3.x</span></td></tr>
+<tr><td class="num" id="LN413">413</td><td class="line"> <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN414">414</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN415">415</td><td class="line"><span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN416">416</td><td class="line"> <span class='comment'>* The apr_md5_encode() routine uses much code obtained from the FreeBSD 3.0</span></td></tr>
+<tr><td class="num" id="LN417">417</td><td class="line"> <span class='comment'>* MD5 crypt() function, which is licenced as follows:</span></td></tr>
+<tr><td class="num" id="LN418">418</td><td class="line"> <span class='comment'>* ----------------------------------------------------------------------------</span></td></tr>
+<tr><td class="num" id="LN419">419</td><td class="line"> <span class='comment'>* "THE BEER-WARE LICENSE" (Revision 42):</span></td></tr>
+<tr><td class="num" id="LN420">420</td><td class="line"> <span class='comment'>* &lt;phk@login.dknet.dk&gt; wrote this file.  As long as you retain this notice you</span></td></tr>
+<tr><td class="num" id="LN421">421</td><td class="line"> <span class='comment'>* can do whatever you want with this stuff. If we meet some day, and you think</span></td></tr>
+<tr><td class="num" id="LN422">422</td><td class="line"> <span class='comment'>* this stuff is worth it, you can buy me a beer in return.   Poul-Henning Kamp</span></td></tr>
+<tr><td class="num" id="LN423">423</td><td class="line"> <span class='comment'>* ----------------------------------------------------------------------------</span></td></tr>
+<tr><td class="num" id="LN424">424</td><td class="line"> <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN425">425</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN426">426</td><td class="line"><span class='directive'>#define <span class='macro'>APR_MD5_DIGESTSIZE<span class='expansion'>16</span></span> 16</span></td></tr>
+<tr><td class="num" id="LN427">427</td><td class="line"><span class='directive'>#define <span class='macro'>APR1_ID<span class='expansion'>"$apr1$"</span></span> "$apr1$"</span></td></tr>
+<tr><td class="num" id="LN428">428</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN429">429</td><td class="line"><span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN430">430</td><td class="line"> <span class='comment'>* The following MD5 password encryption code was largely borrowed from</span></td></tr>
+<tr><td class="num" id="LN431">431</td><td class="line"> <span class='comment'>* the FreeBSD 3.0 /usr/src/lib/libcrypt/crypt.c file, which is</span></td></tr>
+<tr><td class="num" id="LN432">432</td><td class="line"> <span class='comment'>* licenced as stated above.</span></td></tr>
+<tr><td class="num" id="LN433">433</td><td class="line"> <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN434">434</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN435">435</td><td class="line"><span class='keyword'>static</span> <span class='keyword'>void</span> to64(<span class='keyword'>char</span> *s, <span class='keyword'>unsigned</span> <span class='keyword'>long</span> v, <span class='keyword'>int</span> n)</td></tr>
+<tr><td class="num" id="LN436">436</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN437">437</td><td class="line">    <span class='keyword'>static</span> <span class='keyword'>const</span> <span class='keyword'>unsigned</span> <span class='keyword'>char</span> itoa64[] =         <span class='comment'>/* 0 ... 63 =&gt; ASCII - 64 */</span></td></tr>
+<tr><td class="num" id="LN438">438</td><td class="line">        <span class='string_literal'>"./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"</span>;</td></tr>
+<tr><td class="num" id="LN439">439</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN440">440</td><td class="line">    <span class='keyword'>while</span> (--n &gt;= 0) {</td></tr>
+<tr><td class="num" id="LN441">441</td><td class="line">        *s++ = itoa64[v&amp;0x3f];</td></tr>
+<tr><td class="num" id="LN442">442</td><td class="line">        v &gt;&gt;= 6;</td></tr>
+<tr><td class="num" id="LN443">443</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN444">444</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN445">445</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN446">446</td><td class="line"><span class='keyword'>static</span> <span class='keyword'>void</span> apr_md5_encode(<span class='keyword'>const</span> <span class='keyword'>char</span> *pw, <span class='keyword'>const</span> <span class='keyword'>char</span> *salt, <span class='keyword'>char</span> *result, size_t nbytes) {</td></tr>
+<tr><td class="num" id="LN447">447</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN448">448</td><td class="line">     <span class='comment'>* Minimum size is 8 bytes for salt, plus 1 for the trailing NUL,</span></td></tr>
+<tr><td class="num" id="LN449">449</td><td class="line">     <span class='comment'>* plus 4 for the '$' separators, plus the password hash itself.</span></td></tr>
+<tr><td class="num" id="LN450">450</td><td class="line">     <span class='comment'>* Let's leave a goodly amount of leeway.</span></td></tr>
+<tr><td class="num" id="LN451">451</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN452">452</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN453">453</td><td class="line">    <span class='keyword'>char</span> passwd[120], *p;</td></tr>
+<tr><td class="num" id="LN454">454</td><td class="line">    <span class='keyword'>const</span> <span class='keyword'>char</span> *sp, *ep;</td></tr>
+<tr><td class="num" id="LN455">455</td><td class="line">    <span class='keyword'>unsigned</span> <span class='keyword'>char</span> final[<span class='macro'>APR_MD5_DIGESTSIZE<span class='expansion'>16</span></span>];</td></tr>
+<tr><td class="num" id="LN456">456</td><td class="line">    ssize_t sl, pl, i;</td></tr>
+<tr><td class="num" id="LN457">457</td><td class="line">    li_MD5_CTX ctx, ctx1;</td></tr>
+<tr><td class="num" id="LN458">458</td><td class="line">    <span class='keyword'>unsigned</span> <span class='keyword'>long</span> l;</td></tr>
+<tr><td class="num" id="LN459">459</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN460">460</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN461">461</td><td class="line">     <span class='comment'>* Refine the salt first.  It's possible we were given an already-hashed</span></td></tr>
+<tr><td class="num" id="LN462">462</td><td class="line">     <span class='comment'>* string as the salt argument, so extract the actual salt value from it</span></td></tr>
+<tr><td class="num" id="LN463">463</td><td class="line">     <span class='comment'>* if so.  Otherwise just use the string up to the first '$' as the salt.</span></td></tr>
+<tr><td class="num" id="LN464">464</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN465">465</td><td class="line">    sp = salt;</td></tr>
+<tr><td class="num" id="LN466">466</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN467">467</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN468">468</td><td class="line">     <span class='comment'>* If it starts with the magic string, then skip that.</span></td></tr>
+<tr><td class="num" id="LN469">469</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN470">470</td><td class="line">    <span class='keyword'>if</span> (!<span class='macro'>strncmp(sp, APR1_ID, strlen(APR1_ID))<span class='expansion'>(__extension__ (__builtin_constant_p (strlen("$apr1$")) &amp;&amp;<br> ((__builtin_constant_p (sp) &amp;&amp; strlen (sp) &lt; ((size_t<br>) (strlen("$apr1$")))) || (__builtin_constant_p ("$apr1$") &amp;&amp;<br> strlen ("$apr1$") &lt; ((size_t) (strlen("$apr1$"))))) ? __extension__<br> ({ size_t __s1_len, __s2_len; (__builtin_constant_p (sp) &amp;&amp;<br> __builtin_constant_p ("$apr1$") &amp;&amp; (__s1_len = __builtin_strlen<br> (sp), __s2_len = __builtin_strlen ("$apr1$"), (!((size_t)(const<br> void *)((sp) + 1) - (size_t)(const void *)(sp) == 1) || __s1_len<br> &gt;= 4) &amp;&amp; (!((size_t)(const void *)(("$apr1$") + 1<br>) - (size_t)(const void *)("$apr1$") == 1) || __s2_len &gt;= 4<br>)) ? __builtin_strcmp (sp, "$apr1$") : (__builtin_constant_p (<br>sp) &amp;&amp; ((size_t)(const void *)((sp) + 1) - (size_t)(const<br> void *)(sp) == 1) &amp;&amp; (__s1_len = __builtin_strlen (sp<br>), __s1_len &lt; 4) ? (__builtin_constant_p ("$apr1$") &amp;&amp;<br> ((size_t)(const void *)(("$apr1$") + 1) - (size_t)(const void<br> *)("$apr1$") == 1) ? __builtin_strcmp (sp, "$apr1$") : (__extension__<br> ({ const unsigned char *__s2 = (const unsigned char *) (const<br> char *) ("$apr1$"); int __result = (((const unsigned char *)<br> (const char *) (sp))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp;<br> __result == 0) { __result = (((const unsigned char *) (const<br> char *) (sp))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>sp))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result ==<br> 0) __result = (((const unsigned char *) (const char *) (sp))<br>[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p ("$apr1$"<br>) &amp;&amp; ((size_t)(const void *)(("$apr1$") + 1) - (size_t<br>)(const void *)("$apr1$") == 1) &amp;&amp; (__s2_len = __builtin_strlen<br> ("$apr1$"), __s2_len &lt; 4) ? (__builtin_constant_p (sp) &amp;&amp;<br> ((size_t)(const void *)((sp) + 1) - (size_t)(const void *)(sp<br>) == 1) ? __builtin_strcmp (sp, "$apr1$") : (- (__extension__<br> ({ const unsigned char *__s2 = (const unsigned char *) (const<br> char *) (sp); int __result = (((const unsigned char *) (const<br> char *) ("$apr1$"))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp;<br> __result == 0) { __result = (((const unsigned char *) (const<br> char *) ("$apr1$"))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp;<br> __result == 0) { __result = (((const unsigned char *) (const<br> char *) ("$apr1$"))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp;<br> __result == 0) __result = (((const unsigned char *) (const char<br> *) ("$apr1$"))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp<br> (sp, "$apr1$")))); }) : strncmp (sp, "$apr1$", strlen("$apr1$"<br>))))</span></span>) {</td></tr>
+<tr><td class="num" id="LN471">471</td><td class="line">        sp += strlen(<span class='macro'>APR1_ID<span class='expansion'>"$apr1$"</span></span>);</td></tr>
+<tr><td class="num" id="LN472">472</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN473">473</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN474">474</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN475">475</td><td class="line">     <span class='comment'>* It stops at the first '$' or 8 chars, whichever comes first</span></td></tr>
+<tr><td class="num" id="LN476">476</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN477">477</td><td class="line">    <span class='keyword'>for</span> (ep = sp; (*ep != '\0') &amp;&amp; (*ep != '$') &amp;&amp; (ep &lt; (sp + 8)); ep++) {</td></tr>
+<tr><td class="num" id="LN478">478</td><td class="line">        <span class='keyword'>continue</span>;</td></tr>
+<tr><td class="num" id="LN479">479</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN480">480</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN481">481</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN482">482</td><td class="line">     <span class='comment'>* Get the length of the true salt</span></td></tr>
+<tr><td class="num" id="LN483">483</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN484">484</td><td class="line">    sl = ep - sp;</td></tr>
+<tr><td class="num" id="LN485">485</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN486">486</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN487">487</td><td class="line">     <span class='comment'>* 'Time to make the doughnuts..'</span></td></tr>
+<tr><td class="num" id="LN488">488</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN489">489</td><td class="line">    li_MD5_Init(&amp;ctx);</td></tr>
+<tr><td class="num" id="LN490">490</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN491">491</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN492">492</td><td class="line">     <span class='comment'>* The password first, since that is what is most unknown</span></td></tr>
+<tr><td class="num" id="LN493">493</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN494">494</td><td class="line">    li_MD5_Update(&amp;ctx, pw, strlen(pw));</td></tr>
+<tr><td class="num" id="LN495">495</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN496">496</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN497">497</td><td class="line">     <span class='comment'>* Then our magic string</span></td></tr>
+<tr><td class="num" id="LN498">498</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN499">499</td><td class="line">    li_MD5_Update(&amp;ctx, <span class='macro'>APR1_ID<span class='expansion'>"$apr1$"</span></span>, strlen(<span class='macro'>APR1_ID<span class='expansion'>"$apr1$"</span></span>));</td></tr>
+<tr><td class="num" id="LN500">500</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN501">501</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN502">502</td><td class="line">     <span class='comment'>* Then the raw salt</span></td></tr>
+<tr><td class="num" id="LN503">503</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN504">504</td><td class="line">    li_MD5_Update(&amp;ctx, sp, sl);</td></tr>
+<tr><td class="num" id="LN505">505</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN506">506</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN507">507</td><td class="line">     <span class='comment'>* Then just as many characters of the MD5(pw, salt, pw)</span></td></tr>
+<tr><td class="num" id="LN508">508</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN509">509</td><td class="line">    li_MD5_Init(&amp;ctx1);</td></tr>
+<tr><td class="num" id="LN510">510</td><td class="line">    li_MD5_Update(&amp;ctx1, pw, strlen(pw));</td></tr>
+<tr><td class="num" id="LN511">511</td><td class="line">    li_MD5_Update(&amp;ctx1, sp, sl);</td></tr>
+<tr><td class="num" id="LN512">512</td><td class="line">    li_MD5_Update(&amp;ctx1, pw, strlen(pw));</td></tr>
+<tr><td class="num" id="LN513">513</td><td class="line">    li_MD5_Final(final, &amp;ctx1);</td></tr>
+<tr><td class="num" id="LN514">514</td><td class="line">    <span class='keyword'>for</span> (pl = strlen(pw); pl &gt; 0; pl -= <span class='macro'>APR_MD5_DIGESTSIZE<span class='expansion'>16</span></span>) {</td></tr>
+<tr><td class="num" id="LN515">515</td><td class="line">        li_MD5_Update(&amp;ctx, final,</td></tr>
+<tr><td class="num" id="LN516">516</td><td class="line">                      (pl &gt; <span class='macro'>APR_MD5_DIGESTSIZE<span class='expansion'>16</span></span>) ? <span class='macro'>APR_MD5_DIGESTSIZE<span class='expansion'>16</span></span> : pl);</td></tr>
+<tr><td class="num" id="LN517">517</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN518">518</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN519">519</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN520">520</td><td class="line">     <span class='comment'>* Don't leave anything around in vm they could use.</span></td></tr>
+<tr><td class="num" id="LN521">521</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN522">522</td><td class="line">    memset(final, 0, <span class='keyword'>sizeof</span>(final));</td></tr>
+<tr><td class="num" id="LN523">523</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN524">524</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN525">525</td><td class="line">     <span class='comment'>* Then something really weird...</span></td></tr>
+<tr><td class="num" id="LN526">526</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN527">527</td><td class="line">    <span class='keyword'>for</span> (i = strlen(pw); i != 0; i &gt;&gt;= 1) {</td></tr>
+<tr><td class="num" id="LN528">528</td><td class="line">        <span class='keyword'>if</span> (i &amp; 1) {</td></tr>
+<tr><td class="num" id="LN529">529</td><td class="line">            li_MD5_Update(&amp;ctx, final, 1);</td></tr>
+<tr><td class="num" id="LN530">530</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN531">531</td><td class="line">        <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN532">532</td><td class="line">            li_MD5_Update(&amp;ctx, pw, 1);</td></tr>
+<tr><td class="num" id="LN533">533</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN534">534</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN535">535</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN536">536</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN537">537</td><td class="line">     <span class='comment'>* Now make the output string.  We know our limitations, so we</span></td></tr>
+<tr><td class="num" id="LN538">538</td><td class="line">     <span class='comment'>* can use the string routines without bounds checking.</span></td></tr>
+<tr><td class="num" id="LN539">539</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN540">540</td><td class="line">    strcpy(passwd, <span class='macro'>APR1_ID<span class='expansion'>"$apr1$"</span></span>);</td></tr>
+<tr><td class="num" id="LN541">541</td><td class="line">    <span class='macro'>strncat(passwd, sp, sl)<span class='expansion'>__builtin_strncat (passwd, sp, sl)</span></span>;</td></tr>
+<tr><td class="num" id="LN542">542</td><td class="line">    strcat(passwd, <span class='string_literal'>"$"</span>);</td></tr>
+<tr><td class="num" id="LN543">543</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN544">544</td><td class="line">    li_MD5_Final(final, &amp;ctx);</td></tr>
+<tr><td class="num" id="LN545">545</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN546">546</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN547">547</td><td class="line">     <span class='comment'>* And now, just to make sure things don't run too fast..</span></td></tr>
+<tr><td class="num" id="LN548">548</td><td class="line">     <span class='comment'>* On a 60 Mhz Pentium this takes 34 msec, so you would</span></td></tr>
+<tr><td class="num" id="LN549">549</td><td class="line">     <span class='comment'>* need 30 seconds to build a 1000 entry dictionary...</span></td></tr>
+<tr><td class="num" id="LN550">550</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN551">551</td><td class="line">    <span class='keyword'>for</span> (i = 0; i &lt; 1000; i++) {</td></tr>
+<tr><td class="num" id="LN552">552</td><td class="line">        li_MD5_Init(&amp;ctx1);</td></tr>
+<tr><td class="num" id="LN553">553</td><td class="line">        <span class='keyword'>if</span> (i &amp; 1) {</td></tr>
+<tr><td class="num" id="LN554">554</td><td class="line">            li_MD5_Update(&amp;ctx1, pw, strlen(pw));</td></tr>
+<tr><td class="num" id="LN555">555</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN556">556</td><td class="line">        <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN557">557</td><td class="line">            li_MD5_Update(&amp;ctx1, final, <span class='macro'>APR_MD5_DIGESTSIZE<span class='expansion'>16</span></span>);</td></tr>
+<tr><td class="num" id="LN558">558</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN559">559</td><td class="line">        <span class='keyword'>if</span> (i % 3) {</td></tr>
+<tr><td class="num" id="LN560">560</td><td class="line">            li_MD5_Update(&amp;ctx1, sp, sl);</td></tr>
+<tr><td class="num" id="LN561">561</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN562">562</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN563">563</td><td class="line">        <span class='keyword'>if</span> (i % 7) {</td></tr>
+<tr><td class="num" id="LN564">564</td><td class="line">            li_MD5_Update(&amp;ctx1, pw, strlen(pw));</td></tr>
+<tr><td class="num" id="LN565">565</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN566">566</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN567">567</td><td class="line">        <span class='keyword'>if</span> (i &amp; 1) {</td></tr>
+<tr><td class="num" id="LN568">568</td><td class="line">            li_MD5_Update(&amp;ctx1, final, <span class='macro'>APR_MD5_DIGESTSIZE<span class='expansion'>16</span></span>);</td></tr>
+<tr><td class="num" id="LN569">569</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN570">570</td><td class="line">        <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN571">571</td><td class="line">            li_MD5_Update(&amp;ctx1, pw, strlen(pw));</td></tr>
+<tr><td class="num" id="LN572">572</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN573">573</td><td class="line">        li_MD5_Final(final,&amp;ctx1);</td></tr>
+<tr><td class="num" id="LN574">574</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN575">575</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN576">576</td><td class="line">    p = passwd + strlen(passwd);</td></tr>
+<tr><td class="num" id="LN577">577</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN578">578</td><td class="line">    l = (final[ 0]&lt;&lt;16) | (final[ 6]&lt;&lt;8) | final[12]; to64(p, l, 4); p += 4;</td></tr>
+<tr><td class="num" id="LN579">579</td><td class="line">    l = (final[ 1]&lt;&lt;16) | (final[ 7]&lt;&lt;8) | final[13]; to64(p, l, 4); p += 4;</td></tr>
+<tr><td class="num" id="LN580">580</td><td class="line">    l = (final[ 2]&lt;&lt;16) | (final[ 8]&lt;&lt;8) | final[14]; to64(p, l, 4); p += 4;</td></tr>
+<tr><td class="num" id="LN581">581</td><td class="line">    l = (final[ 3]&lt;&lt;16) | (final[ 9]&lt;&lt;8) | final[15]; to64(p, l, 4); p += 4;</td></tr>
+<tr><td class="num" id="LN582">582</td><td class="line">    l = (final[ 4]&lt;&lt;16) | (final[10]&lt;&lt;8) | final[ 5]; to64(p, l, 4); p += 4;</td></tr>
+<tr><td class="num" id="LN583">583</td><td class="line">    l =                    final[11]                ; to64(p, l, 2); p += 2;</td></tr>
+<tr><td class="num" id="LN584">584</td><td class="line">    *p = '\0';</td></tr>
+<tr><td class="num" id="LN585">585</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN586">586</td><td class="line">    <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN587">587</td><td class="line">     <span class='comment'>* Don't leave anything around in vm they could use.</span></td></tr>
+<tr><td class="num" id="LN588">588</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN589">589</td><td class="line">    safe_memclear(final, <span class='keyword'>sizeof</span>(final));</td></tr>
+<tr><td class="num" id="LN590">590</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN591">591</td><td class="line">    <span class='comment'>/* FIXME</span></td></tr>
+<tr><td class="num" id="LN592">592</td><td class="line">     <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN593">593</td><td class="line"><span class='directive'>#define <span class='macro'>apr_cpystrn<span class='expansion'>strncpy</span></span> strncpy</span></td></tr>
+<tr><td class="num" id="LN594">594</td><td class="line">    <span class='macro'>apr_cpystrn(result, passwd, nbytes - 1)<span class='expansion'>__builtin_strncpy (result, passwd, nbytes - 1)</span></span>;</td></tr>
+<tr><td class="num" id="LN595">595</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN596">596</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN597">597</td><td class="line"><span class='directive'>#ifdef USE_OPENSSL</span></td></tr>
+<tr><td class="num" id="LN598">598</td><td class="line"><span class='keyword'>static</span> <span class='keyword'>void</span> apr_sha_encode(<span class='keyword'>const</span> <span class='keyword'>char</span> *pw, <span class='keyword'>char</span> *result, size_t nbytes) {</td></tr>
+<tr><td class="num" id="LN599">599</td><td class="line">    <span class='keyword'>unsigned</span> <span class='keyword'>char</span> digest[20];</td></tr>
+<tr><td class="num" id="LN600">600</td><td class="line">    size_t base64_written;</td></tr>
+<tr><td class="num" id="LN601">601</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN602">602</td><td class="line">    SHA1((<span class='keyword'>const</span> <span class='keyword'>unsigned</span> <span class='keyword'>char</span>*) pw, strlen(pw), digest);</td></tr>
+<tr><td class="num" id="LN603">603</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN604">604</td><td class="line">    memset(result, 0, nbytes);</td></tr>
+<tr><td class="num" id="LN605">605</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN606">606</td><td class="line">    <span class='comment'>/* need 5 bytes for "{SHA}", 28 for base64 (3 bytes -&gt; 4 bytes) of SHA1 (20 bytes), 1 terminating */</span></td></tr>
+<tr><td class="num" id="LN607">607</td><td class="line">    <span class='keyword'>if</span> (nbytes &lt; 5 + 28 + 1) <span class='keyword'>return</span>;</td></tr>
+<tr><td class="num" id="LN608">608</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN609">609</td><td class="line">    memcpy(result, <span class='string_literal'>"{SHA}"</span>, 5);</td></tr>
+<tr><td class="num" id="LN610">610</td><td class="line">    base64_written = li_to_base64(result + 5, nbytes - 5, digest, 20, BASE64_STANDARD);</td></tr>
+<tr><td class="num" id="LN611">611</td><td class="line">    <span class='macro'>force_assert(base64_written == 28)<span class='expansion'>do { if (!(base64_written == 28)) log_failed_assert("mod_authn_file.c"<br>, 611, "assertion failed: " "base64_written == 28"); } while(<br>0)</span></span>;</td></tr>
+<tr><td class="num" id="LN612">612</td><td class="line">    result[5 + base64_written] = '\0'; <span class='comment'>/* terminate string */</span></td></tr>
+<tr><td class="num" id="LN613">613</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN614">614</td><td class="line"><span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN615">615</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN616">616</td><td class="line"><span class='keyword'>static</span> handler_t mod_authn_file_htpasswd_basic(server *srv, connection *con, <span class='keyword'>void</span> *p_d, <span class='keyword'>const</span> http_auth_require_t *require, <span class='keyword'>const</span> buffer *username, <span class='keyword'>const</span> <span class='keyword'>char</span> *pw) {</td></tr>
+<tr><td class="num" id="LN617">617</td><td class="line">    plugin_data *p = (plugin_data *)p_d;</td></tr>
+<tr><td class="num" id="LN618">618</td><td class="line">    buffer *password = buffer_init();<span class='comment'>/* password-string from auth-backend */</span></td></tr>
+<tr><td class="num" id="LN619">619</td><td class="line">    <span class='keyword'>int</span> rc;</td></tr>
+<tr><td class="num" id="LN620">620</td><td class="line">    mod_authn_file_patch_connection(srv, con, p);</td></tr>
+<tr><td class="num" id="LN621">621</td><td class="line">    rc = mod_authn_file_htpasswd_get(srv, p-&gt;conf.auth_htpasswd_userfile, username, password);</td></tr>
+<tr><td class="num" id="LN622">622</td><td class="line">    <span class='keyword'>if</span> (0 == rc) {</td></tr>
+<tr><td class="num" id="LN623">623</td><td class="line">        <span class='keyword'>char</span> sample[256];</td></tr>
+<tr><td class="num" id="LN624">624</td><td class="line">        rc = -1;</td></tr>
+<tr><td class="num" id="LN625">625</td><td class="line">        <span class='keyword'>if</span> (!<span class='macro'>strncmp(password-&gt;ptr, APR1_ID, strlen(APR1_ID))<span class='expansion'>(__extension__ (__builtin_constant_p (strlen("$apr1$")) &amp;&amp;<br> ((__builtin_constant_p (password-&gt;ptr) &amp;&amp; strlen (<br>password-&gt;ptr) &lt; ((size_t) (strlen("$apr1$")))) || (__builtin_constant_p<br> ("$apr1$") &amp;&amp; strlen ("$apr1$") &lt; ((size_t) (strlen<br>("$apr1$"))))) ? __extension__ ({ size_t __s1_len, __s2_len; (<br>__builtin_constant_p (password-&gt;ptr) &amp;&amp; __builtin_constant_p<br> ("$apr1$") &amp;&amp; (__s1_len = __builtin_strlen (password<br>-&gt;ptr), __s2_len = __builtin_strlen ("$apr1$"), (!((size_t<br>)(const void *)((password-&gt;ptr) + 1) - (size_t)(const void<br> *)(password-&gt;ptr) == 1) || __s1_len &gt;= 4) &amp;&amp; (<br>!((size_t)(const void *)(("$apr1$") + 1) - (size_t)(const void<br> *)("$apr1$") == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (<br>password-&gt;ptr, "$apr1$") : (__builtin_constant_p (password<br>-&gt;ptr) &amp;&amp; ((size_t)(const void *)((password-&gt;ptr<br>) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1) &amp;&amp;<br> (__s1_len = __builtin_strlen (password-&gt;ptr), __s1_len &lt;<br> 4) ? (__builtin_constant_p ("$apr1$") &amp;&amp; ((size_t)(const<br> void *)(("$apr1$") + 1) - (size_t)(const void *)("$apr1$") ==<br> 1) ? __builtin_strcmp (password-&gt;ptr, "$apr1$") : (__extension__<br> ({ const unsigned char *__s2 = (const unsigned char *) (const<br> char *) ("$apr1$"); int __result = (((const unsigned char *)<br> (const char *) (password-&gt;ptr))[0] - __s2[0]); if (__s1_len<br> &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned<br> char *) (const char *) (password-&gt;ptr))[1] - __s2[1]); if<br> (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const<br> unsigned char *) (const char *) (password-&gt;ptr))[2] - __s2<br>[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result =<br> (((const unsigned char *) (const char *) (password-&gt;ptr))<br>[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p ("$apr1$"<br>) &amp;&amp; ((size_t)(const void *)(("$apr1$") + 1) - (size_t<br>)(const void *)("$apr1$") == 1) &amp;&amp; (__s2_len = __builtin_strlen<br> ("$apr1$"), __s2_len &lt; 4) ? (__builtin_constant_p (password<br>-&gt;ptr) &amp;&amp; ((size_t)(const void *)((password-&gt;ptr<br>) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1) ? __builtin_strcmp<br> (password-&gt;ptr, "$apr1$") : (- (__extension__ ({ const unsigned<br> char *__s2 = (const unsigned char *) (const char *) (password<br>-&gt;ptr); int __result = (((const unsigned char *) (const char<br> *) ("$apr1$"))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp;<br> __result == 0) { __result = (((const unsigned char *) (const<br> char *) ("$apr1$"))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp;<br> __result == 0) { __result = (((const unsigned char *) (const<br> char *) ("$apr1$"))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp;<br> __result == 0) __result = (((const unsigned char *) (const char<br> *) ("$apr1$"))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp<br> (password-&gt;ptr, "$apr1$")))); }) : strncmp (password-&gt;<br>ptr, "$apr1$", strlen("$apr1$"))))</span></span>) {</td></tr>
+<tr><td class="num" id="LN626">626</td><td class="line">            <span class='comment'>/*</span></td></tr>
+<tr><td class="num" id="LN627">627</td><td class="line">             <span class='comment'>* The hash was created using $apr1$ custom algorithm.</span></td></tr>
+<tr><td class="num" id="LN628">628</td><td class="line">             <span class='comment'>*/</span></td></tr>
+<tr><td class="num" id="LN629">629</td><td class="line">            apr_md5_encode(pw, password-&gt;ptr, sample, <span class='keyword'>sizeof</span>(sample));</td></tr>
+<tr><td class="num" id="LN630">630</td><td class="line">            rc = <span class='macro'>strcmp(sample, password-&gt;ptr)<span class='expansion'>__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p<br> (sample) &amp;&amp; __builtin_constant_p (password-&gt;ptr) &amp;&amp;<br> (__s1_len = __builtin_strlen (sample), __s2_len = __builtin_strlen<br> (password-&gt;ptr), (!((size_t)(const void *)((sample) + 1) -<br> (size_t)(const void *)(sample) == 1) || __s1_len &gt;= 4) &amp;&amp;<br> (!((size_t)(const void *)((password-&gt;ptr) + 1) - (size_t)<br>(const void *)(password-&gt;ptr) == 1) || __s2_len &gt;= 4)) ?<br> __builtin_strcmp (sample, password-&gt;ptr) : (__builtin_constant_p<br> (sample) &amp;&amp; ((size_t)(const void *)((sample) + 1) - (<br>size_t)(const void *)(sample) == 1) &amp;&amp; (__s1_len = __builtin_strlen<br> (sample), __s1_len &lt; 4) ? (__builtin_constant_p (password<br>-&gt;ptr) &amp;&amp; ((size_t)(const void *)((password-&gt;ptr<br>) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1) ? __builtin_strcmp<br> (sample, password-&gt;ptr) : (__extension__ ({ const unsigned<br> char *__s2 = (const unsigned char *) (const char *) (password<br>-&gt;ptr); int __result = (((const unsigned char *) (const char<br> *) (sample))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>sample))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>sample))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result<br> == 0) __result = (((const unsigned char *) (const char *) (sample<br>))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (<br>password-&gt;ptr) &amp;&amp; ((size_t)(const void *)((password<br>-&gt;ptr) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1<br>) &amp;&amp; (__s2_len = __builtin_strlen (password-&gt;ptr),<br> __s2_len &lt; 4) ? (__builtin_constant_p (sample) &amp;&amp;<br> ((size_t)(const void *)((sample) + 1) - (size_t)(const void *<br>)(sample) == 1) ? __builtin_strcmp (sample, password-&gt;ptr)<br> : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned<br> char *) (const char *) (sample); int __result = (((const unsigned<br> char *) (const char *) (password-&gt;ptr))[0] - __s2[0]); if<br> (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const<br> unsigned char *) (const char *) (password-&gt;ptr))[1] - __s2<br>[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result<br> = (((const unsigned char *) (const char *) (password-&gt;ptr<br>))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0<br>) __result = (((const unsigned char *) (const char *) (password<br>-&gt;ptr))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp<br> (sample, password-&gt;ptr)))); })</span></span>;</td></tr>
+<tr><td class="num" id="LN631">631</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN632">632</td><td class="line">      <span class='directive'>#ifdef USE_OPENSSL</span></td></tr>
+<tr><td class="num" id="LN633">633</td><td class="line">        <span class='keyword'>else</span> <span class='keyword'>if</span> (0 == <span class='macro'>strncmp(password-&gt;ptr, <span class='string_literal'>"{SHA}"</span>, 5)<span class='expansion'>(__extension__ (__builtin_constant_p (5) &amp;&amp; ((__builtin_constant_p<br> (password-&gt;ptr) &amp;&amp; strlen (password-&gt;ptr) &lt;<br> ((size_t) (5))) || (__builtin_constant_p ("{SHA}") &amp;&amp;<br> strlen ("{SHA}") &lt; ((size_t) (5)))) ? __extension__ ({ size_t<br> __s1_len, __s2_len; (__builtin_constant_p (password-&gt;ptr)<br> &amp;&amp; __builtin_constant_p ("{SHA}") &amp;&amp; (__s1_len<br> = __builtin_strlen (password-&gt;ptr), __s2_len = __builtin_strlen<br> ("{SHA}"), (!((size_t)(const void *)((password-&gt;ptr) + 1)<br> - (size_t)(const void *)(password-&gt;ptr) == 1) || __s1_len<br> &gt;= 4) &amp;&amp; (!((size_t)(const void *)(("{SHA}") + 1)<br> - (size_t)(const void *)("{SHA}") == 1) || __s2_len &gt;= 4)<br>) ? __builtin_strcmp (password-&gt;ptr, "{SHA}") : (__builtin_constant_p<br> (password-&gt;ptr) &amp;&amp; ((size_t)(const void *)((password<br>-&gt;ptr) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1<br>) &amp;&amp; (__s1_len = __builtin_strlen (password-&gt;ptr),<br> __s1_len &lt; 4) ? (__builtin_constant_p ("{SHA}") &amp;&amp;<br> ((size_t)(const void *)(("{SHA}") + 1) - (size_t)(const void<br> *)("{SHA}") == 1) ? __builtin_strcmp (password-&gt;ptr, "{SHA}"<br>) : (__extension__ ({ const unsigned char *__s2 = (const unsigned<br> char *) (const char *) ("{SHA}"); int __result = (((const unsigned<br> char *) (const char *) (password-&gt;ptr))[0] - __s2[0]); if<br> (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const<br> unsigned char *) (const char *) (password-&gt;ptr))[1] - __s2<br>[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result<br> = (((const unsigned char *) (const char *) (password-&gt;ptr<br>))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0<br>) __result = (((const unsigned char *) (const char *) (password<br>-&gt;ptr))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p<br> ("{SHA}") &amp;&amp; ((size_t)(const void *)(("{SHA}") + 1) -<br> (size_t)(const void *)("{SHA}") == 1) &amp;&amp; (__s2_len =<br> __builtin_strlen ("{SHA}"), __s2_len &lt; 4) ? (__builtin_constant_p<br> (password-&gt;ptr) &amp;&amp; ((size_t)(const void *)((password<br>-&gt;ptr) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1<br>) ? __builtin_strcmp (password-&gt;ptr, "{SHA}") : (- (__extension__<br> ({ const unsigned char *__s2 = (const unsigned char *) (const<br> char *) (password-&gt;ptr); int __result = (((const unsigned<br> char *) (const char *) ("{SHA}"))[0] - __s2[0]); if (__s2_len<br> &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned<br> char *) (const char *) ("{SHA}"))[1] - __s2[1]); if (__s2_len<br> &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned<br> char *) (const char *) ("{SHA}"))[2] - __s2[2]); if (__s2_len<br> &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned<br> char *) (const char *) ("{SHA}"))[3] - __s2[3]); } } __result<br>; })))) : __builtin_strcmp (password-&gt;ptr, "{SHA}")))); })<br> : strncmp (password-&gt;ptr, "{SHA}", 5)))</span></span>) {</td></tr>
+<tr><td class="num" id="LN634">634</td><td class="line">            apr_sha_encode(pw, sample, <span class='keyword'>sizeof</span>(sample));</td></tr>
+<tr><td class="num" id="LN635">635</td><td class="line">            rc = <span class='macro'>strcmp(sample, password-&gt;ptr)<span class='expansion'>__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p<br> (sample) &amp;&amp; __builtin_constant_p (password-&gt;ptr) &amp;&amp;<br> (__s1_len = __builtin_strlen (sample), __s2_len = __builtin_strlen<br> (password-&gt;ptr), (!((size_t)(const void *)((sample) + 1) -<br> (size_t)(const void *)(sample) == 1) || __s1_len &gt;= 4) &amp;&amp;<br> (!((size_t)(const void *)((password-&gt;ptr) + 1) - (size_t)<br>(const void *)(password-&gt;ptr) == 1) || __s2_len &gt;= 4)) ?<br> __builtin_strcmp (sample, password-&gt;ptr) : (__builtin_constant_p<br> (sample) &amp;&amp; ((size_t)(const void *)((sample) + 1) - (<br>size_t)(const void *)(sample) == 1) &amp;&amp; (__s1_len = __builtin_strlen<br> (sample), __s1_len &lt; 4) ? (__builtin_constant_p (password<br>-&gt;ptr) &amp;&amp; ((size_t)(const void *)((password-&gt;ptr<br>) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1) ? __builtin_strcmp<br> (sample, password-&gt;ptr) : (__extension__ ({ const unsigned<br> char *__s2 = (const unsigned char *) (const char *) (password<br>-&gt;ptr); int __result = (((const unsigned char *) (const char<br> *) (sample))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>sample))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>sample))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result<br> == 0) __result = (((const unsigned char *) (const char *) (sample<br>))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (<br>password-&gt;ptr) &amp;&amp; ((size_t)(const void *)((password<br>-&gt;ptr) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1<br>) &amp;&amp; (__s2_len = __builtin_strlen (password-&gt;ptr),<br> __s2_len &lt; 4) ? (__builtin_constant_p (sample) &amp;&amp;<br> ((size_t)(const void *)((sample) + 1) - (size_t)(const void *<br>)(sample) == 1) ? __builtin_strcmp (sample, password-&gt;ptr)<br> : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned<br> char *) (const char *) (sample); int __result = (((const unsigned<br> char *) (const char *) (password-&gt;ptr))[0] - __s2[0]); if<br> (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const<br> unsigned char *) (const char *) (password-&gt;ptr))[1] - __s2<br>[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result<br> = (((const unsigned char *) (const char *) (password-&gt;ptr<br>))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0<br>) __result = (((const unsigned char *) (const char *) (password<br>-&gt;ptr))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp<br> (sample, password-&gt;ptr)))); })</span></span>;</td></tr>
+<tr><td class="num" id="LN636">636</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN637">637</td><td class="line">      <span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN638">638</td><td class="line">      <span class='directive'>#if defined(<span class='macro'>HAVE_CRYPT_R<span class='expansion'>1</span></span>) || defined(HAVE_CRYPT)</span></td></tr>
+<tr><td class="num" id="LN639">639</td><td class="line">        <span class='comment'>/* a simple DES password is 2 + 11 characters. everything else should be longer. */</span></td></tr>
+<tr><td class="num" id="LN640">640</td><td class="line">        <span class='keyword'>else</span> <span class='keyword'>if</span> (buffer_string_length(password) &gt;= 13) {</td></tr>
+<tr><td class="num" id="LN641">641</td><td class="line">            <span class='keyword'>char</span> *crypted;</td></tr>
+<tr><td class="num" id="LN642">642</td><td class="line">           <span class='directive'>#if defined(<span class='macro'>HAVE_CRYPT_R<span class='expansion'>1</span></span>)</span></td></tr>
+<tr><td class="num" id="LN643">643</td><td class="line">            <span class='keyword'>struct</span> crypt_data crypt_tmp_data;</td></tr>
+<tr><td class="num" id="LN644">644</td><td class="line">            <span class='directive'>#ifdef _AIX</span></td></tr>
+<tr><td class="num" id="LN645">645</td><td class="line">            memset(&amp;crypt_tmp_data, 0, <span class='keyword'>sizeof</span>(crypt_tmp_data));</td></tr>
+<tr><td class="num" id="LN646">646</td><td class="line">            <span class='directive'>#else</span></td></tr>
+<tr><td class="num" id="LN647">647</td><td class="line">            crypt_tmp_data.initialized = 0;</td></tr>
+<tr><td class="num" id="LN648">648</td><td class="line">            <span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN649">649</td><td class="line">           <span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN650">650</td><td class="line">           <span class='directive'>#ifdef USE_OPENSSL /* (for MD4_*() (e.g. MD4_Update())) */</span></td></tr>
+<tr><td class="num" id="LN651">651</td><td class="line">            <span class='keyword'>if</span> (0 == memcmp(password-&gt;ptr, <span class='macro'>CONST_STR_LEN(<span class='string_literal'>"$1+ntlm$"</span>)<span class='expansion'>"$1+ntlm$", ("$1+ntlm$") ? sizeof("$1+ntlm$") - 1 : 0</span></span>)) {</td></tr>
+<tr><td class="num" id="LN652">652</td><td class="line">                <span class='comment'>/* CRYPT-MD5-NTLM algorithm</span></td></tr>
+<tr><td class="num" id="LN653">653</td><td class="line">                 <span class='comment'>* This algorithm allows for the construction of (slight more)</span></td></tr>
+<tr><td class="num" id="LN654">654</td><td class="line">                 <span class='comment'>* secure, salted password hashes from an environment where only</span></td></tr>
+<tr><td class="num" id="LN655">655</td><td class="line">                 <span class='comment'>* legacy NTLM hashes are available and where it is not feasible</span></td></tr>
+<tr><td class="num" id="LN656">656</td><td class="line">                 <span class='comment'>* to re-hash all the passwords with the MD5-based crypt(). */</span></td></tr>
+<tr><td class="num" id="LN657">657</td><td class="line">                <span class='comment'>/* Note: originally, LM password were limited to 14 chars.</span></td></tr>
+<tr><td class="num" id="LN658">658</td><td class="line">                 <span class='comment'>* NTLM passwords limited to 127 chars, and encoding to UCS-2LE</span></td></tr>
+<tr><td class="num" id="LN659">659</td><td class="line">                 <span class='comment'>* requires double that, so sample[256] buf is large enough.</span></td></tr>
+<tr><td class="num" id="LN660">660</td><td class="line">                 <span class='comment'>* Prior sample[120] size likely taken from apr_md5_encode(). */</span></td></tr>
+<tr><td class="num" id="LN661">661</td><td class="line">                <span class='keyword'>char</span> *b = password-&gt;ptr+<span class='keyword'>sizeof</span>(<span class='string_literal'>"$1+ntlm$"</span>)-1;</td></tr>
+<tr><td class="num" id="LN662">662</td><td class="line">                <span class='keyword'>char</span> *e = <span class='macro'>strchr(b, '$')<span class='expansion'>(__extension__ (__builtin_constant_p ('$') &amp;&amp; !__builtin_constant_p<br> (b) &amp;&amp; ('$') == '\0' ? (char *) __rawmemchr (b, '$')<br> : __builtin_strchr (b, '$')))</span></span>;</td></tr>
+<tr><td class="num" id="LN663">663</td><td class="line">                size_t slen = (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> != e) ? (size_t)(e - b) : <span class='keyword'>sizeof</span>(sample);</td></tr>
+<tr><td class="num" id="LN664">664</td><td class="line">                size_t pwlen = strlen(pw) * 2;</td></tr>
+<tr><td class="num" id="LN665">665</td><td class="line">                <span class='keyword'>if</span> (slen &lt; <span class='keyword'>sizeof</span>(sample) - (<span class='keyword'>sizeof</span>(<span class='string_literal'>"$1$"</span>)-1)</td></tr>
+<tr><td class="num" id="LN666">666</td><td class="line">                    &amp;&amp; pwlen &lt; <span class='keyword'>sizeof</span>(sample)) {</td></tr>
+<tr><td class="num" id="LN667">667</td><td class="line">                    <span class='comment'>/* compute NTLM hash and convert to lowercase hex chars</span></td></tr>
+<tr><td class="num" id="LN668">668</td><td class="line">                     <span class='comment'>* (require lc hex chars from li_tohex()) */</span></td></tr>
+<tr><td class="num" id="LN669">669</td><td class="line">                    <span class='keyword'>char</span> ntlmhash[16];</td></tr>
+<tr><td class="num" id="LN670">670</td><td class="line">                    <span class='keyword'>char</span> ntlmhex[33]; <span class='comment'>/*(sizeof(ntlmhash)*2 + 1)*/</span></td></tr>
+<tr><td class="num" id="LN671">671</td><td class="line">                    MD4_CTX c;</td></tr>
+<tr><td class="num" id="LN672">672</td><td class="line">                    MD4_Init(&amp;c);</td></tr>
+<tr><td class="num" id="LN673">673</td><td class="line">                    <span class='keyword'>if</span> (pwlen) {</td></tr>
+<tr><td class="num" id="LN674">674</td><td class="line">                        <span class='comment'>/*(reuse sample buffer to encode pw into UCS-2LE)</span></td></tr>
+<tr><td class="num" id="LN675">675</td><td class="line">                         <span class='comment'>*(Note: assumes pw input in ISO-8859-1) */</span></td></tr>
+<tr><td class="num" id="LN676">676</td><td class="line">                        <span class='comment'>/*(buffer sizes checked above)*/</span></td></tr>
+<tr><td class="num" id="LN677">677</td><td class="line">                        <span class='keyword'>for</span> (<span class='keyword'>int</span> i=0; i &lt; (<span class='keyword'>int</span>)pwlen; i+=2) {</td></tr>
+<tr><td class="num" id="LN678">678</td><td class="line">                            sample[i] = pw[(i &gt;&gt; 1)];</td></tr>
+<tr><td class="num" id="LN679">679</td><td class="line">                            sample[i+1] = 0;</td></tr>
+<tr><td class="num" id="LN680">680</td><td class="line">                        }</td></tr>
+<tr><td class="num" id="LN681">681</td><td class="line">                        MD4_Update(&amp;c, (<span class='keyword'>unsigned</span> <span class='keyword'>char</span> *)sample, pwlen);</td></tr>
+<tr><td class="num" id="LN682">682</td><td class="line">                    }</td></tr>
+<tr><td class="num" id="LN683">683</td><td class="line">                    MD4_Final((<span class='keyword'>unsigned</span> <span class='keyword'>char</span> *)ntlmhash, &amp;c);</td></tr>
+<tr><td class="num" id="LN684">684</td><td class="line">                    li_tohex(ntlmhex,<span class='keyword'>sizeof</span>(ntlmhex),ntlmhash,<span class='keyword'>sizeof</span>(ntlmhash));</td></tr>
+<tr><td class="num" id="LN685">685</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN686">686</td><td class="line">                    <span class='comment'>/*(reuse sample buffer for salt  (FYI: expect slen == 8))*/</span></td></tr>
+<tr><td class="num" id="LN687">687</td><td class="line">                    memcpy(sample, <span class='string_literal'>"$1$"</span>, <span class='keyword'>sizeof</span>(<span class='string_literal'>"$1$"</span>)-1);</td></tr>
+<tr><td class="num" id="LN688">688</td><td class="line">                    memcpy(sample+<span class='keyword'>sizeof</span>(<span class='string_literal'>"$1$"</span>)-1, b, slen);</td></tr>
+<tr><td class="num" id="LN689">689</td><td class="line">                    sample[<span class='keyword'>sizeof</span>(<span class='string_literal'>"$1$"</span>)-1+slen] = '\0';</td></tr>
+<tr><td class="num" id="LN690">690</td><td class="line">                   <span class='directive'>#if defined(<span class='macro'>HAVE_CRYPT_R<span class='expansion'>1</span></span>)</span></td></tr>
+<tr><td class="num" id="LN691">691</td><td class="line">                    crypted = crypt_r(ntlmhex, sample, &amp;crypt_tmp_data);</td></tr>
+<tr><td class="num" id="LN692">692</td><td class="line">                   <span class='directive'>#else</span></td></tr>
+<tr><td class="num" id="LN693">693</td><td class="line">                    crypted = crypt(ntlmhex, sample);</td></tr>
+<tr><td class="num" id="LN694">694</td><td class="line">                   <span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN695">695</td><td class="line">                    <span class='keyword'>if</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> != crypted</td></tr>
+<tr><td class="num" id="LN696">696</td><td class="line">                        &amp;&amp; 0 == <span class='macro'>strncmp(crypted, <span class='string_literal'>"$1$"</span>, <span class='keyword'>sizeof</span>(<span class='string_literal'>"$1$"</span>)-1)<span class='expansion'>(__extension__ (__builtin_constant_p (sizeof("$1$")-1) &amp;&amp;<br> ((__builtin_constant_p (crypted) &amp;&amp; strlen (crypted)<br> &lt; ((size_t) (sizeof("$1$")-1))) || (__builtin_constant_p (<br>"$1$") &amp;&amp; strlen ("$1$") &lt; ((size_t) (sizeof("$1$"<br>)-1)))) ? __extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p<br> (crypted) &amp;&amp; __builtin_constant_p ("$1$") &amp;&amp;<br> (__s1_len = __builtin_strlen (crypted), __s2_len = __builtin_strlen<br> ("$1$"), (!((size_t)(const void *)((crypted) + 1) - (size_t)<br>(const void *)(crypted) == 1) || __s1_len &gt;= 4) &amp;&amp;<br> (!((size_t)(const void *)(("$1$") + 1) - (size_t)(const void<br> *)("$1$") == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (crypted<br>, "$1$") : (__builtin_constant_p (crypted) &amp;&amp; ((size_t<br>)(const void *)((crypted) + 1) - (size_t)(const void *)(crypted<br>) == 1) &amp;&amp; (__s1_len = __builtin_strlen (crypted), __s1_len<br> &lt; 4) ? (__builtin_constant_p ("$1$") &amp;&amp; ((size_t)<br>(const void *)(("$1$") + 1) - (size_t)(const void *)("$1$") ==<br> 1) ? __builtin_strcmp (crypted, "$1$") : (__extension__ ({ const<br> unsigned char *__s2 = (const unsigned char *) (const char *)<br> ("$1$"); int __result = (((const unsigned char *) (const char<br> *) (crypted))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>crypted))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>crypted))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result<br> == 0) __result = (((const unsigned char *) (const char *) (crypted<br>))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (<br>"$1$") &amp;&amp; ((size_t)(const void *)(("$1$") + 1) - (size_t<br>)(const void *)("$1$") == 1) &amp;&amp; (__s2_len = __builtin_strlen<br> ("$1$"), __s2_len &lt; 4) ? (__builtin_constant_p (crypted) &amp;&amp;<br> ((size_t)(const void *)((crypted) + 1) - (size_t)(const void<br> *)(crypted) == 1) ? __builtin_strcmp (crypted, "$1$") : (- (<br>__extension__ ({ const unsigned char *__s2 = (const unsigned char<br> *) (const char *) (crypted); int __result = (((const unsigned<br> char *) (const char *) ("$1$"))[0] - __s2[0]); if (__s2_len &gt;<br> 0 &amp;&amp; __result == 0) { __result = (((const unsigned char<br> *) (const char *) ("$1$"))[1] - __s2[1]); if (__s2_len &gt; 1<br> &amp;&amp; __result == 0) { __result = (((const unsigned char<br> *) (const char *) ("$1$"))[2] - __s2[2]); if (__s2_len &gt; 2<br> &amp;&amp; __result == 0) __result = (((const unsigned char *<br>) (const char *) ("$1$"))[3] - __s2[3]); } } __result; })))) :<br> __builtin_strcmp (crypted, "$1$")))); }) : strncmp (crypted,<br> "$1$", sizeof("$1$")-1)))</span></span>) {</td></tr>
+<tr><td class="num" id="LN697">697</td><td class="line">                        rc = <span class='macro'>strcmp(b, crypted+3)<span class='expansion'>__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p<br> (b) &amp;&amp; __builtin_constant_p (crypted+3) &amp;&amp; (<br>__s1_len = __builtin_strlen (b), __s2_len = __builtin_strlen (<br>crypted+3), (!((size_t)(const void *)((b) + 1) - (size_t)(const<br> void *)(b) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)<br>(const void *)((crypted+3) + 1) - (size_t)(const void *)(crypted<br>+3) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (b, crypted<br>+3) : (__builtin_constant_p (b) &amp;&amp; ((size_t)(const void<br> *)((b) + 1) - (size_t)(const void *)(b) == 1) &amp;&amp; (__s1_len<br> = __builtin_strlen (b), __s1_len &lt; 4) ? (__builtin_constant_p<br> (crypted+3) &amp;&amp; ((size_t)(const void *)((crypted+3) +<br> 1) - (size_t)(const void *)(crypted+3) == 1) ? __builtin_strcmp<br> (b, crypted+3) : (__extension__ ({ const unsigned char *__s2<br> = (const unsigned char *) (const char *) (crypted+3); int __result<br> = (((const unsigned char *) (const char *) (b))[0] - __s2[0]<br>); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result =<br> (((const unsigned char *) (const char *) (b))[1] - __s2[1]);<br> if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (<br>((const unsigned char *) (const char *) (b))[2] - __s2[2]); if<br> (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const<br> unsigned char *) (const char *) (b))[3] - __s2[3]); } } __result<br>; }))) : (__builtin_constant_p (crypted+3) &amp;&amp; ((size_t<br>)(const void *)((crypted+3) + 1) - (size_t)(const void *)(crypted<br>+3) == 1) &amp;&amp; (__s2_len = __builtin_strlen (crypted+3)<br>, __s2_len &lt; 4) ? (__builtin_constant_p (b) &amp;&amp; ((size_t<br>)(const void *)((b) + 1) - (size_t)(const void *)(b) == 1) ? __builtin_strcmp<br> (b, crypted+3) : (- (__extension__ ({ const unsigned char *__s2<br> = (const unsigned char *) (const char *) (b); int __result =<br> (((const unsigned char *) (const char *) (crypted+3))[0] - __s2<br>[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result<br> = (((const unsigned char *) (const char *) (crypted+3))[1] -<br> __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result<br> = (((const unsigned char *) (const char *) (crypted+3))[2] -<br> __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result<br> = (((const unsigned char *) (const char *) (crypted+3))[3] -<br> __s2[3]); } } __result; })))) : __builtin_strcmp (b, crypted<br>+3)))); })</span></span>; <span class='comment'>/*skip crypted "$1$" prefix*/</span></td></tr>
+<tr><td class="num" id="LN698">698</td><td class="line">                    }</td></tr>
+<tr><td class="num" id="LN699">699</td><td class="line">                }</td></tr>
+<tr><td class="num" id="LN700">700</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN701">701</td><td class="line">            <span class='keyword'>else</span></td></tr>
+<tr><td class="num" id="LN702">702</td><td class="line">           <span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN703">703</td><td class="line">            {</td></tr>
+<tr><td class="num" id="LN704">704</td><td class="line">               <span class='directive'>#if defined(<span class='macro'>HAVE_CRYPT_R<span class='expansion'>1</span></span>)</span></td></tr>
+<tr><td class="num" id="LN705">705</td><td class="line">                crypted = crypt_r(pw, password-&gt;ptr, &amp;crypt_tmp_data);</td></tr>
+<tr><td class="num" id="LN706">706</td><td class="line">               <span class='directive'>#else</span></td></tr>
+<tr><td class="num" id="LN707">707</td><td class="line">                crypted = crypt(pw, password-&gt;ptr);</td></tr>
+<tr><td class="num" id="LN708">708</td><td class="line">               <span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN709">709</td><td class="line">                <span class='keyword'>if</span> (<span class='macro'>NULL<span class='expansion'>((void*)0)</span></span> != crypted) {</td></tr>
+<tr><td class="num" id="LN710">710</td><td class="line">                    rc = <span class='macro'>strcmp(password-&gt;ptr, crypted)<span class='expansion'>__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p<br> (password-&gt;ptr) &amp;&amp; __builtin_constant_p (crypted)<br> &amp;&amp; (__s1_len = __builtin_strlen (password-&gt;ptr), __s2_len<br> = __builtin_strlen (crypted), (!((size_t)(const void *)((password<br>-&gt;ptr) + 1) - (size_t)(const void *)(password-&gt;ptr) == 1<br>) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((<br>crypted) + 1) - (size_t)(const void *)(crypted) == 1) || __s2_len<br> &gt;= 4)) ? __builtin_strcmp (password-&gt;ptr, crypted) : (<br>__builtin_constant_p (password-&gt;ptr) &amp;&amp; ((size_t)(<br>const void *)((password-&gt;ptr) + 1) - (size_t)(const void *<br>)(password-&gt;ptr) == 1) &amp;&amp; (__s1_len = __builtin_strlen<br> (password-&gt;ptr), __s1_len &lt; 4) ? (__builtin_constant_p<br> (crypted) &amp;&amp; ((size_t)(const void *)((crypted) + 1) -<br> (size_t)(const void *)(crypted) == 1) ? __builtin_strcmp (password<br>-&gt;ptr, crypted) : (__extension__ ({ const unsigned char *__s2<br> = (const unsigned char *) (const char *) (crypted); int __result<br> = (((const unsigned char *) (const char *) (password-&gt;ptr<br>))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0<br>) { __result = (((const unsigned char *) (const char *) (password<br>-&gt;ptr))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result<br> == 0) { __result = (((const unsigned char *) (const char *) (<br>password-&gt;ptr))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp;<br> __result == 0) __result = (((const unsigned char *) (const char<br> *) (password-&gt;ptr))[3] - __s2[3]); } } __result; }))) : (<br>__builtin_constant_p (crypted) &amp;&amp; ((size_t)(const void<br> *)((crypted) + 1) - (size_t)(const void *)(crypted) == 1) &amp;&amp;<br> (__s2_len = __builtin_strlen (crypted), __s2_len &lt; 4) ? (<br>__builtin_constant_p (password-&gt;ptr) &amp;&amp; ((size_t)(<br>const void *)((password-&gt;ptr) + 1) - (size_t)(const void *<br>)(password-&gt;ptr) == 1) ? __builtin_strcmp (password-&gt;ptr<br>, crypted) : (- (__extension__ ({ const unsigned char *__s2 =<br> (const unsigned char *) (const char *) (password-&gt;ptr); int<br> __result = (((const unsigned char *) (const char *) (crypted<br>))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0<br>) { __result = (((const unsigned char *) (const char *) (crypted<br>))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0<br>) { __result = (((const unsigned char *) (const char *) (crypted<br>))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0<br>) __result = (((const unsigned char *) (const char *) (crypted<br>))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (password<br>-&gt;ptr, crypted)))); })</span></span>;</td></tr>
+<tr><td class="num" id="LN711">711</td><td class="line">                }</td></tr>
+<tr><td class="num" id="LN712">712</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN713">713</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN714">714</td><td class="line">      <span class='directive'>#endif</span></td></tr>
+<tr><td class="num" id="LN715">715</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN716">716</td><td class="line">    buffer_free(password);</td></tr>
+<tr><td class="num" id="LN717">717</td><td class="line">    <span class='macro'>UNUSED(con)<span class='expansion'>( (void)(con) )</span></span>;</td></tr>
+<tr><td class="num" id="LN718">718</td><td class="line">    <span class='keyword'>return</span> 0 == rc &amp;&amp; http_auth_match_rules(require, username-&gt;ptr, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>, <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>)</td></tr>
+<tr><td class="num" id="LN719">719</td><td class="line">      ? HANDLER_GO_ON</td></tr>
+<tr><td class="num" id="LN720">720</td><td class="line">      : HANDLER_ERROR;</td></tr>
+<tr><td class="num" id="LN721">721</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN722">722</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN723">723</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN724">724</td><td class="line"><span class='keyword'>int</span> mod_authn_file_plugin_init(plugin *p);</td></tr>
+<tr><td class="num" id="LN725">725</td><td class="line"><span class='keyword'>int</span> mod_authn_file_plugin_init(plugin *p) {</td></tr>
+<tr><td class="num" id="LN726">726</td><td class="line">    p-&gt;version     = <span class='macro'>LIGHTTPD_VERSION_ID<span class='expansion'>(1 &lt;&lt; 16 | 4 &lt;&lt; 8 | 45)</span></span>;</td></tr>
+<tr><td class="num" id="LN727">727</td><td class="line">    p-&gt;name        = buffer_init_string(<span class='string_literal'>"authn_file"</span>);</td></tr>
+<tr><td class="num" id="LN728">728</td><td class="line">    p-&gt;init        = mod_authn_file_init;</td></tr>
+<tr><td class="num" id="LN729">729</td><td class="line">    p-&gt;set_defaults= mod_authn_file_set_defaults;</td></tr>
+<tr><td class="num" id="LN730">730</td><td class="line">    p-&gt;cleanup     = mod_authn_file_free;</td></tr>
+<tr><td class="num" id="LN731">731</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN732">732</td><td class="line">    p-&gt;data        = <span class='macro'>NULL<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN733">733</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN734">734</td><td class="line">    <span class='keyword'>return</span> 0;</td></tr>
+<tr><td class="num" id="LN735">735</td><td class="line">}</td></tr>
+</table></body></html>

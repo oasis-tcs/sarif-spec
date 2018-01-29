@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1" sequence="0" timestamp="1513616830000" analysisTimestamp="1513616980116" release="">
+  <Project projectName="twitter4j-3.0.3">
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/test-classes/twitter4j/media/MediaUploadTest.class</Jar>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/test-classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-core/target/twitter4j-core-3.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar</AuxClasspathEntry>
+    <SrcDir>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/src/test/java</SrcDir>
+    <Plugin id="com.h3xstream.findsecbugs" enabled="true"/>
+    <Plugin id="com.mebigfatguy.fbcontrib" enabled="true"/>
+  </Project>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="a07b28e0a2f9b2b0efba2a719dd396ee" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to te in twitter4j.media.MediaUploadTest.testNonexistingFileUpload()</LongMessage>
+    <Class classname="twitter4j.media.MediaUploadTest" primary="true">
+      <SourceLine classname="twitter4j.media.MediaUploadTest" start="36" end="207" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java">
+        <Message>At MediaUploadTest.java:[lines 36-207]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.media.MediaUploadTest</Message>
+    </Class>
+    <Method classname="twitter4j.media.MediaUploadTest" name="testNonexistingFileUpload" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.media.MediaUploadTest" start="77" end="86" startBytecode="0" endBytecode="26" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java"/>
+      <Message>In method twitter4j.media.MediaUploadTest.testNonexistingFileUpload()</Message>
+    </Method>
+    <LocalVariable name="te" register="3" pc="37" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named te</Message>
+    </LocalVariable>
+    <SourceLine classname="twitter4j.media.MediaUploadTest" primary="true" start="80" end="80" startBytecode="37" endBytecode="37" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java">
+      <Message>At MediaUploadTest.java:[line 80]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="te"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="735180d17b2c5d5a1b636f097039b075" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to factory in twitter4j.media.MediaUploadTest.testProviders()</LongMessage>
+    <Class classname="twitter4j.media.MediaUploadTest" primary="true">
+      <SourceLine classname="twitter4j.media.MediaUploadTest" start="36" end="207" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java">
+        <Message>At MediaUploadTest.java:[lines 36-207]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.media.MediaUploadTest</Message>
+    </Class>
+    <Method classname="twitter4j.media.MediaUploadTest" name="testProviders" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.media.MediaUploadTest" start="55" end="73" startBytecode="0" endBytecode="117" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java"/>
+      <Message>In method twitter4j.media.MediaUploadTest.testProviders()</Message>
+    </Method>
+    <LocalVariable name="factory" register="2" pc="29" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named factory</Message>
+    </LocalVariable>
+    <SourceLine classname="twitter4j.media.MediaUploadTest" primary="true" start="72" end="72" startBytecode="260" endBytecode="260" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java">
+      <Message>At MediaUploadTest.java:[line 72]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="factory"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.MANY_STORES" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="ISB_TOSTRING_APPENDING" priority="2" rank="7" abbrev="ISB" category="CORRECTNESS" instanceHash="19c92dc772f4b4bc11d8c51847a12ca4" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method concatenates the result of a toString() call</ShortMessage>
+    <LongMessage>Method new twitter4j.media.MediaUploadTest(String) concatenates the result of a toString() call</LongMessage>
+    <Class classname="twitter4j.media.MediaUploadTest" primary="true">
+      <SourceLine classname="twitter4j.media.MediaUploadTest" start="36" end="207" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java">
+        <Message>At MediaUploadTest.java:[lines 36-207]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.media.MediaUploadTest</Message>
+    </Class>
+    <Method classname="twitter4j.media.MediaUploadTest" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.media.MediaUploadTest" start="36" end="38" startBytecode="0" endBytecode="107" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java"/>
+      <Message>In method new twitter4j.media.MediaUploadTest(String)</Message>
+    </Method>
+    <SourceLine classname="twitter4j.media.MediaUploadTest" primary="true" start="41" end="41" startBytecode="34" endBytecode="34" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java">
+      <Message>At MediaUploadTest.java:[line 41]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="STT_TOSTRING_STORED_IN_FIELD" priority="2" rank="17" abbrev="STT" category="STYLE" instanceHash="c9e1532d1b584d77806634261d958a0b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This method stores the value of a toString() call into a field</ShortMessage>
+    <LongMessage>This method twitter4j.media.MediaUploadTest stores the value of a toString() call into a field</LongMessage>
+    <Class classname="twitter4j.media.MediaUploadTest" primary="true">
+      <SourceLine classname="twitter4j.media.MediaUploadTest" start="36" end="207" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java">
+        <Message>At MediaUploadTest.java:[lines 36-207]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.media.MediaUploadTest</Message>
+    </Class>
+    <Method classname="twitter4j.media.MediaUploadTest" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.media.MediaUploadTest" start="36" end="38" startBytecode="0" endBytecode="107" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java"/>
+      <Message>In method new twitter4j.media.MediaUploadTest(String)</Message>
+    </Method>
+    <SourceLine classname="twitter4j.media.MediaUploadTest" primary="true" start="41" end="41" startBytecode="40" endBytecode="40" sourcefile="MediaUploadTest.java" sourcepath="twitter4j/media/MediaUploadTest.java" relSourcepath="twitter4j/media/MediaUploadTest.java">
+      <Message>At MediaUploadTest.java:[line 41]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugPattern type="STT_TOSTRING_STORED_IN_FIELD" abbrev="STT" category="STYLE">
+    <ShortDescription>This method stores the value of a toString() call into a field</ShortDescription>
+    <Details><![CDATA[
+            
+            <p>This method calls the toString() method on an object and stores the value in a field. Doing this
+            throws away the type safety of having the object defined by a Class. Using String makes it very easy to
+            use the wrong type of value, and the compiler will not catch these mistakes. You should delay converting
+            values to Strings for as long as possible, and thus not store them as fields.
+            </p>
+            
+        ]]></Details>
+  </BugPattern>
+  <BugPattern type="ISB_TOSTRING_APPENDING" abbrev="ISB" category="CORRECTNESS">
+    <ShortDescription>Method concatenates the result of a toString() call</ShortDescription>
+    <Details><![CDATA[
+			
+			<p>This method concatenates the output of a <code>toString()</code> call into a <code>StringBuffer</code> or <code>StringBuilder</code>.
+			It is simpler just to pass the object you want to append to the append call, as that form
+			does not suffer the potential for <code>NullPointerException</code>s, and is easier to read.</p>
+			
+			<p>
+			Keep in mind that Java compiles simple <code>String</code> concatenation to use <code>StringBuilder</code>s, 
+			so you may see this bug even when you don't use <code>StringBuilder</code>s explicitly.
+			</p>
+			
+			<p>
+			Instead of: <br/>
+<pre><code>
+StringBuilder builder = ...;
+builder.append(someObj.toString());
+...
+System.out.println("Problem with the object :" + someObj.toString());
+</code></pre>
+
+just do: <br/>
+
+<pre><code>
+StringBuilder builder = ...
+builder.append(someObj);
+...
+System.out.println("Problem with the object :" + someObj);
+</code></pre>
+			to avoid the possibility of <code>NullPointerException</code>s when someObj is <code>null</code>.
+			</p>
+			
+		]]></Details>
+  </BugPattern>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because FindBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="STT">
+    <Description>Stringified Types</Description>
+  </BugCode>
+  <BugCode abbrev="ISB">
+    <Description>Inefficient String Buffering</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Mon, 18 Dec 2017 11:07:10 -0600" total_classes="1" referenced_classes="43" total_bugs="4" total_size="133" num_packages="1" java_version="1.7.0_95" vm_version="24.95-b01" cpu_seconds="24.51" clock_seconds="12.52" peak_mbytes="150.73" alloc_mbytes="3564.50" gc_seconds="0.14" priority_2="4">
+    <FileStats path="twitter4j/media/MediaUploadTest.java" bugCount="4" size="133" bugHash="9fbbe88288e658522ce0dd24764ad8e9"/>
+    <PackageStats package="twitter4j.media" total_bugs="4" total_types="1" total_size="133" priority_2="4">
+      <ClassStats class="twitter4j.media.MediaUploadTest" sourceFile="MediaUploadTest.java" interface="false" size="133" bugs="4" priority_2="4"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1845" invocations="427" avgMicrosecondsPerInvocation="4321" maxMicrosecondsPerInvocation="102729" standardDeviationMircosecondsPerInvocation="10208"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="793" invocations="43" avgMicrosecondsPerInvocation="18443" maxMicrosecondsPerInvocation="168034" standardDeviationMircosecondsPerInvocation="28572"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.collect.CollectStatistics" totalMilliseconds="628" invocations="43" avgMicrosecondsPerInvocation="14613" maxMicrosecondsPerInvocation="138423" standardDeviationMircosecondsPerInvocation="23213"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="525" invocations="43" avgMicrosecondsPerInvocation="12210" maxMicrosecondsPerInvocation="81344" standardDeviationMircosecondsPerInvocation="17243"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="419" invocations="92" avgMicrosecondsPerInvocation="4561" maxMicrosecondsPerInvocation="185668" standardDeviationMircosecondsPerInvocation="19274"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="377" invocations="15" avgMicrosecondsPerInvocation="25197" maxMicrosecondsPerInvocation="136992" standardDeviationMircosecondsPerInvocation="31320"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="320" invocations="442" avgMicrosecondsPerInvocation="724" maxMicrosecondsPerInvocation="12826" standardDeviationMircosecondsPerInvocation="1664"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="274" invocations="15" avgMicrosecondsPerInvocation="18275" maxMicrosecondsPerInvocation="53665" standardDeviationMircosecondsPerInvocation="11880"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="268" invocations="150" avgMicrosecondsPerInvocation="1788" maxMicrosecondsPerInvocation="43428" standardDeviationMircosecondsPerInvocation="5019"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="226" invocations="43" avgMicrosecondsPerInvocation="5277" maxMicrosecondsPerInvocation="27287" standardDeviationMircosecondsPerInvocation="7838"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="222" invocations="16" avgMicrosecondsPerInvocation="13922" maxMicrosecondsPerInvocation="54242" standardDeviationMircosecondsPerInvocation="12294"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="217" invocations="394" avgMicrosecondsPerInvocation="551" maxMicrosecondsPerInvocation="11082" standardDeviationMircosecondsPerInvocation="1459"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="216" invocations="15" avgMicrosecondsPerInvocation="14410" maxMicrosecondsPerInvocation="86517" standardDeviationMircosecondsPerInvocation="19958"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="190" invocations="16" avgMicrosecondsPerInvocation="11880" maxMicrosecondsPerInvocation="29220" standardDeviationMircosecondsPerInvocation="7852"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="189" invocations="15" avgMicrosecondsPerInvocation="12619" maxMicrosecondsPerInvocation="169126" standardDeviationMircosecondsPerInvocation="41887"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="187" invocations="43" avgMicrosecondsPerInvocation="4367" maxMicrosecondsPerInvocation="30328" standardDeviationMircosecondsPerInvocation="6913"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="182" invocations="43" avgMicrosecondsPerInvocation="4248" maxMicrosecondsPerInvocation="31248" standardDeviationMircosecondsPerInvocation="6211"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="165" invocations="15" avgMicrosecondsPerInvocation="11030" maxMicrosecondsPerInvocation="37957" standardDeviationMircosecondsPerInvocation="10487"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="165" invocations="43" avgMicrosecondsPerInvocation="3841" maxMicrosecondsPerInvocation="20881" standardDeviationMircosecondsPerInvocation="5765"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="164" invocations="43" avgMicrosecondsPerInvocation="3826" maxMicrosecondsPerInvocation="25879" standardDeviationMircosecondsPerInvocation="5356"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="139" invocations="43" avgMicrosecondsPerInvocation="3232" maxMicrosecondsPerInvocation="24310" standardDeviationMircosecondsPerInvocation="5117"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.taintanalysis.TaintDataflowEngine" totalMilliseconds="135" invocations="15" avgMicrosecondsPerInvocation="9010" maxMicrosecondsPerInvocation="24609" standardDeviationMircosecondsPerInvocation="6444"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="131" invocations="43" avgMicrosecondsPerInvocation="3052" maxMicrosecondsPerInvocation="79450" standardDeviationMircosecondsPerInvocation="12975"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

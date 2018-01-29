@@ -1,0 +1,14 @@
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/MobypictureUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/TwitterUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/ImageUploadFactory.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/PosterousUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/Version.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/ImgLyUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/TwitgooUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/TwippleUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/AbstractImageUploadImpl.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/ImageUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/YFrogUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/MediaProvider.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/TwitpicUpload.class
+/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/classes/twitter4j/media/PlixiUpload.class

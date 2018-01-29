@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="1.75"/>
+    <errors>
+        <error id="usleepCalled" severity="style" msg="Obsolescent function &apos;usleep&apos; called. It is recommended to use &apos;nanosleep&apos; or &apos;setitimer&apos; instead." verbose="The obsolescent function &apos;usleep&apos; is called. POSIX.1-2001 declares usleep() function obsolescent and POSIX.1-2008 removes it. It is recommended that new applications use the &apos;nanosleep&apos; or &apos;setitimer&apos; function." cwe="477">
+            <location file="lighttpd-angel.c" line="52"/>
+        </error>
+    </errors>
+</results>

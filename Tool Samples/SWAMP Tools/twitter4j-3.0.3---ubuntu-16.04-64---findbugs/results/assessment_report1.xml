@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1" sequence="0" timestamp="1513616847000" analysisTimestamp="1513616876183" release="">
+  <Project projectName="twitter4j-3.0.3">
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/test-classes/twitter4j/internal/http/LazyHttpClientImpl.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/test-classes/twitter4j/GAETwitterTest.class</Jar>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/test-classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/target/classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-core/target/twitter4j-core-3.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/.m2/repository/com/google/appengine/appengine-api-1.0-sdk/1.7.3/appengine-api-1.0-sdk-1.7.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/.m2/repository/com/google/appengine/appengine-testing/1.7.3/appengine-testing-1.7.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/.m2/repository/com/google/appengine/appengine-api-stubs/1.7.3/appengine-api-stubs-1.7.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar</AuxClasspathEntry>
+    <SrcDir>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-appengine/src/test/java</SrcDir>
+    <Plugin id="com.h3xstream.findsecbugs" enabled="true"/>
+    <Plugin id="com.mebigfatguy.fbcontrib" enabled="true"/>
+  </Project>
+  <BugInstance type="IMC_IMMATURE_CLASS_PRINTSTACKTRACE" priority="2" rank="17" abbrev="IMC" category="STYLE" instanceHash="f66a38a157c6b0f44681afd7a19c7214" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method prints the stack trace to the console</ShortMessage>
+    <LongMessage>Method twitter4j.GAETwitterTest.testGAETwitter() prints the stack trace to the console</LongMessage>
+    <Class classname="twitter4j.GAETwitterTest" primary="true">
+      <SourceLine classname="twitter4j.GAETwitterTest" start="27" end="51" sourcefile="GAETwitterTest.java" sourcepath="twitter4j/GAETwitterTest.java" relSourcepath="twitter4j/GAETwitterTest.java">
+        <Message>At GAETwitterTest.java:[lines 27-51]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.GAETwitterTest</Message>
+    </Class>
+    <Method classname="twitter4j.GAETwitterTest" name="testGAETwitter" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.GAETwitterTest" start="40" end="51" startBytecode="0" endBytecode="224" sourcefile="GAETwitterTest.java" sourcepath="twitter4j/GAETwitterTest.java" relSourcepath="twitter4j/GAETwitterTest.java"/>
+      <Message>In method twitter4j.GAETwitterTest.testGAETwitter()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.GAETwitterTest" primary="true" start="45" end="45" startBytecode="34" endBytecode="34" sourcefile="GAETwitterTest.java" sourcepath="twitter4j/GAETwitterTest.java" relSourcepath="twitter4j/GAETwitterTest.java">
+      <Message>At GAETwitterTest.java:[line 45]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NPMC_NON_PRODUCTIVE_METHOD_CALL" priority="2" rank="7" abbrev="NPMC" category="CORRECTNESS" instanceHash="cd7fcc8a1af1465c0c3b89a65a607a1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method ignores return value of a non mutating method</ShortMessage>
+    <LongMessage>Method twitter4j.GAETwitterTest.testGAETwitter() ignores return value of a non mutating method</LongMessage>
+    <Class classname="twitter4j.GAETwitterTest" primary="true">
+      <SourceLine classname="twitter4j.GAETwitterTest" start="27" end="51" sourcefile="GAETwitterTest.java" sourcepath="twitter4j/GAETwitterTest.java" relSourcepath="twitter4j/GAETwitterTest.java">
+        <Message>At GAETwitterTest.java:[lines 27-51]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.GAETwitterTest</Message>
+    </Class>
+    <Method classname="twitter4j.GAETwitterTest" name="testGAETwitter" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.GAETwitterTest" start="40" end="51" startBytecode="0" endBytecode="224" sourcefile="GAETwitterTest.java" sourcepath="twitter4j/GAETwitterTest.java" relSourcepath="twitter4j/GAETwitterTest.java"/>
+      <Message>In method twitter4j.GAETwitterTest.testGAETwitter()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.GAETwitterTest" primary="true" start="43" end="43" startBytecode="28" endBytecode="28" sourcefile="GAETwitterTest.java" sourcepath="twitter4j/GAETwitterTest.java" relSourcepath="twitter4j/GAETwitterTest.java">
+      <Message>At GAETwitterTest.java:[line 43]</Message>
+    </SourceLine>
+    <String value="java/lang/Object@toString()Ljava/lang/String;">
+      <Message>Value java/lang/Object@toString()Ljava/lang/String;</Message>
+    </String>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugPattern type="NPMC_NON_PRODUCTIVE_METHOD_CALL" abbrev="NPMC" category="CORRECTNESS">
+    <ShortDescription>Method ignores return value of a non mutating method</ShortDescription>
+    <Details><![CDATA[
+			
+			<p>This method ignores the return value of a common method that is assumed to be non-mutating.
+			If this method does in fact not modify the object it is called on, there is no reason to call
+			this method, and it can be removed.</p>
+			
+		]]></Details>
+  </BugPattern>
+  <BugPattern type="IMC_IMMATURE_CLASS_PRINTSTACKTRACE" abbrev="IMC" category="STYLE">
+    <ShortDescription>Method prints the stack trace to the console</ShortDescription>
+    <Details><![CDATA[
+    		
+    		<p>This method prints a stack trace to the console. This is non configurable, and causes an 
+    		application to look unprofessional. Switch to using loggers so that users can control what 
+    		is logged and where.</p>
+    		
+    	]]></Details>
+  </BugPattern>
+  <BugCode abbrev="IMC">
+    <Description>Immature Class</Description>
+  </BugCode>
+  <BugCode abbrev="NPMC">
+    <Description>Non Productive Method Call</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Mon, 18 Dec 2017 11:07:27 -0600" total_classes="2" referenced_classes="46" total_bugs="2" total_size="33" num_packages="2" java_version="1.7.0_95" vm_version="24.95-b01" cpu_seconds="23.64" clock_seconds="12.55" peak_mbytes="137.24" alloc_mbytes="3564.50" gc_seconds="0.06" priority_2="2">
+    <FileStats path="twitter4j/GAETwitterTest.java" bugCount="2" size="23" bugHash="03ec0c0254daef7eba5a20a7849f3ec2"/>
+    <FileStats path="twitter4j/internal/http/LazyHttpClientImpl.java" bugCount="0" size="10"/>
+    <PackageStats package="twitter4j" total_bugs="2" total_types="1" total_size="23" priority_2="2">
+      <ClassStats class="twitter4j.GAETwitterTest" sourceFile="GAETwitterTest.java" interface="false" size="23" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <PackageStats package="twitter4j.internal.http" total_bugs="0" total_types="1" total_size="10">
+      <ClassStats class="twitter4j.internal.http.LazyHttpClientImpl" sourceFile="LazyHttpClientImpl.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1746" invocations="448" avgMicrosecondsPerInvocation="3898" maxMicrosecondsPerInvocation="181868" standardDeviationMircosecondsPerInvocation="12448"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="809" invocations="462" avgMicrosecondsPerInvocation="1751" maxMicrosecondsPerInvocation="365554" standardDeviationMircosecondsPerInvocation="17213"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="658" invocations="46" avgMicrosecondsPerInvocation="14322" maxMicrosecondsPerInvocation="350571" standardDeviationMircosecondsPerInvocation="50816"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="618" invocations="46" avgMicrosecondsPerInvocation="13444" maxMicrosecondsPerInvocation="61165" standardDeviationMircosecondsPerInvocation="16727"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.collect.CollectStatistics" totalMilliseconds="580" invocations="46" avgMicrosecondsPerInvocation="12616" maxMicrosecondsPerInvocation="62143" standardDeviationMircosecondsPerInvocation="17575"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="395" invocations="80" avgMicrosecondsPerInvocation="4947" maxMicrosecondsPerInvocation="116601" standardDeviationMircosecondsPerInvocation="13223"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="249" invocations="171" avgMicrosecondsPerInvocation="1458" maxMicrosecondsPerInvocation="37438" standardDeviationMircosecondsPerInvocation="3784"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="238" invocations="416" avgMicrosecondsPerInvocation="572" maxMicrosecondsPerInvocation="20533" standardDeviationMircosecondsPerInvocation="1900"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="233" invocations="46" avgMicrosecondsPerInvocation="5073" maxMicrosecondsPerInvocation="28136" standardDeviationMircosecondsPerInvocation="7623"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="220" invocations="7" avgMicrosecondsPerInvocation="31505" maxMicrosecondsPerInvocation="215449" standardDeviationMircosecondsPerInvocation="75099"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="200" invocations="46" avgMicrosecondsPerInvocation="4367" maxMicrosecondsPerInvocation="74604" standardDeviationMircosecondsPerInvocation="11329"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="195" invocations="46" avgMicrosecondsPerInvocation="4242" maxMicrosecondsPerInvocation="59713" standardDeviationMircosecondsPerInvocation="9436"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="182" invocations="46" avgMicrosecondsPerInvocation="3977" maxMicrosecondsPerInvocation="34871" standardDeviationMircosecondsPerInvocation="7777"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="142" invocations="46" avgMicrosecondsPerInvocation="3106" maxMicrosecondsPerInvocation="20679" standardDeviationMircosecondsPerInvocation="4774"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="130" invocations="46" avgMicrosecondsPerInvocation="2840" maxMicrosecondsPerInvocation="26760" standardDeviationMircosecondsPerInvocation="4967"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="102" invocations="46" avgMicrosecondsPerInvocation="2238" maxMicrosecondsPerInvocation="18488" standardDeviationMircosecondsPerInvocation="3869"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

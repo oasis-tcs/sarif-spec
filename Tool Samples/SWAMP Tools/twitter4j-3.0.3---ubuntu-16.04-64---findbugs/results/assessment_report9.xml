@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1" sequence="0" timestamp="1513616753000" analysisTimestamp="1513617136361" release="">
+  <Project projectName="twitter4j-3.0.3">
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$69.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/VersionAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$34.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$28.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$103.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$52.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$107.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$137.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$8.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$55.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$130.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$10.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$114.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$83.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$149.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$37.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$26.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$90.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$140.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$117.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$24.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$60.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$20.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$80.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$7.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$40.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$5.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$18.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$150.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$19.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$86.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$147.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$77.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$57.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$88.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$112.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$42.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$113.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$75.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$145.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$100.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$53.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$49.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$151.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$126.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$1.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$3.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$38.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$41.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$33.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$72.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$132.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$51.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$89.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$116.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/FriendsFollowersResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$70.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$22.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/SpamReportingResourceAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$153.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$14.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/DirectMessagesResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$62.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$31.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$30.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$143.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$21.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$120.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$115.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$39.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/PlacesGeoResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/TrendsResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/UsersResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$63.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$125.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$92.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$54.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$45.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/UndocumentedResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$118.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$65.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$99.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$74.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$71.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/TwitterListener.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitter.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$76.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$78.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$97.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$108.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$82.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$46.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/TwitterMethod.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$152.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$98.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$15.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$146.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/SuggestedUsersResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$95.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$79.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$133.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$94.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$50.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$102.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$127.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$36.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$141.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/TweetsResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$67.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$84.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$47.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$109.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$139.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$135.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$6.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$29.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$144.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$128.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$17.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$122.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$131.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$154.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$59.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$138.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$93.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$23.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$101.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$81.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$96.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$106.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$111.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$121.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$64.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$129.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$136.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$25.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$48.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/SavedSearchesResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$119.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$142.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$43.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$58.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$AsyncTask.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/TwitterAdapter.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$104.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterFactory.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$134.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$2.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$12.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$124.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$110.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$35.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$13.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$11.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$66.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/ListsResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$32.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$44.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$16.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$91.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$73.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$9.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$148.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/SearchResourceAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/FavoritesResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$68.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/TimelinesResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$105.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$56.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$123.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/api/HelpResourcesAsync.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$27.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$85.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/auth/AsyncOAuthSupport.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$4.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$87.class</Jar>
+    <Jar>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes/twitter4j/AsyncTwitterImpl$61.class</Jar>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-core/target/twitter4j-core-3.0.3.jar</AuxClasspathEntry>
+    <SrcDir>/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/src/main/java</SrcDir>
+    <Plugin id="com.h3xstream.findsecbugs" enabled="true"/>
+    <Plugin id="com.mebigfatguy.fbcontrib" enabled="true"/>
+  </Project>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE" instanceHash="277b9317bf811e5129302996e904375d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class twitter4j.AsyncTwitterImpl defines non-transient non-serializable instance field listeners</LongMessage>
+    <Class classname="twitter4j.AsyncTwitterImpl" primary="true">
+      <SourceLine classname="twitter4j.AsyncTwitterImpl" start="46" end="3290" sourcefile="AsyncTwitterImpl.java" sourcepath="twitter4j/AsyncTwitterImpl.java" relSourcepath="twitter4j/AsyncTwitterImpl.java">
+        <Message>At AsyncTwitterImpl.java:[lines 46-3290]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.AsyncTwitterImpl</Message>
+    </Class>
+    <Field classname="twitter4j.AsyncTwitterImpl" name="listeners" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.AsyncTwitterImpl" sourcefile="AsyncTwitterImpl.java" sourcepath="twitter4j/AsyncTwitterImpl.java" relSourcepath="twitter4j/AsyncTwitterImpl.java">
+        <Message>In AsyncTwitterImpl.java</Message>
+      </SourceLine>
+      <Message>Field twitter4j.AsyncTwitterImpl.listeners</Message>
+    </Field>
+    <Type descriptor="Ltwitter4j/TwitterListener;" role="TYPE_FOUND">
+      <SourceLine classname="twitter4j.TwitterListener" sourcefile="TwitterListener.java" sourcepath="twitter4j/TwitterListener.java" relSourcepath="twitter4j/TwitterListener.java">
+        <Message>In TwitterListener.java</Message>
+      </SourceLine>
+      <Message>Actual type twitter4j.TwitterListener</Message>
+    </Type>
+    <SourceLine classname="twitter4j.AsyncTwitterImpl" sourcefile="AsyncTwitterImpl.java" sourcepath="twitter4j/AsyncTwitterImpl.java" relSourcepath="twitter4j/AsyncTwitterImpl.java" synthetic="true">
+      <Message>In AsyncTwitterImpl.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="USBR_UNNECESSARY_STORE_BEFORE_RETURN" priority="2" rank="17" abbrev="USBR" category="STYLE" instanceHash="b7863c07b530eea84b14efe232f45ffd" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method stores return result in local before immediately returning it</ShortMessage>
+    <LongMessage>Method twitter4j.AsyncTwitterImpl.hashCode() stores return result in local before immediately returning it</LongMessage>
+    <Class classname="twitter4j.AsyncTwitterImpl" primary="true">
+      <SourceLine classname="twitter4j.AsyncTwitterImpl" start="46" end="3290" sourcefile="AsyncTwitterImpl.java" sourcepath="twitter4j/AsyncTwitterImpl.java" relSourcepath="twitter4j/AsyncTwitterImpl.java">
+        <Message>At AsyncTwitterImpl.java:[lines 46-3290]</Message>
+      </SourceLine>
+      <Message>In class twitter4j.AsyncTwitterImpl</Message>
+    </Class>
+    <Method classname="twitter4j.AsyncTwitterImpl" name="hashCode" signature="()I" isStatic="false" primary="true">
+      <SourceLine classname="twitter4j.AsyncTwitterImpl" start="3282" end="3285" startBytecode="0" endBytecode="120" sourcefile="AsyncTwitterImpl.java" sourcepath="twitter4j/AsyncTwitterImpl.java" relSourcepath="twitter4j/AsyncTwitterImpl.java"/>
+      <Message>In method twitter4j.AsyncTwitterImpl.hashCode()</Message>
+    </Method>
+    <SourceLine classname="twitter4j.AsyncTwitterImpl" primary="true" start="3285" end="3285" startBytecode="56" endBytecode="56" sourcefile="AsyncTwitterImpl.java" sourcepath="twitter4j/AsyncTwitterImpl.java" relSourcepath="twitter4j/AsyncTwitterImpl.java">
+      <Message>At AsyncTwitterImpl.java:[line 3285]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugPattern type="USBR_UNNECESSARY_STORE_BEFORE_RETURN" abbrev="USBR" category="STYLE">
+    <ShortDescription>Method stores return result in local before immediately returning it</ShortDescription>
+    <Details><![CDATA[
+			
+			<p>This method stores the return result in a local variable, and then immediately
+			returns the local variable. It would be simpler just to return the value that is
+			assigned to the local variable, directly.</p>
+			<p>
+				Instead of the following: <br/>
+
+<pre><code>
+public float average(int[] arr) {
+    float sum = 0;
+    for (int i = 0; i &lt; arr.length; i++) {
+        sum += arr[i];
+    }
+    float ave = sum / arr.length;
+    return ave;
+}
+</code></pre>
+
+				Simply change the method to return the result of the division: <br/>
+
+<pre><code>
+public float average(int[] arr) {
+    float sum = 0;
+    for (int i = 0; i &lt; arr.length; i++) {
+        sum += arr[i];
+    }
+    <b>return sum / arr.length;</b> //Change
+}
+</code></pre>
+			</p>
+			
+		]]></Details>
+  </BugPattern>
+  <BugPattern type="SE_BAD_FIELD" abbrev="Se" category="BAD_PRACTICE">
+    <ShortDescription>Non-transient non-serializable instance field in serializable class</ShortDescription>
+    <Details><![CDATA[
+
+<p> This Serializable class defines a non-primitive instance field which is neither transient,
+Serializable, or <code>java.lang.Object</code>, and does not appear to implement
+the <code>Externalizable</code> interface or the
+<code>readObject()</code> and <code>writeObject()</code> methods.&nbsp;
+Objects of this class will not be deserialized correctly if a non-Serializable
+object is stored in this field.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="USBR">
+    <Description>Unnecessary Store Before Return</Description>
+  </BugCode>
+  <BugCode abbrev="Se">
+    <Description>Incorrect definition of Serializable class</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Mon, 18 Dec 2017 11:05:53 -0600" total_classes="178" referenced_classes="264" total_bugs="2" total_size="3354" num_packages="3" java_version="1.7.0_95" vm_version="24.95-b01" cpu_seconds="81.66" clock_seconds="42.09" peak_mbytes="387.33" alloc_mbytes="3564.50" gc_seconds="0.66" priority_2="2">
+    <FileStats path="twitter4j/AsyncTwitter.java" bugCount="0" size="2"/>
+    <FileStats path="twitter4j/AsyncTwitterFactory.java" bugCount="0" size="37"/>
+    <FileStats path="twitter4j/AsyncTwitterImpl.java" bugCount="2" size="2661" bugHash="b5ec016f2719ab9a9eed7519acfcbd5e"/>
+    <FileStats path="twitter4j/TwitterAdapter.java" bugCount="0" size="183"/>
+    <FileStats path="twitter4j/TwitterListener.java" bugCount="0" size="91"/>
+    <FileStats path="twitter4j/TwitterMethod.java" bugCount="0" size="185"/>
+    <FileStats path="twitter4j/VersionAsync.java" bugCount="0" size="11"/>
+    <FileStats path="twitter4j/api/DirectMessagesResourcesAsync.java" bugCount="0" size="9"/>
+    <FileStats path="twitter4j/api/FavoritesResourcesAsync.java" bugCount="0" size="9"/>
+    <FileStats path="twitter4j/api/FriendsFollowersResourcesAsync.java" bugCount="0" size="25"/>
+    <FileStats path="twitter4j/api/HelpResourcesAsync.java" bugCount="0" size="7"/>
+    <FileStats path="twitter4j/api/ListsResourcesAsync.java" bugCount="0" size="46"/>
+    <FileStats path="twitter4j/api/PlacesGeoResourcesAsync.java" bugCount="0" size="6"/>
+    <FileStats path="twitter4j/api/SavedSearchesResourcesAsync.java" bugCount="0" size="5"/>
+    <FileStats path="twitter4j/api/SearchResourceAsync.java" bugCount="0" size="2"/>
+    <FileStats path="twitter4j/api/SpamReportingResourceAsync.java" bugCount="0" size="3"/>
+    <FileStats path="twitter4j/api/SuggestedUsersResourcesAsync.java" bugCount="0" size="4"/>
+    <FileStats path="twitter4j/api/TimelinesResourcesAsync.java" bugCount="0" size="13"/>
+    <FileStats path="twitter4j/api/TrendsResourcesAsync.java" bugCount="0" size="6"/>
+    <FileStats path="twitter4j/api/TweetsResourcesAsync.java" bugCount="0" size="8"/>
+    <FileStats path="twitter4j/api/UndocumentedResourcesAsync.java" bugCount="0" size="2"/>
+    <FileStats path="twitter4j/api/UsersResourcesAsync.java" bugCount="0" size="30"/>
+    <FileStats path="twitter4j/auth/AsyncOAuthSupport.java" bugCount="0" size="9"/>
+    <PackageStats package="twitter4j" total_bugs="2" total_types="162" total_size="3170" priority_2="2">
+      <ClassStats class="twitter4j.AsyncTwitter" sourceFile="AsyncTwitter.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterFactory" sourceFile="AsyncTwitterFactory.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl" sourceFile="AsyncTwitterImpl.java" interface="false" size="572" bugs="2" priority_2="2"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$1" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$10" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$100" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$101" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$102" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$103" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$104" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$105" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$106" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$107" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$108" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$109" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$11" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$110" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$111" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$112" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$113" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$114" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$115" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$116" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$117" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$118" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$119" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$12" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$120" sourceFile="AsyncTwitterImpl.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$121" sourceFile="AsyncTwitterImpl.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$122" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$123" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$124" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$125" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$126" sourceFile="AsyncTwitterImpl.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$127" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$128" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$129" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$13" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$130" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$131" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$132" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$133" sourceFile="AsyncTwitterImpl.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$134" sourceFile="AsyncTwitterImpl.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$135" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$136" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$137" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$138" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$139" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$14" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$140" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$141" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$142" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$143" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$144" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$145" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$146" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$147" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$148" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$149" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$15" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$150" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$151" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$152" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$153" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$154" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$16" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$17" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$18" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$19" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$2" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$20" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$21" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$22" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$23" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$24" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$25" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$26" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$27" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$28" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$29" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$3" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$30" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$31" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$32" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$33" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$34" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$35" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$36" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$37" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$38" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$39" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$4" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$40" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$41" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$42" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$43" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$44" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$45" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$46" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$47" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$48" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$49" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$5" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$50" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$51" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$52" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$53" sourceFile="AsyncTwitterImpl.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$54" sourceFile="AsyncTwitterImpl.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$55" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$56" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$57" sourceFile="AsyncTwitterImpl.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$58" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$59" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$6" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$60" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$61" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$62" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$63" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$64" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$65" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$66" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$67" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$68" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$69" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$7" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$70" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$71" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$72" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$73" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$74" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$75" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$76" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$77" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$78" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$79" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$8" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$80" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$81" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$82" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$83" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$84" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$85" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$86" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$87" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$88" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$89" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$9" sourceFile="AsyncTwitterImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$90" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$91" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$92" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$93" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$94" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$95" sourceFile="AsyncTwitterImpl.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$96" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$97" sourceFile="AsyncTwitterImpl.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$98" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$99" sourceFile="AsyncTwitterImpl.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="twitter4j.AsyncTwitterImpl$AsyncTask" sourceFile="AsyncTwitterImpl.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="twitter4j.TwitterAdapter" sourceFile="TwitterAdapter.java" interface="false" size="183" bugs="0"/>
+      <ClassStats class="twitter4j.TwitterListener" sourceFile="TwitterListener.java" interface="true" size="91" bugs="0"/>
+      <ClassStats class="twitter4j.TwitterMethod" sourceFile="TwitterMethod.java" interface="false" size="185" bugs="0"/>
+      <ClassStats class="twitter4j.VersionAsync" sourceFile="VersionAsync.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="twitter4j.api" total_bugs="0" total_types="15" total_size="175">
+      <ClassStats class="twitter4j.api.DirectMessagesResourcesAsync" sourceFile="DirectMessagesResourcesAsync.java" interface="true" size="9" bugs="0"/>
+      <ClassStats class="twitter4j.api.FavoritesResourcesAsync" sourceFile="FavoritesResourcesAsync.java" interface="true" size="9" bugs="0"/>
+      <ClassStats class="twitter4j.api.FriendsFollowersResourcesAsync" sourceFile="FriendsFollowersResourcesAsync.java" interface="true" size="25" bugs="0"/>
+      <ClassStats class="twitter4j.api.HelpResourcesAsync" sourceFile="HelpResourcesAsync.java" interface="true" size="7" bugs="0"/>
+      <ClassStats class="twitter4j.api.ListsResourcesAsync" sourceFile="ListsResourcesAsync.java" interface="true" size="46" bugs="0"/>
+      <ClassStats class="twitter4j.api.PlacesGeoResourcesAsync" sourceFile="PlacesGeoResourcesAsync.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="twitter4j.api.SavedSearchesResourcesAsync" sourceFile="SavedSearchesResourcesAsync.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="twitter4j.api.SearchResourceAsync" sourceFile="SearchResourceAsync.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="twitter4j.api.SpamReportingResourceAsync" sourceFile="SpamReportingResourceAsync.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="twitter4j.api.SuggestedUsersResourcesAsync" sourceFile="SuggestedUsersResourcesAsync.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="twitter4j.api.TimelinesResourcesAsync" sourceFile="TimelinesResourcesAsync.java" interface="true" size="13" bugs="0"/>
+      <ClassStats class="twitter4j.api.TrendsResourcesAsync" sourceFile="TrendsResourcesAsync.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="twitter4j.api.TweetsResourcesAsync" sourceFile="TweetsResourcesAsync.java" interface="true" size="8" bugs="0"/>
+      <ClassStats class="twitter4j.api.UndocumentedResourcesAsync" sourceFile="UndocumentedResourcesAsync.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="twitter4j.api.UsersResourcesAsync" sourceFile="UsersResourcesAsync.java" interface="true" size="30" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="twitter4j.auth" total_bugs="0" total_types="1" total_size="9">
+      <ClassStats class="twitter4j.auth.AsyncOAuthSupport" sourceFile="AsyncOAuthSupport.java" interface="true" size="9" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="2194" invocations="707" avgMicrosecondsPerInvocation="3104" maxMicrosecondsPerInvocation="203714" standardDeviationMircosecondsPerInvocation="9886"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="2107" invocations="264" avgMicrosecondsPerInvocation="7981" maxMicrosecondsPerInvocation="629451" standardDeviationMircosecondsPerInvocation="41637"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="1870" invocations="603" avgMicrosecondsPerInvocation="3101" maxMicrosecondsPerInvocation="331487" standardDeviationMircosecondsPerInvocation="14564"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="1776" invocations="264" avgMicrosecondsPerInvocation="6729" maxMicrosecondsPerInvocation="224389" standardDeviationMircosecondsPerInvocation="24377"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="1455" invocations="602" avgMicrosecondsPerInvocation="2417" maxMicrosecondsPerInvocation="179346" standardDeviationMircosecondsPerInvocation="8832"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.collect.CollectStatistics" totalMilliseconds="1400" invocations="264" avgMicrosecondsPerInvocation="5304" maxMicrosecondsPerInvocation="119164" standardDeviationMircosecondsPerInvocation="15320"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="1350" invocations="602" avgMicrosecondsPerInvocation="2244" maxMicrosecondsPerInvocation="211972" standardDeviationMircosecondsPerInvocation="9025"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="1350" invocations="602" avgMicrosecondsPerInvocation="2243" maxMicrosecondsPerInvocation="84408" standardDeviationMircosecondsPerInvocation="5920"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="1262" invocations="602" avgMicrosecondsPerInvocation="2097" maxMicrosecondsPerInvocation="412241" standardDeviationMircosecondsPerInvocation="17001"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="1197" invocations="844" avgMicrosecondsPerInvocation="1418" maxMicrosecondsPerInvocation="47937" standardDeviationMircosecondsPerInvocation="4487"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.taintanalysis.TaintDataflowEngine" totalMilliseconds="1044" invocations="602" avgMicrosecondsPerInvocation="1734" maxMicrosecondsPerInvocation="33867" standardDeviationMircosecondsPerInvocation="4074"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="940" invocations="862" avgMicrosecondsPerInvocation="1090" maxMicrosecondsPerInvocation="51967" standardDeviationMircosecondsPerInvocation="3557"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="603" invocations="394" avgMicrosecondsPerInvocation="1530" maxMicrosecondsPerInvocation="156294" standardDeviationMircosecondsPerInvocation="9783"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="566" invocations="264" avgMicrosecondsPerInvocation="2147" maxMicrosecondsPerInvocation="95014" standardDeviationMircosecondsPerInvocation="7095"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="550" invocations="264" avgMicrosecondsPerInvocation="2084" maxMicrosecondsPerInvocation="65336" standardDeviationMircosecondsPerInvocation="6593"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="493" invocations="509" avgMicrosecondsPerInvocation="968" maxMicrosecondsPerInvocation="19848" standardDeviationMircosecondsPerInvocation="2169"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="449" invocations="264" avgMicrosecondsPerInvocation="1702" maxMicrosecondsPerInvocation="85848" standardDeviationMircosecondsPerInvocation="7402"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="424" invocations="862" avgMicrosecondsPerInvocation="492" maxMicrosecondsPerInvocation="174091" standardDeviationMircosecondsPerInvocation="6072"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="417" invocations="724" avgMicrosecondsPerInvocation="576" maxMicrosecondsPerInvocation="33423" standardDeviationMircosecondsPerInvocation="2037"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="372" invocations="264" avgMicrosecondsPerInvocation="1412" maxMicrosecondsPerInvocation="82810" standardDeviationMircosecondsPerInvocation="7112"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="363" invocations="264" avgMicrosecondsPerInvocation="1375" maxMicrosecondsPerInvocation="114638" standardDeviationMircosecondsPerInvocation="7663"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.detect.CopiedOverriddenMethod" totalMilliseconds="347" invocations="178" avgMicrosecondsPerInvocation="1953" maxMicrosecondsPerInvocation="282181" standardDeviationMircosecondsPerInvocation="21161"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="344" invocations="191" avgMicrosecondsPerInvocation="1802" maxMicrosecondsPerInvocation="48396" standardDeviationMircosecondsPerInvocation="6404"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="334" invocations="264" avgMicrosecondsPerInvocation="1265" maxMicrosecondsPerInvocation="44820" standardDeviationMircosecondsPerInvocation="4105"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="321" invocations="11698" avgMicrosecondsPerInvocation="27" maxMicrosecondsPerInvocation="14457" standardDeviationMircosecondsPerInvocation="361"/>
+      <ClassProfile name="edu.umd.cs.findbugs.DetectorToDetector2Adapter" totalMilliseconds="285" invocations="60956" avgMicrosecondsPerInvocation="4" maxMicrosecondsPerInvocation="19102" standardDeviationMircosecondsPerInvocation="141"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LoadedFieldSetFactory" totalMilliseconds="267" invocations="602" avgMicrosecondsPerInvocation="444" maxMicrosecondsPerInvocation="188351" standardDeviationMircosecondsPerInvocation="7719"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="258" invocations="264" avgMicrosecondsPerInvocation="980" maxMicrosecondsPerInvocation="35028" standardDeviationMircosecondsPerInvocation="3430"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="240" invocations="668" avgMicrosecondsPerInvocation="359" maxMicrosecondsPerInvocation="21465" standardDeviationMircosecondsPerInvocation="1346"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.collect.CollectMethodsReturningImmutableCollections" totalMilliseconds="225" invocations="264" avgMicrosecondsPerInvocation="855" maxMicrosecondsPerInvocation="40420" standardDeviationMircosecondsPerInvocation="3707"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUnsatisfiedObligation" totalMilliseconds="225" invocations="178" avgMicrosecondsPerInvocation="1265" maxMicrosecondsPerInvocation="103111" standardDeviationMircosecondsPerInvocation="8363"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.trust.TrustBoundaryViolationAttributeDetector" totalMilliseconds="222" invocations="178" avgMicrosecondsPerInvocation="1251" maxMicrosecondsPerInvocation="177860" standardDeviationMircosecondsPerInvocation="13307"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="218" invocations="601" avgMicrosecondsPerInvocation="363" maxMicrosecondsPerInvocation="30401" standardDeviationMircosecondsPerInvocation="1755"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.detect.OverlyConcreteParameter" totalMilliseconds="210" invocations="178" avgMicrosecondsPerInvocation="1182" maxMicrosecondsPerInvocation="51036" standardDeviationMircosecondsPerInvocation="4671"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.RuntimeExceptionCapture" totalMilliseconds="209" invocations="178" avgMicrosecondsPerInvocation="1177" maxMicrosecondsPerInvocation="30718" standardDeviationMircosecondsPerInvocation="3543"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.file.PathTraversalDetector" totalMilliseconds="204" invocations="178" avgMicrosecondsPerInvocation="1150" maxMicrosecondsPerInvocation="123622" standardDeviationMircosecondsPerInvocation="9323"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="194" invocations="178" avgMicrosecondsPerInvocation="1094" maxMicrosecondsPerInvocation="54206" standardDeviationMircosecondsPerInvocation="5121"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DroppedException" totalMilliseconds="188" invocations="178" avgMicrosecondsPerInvocation="1058" maxMicrosecondsPerInvocation="27680" standardDeviationMircosecondsPerInvocation="2975"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.trust.TrustBoundaryViolationValueDetector" totalMilliseconds="185" invocations="178" avgMicrosecondsPerInvocation="1040" maxMicrosecondsPerInvocation="124158" standardDeviationMircosecondsPerInvocation="9679"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="181" invocations="264" avgMicrosecondsPerInvocation="686" maxMicrosecondsPerInvocation="39600" standardDeviationMircosecondsPerInvocation="3324"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="169" invocations="178" avgMicrosecondsPerInvocation="953" maxMicrosecondsPerInvocation="79072" standardDeviationMircosecondsPerInvocation="5949"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.detect.DeletingWhileIterating" totalMilliseconds="159" invocations="178" avgMicrosecondsPerInvocation="898" maxMicrosecondsPerInvocation="30670" standardDeviationMircosecondsPerInvocation="2938"/>
+      <ClassProfile name="edu.umd.cs.findbugs.NonReportingDetectorToDetector2Adapter" totalMilliseconds="158" invocations="4316" avgMicrosecondsPerInvocation="36" maxMicrosecondsPerInvocation="19593" standardDeviationMircosecondsPerInvocation="481"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.scala.ScalaSensitiveDataExposureDetector" totalMilliseconds="157" invocations="178" avgMicrosecondsPerInvocation="882" maxMicrosecondsPerInvocation="113722" standardDeviationMircosecondsPerInvocation="8527"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="155" invocations="602" avgMicrosecondsPerInvocation="257" maxMicrosecondsPerInvocation="10570" standardDeviationMircosecondsPerInvocation="828"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.sql.SqlInjectionDetector" totalMilliseconds="153" invocations="178" avgMicrosecondsPerInvocation="863" maxMicrosecondsPerInvocation="95081" standardDeviationMircosecondsPerInvocation="7236"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="150" invocations="178" avgMicrosecondsPerInvocation="847" maxMicrosecondsPerInvocation="94687" standardDeviationMircosecondsPerInvocation="7145"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.script.ScriptInjectionDetector" totalMilliseconds="147" invocations="178" avgMicrosecondsPerInvocation="829" maxMicrosecondsPerInvocation="76079" standardDeviationMircosecondsPerInvocation="5845"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.HttpResponseSplittingDetector" totalMilliseconds="145" invocations="178" avgMicrosecondsPerInvocation="818" maxMicrosecondsPerInvocation="110869" standardDeviationMircosecondsPerInvocation="8308"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.detect.LocalSynchronizedCollection" totalMilliseconds="142" invocations="178" avgMicrosecondsPerInvocation="799" maxMicrosecondsPerInvocation="36377" standardDeviationMircosecondsPerInvocation="3355"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUseOfNonSerializableValue" totalMilliseconds="129" invocations="178" avgMicrosecondsPerInvocation="728" maxMicrosecondsPerInvocation="91690" standardDeviationMircosecondsPerInvocation="6996"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref" totalMilliseconds="127" invocations="178" avgMicrosecondsPerInvocation="716" maxMicrosecondsPerInvocation="30734" standardDeviationMircosecondsPerInvocation="3473"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="127" invocations="178" avgMicrosecondsPerInvocation="715" maxMicrosecondsPerInvocation="27199" standardDeviationMircosecondsPerInvocation="3102"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.detect.PartiallyConstructedObjectAccess" totalMilliseconds="124" invocations="178" avgMicrosecondsPerInvocation="702" maxMicrosecondsPerInvocation="85417" standardDeviationMircosecondsPerInvocation="6545"/>
+      <ClassProfile name="com.mebigfatguy.fbcontrib.detect.DubiousListCollection" totalMilliseconds="112" invocations="178" avgMicrosecondsPerInvocation="632" maxMicrosecondsPerInvocation="38489" standardDeviationMircosecondsPerInvocation="3818"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.fileDisclosure.FileDisclosureDetector" totalMilliseconds="111" invocations="178" avgMicrosecondsPerInvocation="625" maxMicrosecondsPerInvocation="47967" standardDeviationMircosecondsPerInvocation="3900"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="107" invocations="602" avgMicrosecondsPerInvocation="177" maxMicrosecondsPerInvocation="10226" standardDeviationMircosecondsPerInvocation="709"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.custom.CustomInjectionDetector" totalMilliseconds="106" invocations="178" avgMicrosecondsPerInvocation="599" maxMicrosecondsPerInvocation="58931" standardDeviationMircosecondsPerInvocation="4543"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.beans.BeanInjectionDetector" totalMilliseconds="105" invocations="178" avgMicrosecondsPerInvocation="595" maxMicrosecondsPerInvocation="52953" standardDeviationMircosecondsPerInvocation="4140"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.password.ConstantPasswordDetector" totalMilliseconds="104" invocations="178" avgMicrosecondsPerInvocation="586" maxMicrosecondsPerInvocation="37533" standardDeviationMircosecondsPerInvocation="3641"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.injection.aws.AwsQueryInjectionDetector" totalMilliseconds="104" invocations="178" avgMicrosecondsPerInvocation="586" maxMicrosecondsPerInvocation="50883" standardDeviationMircosecondsPerInvocation="4027"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.ExternalConfigurationControlDetector" totalMilliseconds="104" invocations="178" avgMicrosecondsPerInvocation="585" maxMicrosecondsPerInvocation="70185" standardDeviationMircosecondsPerInvocation="5272"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
