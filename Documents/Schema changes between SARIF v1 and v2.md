@@ -61,6 +61,28 @@ OASIS SARIF TC).
 
     - `physicalLocation.id`.
 
+- [Issue #66](https://github.com/oasis-tcs/sarif-spec/issues/66): "Enable traceability from converted SARIF file to original analysis tool log file"
+
+    Define the `conversion` object with the following properties:
+
+    - `tool` of type `tool`, required
+    - `invocation` of type `invocation`, optional
+    - `analysisToolLogFileUri` of type string, containing a valid URI, optional
+    - `analysisToolLogFileUriBaseId` of type string, containing a URI base id, optional
+
+    Define the `analysisToolLogFileContents` object with the following properties:
+
+    - `region` of type `region`, optional
+    - `snippet` of type `string`, optional
+    - `analysisToolLogFileUri` of type string, containing a valid URI, optional
+    - `analysisToolLogFileUriBaseId` of type string, containing a URI base id, optional
+
+    Add the following optional properties:
+
+    - `run.conversion` of type `conversion`
+    - `result.conversionProvenance` of type array of `analysisToolLogFileContents`
+
+
 - [Issue #69](https://github.com/oasis-tcs/sarif-spec/issues/69): "Provide a physicalLocation on a stack frame"
 
     Remove the following optional properties:
@@ -72,10 +94,14 @@ OASIS SARIF TC).
     
     Add the following optional property:
 
-    - `physicalLocation`
+    - `stackFrame.physicalLocation`
 
 - [Issue #72](https://github.com/oasis-tcs/sarif-spec/issues/72): "tool.language property needs a default value"
 
     Specify a default value for the following optional property, which subsumes the deleted properties:
 
     - `tool.language`: `"en-US"`
+
+- [Issue #81](https://github.com/oasis-tcs/sarif-spec/issues/81): "Add 'open' as a result level"
+
+    Add an additional enumerated value `"open"` to the `result.level` property.
