@@ -13,3 +13,7 @@ Presented at TC Meeting #11, February 28, 2018
     3. Issue [#81](https://github.com/oasis-tcs/sarif-spec/issues/81): "Add 'open' as a result level"
 
     4. Issue [#88](https://github.com/oasis-tcs/sarif-spec/issues/88): "Clarify that missing region indicates a reference to the complete file"
+
+2. The following purely editorial changes were made in the provisional draft:
+
+    1. Issue [#106](https://github.com/oasis-tcs/sarif-spec/issues/106): "Missing 'not' in Appendix E"
