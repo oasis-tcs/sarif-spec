@@ -26,12 +26,14 @@ Presented at TC Meeting #11, February 28, 2018
 
     3. Issue [#89](https://github.com/oasis-tcs/sarif-spec/issues/89): "date/time property issues with seconds" -- made available on February 21, 2018.
 
-    4. Issue [#91](https://github.com/oasis-tcs/sarif-spec/issues/91): "Represent original values for uriBaseId properties -- made available on February 22, 2018.
+    4. Issue [#90](https://github.com/oasis-tcs/sarif-spec/issues/90): "Introduce fileLocation object" -- made available February 25, 2018. 
 
-    5. Issue [#92](https://github.com/oasis-tcs/sarif-spec/issues/92): "Add stdin/stdout/stderr on invocation" -- made available on February 20, 2018.
+    5. Issue [#91](https://github.com/oasis-tcs/sarif-spec/issues/91): "Represent original values for uriBaseId properties -- made available on February 22, 2018.
+
+    6. Issue [#92](https://github.com/oasis-tcs/sarif-spec/issues/92): "Add stdin/stdout/stderr on invocation" -- made available on February 20, 2018.
     
         This version proposes using `physicalLocation` objects rather than embedded strings to specify the contents of the streams.
 
-    6. Issue [#94](https://github.com/oasis-tcs/sarif-spec/issues/94): "Add an invocation.arguments property" -- made available on February 21, 2018.
+    7. Issue [#94](https://github.com/oasis-tcs/sarif-spec/issues/94): "Add an invocation.arguments property" -- made available on February 21, 2018.
  
-    7. Issue [#104](https://github.com/oasis-tcs/sarif-spec/issues/104): "Introduce "producer" profile" -- made available on February 21, 2018. 
+    8. Issue [#104](https://github.com/oasis-tcs/sarif-spec/issues/104): "Introduce "producer" profile" -- made available on February 21, 2018. 
