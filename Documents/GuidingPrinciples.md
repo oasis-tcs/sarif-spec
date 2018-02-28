@@ -12,3 +12,7 @@
 6. SARIF is domain-agnostic; that is, it does not contain objects or properties that are specific to a single domain, such as security or compliance. However, SARIF might define specific values for properties that are specific to a single domain. For example, the proposed result.taxonomies property might define a dictionary entry whose key invokes a standard classification for memory safety issues only.
 
 7. The SARIF design is focused on expressing results as produced by a tool at a specific point-in-time and current excludes detailed thinking related to results management (associated result work item, false positive evaluation, etc.). These concepts may be addressed by defining or proposing 'profiles' that broaden SARIF's design surface area, contingent on progress with core work.
+
+8. In cases where SARIF permits the same information to be expressed in more than one way, any or all of those representations may be present. This allows producers to persist all the information they have, and it allows consumers to choose the representation they prefer. SARIF requires all the representations to be consistent.
+
+    Example: SARIF allows you to specify the start of a `region` either with the `startLine` and `startColumn` properties, or with the `offset` property. It's ok for both to be present, as long as they're consistent.
