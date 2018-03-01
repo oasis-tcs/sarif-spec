@@ -162,3 +162,10 @@ OASIS SARIF TC).
     In the `invocation` object:
 
     - Add the property `arguments` of type `string[]`, optional.
+
+- [Issue #91](https://github.com/oasis-tcs/sarif-spec/issues/91): "Represent original values for uriBaseId properties"
+
+    In the `run` object:
+
+    - Add the property `originalUriBaseIds`, of type `object`, with property values of type `string`.
+
