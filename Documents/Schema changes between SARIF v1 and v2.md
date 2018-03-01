@@ -19,9 +19,9 @@ OASIS SARIF TC).
 
 - [Issue #27](https://github.com/oasis-tcs/sarif-spec/issues/27): "Add a help property to rule"
 
-    Add the following optional property:
+    In the `rule` object:
 
-    - `rule.help`
+    - Add the property `help` of type `string`, optional.
 
 - [Issue #33](https://github.com/oasis-tcs/sarif-spec/issues/33): "Should we allow formatting in messages?"
 
@@ -57,9 +57,9 @@ OASIS SARIF TC).
 
 - [Issue #61](https://github.com/oasis-tcs/sarif-spec/issues/61): "Provide a format for links embedded in our plain text messages"
 
-    Add the following optional property:
+    In the `physicalLocation` object:
 
-    - `physicalLocation.id`.
+    - Add the property `id` of type `integer`, optional.
 
 - [Issue #66](https://github.com/oasis-tcs/sarif-spec/issues/66): "Enable traceability from converted SARIF file to original analysis tool log file"
 
@@ -77,24 +77,20 @@ OASIS SARIF TC).
     - `analysisToolLogFileUri` of type string, containing a valid URI, optional
     - `analysisToolLogFileUriBaseId` of type string, containing a URI base id, optional
 
-    Add the following optional properties:
+    In the `run` object:
 
-    - `run.conversion` of type `conversion`
-    - `result.conversionProvenance` of type array of `analysisToolLogFileContents`
+    - Add the property `conversion` of type `conversion`, optional.
 
+    In the `result` object:
+
+    - Add the property `conversionProvenance` of type `analysisToolLogFileContents[]`, optional.
 
 - [Issue #69](https://github.com/oasis-tcs/sarif-spec/issues/69): "Provide a physicalLocation on a stack frame"
 
-    Remove the following optional properties:
+    In the `stackFrame object`:
 
-    - `stackFrame.uri`
-    - `stackFrame.uriBaseId`
-    - `stackFrame.line`
-    - `stackrame.column`
-    
-    Add the following optional property:
-
-    - `stackFrame.physicalLocation`
+    - Remove the properties `uri`, `uriBaseId`, `line`, and `column`.
+    - Add the property `physicalLocation` of type `physicalLocation`, optional.
 
 - [Issue #72](https://github.com/oasis-tcs/sarif-spec/issues/72): "tool.language property needs a default value"
 
@@ -104,4 +100,65 @@ OASIS SARIF TC).
 
 - [Issue #81](https://github.com/oasis-tcs/sarif-spec/issues/81): "Add 'open' as a result level"
 
-    Add an additional enumerated value `"open"` to the `result.level` property.
+    In the `result` object:
+
+    - Add an additional enumerated value `"open"` to the `level` property.
+
+- [Issue #82](https://github.com/oasis-tcs/sarif-spec/issues/82): "Add instance id to result object"
+
+    In the `result` object:
+
+    - Add the property `id` of type `string`, optional
+
+- [Issue #90](https://github.com/oasis-tcs/sarif-spec/issues/82): "Introduce fileLocation object"
+
+    Define the `fileLocation` object with the following properties:
+
+    - `uri` of type `string`, required
+    - `uriBaseId` of type `string`, optional
+
+    In the `conversion` object:
+
+    - Remove the properties `analysisToolLogFileUri` and `analysisToolLogFileUriBaseId`.
+    - Add the property `analysisToolLogFileLocation` of type `fileLocation`, optional.
+
+    In the `file`object:
+
+    - Remove the properties `uri` and `uriBaseId`.
+    - Add the property `fileLocation` of type `fileLocation`, optional.
+
+    In the `analysisToolLogFileContents` object:
+
+    - Remove the properties `analysisToolLogFileUri` and `analysisToolLogFileUriBaseId`.
+    - Add the property `analysisToolLogFileLocation` of type `fileLocation`, optional.
+
+    In the `physicalLocation` object:
+
+    - Remove the properties `uri` and `uriBaseId`.
+    - Add the property `fileLocation` of type `fileLocation`, optional.
+
+    In the `fileChange` object:
+
+    - Remove the properties `uri` and `uriBaseId`.
+    - Add the property `fileLocation` of type `fileLocation`, optional.
+
+- [Issue #83](https://github.com/oasis-tcs/sarif-spec/issues/83): "Consider adding attachments property"
+
+    Define the `attachment` object with the following properties:
+
+    - `description` of type `string`, optional.
+    - `fileLocation` of type `fileLocation`, required.
+
+    In the `invocation` object:
+
+    - Add the property `attachments` of type `attachment[]`, optional.
+
+    In the `result` object:
+
+    - Add the property `attachments` of type `attachment[]`, optional.
+
+- [Issue #94](https://github.com/oasis-tcs/sarif-spec/issues/94): "Add an invocation.arguments property"
+
+    In the `invocation` object:
+
+    - Add the property `arguments` of type `string[]`, optional.
