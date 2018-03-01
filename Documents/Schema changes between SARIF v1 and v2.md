@@ -169,3 +169,8 @@ OASIS SARIF TC).
 
     - Add the property `originalUriBaseIds`, of type `object`, with property values of type `string`.
 
+- [Issue #92](https://github.com/oasis-tcs/sarif-spec/issues/92): "Add stdin/stdout/stderr on invocation"
+
+    In the `invocation` object:
+
+    - Add the properties `stdin`, `stdout`, and `stderr` of type string, optional.
