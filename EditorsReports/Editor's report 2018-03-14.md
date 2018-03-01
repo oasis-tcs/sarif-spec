@@ -16,6 +16,8 @@ Presented at TC Meeting #12, March 14, 2018
 
     5. Issue [#91](https://github.com/oasis-tcs/sarif-spec/issues/91): "Represent original values for uriBaseId properties".
 
+        As we agreed at TC #11, we specified in Appendix F that run.originalUriBaseIds is non-deterministic.
+
     6. Issue [#92](https://github.com/oasis-tcs/sarif-spec/issues/92): "Add stdin/stdout/stderr on invocation".
     
         This version proposes using `physicalLocation` objects rather than embedded strings to specify the contents of the streams.
