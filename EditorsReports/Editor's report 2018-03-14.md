@@ -38,4 +38,6 @@ Presented at TC Meeting #12, March 14, 2018
 
 2. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
-    1. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings" -- made available on March 5th, 2018.
+    1. [Issue #10](https://github.com/oasis-tcs/sarif-spec/issues/10): "Do we want an array of computed fingerprints on result?" -- made available on March 6th, 2018.
+
+    2. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings" -- made available on March 5th, 2018.
