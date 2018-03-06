@@ -42,4 +42,6 @@ Presented at TC Meeting #12, March 14, 2018
 
     2.  [Issue #15](https://github.com/oasis-tcs/sarif-spec/issues/15): "Document how converters should provide notifications" -- made available on March 6th, 2018.
 
-    2. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings" -- made available on March 5th, 2018.
+    3.  [Issue #23](https://github.com/oasis-tcs/sarif-spec/issues/23): "Clarify requirement for format of URI-valued properties for nested files" -- made available on March 6th, 2018.
+
+    4. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings" -- made available on March 5th, 2018.
