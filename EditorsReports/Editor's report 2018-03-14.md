@@ -46,8 +46,12 @@ Presented at TC Meeting #12, March 14, 2018
 
     4. [Issue #29](https://github.com/oasis-tcs/sarif-spec/issues/29): "Document rule.configuration" -- made available on March 6th, 2018.
 
-    5. [Issue #76](https://github.com/oasis-tcs/sarif-spec/issues/76): "Clarify encoding requirements for properties that contain text from source files" -- made available on March 7th, 2018
+    5. [Issue #63](https://github.com/oasis-tcs/sarif-spec/issues/63): "Clarify that the keys in the run.files dictionary must be distinct when normalized" -- made available on March 10th, 2018.
 
-    6. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings" -- made available on March 5th, 2018.
+    6. [Issue #64](https://github.com/oasis-tcs/sarif-spec/issues/64): "run.files keys can collide if specified by relative URLs" -- made available on March 10th, 2018.
 
-    7. [Issue #97](https://github.com/oasis-tcs/sarif-spec/issues/97): "file object's contents property" -- made available on March 7th, 2018.
+    7. [Issue #76](https://github.com/oasis-tcs/sarif-spec/issues/76): "Clarify encoding requirements for properties that contain text from source files" -- made available on March 7th, 2018
+
+    8. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings" -- made available on March 5th, 2018.
+
+    9. [Issue #97](https://github.com/oasis-tcs/sarif-spec/issues/97): "file object's contents property" -- made available on March 7th, 2018.
