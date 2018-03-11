@@ -56,10 +56,12 @@ Presented at TC Meeting #12, March 14, 2018
 
     9. [Issue #97](https://github.com/oasis-tcs/sarif-spec/issues/97): "file object's contents property" -- made available on March 7th, 2018.
 
-    10. [Issue #115](https://github.com/oasis-tcs/sarif-spec/issues/115): "invocation object should record process outcome"
+    10. [Issue #110](https://github.com/oasis-tcs/sarif-spec/issues/110): "Specify how to treat a file that contains interleaved stdout/stderr"
+
+    11. [Issue #115](https://github.com/oasis-tcs/sarif-spec/issues/115): "invocation object should record process outcome"
 
 5. In connection with [Issue #97](https://github.com/oasis-tcs/sarif-spec/issues/97): "file object's contents property," we made the following "opportunistic changes" (not tracked by an issue), and we will move their adoption in today's meeting. These changes are enabled by our improved treatment of encoding and content representation:
 
     1. Opportunistic change: redefinition of `invocation.responseFiles` property
 
-    2. Opportunitic change: improvement to definition of `replacement` object
+    2. Opportunistic change: improvement to definition of `replacement` object
