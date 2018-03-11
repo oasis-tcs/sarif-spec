@@ -56,7 +56,7 @@ Presented at TC Meeting #12, March 14, 2018
 
     9. [Issue #97](https://github.com/oasis-tcs/sarif-spec/issues/97): "file object's contents property" -- made available on March 7th, 2018.
 
-    10. [Issue #102](https://github.com/oasis-tcs/sarif-spec/issues/102): "invocation should be an array of invocation objects" -- made available on March 11th, 2018.
+    10. [Issue #102](https://github.com/oasis-tcs/sarif-spec/issues/102): "run.invocation should be an array of invocation objects" -- made available on March 11th, 2018.
 
     10. [Issue #110](https://github.com/oasis-tcs/sarif-spec/issues/110): "Specify how to treat a file that contains interleaved stdout/stderr" -- made available on March 11th, 2018.
 
