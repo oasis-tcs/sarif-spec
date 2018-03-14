@@ -16,6 +16,8 @@ Presented at TC Meeting #13, March 28, 2018
 
     3. [Issue #15](https://github.com/oasis-tcs/sarif-spec/issues/15): "Document how converters should provide notifications"
 
-2. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
-    1. [Issue #nn](https://github.com/oasis-tcs/sarif-spec/issues/nn): "title" -- made available on _date_.
+    4. [Issue #23](https://github.com/oasis-tcs/sarif-spec/issues/23): "Clarify requirement for format of URI-valued properties for nested files"
+
+        NOTE: The merged text includes the amendment to avoid the term "absolute path" when referring to the path to a nested file from the root of its outermost container.
+
