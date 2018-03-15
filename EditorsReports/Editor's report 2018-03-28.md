@@ -29,7 +29,8 @@ Presented at TC Meeting #13, March 28, 2018
  
         NOTE: I changed the issue title to correctly reflect the change as we approved it.
 
+        NOTE: The merged text includes the amendment we agreed to, to fix a typo from "properties" to "parameters".
+
     6. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings"
 
-2. 
 
