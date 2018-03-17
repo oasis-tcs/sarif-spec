@@ -6,7 +6,7 @@ Presented at TC Meeting #13, March 28, 2018
 
 1. After being approved at the last TC meeting (#11), the following spec changes were merged into the provisional draft:
 
-    1. Editorial changes as described in Editor's Report of March 14th, 2018.
+    1. Purely editorial changes as described in Editor's Report of March 14th, 2018.
    
     2. [Issue #10](https://github.com/oasis-tcs/sarif-spec/issues/10): "Do we want an array of fingerprint contributions on result?"
 
@@ -22,9 +22,9 @@ Presented at TC Meeting #13, March 28, 2018
 
     5. [Issue #29](https://github.com/oasis-tcs/sarif-spec/issues/29): "Introduce object-valued rule configuration"
  
-        NOTE: I changed the issue title to correctly reflect the change as we approved it.
+        NOTE 1: I changed the issue title to correctly reflect the change as we approved it.
 
-        NOTE: The merged text includes the amendment we agreed to, to fix a typo from "properties" to "parameters".
+        NOTE 2: The merged text includes the amendment we agreed to, to fix a typo from "properties" to "parameters".
 
     6. [Issue #63](https://github.com/oasis-tcs/sarif-spec/issues/63): "Clarify that the keys in the run.files dictionary must be distinct when normalized"
 
@@ -56,7 +56,9 @@ Presented at TC Meeting #13, March 28, 2018
 
     12. [Issue #110](https://github.com/oasis-tcs/sarif-spec/issues/110): "Specify how to treat a file that contains interleaved stdout/stderr"
 
-    13. [Issue #128](https://github.com/oasis-tcs/sarif-spec/issues/128): "Specify SARIF file encoding as UTF-8"
+    13. [Issue #115](https://github.com/oasis-tcs/sarif-spec/issues/115): "invocation object should record process outcome"
+
+    14. [Issue #128](https://github.com/oasis-tcs/sarif-spec/issues/128): "Specify SARIF file encoding as UTF-8"
 
         NOTE: We approved this in the TC meeting. It was not tracked by an issue. I filed the issue _post hoc_.
 
