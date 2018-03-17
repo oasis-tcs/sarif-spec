@@ -29,7 +29,17 @@ Presented at TC Meeting #13, March 28, 2018
 
     6. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings"
 
-    7. [Issue #110](https://github.com/oasis-tcs/sarif-spec/issues/110): "Specify how to treat a file that contains interleaved stdout/stderr"
+    7. [Issue #102](https://github.com/oasis-tcs/sarif-spec/issues/102): "run.invocation should be an array of invocation objects"
+
+        NOTE: The merged text includes the amendments we agreed to:
+
+        - The elements of the `invocation` array SHOULD be arranged in chronological order if possible. (It might not be possible if some of the processes run in parallel.)
+
+        - The `toolNotifications` and `configurationNotifications` belong in the `invocation` object, not in the `run` object. This was always true, but making `run.invocation` into an array made it clear that each process might produce its own notifications.
+
+        NOTE: I changed the property name from `invocation` to `invocations` because otherwise it would be the only array-valued property in the specification with a singular name.
+
+    8. [Issue #110](https://github.com/oasis-tcs/sarif-spec/issues/110): "Specify how to treat a file that contains interleaved stdout/stderr"
 
 2. I made the following editorial changes:
 
