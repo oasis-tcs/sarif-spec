@@ -16,7 +16,6 @@ Presented at TC Meeting #13, March 28, 2018
 
     3. [Issue #15](https://github.com/oasis-tcs/sarif-spec/issues/15): "Document how converters should provide notifications"
 
-
     4. [Issue #23](https://github.com/oasis-tcs/sarif-spec/issues/23): "Clarify requirement for format of URI-valued properties for nested files"
 
         NOTE: The merged text includes the amendment to avoid the term "absolute path" when referring to the path to a nested file from the root of its outermost container. (This also affects Issue #64, below.)
@@ -31,11 +30,21 @@ Presented at TC Meeting #13, March 28, 2018
 
     7. [Issue #64](https://github.com/oasis-tcs/sarif-spec/issues/64): "run.files keys can collide if specified by relative URLs"
 
-        NOTE: The merged text includes the amendment we agreed to, to avoid the use of the term "absolute path" when referring to the path to a nested file from the root of its outermost container. (This also affects Issue #23, above.)
+        NOTE: The merged text includes the amendment we agreed to:
 
-    8. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings"
+        - Don't use the term "absolute path" when referring to the path to a nested file from the root of its outermost container. (This also affects Issue #23, above.)
 
-    9. [Issue #102](https://github.com/oasis-tcs/sarif-spec/issues/102): "run.invocation should be an array of invocation objects"
+        - Add requirement that `uriBaseId` can't include `"#"` character.
+
+        - Fix typo "valueed" => "valued"
+
+    8. [Issue #76](https://github.com/oasis-tcs/sarif-spec/issues/76): "Clarify encoding requirements for properties that contain text from source files"
+
+    9. [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings"
+
+    10. [Issue #97](https://github.com/oasis-tcs/sarif-spec/issues/97): "file object's contents property"
+
+    11. [Issue #102](https://github.com/oasis-tcs/sarif-spec/issues/102): "run.invocation should be an array of invocation objects"
 
         NOTE: The merged text includes the amendments we agreed to:
 
@@ -45,9 +54,16 @@ Presented at TC Meeting #13, March 28, 2018
 
         NOTE: I changed the property name from `invocation` to `invocations` because otherwise it would be the only array-valued property in the specification with a singular name.
 
-    10. [Issue #110](https://github.com/oasis-tcs/sarif-spec/issues/110): "Specify how to treat a file that contains interleaved stdout/stderr"
+    12. [Issue #110](https://github.com/oasis-tcs/sarif-spec/issues/110): "Specify how to treat a file that contains interleaved stdout/stderr"
+
+    13. [Issue #128](https://github.com/oasis-tcs/sarif-spec/issues/128): "Specify SARIF file encoding as UTF-8"
+
+        NOTE: We approved this in the TC meeting. It was not tracked by an issue. I filed the issue _post hoc_.
 
 2. I made the following editorial changes:
 
     1. Since our first public version will be `2.0.0`, I changed the description of `run.version` to require its value to be `2.0.0` instead of `1.0.0`, and I fixed up the examples that mentioned `run.version`.
+
+    2. Removed FIPS PUB 180-4 from the list of normative references (it's no longer referenced).
+
 
