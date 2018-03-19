@@ -72,4 +72,6 @@ Presented at TC Meeting #13, March 28, 2018
 
 3. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
-    1. [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation" -- made available on March 18th, 2018.
+    1. [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations" -- made available on March 19th, 2018.
+
+    2. [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation" -- made available on March 18th, 2018.
