@@ -68,7 +68,9 @@ Presented at TC Meeting #13, March 28, 2018
 
     2. Removed FIPS PUB 180-4 from the list of normative references (it's no longer referenced).
 
-    3. [Issue #78](https://github.com/oasis-tcs/sarif-spec/issues/78]): "Decide on and implement uniform approach to normative keywords" 
+    3. [Issue #78](https://github.com/oasis-tcs/sarif-spec/issues/78]): "Decide on and implement uniform approach to normative keywords"
+
+    4. Per suggestion from Jim Kupsch: Clarified that certain hash algorithms allow adversaries to more easily generate collisions.
 
 3. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
