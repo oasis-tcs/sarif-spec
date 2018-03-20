@@ -76,10 +76,12 @@ Presented at TC Meeting #13, March 28, 2018
 
     1. [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations" -- made available on March 19th, 2018.
 
-    2. [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation" -- made available on March 18th, 2018.
+    2. [Issue #86](https://github.com/oasis-tcs/sarif-spec/issues/86): "Add path normalization guidance for URLs" -- made available on March 20th, 2018.
 
-    3. [Issue #96](https://github.com/oasis-tcs/sarif-spec/issues/96): "Add redactionToken property to run object" -- made available on March 19th, 2018.
+    3. [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation" -- made available on March 20th, 2018.
 
-    4. [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object" -- made available on March 19th, 2018.
+    4. [Issue #96](https://github.com/oasis-tcs/sarif-spec/issues/96): "Add redactionToken property to run object" -- made available on March 19th, 2018.
+
+    5. [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object" -- made available on March 19th, 2018.
 
 
