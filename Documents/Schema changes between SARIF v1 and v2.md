@@ -23,9 +23,7 @@ These overrides are noted on the earlier change.
     Issue 25 clarifies that one of `result.message` or `result.templatedMessage` is required,
     which means that the schema can't mark the `message` property as `required`.
 
-    2018/03/20: OBSOLETE. There is no longer a result.templatedMessage property. The `result.message` property is now a `message` object, whose schema is defined below in #84 (localization)
-
-    **BUT**: The new `message`-object-valued `result.message` **IS** required. After all, the upshot of #25 was that one or the other or both of the templated and non-templated message forms had to be there.
+    2018/03/20: OBSOLETE. There is no longer a `result.templatedMessage` property. The `result.message` property is now a `message` object, whose schema is defined below in #84 (localization)
 
 - [Issue #27](https://github.com/oasis-tcs/sarif-spec/issues/27): "Add a help property to rule"
 
@@ -203,6 +201,90 @@ These overrides are noted on the earlier change.
     - Add the `notifications` property of type `notification[]`
 
     2018/03/20: OBSOLETE? I think notifications moved to the `invocation` object.
+
+- [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings"
+
+    Define a `message` object with the following properties:
+
+    - `text` of type `string`, optional.
+    - `richText` of type `string`, optional.
+    - `messageId` of type `string`, optional.
+    - `richMessageId` of type `string`, optional.
+    - `arguments` of type `string[]`, optional.
+
+    Define a `resources` object with the following properties:
+
+    - `messageStrings` of type `object` with property values of type `string`.
+    - `rules` of type `object` with property values of type `rule`.
+
+    Remove the entire `templatedMessage` object.
+
+    In the `run` object:
+
+    - `results` is now required (UNLESS we decide to validate resource files against the same schema as log files).
+    - Remove the `rules` property.
+    - Add the property `resources` of type `resources`.
+
+    In the `invocation` object:
+
+    - The `attachments` property is now a unique array.
+
+    In the `attachment` object:
+
+    - Change the type of the `description` property from `string` to `message`.
+
+    In the `result` object:
+
+    - Change the type of the `message` property from `string` to `message`.
+    - Add the property `ruleMessageId` of type `string`.
+    - Remove the `richMessage` property.
+    - Remove the `templatedMessage` property.
+    - The `attachments` property is now a unique array.
+
+    In the `codeFlow` object:
+
+    - Change the type of the `message` property from `string` to `message`.
+    - Remove the `richMessage` property.
+
+    In the `stack` object:
+
+    - Change the type of the `message` property from `string` to `message`.
+    - Remove the `richMessage` property.
+
+    In the `stackFrame` object:
+
+    - Change the type of the `message` property from `string` to `message`.
+    - Remove the `richMessage` property.
+
+    In the `annotatedCodeLocation` object:
+
+    - Change the type of the `message` property from `string` to `message`.
+    - Remove the `richMessage` property.
+
+    In the `annotation` object:
+
+    - Change the type of the `message` property from `string` to `message`.
+    - Remove the `richMessage` property.
+
+    In the `rule` object:
+
+    - Change the type of the `name` property from `string` to `message`.
+    - Change the type of the `shortDescription` property from `string` to `message`.
+    - Change the type of the `fullDescription` property from `string` to `message`.
+    - Remove the `richDescription` property.
+    - Rename the `messageTemplates` property to `messageStrings`.
+    - Rename the `richMessageTemplates` property to `richMessageStrings`.
+    - Change the type of the `help` property from `string` to `message`.
+    - Remove the `richHelp` property.
+
+    In the `fix` object:
+
+    - Change the type of the `description` property from `string` to `message`.
+    - Remove the `richDescription` property.
+
+    In the `notification` object:
+
+    - Change the type of the `message` property from `string` to `message`.
 
 ## Changes not yet approved
 
