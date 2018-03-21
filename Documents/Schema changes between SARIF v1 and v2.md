@@ -384,7 +384,7 @@ These overrides are noted on the earlier change.
 
     In the `run` object:
 
-    - Add the property `defaultFileEncoding` of type `string`.
+    - Add the property `defaultFileEncoding` of type `string`, default `"utf-8"`.
 
     In the `file` object:
 
@@ -399,5 +399,12 @@ These overrides are noted on the earlier change.
 
 - [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation"
 
+    In the `invocation` object:
+
     - Rename the `fileName` property to `executableLocation`.
     - Change the type of the renamed `executableLocation` property from `string` to `fileLocation`.
+
+- [Issue #105](https://github.com/oasis-tcs/sarif-spec/issues/105): "Remove `default` from `result.level` property in schema"
+
+    - Remove the `"default"` value from the `level` property.
+    - Improve the description of the `level` property.
