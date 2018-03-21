@@ -353,6 +353,19 @@ These overrides are noted on the earlier change.
     - Change the name of the `insertedBytes` property to `insertedContent`.
     - Change the type of the renamed `insertedContent` property from `string` to `fileContent`.
 
+- [Issue #115](https://github.com/oasis-tcs/sarif-spec/issues/115): "invocation object should record process outcome"
+
+    In the `invocation` object:
+
+    - Add the property `exitCode` of type `integer`.
+    - Add the property `exitCodeDescription` of type `string`.
+    - Add the property `exitSignalName` of type `string`.
+    - Add the property `exitSignalNumber` of type `integer`.
+    - Add the property `processStartFailureMessage` of type `string`.
+    - Add the property `processExitedSuccessfully` of type `boolean`.
+
+    NOTE: The change draft has `processSuccessful` for that last property. The name is still under debate.
+
 ## Changes not yet approved
 
 - [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations"
