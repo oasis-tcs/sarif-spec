@@ -286,6 +286,21 @@ These overrides are noted on the earlier change.
 
     - Change the type of the `message` property from `string` to `message`.
 
+- [Issue #29](https://github.com/oasis-tcs/sarif-spec/issues/29): "Introduce object-valued rule.configuration"
+
+    Define a `ruleConfiguration` object with the following properties:
+
+    - `enabled` of type `boolean`, optional, default = `true`.
+    - `defaultLevel` of type `string`, enumerated values `warning`, `error`, `note`, or `open`, default `warning`.
+    - `parameters`, a property bag.
+
+    NOTE: #105 removes the default.
+
+    In the `rule` object:
+
+    - Remove the `defaultLevel` property.
+    - Add the property `configuration` of type `ruleConfiguration`.
+
 ## Changes not yet approved
 
 - [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations"
