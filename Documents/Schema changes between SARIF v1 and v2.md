@@ -154,6 +154,12 @@ These overrides are noted on the earlier change.
     - Remove the properties `uri` and `uriBaseId`.
     - Add the property `fileLocation` of type `fileLocation`, optional.
 
+    In the `invocation` object:
+
+    - Change the type of the `responseFiles` property from `object` with `string`-valued properties to `fileLocation[]`.
+
+    NOTE: I originally missed the change to `invocation.responseFiles`. I incorporated that change into the change draft for #76/#97.
+
 - [Issue #83](https://github.com/oasis-tcs/sarif-spec/issues/83): "Consider adding attachments property"
 
     Define the `attachment` object with the following properties:
@@ -315,6 +321,37 @@ These overrides are noted on the earlier change.
     - Change the type of the renamed `invocations` property to from `invocation` to `invocation[]`
 
     NOTE: The name change was not in the change draft. I made an editorial change for that after the fact.
+
+- [Issue #97](https://github.com/oasis-tcs/sarif-spec/issues/97): "file object's contents property"
+
+    Define a `fileContent` object with the following properties:
+
+    - `text` of type `string`, optional.
+    - `binary` of type `string`, optional.
+
+    In the `file` object:
+
+    - Change the type of the `contents` property from `string` to `fileContent`.
+
+    In the `result` object:
+
+    - Change the type of the `snippet` property from `string` to `fileContent`.
+
+    In the `analysisToolLogFileContents` object:
+
+    - Change the type of the `snippet` property from `string` to `fileContent`.
+
+    In the `annotatedCodeLocation` object:
+
+    - Change the type of the `snippet` property from `string` to `fileContent`.
+
+    In the `replacement` object:
+
+    - Remove the `offset` property
+    - Change the name of the `deletedLength` property to `deletedRegion`.
+    - Change the type of the renamed `deletedRegion` property from `integer` to `region`.
+    - Change the name of the `insertedBytes` property to `insertedContent`.
+    - Change the type of the renamed `insertedContent` property from `string` to `fileContent`.
 
 ## Changes not yet approved
 
