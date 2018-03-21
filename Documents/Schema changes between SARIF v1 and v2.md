@@ -4,6 +4,12 @@ This document summarizes the changes in the SARIF JSON schema between v1 (the ve
 defined by the initial working draft and implemented by many Microsoft tools such as its C++, C#, and VB compilers) and v2 (the first public version released by the
 OASIS SARIF TC).
 
+The changes are presented in order of approval.
+In some cases, a later change overrides an earlier change.
+These overrides are noted on the earlier change. 
+
+## Changes approved and merged into the provisional draft
+
 - Remove the following properties:
 
     - `annotatedCodeLocation.id`
@@ -17,11 +23,17 @@ OASIS SARIF TC).
     Issue 25 clarifies that one of `result.message` or `result.templatedMessage` is required,
     which means that the schema can't mark the `message` property as `required`.
 
+    2018/03/20: OBSOLETE. There is no longer a result.templatedMessage property. The `result.message` property is now a `message` object, whose schema is defined below in #84 (localization)
+
+    **BUT**: The new `message`-object-valued `result.message` **IS** required. After all, the upshot of #25 was that one or the other or both of the templated and non-templated message forms had to be there.
+
 - [Issue #27](https://github.com/oasis-tcs/sarif-spec/issues/27): "Add a help property to rule"
 
     In the `rule` object:
 
     - Add the property `help` of type `string`, optional.
+
+    2018/03/20: As of #84, `rule.help` is now a `message` object.
 
 - [Issue #33](https://github.com/oasis-tcs/sarif-spec/issues/33): "Should we allow formatting in messages?"
 
@@ -55,11 +67,26 @@ OASIS SARIF TC).
 
     - `run.richMessageMimeType`: `"text/markdown;variant=GFM"`.
 
+    2018/03/20: OBSOLETE *except* for `run.richMessageMimeType`. These properties are now subsumed into the corresponding `message` properties, which are now `message` objects.
+
 - [Issue #61](https://github.com/oasis-tcs/sarif-spec/issues/61): "Provide a format for links embedded in our plain text messages"
 
     In the `physicalLocation` object:
 
     - Add the property `id` of type `integer`, optional.
+
+- [Issue #69](https://github.com/oasis-tcs/sarif-spec/issues/69): "Provide a physicalLocation on a stack frame"
+
+    In the `stackFrame object`:
+
+    - Remove the properties `uri`, `uriBaseId`, `line`, and `column`.
+    - Add the property `physicalLocation` of type `physicalLocation`, optional.
+
+- [Issue #72](https://github.com/oasis-tcs/sarif-spec/issues/72): "tool.language property needs a default value"
+
+    Specify a default value for the following optional property, which subsumes the deleted properties:
+
+    - `tool.language`: `"en-US"`
 
 - [Issue #66](https://github.com/oasis-tcs/sarif-spec/issues/66): "Enable traceability from converted SARIF file to original analysis tool log file"
 
@@ -83,20 +110,7 @@ OASIS SARIF TC).
 
     In the `result` object:
 
-    - Add the property `conversionProvenance` of type `analysisToolLogFileContents[]`, optional.
-
-- [Issue #69](https://github.com/oasis-tcs/sarif-spec/issues/69): "Provide a physicalLocation on a stack frame"
-
-    In the `stackFrame object`:
-
-    - Remove the properties `uri`, `uriBaseId`, `line`, and `column`.
-    - Add the property `physicalLocation` of type `physicalLocation`, optional.
-
-- [Issue #72](https://github.com/oasis-tcs/sarif-spec/issues/72): "tool.language property needs a default value"
-
-    Specify a default value for the following optional property, which subsumes the deleted properties:
-
-    - `tool.language`: `"en-US"`
+    - Add the property `conversionProvenance` of type `analysisToolLogFileContents[]`, unique, optional.
 
 - [Issue #81](https://github.com/oasis-tcs/sarif-spec/issues/81): "Add 'open' as a result level"
 
@@ -167,10 +181,56 @@ OASIS SARIF TC).
 
     In the `run` object:
 
-    - Add the property `originalUriBaseIds`, of type `object`, with property values of type `string`.
+    - Add the property `originalUriBaseIds`, of type `object` with property values of type `string`.
 
 - [Issue #92](https://github.com/oasis-tcs/sarif-spec/issues/92): "Add stdin/stdout/stderr on invocation"
 
     In the `invocation` object:
 
     - Add the properties `stdin`, `stdout`, and `stderr` of type string, optional.
+
+- [Issue #10](https://github.com/oasis-tcs/sarif-spec/issues/10): "Do we want an array of fingerprint contributions on result?"
+
+    In the `result` object:
+
+    - Rename the `toolFingerprintContribution` property to `toolFingerprintContributions`.
+    - Changed the type of the renamed `toolFingerprintContributions` property from `string` to `object` with property values of type `string`.
+
+- [Issue #15](https://github.com/oasis-tcs/sarif-spec/issues/15): "Document how converters should provide notifications"
+
+    In the `conversion` property:
+
+    - Add the `notifications` property of type `notification[]`
+
+    2018/03/20: OBSOLETE? I think notifications moved to the `invocation` object.
+
+## Changes not yet approved
+
+- [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations"
+
+    In the `run` object:
+
+    - Remove `"uniqueItems"` from the definition of the `results` property.
+
+- [Issue #96](https://github.com/oasis-tcs/sarif-spec/issues/96): "Add redactionToken property to run object"
+
+    In the `run` object:
+
+    - Add the property `redactionToken` of type `string`.
+
+- [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object"
+
+    In the `run` object:
+
+    - Add the property `defaultFileEncoding` of type `string`.
+
+    In the `file` object:
+
+    - Add the property `encoding` of type `string`.
+
+- [Issue #86](https://github.com/oasis-tcs/sarif-spec/issues/86): "Add path normalization guidance for URLs"
+
+    In the `rule` object:
+
+    - Rename the `helpUri` property to `helpLocation`.
+    - Change the type of the renamed `helpLocation` property from `string` to `fileLocation`.
