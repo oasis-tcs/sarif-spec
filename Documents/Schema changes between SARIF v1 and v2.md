@@ -307,6 +307,15 @@ These overrides are noted on the earlier change.
 
     - Add the property `stdoutStderr` of type `string`.
 
+- [Issue #102](https://github.com/oasis-tcs/sarif-spec/issues/102): "run.invocation should be an array of invocation objects"
+
+    In the `run` object:
+
+    - Rename the `invocation` property to `invocations`.
+    - Change the type of the renamed `invocations` property to from `invocation` to `invocation[]`
+
+    NOTE: The name change was not in the change draft. I made an editorial change for that after the fact.
+
 ## Changes not yet approved
 
 - [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations"
