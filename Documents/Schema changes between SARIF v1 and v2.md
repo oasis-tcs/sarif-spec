@@ -301,6 +301,12 @@ These overrides are noted on the earlier change.
     - Remove the `defaultLevel` property.
     - Add the property `configuration` of type `ruleConfiguration`.
 
+- [Issue #110](https://github.com/oasis-tcs/sarif-spec/issues/110): "Specify how to treat a file that contains interleaved stdout/stderr"
+
+    In the `invocation` object:
+
+    - Add the property `stdoutStderr` of type `string`.
+
 ## Changes not yet approved
 
 - [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations"
