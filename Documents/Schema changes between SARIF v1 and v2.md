@@ -396,3 +396,8 @@ These overrides are noted on the earlier change.
 
     - Rename the `helpUri` property to `helpLocation`.
     - Change the type of the renamed `helpLocation` property from `string` to `fileLocation`.
+
+- [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation"
+
+    - Rename the `fileName` property to `executableLocation`.
+    - Change the type of the renamed `executableLocation` property from `string` to `fileLocation`.
