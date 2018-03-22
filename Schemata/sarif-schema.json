@@ -309,39 +309,6 @@
       }
     },
 
-    "fileChange": {
-      "description": "A change to a single file.",
-      "additionalProperties": false,
-      "type": "object",
-      "properties": {
-
-        "uri": {
-          "description": "A string that represents the location of the file to change as a valid URI.",
-          "type": "string",
-          "format": "uri"
-        },
-
-        "uriBaseId": {
-          "description": "A string that identifies the conceptual base for the 'uri' property (if it is relative), e.g.,'$(SolutionDir)' or '%SRCROOT%'.",
-          "type": "string"
-        },
-
-        "replacements": {
-          "description": "An array of replacement objects, each of which represents the replacement of a single range of bytes in a single file specified by 'uri'.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/replacement"
-          }
-        }
-      },
-
-      "required": [ "uri", "replacements" ],
-      "dependencies": {
-        "uriBaseId": [ "uri" ]
-      }
-    },
-
     "file": {
       "description": "A single file. In some cases, this file might be nested within another file.",
       "additionalProperties": false,
@@ -414,6 +381,39 @@
         }
       },
 
+      "dependencies": {
+        "uriBaseId": [ "uri" ]
+      }
+    },
+
+    "fileChange": {
+      "description": "A change to a single file.",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+
+        "uri": {
+          "description": "A string that represents the location of the file to change as a valid URI.",
+          "type": "string",
+          "format": "uri"
+        },
+
+        "uriBaseId": {
+          "description": "A string that identifies the conceptual base for the 'uri' property (if it is relative), e.g.,'$(SolutionDir)' or '%SRCROOT%'.",
+          "type": "string"
+        },
+
+        "replacements": {
+          "description": "An array of replacement objects, each of which represents the replacement of a single range of bytes in a single file specified by 'uri'.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/replacement"
+          }
+        }
+      },
+
+      "required": [ "uri", "replacements" ],
       "dependencies": {
         "uriBaseId": [ "uri" ]
       }
