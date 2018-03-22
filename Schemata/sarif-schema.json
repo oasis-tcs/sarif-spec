@@ -45,17 +45,10 @@
           "type": "string"
         },
 
-        "analysisToolLogFileUri": {
-          "description": "A string that represents the location of the analysis tool's log file as a valid URI.",
-          "type": "string",
-          "format": "uri"
-        },
-
-        "analysisToolLogFileUriBaseId": {
-          "description": "A string that identifies the conceptual base for the 'analysisToolLogFileUri' property (if it is relative), e.g.,'$(LogDir)' or '%LOGROOT%'.",
-          "type": "string"
+        "analysisToolLogFileLocation": {
+          "description": "The location of the analysis tool's log file.",
+          "$ref": "#/definitions/fileLocation"
         }
-      }
     },
 
     "annotatedCodeLocation": {
@@ -265,15 +258,9 @@
           "$ref": "#/definitions/invocation"
         },
 
-        "analysisToolLogFileUri": {
-          "description": "A string that represents the location of the analysis tool's log file as a valid URI.",
-          "type": "string",
-          "format": "uri"
-        },
-
-        "analysisToolLogFileUriBaseId": {
-          "description": "A string that identifies the conceptual base for the 'analysisToolLogFileUri' property (if it is relative), e.g.,'$(LogDir)' or '%LOGROOT%'.",
-          "type": "string"
+        "analysisToolLogFileLocation": {
+          "description": "The location of the analysis tool's log file.",
+          "$ref": "#/definitions/fileLocation"
         }
       },
 
@@ -315,15 +302,9 @@
       "type": "object",
       "properties": {
 
-        "uri": {
-          "description": "The path to the file within its containing file.",
-          "type": "string",
-          "format": "uri"
-        },
-
-        "uriBaseId": {
-          "description": "A string that identifies the conceptual base for the 'uri' property (if it is relative), e.g.,'$(SolutionDir)' or '%SRCROOT%'.",
-          "type": "string"
+        "fileLocation": {
+          "description": "The location of the file.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "parentKey": {
@@ -379,10 +360,6 @@
             }
           }
         }
-      },
-
-      "dependencies": {
-        "uriBaseId": [ "uri" ]
       }
     },
 
@@ -392,15 +369,9 @@
       "type": "object",
       "properties": {
 
-        "uri": {
-          "description": "A string that represents the location of the file to change as a valid URI.",
-          "type": "string",
-          "format": "uri"
-        },
-
-        "uriBaseId": {
-          "description": "A string that identifies the conceptual base for the 'uri' property (if it is relative), e.g.,'$(SolutionDir)' or '%SRCROOT%'.",
-          "type": "string"
+        "fileLocation": {
+          "description": "The location of the file to change.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "replacements": {
@@ -413,10 +384,28 @@
         }
       },
 
-      "required": [ "uri", "replacements" ],
-      "dependencies": {
-        "uriBaseId": [ "uri" ]
-      }
+      "required": [ "fileLocation", "replacements" ]
+    },
+
+    "fileLocation": {
+      "description": "Specifies the location of a file.",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+
+        "uri": {
+          "description": "A string containing a valid relative or absolute URI.",
+          "type": "string",
+          "format": "uri"
+        },
+
+        "uriBaseId": {
+          "description": "A string which indirectly specifies the absolute URI with respect to which a relative URI in the \"uri\" property is interpreted.",
+          "type": "string"
+        }
+      },
+
+      "required": [ "uri" ]
     },
 
     "fix": {
@@ -499,9 +488,11 @@
         },
 
         "responseFiles": {
-          "description": "The contents of any response files specified on the tool's command line.",
-          "type": "object",
-          "additionalProperties": true
+          "description": "The locations of any response files specified on the tool's command line.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/fileLocation"
+          }
         },
 
         "startTime": {
@@ -727,25 +718,15 @@
           "type": "integer"
         },
 
-        "uri": {
-          "description": "The location of the file as a valid URI.",
-          "type": "string",
-          "format": "uri"
-        },
-
-        "uriBaseId": {
-          "description": "A string that identifies the conceptual base for the 'uri' property (if it is relative), e.g.,'$(SolutionDir)' or '%SRCROOT%'.",
-          "type": "string"
+        "fileLocation": {
+          "description": "The location of the file.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "region": {
           "description": "The region within the file where the result was detected.",
           "$ref": "#/definitions/region"
         }
-      },
-
-      "dependencies": {
-        "uriBaseId": [ "uri" ]
       }
     },
 
@@ -1304,12 +1285,7 @@
         }
       },
 
-      "required": [ "fullyQualifiedLogicalName" ],
-      "dependencies": {
-        "uriBaseId": [ "uri" ],
-        "line": [ "uri" ],
-        "column": [ "line" ]
-      }
+      "required": [ "fullyQualifiedLogicalName" ]
     },
 
     "tool": {
