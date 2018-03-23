@@ -198,6 +198,25 @@
       "required": [ "message", "locations" ]
     },
 
+    "attachment": {
+      "description": "A file relevant to a tool invocation or to a result.",
+      "type": "object",
+      "properties": {
+
+        "description": {
+          "description": "A message describing the role played by the attachment.",
+          "type": "string"
+        },
+
+        "fileLocation": {
+          "description": "The location of the attachment.",
+          "$ref": "#/definitions/fileLocation"
+        }
+      },
+
+      "required": [ "fileLocation" ]
+    },
+
     "codeFlow": {
       "type": "object",
       "properties": {
@@ -492,6 +511,14 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/fileLocation"
+          }
+        },
+
+        "attachments": {
+          "description": "A set of files relevant to the invocation of the tool.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/attachment"
           }
         },
 
@@ -893,9 +920,9 @@
         },
 
         "suppressionStates": {
+          "description": "A set of flags indicating one or more suppression conditions.",
           "type": "array",
           "items": {
-            "description": "A flag value indicating one or more suppression conditions.",
             "enum": [
               "suppressedInSource",
               "suppressedExternally"
@@ -910,6 +937,14 @@
             "existing",
             "absent"
           ]
+        },
+
+        "attachments": {
+          "description": "A set of files relevant to the result.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/attachment"
+          }
         },
 
         "conversionProvenance": {
