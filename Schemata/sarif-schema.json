@@ -520,6 +520,36 @@
           "format": "date-time"
         },
 
+        "exitCode": {
+          "description": "The process exit code.",
+          "type": "integer"
+        },
+
+        "exitCodeDescription": {
+          "description": "The reason for the process exit.",
+          "type": "string"
+        },
+
+        "exitSignalName": {
+          "description": "The name of the signal that caused the process to exit.",
+          "type": "string"
+        },
+
+        "exitSignalNumber": {
+          "description": "The numeric value of the signal that caused the process to exit.",
+          "type": "integer"
+        },
+
+        "processStartFailureMessage": {
+          "description": "The reason given by the operating system that the process failed to start.",
+          "type": "string"
+        },
+
+        "toolExecutionSuccessful": {
+          "description": "A value indicating whether the tool's execution completed successfully.",
+          "type": "boolean"
+        },
+
         "machine": {
           "description": "The machine that hosted the analysis tool run.",
           "type": "string"

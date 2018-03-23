@@ -364,7 +364,7 @@ These overrides are noted on the earlier change.
     - Add the property `processStartFailureMessage` of type `string`.
     - Add the property `processExitedSuccessfully` of type `boolean`.
 
-    NOTE: The change draft has `processSuccessful` for that last property. The name is still under debate.
+    NOTE: The change draft has `processSuccessful` for that last property. The final agreed-upon name is `toolExecutionSuccessful`.
 
 - Editorial discretion: `toolNotifications` and `configurationNotifications` are now on `invocation` instead of `run`.
 ## Changes not yet approved
