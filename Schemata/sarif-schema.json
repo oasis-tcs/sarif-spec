@@ -574,6 +574,21 @@
           "default": { }
         },
 
+        "stdin": {
+          "description": "A file or portion of a file containing the standard input stream to the process that was invoked.",
+          "$ref": "#/definitions/physicalLocation"
+        },
+
+        "stdout": {
+          "description": "A file or portion of a file containing the standard output stream from the process that was invoked.",
+          "$ref": "#/definitions/physicalLocation"
+        },
+
+        "stderr": {
+          "description": "A file or portion of a file containing the standard error stream from the process that was invoked.",
+          "$ref": "#/definitions/physicalLocation"
+        },
+
         "properties": {
           "description": "Key/value pairs that provide additional information about the run.",
           "type": "object",
