@@ -72,6 +72,8 @@ Presented at TC Meeting #13, March 28, 2018
 
     4. Per suggestion from Jim Kupsch: Clarified that certain hash algorithms allow adversaries to more easily generate collisions.
 
+    5. Property rename: `invocation.processSuccessful` &rarr; `toolExecutionSuccessful`.
+
 3. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations" -- made available on March 19th, 2018.
