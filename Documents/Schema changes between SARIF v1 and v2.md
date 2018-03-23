@@ -410,6 +410,12 @@ These overrides are noted on the earlier change.
     - Remove the `"default"` value from the `level` property.
     - Improve the description of the `level` property.
 
+- [Issue #133](https://github.com/oasis-tcs/sarif-spec/issues/133): "Make stdin/stdout/stderr/stdoutStderr fileLocation instead of physicalLocation"
+
+    In the `invocation` object:
+
+    - Change the types of the `stdin`, `stdout`, `stderr`, and `stdoutStderr` properties from `physicalLocation` to `fileLocation`.
+
 - [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements"
 
     In the `annotatedCodeLocation` object:

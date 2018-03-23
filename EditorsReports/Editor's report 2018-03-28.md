@@ -88,4 +88,6 @@ Presented at TC Meeting #13, March 28, 2018
 
     5. [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object" -- made available on March 19th, 2018.
 
+    6. [Issue #133](https://github.com/oasis-tcs/sarif-spec/issues/133): "Make stdin/stdout/stderr/stdoutStderr fileLocation instead of physicalLocation" -- made available on March 23rd, 2018.
+
 
