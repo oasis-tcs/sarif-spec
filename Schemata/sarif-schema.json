@@ -506,6 +506,14 @@
           "type": "string"
         },
 
+        "arguments": {
+          "description": "An array of strings, containing in order the command line arguments passed to the tool from the operating system.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+
         "responseFiles": {
           "description": "The locations of any response files specified on the tool's command line.",
           "type": "array",
