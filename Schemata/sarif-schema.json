@@ -483,7 +483,7 @@
         "attachments": {
           "description": "A set of files relevant to the invocation of the tool.",
           "type": "array",
-          "minItems":  1,
+          "minItems": 1,
           "uniqueItems": true,
           "items": {
             "$ref": "#/definitions/attachment"
@@ -531,7 +531,7 @@
           "description": "The environment variables associated with the analysis tool process, expressed as key/value pairs.",
           "type": "object",
           "additionalProperties": true,
-          "default": { }
+          "default": {}
         },
 
         "stdin": {
@@ -549,6 +549,11 @@
           "$ref": "#/definitions/physicalLocation"
         },
 
+        "stdoutStderr": {
+          "description": "A file or portion of a file containing the interleaved standard output and standard error stream from the process that was invoked.",
+          "$ref": "#/definitions/physicalLocation"
+        },
+
         "properties": {
           "description": "Key/value pairs that provide additional information about the run.",
           "type": "object",
@@ -559,7 +564,7 @@
               "description": "A set of distinct strings that provide additional information.",
               "type": "array",
               "uniqueItems": true,
-              "default": [ ],
+              "default": [],
               "items": {
                 "type": "string"
               }
