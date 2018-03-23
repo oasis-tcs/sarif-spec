@@ -206,7 +206,7 @@ These overrides are noted on the earlier change.
 
     - Add the `notifications` property of type `notification[]`
 
-    2018/03/20: OBSOLETE. `conversion` has an `invocation` property, and `invocation` now has `toolNotifications` and `configuration properties. Filed [Issue #132](https://github.com/oasis-tcs/sarif-spec/issues/132): "conversion.notifications is superfluous" to remove this property. Don't add it to the schema.
+    2018/03/20: OBSOLETE. `conversion` has an `invocation` property, and `invocation` now has `toolNotifications` and `configurationNotifications` properties. Filed [Issue #132](https://github.com/oasis-tcs/sarif-spec/issues/132): "conversion.notifications is superfluous" to remove this property. Don't add it to the schema.
 
 - [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings"
 
@@ -233,7 +233,7 @@ These overrides are noted on the earlier change.
 
     In the `invocation` object:
 
-    - The `attachments` property is now a unique array.
+    - The `attachments` property is now a unique array with at least 1 item.
 
     In the `attachment` object:
 
@@ -245,7 +245,7 @@ These overrides are noted on the earlier change.
     - Add the property `ruleMessageId` of type `string`.
     - Remove the `richMessage` property.
     - Remove the `templatedMessage` property.
-    - The `attachments` property is now a unique array.
+    - The `attachments` property is now a unique array with at least 1 item.
 
     In the `codeFlow` object:
 
