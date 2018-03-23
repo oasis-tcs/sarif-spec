@@ -42,7 +42,7 @@
 
         "snippet": {
           "description": "The text of that region of the analysis tool's log file that was transformed into the result object.",
-          "type": "string"
+          "$ref": "#/definitions/fileContent"
         },
 
         "analysisToolLogFileLocation": {
@@ -134,7 +134,7 @@
 
         "snippet": {
           "description": "The source code at the specified location.",
-          "type": "string"
+          "$ref": "#/definitions/fileContent"
         },
 
         "annotations": {
@@ -333,8 +333,8 @@
         },
 
         "contents": {
-          "description": "The contents of the file, expressed as a MIME Base64-encoded byte sequence.",
-          "type": "string"
+          "description": "The contents of the file.",
+          "$ref": "#/definitions/fileContent"
         },
 
         "hashes": {
@@ -389,6 +389,24 @@
       },
 
       "required": [ "fileLocation", "replacements" ]
+    },
+
+    "fileContent": {
+      "description": "Represents content from an external file.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+
+        "text": {
+          "description": "UTF-8-encoded content from a text file.",
+          "type": "string"
+        },
+
+        "binary": {
+          "description": "MIME Base64-encoded content from a binary file, or from a text file in its original encoding.",
+          "type": "string"
+        }
+      }
     },
 
     "fileLocation": {
@@ -827,29 +845,23 @@
     },
 
     "replacement": {
-      "description": "The replacement of a single range of bytes in a file. Specifies the location within the file where the replacement is to be made, the number of bytes to remove at that location, and a sequence of bytes to insert at that location.",
+      "description": "The replacement of a single region of a file.",
       "additionalProperties": false,
       "type": "object",
       "properties": {
 
-        "offset": {
-          "description": "A non-negative integer specifying the offset in bytes from the beginning of the file at which bytes are to be removed, inserted or both. An offset of 0 shall denote the first byte in the file.",
-          "type": "integer",
-          "minimum": 0
+        "deletedRegion": {
+          "description": "The region of the file to delete.",
+          "$ref": "#/definitions/region"
         },
 
-        "deletedLength": {
-          "description": "The number of bytes to delete, starting at the byte offset specified by offset, measured from the beginning of the file.",
-          "type": "integer",
-          "minimum": 1
-        },
-
-        "insertedBytes": {
-          "description": "The MIME Base64-encoded byte sequence to be inserted at the byte offset specified by the 'offset' property, measured from the beginning of the file.",
-          "type": "string"
+        "insertedContent": {
+          "description": "The content to insert at the location specified by the 'deletedRegion' property.",
+          "$ref": "#/definitions/fileContent"
         }
       },
-      "required": [ "offset" ]
+
+      "required": [ "deletedRegion" ]
     },
 
     "resources": {
@@ -920,7 +932,7 @@
 
         "snippet": {
           "description": "A source code or other file fragment that illustrates the result.",
-          "type": "string"
+          "$ref": "#/definitions/fileContent"
         },
 
         "id": {
