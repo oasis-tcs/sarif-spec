@@ -1101,6 +1101,15 @@
           "$ref": "#/definitions/conversion"
         },
 
+        "originalUriBaseIds": {
+          "description": "The absolute URI specified by each uriBaseId symbol on the machine where the tool originally ran.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+
         "files": {
           "description": "A dictionary, each of whose keys is a URI and each of whose values is an array of file objects representing the location of a single file scanned during the run.",
           "type": "object",
