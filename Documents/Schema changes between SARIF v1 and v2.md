@@ -206,7 +206,7 @@ These overrides are noted on the earlier change.
 
     - Add the `notifications` property of type `notification[]`
 
-    2018/03/20: OBSOLETE? I think notifications moved to the `invocation` object.
+    2018/03/20: OBSOLETE. `conversion` has an `invocation` property, and `invocation` now has `toolNotifications` and `configuration properties. Filed [Issue #132](https://github.com/oasis-tcs/sarif-spec/issues/132): "conversion.notifications is superfluous" to remove this property. Don't add it to the schema.
 
 - [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings"
 
@@ -366,6 +366,7 @@ These overrides are noted on the earlier change.
 
     NOTE: The change draft has `processSuccessful` for that last property. The name is still under debate.
 
+- Editorial discretion: `toolNotifications` and `configurationNotifications` are now on `invocation` instead of `run`.
 ## Changes not yet approved
 
 - [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations"
@@ -408,3 +409,12 @@ These overrides are noted on the earlier change.
 
     - Remove the `"default"` value from the `level` property.
     - Improve the description of the `level` property.
+
+- [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements"
+
+    In the `annotatedCodeLocation` object:
+
+    - Remove the `kind` property.
+    - Remove the `target` property.
+    - Remove the `values` property.
+    - Remove the  
