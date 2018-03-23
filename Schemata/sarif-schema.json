@@ -525,6 +525,22 @@
           "type": "integer"
         },
 
+        "toolNotifications": {
+          "description": "A list of runtime conditions detected by the tool in the course of the analysis.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/notification"
+          }
+        },
+
+        "configurationNotifications": {
+          "description": "A list of conditions detected by the tool that are relevant to the tool's configuration.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/notification"
+          }
+        },
+
         "exitCodeDescription": {
           "description": "The reason for the process exit.",
           "type": "string"
@@ -1250,22 +1266,6 @@
           "uniqueItems": true,
           "items": {
             "$ref": "#/definitions/result"
-          }
-        },
-
-        "toolNotifications": {
-          "description": "A list of runtime conditions detected by the tool in the course of the analysis.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/notification"
-          }
-        },
-
-        "configurationNotifications": {
-          "description": "A list of conditions detected by the tool that are relevant to the tool's configuration.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/notification"
           }
         },
 
