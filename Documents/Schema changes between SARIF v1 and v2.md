@@ -418,9 +418,21 @@ These overrides are noted on the earlier change.
 
 - [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements"
 
+    Rename the existing `codeFlow` object to `executionSequence`.
+
+    In the renamed `executionSequence` object:
+
+    - Add a property `id` of type string, optional.
+
+    Define a new `codeFlow` object with the following properties:
+
+    - `message` of type `message`, optional.
+    - `executionSequences` of type `executionSequence[]`, required, unique, non-empty.
+
     In the `annotatedCodeLocation` object:
 
     - Remove the `kind` property.
     - Remove the `target` property.
     - Remove the `values` property.
-    - Remove the  
+    - Add a property `nestingLevel` of type `integer`, optional.
+    - Add a property `executionOrder` of type `integer`, optional.
