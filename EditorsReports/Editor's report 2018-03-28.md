@@ -80,7 +80,7 @@ Presented at TC Meeting #13, March 28, 2018
 
     1. [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations" -- made available on March 19th, 2018.
 
-    2. [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements" -- made available on March 23rd, 2018.
+    2. [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements" -- made available on March 24th, 2018.
 
     3. [Issue #86](https://github.com/oasis-tcs/sarif-spec/issues/86): "Add path normalization guidance for URLs" -- made available on March 20th, 2018.
 
@@ -90,6 +90,8 @@ Presented at TC Meeting #13, March 28, 2018
 
     6. [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object" -- made available on March 19th, 2018.
 
-    7. [Issue #133](https://github.com/oasis-tcs/sarif-spec/issues/133): "Make stdin/stdout/stderr/stdoutStderr fileLocation instead of physicalLocation" -- made available on March 23rd, 2018.
+    7. [Issue #103](https://github.com/oasis-tcs/sarif-spec/issues/98): "Specify handling of line breaks" -- made available on March 24th, 2018.
+
+    8. [Issue #133](https://github.com/oasis-tcs/sarif-spec/issues/133): "Make stdin/stdout/stderr/stdoutStderr fileLocation instead of physicalLocation" -- made available on March 23rd, 2018.
 
 

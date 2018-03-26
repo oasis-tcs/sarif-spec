@@ -436,3 +436,13 @@ These overrides are noted on the earlier change.
     - Remove the `values` property.
     - Add a property `nestingLevel` of type `integer`, optional.
     - Add a property `executionOrder` of type `integer`, optional.
+
+- [Issue #103](https://github.com/oasis-tcs/sarif-spec/issues/98): "Specify handling of line breaks"
+
+    In the `run` object:
+
+    - Add a property `defaultNewlineSequence` of type `string`, optional, default `"\n"`.
+
+    In the `file` object:
+
+    - Add a property `newlineSequence` of type `string`, optional.
