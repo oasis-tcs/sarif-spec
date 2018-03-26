@@ -418,31 +418,22 @@ These overrides are noted on the earlier change.
 
 - [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements"
 
-    Rename the existing `codeFlow` object to `executionSequence`.
+    Rename the existing `codeFlow` object to `threadFlow`.
 
-    In the renamed `executionSequence` object:
+    In the renamed `threadFlow` object:
 
     - Add a property `id` of type string, optional.
 
     Define a new `codeFlow` object with the following properties:
 
     - `message` of type `message`, optional.
-    - `executionSequences` of type `executionSequence[]`, required, unique, non-empty.
+    - `threadFlows` of type `threadFlow[]`, required, unique, non-empty.
 
     In the `annotatedCodeLocation` object:
 
     - Remove the `kind` property.
     - Remove the `target` property.
     - Remove the `values` property.
+    - Remove the `taintKind` property.
     - Add a property `nestingLevel` of type `integer`, optional.
     - Add a property `executionOrder` of type `integer`, optional.
-
-- [Issue #103](https://github.com/oasis-tcs/sarif-spec/issues/98): "Specify handling of line breaks"
-
-    In the `run` object:
-
-    - Add a property `defaultNewlineSequence` of type `string`, optional, default `"\n"`.
-
-    In the `file` object:
-
-    - Add a property `newlineSequence` of type `string`, optional.
