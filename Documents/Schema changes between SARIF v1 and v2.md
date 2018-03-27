@@ -437,3 +437,46 @@ These overrides are noted on the earlier change.
     - Remove the `taintKind` property.
     - Add a property `nestingLevel` of type `integer`, optional.
     - Add a property `executionOrder` of type `integer`, optional.
+
+- [Issue #131](https://github.com/oasis-tcs/sarif-spec/issues/131): "Fix the location object"
+
+    Rename the type `annotatedCodeLocation` to `codeFlowLocation`.
+
+    In the `location` object:
+
+    - Remove the `analysisTarget` property.
+    - Rename the `resultFile` property to `physicalLocation`.
+    - Add a property `message` of type `message`, optional.
+
+    In the `result` object:
+
+    - Add a property `analysisTarget` of type `fileLocation`, optional.
+    - Change the type of property `relatedLocations` from `annotatedCodeLocation[]` to `location[]`.
+
+    In the `threadFlow` object:
+
+    - Change the type of property `locations` from `annotatedCodeLocation[]` to `codeFlowLocation[]`.
+
+    In the `physicalLocation` object:
+
+    - Add a property `contextRegion` of type `region`, optional.
+
+    In the `region` object:
+
+    - Add a property `snippet` of type `fileContent`, optional.
+
+    In the (renamed) `codeFlowLocation` object:
+
+    - Remove the `physicalLocation` property.
+    - Remove the `fullyQualifiedLogicalName` property.
+    - Remove the `logicalLocationKey` property.
+    - Remove the `message` property.
+    - Add a `location` property of type `location`.
+
+    In the `stackFrame` object:
+
+    - Remove the `physicalLocation` property.
+    - Remove the `fullyQualifiedLogicalName` property.
+    - Remove the `logicalLocationKey` property.
+    - Remove the `message` property.
+    - Add a `location` property of type `location`.
