@@ -438,7 +438,7 @@ These overrides are noted on the earlier change.
     - Add a property `nestingLevel` of type `integer`, optional.
     - Add a property `executionOrder` of type `integer`, optional.
 
-- [Issue #131](https://github.com/oasis-tcs/sarif-spec/issues/131): "Fix the location object"
+- [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object"
 
     Rename the type `annotatedCodeLocation` to `codeFlowLocation`.
 
