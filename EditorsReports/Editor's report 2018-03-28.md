@@ -74,7 +74,9 @@ Presented at TC Meeting #13, March 28, 2018
 
     5. Property rename: `invocation.processSuccessful` &rarr; `toolExecutionSuccessful`.
 
-    6. [Issue #132](https://github.com/oasis-tcs/sarif-spec/issues/132]): "conversion.notifications is superfluous"
+    6. [Issue #131](https://github.com/oasis-tcs/sarif-spec/issues/131]): "Either or both of result.message and result.ruleMessageId is required"
+
+    7. [Issue #132](https://github.com/oasis-tcs/sarif-spec/issues/132]): "conversion.notifications is superfluous"
 
 3. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
