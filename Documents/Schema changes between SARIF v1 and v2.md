@@ -367,13 +367,14 @@ These overrides are noted on the earlier change.
     NOTE: The change draft has `processSuccessful` for that last property. The final agreed-upon name is `toolExecutionSuccessful`.
 
 - Editorial discretion: `toolNotifications` and `configurationNotifications` are now on `invocation` instead of `run`.
-## Changes not yet approved
 
 - [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations"
 
     In the `run` object:
 
     - Remove `"uniqueItems"` from the definition of the `results` property.
+
+## Changes not yet approved
 
 - [Issue #96](https://github.com/oasis-tcs/sarif-spec/issues/96): "Add redactionToken property to run object"
 
