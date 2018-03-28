@@ -374,6 +374,30 @@ These overrides are noted on the earlier change.
 
     - Remove `"uniqueItems"` from the definition of the `results` property.
 
+- [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements"
+
+    Rename the existing `codeFlow` object to `threadFlow`.
+
+    In the renamed `threadFlow` object:
+
+    - Add a property `id` of type string, optional.
+
+    Define a new `codeFlow` object with the following properties:
+
+    - `message` of type `message`, optional.
+    - `threadFlows` of type `threadFlow[]`, required, unique, non-empty.
+    - `properties` of type `propertyBag`, optional.
+
+    In the `annotatedCodeLocation` object:
+
+    - Remove the `kind` property.
+    - Remove the `target` property.
+    - Remove the `values` property.
+    - Remove the `taintKind` property.
+    - Remove the `threadId` property.
+    - Add a property `nestingLevel` of type `integer`, optional.
+    - Add a property `executionOrder` of type `integer`, optional.
+
 ## Changes not yet approved
 
 - [Issue #96](https://github.com/oasis-tcs/sarif-spec/issues/96): "Add redactionToken property to run object"
@@ -416,28 +440,6 @@ These overrides are noted on the earlier change.
     In the `invocation` object:
 
     - Change the types of the `stdin`, `stdout`, `stderr`, and `stdoutStderr` properties from `physicalLocation` to `fileLocation`.
-
-- [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements"
-
-    Rename the existing `codeFlow` object to `threadFlow`.
-
-    In the renamed `threadFlow` object:
-
-    - Add a property `id` of type string, optional.
-
-    Define a new `codeFlow` object with the following properties:
-
-    - `message` of type `message`, optional.
-    - `threadFlows` of type `threadFlow[]`, required, unique, non-empty.
-
-    In the `annotatedCodeLocation` object:
-
-    - Remove the `kind` property.
-    - Remove the `target` property.
-    - Remove the `values` property.
-    - Remove the `taintKind` property.
-    - Add a property `nestingLevel` of type `integer`, optional.
-    - Add a property `executionOrder` of type `integer`, optional.
 
 - [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object"
 
