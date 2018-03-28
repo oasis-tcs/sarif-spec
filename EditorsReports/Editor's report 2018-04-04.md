@@ -9,3 +9,7 @@ Presented at TC Meeting #14, April 4th, 2018
     1. [Issue #75](https://github.com/oasis-tcs/sarif-spec/issues/75): "Ensure spec properly accounts for tools that emit line #'s only for code locations"
 
     2. [Issue #80](https://github.com/oasis-tcs/sarif-spec/issues/80): "Code flow enhancements"
+
+    3. [Issue #86](https://github.com/oasis-tcs/sarif-spec/issues/86): "Add path normalization guidance for URLs"
+
+    4. [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation"

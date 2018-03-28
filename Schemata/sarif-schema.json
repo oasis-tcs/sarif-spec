@@ -566,9 +566,9 @@
           "type": "integer"
         },
 
-        "fileName": {
-          "description": "The fully qualified path to the analysis tool.",
-          "type": "string"
+        "executableLocation": {
+          "description": "An absolute URI specifying the location of the analysis tool's executable.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "workingDirectory": {
@@ -1126,10 +1126,9 @@
             "$ref": "#/definitions/ruleConfiguration"
           },
 
-          "helpUri": {
+          "helpLocation": {
             "description": "A URI where the primary documentation for the rule can be found.",
-            "type": "string",
-            "format": "uri"
+            "$ref": "#/definitions/fileLocation"
           },
 
           "help": {

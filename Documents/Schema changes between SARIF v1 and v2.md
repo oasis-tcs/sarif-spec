@@ -398,6 +398,20 @@ These overrides are noted on the earlier change.
     - Add a property `nestingLevel` of type `integer`, optional.
     - Add a property `executionOrder` of type `integer`, optional.
 
+- [Issue #86](https://github.com/oasis-tcs/sarif-spec/issues/86): "Add path normalization guidance for URLs"
+
+    In the `rule` object:
+
+    - Rename the `helpUri` property to `helpLocation`.
+    - Change the type of the renamed `helpLocation` property from `string` to `fileLocation`.
+
+- [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation"
+
+    In the `invocation` object:
+
+    - Rename the `fileName` property to `executableLocation`.
+    - Change the type of the renamed `executableLocation` property from `string` to `fileLocation`.
+
 ## Changes not yet approved
 
 - [Issue #96](https://github.com/oasis-tcs/sarif-spec/issues/96): "Add redactionToken property to run object"
@@ -415,20 +429,6 @@ These overrides are noted on the earlier change.
     In the `file` object:
 
     - Add the property `encoding` of type `string`.
-
-- [Issue #86](https://github.com/oasis-tcs/sarif-spec/issues/86): "Add path normalization guidance for URLs"
-
-    In the `rule` object:
-
-    - Rename the `helpUri` property to `helpLocation`.
-    - Change the type of the renamed `helpLocation` property from `string` to `fileLocation`.
-
-- [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation"
-
-    In the `invocation` object:
-
-    - Rename the `fileName` property to `executableLocation`.
-    - Change the type of the renamed `executableLocation` property from `string` to `fileLocation`.
 
 - [Issue #105](https://github.com/oasis-tcs/sarif-spec/issues/105): "Remove `default` from `result.level` property in schema"
 
