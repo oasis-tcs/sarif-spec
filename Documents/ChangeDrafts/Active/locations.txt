@@ -5,7 +5,7 @@ location
   +message                                 # With its new message and annotations properties, a location now replaces the annotatedCodeLocation object.
                                            # Places that used to use annotatedCodeLocation can now use a vanilla location. That is,
                                            #  it's not only a more logically cohesive type, but as a result, it's more generally useful.
-  +annotations:annotation[]
+  +annotations:annotation[]                # Transplanted from annotatedCodeLocation.
   =fullyQualifiedLogicalName
   =logicalLocationKey
 
@@ -35,10 +35,12 @@ region
                                            #  properties that were used only on stack frames, not in code flows.
 
   -physicalLocation                        # Now that the location object no longer carries around the baggage of two logical-location-valued
-  -fullyQualifiedLogcalName                #  properties, we can replace these four properties with a location (note that location now has a
-  -logicalLocationKey                      #  message property!
+  -fullyQualifiedLogcalName                #  properties, we can replace these five properties with a location (note that location now has a
+  -logicalLocationKey                      #  message property and an annotations property; all locations can be annotated).
   -message
+  -annotations:annotation[]
   +location
+
 
   =step                                    # So a codeFlowLocation is a location plus a few code-flow-specific properties.
   =importance
@@ -46,8 +48,9 @@ region
   =executionOrder                          # Assuming we approve #80
   ...
 
-stackFrame                                 # We can make the exact same changes on the stackFrame object, replacing the same four properties
-                                           #  with a location object.
+stackFrame                                 # We can make a similar change on the stackFrame object, replacing these four properties
+                                           #  with a location object. (stackFrame didn't used to have an annotations property. Now
+                                           #  it gets one from location.)
   -physicalLocation
   -fullyQualifiedLogcalName
   -logicalLocationKey

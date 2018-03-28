@@ -30,8 +30,8 @@ run
   message:message
 
 result
-+graphs:graph[]
-+graphTraversals:graphTraversal[]
+  +graphs:graph[]
+  +graphTraversals:graphTraversal[]
 
 
 The features of the design are:
