@@ -1,0 +1,42 @@
+run
+  +graphs:graph[]
+
++graph
+  id:string
+  description:message
+  nodes:node[]
+  edges:edge[]          
+
++node
+  id:integer
+  label:message
+  edges:integer[]                 # The ids of the edges that connect to this node.
+  location                        # Code location associated with this node.
+  properties:propertyBag
+
++edge
+  id:integer
+  source:integer                  # Id of the source node.
+  target:integer                  # Id of the target node.
+  properties:propertyBag
+
++graphTraversal
+  graphId:string
+  description:message
+  edgeTraversals:edgeTraversal[]
+
++edgeTraversal:
+  edgeId:integer
+  message:message
+
+result
++graphs:graph[]
++graphTraversals:graphTraversal[]
+
+
+The features of the design are:
+•	You can define graphs at the run level or at the result level.
+•	Each node has an associated location.
+•	A result can have an array of graphTraversal objects, which represent paths through the graph.
+•	A graphTraversal refers to the graph it traverses through its graphId property, which refers to the id property of some graph (which, again, might be on the result or on the run).
+•	A graphTraversal is an ordered sequence of edgeTraversals.
