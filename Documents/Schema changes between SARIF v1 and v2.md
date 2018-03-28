@@ -412,13 +412,13 @@ These overrides are noted on the earlier change.
     - Rename the `fileName` property to `executableLocation`.
     - Change the type of the renamed `executableLocation` property from `string` to `fileLocation`.
 
-## Changes not yet approved
-
 - [Issue #96](https://github.com/oasis-tcs/sarif-spec/issues/96): "Add redactionToken property to run object"
 
     In the `run` object:
 
     - Add the property `redactionToken` of type `string`.
+
+## Changes not yet approved
 
 - [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object"
 

@@ -1288,6 +1288,11 @@
           "default": "text/markdown;variant=GFM"
         },
 
+        "redactionToken": {
+          "description": "The string used to replace sensitive information in a redaction-aware property.",
+          "type": "string"
+        },
+
         "properties": {
           "description": "Key/value pairs that provide additional information about the run.",
           "type": "object",
