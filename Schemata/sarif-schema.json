@@ -584,23 +584,23 @@
         },
 
         "stdin": {
-          "description": "A file or portion of a file containing the standard input stream to the process that was invoked.",
-          "$ref": "#/definitions/physicalLocation"
+          "description": "A file containing the standard input stream to the process that was invoked.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "stdout": {
-          "description": "A file or portion of a file containing the standard output stream from the process that was invoked.",
-          "$ref": "#/definitions/physicalLocation"
+          "description": "A file containing the standard output stream from the process that was invoked.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "stderr": {
-          "description": "A file or portion of a file containing the standard error stream from the process that was invoked.",
-          "$ref": "#/definitions/physicalLocation"
+          "description": "A file containing the standard error stream from the process that was invoked.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "stdoutStderr": {
-          "description": "A file or portion of a file containing the interleaved standard output and standard error stream from the process that was invoked.",
-          "$ref": "#/definitions/physicalLocation"
+          "description": "A file containing the interleaved standard output and standard error stream from the process that was invoked.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "properties": {

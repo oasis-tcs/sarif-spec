@@ -418,6 +418,12 @@ These overrides are noted on the earlier change.
 
     - Add the property `redactionToken` of type `string`.
 
+- [Issue #133](https://github.com/oasis-tcs/sarif-spec/issues/133): "Make stdin/stdout/stderr/stdoutStderr fileLocation instead of physicalLocation"
+
+    In the `invocation` object:
+
+    - Change the types of the `stdin`, `stdout`, `stderr`, and `stdoutStderr` properties from `physicalLocation` to `fileLocation`.
+
 ## Changes not yet approved
 
 - [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object"
@@ -434,12 +440,6 @@ These overrides are noted on the earlier change.
 
     - Remove the `"default"` value from the `level` property.
     - Improve the description of the `level` property.
-
-- [Issue #133](https://github.com/oasis-tcs/sarif-spec/issues/133): "Make stdin/stdout/stderr/stdoutStderr fileLocation instead of physicalLocation"
-
-    In the `invocation` object:
-
-    - Change the types of the `stdin`, `stdout`, `stderr`, and `stdoutStderr` properties from `physicalLocation` to `fileLocation`.
 
 - [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object"
 
