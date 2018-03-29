@@ -424,37 +424,31 @@ These overrides are noted on the earlier change.
 
     - Change the types of the `stdin`, `stdout`, `stderr`, and `stdoutStderr` properties from `physicalLocation` to `fileLocation`.
 
-## Changes not yet approved
-
-- [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object"
-
-    In the `run` object:
-
-    - Add the property `defaultFileEncoding` of type `string`, default `"utf-8"`.
-
-    In the `file` object:
-
-    - Add the property `encoding` of type `string`.
-
 - [Issue #105](https://github.com/oasis-tcs/sarif-spec/issues/105): "Remove `default` from `result.level` property in schema"
 
     - Remove the `"default"` value from the `level` property.
     - Improve the description of the `level` property.
 
+    NOTE: There is no spec change here. The spec language is correct. The change is entirely in the JSON schema.
+
 - [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object"
 
     Rename the type `annotatedCodeLocation` to `codeFlowLocation`.
+
+    Remove the `analysisToolLogFileContents` object
 
     In the `location` object:
 
     - Remove the `analysisTarget` property.
     - Rename the `resultFile` property to `physicalLocation`.
     - Add a property `message` of type `message`, optional.
+    - Add a property `annotations` of type `annotation[]`, optional.
 
     In the `result` object:
 
     - Add a property `analysisTarget` of type `fileLocation`, optional.
     - Change the type of property `relatedLocations` from `annotatedCodeLocation[]` to `location[]`.
+    - Change the type of property `conversionProvenance` from `analysisToolLogFileContents[]` to `physicalLocation[]`.
 
     In the `threadFlow` object:
 
@@ -474,7 +468,9 @@ These overrides are noted on the earlier change.
     - Remove the `fullyQualifiedLogicalName` property.
     - Remove the `logicalLocationKey` property.
     - Remove the `message` property.
-    - Add a `location` property of type `location`.
+    - Remove the `annotations` property.
+    - Remove the `snippet` property. (It is now at `codeFlowLocation.location.physicalLocation.region.snippet`.)
+    - Add a `location` property of type `location`, required.
 
     In the `stackFrame` object:
 
@@ -483,3 +479,15 @@ These overrides are noted on the earlier change.
     - Remove the `logicalLocationKey` property.
     - Remove the `message` property.
     - Add a `location` property of type `location`.
+
+## Changes not yet approved
+
+- [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object"
+
+    In the `run` object:
+
+    - Add the property `defaultFileEncoding` of type `string`, default `"utf-8"`.
+
+    In the `file` object:
+
+    - Add the property `encoding` of type `string`.

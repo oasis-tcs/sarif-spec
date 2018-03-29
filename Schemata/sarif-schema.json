@@ -29,29 +29,7 @@
   "required": [ "version", "runs" ],
   "definitions": {
 
-    "analysisToolLogFileContents": {
-      "description": "A portion of an analysis tool's output that a converter transformed into a result object.",
-      "additionalProperties": false,
-      "type": "object",
-      "properties": {
-        
-        "region": {
-          "description": "The region of an analysis tool's log file that was transformed into the result object.",
-          "$ref": "#/definitions/region"
-        },
-
-        "snippet": {
-          "description": "The text of that region of the analysis tool's log file that was transformed into the result object.",
-          "$ref": "#/definitions/fileContent"
-        },
-
-        "analysisToolLogFileLocation": {
-          "description": "The location of the analysis tool's log file.",
-          "$ref": "#/definitions/fileLocation"
-        }
-    },
-
-    "annotatedCodeLocation": {
+    "codeFlowLocation": {
       "description": "An annotation used to express code flows through a method or other locations that are related to a result.",
       "additionalProperties": false,
       "type": "object",
@@ -63,29 +41,14 @@
           "minimum": 0
         },
 
-        "physicalLocation": {
-          "description": "A file location to which this annotation refers.",
-          "$ref": "#/definitions/physicalLocation"
-        },
-
-        "fullyQualifiedLogicalName": {
-          "description": "The fully qualified name of the method or function that is executing.",
-          "type": "string"
-        },
-
-        "logicalLocationKey": {
-          "description": "A key used to retrieve the annotation's logicalLocation from the logicalLocations dictionary.",
-          "type": "string"
+        "location": {
+          "description": "The code location.",
+          "$ref": "#/definitions/location"
         },
 
         "module": {
           "description": "The name of the module that contains the code that is executing.",
           "type": "string"
-        },
-
-        "message": {
-          "description": "A message relevant to this location.",
-          "$ref": "#/definitions/message"
         },
 
         "state": {
@@ -108,21 +71,6 @@
           "enum": [ "important", "essential", "unimportant" ]
         },
 
-        "snippet": {
-          "description": "The source code at the specified location.",
-          "$ref": "#/definitions/fileContent"
-        },
-
-        "annotations": {
-          "description": "A set of messages relevant to the current annotated code location.",
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": {
-            "$ref": "#/definitions/annotation"
-          }
-        },
-
         "properties": {
           "description": "Key/value pairs that provide additional information about the code location.",
           "type": "object",
@@ -140,7 +88,9 @@
             }
           }
         }
-      }
+      },
+
+      "required": [ "location" ]
     },
 
     "annotation": {
@@ -624,13 +574,8 @@
       "type": "object",
       "properties": {
 
-        "analysisTarget": {
-          "description": "Identifies the file that the analysis tool was instructed to scan. This need not be the same as the file where the result actually occurred.",
-          "$ref": "#/definitions/physicalLocation"
-        },
-
-        "resultFile": {
-          "description": "Identifies the file where the analysis tool produced the result.",
+        "physicalLocation": {
+          "description": "Identifies the file and region where the analysis tool produced the result.",
           "$ref": "#/definitions/physicalLocation"
         },
 
@@ -647,6 +592,21 @@
         "decoratedName": {
           "description": "The machine-readable fully qualified name for the logical location where the analysis tool produced the result, such as the mangled function name provided by a C++ compiler that encodes calling convention, return type and other details along with the function name.",
           "type": "string"
+        },
+
+        "message": {
+          "description": "A message relevant to the location.",
+          "$ref": "#/definitions/message"
+        },
+
+        "annotations": {
+          "description": "A set of messages relevant to portions of the location.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/annotation"
+          }
         },
 
         "properties": {
@@ -820,7 +780,12 @@
         },
 
         "region": {
-          "description": "The region within the file where the result was detected.",
+          "description": "Specifies a portion of the file.",
+          "$ref": "#/definitions/region"
+        },
+
+        "contextRegion": {
+          "description": "Specifies a portion of the file that encloses the region. Allows a viewer to display additional context around the region.",
           "$ref": "#/definitions/region"
         }
       }
@@ -866,6 +831,11 @@
           "description": "The length of the region in bytes or characters.",
           "type": "integer",
           "minimum": 0
+        },
+
+        "snippet": {
+          "description": "The portion of the file contents within the specified region.",
+          "$ref": "#/definitions/fileContent"
         }
       }
     },
@@ -931,7 +901,6 @@
 
         "level": {
           "description": "A value specifying the severity level of the result. If this property is not present, its implied value is 'warning'.",
-          "default": "warning",
           "enum": [ "notApplicable", "pass", "note", "warning", "error", "open" ]
         },
 
@@ -954,6 +923,11 @@
           "items": {
             "$ref": "#/definitions/location"
           }
+        },
+
+        "analysisTarget": {
+          "description": "Identifies the file that the analysis tool was instructed to scan. This need not be the same as the file where the result actually occurred.",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "snippet": {
@@ -995,12 +969,12 @@
         },
 
         "relatedLocations": {
-          "description": "A grouped set of locations and messages, if available, that represent code areas that are related to this result.",
+          "description": "A set of locations relevant to this result.",
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$ref": "#/definitions/annotatedCodeLocation"
+            "$ref": "#/definitions/location"
           }
         },
 
@@ -1035,12 +1009,12 @@
         },
 
         "conversionProvenance": {
-          "description": "An array of analysisToolLogFileContents objects which specify the portions of an analysis tool's output that a converter transformed into the result object.",
+          "description": "An array of physicalLocation objects which specify the portions of an analysis tool's output that a converter transformed into the result object.",
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$ref": "#/definitions/analysisToolLogFileContents"
+            "$ref": "#/definitions/physicalLocation"
           }
         },
 
@@ -1357,14 +1331,9 @@
       "type": "object",
       "properties": {
 
-        "message": {
-          "description": "A message relevant to this stack frame.",
-          "$ref": "#/definitions/message"
-        },
-
-        "physicalLocation": {
-          "description": "The physical location to which this stack frame refers.",
-          "$ref": "#/definitions/physicalLocation"
+        "location": {
+          "description": "The location to which this stack frame refers.",
+          "$ref": "#/definitions/location"
         },
 
         "module": {
@@ -1375,16 +1344,6 @@
         "threadId": {
           "description": "The thread identifier of the stack frame.",
           "type": "integer"
-        },
-
-        "fullyQualifiedLogicalName": {
-          "description": "The fully qualified name of the method or function that is executing.",
-          "type": "string"
-        },
-
-        "logicalLocationKey": {
-          "description": "A key used to retrieve the stack frame logicalLocation from the logicalLocations dictionary, when the 'fullyQualifiedLogicalName' is not unique.",
-          "type": "string"
         },
 
         "address": {
@@ -1443,11 +1402,11 @@
         },
 
         "locations": {
-          "description": "An array of 'annotatedCodeLocation' objects, each of which describes a single location visited by the tool in the course of producing the result.",
+          "description": "A temporally ordered array of 'codeFlowLocation' objects, each of which describes a location visited by the tool in the course of producing the result.",
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#/definitions/annotatedCodeLocation"
+            "$ref": "#/definitions/codeFlowLocation"
           }
         },
 
