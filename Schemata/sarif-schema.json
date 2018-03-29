@@ -29,70 +29,6 @@
   "required": [ "version", "runs" ],
   "definitions": {
 
-    "codeFlowLocation": {
-      "description": "An annotation used to express code flows through a method or other locations that are related to a result.",
-      "additionalProperties": false,
-      "type": "object",
-      "properties": {
-
-        "step": {
-          "description": "The 0-based sequence number of the location in the code flow within which it occurs.",
-          "type": "integer",
-          "minimum": 0
-        },
-
-        "location": {
-          "description": "The code location.",
-          "$ref": "#/definitions/location"
-        },
-
-        "module": {
-          "description": "The name of the module that contains the code that is executing.",
-          "type": "string"
-        },
-
-        "state": {
-          "description": "A dictionary, each of whose keys specifies a variable or expression, the associated value of which represents the variable or expression value. For an annotation of kind 'continuation', for example, this dictionary might hold the current assumed values of a set of global variables.",
-          "type": "object"
-        },
-
-        "nestingLevel": {
-          "description": "An integer representing a containment hierarchy within the thread flow",
-          "type": "integer"
-        },
-
-        "executionOrder": {
-          "description": "An integer representing the temporal order in which execution reached this location.",
-          "type": "integer"
-        },
-
-        "importance": {
-          "description": "Specifies the importance of this location in understanding the code flow in which it occurs. The order from most to least important is \"essential\", \"important\", \"unimportant\". Default: \"important\".",
-          "enum": [ "important", "essential", "unimportant" ]
-        },
-
-        "properties": {
-          "description": "Key/value pairs that provide additional information about the code location.",
-          "type": "object",
-          "additionalProperties": true,
-          "properties": {
-
-            "tags": {
-              "description": "A set of distinct strings that provide additional information.",
-              "type": "array",
-              "uniqueItems": true,
-              "default": [],
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-
-      "required": [ "location" ]
-    },
-
     "annotation": {
       "type": "object",
       "properties": {
@@ -174,6 +110,70 @@
       },
 
       "required": [ "threadFlows" ]
+    },
+
+    "codeFlowLocation": {
+      "description": "A location visited by an analysis tool in the course of simulating or monitoring the execution of a program.",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+
+        "step": {
+          "description": "The 0-based sequence number of the location in the code flow within which it occurs.",
+          "type": "integer",
+          "minimum": 0
+        },
+
+        "location": {
+          "description": "The code location.",
+          "$ref": "#/definitions/location"
+        },
+
+        "module": {
+          "description": "The name of the module that contains the code that is executing.",
+          "type": "string"
+        },
+
+        "state": {
+          "description": "A dictionary, each of whose keys specifies a variable or expression, the associated value of which represents the variable or expression value. For an annotation of kind 'continuation', for example, this dictionary might hold the current assumed values of a set of global variables.",
+          "type": "object"
+        },
+
+        "nestingLevel": {
+          "description": "An integer representing a containment hierarchy within the thread flow",
+          "type": "integer"
+        },
+
+        "executionOrder": {
+          "description": "An integer representing the temporal order in which execution reached this location.",
+          "type": "integer"
+        },
+
+        "importance": {
+          "description": "Specifies the importance of this location in understanding the code flow in which it occurs. The order from most to least important is \"essential\", \"important\", \"unimportant\". Default: \"important\".",
+          "enum": [ "important", "essential", "unimportant" ]
+        },
+
+        "properties": {
+          "description": "Key/value pairs that provide additional information about the code location.",
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+
+            "tags": {
+              "description": "A set of distinct strings that provide additional information.",
+              "type": "array",
+              "uniqueItems": true,
+              "default": [],
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+
+      "required": [ "location" ]
     },
 
     "conversion": {
