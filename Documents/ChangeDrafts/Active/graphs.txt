@@ -19,8 +19,8 @@ run
 +edge
   id:string
   label:message
-  source:integer                  # Id of the source node.
-  target:integer                  # Id of the target node.
+  source:string                   # Id of the source node.
+  target:string                   # Id of the target node.
   properties:propertyBag
 
 +graphTraversal
