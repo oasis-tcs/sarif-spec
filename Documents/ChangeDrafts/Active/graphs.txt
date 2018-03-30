@@ -13,7 +13,7 @@ run
   label:message
   edgeIds:string[]                # The ids of the edges that connect to this node.
   location                        # Code location associated with this node.
-  nestedGraph:graph
+  subGraph:string                 # The id of the nested graph.
   properties:propertyBag
 
 +edge
@@ -32,6 +32,7 @@ run
 
 +edgeTraversal:
   edgeId:string
+  subGraphId:string
   message:message
   finalState:object
   properties:propertyBag
