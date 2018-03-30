@@ -6,16 +6,19 @@ run
   description:message
   nodes:node[]
   edges:edge[]          
+  properties:propertyBag
 
 +node
-  id:integer
+  id:string
   label:message
-  edges:integer[]                 # The ids of the edges that connect to this node.
+  edgeIds:integer[]               # The ids of the edges that connect to this node.
   location                        # Code location associated with this node.
+  nestedGraph:graph
   properties:propertyBag
 
 +edge
-  id:integer
+  id:string
+  label:message
   source:integer                  # Id of the source node.
   target:integer                  # Id of the target node.
   properties:propertyBag
@@ -23,11 +26,15 @@ run
 +graphTraversal
   graphId:string
   description:message
+  initialState:object
   edgeTraversals:edgeTraversal[]
+  properties:propertyBag
 
 +edgeTraversal:
-  edgeId:integer
+  edgeId:string
   message:message
+  finalState:object
+  properties:propertyBag
 
 result
   +graphs:graph[]
