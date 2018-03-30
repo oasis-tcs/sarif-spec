@@ -53,11 +53,12 @@
     "attachment": {
       "description": "A file relevant to a tool invocation or to a result.",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
 
         "description": {
           "description": "A message describing the role played by the attachment.",
-          "type": "string"
+          "$ref": "#/definitions/message"
         },
 
         "fileLocation": {
