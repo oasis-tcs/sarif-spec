@@ -11,7 +11,7 @@ run
 +node
   id:string
   label:message
-  edgeIds:integer[]               # The ids of the edges that connect to this node.
+  edgeIds:string[]                # The ids of the edges that connect to this node.
   location                        # Code location associated with this node.
   nestedGraph:graph
   properties:propertyBag
@@ -42,8 +42,8 @@ result
 
 
 The features of the design are:
-•	You can define graphs at the run level or at the result level.
-•	Each node has an associated location.
-•	A result can have an array of graphTraversal objects, which represent paths through the graph.
-•	A graphTraversal refers to the graph it traverses through its graphId property, which refers to the id property of some graph (which, again, might be on the result or on the run).
-•	A graphTraversal is an ordered sequence of edgeTraversals.
+- You can define graphs at the run level or at the result level.
+- Each node has an associated location.
+- A result can have an array of graphTraversal objects, which represent paths through the graph.
+- A graphTraversal refers to the graph it traverses through its graphId property, which refers to the id property of some graph (which, again, might be on the result or on the run).
+- A graphTraversal is an ordered sequence of edgeTraversals.
