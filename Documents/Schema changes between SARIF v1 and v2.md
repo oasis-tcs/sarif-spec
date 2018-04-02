@@ -482,6 +482,55 @@ These overrides are noted on the earlier change.
 
 ## Changes not yet approved
 
+- [Issue #46](https://github.com/oasis-tcs/sarif-spec/issues/46): "Provide support for graphs and graph traversals."
+
+    Define the `graph` object with the following properties:
+
+    - `id` of type `string`, required.
+    - `description` of type `message`, optional.
+    - `nodes` of type `node[]`, required, unique.
+    - `edges` of type `edge[]`, required, unique.
+    - `properties` of type `propertyBag`, optional.
+
+    Define the `node` object with the following properties:
+
+    - `id` of type `string`, required.
+    - `label` of type `message`, optional.
+    - `location` of type `location`, required.
+    - `properties` of type `propertyBag`, optional.
+
+    Define the `edge` object with the following properties:
+
+    - `id` of type `string`, required.
+    - `label` of type `message`, optional.
+    - `sourceNodeId` of type `string`, required.
+    - `targetNodeId` of type `string`, required.
+    - `properties` of type `propertyBag`, optional.
+
+    Define the `graphTraversal` object with the following properties:
+
+    - `graphId` of type `string`, required.
+    - `description` of type `message`, optional.
+    - `initialState` of type `object`, optional, properties of type `string`.
+    - `edgeTraversals` of type `edgeTraversal[]`, required.
+    - `properties` of type `propertyBag`, optional.
+
+    Define the `edgeTraversal` object with the following properties:
+
+    - `edgeId` of type `string`, required.
+    - `message` of type `message`, optional.
+    - `finalState` of type `object`, optional, properties of type `string`.
+    - `properties` of type `propertyBag`, optional.
+
+    In the `run` object:
+
+    - Add a `graphs` property of type `graph[]`, optional.
+
+    In the `result` object:
+
+    - Add a `graphs` property of type `graph[]`, optional.
+    - Add a `graphTraversals` property of type `graphTraversal[]`, optional.
+
 - [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object"
 
     In the `run` object:
