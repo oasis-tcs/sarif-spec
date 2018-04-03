@@ -22,6 +22,8 @@ Presented at TC Meeting #14, April 4th, 2018
 
     1. [Issue #46](https://github.com/oasis-tcs/sarif-spec/issues/46): "Provide support for graphs and graph traversals" -- made available on March 30th, 2018.
 
-    1. [Issue #99](https://github.com/oasis-tcs/sarif-spec/issues/99): "result object's snippet property" -- made available on March 29th, 2018.
+    2. [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object." -- made available on April 3rd, 2018.
 
-    2. [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object" -- made available on March 29th, 2018.
+    3. [Issue #99](https://github.com/oasis-tcs/sarif-spec/issues/99): "result object's snippet property" -- made available on March 29th, 2018.
+
+    4. [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object" -- made available on March 29th, 2018.

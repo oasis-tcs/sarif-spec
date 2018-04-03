@@ -370,6 +370,11 @@
           "$ref": "#/definitions/fileContent"
         },
 
+        "encoding": {
+          "description": "Specifies the encoding for a file object that refers to a text file.",
+          "type": "string"
+        },
+
         "hashes": {
           "description": "An array of hash objects, each of which specifies a hashed value for the file, along with the name of the algorithm used to compute the hash.",
           "type": "array",
@@ -1461,6 +1466,11 @@
 
         "redactionToken": {
           "description": "The string used to replace sensitive information in a redaction-aware property.",
+          "type": "string"
+        },
+
+        "defaultFileEncoding": {
+          "description": "Specifies the default encoding for any file object that refers to a text file.",
           "type": "string"
         },
 

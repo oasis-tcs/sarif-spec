@@ -535,7 +535,7 @@ These overrides are noted on the earlier change.
 
     In the `run` object:
 
-    - Add the property `defaultFileEncoding` of type `string`, default `"utf-8"`.
+    - Add the property `defaultFileEncoding` of type `string`.
 
     In the `file` object:
 
