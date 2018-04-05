@@ -20,4 +20,4 @@ Presented at TC Meeting #15, April 18th, 2018
 
 3. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
-   1. TBD
+   1. [Issue #113](https://github.com/oasis-tcs/sarif-spec/issues/113): "Provide guidance on including a hostname in a uriBaseIdValue" -- made available on April 3rd, 2018.
