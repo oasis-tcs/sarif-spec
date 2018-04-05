@@ -449,6 +449,7 @@ These overrides are noted on the earlier change.
     - Add a property `analysisTarget` of type `fileLocation`, optional.
     - Change the type of property `relatedLocations` from `annotatedCodeLocation[]` to `location[]`.
     - Change the type of property `conversionProvenance` from `analysisToolLogFileContents[]` to `physicalLocation[]`.
+    - Remove the `snippet` property.
 
     In the `threadFlow` object:
 
