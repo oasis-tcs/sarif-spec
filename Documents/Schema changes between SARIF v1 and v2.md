@@ -80,6 +80,8 @@ These overrides are noted on the earlier change.
     - Remove the properties `uri`, `uriBaseId`, `line`, and `column`.
     - Add the property `physicalLocation` of type `physicalLocation`, optional.
 
+    NOTE: As a result of #130, this `physicalLocation` will be absorbed into the `location` property of type `location`.
+
 - [Issue #72](https://github.com/oasis-tcs/sarif-spec/issues/72): "tool.language property needs a default value"
 
     Specify a default value for the following optional property, which subsumes the deleted properties:
@@ -102,6 +104,8 @@ These overrides are noted on the earlier change.
     - `analysisToolLogFileUri` of type string, containing a valid URI, optional
     - `analysisToolLogFileUriBaseId` of type string, containing a URI base id, optional
 
+    NOTE: As a result of #130, this object will disappear.
+
     In the `run` object:
 
     - Add the property `conversion` of type `conversion`, optional.
@@ -109,6 +113,8 @@ These overrides are noted on the earlier change.
     In the `result` object:
 
     - Add the property `conversionProvenance` of type `analysisToolLogFileContents[]`, unique, optional.
+
+    NOTE: As a result of #130, the type of this property will change to `physicalLocation[]`.
 
 - [Issue #81](https://github.com/oasis-tcs/sarif-spec/issues/81): "Add 'open' as a result level"
 
@@ -143,6 +149,8 @@ These overrides are noted on the earlier change.
 
     - Remove the properties `analysisToolLogFileUri` and `analysisToolLogFileUriBaseId`.
     - Add the property `analysisToolLogFileLocation` of type `fileLocation`, optional.
+
+    NOTE: As a result of #130, this is moot. There is no longer an `analysisToolLogFileContents` object.
 
     In the `physicalLocation` object:
 
