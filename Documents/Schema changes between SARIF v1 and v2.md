@@ -128,7 +128,7 @@ These overrides are noted on the earlier change.
 
     - Add the property `id` of type `string`, optional
 
-- [Issue #90](https://github.com/oasis-tcs/sarif-spec/issues/82): "Introduce fileLocation object"
+- [Issue #90](https://github.com/oasis-tcs/sarif-spec/issues/90): "Introduce fileLocation object"
 
     Define the `fileLocation` object with the following properties:
 
