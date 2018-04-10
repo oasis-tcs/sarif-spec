@@ -349,6 +349,8 @@ These overrides are noted on the earlier change.
 
     - Change the type of the `snippet` property from `string` to `fileContent`.
 
+    NOTE: This is obsolete because of #130.
+
     In the `annotatedCodeLocation` object:
 
     - Change the type of the `snippet` property from `string` to `fileContent`.
