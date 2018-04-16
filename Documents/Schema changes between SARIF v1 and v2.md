@@ -551,3 +551,18 @@ These overrides are noted on the earlier change.
     In the `file` object:
 
     - Add the property `encoding` of type `string`.
+
+- [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties"
+
+    Define the `versionControlDetails` object with the following properties:
+
+    - `uri` of type `string`, containing a valid URI, required.
+    - `revisionId` of type `string`, optional.
+    - `branch` of type `string`, optional.
+    - `label` of type `string`, optional.
+    - `timestamp` of type `string`, containing a valid date/time, optional.
+    - `properties` of type `propertyBag`, optional.
+
+    In the `run` object:
+
+    - Add a `versionControlProvenance` property of type `versionControlDetails[]`, optional.

@@ -22,6 +22,8 @@ Presented at TC Meeting #15, April 18th, 2018
 
     1. [Issue #107](https://github.com/oasis-tcs/sarif-spec/issues/107): "Settle on a small set of hash functions" -- made available on April 12th, 2018.
 
+    1. [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties" -- made available on April 16th, 2018. 
+
     1. [Issue #113](https://github.com/oasis-tcs/sarif-spec/issues/113): "Provide guidance on including a hostname in a uriBaseIdValue" -- made available on April 3rd, 2018.
 
     1. [Issue #119](https://github.com/oasis-tcs/sarif-spec/issues/119): "Add tool automation manager/SARIF post-processor profile" -- made available on April 5th, 2018.
