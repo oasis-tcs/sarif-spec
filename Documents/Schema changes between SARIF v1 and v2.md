@@ -566,3 +566,16 @@ These overrides are noted on the earlier change.
     In the `run` object:
 
     - Add a `versionControlProvenance` property of type `versionControlDetails[]`, optional.
+
+- [Issue #120](https://github.com/oasis-tcs/sarif-spec/issues/120): "Identify files that were scanned"
+
+    In the `file` object:
+
+    - Add the property `roles` of type `string[]`, with each array element having one of the enumerated values:
+        - `"analysisTarget"`
+        - `"attachment"`
+        - `"responseFile"`
+        - `"resultFile"`
+        - `"standardStream"`
+        - `"screenShot"`
+        

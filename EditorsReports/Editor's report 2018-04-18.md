@@ -28,6 +28,8 @@ Presented at TC Meeting #15, April 18th, 2018
 
     1. [Issue #119](https://github.com/oasis-tcs/sarif-spec/issues/119): "Add tool automation manager/SARIF post-processor profile" -- made available on April 5th, 2018.
 
+    1. [Issue #120](https://github.com/oasis-tcs/sarif-spec/issues/120): "Identify files that were scanned" -- made available on April 16th, 2018.
+
 4. The following issues were closed without further action:
 
     1. [Issue #9](https://github.com/oasis-tcs/sarif-spec/issues/9): "Cite source for list of hash algorithms": Covered by [Issue #107](https://github.com/oasis-tcs/sarif-spec/issues/107).
