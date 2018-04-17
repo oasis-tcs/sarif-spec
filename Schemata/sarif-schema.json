@@ -175,9 +175,7 @@
             }
           }
         }
-      },
-
-      "required": [ "location" ]
+      }
     },
 
     "conversion": {

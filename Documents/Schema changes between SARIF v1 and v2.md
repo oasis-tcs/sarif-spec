@@ -578,4 +578,8 @@ These overrides are noted on the earlier change.
         - `"resultFile"`
         - `"standardStream"`
         - `"screenShot"`
-        
+
+- [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/139): "Don't require codeFlowLocation.location"
+
+    - In the `codeFlowLocation` object:
+        - Remove `location` from the list of required properties.
