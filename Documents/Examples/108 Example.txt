@@ -1,0 +1,9 @@
+{                                              # A run object (§3.11).
+  "versionControlProvenance": [
+    {                                          # A versionControlDetails object (§3.15).
+      "uri": "https://github.com/example/browser",   # See §3.15.2.
+      "branch": "master",                            # See §3.15.3.
+      "revisionId": "fd3fbae"                        # See §3.15.4.
+    }
+  ]
+}

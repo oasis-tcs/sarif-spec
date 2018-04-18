@@ -1,0 +1,47 @@
+{                                         # A codeFlow object (§3.23).
+  "threadFlows": [                        # See §3.23.3.
+    {                                     # A threadFlow object (§3.24).
+      "message": {                        # See §3.24.3.
+        "text": "An external program."
+      },
+      "locations": [                      # See §3.24.4.
+        {                                 # A codeFlowLocation object.
+          "executionOrder": 1,
+          "location": {                   # A location object with only a message.
+            "message": {
+              "text": "File is now locked."
+            }
+          }
+        }
+      ]
+    },
+    {                                     # Another threadFlow object.
+      "message": {
+        "text": "The program being analyzed."
+      },
+      "locations": [
+        ...
+        {
+          "executionOrder": 2,
+          "message": {
+            "text": "Attempt to write to the file."
+          },
+          "location": {
+            "physicalLocation": {
+              "fileLocation": {
+                "uri": "io/logger.c",
+                "uriBaseId": "SRCROOT"
+              },
+              "region": {
+                "startLine": 42,
+                "snippet": {
+                  "text": "    fprintf(fd, "test\\n");\n"
+                }
+              } 
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

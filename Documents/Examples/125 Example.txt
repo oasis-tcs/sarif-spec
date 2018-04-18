@@ -1,0 +1,42 @@
+{                                      # A run object (§3.11)
+  "originalUriBaseIds": {
+    "GENERATED-1": "file:///dev-1.example.com/code/browser/obj",
+    "GENERATED-2": "file:///dev-1.example.com/code/browser/obj"
+  },
+
+  "results": [
+    {
+      "ruleId": "CS6789",
+      "message": {
+        "text": "Division by 0!"
+      },
+      "locations": [
+        {
+          "physicalLocation": {
+            "fileLocation": {
+              "uri": "ui/window.g.cs",
+              "uriBaseId": "GENERATED-1"
+            },
+            "region": {
+              "startLine": 42
+            },
+            "contextRegion": {
+              "startLine": 40,
+              "endLine": 42
+            }
+          }
+        }
+      ]
+    }
+  ],
+
+  "files": {
+    "#GENERATED-1#ui/window.g.cs": {         # Unique property name.
+      ...
+    },
+
+    "#GENERATED-2#ui/window.g.cs": {         # Unique property name
+      ...
+    }
+  }
+}
