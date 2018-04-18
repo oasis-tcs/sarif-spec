@@ -4,7 +4,13 @@ Laurence J. Golding and Michael Fanning
 
 Presented at TC Meeting #16, May 2nd, 2018
 
-1. Because the meeting lost quorum, no new changes have yet been merged into the provisional draft.
+1. After being approved at the last TC meeting (#13), the following spec changes were merged into the provisional draft:
+
+    1. [Issue #46](https://github.com/oasis-tcs/sarif-spec/issues/46): "Support graphs and graph traversals"
+
+    1. [Issue #99](https://github.com/oasis-tcs/sarif-spec/issues/99): "Result object's snippet property"
+
+    1. [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object"
 
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
