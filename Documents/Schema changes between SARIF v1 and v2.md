@@ -491,8 +491,6 @@ These overrides are noted on the earlier change.
     - Remove the `message` property.
     - Add a `location` property of type `location`.
 
-## Changes not yet approved
-
 - [Issue #46](https://github.com/oasis-tcs/sarif-spec/issues/46): "Provide support for graphs and graph traversals."
 
     Define the `graph` object with the following properties:
@@ -551,6 +549,8 @@ These overrides are noted on the earlier change.
     In the `file` object:
 
     - Add the property `encoding` of type `string`.
+
+## Changes not yet approved
 
 - [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties"
 

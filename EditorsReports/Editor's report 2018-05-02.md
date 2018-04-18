@@ -8,6 +8,8 @@ Presented at TC Meeting #16, May 2nd, 2018
 
     1. [Issue #46](https://github.com/oasis-tcs/sarif-spec/issues/46): "Support graphs and graph traversals"
 
+    1. [Issue #98](https://github.com/oasis-tcs/sarif-spec/issues/98): "Add encoding property to file object"
+
     1. [Issue #99](https://github.com/oasis-tcs/sarif-spec/issues/99): "Result object's snippet property"
 
     1. [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object"

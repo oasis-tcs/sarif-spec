@@ -544,7 +544,7 @@
       "properties": {
 
         "id": {
-          "description": "A string that uniquely identifies this `graphTraversal` with its containing result.",
+          "description": "A string that uniquely identifies this graph traversal with its containing result.",
           "type": "string"
         },
 
