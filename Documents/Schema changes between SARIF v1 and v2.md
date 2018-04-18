@@ -550,8 +550,6 @@ These overrides are noted on the earlier change.
 
     - Add the property `encoding` of type `string`.
 
-## Changes not yet approved
-
 - [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties"
 
     Define the `versionControlDetails` object with the following properties:
@@ -566,6 +564,8 @@ These overrides are noted on the earlier change.
     In the `run` object:
 
     - Add a `versionControlProvenance` property of type `versionControlDetails[]`, optional.
+
+## Changes not yet approved
 
 - [Issue #120](https://github.com/oasis-tcs/sarif-spec/issues/120): "Identify files that were scanned"
 

@@ -1461,6 +1461,16 @@
           "$ref": "#/definitions/conversion"
         },
 
+        "versionControlProvenance": {
+          "description": "Specifies the revision in version control of the files that were scanned.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/versionControlDetails"
+          }
+        },
+
         "originalUriBaseIds": {
           "description": "The absolute URI specified by each uriBaseId symbol on the machine where the tool originally ran.",
           "type": "object",
@@ -1784,6 +1794,61 @@
       },
 
       "required": [ "name" ]
+    },
+
+    "versionControlDetails": {
+      "descriptipn": "Specifies the information necessary to retrieve a desired revision from a version control system.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        
+        "uri": {
+          "description": "The absolute URI of the repository.",
+          "type": "string",
+          "format": "uri"
+        },
+
+        "revisionId": {
+          "description": "A string that uniquely and permanently identifies the revision within the repository.",
+          "type": "string"
+        },
+
+        "branch": {
+          "description": "The name of a branch containing the revision.",
+          "type": "string"
+        }, 
+
+        "tag": {
+          "description": "A tag that has been applied to the revision.",
+          "type": "string"
+        },
+
+        "timestamp": {
+          "description": "The date and time at which the revision was created.",
+          "type": "string",
+          "format": "date-time"
+        },
+
+        "properties": {
+          "description": "Key/value pairs that provide additional information about the revision.",
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+
+            "tags": {
+              "description": "A set of distinct strings that provide additional information.",
+              "type": "array",
+              "uniqueItems": true,
+              "default": [ ],
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+
+      "required": [ "uri" ]
     }
   }
 }
