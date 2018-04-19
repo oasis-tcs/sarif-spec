@@ -12,7 +12,7 @@ Presented at TC Meeting #16, May 2nd, 2018
 
     1. [Issue #99](https://github.com/oasis-tcs/sarif-spec/issues/99): "Result object's snippet property"
 
-    1. [Issue #107](https://github.com/oasis-tcs/sarif-spec/issues/107): "Represent VCS properties"
+    1. [Issue #107](https://github.com/oasis-tcs/sarif-spec/issues/107): "Settle on a small set of hash functions."
 
     1. [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties"
 
