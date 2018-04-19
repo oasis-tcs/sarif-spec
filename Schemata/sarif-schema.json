@@ -389,7 +389,7 @@
         },
 
         "hashes": {
-          "description": "An array of hash objects, each of which specifies a hashed value for the file, along with the name of the algorithm used to compute the hash.",
+          "description": "An array of hash objects, each of which specifies a hashed value for the file, along with the name of the hash function used to compute the hash.",
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
@@ -612,19 +612,19 @@
     },
 
     "hash": {
-      "description": "A hash value of some file or collection of files, together with the algorithm used to compute the hash.",
+      "description": "A hash value of some file or collection of files, together with the hash function used to compute the hash.",
       "additionalProperties": false,
       "type": "object",
       "properties": {
 
         "value": {
-          "description": "The hash value of some file or collection of files, computed by the algorithm named in the 'algorithm' property.",
+          "description": "The hash value of some file or collection of files, computed by the hash function named in the 'algorithm' property.",
           "type": "string"
         },
 
         "algorithm": {
-          "description": "The name of the algorithm used to compute the hash value specified in the 'value' property.",
-          "enum": [ "authentihash", "blake256", "blake512", "ecoh", "fsb", "gost", "groestl", "has160", "haval", "jh", "md2", "md4", "md5", "md6", "radioGatun", "ripeMD", "ripeMD128", "ripeMD160", "ripeMD320", "sdhash", "sha1", "sha224", "sha256", "sha384", "sha512", "sha3", "skein", "snefru", "spectralHash", "ssdeep", "swifft", "tiger", "tlsh", "whirlpool" ]
+          "description": "The name of the hash function used to compute the hash value specified in the 'value' property.",
+          "type": "string"
         }
       },
       "required": [ "value", "algorithm" ]

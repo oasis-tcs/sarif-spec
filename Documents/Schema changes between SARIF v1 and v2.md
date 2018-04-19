@@ -550,6 +550,14 @@ These overrides are noted on the earlier change.
 
     - Add the property `encoding` of type `string`.
 
+- [Issue #107](https://github.com/oasis-tcs/sarif-spec/issues/107): "Settle on a small set of hash functions"
+
+    In the `hash` object:
+
+    - Change the type of property `algorithm` from `enum` to `string`.
+
+    Also: Wherever the word "algorithm" occurs in a **comment**, change it to "hash function".
+
 - [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties"
 
     Define the `versionControlDetails` object with the following properties:
