@@ -14,6 +14,8 @@ Presented at TC Meeting #16, May 2nd, 2018
 
     1. [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties"
 
+    1. [Issue #120](https://github.com/oasis-tcs/sarif-spec/issues/120): "Identify files that were scanned"
+
     1. [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object"
 
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:

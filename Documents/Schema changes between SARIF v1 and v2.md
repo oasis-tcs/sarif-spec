@@ -565,8 +565,6 @@ These overrides are noted on the earlier change.
 
     - Add a `versionControlProvenance` property of type `versionControlDetails[]`, optional.
 
-## Changes not yet approved
-
 - [Issue #120](https://github.com/oasis-tcs/sarif-spec/issues/120): "Identify files that were scanned"
 
     In the `file` object:
@@ -576,8 +574,11 @@ These overrides are noted on the earlier change.
         - `"attachment"`
         - `"responseFile"`
         - `"resultFile"`
+        - `"screenshot"`
         - `"standardStream"`
-        - `"screenShot"`
+        - `"traceFile"`
+
+## Changes not yet approved
 
 - [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/139): "Don't require codeFlowLocation.location"
 

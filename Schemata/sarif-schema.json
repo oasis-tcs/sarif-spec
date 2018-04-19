@@ -26,7 +26,9 @@
       }
     }
   },
+
   "required": [ "version", "runs" ],
+
   "definitions": {
 
     "annotation": {
@@ -350,6 +352,24 @@
         "length": {
           "description": "The length of the file in bytes.",
           "type": "integer"
+        },
+
+        "roles": {
+          "description": "The role or roles played by the file in the analysis.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "analysisTarget",
+              "attachment",
+              "responseFile",
+              "resultFile",
+              "screenshot",
+              "standardStream",
+              "traceFile"
+            ]
+          }
         },
 
         "mimeType": {
