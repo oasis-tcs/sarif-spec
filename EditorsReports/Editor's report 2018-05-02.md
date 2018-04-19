@@ -18,6 +18,8 @@ Presented at TC Meeting #16, May 2nd, 2018
 
     1. [Issue #113](https://github.com/oasis-tcs/sarif-spec/issues/113): "Provide guidance on including a hostname in a uriBaseIdValue"
 
+    1. [Issue #119](https://github.com/oasis-tcs/sarif-spec/issues/119): "Add tool automation manager/SARIF post-processor profile"
+
     1. [Issue #120](https://github.com/oasis-tcs/sarif-spec/issues/120): "Identify files that were scanned"
 
     1. [Issue #125](https://github.com/oasis-tcs/sarif-spec/issues/125): "Address corner case for generated files in run.files dictionary"
