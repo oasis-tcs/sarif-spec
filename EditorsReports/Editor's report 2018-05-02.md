@@ -16,6 +16,8 @@ Presented at TC Meeting #16, May 2nd, 2018
 
     1. [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties"
 
+    1. [Issue #113](https://github.com/oasis-tcs/sarif-spec/issues/113): "Provide guidance on including a hostname in a uriBaseIdValue"
+
     1. [Issue #120](https://github.com/oasis-tcs/sarif-spec/issues/120): "Identify files that were scanned"
 
     1. [Issue #130](https://github.com/oasis-tcs/sarif-spec/issues/130): "Fix the location object"
