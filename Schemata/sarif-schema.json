@@ -568,6 +568,11 @@
           "type": "string"
         },
 
+        "graphId": {
+          "description": "A string that uniquely identifies that graph being traversed.",
+          "type": "string"
+        },
+
         "description": {
           "description": "A description of this graph traversal.",
           "$ref": "#/definitions/message"
