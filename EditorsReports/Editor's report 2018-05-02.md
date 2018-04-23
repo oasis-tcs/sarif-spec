@@ -30,6 +30,8 @@ Presented at TC Meeting #16, May 2nd, 2018
 
     1. Updated the comprehensive sample in Appendix I, "Examples", to reflect better usage and correct an error in the use of `invocation.responseFiles`.
 
+    1. Clarified that a hexadecimal `hash.value` has no prefix (_e.g._, `"0x"`) or suffix (_e.g._, `"h"`) and is case-insensitive.
+
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/130): "Don't require codeFlowLocation.location" -- made available on April 17th, 2018.
