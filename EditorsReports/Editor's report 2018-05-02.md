@@ -35,3 +35,5 @@ Presented at TC Meeting #16, May 2nd, 2018
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/130): "Don't require codeFlowLocation.location" -- made available on April 17th, 2018.
+
+    1. [Issue #148](https://github.com/oasis-tcs/sarif-spec/issues/148): "update stableId to allow for build configuration/other details" -- made available on April 24th, 2018.
