@@ -588,6 +588,25 @@ These overrides are noted on the earlier change.
 
 ## Changes not yet approved
 
+- [Issue #137](https://github.com/oasis-tcs/sarif-spec/issues/137): "Support annotating image attachments"
+
+    Define the `rectangle` object with the following properties:
+
+    - `top` of type `integer`
+    - `left` of type `integer`
+    - `bottom` of type `integer`
+    - `right` of type `integer`
+    - `message` of type `message
+
+    In the `region` object:
+
+    - Add a `message` property of type `message`.
+
+    In the `attachment` object:
+
+    - Add a `regions` property of type `region[]`, minItems 1, unique.
+    - Add a `rectangles` property of type `rectangle[]`, minItems 1, unique.
+
 - [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/139): "Don't require codeFlowLocation.location"
 
     - In the `codeFlowLocation` object:
