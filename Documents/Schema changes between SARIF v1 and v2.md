@@ -623,5 +623,7 @@ These overrides are noted on the earlier change.
     Remove the `annotation` object.
 
     In the `location` object:
+       - Change the type of `annotations` from `annotation[]` to `region[]`.
 
-       - Change the type of the `annotations` property from `annotation[]` to `region[]`.
+    In the `physicalLocation` object:
+       - Make `physicalLocation` required.
