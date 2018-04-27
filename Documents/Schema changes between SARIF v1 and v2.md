@@ -627,3 +627,15 @@ These overrides are noted on the earlier change.
 
     In the `physicalLocation` object:
        - Make `physicalLocation` required.
+
+- [Issue #126](https://github.com/oasis-tcs/sarif-spec/issues/126): "Add result.fingerprints array"
+
+    In the `result` object:
+      - Add a `fingerprints` property of type `string[]`.
+
+- [Issue #147](https://github.com/oasis-tcs/sarif-spec/issues/147): "Rename suggestion: toolFingerprintContributions -> partialFingerprints, computedFingerprints -> fingerprints"
+
+    In the `result` object:
+      - Rename the `toolFingerprintContributions` property to `partialFingerprints`.
+
+    NOTE: We added `fingerprints` directly in #126, so there's nothing to do for "`computedFingerprints`" (it never existed by that name).

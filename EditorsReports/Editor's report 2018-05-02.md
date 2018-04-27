@@ -34,12 +34,20 @@ Presented at TC Meeting #16, May 2nd, 2018
 
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
+    1. [Issue #122](https://github.com/oasis-tcs/sarif-spec/issues/122): "Clarify guidance for 'partialFingerprints' components"
+
+    1. [Issue #126](https://github.com/oasis-tcs/sarif-spec/issues/126): "Add result.fingerprints array"
+
     1. [Issue #134](https://github.com/oasis-tcs/sarif-spec/issues/134): "conversion.analysisToolLogFileLocation should be an array" -- made available on April 25th, 2018.
 
     1. [Issue #137](https://github.com/oasis-tcs/sarif-spec/issues/137): "Support annotating image attachments" -- made available on April 24th, 2018.
 
     1. [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/130): "Don't require codeFlowLocation.location" -- made available on April 17th, 2018.
 
+    1. [Issue #147](https://github.com/oasis-tcs/sarif-spec/issues/147): "Rename suggestion: toolFingerprintContributions -> partialFingerprints, computedFingerprints -> fingerprints"
+
     1. [Issue #148](https://github.com/oasis-tcs/sarif-spec/issues/148): "update stableId to allow for build configuration/other details" -- made available on April 24th, 2018.
+
+    1. [Issue #154](https://github.com/oasis-tcs/sarif-spec/issues/154): "Define a "result management system" conformance profile"
 
     1. [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead" -- made available on April 27th, 2018.
