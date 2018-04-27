@@ -609,33 +609,39 @@ These overrides are noted on the earlier change.
 
 - [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/139): "Don't require codeFlowLocation.location"
 
-    - In the `codeFlowLocation` object:
-        - Remove `location` from the list of required properties.
+    In the `codeFlowLocation` object:
+
+    - Remove `location` from the list of required properties.
 
 - [Issue #134](https://github.com/oasis-tcs/sarif-spec/issues/134): "conversion.analysisToolLogFileLocation should be an array"
 
-    - In the `conversion` object:
-        - Rename the `analysisToolLogFileLocation` property to `analysisToolLogFiles`
-        - Change the type of the renamed property `analysisToolLogFiles` from `fileLocation` to `fileLocation[]`.
+    In the `conversion` object:
+
+    - Rename the `analysisToolLogFileLocation` property to `analysisToolLogFiles`
+    - Change the type of the renamed property `analysisToolLogFiles` from `fileLocation` to `fileLocation[]`.
 
 - [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead"
 
     Remove the `annotation` object.
 
     In the `location` object:
-       - Change the type of `annotations` from `annotation[]` to `region[]`.
+
+   - Change the type of `annotations` from `annotation[]` to `region[]`.
 
     In the `physicalLocation` object:
-       - Make `physicalLocation` required.
+
+   - Make `physicalLocation` required.
 
 - [Issue #126](https://github.com/oasis-tcs/sarif-spec/issues/126): "Add result.fingerprints array"
 
     In the `result` object:
-      - Add a `fingerprints` property of type `string[]`.
+
+  - Add a `fingerprints` property of type `string[]`.
 
 - [Issue #147](https://github.com/oasis-tcs/sarif-spec/issues/147): "Rename suggestion: toolFingerprintContributions -> partialFingerprints, computedFingerprints -> fingerprints"
 
     In the `result` object:
-      - Rename the `toolFingerprintContributions` property to `partialFingerprints`.
+
+    - Rename the `toolFingerprintContributions` property to `partialFingerprints`.
 
     NOTE: We added `fingerprints` directly in #126, so there's nothing to do for "`computedFingerprints`" (it never existed by that name).
