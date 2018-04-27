@@ -617,3 +617,11 @@ These overrides are noted on the earlier change.
     - In the `conversion` object:
         - Rename the `analysisToolLogFileLocation` property to `analysisToolLogFiles`
         - Change the type of the renamed property `analysisToolLogFiles` from `fileLocation` to `fileLocation[]`.
+
+- [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead"
+
+    Remove the `annotation` object.
+
+    In the `location` object:
+
+       - Change the type of the `annotations` property from `annotation[]` to `region[]`.

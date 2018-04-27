@@ -41,3 +41,5 @@ Presented at TC Meeting #16, May 2nd, 2018
     1. [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/130): "Don't require codeFlowLocation.location" -- made available on April 17th, 2018.
 
     1. [Issue #148](https://github.com/oasis-tcs/sarif-spec/issues/148): "update stableId to allow for build configuration/other details" -- made available on April 24th, 2018.
+
+    1. [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead" -- made available on April 27th, 2018.
