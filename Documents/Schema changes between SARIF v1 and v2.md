@@ -645,3 +645,15 @@ These overrides are noted on the earlier change.
     - Rename the `toolFingerprintContributions` property to `partialFingerprints`.
 
     NOTE: We added `fingerprints` directly in #126, so there's nothing to do for "`computedFingerprints`" (it never existed by that name).
+
+- [Issue #145](https://github.com/oasis-tcs/sarif-spec/issues/145): "For symmetry, define a logicalLocation object"
+
+    In the `location` object:
+
+    - Remove the `logicalLocationKey` property.
+    - Remove the `decoratedName` property.
+
+    In the `logicalLocation` object:
+
+    - Add a property `fullyQualifiedName` of type `string`.
+    - Add a property `decoratedName` of type `string`.
