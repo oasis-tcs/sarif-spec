@@ -44,7 +44,7 @@ Presented at TC Meeting #16, May 2nd, 2018
 
     1. [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/130): "Don't require codeFlowLocation.location" -- made available on April 17th, 2018.
 
-    1. [Issue #145](https://github.com/oasis-tcs/sarif-spec/issues/145): "For symmetry, define a logicalLocation object" -- made available on April 27th, 2018.
+    1. [Issue #145](https://github.com/oasis-tcs/sarif-spec/issues/145): "For symmetry, define a logicalLocation object" -- made available on April 28th, 2018.
 
     1. [Issue #147](https://github.com/oasis-tcs/sarif-spec/issues/147): "Rename suggestion: toolFingerprintContributions -> partialFingerprints, computedFingerprints -> fingerprints" -- made available on April 27th, 2018.
 
