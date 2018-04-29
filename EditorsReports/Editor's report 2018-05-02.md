@@ -40,7 +40,7 @@ Presented at TC Meeting #16, May 2nd, 2018
 
     1. [Issue #134](https://github.com/oasis-tcs/sarif-spec/issues/134): "conversion.analysisToolLogFileLocation should be an array" -- made available on April 25th, 2018.
 
-    1. [Issue #136](https://github.com/oasis-tcs/sarif-spec/issues/155): "Make sure result.id explicitly notes its relevance to automation/results management systems"
+    1. [Issue #136](https://github.com/oasis-tcs/sarif-spec/issues/155): "Make sure result.id explicitly notes its relevance to automation/results management systems" -- made available on April 29th, 2018.
 
     1. [Issue #137](https://github.com/oasis-tcs/sarif-spec/issues/137): "Support annotating image attachments" -- made available on April 24th, 2018.
 
