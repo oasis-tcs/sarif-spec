@@ -586,7 +586,7 @@ These overrides are noted on the earlier change.
         - `"standardStream"`
         - `"traceFile"`
 
-## Changes not yet approved
+## Changes to review at TC #16
 
 - [Issue #137](https://github.com/oasis-tcs/sarif-spec/issues/137): "Support annotating image attachments"
 
@@ -657,3 +657,11 @@ These overrides are noted on the earlier change.
 
     - Add a property `fullyQualifiedName` of type `string`.
     - Add a property `decoratedName` of type `string`.
+
+## Changes to review at TC #17
+
+- [Issue #141](https://github.com/oasis-tcs/sarif-spec/issues/141): "Consider adding timestamp to file object"
+
+    In the `file` object:
+
+    - Add a `lastModifiedTime` property of type `string` in `date-time` format. 
