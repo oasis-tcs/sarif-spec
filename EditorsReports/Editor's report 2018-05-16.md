@@ -18,5 +18,7 @@ Presented at TC Meeting #17, May 16th, 2018
 
     1. [Issue #141](https://github.com/oasis-tcs/sarif-spec/issues/141): "Consider adding timestamp to file object" -- made available May 1st, 2018.
 
+    1. [Issue #143](https://github.com/oasis-tcs/sarif-spec/issues/143): "Add 'returnType', 'parameter' and 'local' to logical location kind enum" -- made available May 1st, 2018.
+
     1. [Issue #153](https://github.com/oasis-tcs/sarif-spec/issues/153): "Clarify treatment of backslashes and square brackets with respect to embedded links"
 

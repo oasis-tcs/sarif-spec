@@ -671,3 +671,10 @@ These overrides are noted on the earlier change.
     In the `file` object:
 
     - Add a `lastModifiedTime` property of type `string` in `date-time` format. 
+
+- [Issue #143](https://github.com/oasis-tcs/sarif-spec/issues/143): "Add 'returnType', 'parameter' and 'local' to logical location kind enum"
+
+    In the `logicalLocation` object:
+
+    - Add `"returnType"`, `"parameter"`, and `"localVariable"` to the `"description"` of the `kind` property.
+
