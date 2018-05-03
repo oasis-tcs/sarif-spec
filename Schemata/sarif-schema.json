@@ -390,7 +390,6 @@
               "attachment",
               "responseFile",
               "resultFile",
-              "screenshot",
               "standardStream",
               "traceFile"
             ]

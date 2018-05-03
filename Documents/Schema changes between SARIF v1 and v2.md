@@ -626,6 +626,10 @@ These overrides are noted on the earlier change.
     - Add a `regions` property of type `region[]`, minItems 1, unique.
     - Add a `rectangles` property of type `rectangle[]`, minItems 1, unique.
 
+    In the `file` object:
+
+    - Remove the enumerated value `"screenshot"` from the `roles` property.
+
 ## Changes to review at TC #16
 
 - [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/139): "Don't require codeFlowLocation.location"
