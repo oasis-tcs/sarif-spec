@@ -600,6 +600,13 @@ These overrides are noted on the earlier change.
 
     NOTE: We added `fingerprints` directly in #126, so there's nothing to do for "`computedFingerprints`" (it never existed by that name).
 
+- [Issue #134](https://github.com/oasis-tcs/sarif-spec/issues/134): "conversion.analysisToolLogFileLocation should be an array"
+
+    In the `conversion` object:
+
+    - Rename the `analysisToolLogFileLocation` property to `analysisToolLogFiles`
+    - Change the type of the renamed property `analysisToolLogFiles` from `fileLocation` to `fileLocation[]`.
+
 ## Changes to review at TC #16
 
 - [Issue #137](https://github.com/oasis-tcs/sarif-spec/issues/137): "Support annotating image attachments"
@@ -626,13 +633,6 @@ These overrides are noted on the earlier change.
     In the `codeFlowLocation` object:
 
     - Remove `location` from the list of required properties.
-
-- [Issue #134](https://github.com/oasis-tcs/sarif-spec/issues/134): "conversion.analysisToolLogFileLocation should be an array"
-
-    In the `conversion` object:
-
-    - Rename the `analysisToolLogFileLocation` property to `analysisToolLogFiles`
-    - Change the type of the renamed property `analysisToolLogFiles` from `fileLocation` to `fileLocation[]`.
 
 - [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead"
 
