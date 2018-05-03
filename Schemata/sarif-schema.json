@@ -66,6 +66,26 @@
         "fileLocation": {
           "description": "The location of the attachment.",
           "$ref": "#/definitions/fileLocation"
+        },
+
+        "regions": {
+          "description": "An array of regions of interest within the attachment.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/region"
+          }
+        },
+
+        "rectangles": {
+          "description": "An array of rectangles specifying areas of interest within the image.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/rectangle"
+          }
         }
       },
 
@@ -1075,6 +1095,39 @@
       }
     },
 
+    "rectangle": {
+      "description": "An area within a raster-based image.",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+       
+        "top": {
+          "description": "The Y coordinate of the top edge of the rectangle, measured in pixels.",
+          "type": "number"
+        },
+
+        "left": {
+          "description": "The X coordinate of the left edge of the rectangle, measured in pixels.",
+          "type": "number"
+        },
+
+        "bottom": {
+          "description": "The Y coordinate of the bottom edge of the rectangle, measured in pixels.",
+          "type": "number"
+        },
+
+        "right": {
+          "description": "The X coordinate of the right edge of the rectangle, measured in pixels.",
+          "type": "number"
+        },
+
+        "message": {
+          "description": "A message relevant to the rectangle.",
+          "$ref": "#/definitions/message"
+        }
+      }
+    },
+
     "region": {
       "description": "A region within a file where a result was detected.",
       "additionalProperties": false,
@@ -1120,6 +1173,11 @@
         "snippet": {
           "description": "The portion of the file contents within the specified region.",
           "$ref": "#/definitions/fileContent"
+        },
+
+        "message": {
+          "description": "A message relevant to the region.",
+          "$ref": "#/definitions/message"
         }
       }
     },

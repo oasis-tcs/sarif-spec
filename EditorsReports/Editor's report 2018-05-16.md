@@ -14,6 +14,8 @@ Presented at TC Meeting #17, May 16th, 2018
 
     1. [Issue #136](https://github.com/oasis-tcs/sarif-spec/issues/136): "Make sure result.id explicitly notes its relevance to automation/results management systems"
 
+    1. [Issue #137](https://github.com/oasis-tcs/sarif-spec/issues/137): "Support annotating image attachments"
+
     1. [Issue #147](https://github.com/oasis-tcs/sarif-spec/issues/147): "Rename suggestion: toolFingerprintContributions -> partialFingerprints, computedFingerprints -> fingerprints"
 
     1. [Issue #154](https://github.com/oasis-tcs/sarif-spec/issues/154): "Define a "result management system" conformance profile"

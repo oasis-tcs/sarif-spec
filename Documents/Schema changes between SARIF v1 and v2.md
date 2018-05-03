@@ -607,16 +607,14 @@ These overrides are noted on the earlier change.
     - Rename the `analysisToolLogFileLocation` property to `analysisToolLogFiles`
     - Change the type of the renamed property `analysisToolLogFiles` from `fileLocation` to `fileLocation[]`.
 
-## Changes to review at TC #16
-
 - [Issue #137](https://github.com/oasis-tcs/sarif-spec/issues/137): "Support annotating image attachments"
 
     Define the `rectangle` object with the following properties:
 
-    - `top` of type `integer`
-    - `left` of type `integer`
-    - `bottom` of type `integer`
-    - `right` of type `integer`
+    - `top` of type `number`
+    - `left` of type `number`
+    - `bottom` of type `number`
+    - `right` of type `number`
     - `message` of type `message
 
     In the `region` object:
@@ -627,6 +625,8 @@ These overrides are noted on the earlier change.
 
     - Add a `regions` property of type `region[]`, minItems 1, unique.
     - Add a `rectangles` property of type `rectangle[]`, minItems 1, unique.
+
+## Changes to review at TC #16
 
 - [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/139): "Don't require codeFlowLocation.location"
 
