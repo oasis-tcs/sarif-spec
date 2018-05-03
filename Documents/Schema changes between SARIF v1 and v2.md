@@ -630,13 +630,15 @@ These overrides are noted on the earlier change.
 
     - Remove the enumerated value `"screenshot"` from the `roles` property.
 
-## Changes to review at TC #16
-
 - [Issue #139](https://github.com/oasis-tcs/sarif-spec/issues/139): "Don't require codeFlowLocation.location"
 
     In the `codeFlowLocation` object:
 
     - Remove `location` from the list of required properties.
+
+    NOTE: In the schema file, `codeFlowLocation.location` was never mentioned as required. This was just as spec change.
+
+## Changes to review at TC #16
 
 - [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead"
 
