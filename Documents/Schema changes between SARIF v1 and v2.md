@@ -638,6 +638,26 @@ These overrides are noted on the earlier change.
 
     NOTE: In the schema file, `codeFlowLocation.location` was never mentioned as required. This was just as spec change.
 
+- [Issue #145](https://github.com/oasis-tcs/sarif-spec/issues/145): "For symmetry, define a logicalLocation object"
+
+    In the `location` object:
+
+    - Remove the `logicalLocationKey` property.
+    - Remove the `decoratedName` property.
+
+    In the `logicalLocation` object:
+
+    - Add a property `fullyQualifiedName` of type `string`.
+    - Add a property `decoratedName` of type `string`.
+
+    In the `result` object:
+
+    - Remove the `ruleKey` property.
+
+    In the `notification` object:
+
+    - Remove the `ruleKey` property.
+
 ## Changes to review at TC #16
 
 - [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead"
@@ -651,18 +671,6 @@ These overrides are noted on the earlier change.
     In the `physicalLocation` object:
 
    - Make `physicalLocation` required.
-
-- [Issue #145](https://github.com/oasis-tcs/sarif-spec/issues/145): "For symmetry, define a logicalLocation object"
-
-    In the `location` object:
-
-    - Remove the `logicalLocationKey` property.
-    - Remove the `decoratedName` property.
-
-    In the `logicalLocation` object:
-
-    - Add a property `fullyQualifiedName` of type `string`.
-    - Add a property `decoratedName` of type `string`.
 
 ## Changes to review at TC #17
 
