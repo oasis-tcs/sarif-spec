@@ -658,8 +658,6 @@ These overrides are noted on the earlier change.
 
     - Remove the `ruleKey` property.
 
-## Changes to review at TC #16
-
 - [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead"
 
     Remove the `annotation` object.
@@ -670,7 +668,7 @@ These overrides are noted on the earlier change.
 
     In the `physicalLocation` object:
 
-   - Make `physicalLocation` required.
+   - Make `fileLocation` required.
 
 ## Changes to review at TC #17
 

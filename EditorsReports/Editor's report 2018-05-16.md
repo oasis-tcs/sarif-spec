@@ -26,6 +26,8 @@ Presented at TC Meeting #17, May 16th, 2018
 
     1. [Issue #154](https://github.com/oasis-tcs/sarif-spec/issues/154): "Define a "result management system" conformance profile"
 
+    1. [Issue #155](https://github.com/oasis-tcs/sarif-spec/issues/155): "Remove annotations object; use regions instead"
+
 1. I made the following changes at editorial discretion:
 
     1. 
