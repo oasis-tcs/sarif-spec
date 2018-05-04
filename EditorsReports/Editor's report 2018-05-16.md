@@ -42,3 +42,4 @@ Presented at TC Meeting #17, May 16th, 2018
 
     1. [Issue #153](https://github.com/oasis-tcs/sarif-spec/issues/153): "Clarify treatment of backslashes and square brackets with respect to embedded links"
 
+    1. [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion" -- made available on May 4, 2018.
