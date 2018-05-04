@@ -1071,28 +1071,28 @@
     },
 
     "rectangle": {
-      "description": "An area within a raster-based image.",
+      "description": "An area within an image.",
       "additionalProperties": false,
       "type": "object",
       "properties": {
        
         "top": {
-          "description": "The Y coordinate of the top edge of the rectangle, measured in pixels.",
+          "description": "The Y coordinate of the top edge of the rectangle, measured in the image's natural units.",
           "type": "number"
         },
 
         "left": {
-          "description": "The X coordinate of the left edge of the rectangle, measured in pixels.",
+          "description": "The X coordinate of the left edge of the rectangle, measured in the image's natural units.",
           "type": "number"
         },
 
         "bottom": {
-          "description": "The Y coordinate of the bottom edge of the rectangle, measured in pixels.",
+          "description": "The Y coordinate of the bottom edge of the rectangle, measured in the image's natural units.",
           "type": "number"
         },
 
         "right": {
-          "description": "The X coordinate of the right edge of the rectangle, measured in pixels.",
+          "description": "The X coordinate of the right edge of the rectangle, measured in the image's natural units.",
           "type": "number"
         },
 
