@@ -30,7 +30,7 @@ Presented at TC Meeting #17, May 16th, 2018
 
 1. I made the following changes at editorial discretion:
 
-    1. 
+    1. Clarify a circumstance where a `message` object contains _only_ an `arguments` property.
 
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
