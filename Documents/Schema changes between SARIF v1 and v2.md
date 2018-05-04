@@ -690,3 +690,10 @@ These overrides are noted on the earlier change.
 
     - Add `"returnType"`, `"parameter"`, and `"localVariable"` to the `"description"` of the `kind` property.
 
+- [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion"
+
+    In the `tool` object:
+
+    - `semanticVersion` is no longer `required`.
+
+    NOTE: There is no actual change to the schema here, because it had failed to declare `semanticVersion` as `required` in the first place.
