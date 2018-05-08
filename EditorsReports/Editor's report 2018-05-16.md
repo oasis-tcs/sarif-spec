@@ -50,4 +50,8 @@ Presented at TC Meeting #17, May 16th, 2018
 
     1. [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion" -- made available on May 4th, 2018.
 
+    1. [Issue #159](https://github.com/oasis-tcs/sarif-spec/issues/159): "Id property renames" -- made available on May 8th, 2018.
+
     1. [Issue #162](https://github.com/oasis-tcs/sarif-spec/issues/162): "run.automationId is namespaced" -- made available on May 7th, 2018.
+
+    1. [Issue #166](https://github.com/oasis-tcs/sarif-spec/issues/166): "Define an "engineering system" conformance profile" -- made available on May 8th, 2018.

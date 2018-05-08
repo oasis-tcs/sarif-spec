@@ -697,3 +697,16 @@ These overrides are noted on the earlier change.
     - `semanticVersion` is no longer `required`.
 
     NOTE: There is no actual change to the schema here, because it had failed to declare `semanticVersion` as `required` in the first place.
+
+- [Issue #159](https://github.com/oasis-tcs/sarif-spec/issues/159): "Id property renames"
+
+    In the `run` object:
+
+    - Rename the `id` property to `instanceGuid`.
+    - Rename the `stableId` property to `logicalId`.
+    - Rename the `baselineId` property to `baselineInstanceGuid`.
+    - Rename the `automationId` property to `automationLogicalId`.
+
+    In the `result` object:
+
+    - Rename the `id` property to `instanceGuid`.
