@@ -32,6 +32,8 @@ Presented at TC Meeting #17, May 16th, 2018
 
     1. Clarify a circumstance where a `message` object contains _only_ an `arguments` property.
 
+    1. Use the term "hierarchical" instead of "namespaced" for strings of the form `"component / component..."`.
+
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #103](https://github.com/oasis-tcs/sarif-spec/issues/103): "Specify handling of line breaks" -- made available on May 5th, 2018.
