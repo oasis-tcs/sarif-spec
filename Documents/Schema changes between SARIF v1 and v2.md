@@ -710,3 +710,9 @@ These overrides are noted on the earlier change.
     In the `result` object:
 
     - Rename the `id` property to `instanceGuid`.
+
+- [Issue #165](https://github.com/oasis-tcs/sarif-spec/issues/165): "Add run.description"
+
+    In the `run` object:
+
+    - Add a `description` property of type `message`.
