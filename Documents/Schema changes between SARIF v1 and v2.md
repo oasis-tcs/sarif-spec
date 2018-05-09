@@ -711,6 +711,12 @@ These overrides are noted on the earlier change.
 
     - Rename the `id` property to `instanceGuid`.
 
+- [Issue #163](https://github.com/oasis-tcs/sarif-spec/issues/163): "Add result.workItemLocation"
+
+    In the `result` object:
+
+    - Add a `workItemLocation` property of type `fileLocation`.
+
 - [Issue #165](https://github.com/oasis-tcs/sarif-spec/issues/165): "Add run.description"
 
     In the `run` object:
