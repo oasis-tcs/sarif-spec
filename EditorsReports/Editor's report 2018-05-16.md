@@ -54,6 +54,8 @@ Presented at TC Meeting #17, May 16th, 2018
 
     1. [Issue #159](https://github.com/oasis-tcs/sarif-spec/issues/159): "Id property renames" -- made available on May 8th, 2018.
 
+    1. [Issue #161](https://github.com/oasis-tcs/sarif-spec/issues/161): "Expand code flows to represent dynamic execution events" -- made available on May 10th, 2018.
+
     1. [Issue #162](https://github.com/oasis-tcs/sarif-spec/issues/162): "run.automationId is namespaced" -- made available on May 7th, 2018.
 
     1. [Issue #163](https://github.com/oasis-tcs/sarif-spec/issues/163): "Add result.workItemLocation" -- made available on May 8th, 2018.
