@@ -698,6 +698,20 @@ These overrides are noted on the earlier change.
 
     NOTE: There is no actual change to the schema here, because it had failed to declare `semanticVersion` as `required` in the first place.
 
+- [Issue #149](https://github.com/oasis-tcs/sarif-spec/issues/149): "Support nested graphs"
+
+    In the `node` object:
+
+    - Add a `nestedGraphId` property of type `string`.
+
+    In the `edge` object:
+
+    - Add a `targetGraphId` property of type `string`.
+
+    In the `edgeTravesal` object:
+
+    - Add a `stepOverTargetNodeId` property of type `string`.
+
 - [Issue #159](https://github.com/oasis-tcs/sarif-spec/issues/159): "Id property renames"
 
     In the `run` object:
