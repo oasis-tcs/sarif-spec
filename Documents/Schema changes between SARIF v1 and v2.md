@@ -690,6 +690,10 @@ These overrides are noted on the earlier change.
 
     - Add `"returnType"`, `"parameter"`, and `"localVariable"` to the `"description"` of the `kind` property.
 
+    NOTE: `logicalLocation.kind` is not an `enum`.
+    The spec recommends certain values, but any value is permitted.
+    So the only change to the schema is this comment change.
+
 - [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion"
 
     In the `tool` object:
@@ -724,6 +728,16 @@ These overrides are noted on the earlier change.
     In the `result` object:
 
     - Rename the `id` property to `instanceGuid`.
+
+- [Issue #160](https://github.com/oasis-tcs/sarif-spec/issues/160): "Roles for edited files"
+
+    In the `file` object:
+
+    - Add the following enumerated values to the `roles` property:
+        - `"editedFile"`
+        - `"addedFile"`
+        - `"deletedFile"`
+        - `"renamedFile"`
 
 - [Issue #161](https://github.com/oasis-tcs/sarif-spec/issues/161): "Expand code flows to represent dynamic execution events"
 

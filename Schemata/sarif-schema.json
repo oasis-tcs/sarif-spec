@@ -390,7 +390,11 @@
               "responseFile",
               "resultFile",
               "standardStream",
-              "traceFile"
+              "traceFile",
+              "editedFile",
+              "addedFile",
+              "deletedFile",
+              "renamedFile"
             ]
           }
         },
@@ -419,6 +423,12 @@
           "items": {
             "$ref": "#/definitions/hash"
           }
+        },
+
+        "lastModifiedTime": {
+          "description": "The date and time at which the file was most recently modified. See \"Date/time properties\" in the SARIF spec for the required format.",
+          "type": "string",
+          "format": "date-time"
         },
 
         "properties": {
@@ -898,7 +908,7 @@
         },
 
         "kind": {
-          "description": "The type of construct this logicalLocationComponent refers to. Should be one of 'function', 'member', 'module', 'namespace', 'package', 'resource', or 'type', if any of those accurately describe the construct.",
+          "description": "The type of construct this logicalLocationComponent refers to. Should be one of 'function', 'localVariable', 'member', 'module', 'namespace', 'package', 'parameter', 'resource', 'returnType', or 'type', if any of those accurately describe the construct.",
           "type": "string"
         }
       }
@@ -1267,8 +1277,8 @@
           "$ref": "#/definitions/fileContent"
         },
 
-        "id": {
-          "description": "A unique identifer for the result.",
+        "instanceGuid": {
+          "description": "A stable, unique identifer for the result in the form of a GUID.",
           "type": "string"
         },
 
@@ -1366,6 +1376,11 @@
           "items": {
             "$ref": "#/definitions/attachment"
           }
+        },
+
+        "workItemLocation": {
+          "description": "The URI of the work item associated with this result",
+          "$ref": "#/definitions/fileLocation"
         },
 
         "conversionProvenance": {
@@ -1606,14 +1621,19 @@
           "$ref": "#/definitions/resources"
         },
 
-        "id": {
-          "description": "An identifier for the run.",
+        "instanceGuid": {
+          "description": "A stable, unique identifier for the run, in the form of a GUID.",
           "type": "string"
         },
 
-        "stableId": {
-          "description": "A stable identifier for a run, for example, 'nightly Clang analyzer run'. Multiple runs of the same type can have the same stableId.",
+        "logicalId": {
+          "description": "A logical identifier for a run, for example, 'nightly Clang analyzer run'. Multiple runs of the same type can have the same stableId.",
           "type": "string"
+        },
+
+        "description": {
+          "description": "A description of the run.",
+          "$ref": "#/definitions/message"
         },
         
         "automationId": {
@@ -1621,8 +1641,8 @@
           "type": "string"
         },
 
-        "baselineId": {
-          "description": "The 'id' property of a separate (potentially external) SARIF 'run' instance that comprises the baseline that was used to compute result 'baselineState' properties for the run.",
+        "baselineInstanceGuid": {
+          "description": "The 'instanceGuid' property of a previous SARIF 'run' that comprises the baseline that was used to compute result 'baselineState' properties for the run.",
           "type": "string"
         },
 
@@ -1847,6 +1867,12 @@
           "description": "The binary version of the tool's primary executable file (for operating systems such as Windows that provide that information).",
           "type": "string",
           "pattern": "[0-9]+(\\.[0-9]+){3}"
+        },
+
+        "downloadUri": {
+          "description": "The absolute URI from which the tool can be downloaded.",
+          "type": "string",
+          "format": "uri"
         },
 
         "sarifLoggerVersion": {
