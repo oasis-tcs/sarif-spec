@@ -672,6 +672,17 @@ These overrides are noted on the earlier change.
 
 ## Changes to review at TC #17
 
+- [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
+
+    In the `region` object:
+
+    - Remove the `offset` property.
+    - Remove the `length` property.
+    - Add a `charOffset` property of type `integer`, optional.
+    - Add a `charLength` property of type `integer`, optional.
+    - Add a `byteOffset` property of type `integer`, optional.
+    - Add a `byteLength` property of type `integer`, optional.
+
 - [Issue #138](https://github.com/oasis-tcs/sarif-spec/issues/138): "Consider a download/install uri for the tool"
 
     In the `tool` object:

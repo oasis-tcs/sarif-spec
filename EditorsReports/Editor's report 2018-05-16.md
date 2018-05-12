@@ -38,6 +38,8 @@ Presented at TC Meeting #17, May 16th, 2018
 
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
+    1. [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions" -- made available on May 11th, 2018.
+
     1. [Issue #103](https://github.com/oasis-tcs/sarif-spec/issues/103): "Specify handling of line breaks" -- made available on May 5th, 2018.
 
     1. [Issue #138](https://github.com/oasis-tcs/sarif-spec/issues/138): "Consider a download/install uri for the tool" -- made available on May 1st, 2018.
