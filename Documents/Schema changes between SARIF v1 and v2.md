@@ -682,6 +682,16 @@ These overrides are noted on the earlier change.
 
     - Add a `lastModifiedTime` property of type `string` in `date-time` format. 
 
+- [Issue #143](https://github.com/oasis-tcs/sarif-spec/issues/143): "Add 'returnType', 'parameter' and 'variable' to logical location kind enum"
+
+    In the `logicalLocation` object:
+
+    - Add `"returnType"`, `"parameter"`, and `"variable"` to the `"description"` of the `kind` property.
+
+    NOTE: `logicalLocation.kind` is not an `enum`.
+    The spec recommends certain values, but any value is permitted.
+    So the only change to the schema is this comment change.
+
 ## Changes to review at TC #17
 
 - [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
@@ -694,16 +704,6 @@ These overrides are noted on the earlier change.
     - Add a `charLength` property of type `integer`, optional.
     - Add a `byteOffset` property of type `integer`, optional.
     - Add a `byteLength` property of type `integer`, optional.
-
-- [Issue #143](https://github.com/oasis-tcs/sarif-spec/issues/143): "Add 'returnType', 'parameter' and 'local' to logical location kind enum"
-
-    In the `logicalLocation` object:
-
-    - Add `"returnType"`, `"parameter"`, and `"localVariable"` to the `"description"` of the `kind` property.
-
-    NOTE: `logicalLocation.kind` is not an `enum`.
-    The spec recommends certain values, but any value is permitted.
-    So the only change to the schema is this comment change.
 
 - [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion"
 
