@@ -8,6 +8,8 @@ Presented at TC Meeting #17, May 30th, 2018
 
     1. [Issue #103](https://github.com/oasis-tcs/sarif-spec/issues/103): "Specify handling of line breaks"
 
+    1. [Issue #138](https://github.com/oasis-tcs/sarif-spec/issues/138): "Consider a download/install uri for the tool"
+
 1. I made the following changes at editorial discretion:
 
     1. ...
