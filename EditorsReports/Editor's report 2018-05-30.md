@@ -10,6 +10,8 @@ Presented at TC Meeting #17, May 30th, 2018
 
     1. [Issue #138](https://github.com/oasis-tcs/sarif-spec/issues/138): "Consider a download/install uri for the tool"
 
+    1. [Issue #141](https://github.com/oasis-tcs/sarif-spec/issues/141): "Consider adding timestamp to file object"
+
 1. I made the following changes at editorial discretion:
 
     1. ...

@@ -676,6 +676,12 @@ These overrides are noted on the earlier change.
 
     - Add a `downloadUri` property of type `string` in `uri` format.
 
+- [Issue #141](https://github.com/oasis-tcs/sarif-spec/issues/141): "Consider adding timestamp to file object"
+
+    In the `file` object:
+
+    - Add a `lastModifiedTime` property of type `string` in `date-time` format. 
+
 ## Changes to review at TC #17
 
 - [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
@@ -688,12 +694,6 @@ These overrides are noted on the earlier change.
     - Add a `charLength` property of type `integer`, optional.
     - Add a `byteOffset` property of type `integer`, optional.
     - Add a `byteLength` property of type `integer`, optional.
-
-- [Issue #141](https://github.com/oasis-tcs/sarif-spec/issues/141): "Consider adding timestamp to file object"
-
-    In the `file` object:
-
-    - Add a `lastModifiedTime` property of type `string` in `date-time` format. 
 
 - [Issue #143](https://github.com/oasis-tcs/sarif-spec/issues/143): "Add 'returnType', 'parameter' and 'local' to logical location kind enum"
 
