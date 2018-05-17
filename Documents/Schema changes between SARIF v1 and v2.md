@@ -738,6 +738,12 @@ These overrides are noted on the earlier change.
 
     - Add a `workItemLocation` property of type `fileLocation`.
 
+- [Issue #165](https://github.com/oasis-tcs/sarif-spec/issues/165): "Add run.description"
+
+    In the `run` object:
+
+    - Add a `description` property of type `message`.
+
 ## Changes to review at TC #17
 
 - [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
@@ -764,9 +770,3 @@ These overrides are noted on the earlier change.
     In the `edgeTravesal` object:
 
     - Add a `stepOverTargetNodeId` property of type `string`.
-
-- [Issue #165](https://github.com/oasis-tcs/sarif-spec/issues/165): "Add run.description"
-
-    In the `run` object:
-
-    - Add a `description` property of type `message`.
