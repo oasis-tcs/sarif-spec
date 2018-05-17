@@ -16,6 +16,8 @@ Presented at TC Meeting #17, May 30th, 2018
 
     1. [Issue #153](https://github.com/oasis-tcs/sarif-spec/issues/153): "Clarify treatment of backslashes and square brackets with respect to embedded links"
 
+    1. [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion"
+
 1. I made the following changes at editorial discretion:
 
     1. [Issue #170](https://github.com/oasis-tcs/sarif-spec/issues/170): "logicalLocation.name: text and examples are unclear/wrong"
