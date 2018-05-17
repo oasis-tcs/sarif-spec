@@ -20,11 +20,15 @@ Presented at TC Meeting #17, May 30th, 2018
 
     1. [Issue #159](https://github.com/oasis-tcs/sarif-spec/issues/159): "Id property renames"
 
+    1. [Issue #160](https://github.com/oasis-tcs/sarif-spec/issues/160): "Roles for edited files"
+
     1. [Issue #166](https://github.com/oasis-tcs/sarif-spec/issues/166): "Define an "engineering system" conformance profile"
 
 1. I made the following changes at editorial discretion:
 
     1. [Issue #170](https://github.com/oasis-tcs/sarif-spec/issues/170): "logicalLocation.name: text and examples are unclear/wrong"
+
+    1. Introduced the concept of "baseline run" ("baseline") already existed and used it to describe both `file.roles` and `result.baselineState`. Added quasi-editorial statement that engineering system **SHALL** provide out of band information to determine baseline run.
 
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 

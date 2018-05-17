@@ -713,6 +713,18 @@ These overrides are noted on the earlier change.
 
     - Rename the `id` property to `instanceGuid`.
 
+- [Issue #160](https://github.com/oasis-tcs/sarif-spec/issues/160): "Roles for edited files"
+
+    In the `file` object:
+
+    - Add the following enumerated values to the `roles` property:
+        - `"unmodifiedFile"`
+        - `"modifiedFile"`
+        - `"addedFile"`
+        - `"deletedFile"`
+        - `"renamedFile"`
+        - `"generatedFile"`
+
 ## Changes to review at TC #17
 
 - [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
@@ -739,16 +751,6 @@ These overrides are noted on the earlier change.
     In the `edgeTravesal` object:
 
     - Add a `stepOverTargetNodeId` property of type `string`.
-
-- [Issue #160](https://github.com/oasis-tcs/sarif-spec/issues/160): "Roles for edited files"
-
-    In the `file` object:
-
-    - Add the following enumerated values to the `roles` property:
-        - `"editedFile"`
-        - `"addedFile"`
-        - `"deletedFile"`
-        - `"renamedFile"`
 
 - [Issue #161](https://github.com/oasis-tcs/sarif-spec/issues/161): "Expand code flows to represent dynamic execution events"
 

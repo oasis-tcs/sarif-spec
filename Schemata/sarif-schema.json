@@ -391,10 +391,12 @@
               "resultFile",
               "standardStream",
               "traceFile",
-              "editedFile",
+              "unmodifiedFile",
+              "modifiedFile",
               "addedFile",
               "deletedFile",
-              "renamedFile"
+              "renamedFile",
+              "generatedFile"
             ]
           }
         },
