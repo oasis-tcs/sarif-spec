@@ -18,6 +18,10 @@ Presented at TC Meeting #17, May 30th, 2018
 
     1. [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion"
 
+    1. [Issue #159](https://github.com/oasis-tcs/sarif-spec/issues/159): "Id property renames"
+
+    1. [Issue #166](https://github.com/oasis-tcs/sarif-spec/issues/166): "Define an "engineering system" conformance profile"
+
 1. I made the following changes at editorial discretion:
 
     1. [Issue #170](https://github.com/oasis-tcs/sarif-spec/issues/170): "logicalLocation.name: text and examples are unclear/wrong"

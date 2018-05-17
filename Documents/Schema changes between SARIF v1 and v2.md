@@ -692,6 +692,27 @@ These overrides are noted on the earlier change.
     The spec recommends certain values, but any value is permitted.
     So the only change to the schema is this comment change.
 
+- [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion"
+
+    In the `tool` object:
+
+    - `semanticVersion` is no longer `required`.
+
+    NOTE: There is no actual change to the schema here, because it had failed to declare `semanticVersion` as `required` in the first place.
+
+- [Issue #159](https://github.com/oasis-tcs/sarif-spec/issues/159): "Id property renames"
+
+    In the `run` object:
+
+    - Rename the `id` property to `instanceGuid`.
+    - Rename the `stableId` property to `logicalId`.
+    - Rename the `baselineId` property to `baselineInstanceGuid`.
+    - Rename the `automationId` property to `automationLogicalId`.
+
+    In the `result` object:
+
+    - Rename the `id` property to `instanceGuid`.
+
 ## Changes to review at TC #17
 
 - [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
@@ -704,14 +725,6 @@ These overrides are noted on the earlier change.
     - Add a `charLength` property of type `integer`, optional.
     - Add a `byteOffset` property of type `integer`, optional.
     - Add a `byteLength` property of type `integer`, optional.
-
-- [Issue #157](https://github.com/oasis-tcs/sarif-spec/issues/157): "Clarify requirements on tool.semanticVersion"
-
-    In the `tool` object:
-
-    - `semanticVersion` is no longer `required`.
-
-    NOTE: There is no actual change to the schema here, because it had failed to declare `semanticVersion` as `required` in the first place.
 
 - [Issue #149](https://github.com/oasis-tcs/sarif-spec/issues/149): "Support nested graphs"
 
@@ -726,19 +739,6 @@ These overrides are noted on the earlier change.
     In the `edgeTravesal` object:
 
     - Add a `stepOverTargetNodeId` property of type `string`.
-
-- [Issue #159](https://github.com/oasis-tcs/sarif-spec/issues/159): "Id property renames"
-
-    In the `run` object:
-
-    - Rename the `id` property to `instanceGuid`.
-    - Rename the `stableId` property to `logicalId`.
-    - Rename the `baselineId` property to `baselineInstanceGuid`.
-    - Rename the `automationId` property to `automationLogicalId`.
-
-    In the `result` object:
-
-    - Rename the `id` property to `instanceGuid`.
 
 - [Issue #160](https://github.com/oasis-tcs/sarif-spec/issues/160): "Roles for edited files"
 

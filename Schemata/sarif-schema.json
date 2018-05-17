@@ -1648,7 +1648,7 @@
           "$ref": "#/definitions/message"
         },
         
-        "automationId": {
+        "automationLogicalId": {
           "description": "A global identifier that allows the run to be correlated with other artifacts produced by a larger automation process.",
           "type": "string"
         },
