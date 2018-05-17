@@ -26,6 +26,8 @@ Presented at TC Meeting #17, May 30th, 2018
 
     1. [Issue #162](https://github.com/oasis-tcs/sarif-spec/issues/162): "run.automationId is namespaced"
 
+    1. [Issue #163](https://github.com/oasis-tcs/sarif-spec/issues/163): "Add result.workItemLocation"
+
     1. [Issue #166](https://github.com/oasis-tcs/sarif-spec/issues/166): "Define an "engineering system" conformance profile"
 
 1. I made the following changes at editorial discretion:
