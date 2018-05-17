@@ -30,6 +30,8 @@ Presented at TC Meeting #17, May 30th, 2018
 
 1. I made the following changes at editorial discretion:
 
+    1. [Issue #167](https://github.com/oasis-tcs/sarif-spec/issues/167): "Document comprehensive example is out of date"
+
     1. [Issue #170](https://github.com/oasis-tcs/sarif-spec/issues/170): "logicalLocation.name: text and examples are unclear/wrong"
 
     1. Introduced the concept of "baseline run" ("baseline") already existed and used it to describe both `file.roles` and `result.baselineState`. Added quasi-editorial statement that engineering system **SHALL** provide out of band information to determine baseline run.
