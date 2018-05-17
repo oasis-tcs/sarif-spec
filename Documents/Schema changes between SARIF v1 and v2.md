@@ -725,6 +725,13 @@ These overrides are noted on the earlier change.
         - `"renamedFile"`
         - `"generatedFile"`
 
+- [Issue #161](https://github.com/oasis-tcs/sarif-spec/issues/161): "Expand code flows to represent dynamic execution events"
+
+    In the `codeFlowLocation` object:
+
+    - Add a `stack` property of type `stack`.
+    - Add a `kind` property of type `string`.
+
 ## Changes to review at TC #17
 
 - [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"

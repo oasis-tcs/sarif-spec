@@ -22,6 +22,8 @@ Presented at TC Meeting #17, May 30th, 2018
 
     1. [Issue #160](https://github.com/oasis-tcs/sarif-spec/issues/160): "Roles for edited files"
 
+    1. [Issue #161](https://github.com/oasis-tcs/sarif-spec/issues/161): "Expand code flows to represent dynamic execution events"
+
     1. [Issue #166](https://github.com/oasis-tcs/sarif-spec/issues/166): "Define an "engineering system" conformance profile"
 
 1. I made the following changes at editorial discretion:
