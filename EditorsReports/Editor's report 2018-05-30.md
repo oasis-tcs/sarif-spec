@@ -2,7 +2,7 @@
 
 Laurence J. Golding and Michael Fanning
 
-Presented at TC Meeting #17, May 30th, 2018
+Presented at TC Meeting #18, May 30th, 2018
 
 1. After being approved as amended at the last TC meeting (#16), the following spec changes were merged into the provisional draft:
 
