@@ -590,7 +590,7 @@ These overrides are noted on the earlier change.
 
     In the `result` object:
 
-  - Add a `fingerprints` property of type `string[]`.
+  - Add a `fingerprints` property of type `object` with `string`-valued properties.
 
 - [Issue #147](https://github.com/oasis-tcs/sarif-spec/issues/147): "Rename suggestion: toolFingerprintContributions -> partialFingerprints, computedFingerprints -> fingerprints"
 
