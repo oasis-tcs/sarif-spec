@@ -723,7 +723,7 @@ These overrides are noted on the earlier change.
         - `"addedFile"`
         - `"deletedFile"`
         - `"renamedFile"`
-        - `"generatedFile"`
+        - `"uncontrolledFile"`
 
 - [Issue #161](https://github.com/oasis-tcs/sarif-spec/issues/161): "Expand code flows to represent dynamic execution events"
 
