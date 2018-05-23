@@ -4,7 +4,7 @@ Laurence J. Golding and Michael Fanning
 
 Presented at TC Meeting #18, May 30th, 2018
 
-1. After being approved as amended at the last TC meeting (#16), the following spec changes were merged into the provisional draft:
+1. After being approved as amended at the last TC meeting (#17), the following spec changes were merged into the provisional draft:
 
     1. [Issue #103](https://github.com/oasis-tcs/sarif-spec/issues/103): "Specify handling of line breaks"
 
@@ -40,8 +40,8 @@ Presented at TC Meeting #18, May 30th, 2018
 
     1. Fix up the remaining places where I said "the B object in which A occurs" instead of my preferred formulation, "the A object's containing B object".
 
-    1. Introduced the concept of "baseline run" ("baseline") already existed and used it to describe both `file.roles` and `result.baselineState`. Added quasi-editorial statement that engineering system **SHALL** provide out of band information to determine baseline run.
+    1. Introduced the concept of "baseline run" ("baseline") already existed and used it to describe both `file.roles` and `result.baselineState`.
 
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
-    1. ...
+    1. [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions" -- made available on May 23, 2018.
