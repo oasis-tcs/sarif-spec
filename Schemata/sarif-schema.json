@@ -504,7 +504,7 @@
         "uri": {
           "description": "A string containing a valid relative or absolute URI.",
           "type": "string",
-          "format": "uri"
+          "format": "uri-reference"
         },
 
         "uriBaseId": {

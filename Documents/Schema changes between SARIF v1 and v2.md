@@ -770,3 +770,9 @@ These overrides are noted on the earlier change.
     In the `edgeTravesal` object:
 
     - Add a `xxx` property of type `string`.
+
+- [Issue #176](https://github.com/oasis-tcs/sarif-spec/issues/176): "fileLocation uri property should be a URI reference"
+
+    In the `fileLocation` object:
+
+    - Change the `uri` property from `"format": "uri"` to `"format": "uri-reference"`.

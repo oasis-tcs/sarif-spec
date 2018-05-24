@@ -45,3 +45,5 @@ Presented at TC Meeting #18, May 30th, 2018
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions" -- made available on May 23, 2018.
+
+    1. [Issue #176](https://github.com/oasis-tcs/sarif-spec/issues/176): "fileLocation uri property should be a URI reference" -- made available on May 24th, 2018.
