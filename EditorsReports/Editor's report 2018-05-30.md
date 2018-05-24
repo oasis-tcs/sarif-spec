@@ -46,4 +46,6 @@ Presented at TC Meeting #18, May 30th, 2018
 
     1. [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions" -- made available on May 23, 2018.
 
+    1. [Issue #171](https://github.com/oasis-tcs/sarif-spec/issues/171): "Inconsistent definition of endColumn" -- made available on May 23, 2018.
+
     1. [Issue #176](https://github.com/oasis-tcs/sarif-spec/issues/176): "fileLocation uri property should be a URI reference" -- made available on May 24th, 2018.
