@@ -48,4 +48,6 @@ Presented at TC Meeting #18, May 30th, 2018
 
     1. [Issue #171](https://github.com/oasis-tcs/sarif-spec/issues/171): "Inconsistent definition of endColumn" -- made available on May 23, 2018.
 
+    1. [Issue #149](https://github.com/oasis-tcs/sarif-spec/issues/149): "Support nested graphs" -- made available on May 25th, 2018.
+
     1. [Issue #176](https://github.com/oasis-tcs/sarif-spec/issues/176): "fileLocation uri property should be a URI reference" -- made available on May 24th, 2018.

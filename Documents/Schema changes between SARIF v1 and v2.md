@@ -761,15 +761,16 @@ These overrides are noted on the earlier change.
 
     In the `node` object:
 
-    - x.
+    - Add a `children` property of type `node[]`, optional, unique.
 
-    In the `edge` object:
+    In the `graphTraversal` object"
 
-    - x.
+    - Remove the `id` property.
 
-    In the `edgeTravesal` object:
+    In the `edgeTraversal` object:
 
-    - Add a `xxx` property of type `string`.
+    - Remove the `nestedGraphTraversalId` property.
+    - Add a `stepOverEdgeCount` property of type `integer`, optional.
 
 - [Issue #176](https://github.com/oasis-tcs/sarif-spec/issues/176): "fileLocation uri property should be a URI reference"
 

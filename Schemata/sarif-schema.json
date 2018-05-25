@@ -245,11 +245,6 @@
           "type": "string"
         },
 
-        "targetGraphId": {
-          "description": "Identifies the target graph (the graph in which the edge ends).",
-          "type": "string"
-        },
-
         "properties": {
           "description": "Key/value pairs that provide additional information about the edge.",
           "type": "object",
@@ -283,11 +278,6 @@
          "type": "string"
         },
 
-        "stepOverTargetNodeId": {
-          "description": "The node following the return from a nested graph.",
-          "type": "string"
-        },
-
         "message": {
           "description": "A message to display to the user as the edge is traversed.",
           "$ref": "#/definitions/message"
@@ -299,6 +289,11 @@
           "additionalProperties": {
             "type": "string"
           }
+        },
+
+        "stepOverEdgeCount": {
+          "description": "The number of edge traversals necessary to return from a nested graph.",
+          "type": "integer"
         },
 
         "properties": {
@@ -975,9 +970,13 @@
           "$ref": "#/definitions/location"
         },
 
-        "nestedGraphId": {
-          "description": "Identifier a graph that is logically nested within this node.",
-          "type": "string"
+        "children": {
+          "description": "Array of child nodes.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/node"
+          }
         },
 
         "properties": {
