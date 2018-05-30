@@ -744,6 +744,12 @@ These overrides are noted on the earlier change.
 
     - Add a `description` property of type `message`.
 
+- [Issue #176](https://github.com/oasis-tcs/sarif-spec/issues/176): "fileLocation uri property should be a URI reference"
+
+    In the `fileLocation` object:
+
+    - Change the `uri` property from `"format": "uri"` to `"format": "uri-reference"`.
+
 ## Changes to review at TC #18
 
 - [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
@@ -771,9 +777,3 @@ These overrides are noted on the earlier change.
 
     - Remove the `nestedGraphTraversalId` property.
     - Add a `stepOverEdgeCount` property of type `integer`, optional.
-
-- [Issue #176](https://github.com/oasis-tcs/sarif-spec/issues/176): "fileLocation uri property should be a URI reference"
-
-    In the `fileLocation` object:
-
-    - Change the `uri` property from `"format": "uri"` to `"format": "uri-reference"`.
