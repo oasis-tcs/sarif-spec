@@ -761,8 +761,6 @@ These overrides are noted on the earlier change.
     - Add a `byteOffset` property of type `integer`, optional.
     - Add a `byteLength` property of type `integer`, optional.
 
-## Changes to review at TC #18
-
 - [Issue #149](https://github.com/oasis-tcs/sarif-spec/issues/149): "Support nested graphs"
 
     In the `node` object:
@@ -777,3 +775,7 @@ These overrides are noted on the earlier change.
 
     - Remove the `nestedGraphTraversalId` property.
     - Add a `stepOverEdgeCount` property of type `integer`, optional.
+
+## Changes to review at TC #19
+
+(None yet)

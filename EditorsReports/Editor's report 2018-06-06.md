@@ -8,6 +8,8 @@ Presented at TC Meeting #19, June 6th, 2018
 
     1. [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
 
+    1. [Issue #149](https://github.com/oasis-tcs/sarif-spec/issues/149): "Support nested graphs"
+
     1. [Issue #160](https://github.com/oasis-tcs/sarif-spec/issues/160): "Roles for edited files" (revision: `"generatedFile"` &rarr; `"uncontrolledFile"`).
 
     1. [Issue #171](https://github.com/oasis-tcs/sarif-spec/issues/171): "Inconsistent definition of `endColumn`"
