@@ -750,8 +750,6 @@ These overrides are noted on the earlier change.
 
     - Change the `uri` property from `"format": "uri"` to `"format": "uri-reference"`.
 
-## Changes to review at TC #18
-
 - [Issue #93](https://github.com/oasis-tcs/sarif-spec/issues/93): "Problems with regions"
 
     In the `region` object:
@@ -762,6 +760,8 @@ These overrides are noted on the earlier change.
     - Add a `charLength` property of type `integer`, optional.
     - Add a `byteOffset` property of type `integer`, optional.
     - Add a `byteLength` property of type `integer`, optional.
+
+## Changes to review at TC #18
 
 - [Issue #149](https://github.com/oasis-tcs/sarif-spec/issues/149): "Support nested graphs"
 
