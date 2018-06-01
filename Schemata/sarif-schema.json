@@ -1386,9 +1386,10 @@
           }
         },
 
-        "workItemLocation": {
+        "workItemUri": {
           "description": "The URI of the work item associated with this result",
-          "$ref": "#/definitions/fileLocation"
+          "type": "string",
+          "format": "uri"
         },
 
         "conversionProvenance": {
@@ -1478,9 +1479,10 @@
             "$ref": "#/definitions/ruleConfiguration"
           },
 
-          "helpLocation": {
+          "helpUri": {
             "description": "A URI where the primary documentation for the rule can be found.",
-            "$ref": "#/definitions/fileLocation"
+            "type": "string",
+            "format": "uri"
           },
 
           "help": {
