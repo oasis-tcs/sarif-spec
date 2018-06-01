@@ -18,6 +18,10 @@ Presented at TC Meeting #19, June 6th, 2018
 
     1. [Issue #181](https://github.com/oasis-tcs/sarif-spec/issues/181): "Property bag property names should be hierarchical"
 
+1. I made the following changes at editorial discretion:
+
+    1. Improved language for defining property default values.
+
 1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1.  TODO
