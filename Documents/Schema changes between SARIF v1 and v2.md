@@ -776,6 +776,11 @@ These overrides are noted on the earlier change.
     - Remove the `nestedGraphTraversalId` property.
     - Add a `stepOverEdgeCount` property of type `integer`, optional.
 
+
+- [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "Editorial: codeFlowLocation => threadFlowLocation"
+
+    Rename the `codeFlowLocation` object to `threadFlowLocation`.
+
 ## Changes to review at TC #19
 
 (None yet)
