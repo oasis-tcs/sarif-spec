@@ -778,6 +778,12 @@ These overrides are noted on the earlier change.
 
 ## Changes to review at TC #19
 
+- [Issue #158](https://github.com/oasis-tcs/sarif-spec/issues/158): "Introduce result.correlationId and clarify purpose of result.fingerprints array"
+
+    In the `result` object:
+
+    - Add a `correlationGuid` property of type string, optional.
+
 - [Issue #175](https://github.com/oasis-tcs/sarif-spec/issues/175): "Decide on policy for fileLocation vs. URI"
 
     In the `result` object:
