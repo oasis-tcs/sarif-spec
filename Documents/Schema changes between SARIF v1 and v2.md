@@ -803,3 +803,9 @@ These overrides are noted on the earlier change.
     In the `rule` object:
 
     - Rename the `helpLocation` property to `helpUri`, and change its type from `fileLocation` to `string` with `uri` format.
+
+- [Issue #178](https://github.com/oasis-tcs/sarif-spec/issues/178): "Support a character or column interpretation property"
+
+    In the `run` object:
+
+    - Add a `columnsPerSurrogatePair` property of type `integer`, optional, default = 1.

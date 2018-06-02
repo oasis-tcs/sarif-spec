@@ -1683,6 +1683,12 @@
           "type": "string"
         },
 
+        "columnsPerSurrogatePair": {
+          "description": "For results reported in UTF-16-encoded files, specifies the number of columns a surrogate pair occupies.",
+          "type": "integer",
+          "default": 1
+        },
+
         "properties": {
           "description": "Key/value pairs that provide additional information about the run.",
           "type": "object",

@@ -30,4 +30,6 @@ Presented at TC Meeting #19, June 6th, 2018
 
     1. [Issue #175](https://github.com/oasis-tcs/sarif-spec/issues/175): "Decide on policy for fileLocation vs. URI" -- made available on June 1st, 2018.
 
+    1. [Issue #178](https://github.com/oasis-tcs/sarif-spec/issues/178): "Support a character or column interpretation property" -- made available on June 1st, 2018.
+
     1. [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation" -- made available on June 1st, 2018.
