@@ -784,6 +784,16 @@ These overrides are noted on the earlier change.
 
     - Add a `correlationGuid` property of type string, optional.
 
+- [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation"
+
+    Rename the `codeFlowLocation` object to `threadFlowLocation`.
+
+- [Issue #172](https://github.com/oasis-tcs/sarif-spec/issues/172): "Dynamic code flows emit timestamps"
+
+    In the `threadFlowLocation` object:
+
+    - Add a `timestamp` property of time `string` in `date-time` format, optional.
+
 - [Issue #175](https://github.com/oasis-tcs/sarif-spec/issues/175): "Decide on policy for fileLocation vs. URI"
 
     In the `result` object:
@@ -793,7 +803,3 @@ These overrides are noted on the earlier change.
     In the `rule` object:
 
     - Rename the `helpLocation` property to `helpUri`, and change its type from `fileLocation` to `string` with `uri` format.
-
-- [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation"
-
-    Rename the `codeFlowLocation` object to `threadFlowLocation`.

@@ -26,6 +26,8 @@ Presented at TC Meeting #19, June 6th, 2018
 
     1. [Issue #158](https://github.com/oasis-tcs/sarif-spec/issues/158): "Introduce result.correlationId and clarify purpose of result.fingerprints array" -- made available on June 1st, 2018.
 
+    1. [Issue #172](https://github.com/oasis-tcs/sarif-spec/issues/172): "Dynamic code flows emit timestamps" -- made available on June 1st, 2018.
+
     1. [Issue #175](https://github.com/oasis-tcs/sarif-spec/issues/175): "Decide on policy for fileLocation vs. URI" -- made available on June 1st, 2018.
 
     1. [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation" -- made available on June 1st, 2018.

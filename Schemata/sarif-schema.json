@@ -164,6 +164,12 @@
           "type": "integer"
         },
 
+        "timestamp": {
+          "description": "The time at which this location was executed.",
+          "type": "string",
+          "format": "date-time"
+        },
+
         "importance": {
           "description": "Specifies the importance of this location in understanding the code flow in which it occurs. The order from most to least important is \"essential\", \"important\", \"unimportant\". Default: \"important\".",
           "enum": [ "important", "essential", "unimportant" ]
