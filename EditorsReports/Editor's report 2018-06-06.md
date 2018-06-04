@@ -22,14 +22,18 @@ Presented at TC Meeting #19, June 6th, 2018
 
     1. Improved language for defining property default values.
 
-1. The formal spec language for the following additional issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
+1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #158](https://github.com/oasis-tcs/sarif-spec/issues/158): "Introduce result.correlationId and clarify purpose of result.fingerprints array" -- made available on June 1st, 2018.
+
+    1. [Issue #164](https://github.com/oasis-tcs/sarif-spec/issues/164): "Fuzzy partial fingerprint matching and fingerprint versioning" -- made available on June 3rd, 2018.
 
     1. [Issue #172](https://github.com/oasis-tcs/sarif-spec/issues/172): "Dynamic code flows emit timestamps" -- made available on June 1st, 2018.
 
     1. [Issue #175](https://github.com/oasis-tcs/sarif-spec/issues/175): "Decide on policy for fileLocation vs. URI" -- made available on June 1st, 2018.
 
-    1. [Issue #164](https://github.com/oasis-tcs/sarif-spec/issues/164): "Fuzzy partial fingerprint matching and fingerprint versioning" -- made available on June 3rd, 2018.
+    1. [Issue #175](https://github.com/oasis-tcs/sarif-spec/issues/175): "Decide on policy for fileLocation vs. URI" -- made available on June 1st, 2018.
+
+    1. [Issue #178](https://github.com/oasis-tcs/sarif-spec/issues/178): "Support a character or column interpretation property" -- made available on June 4th, 2018.
 
     1. [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation" -- made available on June 1st, 2018.

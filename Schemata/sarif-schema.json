@@ -1683,10 +1683,10 @@
           "type": "string"
         },
 
-        "columnsPerSurrogatePair": {
-          "description": "For results reported in UTF-16-encoded files, specifies the number of columns a surrogate pair occupies.",
-          "type": "integer",
-          "default": 1
+        "columnKind": {
+          "description": "Specifies the unit in which the tool measures columns.",
+          "enum": [ "utf16CodeUnits", "unicodeCodePoints" ],
+          "default": "utf16CodeUnits"
         },
 
         "properties": {

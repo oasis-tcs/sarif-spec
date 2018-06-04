@@ -808,4 +808,4 @@ These overrides are noted on the earlier change.
 
     In the `run` object:
 
-    - Add a `columnsPerSurrogatePair` property of type `integer`, optional, default = 1.
+    - Add a `columnKind` property of type `string` with enumerated values `utf16CodeUnits` and `unicodeCodePoints`, optional, default = `utf16CodeUnit`.
