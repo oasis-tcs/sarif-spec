@@ -776,13 +776,13 @@ These overrides are noted on the earlier change.
     - Remove the `nestedGraphTraversalId` property.
     - Add a `stepOverEdgeCount` property of type `integer`, optional.
 
-## Changes to review at TC #19
-
 - [Issue #158](https://github.com/oasis-tcs/sarif-spec/issues/158): "Introduce result.correlationId and clarify purpose of result.fingerprints array"
 
     In the `result` object:
 
     - Add a `correlationGuid` property of type string, optional.
+
+## Changes to review at TC #19
 
 - [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation"
 

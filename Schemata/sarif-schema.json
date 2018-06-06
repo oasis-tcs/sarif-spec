@@ -1642,6 +1642,11 @@
           "type": "string"
         },
 
+        "correlationGuid": {
+          "description": "A stable, unique identifier for the equivalence class of logically identical results to which this result belongs, in the form of a GUID.",
+          "type": "string"
+        },
+
         "logicalId": {
           "description": "A logical identifier for a run, for example, 'nightly Clang analyzer run'. Multiple runs of the same type can have the same stableId.",
           "type": "string"
