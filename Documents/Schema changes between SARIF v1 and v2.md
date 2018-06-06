@@ -792,8 +792,6 @@ These overrides are noted on the earlier change.
 
     - Add a `timestamp` property of time `string` in `date-time` format, optional.
 
-## Changes to review at TC #19
-
 - [Issue #175](https://github.com/oasis-tcs/sarif-spec/issues/175): "Decide on policy for fileLocation vs. URI"
 
     In the `result` object:
@@ -803,6 +801,8 @@ These overrides are noted on the earlier change.
     In the `rule` object:
 
     - Rename the `helpLocation` property to `helpUri`, and change its type from `fileLocation` to `string` with `uri` format.
+
+## Changes to review at TC #19
 
 - [Issue #178](https://github.com/oasis-tcs/sarif-spec/issues/178): "Support a character or column interpretation property"
 
