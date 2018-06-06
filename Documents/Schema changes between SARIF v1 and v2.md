@@ -782,11 +782,11 @@ These overrides are noted on the earlier change.
 
     - Add a `correlationGuid` property of type string, optional.
 
-## Changes to review at TC #19
-
 - [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation"
 
     Rename the `codeFlowLocation` object to `threadFlowLocation`.
+
+## Changes to review at TC #19
 
 - [Issue #172](https://github.com/oasis-tcs/sarif-spec/issues/172): "Dynamic code flows emit timestamps"
 
