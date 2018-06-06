@@ -1690,8 +1690,7 @@
 
         "columnKind": {
           "description": "Specifies the unit in which the tool measures columns.",
-          "enum": [ "utf16CodeUnits", "unicodeCodePoints" ],
-          "default": "utf16CodeUnits"
+          "enum": [ "utf16CodeUnits", "unicodeCodePoints" ]
         },
 
         "properties": {
@@ -1713,7 +1712,7 @@
         }
       },
 
-      "required": [ "tool", "results" ]
+      "required": [ "tool", "results", "columnKind" ]
     },
 
     "stack": {

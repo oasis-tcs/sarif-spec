@@ -802,10 +802,8 @@ These overrides are noted on the earlier change.
 
     - Rename the `helpLocation` property to `helpUri`, and change its type from `fileLocation` to `string` with `uri` format.
 
-## Changes to review at TC #19
-
 - [Issue #178](https://github.com/oasis-tcs/sarif-spec/issues/178): "Support a character or column interpretation property"
 
     In the `run` object:
 
-    - Add a `columnKind` property of type `string` with enumerated values `utf16CodeUnits` and `unicodeCodePoints`, optional, default = `utf16CodeUnit`.
+    - Add a `columnKind` property of type `string` with enumerated values `utf16CodeUnits` and `unicodeCodePoints`, required.
