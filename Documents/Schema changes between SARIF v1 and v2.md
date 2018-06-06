@@ -786,13 +786,13 @@ These overrides are noted on the earlier change.
 
     Rename the `codeFlowLocation` object to `threadFlowLocation`.
 
-## Changes to review at TC #19
-
 - [Issue #172](https://github.com/oasis-tcs/sarif-spec/issues/172): "Dynamic code flows emit timestamps"
 
     In the `threadFlowLocation` object:
 
     - Add a `timestamp` property of time `string` in `date-time` format, optional.
+
+## Changes to review at TC #19
 
 - [Issue #175](https://github.com/oasis-tcs/sarif-spec/issues/175): "Decide on policy for fileLocation vs. URI"
 
