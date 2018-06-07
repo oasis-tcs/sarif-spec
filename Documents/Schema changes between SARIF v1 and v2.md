@@ -128,6 +128,8 @@ These overrides are noted on the earlier change.
 
     - Add the property `id` of type `string`, optional
 
+    NOTE: As a result of #159, the property name is `instanceGuid`.
+
 - [Issue #90](https://github.com/oasis-tcs/sarif-spec/issues/90): "Introduce fileLocation object"
 
     Define the `fileLocation` object with the following properties:
@@ -201,12 +203,16 @@ These overrides are noted on the earlier change.
 
     - Add the properties `stdin`, `stdout`, and `stderr` of type string, optional.
 
+    NOTE: As a result of #133, these are `fileLocation` objects instead of `string`s.
+
 - [Issue #10](https://github.com/oasis-tcs/sarif-spec/issues/10): "Do we want an array of fingerprint contributions on result?"
 
     In the `result` object:
 
     - Rename the `toolFingerprintContribution` property to `toolFingerprintContributions`.
     - Changed the type of the renamed `toolFingerprintContributions` property from `string` to `object` with property values of type `string`.
+
+    NOTE: As a result of #147, `toolFingerprintContributions` is named `partialFingerprints`.
 
 - [Issue #15](https://github.com/oasis-tcs/sarif-spec/issues/15): "Document how converters should provide notifications"
 
@@ -321,6 +327,8 @@ These overrides are noted on the earlier change.
 
     - Add the property `stdoutStderr` of type `string`.
 
+    NOTE: Because of #133, it is now of type `fileLocation`.
+
 - [Issue #102](https://github.com/oasis-tcs/sarif-spec/issues/102): "run.invocation should be an array of invocation objects"
 
     In the `run` object:
@@ -349,7 +357,7 @@ These overrides are noted on the earlier change.
 
     - Change the type of the `snippet` property from `string` to `fileContent`.
 
-    NOTE: This is obsolete because of #130.
+    OBSOLETE: Because of #130.
 
     In the `annotatedCodeLocation` object:
 
@@ -408,12 +416,16 @@ These overrides are noted on the earlier change.
     - Add a property `nestingLevel` of type `integer`, optional.
     - Add a property `executionOrder` of type `integer`, optional.
 
+    NOTE: Because of #161, `kind` is back, but it means something different.
+
 - [Issue #86](https://github.com/oasis-tcs/sarif-spec/issues/86): "Add path normalization guidance for URLs"
 
     In the `rule` object:
 
     - Rename the `helpUri` property to `helpLocation`.
     - Change the type of the renamed `helpLocation` property from `string` to `fileLocation`.
+
+    OBSOLETE: Because of #175.
 
 - [Issue #95](https://github.com/oasis-tcs/sarif-spec/issues/95): "invocation.fileName -> invocation.executableLocation"
 
@@ -445,6 +457,8 @@ These overrides are noted on the earlier change.
 
     Rename the type `annotatedCodeLocation` to `codeFlowLocation`.
 
+    NOTE: As of #187, it is `threadFlowLocation`.
+
     Remove the `analysisToolLogFileContents` object
 
     In the `location` object:
@@ -453,6 +467,8 @@ These overrides are noted on the earlier change.
     - Rename the `resultFile` property to `physicalLocation`.
     - Add a property `message` of type `message`, optional.
     - Add a property `annotations` of type `annotation[]`, optional.
+
+    NOTE: As of #155, `annotations` is of type `region[]`.
 
     In the `result` object:
 
@@ -482,6 +498,8 @@ These overrides are noted on the earlier change.
     - Remove the `annotations` property.
     - Remove the `snippet` property. (It is now at `codeFlowLocation.location.physicalLocation.region.snippet`.)
     - Add a `location` property of type `location`, required.
+
+    NOTE: `location` is no longer required (some `codeFlowLocation`s just carry a `message`).
 
     In the `stackFrame` object:
 
@@ -565,13 +583,13 @@ These overrides are noted on the earlier change.
     - `uri` of type `string`, containing a valid URI, required.
     - `revisionId` of type `string`, optional.
     - `branch` of type `string`, optional.
-    - `label` of type `string`, optional.
+    - `tag` of type `string`, optional.
     - `timestamp` of type `string`, containing a valid date/time, optional.
     - `properties` of type `propertyBag`, optional.
 
     In the `run` object:
 
-    - Add a `versionControlProvenance` property of type `versionControlDetails[]`, optional.
+    - Add a `versionControlProvenance` property of type `versionControlDetails[]`, unique, minItems = 1, optional.
 
 - [Issue #120](https://github.com/oasis-tcs/sarif-spec/issues/120): "Identify files that were scanned"
 
@@ -585,6 +603,8 @@ These overrides are noted on the earlier change.
         - `"screenshot"`
         - `"standardStream"`
         - `"traceFile"`
+
+    NOTE: As of #137, `"screenshot"` is gone.
 
 - [Issue #126](https://github.com/oasis-tcs/sarif-spec/issues/126): "Add result.fingerprints array"
 

@@ -1261,7 +1261,7 @@
         },
 
         "level": {
-          "description": "A value specifying the severity level of the result. If this property is not present, its implied value is 'warning'.",
+          "description": "A value specifying the severity level of the result.",
           "enum": [ "notApplicable", "pass", "note", "warning", "error", "open" ]
         },
 
