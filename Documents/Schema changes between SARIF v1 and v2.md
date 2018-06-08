@@ -827,3 +827,10 @@ These overrides are noted on the earlier change.
     In the `run` object:
 
     - Add a `columnKind` property of type `string` with enumerated values `utf16CodeUnits` and `unicodeCodePoints`, required.
+
+- [Issue #189](https://github.com/oasis-tcs/sarif-spec/issues/189): "Make result.workItemUris an array"
+
+    In the `result` object:
+
+    - Rename the `workItemUri` property to `workItemUris`.
+    - Change its type from `string` to `string[]`, unique, minItems = 1.

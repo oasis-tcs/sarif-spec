@@ -19,3 +19,7 @@ Presented at TC Meeting #20, June 20th, 2018
     1. [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation"
 
 1. I added the list of acknowledgments provided by Stefan to the provisional draft.
+
+1. Per email discussions, I made the following changes in the provisional draft, which we will send out for approval by e-ballot:
+
+    1. [Issue #189](https://github.com/oasis-tcs/sarif-spec/issues/189): "Make result.workItemUris an array"
