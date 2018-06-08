@@ -1717,7 +1717,7 @@
         }
       },
 
-      "required": [ "tool", "results", "columnKind" ]
+      "required": [ "tool", "results" ]
     },
 
     "stack": {

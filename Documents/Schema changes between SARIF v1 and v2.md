@@ -828,9 +828,19 @@ These overrides are noted on the earlier change.
 
     - Add a `columnKind` property of type `string` with enumerated values `utf16CodeUnits` and `unicodeCodePoints`, required.
 
+    NOTE: As of #191, this property is optional.
+
+### Items to be submitted for approval by e-ballot
+
 - [Issue #189](https://github.com/oasis-tcs/sarif-spec/issues/189): "Make result.workItemUris an array"
 
     In the `result` object:
 
     - Rename the `workItemUri` property to `workItemUris`.
     - Change its type from `string` to `string[]`, unique, minItems = 1.
+
+- [Issue #191](https://github.com/oasis-tcs/sarif-spec/issues/191): "run.columnKind is optional"
+
+    In the `run` object:
+
+    - Make the `columnKind` property optional.

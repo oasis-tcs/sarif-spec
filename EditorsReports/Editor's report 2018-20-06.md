@@ -23,3 +23,5 @@ Presented at TC Meeting #20, June 20th, 2018
 1. Per email discussions, I made the following changes in the provisional draft, which we will send out for approval by e-ballot:
 
     1. [Issue #189](https://github.com/oasis-tcs/sarif-spec/issues/189): "Make result.workItemUris an array"
+
+    1. [Issue #191](https://github.com/oasis-tcs/sarif-spec/issues/191): "run.columnKind is optional"
