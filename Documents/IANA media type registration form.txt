@@ -13,6 +13,55 @@ Optional parameters: N/A
 Encoding considerations:
 	
 Security considerations:
+
+	Producers and consumers of SARIF files should consider the following security-related issues:
+
+	1) SARIF files contain results produced by static analysis tools. These results might
+	describe security vulnerabilities, or other defects that should not be disclosed, in the
+	software being analyzed. Since SARIF is a textual format with no provision for protecting
+	potentially sensitive results, SARIF should only be used in an environment that provides an
+	appropriate level of security. For example, SARIF files might be stored on a file share with
+	limited permissions, or transmitted by means of an encrypted protocol such as HTTPS.
+
+	2) SARIF files contain URIs which specify the location of the files that were analyzed.
+	If these URIs are absolute, they might disclose information about the system on which the
+	analysis took place, such as the name of the engineer, for example: "file://C:/Users/MarySmith/src/ui/window.c".
+	For this reason, URIs should be specified as relative references, for example: "ui/window.c".
+
+	Even relative URIs might disclose sensitive information about the implementation of the software,
+	for example, "encryption/sha1.c". For this reason, again, SARIF should only be used in an
+	environment that provides sufficient security.
+
+	3) SARIF provides a property run.originalBaseUriIds whose purpose is explicitly to provide the
+	absolute URI ("file:/Users/MarySmith") with respect to which relative references such as
+	"ui/window.c" are evaluated. This property discloses information, and should only be used
+	in an environment that provides sufficient security.
+
+	4) SARIF provides an object named invocation which contains information about how the static
+	analysis tool was invoked. Many of its properties (for example, machine, account, and
+	environmentVariables) disclose information about the machine on which the analysis took
+	place. These properties should only be used in an environment that provides sufficient
+	security.
+
+	5) The URIs in a SARIF file might point to insecure resources such as malicious web sites.
+	They might also contain executable code (for example, in a "javascript:" URI). SARIF
+	producers should not emit such URIs. SARIF consumers should take care not to follow
+	malicious links. In practice, this means that end users should not open SARIF files
+	unless they trust the producer.
+
+	6) User-visible messages in SARIF files can be expressed either in plain text or in a rich
+	text format (by default, GitHub-flavored Markdown). Markdown can contain arbitrary HTML,
+	which poses a security risk. SARIF producers should not emit HTML. SARIF consumers should
+	sanitize the Markdown they receive (for example, by removing embedded HTML). SARIF consumers
+	should process Markdown with a Markdown processor that allows HTML processing to be disabled,
+	and that guards against stack overflows induced by maliciously constructed Markdown.
+
+	7) SARIF defines an extensibility mechanism that allows SARIF producers to include arbitrary
+	properties in a SARIF file (information that is not explicitly defined in the SARIF format).
+	If a SARIF producer uses this mechanism to define a property that contains executable code or
+	script, and if SARIF consumer that is aware of this property executes the content, this might
+	permit an attack. SARIF producers should not emit executable content. If they do, a SARIF
+	consumer that is aware of that content should execute it only if it trusts the producer.
 	
 Interoperability considerations:
 	
