@@ -1,0 +1,46 @@
+Your full name:
+
+Your email:
+
+Type name: application
+	
+Subtype name: sarif+json
+	
+Required parameters: N/A
+	
+Optional parameters: N/A
+	
+Encoding considerations:
+	
+Security considerations:
+	
+Interoperability considerations:
+	
+Published specification:
+	
+Applications that use this media type:
+	
+Fragment identifier considerations:
+	
+Additional information:
+	
+Deprecated alias names for this type: N/A
+Magic number(s): N/A
+File extension(s): .sarif
+Macintosh file type code(s): N/A
+
+Person & email address to contact for further information:
+
+Intended usage:
+(One of COMMON, LIMITED USE, or OBSOLETE.)
+
+Restrictions on usage:
+(Any restrictions on where the media type can be used go here.)
+
+Author:
+
+Change controller:
+
+Provisional registration? (standards tree only): No
+
+(Any other information that the author deems interesting may be   added below this line.)
