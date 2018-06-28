@@ -14,14 +14,17 @@ Encoding considerations:
 	
 Security considerations:
 
-	Producers and consumers of SARIF files should consider the following security-related issues:
+	Producers and consumers of SARIF files should consider the following security-related
+	issues. Some of these issues arise from the fact that SARIF files contain potentially
+	sensitive information about software and software development environments. Since SARIF
+	is a textual format with no provision for protecting sensitive information, SARIF should
+	only be used in an environment that provides an appropriate level of security. For example,
+	SARIF files might be stored on a file share with limited permissions, or transmitted
+	by means of an encrypted protocol such as HTTPS.
 
 	1) SARIF files contain results produced by static analysis tools. These results might
 	describe security vulnerabilities, or other defects that should not be disclosed, in the
-	software being analyzed. Since SARIF is a textual format with no provision for protecting
-	potentially sensitive results, SARIF should only be used in an environment that provides an
-	appropriate level of security. For example, SARIF files might be stored on a file share with
-	limited permissions, or transmitted by means of an encrypted protocol such as HTTPS.
+	software being analyzed.
 
 	2) SARIF files contain URIs which specify the location of the files that were analyzed.
 	If these URIs are absolute, they might disclose information about the system on which the
@@ -29,19 +32,16 @@ Security considerations:
 	For this reason, URIs should be specified as relative references, for example: "ui/window.c".
 
 	Even relative URIs might disclose sensitive information about the implementation of the software,
-	for example, "encryption/sha1.c". For this reason, again, SARIF should only be used in an
-	environment that provides sufficient security.
+	for example, "encryption/sha1.c".
 
-	3) SARIF provides a property run.originalBaseUriIds whose purpose is explicitly to provide the
-	absolute URI ("file:/Users/MarySmith") with respect to which relative references such as
-	"ui/window.c" are evaluated. This property discloses information, and should only be used
-	in an environment that provides sufficient security.
+	3) SARIF defines a property run.originalBaseUriIds whose purpose is explicitly to provide
+	the absolute URI (e.g., "file:/Users/MarySmith") with respect to which relative references
+	such as "ui/window.c" are evaluated. This property might disclose sensitive information.
 
-	4) SARIF provides an object named invocation which contains information about how the static
+	4) SARIF provides an object named invocation which contains information about how the
 	analysis tool was invoked. Many of its properties (for example, machine, account, and
 	environmentVariables) disclose information about the machine on which the analysis took
-	place. These properties should only be used in an environment that provides sufficient
-	security.
+	place.
 
 	5) The URIs in a SARIF file might point to insecure resources such as malicious web sites.
 	They might also contain executable code (for example, in a "javascript:" URI). SARIF
@@ -58,10 +58,8 @@ Security considerations:
 
 	7) SARIF defines an extensibility mechanism that allows SARIF producers to include arbitrary
 	properties in a SARIF file (information that is not explicitly defined in the SARIF format).
-	If a SARIF producer uses this mechanism to define a property that contains executable code or
-	script, and if SARIF consumer that is aware of this property executes the content, this might
-	permit an attack. SARIF producers should not emit executable content. If they do, a SARIF
-	consumer that is aware of that content should execute it only if it trusts the producer.
+	SARIF producers should not use this mechanism to define properties that contains executable code
+	or script.
 	
 Interoperability considerations:
 	
@@ -74,8 +72,10 @@ Fragment identifier considerations:
 Additional information:
 	
 Deprecated alias names for this type: N/A
-Magic number(s): N/A
-File extension(s): .sarif
+Magic number(s): N/A
+
+File extension(s): .sarif
+
 Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
@@ -92,4 +92,5 @@ Change controller:
 
 Provisional registration? (standards tree only): No
 
-(Any other information that the author deems interesting may be   added below this line.)
+(Any other information that the author deems interesting may be
+   added below this line.)
