@@ -830,8 +830,6 @@ These overrides are noted on the earlier change.
 
     NOTE: As of #191, this property is optional.
 
-### Items to be submitted for approval by e-ballot
-
 - [Issue #189](https://github.com/oasis-tcs/sarif-spec/issues/189): "Make result.workItemUris an array"
 
     In the `result` object:
