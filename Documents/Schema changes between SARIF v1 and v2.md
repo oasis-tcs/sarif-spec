@@ -842,3 +842,18 @@ These overrides are noted on the earlier change.
     In the `run` object:
 
     - Make the `columnKind` property optional.
+
+---
+End of changes for CSD.1
+---
+Start of changes for CSD.2
+---
+
+## Changes not yet approved
+
+- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
+
+    In the `threadFlowLocation` object:
+
+    - Add a `kind` property of type string, optional.
+
