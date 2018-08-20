@@ -1296,6 +1296,11 @@
           "type": "string"
         },
 
+        "correlationGuid": {
+          "description": "A stable, unique identifier for the equivalence class of logically identical results to which this result belongs, in the form of a GUID.",
+          "type": "string"
+        },
+
         "partialFingerprints": {
           "description": "A set of strings that contribute to the stable, unique identity of the result.",
           "type": "object",
@@ -1644,11 +1649,6 @@
 
         "instanceGuid": {
           "description": "A stable, unique identifier for the run, in the form of a GUID.",
-          "type": "string"
-        },
-
-        "correlationGuid": {
-          "description": "A stable, unique identifier for the equivalence class of logically identical results to which this result belongs, in the form of a GUID.",
           "type": "string"
         },
 
