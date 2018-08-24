@@ -16,4 +16,6 @@ Presented at TC Meeting #22, August 29th, 2018
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
-    1. [Issue #216](https://github.com/oasis-tcs/sarif-spec/issues/216): "Remove result.ruleMessageId"
+    1. [Issue #216](https://github.com/oasis-tcs/sarif-spec/issues/216): "Remove result.ruleMessageId" -- made available on August 24, 2018.
+
+    2. [Issue #204](https://github.com/oasis-tcs/sarif-spec/issues/204): "Clearly separate start/end vs. charOffset/length region property domains" -- made available on August 24, 2018.
