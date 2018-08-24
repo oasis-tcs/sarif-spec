@@ -857,3 +857,8 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type string, optional.
 
+- [Issue #216](https://github.com/oasis-tcs/sarif-spec/issues/216): "Remove ruleMessageId and update message lookup semantics."
+
+    In the `result` object:
+
+    - Remove the property `ruleMessageId`.
