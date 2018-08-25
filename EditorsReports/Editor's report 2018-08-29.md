@@ -14,6 +14,10 @@ Presented at TC Meeting #22, August 29th, 2018
 
         This was a duplicate of [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/179): "Consider whether SARIF covers plug-ins/rules versioning sufficiently".
 
+    1. [Issue #211](https://github.com/oasis-tcs/sarif-spec/issues/211): "Provide log deconstruction mechanism that leverages file names"
+
+        This was an enhancement to [Issue #210](https://github.com/oasis-tcs/sarif-spec/issues/210) ("Provide log deconstruction mechanism to enable more efficient read/write") that would have allowed externalized log file fragments to be named by convention. We decided against introducing this feature because of the additional complexity, and because it would burden consumers, who would always have to probe for the conventionally named files, which usually wouldn't exist.
+
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #216](https://github.com/oasis-tcs/sarif-spec/issues/216): "Remove result.ruleMessageId" -- made available on August 24, 2018.
