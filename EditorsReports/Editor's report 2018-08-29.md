@@ -23,3 +23,5 @@ Presented at TC Meeting #22, August 29th, 2018
     1. [Issue #216](https://github.com/oasis-tcs/sarif-spec/issues/216): "Remove result.ruleMessageId" -- made available on August 24, 2018.
 
     2. [Issue #204](https://github.com/oasis-tcs/sarif-spec/issues/204): "Clearly separate start/end vs. charOffset/length region property domains" -- made available on August 24, 2018.
+
+    3. [Issue #210](https://github.com/oasis-tcs/sarif-spec/issues/210): "Provide log deconstruction mechanism to enable more efficient read/write" -- made available on August 25, 2018.
