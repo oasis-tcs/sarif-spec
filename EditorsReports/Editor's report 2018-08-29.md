@@ -12,7 +12,7 @@ Presented at TC Meeting #22, August 29th, 2018
 
     1. [Issue #185](https://github.com/oasis-tcs/sarif-spec/issues/185): "Publish v2 SARIF JSON schema to assist in editor/other online validation"
 
-    Michael has published the schema to schemastore.org.
+        Michael has published the schema to schemastore.org.
     1. [Issue #207](https://github.com/oasis-tcs/sarif-spec/issues/207): "Support tool plug-ins"
 
         This was a duplicate of [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/179): "Consider whether SARIF covers plug-ins/rules versioning sufficiently".
