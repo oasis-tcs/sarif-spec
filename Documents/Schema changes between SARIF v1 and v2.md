@@ -862,3 +862,9 @@ Start of changes for CSD.2
     In the `result` object:
 
     - Remove the property `ruleMessageId`.
+
+- [Issue #222](https://github.com/oasis-tcs/sarif-spec/issues/222): "Make invocation.workingDirectory a fileLocation object"
+
+    In the `invocation` object:
+
+    - Change the type of the `workingDirectory` property from `string` to `fileLocation`.
