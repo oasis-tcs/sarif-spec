@@ -863,6 +863,12 @@ Start of changes for CSD.2
 
     - Remove the property `ruleMessageId`.
 
+- [Issue #220](https://github.com/oasis-tcs/sarif-spec/issues/220): "Add a correlationGuid property to run"
+
+    In the `run` object:
+
+    - Add a `correlationGuid` property of type string, optional.
+
 - [Issue #222](https://github.com/oasis-tcs/sarif-spec/issues/222): "Make invocation.workingDirectory a fileLocation object"
 
     In the `invocation` object:
