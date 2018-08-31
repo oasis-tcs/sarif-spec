@@ -1818,9 +1818,7 @@
             }
           }
         }
-      },
-
-      "required": [ "fullyQualifiedLogicalName" ]
+      }
     },
 
     "threadFlow": {
