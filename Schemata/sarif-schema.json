@@ -1646,6 +1646,11 @@
           "type": "string"
         },
 
+        "correlationGuid": {
+          "description": "A stable, unique identifier for class of related runs to which this run belongs, in the form of a GUID.",
+          "type": "string"
+        },
+
         "logicalId": {
           "description": "A logical identifier for a run, for example, 'nightly Clang analyzer run'. Multiple runs of the same type can have the same stableId.",
           "type": "string"
