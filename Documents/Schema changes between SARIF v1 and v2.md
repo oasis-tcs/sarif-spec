@@ -849,6 +849,12 @@ End of changes for CSD.1
 Start of changes for CSD.2
 ---
 
+- [Issue #216](https://github.com/oasis-tcs/sarif-spec/issues/216): "Remove ruleMessageId and update message lookup semantics."
+
+    In the `result` object:
+
+    - Remove the property `ruleMessageId`.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
@@ -856,12 +862,6 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Add a `kind` property of type string, optional.
-
-- [Issue #216](https://github.com/oasis-tcs/sarif-spec/issues/216): "Remove ruleMessageId and update message lookup semantics."
-
-    In the `result` object:
-
-    - Remove the property `ruleMessageId`.
 
 - [Issue #220](https://github.com/oasis-tcs/sarif-spec/issues/220): "Add a correlationGuid property to run"
 

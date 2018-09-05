@@ -1270,12 +1270,6 @@
           "$ref": "#/definitions/message"
         },
 
-        "ruleMessageId": {
-          "description": "A string that identifies the message within the metadata for the rule used in this result.",
-          "type": "string"
-
-        },
-
         "locations": {
           "description": "One or more locations where the result occurred. Specify only one location unless the problem indicated by the result can only be corrected by making a change at every specified location.",
           "type": "array",
