@@ -880,3 +880,9 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Add a `kind` property of type string, optional.
+
+- [Issue #233](https://github.com/oasis-tcs/sarif-spec/issues/233): "Consider not requiring rule.id"
+
+    In the `rule` object:
+
+    - Make the `id` property optional.
