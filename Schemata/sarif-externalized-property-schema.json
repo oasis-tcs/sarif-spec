@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Externalized property values for Static Analysis Results Format (SARIF) Version 2.0.0 JSON Schema",
+  "description": "JSON schema for files that contain the value of an externalized SARIF property.",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+
+    "$schema": {
+      "description": "A URI from which this schema can be obtained.",
+      "type": "string",
+      "format": "uri"
+    },
+
+    "version": {
+      "description": "The SARIF format version of the log file from which the property was externalized.",
+      "enum": [ "2.0.0" ]
+    },
+
+    "runInstanceGuid": {
+        "description": "The instanceGuid of the run to which the externalized property belongs.",
+        "type": "string"
+    },
+
+    "propertyName": {
+        "description": "The name of the externalized property.",
+        "type": "string"
+    },
+
+    "propertySchema": {
+        "description": "The schema to which the externalized property conforms, expressed as a fragment within the master SARIF schema.",
+        "type": "string",
+        "format": "uri"
+      },
+
+    "propertyValue": {
+        "description": "The value of the externalized property",
+        "oneOf":[
+            {
+                "type": "object"
+            },
+            {
+                "type": "array"
+            }
+        ]
+    }
+  },
+
+  "required": [
+      "version",
+      "propertyName",
+      "propertySchema",
+      "propertyContents"
+    ]
+}

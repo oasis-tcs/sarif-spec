@@ -23,3 +23,5 @@ Presented at TC Meeting #23, September 12th, 2018
     1. [Issue #174](https://github.com/oasis-tcs/sarif-spec/issues/174): "Result mgmt. systems merge SARIF files. Can we provide a count of occurrences?" -- made available on September 5th, 2018. 
 
     1. [Issue #233](https://github.com/oasis-tcs/sarif-spec/issues/233): "Consider not requiring rule.id" -- made available on September 5th, 2018.
+
+    1. [Issue #235](https://github.com/oasis-tcs/sarif-spec/issues/235): "Wrap externalized files with contextual information -- made available on September 5th, 2018.
