@@ -869,6 +869,12 @@ Start of changes for CSD.2
 
 ## Changes not yet approved
 
+- [Issue #174](https://github.com/oasis-tcs/sarif-spec/issues/174): "Result mgmt. systems merge SARIF files. Can we provide a count of occurrences?"
+
+    In the `result` object:
+
+    - Add an `occurrenceCount` property of type `integer`, minVal = 1, optional.
+
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
 
     In the `threadFlowLocation` object:
