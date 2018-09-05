@@ -849,14 +849,6 @@ End of changes for CSD.1
 Start of changes for CSD.2
 ---
 
-## Changes not yet approved
-
-- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
-
-    In the `threadFlowLocation` object:
-
-    - Add a `kind` property of type string, optional.
-
 - [Issue #216](https://github.com/oasis-tcs/sarif-spec/issues/216): "Remove ruleMessageId and update message lookup semantics."
 
     In the `result` object:
@@ -874,3 +866,11 @@ Start of changes for CSD.2
     In the `invocation` object:
 
     - Change the type of the `workingDirectory` property from `string` to `fileLocation`.
+
+## Changes not yet approved
+
+- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
+
+    In the `threadFlowLocation` object:
+
+    - Add a `kind` property of type string, optional.

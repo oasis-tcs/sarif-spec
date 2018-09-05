@@ -1615,7 +1615,7 @@
         },
 
         "correlationGuid": {
-          "description": "A stable, unique identifier for the equivalence class of logically identical results to which this run belongs, in the form of a GUID.",
+          "description": "A stable, unique identifier for class of related runs to which this run belongs, in the form of a GUID.",
           "type": "string"
         },
 
