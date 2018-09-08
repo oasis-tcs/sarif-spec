@@ -4,6 +4,15 @@ Laurence J. Golding and Michael Fanning
 
 Presented at TC Meeting #23, September 12th, 2018
 
+1. The following issues were closed without further action:
+
+    1. [Issue #201](https://github.com/oasis-tcs/sarif-spec/issues/201): "Make region kind more explicit"
+
+        The clear separation between line/column and offset/length properties (described in the change draft for #204),
+        together with our new understanding that we can detect a "missing" offset property at the SDK level (by having it
+        default to -1, rather than to 0, which is a valid value) means that there's nothing more we need to do about
+        this issue.
+
 1. After being approved as amended at the last TC meeting (#22), the following spec changes were merged into the provisional draft:
 
     1. [Issue #204](https://github.com/oasis-tcs/sarif-spec/issues/204): "Clearly separate start/end vs. charOffset/length region property domains"
