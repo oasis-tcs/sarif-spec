@@ -27,6 +27,10 @@ Presented at TC Meeting #23, September 12th, 2018
 
     1. [Issue #222](https://github.com/oasis-tcs/sarif-spec/issues/222): "Make invocation.workingDirectory a fileLocation object"
 
+1. I made the following changes at editorial discretion:
+
+    1. [Issue #192](https://github.com/oasis-tcs/sarif-spec/issues/192): "Missing word in "ruleId property" section."
+
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #174](https://github.com/oasis-tcs/sarif-spec/issues/174): "Result mgmt. systems merge SARIF files. Can we provide a count of occurrences?" -- made available on September 5th, 2018. 
