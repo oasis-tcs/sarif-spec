@@ -886,3 +886,13 @@ Start of changes for CSD.2
     In the `rule` object:
 
     - Make the `id` property optional.
+
+- [Issue #237](https://github.com/oasis-tcs/sarif-spec/issues/237): "run.graphs and result.graphs should be dictionaries, not arrays."
+
+    In the `run` object:
+
+    - Change the type of the `graphs` property from `graph[]` to `object` with `graph`-valued properties.
+
+    In the `result` object:
+
+    - Change the  type of the `graphs` property from `graph[]` to `object` with `graph`-valued properties.

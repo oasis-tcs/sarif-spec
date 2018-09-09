@@ -37,4 +37,6 @@ Presented at TC Meeting #23, September 12th, 2018
 
     1. [Issue #233](https://github.com/oasis-tcs/sarif-spec/issues/233): "Consider not requiring rule.id" -- made available on September 5th, 2018.
 
-    1. [Issue #235](https://github.com/oasis-tcs/sarif-spec/issues/235): "Wrap externalized files with contextual information -- made available on September 5th, 2018.
+    1. [Issue #235](https://github.com/oasis-tcs/sarif-spec/issues/235): "Wrap externalized files with contextual information" -- made available on September 5th, 2018.
+
+    1. [Issue #237](https://github.com/oasis-tcs/sarif-spec/issues/237): "run.graphs and result.graphs should be dictionaries, not arrays." -- made available on September 9th, 2018.
