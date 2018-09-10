@@ -31,6 +31,12 @@ Presented at TC Meeting #23, September 12th, 2018
 
     1. [Issue #192](https://github.com/oasis-tcs/sarif-spec/issues/192): "Missing word in "ruleId property" section."
 
+    1. [Issue #241](https://github.com/oasis-tcs/sarif-spec/issues/241): "Clarify that all date/time properties are expressed in UTC"
+
+          An internal MS customer missed this point. I added the following sentence to §3.8, "Date/time properties":
+
+          > The time component of every date/time-valued property **SHALL** be expressed in Coordinated Universal Time (UTC).
+
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #174](https://github.com/oasis-tcs/sarif-spec/issues/174): "Result mgmt. systems merge SARIF files. Can we provide a count of occurrences?" -- made available on September 5th, 2018. 
