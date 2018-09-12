@@ -867,19 +867,11 @@ Start of changes for CSD.2
 
     - Change the type of the `workingDirectory` property from `string` to `fileLocation`.
 
-## Changes not yet approved
-
 - [Issue #174](https://github.com/oasis-tcs/sarif-spec/issues/174): "Result mgmt. systems merge SARIF files. Can we provide a count of occurrences?"
 
     In the `result` object:
 
     - Add an `occurrenceCount` property of type `integer`, minVal = 1, optional.
-
-- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
-
-    In the `threadFlowLocation` object:
-
-    - Add a `kind` property of type string, optional.
 
 - [Issue #233](https://github.com/oasis-tcs/sarif-spec/issues/233): "Consider not requiring rule.id"
 
@@ -896,3 +888,12 @@ Start of changes for CSD.2
     In the `result` object:
 
     - Change the  type of the `graphs` property from `graph[]` to `object` with `graph`-valued properties.
+ 
+## Changes not yet approved
+
+- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
+
+    In the `threadFlowLocation` object:
+
+    - Add a `kind` property of type string, optional.
+
