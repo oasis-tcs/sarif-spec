@@ -897,3 +897,9 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type string, optional.
 
+- [Issue #243](https://github.com/oasis-tcs/sarif-spec/issues/243): "Consider making file.hashes a dictionary"
+
+    In the `files` object:
+
+    - Change the type of the `hashes` property from `hash[]` to `object` with `hash`-valued properties.
+
