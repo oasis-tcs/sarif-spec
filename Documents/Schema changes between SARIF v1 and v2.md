@@ -903,3 +903,8 @@ Start of changes for CSD.2
 
     - Change the type of the `hashes` property from `hash[]` to `object` with `hash`-valued properties.
 
+- [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object"
+
+    In the `exception` object:
+
+    - Change the type of the `message` property from `string` to `message`.
