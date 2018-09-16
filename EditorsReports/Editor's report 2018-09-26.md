@@ -4,11 +4,15 @@ Laurence J. Golding and Michael Fanning
 
 Presented at TC Meeting #24, September 26th, 2018
 
-1. The following issues are verified as fixed:
+1. The following issues are verified as fixed, and closed:
 
-    1.[Issue #225](https://github.com/oasis-tcs/sarif-spec/issues/225): "sarif-schema.json has invalid requirement on stackFrame object"
+    1. [Issue #225](https://github.com/oasis-tcs/sarif-spec/issues/225): "sarif-schema.json has invalid requirement on stackFrame object"
 
-    [Sarif.Sdk 2.0.0-csd.2.0.3](https://www.nuget.org/packages/Sarif.Sdk/2.0.0-csd.1.0.3) is published to NuGet, and the version at [http://json.schemastore.org/sarif-2.0.0]() has the fix.
+        [Sarif.Sdk 2.0.0-csd.2.0.3](https://www.nuget.org/packages/Sarif.Sdk/2.0.0-csd.1.0.3) is published to NuGet, and the version at [http://json.schemastore.org/sarif-2.0.0]() has the fix.
+
+    1. [Issue #228](https://github.com/oasis-tcs/sarif-spec/issues/228): "CSD.1 spec incorrectly places result 'correlationGuid' property on the run object"
+
+        The schema and the spec now define `correlationGuid` on both `run` and `result`.
 
 1. After being approved at the last TC meeting (#23), the following spec changes were merged into the provisional draft:
 
