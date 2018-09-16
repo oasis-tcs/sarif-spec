@@ -4,6 +4,12 @@ Laurence J. Golding and Michael Fanning
 
 Presented at TC Meeting #24, September 26th, 2018
 
+1. The following issues are verified as fixed:
+
+    1.[Issue #225](https://github.com/oasis-tcs/sarif-spec/issues/225): "sarif-schema.json has invalid requirement on stackFrame object"
+
+    [Sarif.Sdk 2.0.0-csd.2.0.3](https://www.nuget.org/packages/Sarif.Sdk/2.0.0-csd.1.0.3) is published to NuGet, and the version at [http://json.schemastore.org/sarif-2.0.0]() has the fix.
+
 1. After being approved at the last TC meeting (#23), the following spec changes were merged into the provisional draft:
 
     1. [Issue #174](https://github.com/oasis-tcs/sarif-spec/issues/174): "Result mgmt. systems merge SARIF files. Can we provide a count of occurrences?"
