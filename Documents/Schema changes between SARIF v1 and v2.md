@@ -1,4 +1,4 @@
-# Schema changes between SARIF v1 and v2
+R# Schema changes between SARIF v1 and v2
 
 This document summarizes the changes in the SARIF JSON schema between v1 (the version
 defined by the initial working draft and implemented by many Microsoft tools such as its C++, C#, and VB compilers) and v2 (the first public version released by the
@@ -908,3 +908,9 @@ Start of changes for CSD.2
     In the `exception` object:
 
     - Change the type of the `message` property from `string` to `message`.
+
+- [Issue #244](https://github.com/oasis-tcs/sarif-spec/issues/244): "Rename versionControlDetails.uri to repositoryUri or projectUri"
+
+    In the `versionControlDetails` object:
+
+    - Rename the `uri` property to `repositoryUri`.
