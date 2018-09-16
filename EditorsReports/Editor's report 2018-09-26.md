@@ -6,6 +6,10 @@ Presented at TC Meeting #24, September 26th, 2018
 
 1. The following issues are verified as fixed, and closed:
 
+    1. [Issue #193](https://github.com/oasis-tcs/sarif-spec/issues/193): "rule.id should be optional if it matches the dictionary key name"
+
+        I filed this issue twice, the second time as [#233](https://github.com/oasis-tcs/sarif-spec/issues/233). Since all the documentation of this change (the change draft, the agenda, the Editor's Report, and the Schema Changes document) link to [#233](https://github.com/oasis-tcs/sarif-spec/issues/233), I resolved [#193](https://github.com/oasis-tcs/sarif-spec/issues/193) as the duplicate, even thought it was the first one to be filed.
+
     1. [Issue #225](https://github.com/oasis-tcs/sarif-spec/issues/225): "sarif-schema.json has invalid requirement on stackFrame object"
 
         [Sarif.Sdk 2.0.0-csd.2.0.3](https://www.nuget.org/packages/Sarif.Sdk/2.0.0-csd.1.0.3) is published to NuGet, and the version at [http://json.schemastore.org/sarif-2.0.0]() has the fix.
@@ -18,7 +22,7 @@ Presented at TC Meeting #24, September 26th, 2018
 
     1. [Issue #174](https://github.com/oasis-tcs/sarif-spec/issues/174): "Result mgmt. systems merge SARIF files. Can we provide a count of occurrences?"
 
-    1. [Issue #233](https://github.com/oasis-tcs/sarif-spec/issues/233): "Consider not requiring rule.id
+    1. [Issue #233](https://github.com/oasis-tcs/sarif-spec/issues/233): "Consider not requiring rule.id"
 
     1. [Issue #237](https://github.com/oasis-tcs/sarif-spec/issues/237): "run.graphs and result.graphs should be dictionaries, not arrays"
 
