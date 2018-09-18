@@ -909,6 +909,29 @@ Start of changes for CSD.2
 
     - Change the type of the `message` property from `string` to `message`.
 
+- [Issue #242](https://github.com/oasis-tcs/sarif-spec/issues/242): "Rename startTime/endTime to startTimeUtc and endTimeUtc"
+
+    In the `invocation` object:
+
+    - Rename the `startTime` property to `startTimeUtc`
+    - Rename the `endTime` property to `endTimeUtc`
+
+    In the `file` object:
+
+    - Rename the `lastModifiedTime` property to `lastModifiedTimeUtc`
+
+    In the `versionControlDetails` object:
+
+    - Rename the `timestamp` property to `revisionTimeUtc`
+
+    In the `threadFlowLocation` object:
+
+    - Rename the `timestamp` property to `executionTimeUtc`
+
+    In the `notification` object:
+
+    - Rename the `time` property to `timeUtc`
+    
 - [Issue #244](https://github.com/oasis-tcs/sarif-spec/issues/244): "Rename versionControlDetails.uri to repositoryUri or projectUri"
 
     In the `versionControlDetails` object:

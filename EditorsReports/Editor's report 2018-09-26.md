@@ -32,4 +32,6 @@ Presented at TC Meeting #24, September 26th, 2018
 
     1. [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object" -- made available on September 14th, 2018.
 
+    1. [Issue #242](https://github.com/oasis-tcs/sarif-spec/issues/242): "Rename startTime/endTime to startTimeUtc and endTimeUtc" -- made available on September 18th, 2018.
+
     1. [Issue #244](https://github.com/oasis-tcs/sarif-spec/issues/244): "Rename versionControlDetails.uri to repositoryUri or projectUri" -- made available on September 16th, 2018.
