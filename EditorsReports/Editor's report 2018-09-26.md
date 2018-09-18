@@ -4,6 +4,12 @@ Laurence J. Golding and Michael Fanning
 
 Presented at TC Meeting #24, September 26th, 2018
 
+1. The following issues were closed without further action:
+
+    1. [Issue #205](https://github.com/oasis-tcs/sarif-spec/issues/205): "Suggestion: expand text in 3.22.2 examples to describe complete text associated with regions"
+
+        We decided that the "region property separation" change ([#201](https://github.com/oasis-tcs/sarif-spec/issues/201)) made this proposed editorial change unnecessary.
+
 1. The following issues are verified as fixed, and closed:
 
     1. [Issue #193](https://github.com/oasis-tcs/sarif-spec/issues/193): "rule.id should be optional if it matches the dictionary key name"
