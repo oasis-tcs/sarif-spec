@@ -895,7 +895,7 @@ Start of changes for CSD.2
 
     In the `threadFlowLocation` object:
 
-    - Add a `kind` property of type string, optional.
+    - Add a `kind` property of type `string[]`, optional.
 
 - [Issue #243](https://github.com/oasis-tcs/sarif-spec/issues/243): "Consider making file.hashes a dictionary"
 

@@ -34,6 +34,10 @@ Presented at TC Meeting #24, September 26th, 2018
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
+    1. [Issue #194](https://github.com/oasis-tcs/sarif-spec/issues/194): "Did we break codeFlows in v2?" -- made available on September 24th, 2018.
+
+    1. [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind" -- made available on September 24th, 2018.
+
     1. [Issue #243](https://github.com/oasis-tcs/sarif-spec/issues/243): "Consider making file.hashes a dictionary" -- made available on September 13th, 2018.
 
     1. [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object" -- made available on September 14th, 2018.
