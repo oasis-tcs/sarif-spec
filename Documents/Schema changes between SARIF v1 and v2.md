@@ -897,6 +897,14 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type `string[]`, optional.
 
+- [Issue #238](https://github.com/oasis-tcs/sarif-spec/issues/238): "objects without property bags"
+
+    Define a `propertyBag` type and DRY out existing property bags to use it.
+
+    In every object that does not yet have a property bag:
+
+    - Add a `properties` property of type `propertyBag`
+
 - [Issue #243](https://github.com/oasis-tcs/sarif-spec/issues/243): "Consider making file.hashes a dictionary"
 
     In the `files` object:

@@ -40,6 +40,8 @@ Presented at TC Meeting #24, September 26th, 2018
 
     1. [Issue #208](https://github.com/oasis-tcs/sarif-spec/issues/208): "Suggestion: require uriBaseId to be case-insensitive" -- made available on September 24th, 2018.
 
+    1. [Issue #238](https://github.com/oasis-tcs/sarif-spec/issues/238): "objects without property bags" -- made available on September 25th, 2018.
+
     1. [Issue #243](https://github.com/oasis-tcs/sarif-spec/issues/243): "Consider making file.hashes a dictionary" -- made available on September 13th, 2018.
 
     1. [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object" -- made available on September 14th, 2018.
