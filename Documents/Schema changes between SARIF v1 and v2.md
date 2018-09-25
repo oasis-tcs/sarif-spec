@@ -897,6 +897,12 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type `string[]`, optional.
 
+- [Issue #234](https://github.com/oasis-tcs/sarif-spec/issues/234): "Consider making originalUriBaseIds a dictionary of file location objects"
+
+    In the `run` object:
+
+    - Change the type of the `originalUriBaseIds` property from `object` with `string`-valued properties to `object` with `fileLocation`-valued properties.
+
 - [Issue #238](https://github.com/oasis-tcs/sarif-spec/issues/238): "objects without property bags"
 
     Define a `propertyBag` type and DRY out existing property bags to use it.
