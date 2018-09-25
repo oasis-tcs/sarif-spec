@@ -40,6 +40,8 @@ Presented at TC Meeting #24, September 26th, 2018
 
     1. [Issue #208](https://github.com/oasis-tcs/sarif-spec/issues/208): "Suggestion: require uriBaseId to be case-insensitive" -- made available on September 24th, 2018.
 
+    1. [Issue #232](https://github.com/oasis-tcs/sarif-spec/issues/232): "Why is the 'results' array required?" -- made available on September 25th, 2018.
+
     1. [Issue #235](https://github.com/oasis-tcs/sarif-spec/issues/235): "Wrap externalized files with contextual information" -- made available on September 25th, 2018.
 
     1. [Issue #238](https://github.com/oasis-tcs/sarif-spec/issues/238): "objects without property bags" -- made available on September 25th, 2018.
