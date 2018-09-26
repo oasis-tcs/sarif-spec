@@ -891,6 +891,12 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object"
+
+    In the `exception` object:
+
+    - Change the type of the `message` property from `string` to `message`.
+
 - [Issue #243](https://github.com/oasis-tcs/sarif-spec/issues/243): "Consider making file.hashes a dictionary" and [Issue #251](https://github.com/oasis-tcs/sarif-spec/issues/251): "We don't need a hash object"
 
     Remove the `hash` object.
@@ -920,12 +926,6 @@ Start of changes for CSD.2
     In every object that does not yet have a property bag:
 
     - Add a `properties` property of type `propertyBag`
-
-- [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object"
-
-    In the `exception` object:
-
-    - Change the type of the `message` property from `string` to `message`.
 
 - [Issue #242](https://github.com/oasis-tcs/sarif-spec/issues/242): "Rename startTime/endTime to startTimeUtc and endTimeUtc"
 
