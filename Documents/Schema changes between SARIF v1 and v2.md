@@ -888,7 +888,17 @@ Start of changes for CSD.2
     In the `result` object:
 
     - Change the  type of the `graphs` property from `graph[]` to `object` with `graph`-valued properties.
- 
+
+## Changes approved but not yet applied to the schema.
+
+- [Issue #243](https://github.com/oasis-tcs/sarif-spec/issues/243): "Consider making file.hashes a dictionary" and [Issue #251](https://github.com/oasis-tcs/sarif-spec/issues/251): "We don't need a hash object"
+
+    Remove the `hash` object.
+
+    In the `files` object:
+
+    - Change the type of the `hashes` property from `hash[]` to `object` with `string`-valued properties.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
@@ -910,12 +920,6 @@ Start of changes for CSD.2
     In every object that does not yet have a property bag:
 
     - Add a `properties` property of type `propertyBag`
-
-- [Issue #243](https://github.com/oasis-tcs/sarif-spec/issues/243): "Consider making file.hashes a dictionary"
-
-    In the `files` object:
-
-    - Change the type of the `hashes` property from `hash[]` to `object` with `hash`-valued properties.
 
 - [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object"
 
