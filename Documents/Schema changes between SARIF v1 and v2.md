@@ -891,6 +891,14 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #238](https://github.com/oasis-tcs/sarif-spec/issues/238): "objects without property bags"
+
+    Define a `propertyBag` type and DRY out existing property bags to use it.
+
+    In every object that does not yet have a property bag:
+
+    - Add a `properties` property of type `propertyBag`
+
 - [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object"
 
     In the `exception` object:
@@ -947,11 +955,3 @@ Start of changes for CSD.2
     In the `run` object:
 
     - Change the type of the `originalUriBaseIds` property from `object` with `string`-valued properties to `object` with `fileLocation`-valued properties.
-
-- [Issue #238](https://github.com/oasis-tcs/sarif-spec/issues/238): "objects without property bags"
-
-    Define a `propertyBag` type and DRY out existing property bags to use it.
-
-    In every object that does not yet have a property bag:
-
-    - Add a `properties` property of type `propertyBag`
