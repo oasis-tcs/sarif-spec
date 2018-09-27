@@ -928,6 +928,12 @@ Start of changes for CSD.2
 
     - Change the type of the `hashes` property from `hash[]` to `object` with `string`-valued properties.
 
+- [Issue #244](https://github.com/oasis-tcs/sarif-spec/issues/244): "Rename versionControlDetails.uri to repositoryUri"
+
+    In the `versionControlDetails` object:
+
+    - Rename the `uri` property to `repositoryUri`.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
@@ -949,9 +955,3 @@ Start of changes for CSD.2
     In every object that does not yet have a property bag:
 
     - Add a `properties` property of type `propertyBag`
-
-- [Issue #244](https://github.com/oasis-tcs/sarif-spec/issues/244): "Rename versionControlDetails.uri to repositoryUri or projectUri"
-
-    In the `versionControlDetails` object:
-
-    - Rename the `uri` property to `repositoryUri`.
