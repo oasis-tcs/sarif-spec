@@ -800,7 +800,7 @@ These overrides are noted on the earlier change.
 
     In the `result` object:
 
-    - Add a `correlationGuid` property of type string, optional.
+    - Add a `correlationGuid` property of type `string`, optional.
 
 - [Issue #187](https://github.com/oasis-tcs/sarif-spec/issues/187): "codeFlowLocation => threadFlowLocation"
 
@@ -890,6 +890,17 @@ Start of changes for CSD.2
     - Change the  type of the `graphs` property from `graph[]` to `object` with `graph`-valued properties.
 
 ## Changes approved but not yet applied to the schema.
+
+- [Issue #235](https://github.com/oasis-tcs/sarif-spec/issues/235): "Wrap externalized files with contextual information"
+
+    Define an `externalFile` object with the following properties:
+
+    - `fileLocation` of type `fileLocation`, required.
+    - `instanceGuid` of type `string`, required.
+
+    In the `run` object:
+
+    - Define an `externalFiles` property of type `object` with `externalFile`-valued properties, optional.
 
 - [Issue #238](https://github.com/oasis-tcs/sarif-spec/issues/238): "objects without property bags"
 

@@ -6,6 +6,8 @@ Presented at TC Meeting #25, October 10th, 2018
 
 1. After being approved at the last TC meeting (#23), the following spec changes were merged into the provisional draft:
 
+    1. [Issue #235](https://github.com/oasis-tcs/sarif-spec/issues/235): "Wrap externalized files with contextual information"
+
     1. [Issue #238](https://github.com/oasis-tcs/sarif-spec/issues/238): "objects without property bags"
 
     1. [Issue #240](https://github.com/oasis-tcs/sarif-spec/issues/240): "Consider removing type inconsistency with message property in exception object"
