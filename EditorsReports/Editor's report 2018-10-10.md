@@ -11,7 +11,7 @@ Presented at TC Meeting #25, October 10th, 2018
         I closed this as duplicate of [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object,"
         because Michael and I decided to address this inconsistency by introducing the "id" object he'd previously proposed.
 
-1. After being approved as amended at the last TC meeting (#23), the following spec changes were merged into the provisional draft:
+1. After being approved as amended at the last TC meeting (#24), the following spec changes were merged into the provisional draft:
 
     1. [Issue #232](https://github.com/oasis-tcs/sarif-spec/issues/232): "Why is the 'results' array required?"
 
@@ -30,6 +30,12 @@ Presented at TC Meeting #25, October 10th, 2018
     1. [Issue #244](https://github.com/oasis-tcs/sarif-spec/issues/244): "Rename versionControlDetails.uri to repositoryUri"
 
     1. [Issue #251](https://github.com/oasis-tcs/sarif-spec/issues/251): "We don't need a hash object"
+
+1. After discussion at TC #24 but without having formally moved its adoption, I merged the following change into the provisional draft:
+
+    1. [Issue #208](https://github.com/oasis-tcs/sarif-spec/issues/208): "Suggestion: require uriBaseId to be case-insensitive"
+
+        We will move to ratify the change at this meeting.
 
 1. I made the following changes at editorial discretion:
 
