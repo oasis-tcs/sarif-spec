@@ -6,7 +6,7 @@ Presented at TC Meeting #25, October 10th, 2018
 
 1. The following issues were closed without further action:
 
-    1. [Issue #232](https://github.com/oasis-tcs/sarif-spec/issues/232): "We do not have an automationGuid to match automationLogicalId"
+    1. [Issue #229](https://github.com/oasis-tcs/sarif-spec/issues/229): "We do not have an automationGuid to match automationLogicalId"
 
         I closed this as duplicate of [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object,"
         because Michael and I decided to address this inconsistency by introducing the "id" object he'd previously proposed.
