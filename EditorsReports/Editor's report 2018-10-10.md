@@ -4,7 +4,9 @@ Laurence J. Golding and Michael Fanning
 
 Presented at TC Meeting #25, October 10th, 2018
 
-1. After being approved at the last TC meeting (#23), the following spec changes were merged into the provisional draft:
+1. After being approved as amended at the last TC meeting (#23), the following spec changes were merged into the provisional draft:
+
+    1. [Issue #234](https://github.com/oasis-tcs/sarif-spec/issues/234): "Consider making originalUriBaseIds a dictionary of file location objects"
 
     1. [Issue #235](https://github.com/oasis-tcs/sarif-spec/issues/235): "Wrap externalized files with contextual information"
 

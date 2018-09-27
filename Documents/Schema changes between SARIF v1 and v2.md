@@ -891,6 +891,12 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #234](https://github.com/oasis-tcs/sarif-spec/issues/234): "Consider making originalUriBaseIds a dictionary of file location objects"
+
+    In the `run` object:
+
+    - Change the type of the `originalUriBaseIds` property from `object` with `string`-valued properties to `object` with `fileLocation`-valued properties.
+
 - [Issue #235](https://github.com/oasis-tcs/sarif-spec/issues/235): "Wrap externalized files with contextual information"
 
     Define an `externalFile` object with the following properties:
@@ -960,9 +966,3 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Add a `kind` property of type `string[]`, optional.
-
-- [Issue #234](https://github.com/oasis-tcs/sarif-spec/issues/234): "Consider making originalUriBaseIds a dictionary of file location objects"
-
-    In the `run` object:
-
-    - Change the type of the `originalUriBaseIds` property from `object` with `string`-valued properties to `object` with `fileLocation`-valued properties.
