@@ -4,6 +4,13 @@ Laurence J. Golding and Michael Fanning
 
 Presented at TC Meeting #25, October 10th, 2018
 
+1. The following issues were closed without further action:
+
+    1. [Issue #232](https://github.com/oasis-tcs/sarif-spec/issues/232): "We do not have an automationGuid to match automationLogicalId"
+
+        I closed this as duplicate of [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object,"
+        because Michael and I decided to address this inconsistency by introducing the "id" object he'd previously proposed.
+
 1. After being approved as amended at the last TC meeting (#23), the following spec changes were merged into the provisional draft:
 
     1. [Issue #232](https://github.com/oasis-tcs/sarif-spec/issues/232): "Why is the 'results' array required?"
