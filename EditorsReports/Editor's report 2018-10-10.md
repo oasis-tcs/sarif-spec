@@ -19,3 +19,10 @@ Presented at TC Meeting #25, October 10th, 2018
     1. [Issue #244](https://github.com/oasis-tcs/sarif-spec/issues/244): "Rename versionControlDetails.uri to repositoryUri"
 
     1. [Issue #251](https://github.com/oasis-tcs/sarif-spec/issues/251): "We don't need a hash object"
+
+1. I made the following changes at editorial discretion:
+
+    1. [Issue #231](https://github.com/oasis-tcs/sarif-spec/issues/231): "Section on external files should go ahead and list all the properties that are externalizable"
+
+        I made this change as part of [#235](https://github.com/oasis-tcs/sarif-spec/issues/235).
+
