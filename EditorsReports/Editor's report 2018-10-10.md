@@ -31,12 +31,6 @@ Presented at TC Meeting #25, October 10th, 2018
 
     1. [Issue #251](https://github.com/oasis-tcs/sarif-spec/issues/251): "We don't need a hash object"
 
-1. After discussion at TC #24 but without having formally moved its adoption, I merged the following change into the provisional draft:
-
-    1. [Issue #208](https://github.com/oasis-tcs/sarif-spec/issues/208): "Suggestion: require uriBaseId to be case-insensitive"
-
-        We will move to ratify the change at this meeting.
-
 1. I made the following changes at editorial discretion:
 
     1. [Issue #231](https://github.com/oasis-tcs/sarif-spec/issues/231): "Section on external files should go ahead and list all the properties that are externalizable"
