@@ -966,3 +966,9 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Add a `kind` property of type `string[]`, optional.
+
+- [Issue #254](https://github.com/oasis-tcs/sarif-spec/issues/254): "Rename externalizedProperty.version to sarifVersion"
+
+    In the `externalizedProperty` object:
+
+    - Rename the `version` property to `sarifVersion`.
