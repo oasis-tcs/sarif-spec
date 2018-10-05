@@ -11,6 +11,10 @@ Presented at TC Meeting #25, October 10th, 2018
         I closed this as duplicate of [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object,"
         because Michael and I decided to address this inconsistency by introducing the "id" object he'd previously proposed.
 
+    1. [Issue #254](https://github.com/oasis-tcs/sarif-spec/issues/254): "Rename externalizableProperty.version to SARIF version."
+
+        After discussion in the issue with Jim Kupsch, I decided not to do this, and instead made editorial change #255 (see below).
+
 1. After being approved as amended at the last TC meeting (#24), the following spec changes were merged into the provisional draft:
 
     1. [Issue #232](https://github.com/oasis-tcs/sarif-spec/issues/232): "Why is the 'results' array required?"
@@ -36,4 +40,8 @@ Presented at TC Meeting #25, October 10th, 2018
     1. [Issue #231](https://github.com/oasis-tcs/sarif-spec/issues/231): "Section on external files should go ahead and list all the properties that are externalizable"
 
         I made this change as part of [#235](https://github.com/oasis-tcs/sarif-spec/issues/235).
+
+    1. [Issue #255](https://github.com/oasis-tcs/sarif-spec/issues/255): "State that sarifLog.version and externalizedProperty.version refer to the spec version"
+
+        This replaces #254.
 
