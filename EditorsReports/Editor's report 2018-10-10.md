@@ -6,6 +6,18 @@ Presented at TC Meeting #25, October 10th, 2018
 
 1. The following issues were closed without further action:
 
+    1. [Issue #197](https://github.com/oasis-tcs/sarif-spec/issues/197): "Snippet, lineSnippet and multilineSnippet"
+
+        Per discussion with Michael Fanning, who opened the issue, there is nothing more to do here.
+        Michael's last remaining concern on this issue was to ensure the spec was clear on the issue of
+        "region property domain separation" (line/column vs. offset/length properties). It is.
+
+    1. [Issue #199](https://github.com/oasis-tcs/sarif-spec/issues/199): "Random-access readable format"
+
+        There is work going on at Microsoft to develop a general-purpose, high-performance, random access JSON-
+        equivalent serialization format, but it will not be part of SARIF v2.0. Michael will add comments to the
+        issue documenting his discussions with Micro Focus on this topic.
+
     1. [Issue #229](https://github.com/oasis-tcs/sarif-spec/issues/229): "We do not have an automationGuid to match automationLogicalId"
 
         I closed this as duplicate of [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object,"
@@ -45,3 +57,6 @@ Presented at TC Meeting #25, October 10th, 2018
 
         This replaces #254.
 
+1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
+
+    1. [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object" -- made available on October 8th, 2018. 

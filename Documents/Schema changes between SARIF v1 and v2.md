@@ -967,4 +967,21 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type `string[]`, optional.
 
+- [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object"
 
+    Define the `automationId` object with the following properties:
+
+    - `description` of type `message`, optional.
+    - `instanceId` of type `string`, optional.
+    - `instanceGuid` of type `string`, optional.
+    - `correlationGuid` of type `string`, optional.
+
+    In the `run` object:
+
+    - Remove the `instanceGuid` property.
+    - Remove the `correlationGuid` property.
+    - Remove the `logicalId` property.
+    - Remove the `automationLogicalId` property.
+    - Remove the `description` property.
+    - Add an `id` property of type `automationId`, optional.
+    - Add an `aggregationIds` property of type `automationId[]`, optional.
