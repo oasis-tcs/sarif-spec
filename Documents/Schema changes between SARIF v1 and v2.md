@@ -985,3 +985,9 @@ Start of changes for CSD.2
     - Remove the `description` property.
     - Add an `id` property of type `automationId`, optional.
     - Add an `aggregationIds` property of type `automationId[]`, optional.
+
+- [Issue #219](https://github.com/oasis-tcs/sarif-spec/issues/219): "Delete 'threadFlowLocation.step' property"
+
+    In the `threadFlowLocation` object:
+
+    - Remove the `step` property.

@@ -59,4 +59,6 @@ Presented at TC Meeting #25, October 10th, 2018
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
-    1. [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object" -- made available on October 8th, 2018. 
+    1. [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object" -- made available on October 8th, 2018.
+
+    1. [Issue #219](https://github.com/oasis-tcs/sarif-spec/issues/219): "Delete 'threadFlowLocation.step' property" -- made available on October 8th, 2018.
