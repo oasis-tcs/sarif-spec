@@ -991,3 +991,9 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Remove the `step` property.
+
+- [Issue #250](https://github.com/oasis-tcs/sarif-spec/issues/250): "Consider result-level URI for alternate viewer"
+
+    In the `result` object:
+
+    - Add a `hostedViewerUri` property of type `string` in `uri` format, optional.

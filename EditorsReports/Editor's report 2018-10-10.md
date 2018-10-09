@@ -62,3 +62,5 @@ Presented at TC Meeting #25, October 10th, 2018
     1. [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object" -- made available on October 8th, 2018.
 
     1. [Issue #219](https://github.com/oasis-tcs/sarif-spec/issues/219): "Delete 'threadFlowLocation.step' property" -- made available on October 8th, 2018.
+
+    1. [Issue #250](https://github.com/oasis-tcs/sarif-spec/issues/250): "Consider result-level URI for alternate viewer" -- made available on October 9th, 2018.
