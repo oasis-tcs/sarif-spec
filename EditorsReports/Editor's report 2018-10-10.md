@@ -18,6 +18,14 @@ Presented at TC Meeting #25, October 10th, 2018
         equivalent serialization format, but it will not be part of SARIF v2.0. Michael will add comments to the
         issue documenting his discussions with Micro Focus on this topic.
 
+    1. [Issue #208](https://github.com/oasis-tcs/sarif-spec/issues/208): "Suggestion: require uriBaseId to be case-insensitive"
+
+        Michael, Jim, and I discussed this at length. I copied the email thread into the issue. In short: The issue of
+        inconsistent casing of `uriBaseId`s only comes up if you try to compare `uriBaseId`s across log files. The
+        engineering system can decide whether two `uriBaseId`s from different log files are the same; it's not a
+        format issue. Finally, on some OS's, environment variable names (a common source of uriBaseIds) _are_
+        case-sensitive.
+
     1. [Issue #229](https://github.com/oasis-tcs/sarif-spec/issues/229): "We do not have an automationGuid to match automationLogicalId"
 
         I closed this as duplicate of [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object,"
