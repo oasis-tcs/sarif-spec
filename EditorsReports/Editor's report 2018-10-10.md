@@ -18,6 +18,12 @@ Presented at TC Meeting #25, October 10th, 2018
         equivalent serialization format, but it will not be part of SARIF v2.0. Michael will add comments to the
         issue documenting his discussions with Micro Focus on this topic.
 
+    1. [Issue #203](https://github.com/oasis-tcs/sarif-spec/issues/203): "threadFlowLocation.step should be all or nothing"
+
+        Since we are removing `threadFlowLocation.step` ([Issue #219](https://github.com/oasis-tcs/sarif-spec/issues/219)),
+        this is moot. Strictly speaking, we haven't approved that change yet. If we reject it I'll reopen this issue.
+        But the need to handle this validation is one of the reasons we propose to remove it.
+
     1. [Issue #208](https://github.com/oasis-tcs/sarif-spec/issues/208): "Suggestion: require uriBaseId to be case-insensitive"
 
         Michael, Jim, and I discussed this at length. I copied the email thread into the issue. In short: The issue of
