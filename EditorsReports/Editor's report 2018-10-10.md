@@ -37,7 +37,7 @@ Presented at TC Meeting #25, October 10th, 2018
         I closed this as duplicate of [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object,"
         because Michael and I decided to address this inconsistency by introducing the "id" object he'd previously proposed.
 
-    1. [Issue #254](https://github.com/oasis-tcs/sarif-spec/issues/254): "Rename externalizableProperty.version to SARIF version."
+    1. [Issue #254](https://github.com/oasis-tcs/sarif-spec/issues/254): "Rename externalizedProperty.version to sarifVersion."
 
         After discussion in the issue with Jim Kupsch, I decided not to do this, and instead made editorial change #255 (see below).
 
