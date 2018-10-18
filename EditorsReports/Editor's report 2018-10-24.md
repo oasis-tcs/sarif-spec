@@ -8,10 +8,10 @@ Presented at TC Meeting #26, October 24th, 2018
 
     1. [Issue #3](https://github.com/oasis-tcs/sarif-spec/issues/3): "Introduce result.taxonomies"
 
-        Previously closed; reopened at the during Microsoft internal SARIF testing. Now closing again; per @michaelcfanning:
+        Previously closed; reopened during Microsoft internal SARIF testing. Now closing again; per @michaelcfanning:
         > Hierarchical tags satisfy the parties that prompted reactivation.
 
-    1. [Issue #200](https://github.com/oasis-tcs/sarif-spec/issues/200): "equire everything to be UTF-8"
+    1. [Issue #200](https://github.com/oasis-tcs/sarif-spec/issues/200): "Require everything to be UTF-8"
 
         I added the following [comment](https://github.com/oasis-tcs/sarif-spec/issues/200#issuecomment-431111049) to the issue explaining why the spec can't say any more about file encoding than it already does:
 
