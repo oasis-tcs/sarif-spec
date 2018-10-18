@@ -40,6 +40,8 @@ Presented at TC Meeting #26, October 24th, 2018
 
 1. I made the following changes at editorial discretion:
 
+    1. [Issue #213](https://github.com/oasis-tcs/sarif-spec/issues/213): "Avoid use of implementation specific JSON term where possible"
+
     1. [Issue #257](https://github.com/oasis-tcs/sarif-spec/issues/257): "Editorial: Remove misleading uriBaseId examples"
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
