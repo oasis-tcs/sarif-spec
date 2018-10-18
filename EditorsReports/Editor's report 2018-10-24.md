@@ -46,3 +46,5 @@ Presented at TC Meeting #26, October 24th, 2018
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
+    1. [Issue #263](https://github.com/oasis-tcs/sarif-spec/issues/263): "Clarify distinguishing presence or non-presence of logical and instance id components" -- made available on October 18th, 2018.
+
