@@ -48,3 +48,5 @@ Presented at TC Meeting #26, October 24th, 2018
 
     1. [Issue #263](https://github.com/oasis-tcs/sarif-spec/issues/263): "Clarify distinguishing presence or non-presence of logical and instance id components" -- made available on October 18th, 2018.
 
+    1. [Issue #118](https://github.com/oasis-tcs/sarif-spec/issues/118): "SARIF file naming convention" -- made available on October 19th, 2018.
+
