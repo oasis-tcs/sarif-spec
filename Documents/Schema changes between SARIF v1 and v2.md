@@ -889,8 +889,6 @@ Start of changes for CSD.2
 
     - Change the  type of the `graphs` property from `graph[]` to `object` with `graph`-valued properties.
 
-## Changes approved but not yet applied to the schema.
-
 - [Issue #234](https://github.com/oasis-tcs/sarif-spec/issues/234): "Consider making originalUriBaseIds a dictionary of file location objects"
 
     In the `run` object:
@@ -959,14 +957,6 @@ Start of changes for CSD.2
 
     - Rename the `uri` property to `repositoryUri`.
 
-## Changes not yet approved
-
-- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
-
-    In the `threadFlowLocation` object:
-
-    - Add a `kind` property of type `string[]`, optional.
-
 - [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object"
 
     Define the `automationId` object with the following properties:
@@ -997,3 +987,24 @@ Start of changes for CSD.2
     In the `result` object:
 
     - Add a `hostedViewerUri` property of type `string` in `uri` format, optional.
+
+## Changes approved but not yet applied to the schema.
+
+## Changes not yet approved
+
+- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
+
+    In the `threadFlowLocation` object:
+
+    - Add a `kind` property of type `string[]`, optional.
+
+- [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties"
+
+    Rename the `externalFile` object to `propertyFile`.
+
+    Rename the `externalizedProperty` object to `sarifProperties`.
+
+    In the `run` object:
+
+    - Rename the `externalFiles` property to `propertyFiles`.
+
