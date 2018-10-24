@@ -28,7 +28,7 @@ Presented at TC Meeting #26, October 24th, 2018
 
         Resolved as duplicate of [Issue #183](https://github.com/oasis-tcs/sarif-spec/issues/183): "Consider providing a mechanism to escape forward slashes in hierarchical strings"
 
-1. After being approved as amended at the last TC meeting (#24), the following spec changes were merged into the provisional draft:
+1. After being approved as amended at the last TC meeting (#25), the following spec changes were merged into the provisional draft:
 
     1. [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object"
 
@@ -48,7 +48,7 @@ Presented at TC Meeting #26, October 24th, 2018
 
     1. [Issue #263](https://github.com/oasis-tcs/sarif-spec/issues/263): "Clarify distinguishing presence or non-presence of logical and instance id components" -- made available on October 18th, 2018.
 
-    1. [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple propertie" -- made available on October 23rd, 2018.
+    1. [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties" -- made available on October 23rd, 2018.
 
     1. [Issue #118](https://github.com/oasis-tcs/sarif-spec/issues/118): "SARIF file naming convention" -- made available on October 19th, 2018.
 

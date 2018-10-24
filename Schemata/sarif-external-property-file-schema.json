@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Externalized property values for Static Analysis Results Format (SARIF) Version 2.0.0-csd.2.beta.2018-09-26 JSON Schema",
+  "description": "JSON schema for files that contain the value of an externalized SARIF property.",
+  "additionalProperties": false,
+  "allOf": [
+      {
+        "description": "Metadata common to all externalized properties.",
+        "type": "object",
+        "properties": {
+
+          "$schema": {
+            "description": "A URI from which this schema can be obtained.",
+            "type": "string",
+            "format": "uri"
+          },
+
+          "version": {
+            "description": "The SARIF format version of the log file from which the property was externalized.",
+            "enum": [ "2.0.0-csd.2.beta.2018-09-26" ]
+          },
+
+          "instanceGuid": {
+            "description": "A stable, unique identifier for this external file."
+          },
+
+          "runInstanceGuid": {
+              "description": "The instanceGuid of the run to which the externalized property belongs.",
+              "type": "string"
+          }
+      },
+
+      "required": [
+          "version",
+          "instanceGuid"
+      ]
+    },
+
+    {
+        "description": "Schemas for individual externalized properties.",
+        "oneOf": [
+            {
+                "description": "Schema for externalized run.conversion",
+                "properties": {
+                    "conversion": {
+                        "$ref": "http://json.schemastore.org/sarif-2.0.0-csd.2.beta.2018-09-26#/definitions/conversion"
+                    }
+                }
+            },
+            {
+                "description": "Schema for externalized run.files property.",
+                "properties": {
+                    "files": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "http://json.schemastore.org/sarif-2.0.0-csd.2.beta.2018-09-26#/definitions/file"
+                        }
+                    }
+                }
+            },
+            {
+                "description": "Schema for externalized run.graphs property.",
+                "properties": {
+                    "graphs": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "http://json.schemastore.org/sarif-2.0.0#/definitions/graph"
+                        }
+                    }
+                }
+            },
+            {
+                "description": "Schema for externalized run.logicalLocations property.",
+                "properties": {
+                    "files": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "http://json.schemastore.org/sarif-2.0.0#/definitions/logicalLocation"
+                        }
+                    }
+                }
+            },
+            {
+                "description": "Schema for externalized run.files property.",
+                "properties": {
+                    "files": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "http://json.schemastore.org/sarif-2.0.0#/definitions/file"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+  ]
+}
