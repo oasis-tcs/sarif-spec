@@ -990,6 +990,16 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties"
+
+    Rename the `externalFile` object to `externalPropertyFile`.
+
+    Rename the `externalizedProperty` object to `externalProperties`.
+
+    In the `run` object:
+
+    - Rename the `externalFiles` property to `externalPropertyFiles`.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
@@ -998,13 +1008,4 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type `string[]`, optional.
 
-- [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties"
-
-    Rename the `externalFile` object to `propertyFile`.
-
-    Rename the `externalizedProperty` object to `sarifProperties`.
-
-    In the `run` object:
-
-    - Rename the `externalFiles` property to `propertyFiles`.
 
