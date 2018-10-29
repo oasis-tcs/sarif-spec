@@ -17,3 +17,7 @@ Presented at TC Meeting #27, November 14th, 2018
     1. [Issue #263](https://github.com/oasis-tcs/sarif-spec/issues/263): "Clarify distinguishing presence or non-presence of logical and instance id components"
 
     1. [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties".
+
+1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
+
+    1. [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array -- made available on October 29th, 2018.

@@ -1008,4 +1008,14 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type `string[]`, optional.
 
+- [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
 
+    In the `run` object:
+
+    - Change the type of the `files` property from `object` with `file`-valued properties to `file[]`.
+
+    - Change the type of the `logicalLocations` property from `object` with `logicalLocation`-valued properties to `logicalLocation[]`.
+
+    In the `resources` object:
+
+    - Change the type of the `rules` property from `object` with `rule`-valued properties to `rule[]`.
