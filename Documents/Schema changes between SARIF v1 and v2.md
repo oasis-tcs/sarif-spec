@@ -1019,3 +1019,37 @@ Start of changes for CSD.2
     In the `resources` object:
 
     - Change the type of the `rules` property from `object` with `rule`-valued properties to `rule[]`.
+
+    In the `fileLocation` object:
+
+    - Add a `fileIndex` property of type `integer`, optional.
+
+    In the `result` object:
+
+    - Add a `ruleIndex` property of type `integer`, optional.
+
+    In the `notification` object:
+
+    - Add a `ruleIndex` property of type `integer`, optional.
+
+    In the `location` object:
+
+    - Add a `logicalLocationIndex` property of type `integer`, optional.
+
+    In the `file` object:
+
+    - Remove the `parentKey` property.
+
+    - Add a `parentIndex` property of type `integer`, optional.
+
+    In the `logicalLocation` object:
+
+    - Remove the `parentKey` property.
+
+    - Add a `parentIndex` property of type `integer`, optional.
+
+    - Make the `name` property required.
+
+    In the `rule` object:
+
+    - Make the `id` property required.
