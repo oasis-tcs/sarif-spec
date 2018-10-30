@@ -35,7 +35,7 @@ Presented at TC Meeting #27, November 14th, 2018
     1. [Issue #271](https://github.com/oasis-tcs/sarif-spec/issues/271): : "Error in format of intermediate spec versions"
 
         The spec text omitted part of our agreed-upon format for the version number for intermediate versions of the spec.
-        We agreed on "`2.0.0-csd.2.beta-yyyy-mm-dd`", but the spec text omitted the "`csd.2`"
+        We agreed on "`2.0.0-csd.2.beta-yyyy-mm-dd`", but the spec text omitted the "`csd.2.`"
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
