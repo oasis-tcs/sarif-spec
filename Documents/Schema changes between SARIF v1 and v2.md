@@ -1008,6 +1008,12 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type `string[]`, optional.
 
+- [Issue #223](https://github.com/oasis-tcs/sarif-spec/issues/223): "Remove uniqueItems constraint from result.locations"
+
+    In the `result` object:
+
+    - On the `locations` property, remove the `uniqueItems` constraint.
+
 - [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
 
     In the `run` object:
