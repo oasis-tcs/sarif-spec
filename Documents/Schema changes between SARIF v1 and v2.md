@@ -94,15 +94,15 @@ These overrides are noted on the earlier change.
 
     - `tool` of type `tool`, required
     - `invocation` of type `invocation`, optional
-    - `analysisToolLogFileUri` of type string, containing a valid URI, optional
-    - `analysisToolLogFileUriBaseId` of type string, containing a URI base id, optional
+    - `analysisToolLogFileUri` of type `string`, containing a valid URI, optional
+    - `analysisToolLogFileUriBaseId` of type `string`, containing a URI base id, optional
 
     Define the `analysisToolLogFileContents` object with the following properties:
 
     - `region` of type `region`, optional
     - `snippet` of type `string`, optional
-    - `analysisToolLogFileUri` of type string, containing a valid URI, optional
-    - `analysisToolLogFileUriBaseId` of type string, containing a URI base id, optional
+    - `analysisToolLogFileUri` of type `string`, containing a valid URI, optional
+    - `analysisToolLogFileUriBaseId` of type `string`, containing a URI base id, optional
 
     NOTE: As a result of #130, this object will disappear.
 
@@ -201,7 +201,7 @@ These overrides are noted on the earlier change.
 
     In the `invocation` object:
 
-    - Add the properties `stdin`, `stdout`, and `stderr` of type string, optional.
+    - Add the properties `stdin`, `stdout`, and `stderr` of type `string`, optional.
 
     NOTE: As a result of #133, these are `fileLocation` objects instead of `string`s.
 
@@ -398,7 +398,7 @@ These overrides are noted on the earlier change.
 
     In the renamed `threadFlow` object:
 
-    - Add a property `id` of type string, optional.
+    - Add a property `id` of type `string`, optional.
 
     Define a new `codeFlow` object with the following properties:
 
@@ -584,7 +584,7 @@ These overrides are noted on the earlier change.
     - `revisionId` of type `string`, optional.
     - `branch` of type `string`, optional.
     - `tag` of type `string`, optional.
-    - `timestamp` of type `string`, containing a valid date/time, optional.
+    - `timestamp` of type `string` in `date-time` format, optional.
     - `properties` of type `propertyBag`, optional.
 
     In the `run` object:
@@ -694,13 +694,13 @@ These overrides are noted on the earlier change.
 
     In the `tool` object:
 
-    - Add a `downloadUri` property of type `string` in `uri` format.
+    - Add a `downloadUri` property of type `string` in `uri` format, optional.
 
 - [Issue #141](https://github.com/oasis-tcs/sarif-spec/issues/141): "Consider adding timestamp to file object"
 
     In the `file` object:
 
-    - Add a `lastModifiedTime` property of type `string` in `date-time` format. 
+    - Add a `lastModifiedTime` property of type `string` in `date-time` format, optional. 
 
 - [Issue #143](https://github.com/oasis-tcs/sarif-spec/issues/143): "Add 'returnType', 'parameter' and 'variable' to logical location kind enum"
 
@@ -859,7 +859,7 @@ Start of changes for CSD.2
 
     In the `run` object:
 
-    - Add a `correlationGuid` property of type string, optional.
+    - Add a `correlationGuid` property of type `string`, optional.
 
 - [Issue #222](https://github.com/oasis-tcs/sarif-spec/issues/222): "Make invocation.workingDirectory a fileLocation object"
 
@@ -1065,3 +1065,10 @@ Start of changes for CSD.2
     In the `rule` object:
 
     - Make the `id` property required.
+
+- 1. [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Request: provide 'first seen' timestamp for results"
+
+    Define the `resultProvenance` object with the following properties:
+
+    - `firstDetectionTimeUtc` of type `string` in `date-time` format, optional.
+    - `firstDetectionRunInstanceGuid` of type `string`, optional.
