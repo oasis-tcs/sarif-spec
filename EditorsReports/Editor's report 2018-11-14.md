@@ -56,3 +56,5 @@ Presented at TC Meeting #27, November 14th, 2018
     1. [Issue #169](https://github.com/oasis-tcs/sarif-spec/issues/169): "Decide how to handle uncommon line break characters" -- made available on November 7th, 2018.
 
     1. [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array" -- made available on October 29th, 2018.
+
+    1. [Issue #275](https://github.com/oasis-tcs/sarif-spec/issues/275): "Specify how to store IRIs in URI-valued properties" -- made available on November 7th, 2018.
