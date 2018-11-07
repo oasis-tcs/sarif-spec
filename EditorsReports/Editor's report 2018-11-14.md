@@ -18,6 +18,20 @@ Presented at TC Meeting #27, November 14th, 2018
 
     1. [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties".
 
+1. The following issues were closed without further action:
+
+    1. [Issue #121](https://github.com/oasis-tcs/sarif-spec/issues/121): "Provide for results management 'post-back' URL"
+
+        The idea was to support the scenario where a user retrieves a set of results from a result management system,
+        updates some result properties (for example, marking a result as "suppressed in source"), and then writes the
+        updates back to the result management system.
+
+        We are deferring this because Grammatech's proposed SASP (Static Analysis Server Protocol) protocol will
+        address this scenario. SASP isn't yet designed, so we don't know yet what SARIF properties would be needed to support it.
+
+        Support for this level of sophistication in results management might not appear until a future version of SARIF,
+        so I labeled the issue as `future`.
+
 1. I made the following changes at editorial discretion:
 
     1. [Issue #223](https://github.com/oasis-tcs/sarif-spec/issues/223): "Remove uniqueItems constraint from result.locations"
