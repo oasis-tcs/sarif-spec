@@ -1066,7 +1066,13 @@ Start of changes for CSD.2
 
     - Make the `id` property required.
 
-- 1. [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Request: provide 'first seen' timestamp for results"
+- [Issue #269](https://github.com/oasis-tcs/sarif-spec/issues/269): "Add optional "itemCount" property to externalPropertyFile"
+
+    In the `externalPropertyFile` object:
+
+    - Add an `itemCount` property of type `integer`, `minValue: 1`, optional.
+
+- [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Request: provide 'first seen' timestamp for results"
 
     Define the `resultProvenance` object with the following properties:
 
