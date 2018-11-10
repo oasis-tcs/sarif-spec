@@ -1066,6 +1066,14 @@ Start of changes for CSD.2
 
     - Make the `id` property required.
 
+- [Issue #268](https://github.com/oasis-tcs/sarif-spec/issues/268): "Add result.useful and result.suppressionReasons"
+
+    In the `result` object:
+
+    - Add a `suppressionReasons` property of type `string[]`, optional, with enumerated values `"falsePositive"`, `"unshipped"`, `"testCode"`, `"deprecated"`, `"external"`.
+
+    - Add a `useful` property of type `string`, optional, with enumerated values `"useful"`, `"notUseful"`, and `"unspecified"`.
+
 - [Issue #269](https://github.com/oasis-tcs/sarif-spec/issues/269): "Add optional "itemCount" property to externalPropertyFile"
 
     In the `externalPropertyFile` object:
