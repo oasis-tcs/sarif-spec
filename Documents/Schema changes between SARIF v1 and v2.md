@@ -1052,6 +1052,15 @@ Start of changes for CSD.2
 
     - Rename the `externalFiles` property to `externalPropertyFiles`.
 
+- [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Request: provide 'first seen' timestamp for results"
+
+    Define the `resultProvenance` object with the following properties:
+
+    - `firstDetectionTimeUtc` of type `string` in `date-time` format, optional.
+    - `lastDetectionTimeUtc` of type `string` in `date-time` format, optional.
+    - `firstDetectionRunInstanceGuid` of type `string`, optional.
+    - `lastDetectionRunInstanceGuid` of type `string`, optional.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
@@ -1079,10 +1088,3 @@ Start of changes for CSD.2
     In the `externalPropertyFile` object:
 
     - Add an `itemCount` property of type `integer`, `minValue: 1`, optional.
-
-- [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Request: provide 'first seen' timestamp for results"
-
-    Define the `resultProvenance` object with the following properties:
-
-    - `firstDetectionTimeUtc` of type `string` in `date-time` format, optional.
-    - `firstDetectionRunInstanceGuid` of type `string`, optional.
