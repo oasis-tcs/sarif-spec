@@ -12,7 +12,7 @@ Presented at TC Meeting #28, November 28th, 2018
 
 1. The following issues were closed without further action:
 
-    1. None
+    1. [Issue #278](https://github.com/oasis-tcs/sarif-spec/issues/256): "Should the sections be reordered?".
 
 1. I made the following changes at editorial discretion:
 
