@@ -990,6 +990,12 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #169](https://github.com/oasis-tcs/sarif-spec/issues/169): "Decide how to handle uncommon line break characters"
+
+    In the `run` object:
+
+    - Add a `newlineSequences` property of type `string[]`, optional, default `[ "\r\n", "\n" ]`
+
 - [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
 
     In the `run` object:
@@ -1047,12 +1053,6 @@ Start of changes for CSD.2
     - Rename the `externalFiles` property to `externalPropertyFiles`.
 
 ## Changes not yet approved
-
-- [Issue #169](https://github.com/oasis-tcs/sarif-spec/issues/169): "Decide how to handle uncommon line break characters"
-
-    In the `run` object:
-
-    - Add a `newlineSequences` property of type `string[]`, optional, default `[ "\r\n", "\n" ]`
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
 
