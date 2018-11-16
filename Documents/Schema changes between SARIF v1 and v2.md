@@ -990,36 +990,6 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
-- [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties"
-
-    Rename the `externalFile` object to `externalPropertyFile`.
-
-    Rename the `externalizedProperty` object to `externalProperties`.
-
-    In the `run` object:
-
-    - Rename the `externalFiles` property to `externalPropertyFiles`.
-
-## Changes not yet approved
-
-- [Issue #169](https://github.com/oasis-tcs/sarif-spec/issues/169): "Decide how to handle uncommon line break characters"
-
-    In the `run` object:
-
-    - Add a `newlineSequences` property of type `string[]`, optional, default `[ "\r\n", "\n" ]`
-
-- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
-
-    In the `threadFlowLocation` object:
-
-    - Add a `kind` property of type `string[]`, optional.
-
-- [Issue #223](https://github.com/oasis-tcs/sarif-spec/issues/223): "Remove uniqueItems constraint from result.locations"
-
-    In the `result` object:
-
-    - On the `locations` property, remove the `uniqueItems` constraint.
-
 - [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
 
     In the `run` object:
@@ -1065,6 +1035,36 @@ Start of changes for CSD.2
     In the `rule` object:
 
     - Make the `id` property required.
+
+- [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties"
+
+    Rename the `externalFile` object to `externalPropertyFile`.
+
+    Rename the `externalizedProperty` object to `externalProperties`.
+
+    In the `run` object:
+
+    - Rename the `externalFiles` property to `externalPropertyFiles`.
+
+## Changes not yet approved
+
+- [Issue #169](https://github.com/oasis-tcs/sarif-spec/issues/169): "Decide how to handle uncommon line break characters"
+
+    In the `run` object:
+
+    - Add a `newlineSequences` property of type `string[]`, optional, default `[ "\r\n", "\n" ]`
+
+- [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
+
+    In the `threadFlowLocation` object:
+
+    - Add a `kind` property of type `string[]`, optional.
+
+- [Issue #223](https://github.com/oasis-tcs/sarif-spec/issues/223): "Remove uniqueItems constraint from result.locations"
+
+    In the `result` object:
+
+    - On the `locations` property, remove the `uniqueItems` constraint.
 
 - [Issue #268](https://github.com/oasis-tcs/sarif-spec/issues/268): "Add result.useful and result.suppressionReasons"
 
