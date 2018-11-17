@@ -12,8 +12,10 @@ Presented at TC Meeting #28, November 28th, 2018
 
     1. [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Introduce resultProvenance object"
 
-    I did not specify the default value we approved in TC #27, because it turned out to be more complicated than that.
-    We will revisit the issue today.
+        I did not specify the default value for `resultProvenance.lastDetectionTimeUtc` that we approved in TC #27,
+    because it turned out to be more complicated than we thought.
+    I filed new [Issue #287](https://github.com/oasis-tcs/sarif-spec/issues/287): "Define default for resultProvenance.lastDetectionTimeUtc",
+    which we'll discuss today.
 
 1. The following issues were closed without further action:
 
