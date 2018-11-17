@@ -19,6 +19,8 @@ Presented at TC Meeting #28, November 28th, 2018
     I filed new [Issue #287](https://github.com/oasis-tcs/sarif-spec/issues/287): "Define default for resultProvenance.lastDetectionTimeUtc",
     which we'll discuss today.
 
+    1. [Issue #275](https://github.com/oasis-tcs/sarif-spec/issues/275): "Specify how to store IRIs in URI-valued properties"
+
 1. The following issues were closed without further action:
 
     1. [Issue #278](https://github.com/oasis-tcs/sarif-spec/issues/256): "Should the sections be reordered?"

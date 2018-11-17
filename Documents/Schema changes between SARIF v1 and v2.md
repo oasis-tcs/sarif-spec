@@ -996,6 +996,12 @@ Start of changes for CSD.2
 
     - Add a `newlineSequences` property of type `string[]`, optional, default `[ "\r\n", "\n" ]`
 
+- [Issue #223](https://github.com/oasis-tcs/sarif-spec/issues/223): "Remove uniqueItems constraint from result.locations"
+
+    In the `result` object:
+
+    - On the `locations` property, remove the `uniqueItems` constraint.
+
 - [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
 
     In the `run` object:
@@ -1074,12 +1080,6 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Add a `kind` property of type `string[]`, optional.
-
-- [Issue #223](https://github.com/oasis-tcs/sarif-spec/issues/223): "Remove uniqueItems constraint from result.locations"
-
-    In the `result` object:
-
-    - On the `locations` property, remove the `uniqueItems` constraint.
 
 - [Issue #268](https://github.com/oasis-tcs/sarif-spec/issues/268): "Add result.useful and result.suppressionReasons"
 
