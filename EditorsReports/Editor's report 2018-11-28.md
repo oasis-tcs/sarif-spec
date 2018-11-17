@@ -10,6 +10,8 @@ Presented at TC Meeting #28, November 28th, 2018
 
     1. [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
 
+    1. [Issue #269](https://github.com/oasis-tcs/sarif-spec/issues/269): "Add optional "itemCount" property to externalPropertyFile"
+
     1. [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Introduce resultProvenance object"
 
         I did not specify the default value for `resultProvenance.lastDetectionTimeUtc` that we approved in TC #27,
