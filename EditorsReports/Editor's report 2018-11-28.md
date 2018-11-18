@@ -42,4 +42,4 @@ Presented at TC Meeting #28, November 28th, 2018
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
-    1. None
+    1. [Issue #186](https://github.com/oasis-tcs/sarif-spec/issues/186): "Ensure spec conforms to philosophy around not specifying result mgmt. behavior" -- made available on November 18th, 2018.
