@@ -1094,3 +1094,9 @@ Start of changes for CSD.2
     In the `file` object:
 
     - Rename the `fileVersion` property to `quadDottedFileVersion`.
+
+- [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation."
+
+    In the `resultProvenance` object:
+
+    - Add an `invocationIndex` property of type `integer`, optional.
