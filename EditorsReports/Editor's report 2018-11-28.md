@@ -23,11 +23,18 @@ Presented at TC Meeting #28, November 28th, 2018
 
 1. The following issues were closed without further action:
 
-    1. [Issue #278](https://github.com/oasis-tcs/sarif-spec/issues/256): "Should the sections be reordered?"
+    1. [Issue #278](https://github.com/oasis-tcs/sarif-spec/issues/278): "Should the sections be reordered?"
 
 1. I made the following changes at editorial discretion:
 
-    1. None
+    1. [Issue #277](https://github.com/oasis-tcs/sarif-spec/issues/277): "Editorial issues from Jim Kupsch"
+
+        Jim submitted a large set of proposed changes. Of the changes that are purely editorial,
+    so far I've incorporated 27 in some form, I decided against 9 of them, and
+    8 were moot because of recent spec changes.
+
+        There are still 16 more editorial suggestions not yet addressed, and a couple dozen other suggestions that might become
+    functional changes (but I'm trying not to dump them all into GitHub before reviewing them in person with Jim.) None of the suggested functional changes are large.
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
