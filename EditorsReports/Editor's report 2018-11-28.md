@@ -35,9 +35,7 @@ Presented at TC Meeting #28, November 28th, 2018
 
     1. [Issue #277](https://github.com/oasis-tcs/sarif-spec/issues/277): "Editorial issues from Jim Kupsch"
 
-        Jim submitted a large set of proposed changes. Of the changes that are purely editorial,
-    so far I've incorporated 27 in some form, I decided against 9 of them, and
-    8 were moot because of recent spec changes.
+        Jim submitted a large set of proposed changes. Of the changes that are purely editorial, so far I've incorporated 27 in some form, I decided against 9 of them, and 8 were moot because of recent spec changes.
 
         There are still 16 more editorial suggestions not yet addressed, and a couple dozen other suggestions that might become
     functional changes (but I'm trying not to dump them all into GitHub before reviewing them in person with Jim.) None of the suggested functional changes are large.
