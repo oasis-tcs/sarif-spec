@@ -23,7 +23,13 @@ Presented at TC Meeting #28, November 28th, 2018
 
 1. The following issues were closed without further action:
 
+    1. [Issue #195](https://github.com/oasis-tcs/sarif-spec/issues/195): "You should be able to omit fileLocation.uri if it matches the files dictionary property name"
+
+        This is moot because `run.files` is no longer a dictionary.
+
     1. [Issue #278](https://github.com/oasis-tcs/sarif-spec/issues/278): "Should the sections be reordered?"
+
+       This is an editorial issue raised by Jim. Michael and I discussed and we feel the current ordering approach reasonable as a whole (although we might decide to make small changes consistent with the current approach).
 
 1. I made the following changes at editorial discretion:
 
