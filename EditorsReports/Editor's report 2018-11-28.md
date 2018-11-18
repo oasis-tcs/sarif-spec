@@ -29,7 +29,13 @@ Presented at TC Meeting #28, November 28th, 2018
 
     1. [Issue #278](https://github.com/oasis-tcs/sarif-spec/issues/278): "Should the sections be reordered?"
 
-       This is an editorial issue raised by Jim. Michael and I discussed and we feel the current ordering approach reasonable as a whole (although we might decide to make small changes consistent with the current approach).
+        This is an editorial issue raised by Jim. Michael and I discussed and we feel the current ordering approach reasonable as a whole (although we might decide to make small changes consistent with the current approach).
+
+    1. [Issue #283](https://github.com/oasis-tcs/sarif-spec/issues/283): "result.message SHALL be present constraint dropped from schema"
+
+        Both the spec and the schema are correct. The spec says that _either_ `message` must be present (if the log specifies its messages "inline"), _or_ `ruleMessageId` must be present (if the log just provides a resource identifier together that locates the message string), or both.
+
+        Now even if the log file specifies a message indirectly _via_ `ruleMessageId`, you still need `message` if the resource string has any replacement sequences `{n}` that need to be filled from `message.arguments`. But if the resource string has no replacement sequences, you don't need `message` at all.
 
 1. I made the following changes at editorial discretion:
 
