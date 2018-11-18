@@ -1088,3 +1088,9 @@ Start of changes for CSD.2
     - Add a `suppressionReasons` property of type `string[]`, optional, with enumerated values `"falsePositive"`, `"unshipped"`, `"testCode"`, `"deprecated"`, `"external"`.
 
     - Add a `useful` property of type `string`, optional, with enumerated values `"useful"`, `"notUseful"`, and `"unspecified"`.
+
+- [Issue #274](https://github.com/oasis-tcs/sarif-spec/issues/274): "Rename fileVersion to dottedQuadFileVersion and specify format constraint"
+
+    In the `file` object:
+
+    - Rename the `fileVersion` property to `quadDottedFileVersion`.
