@@ -1073,6 +1073,12 @@ Start of changes for CSD.2
     - `firstDetectionRunInstanceGuid` of type `string`, optional.
     - `lastDetectionRunInstanceGuid` of type `string`, optional.
 
+- [Issue #283](https://github.com/oasis-tcs/sarif-spec/issues/283): "result.message SHALL be present constraint should be added to schema"
+
+    In the `result` object:
+
+    - Add `message` to the list of required properties.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"

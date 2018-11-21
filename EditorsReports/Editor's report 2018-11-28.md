@@ -29,7 +29,7 @@ Presented at TC Meeting #28, November 28th, 2018
 
     1. [Issue #278](https://github.com/oasis-tcs/sarif-spec/issues/278): "Should the sections be reordered?"
 
-        This is an editorial issue raised by Jim. Michael and I discussed and we feel the current ordering approach reasonable as a whole (although we might decide to make small changes consistent with the current approach).
+        This is an editorial issue raised by Jim. Michael and I discussed and we feel that he current ordering approach reasonable as a whole (although we might decide to make small changes consistent with the current approach).
 
     1. [Issue #283](https://github.com/oasis-tcs/sarif-spec/issues/283): "result.message SHALL be present constraint dropped from schema"
 
@@ -45,6 +45,16 @@ Presented at TC Meeting #28, November 28th, 2018
 
         There are still 16 more editorial suggestions not yet addressed, and a couple dozen other suggestions that might become
     functional changes (but I'm trying not to dump them all into GitHub before reviewing them in person with Jim.) None of the suggested functional changes are large.
+
+    1. [Issue #283](https://github.com/oasis-tcs/sarif-spec/issues/283): "result.message SHALL be present constraint should be added to schema"
+
+        The spec text already says:
+
+        > A `result` object **SHALL** contain a property named `message`...
+
+        It's just a bug that we neglected to mark the property `required` in the schema. The comment thread in the issue explains how this bug crept in.
+
+        I added this change to the "schema changes" document so that Michael will fix it when he updates the schema with the changes for TC <span>#</span>28.
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
