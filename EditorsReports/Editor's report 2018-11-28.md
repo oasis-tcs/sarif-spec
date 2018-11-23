@@ -56,6 +56,10 @@ Presented at TC Meeting #28, November 28th, 2018
 
         I added this change to the "schema changes" document so that Michael will fix it when he updates the schema with the changes for TC <span>#</span>28.
 
+    1. [Issue #290](https://github.com/oasis-tcs/sarif-spec/issues/290): "Add registered trademarks as appropriate"
+
+        Microsoft Windows &reg;, Linux &reg;, and Unix &reg; are all registered trademarks. Mark them as such in the text.
+
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #186](https://github.com/oasis-tcs/sarif-spec/issues/186): "Ensure spec conforms to philosophy around not specifying result mgmt. behavior" -- made available on November 18th, 2018.
