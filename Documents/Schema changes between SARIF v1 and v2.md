@@ -1101,6 +1101,13 @@ Start of changes for CSD.2
 
     - Rename the `fileVersion` property to `quadDottedFileVersion`.
 
+- [Issue #279](https://github.com/oasis-tcs/sarif-spec/issues/279): "logicalLocation.kind: remove "package" and "function""
+
+    In the `logicalLocation` object:
+
+    - Modify the _comment_ on the `kind` property to remove mention of `"package"` and `"function"`.
+    (The property is a `string`, not an `enum`, so only the comment needs to change.)
+
 - [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation."
 
     In the `resultProvenance` object:
