@@ -994,7 +994,7 @@ Start of changes for CSD.2
 
     In the `run` object:
 
-    - Add a `newlineSequences` property of type `string[]`, optional, default `[ "\r\n", "\n" ]`
+    - Add a `newlineSequences` property of type `string[]`, optional, minItems: 1, default `[ "\r\n", "\n" ]`
 
 - [Issue #223](https://github.com/oasis-tcs/sarif-spec/issues/223): "Remove uniqueItems constraint from result.locations"
 
