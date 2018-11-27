@@ -1108,6 +1108,12 @@ Start of changes for CSD.2
     - Modify the _comment_ on the `kind` property to remove mention of `"package"` and `"function"`.
     (The property is a `string`, not an `enum`, so only the comment needs to change.)
 
+- [Issue #280](https://github.com/oasis-tcs/sarif-spec/issues/280): "Provide optional result.rank value of 0.0 to 100.0" -- made available on November 26th, 2018.
+
+    In the `result` object:
+
+    - Add a `rank` property of type `number`, `optional`, `minValue: 0.0`, `maxValue: 100.0`.
+
 - [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation."
 
     In the `resultProvenance` object:

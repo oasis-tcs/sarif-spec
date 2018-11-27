@@ -68,6 +68,8 @@ Presented at TC Meeting #28, November 28th, 2018
 
     1. [Issue #279](https://github.com/oasis-tcs/sarif-spec/issues/279): "logicalLocation.kind: remove "package" and "function"" -- made available on November 24th, 2018.
 
+    1. [Issue #280](https://github.com/oasis-tcs/sarif-spec/issues/280): "Provide optional result.rank value of 0.0 to 100.0" -- made available on November 26th, 2018.
+
     1. [Issue #284](https://github.com/oasis-tcs/sarif-spec/issues/284): "baselineState s/be present on all results or none" -- made available on November 21st, 2018.
 
     1. [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation." -- made available on November 18th, 2018.
