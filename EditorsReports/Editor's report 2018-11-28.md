@@ -84,3 +84,7 @@ Presented at TC Meeting #28, November 28th, 2018
     1. [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation." -- made available on November 18th, 2018.
 
     1. [Issue #288](https://github.com/oasis-tcs/sarif-spec/issues/288): "ruleConfiguration.defaultLevel should not contain an 'open' value" -- made available on November 21st, 2018.
+
+1. The formal spec language for the following issues was made available for review on the specified dates. If a motion to amend the agenda is approved, we will move their adoption in today's meeting:
+
+    1. [Issue #188](https://github.com/oasis-tcs/sarif-spec/issues/188): "Consider specifying an implied default value when columnKind is missing" -- made available on November 27th, 2018.

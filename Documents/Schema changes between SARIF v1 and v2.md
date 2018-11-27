@@ -1081,6 +1081,12 @@ Start of changes for CSD.2
 
 ## Changes not yet approved
 
+- [Issue #188](https://github.com/oasis-tcs/sarif-spec/issues/188): "Consider specifying an implied default value when columnKind is missing"
+
+    In the `run` object:
+
+    - Specify `unicodeCodePoints` as the default for `columnKind`.
+
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
 
     In the `threadFlowLocation` object:
