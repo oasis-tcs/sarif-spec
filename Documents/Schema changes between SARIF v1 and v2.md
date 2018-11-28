@@ -996,6 +996,12 @@ Start of changes for CSD.2
 
     - Add a `newlineSequences` property of type `string[]`, optional, minItems: 1, default `[ "\r\n", "\n" ]`
 
+- [Issue #188](https://github.com/oasis-tcs/sarif-spec/issues/188): "Consider specifying an implied default value when columnKind is missing"
+
+    In the `run` object:
+
+    - Specify `unicodeCodePoints` as the default for `columnKind`.
+
 - [Issue #223](https://github.com/oasis-tcs/sarif-spec/issues/223): "Remove uniqueItems constraint from result.locations"
 
     In the `result` object:
@@ -1080,12 +1086,6 @@ Start of changes for CSD.2
     - Add `message` to the list of required properties.
 
 ## Changes not yet approved
-
-- [Issue #188](https://github.com/oasis-tcs/sarif-spec/issues/188): "Consider specifying an implied default value when columnKind is missing"
-
-    In the `run` object:
-
-    - Specify `unicodeCodePoints` as the default for `columnKind`.
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
 
