@@ -1085,6 +1085,13 @@ Start of changes for CSD.2
 
     - Rename the `fileVersion` property to `dottedQuadFileVersion`.
 
+- [Issue #279](https://github.com/oasis-tcs/sarif-spec/issues/279): "logicalLocation.kind: remove 'package'"
+
+    In the `logicalLocation` object:
+
+    - Modify the _comment_ on the `kind` property to remove mention of `"package"`.
+    (The property is a `string`, not an `enum`, so only the comment needs to change.)
+
 - [Issue #280](https://github.com/oasis-tcs/sarif-spec/issues/280): "Provide optional result.rank value of 0.0 to 100.0"
 
     In the `result` object:
@@ -1128,10 +1135,3 @@ Start of changes for CSD.2
     - Add a `suppressionReasons` property of type `string[]`, optional, with enumerated values `"falsePositive"`, `"unshipped"`, `"testCode"`, `"deprecated"`, `"external"`.
 
     - Add a `useful` property of type `string`, optional, with enumerated values `"useful"`, `"notUseful"`, and `"unspecified"`.
-
-- [Issue #279](https://github.com/oasis-tcs/sarif-spec/issues/279): "logicalLocation.kind: remove "package" and "function""
-
-    In the `logicalLocation` object:
-
-    - Modify the _comment_ on the `kind` property to remove mention of `"package"` and `"function"`.
-    (The property is a `string`, not an `enum`, so only the comment needs to change.)
