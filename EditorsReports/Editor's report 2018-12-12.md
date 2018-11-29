@@ -11,3 +11,5 @@ Presented at TC Meeting #29, December 12th, 2018
     1. [Issue #188](https://github.com/oasis-tcs/sarif-spec/issues/188): "Specify a default value for columnKind"
 
     1. [Issue #280](https://github.com/oasis-tcs/sarif-spec/issues/280): "Provide optional result.rank value of 0.0 to 100.0"
+
+    1. [Issue #288](https://github.com/oasis-tcs/sarif-spec/issues/288): "ruleConfiguration.defaultLevel should not contain an 'open' value"

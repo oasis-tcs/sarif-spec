@@ -1095,6 +1095,12 @@ Start of changes for CSD.2
 
     - Add `message` to the list of required properties.
 
+- [Issue #288](https://github.com/oasis-tcs/sarif-spec/issues/288): "ruleConfiguration.defaultLevel should not contain an 'open' value"
+
+    In the `ruleConfiguration` object:
+
+    - Remove the value `"open"` from the `enum` on the `defaultLevel` property.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
@@ -1129,9 +1135,3 @@ Start of changes for CSD.2
     In the `resultProvenance` object:
 
     - Add an `invocationIndex` property of type `integer`, optional.
-
-- [Issue #288](https://github.com/oasis-tcs/sarif-spec/issues/288): "ruleConfiguration.defaultLevel should not contain an 'open' value"
-
-    In the `ruleConfiguration` object:
-
-    - Remove the value `"open"` from the `enum` on the `defaultLevel` property.
