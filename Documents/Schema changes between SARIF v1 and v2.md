@@ -1079,6 +1079,12 @@ Start of changes for CSD.2
     - `firstDetectionRunInstanceGuid` of type `string`, optional.
     - `lastDetectionRunInstanceGuid` of type `string`, optional.
 
+- [Issue #274](https://github.com/oasis-tcs/sarif-spec/issues/274): "Rename fileVersion to dottedQuadFileVersion and specify format constraint"
+
+    In the `file` object:
+
+    - Rename the `fileVersion` property to `dottedQuadFileVersion`.
+
 - [Issue #280](https://github.com/oasis-tcs/sarif-spec/issues/280): "Provide optional result.rank value of 0.0 to 100.0"
 
     In the `result` object:
@@ -1122,12 +1128,6 @@ Start of changes for CSD.2
     - Add a `suppressionReasons` property of type `string[]`, optional, with enumerated values `"falsePositive"`, `"unshipped"`, `"testCode"`, `"deprecated"`, `"external"`.
 
     - Add a `useful` property of type `string`, optional, with enumerated values `"useful"`, `"notUseful"`, and `"unspecified"`.
-
-- [Issue #274](https://github.com/oasis-tcs/sarif-spec/issues/274): "Rename fileVersion to dottedQuadFileVersion and specify format constraint"
-
-    In the `file` object:
-
-    - Rename the `fileVersion` property to `quadDottedFileVersion`.
 
 - [Issue #279](https://github.com/oasis-tcs/sarif-spec/issues/279): "logicalLocation.kind: remove "package" and "function""
 
