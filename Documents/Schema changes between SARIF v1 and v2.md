@@ -1095,6 +1095,12 @@ Start of changes for CSD.2
 
     - Add `message` to the list of required properties.
 
+- [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation."
+
+    In the `resultProvenance` object:
+
+    - Add an `invocationIndex` property of type `integer`, optional.
+
 - [Issue #288](https://github.com/oasis-tcs/sarif-spec/issues/288): "ruleConfiguration.defaultLevel should not contain an 'open' value"
 
     In the `ruleConfiguration` object:
@@ -1129,9 +1135,3 @@ Start of changes for CSD.2
 
     - Modify the _comment_ on the `kind` property to remove mention of `"package"` and `"function"`.
     (The property is a `string`, not an `enum`, so only the comment needs to change.)
-
-- [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation."
-
-    In the `resultProvenance` object:
-
-    - Add an `invocationIndex` property of type `integer`, optional.
