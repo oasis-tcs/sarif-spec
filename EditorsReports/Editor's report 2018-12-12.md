@@ -53,3 +53,9 @@ Presented at TC Meeting #29, December 12th, 2018
     1. [Issue #261](https://github.com/oasis-tcs/sarif-spec/issues/261): "Explore static text for clickthrough links"
 
         Nobody has strongly advocated for this.
+
+1. I made the following changes at editorial discretion:
+
+    1. [Issue #295](https://github.com/oasis-tcs/sarif-spec/issues/295): "Fix mistakes in Appendix I samples."
+
+        Paul found several errors in the samples. Thanks!
