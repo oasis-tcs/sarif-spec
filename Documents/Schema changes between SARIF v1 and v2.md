@@ -1139,3 +1139,9 @@ Start of changes for CSD.2
 - [Issue #270](https://github.com/oasis-tcs/sarif-spec/issues/270): "Schema needs to be carefully scrubbed for minItems and uniqueItems use for all arrays"
 
     To bring the schema into conformance with this issue, ensure that the attributes of each array-valued property match the [table](https://github.com/oasis-tcs/sarif-spec/issues/270#issuecomment-443353144) in the issue.
+
+- [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
+
+    In the `rule` object:
+
+    - Add a `deprecatedIds` property of type `string[]`, optional, `minItems: 0`, `uniqueItems`.

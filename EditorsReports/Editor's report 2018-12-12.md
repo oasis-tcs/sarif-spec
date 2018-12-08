@@ -63,3 +63,5 @@ Presented at TC Meeting #29, December 12th, 2018
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #270](https://github.com/oasis-tcs/sarif-spec/issues/270): "Schema needs to be carefully scrubbed for minItems and uniqueItems use for all arrays" -- made available on December 4th, 2018.
+
+    1. [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds" -- made available on December 7th, 2018.
