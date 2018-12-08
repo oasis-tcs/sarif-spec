@@ -60,6 +60,12 @@ Presented at TC Meeting #29, December 12th, 2018
 
         Paul found several errors in the samples. Thanks!
 
+1. The following issue was closed with a schema change that did not affect the spec or the object model:
+
+    1. [Issue #151](https://github.com/oasis-tcs/sarif-spec/issues/151): "DRY out definitions of property bags in the schema"
+
+        Rather than repeating the definition of the property bag on every object in the schema, we define it once and refer to the definition from every object.
+
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #270](https://github.com/oasis-tcs/sarif-spec/issues/270): "Schema needs to be carefully scrubbed for minItems and uniqueItems use for all arrays" -- made available on December 4th, 2018.
