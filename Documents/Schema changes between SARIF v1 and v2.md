@@ -1140,6 +1140,13 @@ Start of changes for CSD.2
 
     To bring the schema into conformance with this issue, ensure that the attributes of each array-valued property match the [table](https://github.com/oasis-tcs/sarif-spec/issues/270#issuecomment-443353144) in the issue.
 
+- [Issue #287](https://github.com/oasis-tcs/sarif-spec/issues/287): "Define default for resultProvenance.lastDetectionTimeUtc"
+
+    In the `run` object:
+
+    - Add a property `startTimeUtc` of type `string` in `date-time` format, optional.
+    - Add a property `endTimeUtc` of type `string` in `date-time` format, optional.
+
 - [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
 
     In the `rule` object:
