@@ -68,6 +68,8 @@ Presented at TC Meeting #29, December 12th, 2018
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
+    1. [Issue #248](https://github.com/oasis-tcs/sarif-spec/issues/248): "Version control details not strongly associated with results" -- made available on December 9th, 2018.
+
     1. [Issue #270](https://github.com/oasis-tcs/sarif-spec/issues/270): "Schema needs to be carefully scrubbed for minItems and uniqueItems use for all arrays" -- made available on December 4th, 2018.
 
     1. [Issue #287](https://github.com/oasis-tcs/sarif-spec/issues/287): "Define default for resultProvenance.lastDetectionTimeUtc" -- made available on December 9th, 2018.

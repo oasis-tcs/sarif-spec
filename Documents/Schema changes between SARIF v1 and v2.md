@@ -1128,6 +1128,12 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type `string[]`, optional.
 
+- [Issue #248](https://github.com/oasis-tcs/sarif-spec/issues/248): "Version control details not strongly associated with results"
+
+    In the `versionControlDetails` object:
+
+    - Add a `mappedTo` property of type `fileLocation`, optional.
+
 - [Issue #268](https://github.com/oasis-tcs/sarif-spec/issues/268): "Add result.useful and result.suppressionReasons"
 
     In the `result` object:
