@@ -1171,3 +1171,14 @@ Start of changes for CSD.2
     In the `rule` object:
 
     - Add a `deprecatedIds` property of type `string[]`, optional, `minItems: 0`, `uniqueItems`.
+
+- [Issue #297](https://github.com/oasis-tcs/sarif-spec/issues/297): "Move conversionProvenance under result.provenance"
+
+    In the `result` object:
+
+    - Rename the `resultProvenance` property to `provenance`.
+    - Remove the `conversionProvenance` property.
+
+    In the `resultProvenance` object:
+
+    - Add a `conversionSources` property of type `physicalLocation[]`, optional, unique, default: `[]` (logically the same as the old `result.conversionProvenance`).
