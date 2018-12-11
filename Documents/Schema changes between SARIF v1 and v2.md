@@ -1146,6 +1146,16 @@ Start of changes for CSD.2
 
     To bring the schema into conformance with this issue, ensure that the attributes of each array-valued property match the [table](https://github.com/oasis-tcs/sarif-spec/issues/270#issuecomment-443353144) in the issue.
 
+- [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
+
+    In the `file` object:
+
+    - Add a `sourceLanguage` property of type `string`, optional.
+
+    In the `run` object:
+
+    - Add a `defaultSourceLanguage` property of type `string`, optional.
+
 - [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
 
     In the `rule` object:
