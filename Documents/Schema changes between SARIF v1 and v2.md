@@ -1156,6 +1156,16 @@ Start of changes for CSD.2
 
     - Add a `defaultSourceLanguage` property of type `string`, optional.
 
+- [Issue #292](https://github.com/oasis-tcs/sarif-spec/issues/292): "Specify a default for result.rank"
+
+    In the `ruleConfiguration` object:
+
+    - Specify a default of `0.0` for `defaultRank`.
+
+    In the `result` object:
+
+    - Specify a default of `0.0` for `rank`.
+
 - [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
 
     In the `rule` object:
