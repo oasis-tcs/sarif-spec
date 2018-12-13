@@ -15,3 +15,5 @@ Presented at TC Meeting #30, January 9th, 2019
     1. [Issue #292](https://github.com/oasis-tcs/sarif-spec/issues/292): "Specify a default for result.rank"
 
     1. [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
+
+    1. [Issue #297](https://github.com/oasis-tcs/sarif-spec/issues/297): "Move conversionProvenance under result.provenance"
