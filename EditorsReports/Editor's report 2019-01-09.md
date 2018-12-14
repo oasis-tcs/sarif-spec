@@ -20,7 +20,11 @@ Presented at TC Meeting #30, January 9th, 2019
 
 1. I made the following changes at editorial discretion:
 
+    1. [Issue #296](https://github.com/oasis-tcs/sarif-spec/issues/296): "Editorial: change examples from 'Code small' to 'Code' wherever possible"
+
+        For readability.
+
     1. [Issue #299](https://github.com/oasis-tcs/sarif-spec/issues/299): "Constraint on locations"
 
-    The spec said that `location` had to have at least one of `fullyQualifiedLogicalName` or `logicalLocationIndex`.
-    That's only true if the `location` object specifies logical location information, so say that.
+        The spec said that `location` had to have at least one of `fullyQualifiedLogicalName` or `logicalLocationIndex`.
+        That's only true if the `location` object specifies logical location information, so say that.
