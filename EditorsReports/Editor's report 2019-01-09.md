@@ -28,3 +28,7 @@ Presented at TC Meeting #30, January 9th, 2019
 
         The spec said that `location` had to have at least one of `fullyQualifiedLogicalName` or `logicalLocationIndex`.
         That's only true if the `location` object specifies logical location information, so say that.
+
+1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
+
+    1. [Issue #298](https://github.com/oasis-tcs/sarif-spec/issues/298): "Only 'index' properties should be used for array lookup" -- made available on December 14th, 2018.
