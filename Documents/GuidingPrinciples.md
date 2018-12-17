@@ -1,4 +1,6 @@
 
+# Principles related to fitness for purpose
+
 1. The primary purpose of SARIF is to enable low cost development of rich functionality (viewers, work item filers, etc.) that operates against a broad range of SARIF producers. A key design principle for all SARIF properties, therefore, is that any proposed data should be clearly useful in a consumption scenario.
 
 2. As an important but secondary concern, SARIF is designed to allow the output of existing tools to be normalized to a common format. In order to support the ability for consumers to process, display, etc., this information in an appropriate and consistent way, it must be possible to normalize any proposed SARIF data to a common form.
@@ -13,6 +15,16 @@
 
 7. The SARIF design is focused on expressing results as produced by a tool at a specific point-in-time and current excludes detailed thinking related to results management (associated result work item, false positive evaluation, etc.). These concepts may be addressed by defining or proposing 'profiles' that broaden SARIF's design surface area, contingent on progress with core work.
 
+# Principles related to ease of production and consumption
+
 8. In cases where SARIF permits the same information to be expressed in more than one way, any or all of those representations may be present. This allows producers to persist all the information they have, and it allows consumers to choose the representation they prefer. SARIF requires all the representations to be consistent.
 
     Example: SARIF allows you to specify the start of a `region` either with the `startLine` and `startColumn` properties, or with the `offset` property. It's ok for both to be present, as long as they're consistent.
+
+9. In cases where it might help producers to provide valid property values, property names may specify their format, for example, `workItemUris`, `startTimeUtc`, and `instanceGuid`.
+
+10. In cases where the a composite property (an array or an object) can legally be empty, SARIF allows a producer to either to emit an empty array or object, or to omit the property (even though including it would make the log file larger).
+
+# Principles related to readability
+
+9. Property names are long enough to be understandable, for example `conversionSources` as opposed to `convSrcs`.
