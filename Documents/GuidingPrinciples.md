@@ -25,6 +25,16 @@
 
 10. In cases where the a composite property (an array or an object) can legally be empty, SARIF allows a producer to either to emit an empty array or object, or to omit the property (even though including it would make the log file larger).
 
-# Principles related to readability
+# Principles related to compactness and readability
 
-9. Property names are long enough to be understandable, for example `conversionSources` as opposed to `convSrcs`.
+10. Compactness is not an explicit design goal for the JSON serialization of SARIF.
+    In general, readability and ease of production and consumption take precedence over compactness.
+    Future serializations might have compactness as a goal.
+
+11. Property names are long enough to be understandable, for example `conversionSources` as opposed to `convSrcs`.
+
+13. Notwithstanding, if a property is potentially repeated on a large number of similar objects, a default value should be specified at a higher level. For example: 
+    - The same file might be mentioned in many `physicalLocation` objects in many `result` objects.
+    The properties of the file, such as its encoding and its MIME type, are specified in a single `file` object stored in `run.files`.
+    - The same analysis rule might be mentioned in many `result` objects.
+    The properties of the rule, such as its default severity and its description, are specified in a single `rule` object stored in `run.resources.rules`.
