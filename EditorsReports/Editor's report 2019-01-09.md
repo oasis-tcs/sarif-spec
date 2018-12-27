@@ -29,6 +29,10 @@ Presented at TC Meeting #30, January 9th, 2019
         The spec said that `location` had to have at least one of `fullyQualifiedLogicalName` or `logicalLocationIndex`.
         That's only true if the `location` object specifies logical location information, so say that.
 
+    1. Clarified condition for when `fileLocation.fileIndex` can be present by adding the phrase in italics:
+
+        > If the containing `run` object (§3.13) contains a `files` property (§3.13.11) _and the `files` array contains a `file` object (§3.21) that describes the file specified by this `fileLocation` object_, then the `fileLocation` object **SHOULD** contain a property named `fileIndex`...
+
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
     1. [Issue #298](https://github.com/oasis-tcs/sarif-spec/issues/298): "Only 'index' properties should be used for array lookup" -- made available on December 14th, 2018.
