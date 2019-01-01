@@ -988,8 +988,6 @@ Start of changes for CSD.2
 
     - Add a `hostedViewerUri` property of type `string` in `uri` format, optional.
 
-## Changes approved but not yet applied to the schema.
-
 - [Issue #169](https://github.com/oasis-tcs/sarif-spec/issues/169): "Decide how to handle uncommon line break characters"
 
     In the `run` object:
@@ -1007,6 +1005,53 @@ Start of changes for CSD.2
     In the `result` object:
 
     - On the `locations` property, remove the `uniqueItems` constraint.
+
+- [Issue #274](https://github.com/oasis-tcs/sarif-spec/issues/274): "Rename fileVersion to dottedQuadFileVersion and specify format constraint"
+
+    In the `file` object:
+
+    - Rename the `fileVersion` property to `dottedQuadFileVersion`.
+
+- [Issue #279](https://github.com/oasis-tcs/sarif-spec/issues/279): "logicalLocation.kind: remove 'package'"
+
+    In the `logicalLocation` object:
+
+    - Modify the _comment_ on the `kind` property to remove mention of `"package"`.
+    (The property is a `string`, not an `enum`, so only the comment needs to change.)
+
+- [Issue #280](https://github.com/oasis-tcs/sarif-spec/issues/280): "Provide optional result.rank value of 0.0 to 100.0"
+
+    In the `result` object:
+
+    - Add a `rank` property of type `number`, `optional`, `minValue: 0.0`, `maxValue: 100.0`.
+
+    In the `ruleConfiguration` object:
+
+    - Add a `defaultRank` property of type `number`, `optional`, `minValue: 0.0`, `maxValue: 100.0`.
+
+- [Issue #283](https://github.com/oasis-tcs/sarif-spec/issues/283): "result.message SHALL be present constraint should be added to schema"
+
+    In the `result` object:
+
+    - Add `message` to the list of required properties.
+
+- [Issue #288](https://github.com/oasis-tcs/sarif-spec/issues/288): "ruleConfiguration.defaultLevel should not contain an 'open' value"
+
+    In the `ruleConfiguration` object:
+
+    - Remove the value `"open"` from the `enum` on the `defaultLevel` property.
+
+- [Issue #292](https://github.com/oasis-tcs/sarif-spec/issues/292): "Specify a default for result.rank"
+
+    In the `ruleConfiguration` object:
+
+    - Specify a default of `0.0` for `defaultRank`.
+
+    In the `result` object:
+
+    - Specify a default of `0.0` for `rank`.
+
+## Changes approved but not yet applied to the schema.
 
 - [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
 
@@ -1079,46 +1124,11 @@ Start of changes for CSD.2
     - `firstDetectionRunInstanceGuid` of type `string`, optional.
     - `lastDetectionRunInstanceGuid` of type `string`, optional.
 
-- [Issue #274](https://github.com/oasis-tcs/sarif-spec/issues/274): "Rename fileVersion to dottedQuadFileVersion and specify format constraint"
-
-    In the `file` object:
-
-    - Rename the `fileVersion` property to `dottedQuadFileVersion`.
-
-- [Issue #279](https://github.com/oasis-tcs/sarif-spec/issues/279): "logicalLocation.kind: remove 'package'"
-
-    In the `logicalLocation` object:
-
-    - Modify the _comment_ on the `kind` property to remove mention of `"package"`.
-    (The property is a `string`, not an `enum`, so only the comment needs to change.)
-
-- [Issue #280](https://github.com/oasis-tcs/sarif-spec/issues/280): "Provide optional result.rank value of 0.0 to 100.0"
-
-    In the `result` object:
-
-    - Add a `rank` property of type `number`, `optional`, `minValue: 0.0`, `maxValue: 100.0`.
-
-    In the `ruleConfiguration` object:
-
-    - Add a `defaultRank` property of type `number`, `optional`, `minValue: 0.0`, `maxValue: 100.0`.
-
-- [Issue #283](https://github.com/oasis-tcs/sarif-spec/issues/283): "result.message SHALL be present constraint should be added to schema"
-
-    In the `result` object:
-
-    - Add `message` to the list of required properties.
-
 - [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation."
 
     In the `resultProvenance` object:
 
     - Add an `invocationIndex` property of type `integer`, optional.
-
-- [Issue #288](https://github.com/oasis-tcs/sarif-spec/issues/288): "ruleConfiguration.defaultLevel should not contain an 'open' value"
-
-    In the `ruleConfiguration` object:
-
-    - Remove the value `"open"` from the `enum` on the `defaultLevel` property.
 
 ## Changes not yet approved
 
@@ -1155,16 +1165,6 @@ Start of changes for CSD.2
     In the `run` object:
 
     - Add a `defaultSourceLanguage` property of type `string`, optional.
-
-- [Issue #292](https://github.com/oasis-tcs/sarif-spec/issues/292): "Specify a default for result.rank"
-
-    In the `ruleConfiguration` object:
-
-    - Specify a default of `0.0` for `defaultRank`.
-
-    In the `result` object:
-
-    - Specify a default of `0.0` for `rank`.
 
 - [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
 
