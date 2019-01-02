@@ -1051,6 +1051,48 @@ Start of changes for CSD.2
 
     - Specify a default of `0.0` for `rank`.
 
+- [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties"
+
+    Rename the `externalFile` object to `externalPropertyFile`.
+
+    Rename the `externalizedProperty` object to `externalProperties`.
+
+    In the `run` object:
+
+    - Rename the `externalFiles` property to `externalPropertyFiles`.
+
+- [Issue #269](https://github.com/oasis-tcs/sarif-spec/issues/269): "Add optional "itemCount" property to externalPropertyFile"
+
+    In the `externalPropertyFile` object:
+
+    - Add an `itemCount` property of type `integer`, `minValue: 1`, optional.
+
+- [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Request: provide 'first seen' timestamp for results"
+
+    Define the `resultProvenance` object with the following properties:
+
+    - `firstDetectionTimeUtc` of type `string` in `date-time` format, optional.
+    - `lastDetectionTimeUtc` of type `string` in `date-time` format, optional.
+    - `firstDetectionRunInstanceGuid` of type `string`, optional.
+    - `lastDetectionRunInstanceGuid` of type `string`, optional.
+
+- [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation."
+
+    In the `resultProvenance` object:
+
+    - Add an `invocationIndex` property of type `integer`, optional.
+
+- [Issue #297](https://github.com/oasis-tcs/sarif-spec/issues/297): "Move conversionProvenance under result.provenance"
+
+    In the `result` object:
+
+    - Rename the `resultProvenance` property to `provenance`.
+    - Remove the `conversionProvenance` property.
+
+    In the `resultProvenance` object:
+
+    - Add a `conversionSources` property of type `physicalLocation[]`, optional, unique, default: `[]` (logically the same as the old `result.conversionProvenance`).
+
 ## Changes approved but not yet applied to the schema.
 
 - [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
@@ -1099,36 +1141,17 @@ Start of changes for CSD.2
 
     - Make the `id` property required.
 
-- [Issue #267](https://github.com/oasis-tcs/sarif-spec/issues/267): "Allow an external file to contain multiple properties"
+- [Issue #248](https://github.com/oasis-tcs/sarif-spec/issues/248): "Version control details not strongly associated with results"
 
-    Rename the `externalFile` object to `externalPropertyFile`.
+    In the `versionControlDetails` object:
 
-    Rename the `externalizedProperty` object to `externalProperties`.
+    - Add a `mappedTo` property of type `fileLocation`, optional.
 
-    In the `run` object:
+- [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
 
-    - Rename the `externalFiles` property to `externalPropertyFiles`.
+    In the `rule` object:
 
-- [Issue #269](https://github.com/oasis-tcs/sarif-spec/issues/269): "Add optional "itemCount" property to externalPropertyFile"
-
-    In the `externalPropertyFile` object:
-
-    - Add an `itemCount` property of type `integer`, `minValue: 1`, optional.
-
-- [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Request: provide 'first seen' timestamp for results"
-
-    Define the `resultProvenance` object with the following properties:
-
-    - `firstDetectionTimeUtc` of type `string` in `date-time` format, optional.
-    - `lastDetectionTimeUtc` of type `string` in `date-time` format, optional.
-    - `firstDetectionRunInstanceGuid` of type `string`, optional.
-    - `lastDetectionRunInstanceGuid` of type `string`, optional.
-
-- [Issue #285](https://github.com/oasis-tcs/sarif-spec/issues/285): "Provide a mechanism to associate a result with an invocation."
-
-    In the `resultProvenance` object:
-
-    - Add an `invocationIndex` property of type `integer`, optional.
+    - Add a `deprecatedIds` property of type `string[]`, optional, `minItems: 0`, `uniqueItems`.
 
 ## Changes not yet approved
 
@@ -1137,12 +1160,6 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Add a `kind` property of type `string[]`, optional.
-
-- [Issue #248](https://github.com/oasis-tcs/sarif-spec/issues/248): "Version control details not strongly associated with results"
-
-    In the `versionControlDetails` object:
-
-    - Add a `mappedTo` property of type `fileLocation`, optional.
 
 - [Issue #268](https://github.com/oasis-tcs/sarif-spec/issues/268): "Add result.useful and result.suppressionReasons"
 
@@ -1165,20 +1182,3 @@ Start of changes for CSD.2
     In the `run` object:
 
     - Add a `defaultSourceLanguage` property of type `string`, optional.
-
-- [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
-
-    In the `rule` object:
-
-    - Add a `deprecatedIds` property of type `string[]`, optional, `minItems: 0`, `uniqueItems`.
-
-- [Issue #297](https://github.com/oasis-tcs/sarif-spec/issues/297): "Move conversionProvenance under result.provenance"
-
-    In the `result` object:
-
-    - Rename the `resultProvenance` property to `provenance`.
-    - Remove the `conversionProvenance` property.
-
-    In the `resultProvenance` object:
-
-    - Add a `conversionSources` property of type `physicalLocation[]`, optional, unique, default: `[]` (logically the same as the old `result.conversionProvenance`).
