@@ -1175,6 +1175,10 @@ Start of changes for CSD.2
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
 
+    In the `region` object:
+
+    - Add a `sourceLanguage` property of type `string`, optional.
+
     In the `file` object:
 
     - Add a `sourceLanguage` property of type `string`, optional.

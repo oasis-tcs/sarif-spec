@@ -35,4 +35,8 @@ Presented at TC Meeting #30, January 9th, 2019
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
+    1. [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide syntax-driven colorization of snippets" -- made available on January 3rd, 2019.
+
+    Incorporate feedback from TC #29. Add `region.sourceLanguage` to support multi-language files.
+
     1. [Issue #298](https://github.com/oasis-tcs/sarif-spec/issues/298): "Only 'index' properties should be used for array lookup" -- made available on December 14th, 2018.
