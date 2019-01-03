@@ -1093,6 +1093,22 @@ Start of changes for CSD.2
 
     - Add a `conversionSources` property of type `physicalLocation[]`, optional, unique, default: `[]` (logically the same as the old `result.conversionProvenance`).
 
+- [Issue #248](https://github.com/oasis-tcs/sarif-spec/issues/248): "Version control details not strongly associated with results"
+
+    In the `versionControlDetails` object:
+
+    - Add a `mappedTo` property of type `fileLocation`, optional.
+
+- [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
+
+    In the `rule` object:
+
+    - Add a `deprecatedIds` property of type `string[]`, optional, `minItems: 0`, `uniqueItems`.
+
+- [Issue #270](https://github.com/oasis-tcs/sarif-spec/issues/270): "Schema needs to be carefully scrubbed for minItems and uniqueItems use for all arrays"
+
+    To bring the schema into conformance with this issue, ensure that the attributes of each array-valued property match the [table](https://github.com/oasis-tcs/sarif-spec/issues/270#issuecomment-443353144) in the issue.
+
 ## Changes approved but not yet applied to the schema.
 
 - [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
@@ -1140,22 +1156,6 @@ Start of changes for CSD.2
     In the `rule` object:
 
     - Make the `id` property required.
-
-- [Issue #248](https://github.com/oasis-tcs/sarif-spec/issues/248): "Version control details not strongly associated with results"
-
-    In the `versionControlDetails` object:
-
-    - Add a `mappedTo` property of type `fileLocation`, optional.
-
-- [Issue #293](https://github.com/oasis-tcs/sarif-spec/issues/293): "Add rule.deprecatedIds"
-
-    In the `rule` object:
-
-    - Add a `deprecatedIds` property of type `string[]`, optional, `minItems: 0`, `uniqueItems`.
-
-- [Issue #270](https://github.com/oasis-tcs/sarif-spec/issues/270): "Schema needs to be carefully scrubbed for minItems and uniqueItems use for all arrays"
-
-    To bring the schema into conformance with this issue, ensure that the attributes of each array-valued property match the [table](https://github.com/oasis-tcs/sarif-spec/issues/270#issuecomment-443353144) in the issue.
 
 ## Changes not yet approved
 
