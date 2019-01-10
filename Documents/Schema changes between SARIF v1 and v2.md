@@ -1157,6 +1157,22 @@ Start of changes for CSD.2
 
     - Make the `id` property required.
 
+- [Issue #303](https://github.com/oasis-tcs/sarif-spec/issues/303): "Change defaults for result.rank and ruleConfiguration.defaultRank to -1"
+
+    In the `result` object:
+
+    - Change the default value of the `rank` property to `-1.0`.
+
+    In the `ruleConfiguration` object:
+
+    - Change the default value of the `defaultRank` property to `-1.0`.
+
+- [Issue #304](https://github.com/oasis-tcs/sarif-spec/issues/304): "run.logicalLocations unique s/be 'true'"
+
+    In the `run` object:
+
+    - On the `logicalLocations` property, add the `uniqueItems` constraint.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
