@@ -13,3 +13,7 @@ Presented at TC Meeting #31, January 24th-25th, 2019
     1. [Issue #303](https://github.com/oasis-tcs/sarif-spec/issues/303): "Change defaults for result.rank and ruleConfiguration.defaultRank to -1"
 
     1. [Issue #304](https://github.com/oasis-tcs/sarif-spec/issues/304): "run.logicalLocations unique s/be 'true'"
+
+1. The formal spec language for the following issues was made available for review, and we will move their adoption in today's meeting:
+
+    1. [Issue #306](https://github.com/oasis-tcs/sarif-spec/issues/306): "originalUriBaseId object's values are directory locations not file locations"
