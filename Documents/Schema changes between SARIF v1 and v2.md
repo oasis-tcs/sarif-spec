@@ -1109,8 +1109,6 @@ Start of changes for CSD.2
 
     To bring the schema into conformance with this issue, ensure that the attributes of each array-valued property match the [table](https://github.com/oasis-tcs/sarif-spec/issues/270#issuecomment-443353144) in the issue.
 
-## Changes approved but not yet applied to the schema.
-
 - [Issue #256](https://github.com/oasis-tcs/sarif-spec/issues/256): "Make Run.Files an array"
 
     In the `run` object:
@@ -1173,6 +1171,8 @@ Start of changes for CSD.2
 
     - On the `logicalLocations` property, add the `uniqueItems` constraint.
 
+## Changes approved but not yet applied to the schema.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
@@ -1202,3 +1202,11 @@ Start of changes for CSD.2
     In the `run` object:
 
     - Add a `defaultSourceLanguage` property of type `string`, optional.
+
+- [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState"
+
+    In the `result` object:
+
+    - In the `baselineState` property:
+        - Rename `"existing"` to `"unchanged"`.
+        - Add a new value `"updated"`.
