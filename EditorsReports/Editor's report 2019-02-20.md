@@ -2,7 +2,7 @@
 
 Laurence J. Golding and Michael Fanning
 
-Presented at TC Meeting #32, February 13th, 2019
+Presented at TC Meeting #32, February 20th, 2019
 
 1. The formal spec language for the following issues was made available for review on the specified dates, and we will move their adoption in today's meeting:
 
