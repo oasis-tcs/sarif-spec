@@ -1203,6 +1203,65 @@ Start of changes for CSD.2
 
     - Add a `defaultSourceLanguage` property of type `string`, optional.
 
+- [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/311): "Consider whether SARIF covers plug-ins/rules versioning sufficiently"
+_and_ [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide full metadata objects for notifications"
+
+    NOTE: We describe the combined result of both of these changes, because both of them affect the location of rule metadata.
+
+    Rename the existing `rule` object to `reportingDescriptor`.
+
+    Rename the existing `ruleConfiguration` object to `reportingConfiguration`
+
+    Define a `toolComponent` object with the following properties:
+
+    - _All_ previously existing properties of the `tool` object _except_ for `language`.
+    - `globalMessageStrings` of type `object` with property values of type `string`, moved and renamed from `resources.messageStrings`, optional.
+    - `ruleDescriptors` of type `reportingDescriptor[]`, moved and renamed from `resources.rules`, optional.
+    - `notificationsDescriptors` of type `reportingDescriptor[]`, optional.
+    - `fileIndex` of type `integer`, `default: -1`, optional.
+
+    In the `tool` object:
+
+    - Remove the `sarifLoggerVersion` property.
+    - Move all remaining properties _except_ for `language` into the new `toolComponent` object.
+    - Add a property `driver` of type `toolComponent`, required.
+    - Add a property `extensions` of type `toolComponent[]`, `minItems: 0`, unique, optional.
+
+    In the `reportingDescriptor` object (renamed from `rule`):
+
+    - Rename the `configuration` property to `defaultConfiguration`.
+
+    In the `reportingConfiguration` object (renamed from `ruleConfiguration`):
+
+    - Rename the `defaultLevel` property to `level`.
+    - Rename the `defaultRank` property to `rank`.
+
+    Define a `reportingConfigurationOverride` object with the following properties:
+
+    - `ruleIndex` of type `integer`, optional, `default: -1`.
+    - `notificationIndex` of type `integer`, optional, `default: -1`.
+          NOTE: Exactly one of `ruleIndex` and `notificationIndex` must be present.
+    - `extensionIndex` of type `integer`, optional, `default: -1`.
+    - `configuration` of type `reportingConfiguration`, required.
+
+    In the `invocation` object:
+
+    - Add a `reportingConfigurationOverrides` property of type `reportingConfigurationOverride[]`, optional.
+
+    In the `run` object:
+
+    - Remove the `resources` property.
+
+    Remove the `resources` object.
+
+    In the `result` object:
+
+    - Add a property `extensionIndex` of type `integer`, `default: -1`, optional.
+
+    In the `conversion` object:
+
+    - Rename the `tool` property to `driver`, and change its type from `tool` to `toolComponent`.
+
 - [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState"
 
     In the `result` object:
