@@ -1266,10 +1266,6 @@ _and_ [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide
     - Add a property `notificationIndex` of type `integer`, `default: -1`. optional.
     - Add a property `notificationExtensionIndex` of type `integer`, `default: -1`. optional.
 
-    In the `conversion` object:
-
-    - Rename the `tool` property to `driver`, and change its type from `tool` to `toolComponent`.
-
 - [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState"
 
     In the `result` object:
