@@ -61,7 +61,7 @@
           "name": "CodeScanner Security Rules",
           "version": "3.1",
           "fileIndex": 1,
-          "ruleDetails": [
+          "ruleDescriptors": [
             {
               "id": "SEC0001",
               "shortDescription": {
