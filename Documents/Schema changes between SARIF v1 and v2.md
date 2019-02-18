@@ -1266,6 +1266,10 @@ _and_ [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide
     - Add a property `notificationIndex` of type `integer`, `default: -1`. optional.
     - Add a property `notificationExtensionIndex` of type `integer`, `default: -1`. optional.
 
+    In the `file` object:
+
+    - Add the enumerated value `"toolComponent"` to the `roles` property:
+
 - [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState"
 
     In the `result` object:
@@ -1273,3 +1277,9 @@ _and_ [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide
     - In the `baselineState` property:
         - Rename `"existing"` to `"unchanged"`.
         - Add a new value `"updated"`.
+
+- [Issue #322](https://github.com/oasis-tcs/sarif-spec/issues/322): "Please add a 'directory' role"
+
+    - In the `file` object:
+
+    - Add the enumerated value `"directory"` to the `roles` property:
