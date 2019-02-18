@@ -10,4 +10,5 @@ Presented at TC Meeting #32, February 20th, 2019
     1. [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/179): "Consider whether SARIF covers plug-ins/rules versioning sufficiently" -- made available on February 18th, 2019.
     1. [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide full metadata objects for notifications" -- made available on February 18, 2019.
     1. [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState" -- made available on February 11, 2019.
+    1. [Issue #317](https://github.com/oasis-tcs/sarif-spec/issues/317): "Consider splitting resultLevel into result.level and result.kind." -- made available on February 18, 2019.
     1. [Issue #322](https://github.com/oasis-tcs/sarif-spec/issues/322): "Please add a 'directory' role." -- made available on February 18, 2019.

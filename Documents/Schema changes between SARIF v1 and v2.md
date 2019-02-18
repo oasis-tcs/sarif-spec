@@ -1278,6 +1278,14 @@ _and_ [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide
         - Rename `"existing"` to `"unchanged"`.
         - Add a new value `"updated"`.
 
+- [Issue #317](https://github.com/oasis-tcs/sarif-spec/issues/317): "Consider splitting resultLevel into result.level and result.kind."
+
+    In the `result` object:
+
+    - Add a `kind` property of type `string` with enumerated values `"open"`, `"review"`, `"notApplicable"`, `"pass"`, and `"fail"`.
+
+    - In the `level` property, remove the enumerated values `"open"`, `"review"`, `"notApplicable"`, and `"pass"`.
+
 - [Issue #322](https://github.com/oasis-tcs/sarif-spec/issues/322): "Please add a 'directory' role"
 
     - In the `file` object:
