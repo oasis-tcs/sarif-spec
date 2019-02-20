@@ -12,3 +12,11 @@ Presented at TC Meeting #32, February 20th, 2019
     1. [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState" -- made available on February 11, 2019.
     1. [Issue #317](https://github.com/oasis-tcs/sarif-spec/issues/317): "Consider splitting resultLevel into result.level and result.kind." -- made available on February 18, 2019.
     1. [Issue #322](https://github.com/oasis-tcs/sarif-spec/issues/322): "Please add a 'directory' role." -- made available on February 18, 2019.
+
+1. The following issues were closed without further action:
+
+1. [Issue #260](https://github.com/oasis-tcs/sarif-spec/issues/260): "Create set of general icon types for review by TC"
+
+    Closed in favor of [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202),
+    which defines a set of "well-known" thread flow location kinds that viewers can
+    use as hints to display relevant icons.
