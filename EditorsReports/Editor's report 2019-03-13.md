@@ -8,4 +8,6 @@ Presented at TC Meeting #33, March 13th, 2019
 
     1. [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState"
 
+    1. [Issue #317](https://github.com/oasis-tcs/sarif-spec/issues/317): "Consider splitting resultlevel into result.level and result.kind"
+
     1. [Issue #322](https://github.com/oasis-tcs/sarif-spec/issues/322): "Please add a 'directory' role"
