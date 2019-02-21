@@ -1171,6 +1171,28 @@ Start of changes for CSD.2
 
     - On the `logicalLocations` property, add the `uniqueItems` constraint.
 
+- [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState"
+
+    In the `result` object:
+
+    - In the `baselineState` property:
+        - Rename `"existing"` to `"unchanged"`.
+        - Add a new value `"updated"`.
+
+- [Issue #317](https://github.com/oasis-tcs/sarif-spec/issues/317): "Consider splitting resultLevel into result.level and result.kind."
+
+    In the `result` object:
+
+    - Add a `kind` property of type `string` with enumerated values `"open"`, `"review"`, `"notApplicable"`, `"pass"`, and `"fail"`.
+
+    - In the `level` property, remove the enumerated values `"open"`, `"notApplicable"`, and `"pass"`.
+
+- [Issue #322](https://github.com/oasis-tcs/sarif-spec/issues/322): "Please add a 'directory' role"
+
+    In the `file` object:
+
+    - Add the enumerated value `"directory"` to the `roles` property.
+
 ## Changes approved but not yet applied to the schema.
 
 ## Changes not yet approved
@@ -1180,14 +1202,6 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Add a `kind` property of type `string[]`, optional.
-
-- [Issue #268](https://github.com/oasis-tcs/sarif-spec/issues/268): "Add result.useful and result.suppressionReasons"
-
-    In the `result` object:
-
-    - Add a `suppressionReasons` property of type `string[]`, optional, with enumerated values `"falsePositive"`, `"unshipped"`, `"testCode"`, `"deprecated"`, `"external"`.
-
-    - Add a `useful` property of type `string`, optional, with enumerated values `"useful"`, `"notUseful"`, and `"unspecified"`.
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
 
@@ -1268,26 +1282,4 @@ _and_ [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide
 
     In the `file` object:
 
-    - Add the enumerated value `"toolComponent"` to the `roles` property:
-
-- [Issue #312](https://github.com/oasis-tcs/sarif-spec/issues/312): "Consider adding 'updated' baselineState"
-
-    In the `result` object:
-
-    - In the `baselineState` property:
-        - Rename `"existing"` to `"unchanged"`.
-        - Add a new value `"updated"`.
-
-- [Issue #317](https://github.com/oasis-tcs/sarif-spec/issues/317): "Consider splitting resultLevel into result.level and result.kind."
-
-    In the `result` object:
-
-    - Add a `kind` property of type `string` with enumerated values `"open"`, `"review"`, `"notApplicable"`, `"pass"`, and `"fail"`.
-
-    - In the `level` property, remove the enumerated values `"open"`, `"review"`, `"notApplicable"`, and `"pass"`.
-
-- [Issue #322](https://github.com/oasis-tcs/sarif-spec/issues/322): "Please add a 'directory' role"
-
-    - In the `file` object:
-
-    - Add the enumerated value `"directory"` to the `roles` property:
+    - Add the enumerated value `"toolComponent"` to the `roles` property.
