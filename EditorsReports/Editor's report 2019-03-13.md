@@ -20,6 +20,10 @@ Presented at TC Meeting #33, March 13th, 2019
 
         We added `"review"` as part of the change draft for #317. And add the F2F, we decided against introducing a new level like `"observation"` to cover one of the two current uses of `"note"`.
 
+    1. [Issue #265](https://github.com/oasis-tcs/sarif-spec/issues/265): "Define schema for localized resource files."
+
+        This is moot because we agreed in TC <span>#</span>32 to drop localization support entirely from v2.0.
+
     1. [Issue #268](https://github.com/oasis-tcs/sarif-spec/issues/268): "Add result.useful and result.suppressionReasons"
 
         This is a p2 issue whose design we did not resolve. Changed labeling from `csd.2` to `future` and closed.
