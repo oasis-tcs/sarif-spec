@@ -1193,13 +1193,13 @@ Start of changes for CSD.2
 
     - Add the enumerated value `"directory"` to the `roles` property.
 
-## Changes approved but not yet applied to the schema.
-
 - [Issue #327](https://github.com/oasis-tcs/sarif-spec/issues/327): "Remove invocation.attachments"
 
     In the `invocation` object:
 
     - Remove the `attachments` property.
+
+## Changes approved but not yet applied to the schema.
 
 ## Changes not yet approved
 
@@ -1289,3 +1289,4 @@ _and_ [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide
     In the `file` object:
 
     - Add the enumerated value `"toolComponent"` to the `roles` property.
+
