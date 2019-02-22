@@ -1195,6 +1195,12 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #327](https://github.com/oasis-tcs/sarif-spec/issues/327): "Remove invocation.attachments"
+
+    In the `invocation` object:
+
+    - Remove the `attachments` property.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"

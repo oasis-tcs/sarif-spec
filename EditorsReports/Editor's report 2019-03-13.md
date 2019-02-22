@@ -27,3 +27,7 @@ Presented at TC Meeting #33, March 13th, 2019
     1. [Issue #247](https://github.com/oasis-tcs/sarif-spec/issues/247): "Another request to add a formal web request object"
 
         Another p2 request that never made its way to the forefront of our attention. Changed labeling from `csd.2` to `future` and closed.
+
+1. The formal spec language for the following issues was made available for review, and we will move their adoption in today's meeting:
+
+    1. [Issue #327](https://github.com/oasis-tcs/sarif-spec/issues/327): "Remove invocation.attachments" -- made available on February 22, 2019.
