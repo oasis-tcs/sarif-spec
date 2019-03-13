@@ -1199,6 +1199,8 @@ Start of changes for CSD.2
 
     - Remove the `attachments` property.
 
+## Changes approved but not yet applied to the schema.
+
 - [Issue #341](https://github.com/oasis-tcs/sarif-spec/issues/341): "Rename all 'instanceGuid' properties to 'guid'"
 
     In the `run` object:
@@ -1228,8 +1230,6 @@ Start of changes for CSD.2
 
     - Rename the `instanceGuid` property to `guid`.
     - Rename the `runInstanceGuid` property to `runGuid`.
-
-## Changes approved but not yet applied to the schema.
 
 ## Changes not yet approved
 
