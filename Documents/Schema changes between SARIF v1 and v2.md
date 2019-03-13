@@ -1199,6 +1199,36 @@ Start of changes for CSD.2
 
     - Remove the `attachments` property.
 
+- [Issue #341](https://github.com/oasis-tcs/sarif-spec/issues/341): "Rename all 'instanceGuid' properties to 'guid'"
+
+    In the `run` object:
+
+    - Rename the `baselineInstanceGuid` property to `baselineGuid`.
+    - Rename the `id` property to `automationDetails`.
+
+    In the `externalPropertyFile` object (which is renamed to `externalPropertyFileReference` in [#335](https://github.com/oasis-tcs/sarif-spec/issues/335)):
+
+    - Rename the `instanceGuid` property to `guid`.
+
+    In the `runAutomationDetails` object:
+
+    - Rename the `instanceId` property to `id`.
+    - Rename the `baselineInstanceGuid` property to `baselineGuid`
+
+    In the `result` object:
+
+    - Rename the `instanceGuid` property to `guid`.
+
+    In the `resultProvenance` object:
+
+    - Rename the `firstDetectionRunInstanceGuid` property to `firstDetectionRunGuid`.
+    - Rename the `lastDetectionRunInstanceGuid` property to `lastDetectionRunGuid`.
+
+    In the `externalProperties` object:
+
+    - Rename the `instanceGuid` property to `guid`.
+    - Rename the `runInstanceGuid` property to `runGuid`.
+
 ## Changes approved but not yet applied to the schema.
 
 ## Changes not yet approved
