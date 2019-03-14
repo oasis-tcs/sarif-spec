@@ -1201,6 +1201,13 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #330](https://github.com/oasis-tcs/sarif-spec/issues/330): "Rename 'invocation.toolNotifications' and 'configurationNotifications' to 'toolExecutionNotifications' and 'toolConfigurationNotifications'.
+
+    In the `invocation` object:
+
+    - Rename the `toolNotifications` property to `toolExecutionNotifications`.
+    - Rename the `configurationNotifications` property to `toolConfigurationNotifications`.
+
 - [Issue #341](https://github.com/oasis-tcs/sarif-spec/issues/341): "Rename all 'instanceGuid' properties to 'guid'"
 
     In the `run` object:
