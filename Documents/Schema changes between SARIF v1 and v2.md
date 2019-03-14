@@ -1201,6 +1201,24 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #291](https://github.com/oasis-tcs/sarif-spec/issues/291): "Update logical location kinds to accommodate XML and JSON paths"
+
+    In the `logicalLocation` object:
+
+    - Add the following values to the _comment_ on the `kind` property:
+        - For XML:
+            - `attribute`
+            - `element`
+            - `text`
+            - `comment`
+            - `processingInstruction`
+            - `dtd`
+        - For JSON:
+            - `object`
+            - `array`
+            - `property`
+            - `value`
+
 - [Issue #330](https://github.com/oasis-tcs/sarif-spec/issues/330): "Rename 'invocation.toolNotifications' and 'configurationNotifications' to 'toolExecutionNotifications' and 'toolConfigurationNotifications'.
 
     In the `invocation` object:
