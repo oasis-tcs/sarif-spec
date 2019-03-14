@@ -10,6 +10,13 @@ Presented at TC Meeting #34, April 3th, 2019
 
     1. [Issue #340](https://github.com/oasis-tcs/sarif-spec/issues/340): "Inline logical location object to location."
 
+1. The following issues were closed without further action:
+
+    1. [Issue #328](https://github.com/oasis-tcs/sarif-spec/issues/328): "Consider renaming invocation.executableLocation to invocation.driverLocation"
+
+        We decided to reject this because the "driver" component might consist of multiple files, and here we particularly want to specify the primary executable,
+        that is, the file containing the entry point. So `executableLocation` is good.
+
 1. Change drafts were made available for the following issues which had previously been "design approved" by the TC:
 
     1. [Issue #341](https://github.com/oasis-tcs/sarif-spec/issues/341): "Rename all 'instanceGuid' properties to 'guid'"
