@@ -1231,6 +1231,48 @@ Start of changes for CSD.2
     - Rename the `instanceGuid` property to `guid`.
     - Rename the `runInstanceGuid` property to `runGuid`.
 
+- [Issue #309](https://github.com/oasis-tcs/sarif-spec/issues/179): "Rename run.files to run.artifacts, fileLocation to artifactLocation"
+
+    Rename the `file` object to `artifact`.
+
+    In the renamed `artifact` object:
+
+    - Rename the `fileLocation` property to `artifactLocation`.
+    - Rename the following values for the `roles` property:
+        - `unmodifiedFile` &rarr; `unmodified`.
+        - `modifiedFile` &rarr; `modified`.
+        - `addedFile` &rarr; `added`.
+        - `deletedFile` &rarr; `deleted`.
+        - `renamedFile` &rarr; `renamed`.
+        - `uncontrolledFile` &rarr; `uncontrolled`.
+
+    Rename the `fileLocation` object to `artifactLocation`.
+
+    In the renamed `artifactLocation` object:
+
+    - Rename the `fileIndex` property to `artifactIndex`.
+
+    Rename the `fileContent` object to `artifactContent`.
+
+    Rename the `fileChange` object to `artifactChange`.
+
+    In the renamed `artifactChange` object:
+
+    - Rename the `fileLocation` property to `artifactLocation` of type `artifactLocation`.
+
+    In the `fix` object:
+
+    - Rename the `fileChanges` property to `artifactChanges` of type `artifactChange[]`.
+
+    In the `physicalLocation` object:
+
+    - Rename the `fileLocation` property to `artifactLocation`.
+
+    In the `run` object:
+
+    - Rename the `files` property to `artifacts` and change its type to `artifactLocation[]`.
+    - Rename the `defaultFileEncoding` property to `defaultEncoding`.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
