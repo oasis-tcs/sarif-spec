@@ -1258,11 +1258,11 @@ Start of changes for CSD.2
 
     In the renamed `artifactChange` object:
 
-    - Rename the `fileLocation` property to `artifactLocation` of type `artifactLocation`.
+    - Rename the `fileLocation` property to `artifactLocation`.
 
     In the `fix` object:
 
-    - Rename the `fileChanges` property to `artifactChanges` of type `artifactChange[]`.
+    - Rename the `fileChanges` property to `artifactChanges`.
 
     In the `physicalLocation` object:
 
@@ -1270,8 +1270,16 @@ Start of changes for CSD.2
 
     In the `run` object:
 
-    - Rename the `files` property to `artifacts` and change its type to `artifactLocation[]`.
+    - Rename the `files` property to `artifacts`.
     - Rename the `defaultFileEncoding` property to `defaultEncoding`.
+
+- [Issue #340](https://github.com/oasis-tcs/sarif-spec/issues/202): "Inline logical location object to location."
+
+    In the `location` object:
+
+    - Remove the `fullyQualifiedLogicalName` property.
+    - Remove the `logicalLocationIndex` property.
+    - Add a property `logicalLocation` of type `logicalLocation`.
 
 ## Changes not yet approved
 
