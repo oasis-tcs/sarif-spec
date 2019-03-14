@@ -1298,13 +1298,43 @@ Start of changes for CSD.2
     - Rename the `files` property to `artifacts`.
     - Rename the `defaultFileEncoding` property to `defaultEncoding`.
 
-- [Issue #340](https://github.com/oasis-tcs/sarif-spec/issues/202): "Inline logical location object to location."
+- [Issue #340](https://github.com/oasis-tcs/sarif-spec/issues/340): "Inline logical location object to location."
 
     In the `location` object:
 
     - Remove the `fullyQualifiedLogicalName` property.
     - Remove the `logicalLocationIndex` property.
     - Add a property `logicalLocation` of type `logicalLocation`.
+
+- [Issue #335](https://github.com/oasis-tcs/sarif-spec/issues/335): "External property file-related renames"
+
+    In the `externalProperties` object:
+
+    - Rename the `properties` property to `externalizedProperties`.
+
+    - Rename the `instanceGuid` property to `guid` (already done by #341)
+
+    - Add a `properties` property of type `propertyBag` (schema change only; spec already says that all objects have a property bag)
+
+    Rename the `externalPropertyFile` object to `externalPropertyFileReference`
+
+    In the `externalPropertyFileReference` object:
+
+    - Rename the `instanceGuid` property to `guid` (already done by #341)
+
+    - Rename the `artifactLocation` property to `location`
+
+    In the `run` object:
+
+    - Rename the `externalPropertyFiles` property to `externalPropertyFileReferences`.
+
+    - Change the name of the contained object's `properties` property to `externalizedProperties`
+
+- [Issue #321](https://github.com/oasis-tcs/sarif-spec/issues/321): "Provide mechanism for inlining externalized properties data into the root log"
+
+    In the `sarifLog` object:
+
+    - Add a property `inlineExternalProperties` of type `externalProperties[]`
 
 ## Changes not yet approved
 

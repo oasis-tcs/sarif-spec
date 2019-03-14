@@ -23,6 +23,12 @@ Presented at TC Meeting #34, April 3th, 2019
 
 1. Change drafts were made available for the following issues which had previously been "design approved" by the TC:
 
-    1. [Issue #341](https://github.com/oasis-tcs/sarif-spec/issues/341): "Rename all 'instanceGuid' properties to 'guid'"
-
     1. [Issue #309](https://github.com/oasis-tcs/sarif-spec/issues/309): "Rename run.files to run.artifacts, fileLocation to artifactLocation."
+
+    1. Combined change draft for:
+
+        - [Issue #321](https://github.com/oasis-tcs/sarif-spec/issues/321): "Provide mechanism for inlining externalized properties data into the root log"
+
+        - [Issue #335](https://github.com/oasis-tcs/sarif-spec/issues/335): "External property file related renames"
+
+    1. [Issue #341](https://github.com/oasis-tcs/sarif-spec/issues/341): "Rename all 'instanceGuid' properties to 'guid'"
