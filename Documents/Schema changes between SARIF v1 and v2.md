@@ -1352,6 +1352,25 @@ Start of changes for CSD.2
     - Add a property `runGraphIndex`, of type `integer`, optional, default: -1, minValue: -1
     - Add a property `resultGraphIndex`, of type `integer`, optional, default: -1, minValue: -1
 
+    In the `externalProperties` object:
+
+    - Rename `graph` property to `graphs` and change its type from `object` with `graph`-valued properties to `graph[]`, optional, unique, minItems: 0, default: empty array.
+
+- [Issue #320](https://github.com/oasis-tcs/sarif-spec/issues/320): "Provide a caching mechanism for duplicated code flow data"
+
+    In the `run` object:
+
+    - Add a property `threadFlowLocations` of type `threadFlowLocation[]`, optional, unique, minItems: 0, default: empty array
+
+    In the `threadFlowLocation` object:
+
+    - Add a property `index` of type `integer`, optional, minValue: -1, default: -1.
+
+    In the `externalProperties` object:
+
+    - Add a property `threadFlowLocations` of type `threadFlowLocations[]`, optional, unique, minItems: 0, default: empty array
+
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
