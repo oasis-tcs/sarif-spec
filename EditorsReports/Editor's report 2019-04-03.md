@@ -21,6 +21,8 @@ Presented at TC Meeting #34, April 3th, 2019
 
     1. [Issue #291](https://github.com/oasis-tcs/sarif-spec/issues/291): "Update logical location kinds to accommodate XML and JSON paths"
 
+    1. [Issue #326](https://github.com/oasis-tcs/sarif-spec/issues/326): "Change run.graphs and result.graphs from objects to arrays"
+
 1. Change drafts were made available for the following issues which had previously been "design approved" by the TC:
 
     1. [Issue #309](https://github.com/oasis-tcs/sarif-spec/issues/309): "Rename run.files to run.artifacts, fileLocation to artifactLocation."

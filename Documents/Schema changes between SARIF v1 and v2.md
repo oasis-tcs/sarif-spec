@@ -1336,6 +1336,22 @@ Start of changes for CSD.2
 
     - Add a property `inlineExternalProperties` of type `externalProperties[]`
 
+- [Issue #326](https://github.com/oasis-tcs/sarif-spec/issues/326): "Change run.graphs and result.graphs from objects to arrays"
+
+    In the `run` object:
+
+    - Change the type of the `graphs` property from `object` with `graph`-valued properties to `graph[]`, unique, minItems: 0, default: empty array.
+
+    In the `result` object:
+
+    - Change the type of the `graphs` property from `object` with `graph`-valued properties to `graph[]`, unique, minItems: 0, default: empty array.
+
+    In the `graphTraversal` object:
+
+    - Remove the `graphId` property.
+    - Add a property `runGraphIndex`, of type `integer`, optional, default: -1, minValue: -1
+    - Add a property `resultGraphIndex`, of type `integer`, optional, default: -1, minValue: -1
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
