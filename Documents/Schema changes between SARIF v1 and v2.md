@@ -1201,6 +1201,17 @@ Start of changes for CSD.2
 
 ## Changes approved but not yet applied to the schema.
 
+- [Issue #168](https://github.com/oasis-tcs/sarif-spec/issues/168): "Consider adding codeflow.state to capture initial execution state for things like static variables"
+
+    In the `codeFlow` object:
+
+    - Add property `immutableState` of type `object` with `string`-valued properties.
+    - Add property `initialState` of type `object` with `string`-valued properties.
+
+    In the `graphTraversal` object:
+
+    - Add property `immutableState` of type `object` with `string`-valued properties.
+
 - [Issue #291](https://github.com/oasis-tcs/sarif-spec/issues/291): "Update logical location kinds to accommodate XML and JSON paths"
 
     In the `logicalLocation` object:

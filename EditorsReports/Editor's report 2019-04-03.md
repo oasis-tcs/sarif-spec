@@ -34,3 +34,7 @@ Presented at TC Meeting #34, April 3th, 2019
         - [Issue #335](https://github.com/oasis-tcs/sarif-spec/issues/335): "External property file related renames"
 
     1. [Issue #341](https://github.com/oasis-tcs/sarif-spec/issues/341): "Rename all 'instanceGuid' properties to 'guid'"
+
+1. Change drafts were made available for the following issues which had _not_ previously been "design approved" by the TC:
+
+    1. [Issue #168](https://github.com/oasis-tcs/sarif-spec/issues/168): "Consider adding codeflow.state to capture initial execution state for things like static variables"
