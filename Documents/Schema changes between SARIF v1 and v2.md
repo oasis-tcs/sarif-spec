@@ -1381,6 +1381,32 @@ Start of changes for CSD.2
 
     - Add a property `threadFlowLocations` of type `threadFlowLocations[]`, optional, unique, minItems: 0, default: empty array
 
+- [Issue #319](https://github.com/oasis-tcs/sarif-spec/issues/319): "Converge all messages into a common format strings object"
+
+    Define a `multiformatMessageString` object with the following properties:
+
+    - `text` of type string, non-empty, required.
+    - `markdown` of type string, non-empty, optional.
+
+    In the `resource` object (or in the `toolComponent` object, if that change happened first):
+
+    - Change the type of the `messageStrings` property from `object` with `string`-valued properties to `object` with `multiformatMessageString`-valued properties.
+
+    In the `rule` object (or in the `reportingDescriptor` object, if that rename happened first):
+
+    - Change the type of the `messageStrings` property from `object` with `string`-valued properties to `object` with `multiformatMessageString`-valued properties.
+    - Change the type of the `help` property from `string` to `multiformatMessageString`.
+    - Remove the `richMessageStrings` property.
+    - Change the type of the `help` property from `message` to `multiformatMessageString`.
+
+    In the `message` object:
+
+    - Rename the `richText` property to `markdown`.
+    - Remove the `richMessageId` property.
+
+    In the `run` object:
+
+    - Remove the `richMessageMimeType` property.
 
 ## Changes not yet approved
 
