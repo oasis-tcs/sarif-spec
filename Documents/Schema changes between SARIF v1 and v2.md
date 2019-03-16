@@ -1356,6 +1356,7 @@ Start of changes for CSD.2
     In the `result` object:
 
     - Change the type of the `graphs` property from `object` with `graph`-valued properties to `graph[]`, unique, minItems: 0, default: empty array.
+    - Change the type of the `graphTraversals` property from `object` with `graphTraversal`-valued properties to `graphTraversal[]`, unique, minItems: 0, default: empty array.
 
     In the `graphTraversal` object:
 
