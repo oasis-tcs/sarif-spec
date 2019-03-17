@@ -1267,7 +1267,7 @@ Start of changes for CSD.2
     - Rename the `instanceGuid` property to `guid`.
     - Rename the `runInstanceGuid` property to `runGuid`.
 
-- [Issue #309](https://github.com/oasis-tcs/sarif-spec/issues/179): "Rename run.files to run.artifacts, fileLocation to artifactLocation"
+- [Issue #309](https://github.com/oasis-tcs/sarif-spec/issues/309): "Rename run.files to run.artifacts, fileLocation to artifactLocation"
 
     Rename the `file` object to `artifact`.
 
@@ -1409,6 +1409,27 @@ Start of changes for CSD.2
 
     - Remove the `richMessageMimeType` property.
 
+- [Issue #179]((https://github.com/oasis-tcs/sarif-spec/issues/179): "Define tool component object to represent tool driver and its extensions/plugins"
+
+    In the `tool` object:
+    
+    - Remove the never-used `sarifLoggerVersion` property.
+    - Add a property `driver` of type `toolComponent`, required.
+    - Add a property `extensions` of type `toolComponent[]`, optional, minItems: 0, default: empty array
+    - Move all other properties to the `toolComponent` object (`name`, `fullName`, `version`, `semanticVersion`, `dottedQuadFileVersion`, and `downloadUri`) to the `toolComponent` object (defined next).
+
+    Define a `toolComponent` object with the following properties:
+    
+    - All the properties moved from the `tool` object (`name`, `fullName`, `version`, `semanticVersion`, `dottedQuadFileVersion`, and `downloadUri`).
+    - `releaseDateUtc` of type string in `date-time` format -- the component's release date.
+    - `informationUri` of type `string` in `uri` format, optional.
+    - `organization` of type `string`, optional -- the company or organization that produced the component, _e.g._, `"Example Corporation"`.
+    - `product` of type `string`, optional -- the name of the product containing the component, _e.g._, `"Example Corp SecurityScanner"`.
+    - `productSuite` of type `string`, optional -- the name of the suite of products containing the component, _e.g._, `"Example Corp Code Quality Tools"`.
+    - `shortDescription` of type `multiformatMessageString`, optional -- a brief description of the component.
+    - `fullDescription` of type `multiformatMessageString`, optional -- a comprehensive description of the component.
+    - `artifactIndices` of type `integer[]`, optional, default: empty array -- references to the files which comprise the component.
+
 ## Changes not yet approved
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
@@ -1430,71 +1451,4 @@ Start of changes for CSD.2
     In the `run` object:
 
     - Add a `defaultSourceLanguage` property of type `string`, optional.
-
-- [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/311): "Consider whether SARIF covers plug-ins/rules versioning sufficiently"
-_and_ [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide full metadata objects for notifications"
-
-    NOTE: We describe the combined result of both of these changes, because both of them affect the location of rule metadata.
-
-    Rename the existing `rule` object to `reportingDescriptor`.
-
-    Rename the existing `ruleConfiguration` object to `reportingConfiguration`
-
-    Define a `toolComponent` object with the following properties:
-
-    - _All_ previously existing properties of the `tool` object _except_ for `language`.
-    - `globalMessageStrings` of type `object` with property values of type `string`, moved and renamed from `resources.messageStrings`, optional.
-    - `ruleDescriptors` of type `reportingDescriptor[]`, moved and renamed from `resources.rules`, optional.
-    - `notificationsDescriptors` of type `reportingDescriptor[]`, optional.
-    - `fileIndex` of type `integer`, `default: -1`, optional.
-
-    In the `tool` object:
-
-    - Remove the `sarifLoggerVersion` property.
-    - Move all remaining properties _except_ for `language` into the new `toolComponent` object.
-    - Add a property `driver` of type `toolComponent`, required.
-    - Add a property `extensions` of type `toolComponent[]`, `minItems: 0`, unique, optional.
-
-    In the `reportingDescriptor` object (renamed from `rule`):
-
-    - Rename the `configuration` property to `defaultConfiguration`.
-
-    In the `reportingConfiguration` object (renamed from `ruleConfiguration`):
-
-    - Rename the `defaultLevel` property to `level`.
-    - Rename the `defaultRank` property to `rank`.
-
-    Define a `reportingConfigurationOverride` object with the following properties:
-
-    - `ruleIndex` of type `integer`, optional, `default: -1`.
-    - `notificationIndex` of type `integer`, optional, `default: -1`.
-          NOTE: Exactly one of `ruleIndex` and `notificationIndex` must be present.
-    - `extensionIndex` of type `integer`, optional, `default: -1`.
-    - `configuration` of type `reportingConfiguration`, required.
-
-    In the `invocation` object:
-
-    - Add a `reportingConfigurationOverrides` property of type `reportingConfigurationOverride[]`, optional.
-
-    In the `run` object:
-
-    - Remove the `resources` property.
-
-    Remove the `resources` object.
-
-    In the `result` object:
-
-    - Add a property `extensionIndex` of type `integer`, `default: -1`, optional.
-
-    In the `notification` object:
-
-    - Rename the property `ruleId` to `associatedRuleId`.
-    - Rename the property `ruleIndex` to `associatedRuleIndex`.
-    - Add a property `associatedRuleExtensionIndex` of type `integer`, `default: -1`. optional.
-    - Add a property `notificationIndex` of type `integer`, `default: -1`. optional.
-    - Add a property `notificationExtensionIndex` of type `integer`, `default: -1`. optional.
-
-    In the `file` object:
-
-    - Add the enumerated value `"toolComponent"` to the `roles` property.
 

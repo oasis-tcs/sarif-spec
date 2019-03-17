@@ -25,6 +25,8 @@ Presented at TC Meeting #34, April 3th, 2019
 
 1. Change drafts were made available for the following issues which had previously been "design approved" by the TC:
 
+    1. [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/168): "Define tool component object to represent tool driver and its extensions/plugins"
+
     1. [Issue #309](https://github.com/oasis-tcs/sarif-spec/issues/309): "Rename run.files to run.artifacts, fileLocation to artifactLocation."
 
     1. [Issue #319](https://github.com/oasis-tcs/sarif-spec/issues/319): "Converge all messages into a common format strings object"
@@ -40,5 +42,3 @@ Presented at TC Meeting #34, April 3th, 2019
 1. Change drafts were made available for the following issues which had _not_ previously been "design approved" by the TC:
 
     1. [Issue #168](https://github.com/oasis-tcs/sarif-spec/issues/168): "Consider adding codeflow.state to capture initial execution state for things like static variables"
-
-    1. [Issue #168](https://github.com/oasis-tcs/sarif-spec/issues/168):
