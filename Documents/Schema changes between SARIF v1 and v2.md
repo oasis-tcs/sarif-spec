@@ -1409,7 +1409,7 @@ Start of changes for CSD.2
 
     - Remove the `richMessageMimeType` property.
 
-- [Issue #179]((https://github.com/oasis-tcs/sarif-spec/issues/179): "Define tool component object to represent tool driver and its extensions/plugins"
+- [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/179): "Define tool component object to represent tool driver and its extensions/plugins"
 
     In the `tool` object:
     
@@ -1429,6 +1429,18 @@ Start of changes for CSD.2
     - `shortDescription` of type `multiformatMessageString`, optional -- a brief description of the component.
     - `fullDescription` of type `multiformatMessageString`, optional -- a comprehensive description of the component.
     - `artifactIndices` of type `integer[]`, optional, default: empty array -- references to the files which comprise the component.
+
+- [Issue #337](https://github.com/oasis-tcs/sarif-spec/issues/337): "Allow toolComponents to be externalized"
+
+    In the `externalProperties` object:
+
+    - Add a `toolDriver` property of type `toolComponent`.
+    - Add a `toolExtensions` property of type `toolComponent[]`.
+
+    In the `externalPropertyFileReferences` object:
+
+    - Add a `toolDriver` property of type `externalPropertyFileReference`.
+    - Add a `toolExtensions` property of type `externalPropertyFileReference[]`.
 
 ## Changes not yet approved
 
