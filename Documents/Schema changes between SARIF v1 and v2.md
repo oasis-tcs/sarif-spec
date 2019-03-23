@@ -90,14 +90,14 @@ These overrides are noted on the earlier change.
 
 - [Issue #66](https://github.com/oasis-tcs/sarif-spec/issues/66): "Enable traceability from converted SARIF file to original analysis tool log file"
 
-    Define the `conversion` object with the following properties:
+    Define a `conversion` object with the following properties:
 
     - `tool` of type `tool`, required
     - `invocation` of type `invocation`, optional
     - `analysisToolLogFileUri` of type `string`, containing a valid URI, optional
     - `analysisToolLogFileUriBaseId` of type `string`, containing a URI base id, optional
 
-    Define the `analysisToolLogFileContents` object with the following properties:
+    Define an `analysisToolLogFileContents` object with the following properties:
 
     - `region` of type `region`, optional
     - `snippet` of type `string`, optional
@@ -132,7 +132,7 @@ These overrides are noted on the earlier change.
 
 - [Issue #90](https://github.com/oasis-tcs/sarif-spec/issues/90): "Introduce fileLocation object"
 
-    Define the `fileLocation` object with the following properties:
+    Define a `fileLocation` object with the following properties:
 
     - `uri` of type `string`, required
     - `uriBaseId` of type `string`, optional
@@ -172,7 +172,7 @@ These overrides are noted on the earlier change.
 
 - [Issue #83](https://github.com/oasis-tcs/sarif-spec/issues/83): "Consider adding attachments property"
 
-    Define the `attachment` object with the following properties:
+    Define an `attachment` object with the following properties:
 
     - `description` of type `string`, optional.
     - `fileLocation` of type `fileLocation`, required.
@@ -223,6 +223,8 @@ These overrides are noted on the earlier change.
     2018/03/20: OBSOLETE. `conversion` has an `invocation` property, and `invocation` now has `toolNotifications` and `configurationNotifications` properties. Filed [Issue #132](https://github.com/oasis-tcs/sarif-spec/issues/132): "conversion.notifications is superfluous" to remove this property. Don't add it to the schema.
 
 - [Issue #84](https://github.com/oasis-tcs/sarif-spec/issues/84): "Enable localization for all message strings"
+
+    **NOTE**: Much (but not all) of this is undone by #325, "Remove current localization mechanism", and replaced by #338, "Introduce new localization mechanism".
 
     Define a `message` object with the following properties:
 
@@ -511,7 +513,7 @@ These overrides are noted on the earlier change.
 
 - [Issue #46](https://github.com/oasis-tcs/sarif-spec/issues/46): "Provide support for graphs and graph traversals."
 
-    Define the `graph` object with the following properties:
+    Define a `graph` object with the following properties:
 
     - `id` of type `string`, required.
     - `description` of type `message`, optional.
@@ -519,14 +521,14 @@ These overrides are noted on the earlier change.
     - `edges` of type `edge[]`, required, unique.
     - `properties` of type `propertyBag`, optional.
 
-    Define the `node` object with the following properties:
+    Define a `node` object with the following properties:
 
     - `id` of type `string`, required.
     - `label` of type `message`, optional.
     - `location` of type `location`, required.
     - `properties` of type `propertyBag`, optional.
 
-    Define the `edge` object with the following properties:
+    Define an `edge` object with the following properties:
 
     - `id` of type `string`, required.
     - `label` of type `message`, optional.
@@ -534,7 +536,7 @@ These overrides are noted on the earlier change.
     - `targetNodeId` of type `string`, required.
     - `properties` of type `propertyBag`, optional.
 
-    Define the `graphTraversal` object with the following properties:
+    Define a `graphTraversal` object with the following properties:
 
     - `graphId` of type `string`, required.
     - `description` of type `message`, optional.
@@ -542,7 +544,7 @@ These overrides are noted on the earlier change.
     - `edgeTraversals` of type `edgeTraversal[]`, required.
     - `properties` of type `propertyBag`, optional.
 
-    Define the `edgeTraversal` object with the following properties:
+    Define an `edgeTraversal` object with the following properties:
 
     - `edgeId` of type `string`, required.
     - `message` of type `message`, optional.
@@ -578,7 +580,7 @@ These overrides are noted on the earlier change.
 
 - [Issue #108](https://github.com/oasis-tcs/sarif-spec/issues/108): "Represent VCS properties"
 
-    Define the `versionControlDetails` object with the following properties:
+    Define a `versionControlDetails` object with the following properties:
 
     - `uri` of type `string`, containing a valid URI, required.
     - `revisionId` of type `string`, optional.
@@ -629,7 +631,7 @@ These overrides are noted on the earlier change.
 
 - [Issue #137](https://github.com/oasis-tcs/sarif-spec/issues/137): "Support annotating image attachments"
 
-    Define the `rectangle` object with the following properties:
+    Define a `rectangle` object with the following properties:
 
     - `top` of type `number`
     - `left` of type `number`
@@ -959,7 +961,7 @@ Start of changes for CSD.2
 
 - [Issue #217](https://github.com/oasis-tcs/sarif-spec/issues/217): "Consider adding a discrete 'id' object"
 
-    Define the `runAutomationDetails` object with the following properties:
+    Define a `runAutomationDetails` object with the following properties:
 
     - `description` of type `message`, optional.
     - `instanceId` of type `string`, optional.
@@ -1069,7 +1071,7 @@ Start of changes for CSD.2
 
 - [Issue #272](https://github.com/oasis-tcs/sarif-spec/issues/272): "Request: provide 'first seen' timestamp for results"
 
-    Define the `resultProvenance` object with the following properties:
+    Define a `resultProvenance` object with the following properties:
 
     - `firstDetectionTimeUtc` of type `string` in `date-time` format, optional.
     - `lastDetectionTimeUtc` of type `string` in `date-time` format, optional.
@@ -1421,6 +1423,7 @@ Start of changes for CSD.2
     Define a `toolComponent` object with the following properties:
     
     - All the properties moved from the `tool` object (`name`, `fullName`, `version`, `semanticVersion`, `dottedQuadFileVersion`, and `downloadUri`).
+    - `guid` of type `string`.
     - `releaseDateUtc` of type string in `date-time` format -- the component's release date.
     - `informationUri` of type `string` in `uri` format, optional.
     - `organization` of type `string`, optional -- the company or organization that produced the component, _e.g._, `"Example Corporation"`.
@@ -1434,13 +1437,82 @@ Start of changes for CSD.2
 
     In the `externalProperties` object:
 
-    - Add a `toolDriver` property of type `toolComponent`.
-    - Add a `toolExtensions` property of type `toolComponent[]`.
+    - Add a `driver` property of type `toolComponent`.
+    - Add an `extensions` property of type `toolComponent[]`.
 
     In the `externalPropertyFileReferences` object:
 
-    - Add a `toolDriver` property of type `externalPropertyFileReference`.
-    - Add a `toolExtensions` property of type `externalPropertyFileReference[]`.
+    - Add a `driver` property of type `externalPropertyFileReference`.
+    - Add an `extensions` property of type `externalPropertyFileReference[]`.
+
+- [Issue #311](https://github.com/oasis-tcs/sarif-spec/issues/311): "Provide full metadata objects for notifications" + [Issue #325](https://github.com/oasis-tcs/sarif-spec/issues/325): "Remove current localization mechanism" + [Issue #324](https://github.com/oasis-tcs/sarif-spec/issues/311), "Define a reportingDescriptorReference object"
+
+    Rename the `rule` object to `reportingDescriptor`.
+
+    In the renamed `reportingDescriptor` object:
+
+    - Add a property `guid` of type `string`, optional.
+    - Rename the `configuration` property to `defaultConfiguration`.
+
+    Remove the `resources` object:
+
+    - Move its `rules` property of type `reportingDescriptor[]` to the `toolComponent` object, renaming it to `ruleDescriptors`.
+    - Move its `messageStrings` property of type `object` with `multiformatMessageString`-valued properties to the `toolComponent` object, renaming it to `globalMessageStrings`.
+
+    Rename the `ruleConfiguration` object to `reportingConfiguration`.
+
+    In the renamed `reportingConfiguration` object:
+
+    - Rename the `defaultLevel` property to `level`.
+    - Rename the `defaultRank` property to `rank`.
+
+    In the `toolComponent` object:
+
+    - Remove the `resourceLocation` property.
+    - Add a property `guid` of type `string`.
+    - Add a property `ruleDescriptors` of type `reportingDescriptor[]` (formerly the `rules` property of the removed `resources` object).
+    - Add a property `globalMessageStrings` of type `object` with `multiformatMessageString`-valued properties (formerly the `messageStrings` property of the removed `resources` object).
+    - Add a property `notificationDescriptors` of type `reportingDescriptor[]`.
+
+    In the `run` object:
+
+    - Remove the `resources` property.
+
+    Define a `toolComponentReference` object with the following properties:
+
+    - `name` of type `string`, optional (matches the `name` property of the referenced `toolComponent`).
+    - `index` of type `integer`, optional, default: -1, minValue: -1 (the index of the referenced `toolComponent` in `tool.extensions`, if that's where it lives).
+    - `guid` of type `string`, optional (matches the `guid` property of the referenced `toolComponent` object).
+    - `toolComponentReference` of type `toolComponentReference`, optional.
+
+    Define a `reportingDescriptorReference` object with the following properties:
+
+    - `id` of type `string`, optional (matches the `id` property of the referenced `reportingDescriptor`).
+    - `index` of type `integer`, optional, default: -1, minValue: -1 (the index of the referenced `reportingDescriptor` in `toolComponent.ruleDescriptors` or `toolComponent.notificationDescriptors`, depending on context).
+    - `guid` of type `string`, optional (matches the `guid` property of the referenced `reportingDescriptor`).
+    - `toolComponentReference` of type `toolComponentReference`, optional.
+
+    Define a `reportingConfigurationOverride` object with the following properties:
+
+    - `reportingDescriptorReference` of type `reportingDescriptorReference`, required (identifies the `reportingDescriptor` whose configuration is overridden).
+    - `configuration` of type `reportingConfiguration`, required (overrides configuration properties on the referenced `reportingDescriptor`).
+
+    In the `invocation` object:
+
+    - Add a property `ruleConfigurationOverrides` of type `reportingConfigurationOverride[]`, optional, uniqueItems, minItems: 0, default: empty array.
+    - Add a property `notificationConfigurationOverrides` of type `reportingConfigurationOverride[]`, optional, uniqueItems, minItems: 0, default: empty array.
+
+    In the `result` object
+
+    - Add a property `ruleDescriptorReference` of type `reportingDescriptorReference`, optional.
+    - Remove the `ruleIndex` property.
+
+    In the `notification` object:
+
+    - Add a property `notificationDescriptorReference` of type `reportingDescriptorReference`, optional.
+    - Add a property `associatedRuleDescriptorReference` of type `reportingDescriptorReference`, optional.
+    - Remove the `ruleIndex` property.
+    - Rename the `ruleIndex` property to `associatedRuleIndex`.
 
 ## Changes not yet approved
 
