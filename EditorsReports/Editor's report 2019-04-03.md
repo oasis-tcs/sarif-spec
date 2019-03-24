@@ -54,3 +54,5 @@ Presented at TC Meeting #34, April 3th, 2019
         - [Issue #324](https://github.com/oasis-tcs/sarif-spec/issues/324): "Define a reportingDescriptorReference object"
 
         - [Issue #325](https://github.com/oasis-tcs/sarif-spec/issues/325): "Remove current localization mechanism"
+    
+    1. [Issue #314](https://github.com/oasis-tcs/sarif-spec/issues/314): "Define result taxonomies"

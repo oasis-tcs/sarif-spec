@@ -1207,12 +1207,12 @@ Start of changes for CSD.2
 
     In the `codeFlow` object:
 
-    - Add property `immutableState` of type `object` with `string`-valued properties.
-    - Add property `initialState` of type `object` with `string`-valued properties.
+    - Add a property `immutableState` of type `object` with `string`-valued properties.
+    - Add a property `initialState` of type `object` with `string`-valued properties.
 
     In the `graphTraversal` object:
 
-    - Add property `immutableState` of type `object` with `string`-valued properties.
+    - Add a property `immutableState` of type `object` with `string`-valued properties.
 
 - [Issue #291](https://github.com/oasis-tcs/sarif-spec/issues/291): "Update logical location kinds to accommodate XML and JSON paths"
 
@@ -1511,16 +1511,31 @@ Start of changes for CSD.2
 
     - Add a property `notificationDescriptorReference` of type `reportingDescriptorReference`, optional.
     - Add a property `associatedRuleDescriptorReference` of type `reportingDescriptorReference`, optional.
-    - Remove the `ruleIndex` property.
-    - Rename the `ruleIndex` property to `associatedRuleIndex`.
+    - Remove the `id`, `ruleId`, and `ruleIndex` properties.
 
-## Changes not yet approved
+- [Issue #314](https://github.com/oasis-tcs/sarif-spec/issues/314): "Define result taxonomies"
+
+    In the `toolComponent` object:
+
+    - Add a property `taxonDescriptors` of type `reportingDescriptor[]`, optional, default: `[]`: allows definition of both standard and per-tool taxonomies.
+    - Add a property `supportedTaxonomies` of type `toolComponentReference[]`, optional, default: `[]`: allows a tool to declare the taxonomies it supports.
+
+    In the `reportingDescriptor` object:
+
+   - Add a property `taxonReferences` of type `reportingDescriptorReference[], optional, default: `[]``: the set of taxonomic categories that apply to all results implicated by this rule.
+   - Add a property `optionalTaxonReferences` of type `reportingDescriptorReference[], optional, default: `[]``: a set of taxonomic categories that can _optionally_ apply to results implicated by this rule.
+
+    In the `result` object:
+
+    - Add a property `taxonReferences` of type `reportingDescriptorReference[], optional, default: `[]``: the set of optional taxonomic categories into which this result falls (the "required" taxonomy references apply implicitly).
 
 - [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
 
     In the `threadFlowLocation` object:
 
     - Add a `kind` property of type `string[]`, optional.
+
+## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
 
