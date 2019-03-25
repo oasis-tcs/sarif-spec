@@ -1535,6 +1535,18 @@ Start of changes for CSD.2
 
     - Add a `kind` property of type `string[]`, optional.
 
+- [Issue #344](https://github.com/oasis-tcs/sarif-spec/issues/344): "Add suppression object to allow persisting location data for in-source suppressions"
+
+    Define a `suppression` object with the following properties:
+
+    - `kind` of type `string` with enumerated values `suppressedInSource` and `suppressedExternally`, required.
+    - `location` of type `location`, optional: the location where the suppression is persisted.
+
+    In the `result` object:
+
+    - Remove the `suppressionStates` property.
+    - Add a property `suppressions` of type `suppression[]`, optional.
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
