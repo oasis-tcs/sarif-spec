@@ -1547,6 +1547,13 @@ Start of changes for CSD.2
     - Remove the `suppressionStates` property.
     - Add a property `suppressions` of type `suppression[]`, optional.
 
+- [Issue #346](https://github.com/oasis-tcs/sarif-spec/issues/346): "Add 'reportingDescriptor.deprecatedNames' and 'deprecatedGuids' to match 'deprecatedIds' property"
+
+    In the `reportingDescriptor` property:
+
+    - Add a property `deprecatedNames` of type `string[]`, optional: names by which this rule or notification was previously known.
+    - Add a property `deprecatedGuids` of type `string[]`, optional: GUIDs by which this rule or notification was previously identified.
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
