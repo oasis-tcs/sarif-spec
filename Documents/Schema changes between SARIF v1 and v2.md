@@ -1533,7 +1533,7 @@ Start of changes for CSD.2
 
     In the `threadFlowLocation` object:
 
-    - Add a `kind` property of type `string[]`, optional.
+    - Add a `kinds` property of type `string[]`, optional.
 
 - [Issue #344](https://github.com/oasis-tcs/sarif-spec/issues/344): "Add suppression object to allow persisting location data for in-source suppressions"
 
