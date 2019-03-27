@@ -30,14 +30,16 @@
           "artifactIndices": [
             0
           ],
-          "minimumRequiredLocalizedDataSemanticVersion": "2.1",
+          "minimumRequiredLocalizedDataSemanticVersion": "4.0",
           "rules": [
             {
               "id": "CA2101",
               "name": "DontBeEvil",
               "guid": "88888888-8888-8888-8888-888888888888",
-              "messages": {
-                "": "Evil was detected."
+              "messageStrings": {
+                "": {
+                  "text": "Evil was detected."
+                }
               },
               "defaultConfiguration": {
                 "level": "error"
@@ -51,8 +53,10 @@
               "id": "NOT0001",
               "name": "RunStarted",
               "guid": "99999999-9999-9999-9999-999999999999",
-              "messages": {
-                "": "Run started."
+              "messageStrings": {
+                "": {
+                  "text": "Run started."
+                }
               },
               "defaultConfiguration": {
                 "level": "note"
@@ -62,8 +66,10 @@
               "id": "NOT0002",
               "name": "RuleDisabled",
               "guid": "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA",
-              "messages": {
-                "": "Rule '{0}' threw an unhandled exception and has been disabled. Execution continues."
+              "messageStrings": {
+                "": {
+                  "text": "Rule '{0}' threw an unhandled exception and has been disabled. Execution continues."
+                }
               },
               "defaultConfiguration": {
                 "level": "error"
@@ -196,7 +202,9 @@
                 "text": "fr-FR Weak cryptographic hashing algorithms should not be used to guarantee confidentiality."
               },
               "messageStrings": {
-                "default": "fr-FR The cryptographic algorithm {0} is weak and should not be used to guarantee confidentiality."
+                "default": {
+                  "text": "fr-FR The cryptographic algorithm {0} is weak and should not be used to guarantee confidentiality."
+                }
               }
             }
           ]
@@ -207,7 +215,7 @@
           "translationMetadata": {
             "name": "CodeScanner Security translation for fr-FR",
             "informationUri": "https://www.example.com/translations/CodeScanner/plugins/Security%20Rules/fr-FR/information.html",
-            "downloadUri": "https://www.example.com/translations/CodeScanner/plugins/Security%20Rules/fr-FR/CodeScanner-Security-Rules-fr-FR.zip",
+            "downloadUri": "https://www.example.com/translations/CodeScanner/plugins/Security%20Rules/fr-FR/CodeScanner-Security-Rules-fr-FR.zip"
           },
           "releaseDateUtc": "2018-11-05",
           "semanticVersion": "1.3.4",
@@ -231,7 +239,7 @@
             "localizedData"
           ],
           "isComprehensive": true,
-          "localizedDataSemanticVersion": "2.1",
+          "localizedDataSemanticVersion": "3.3",
           "rules": [
             {
               "id": "CA5350",
@@ -241,7 +249,9 @@
                 "text": "fr-FR Weak cryptographic hashing algorithms should not be used to guarantee confidentiality."
               },
               "messageStrings": {
-                "default": "fr-FR The cryptographic algorithm {0} is weak and should not be used to guarantee confidentiality."
+                "default": {
+                  "text": "fr-FR The cryptographic algorithm {0} is weak and should not be used to guarantee confidentiality."
+                }
               }
             }
           ]
