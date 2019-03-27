@@ -28,8 +28,7 @@
           ],
           "isComprehensive": false,
           "artifactIndices": [
-            0,
-            1
+            0
           ],
           "minimumRequiredLocalizedDataSemanticVersion": "2.1",
           "rules": [
@@ -143,7 +142,7 @@
               }
             ],
             "artifactIndices": [
-              2
+              1
             ]
           }
         ]
