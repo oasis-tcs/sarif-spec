@@ -64,3 +64,5 @@ Presented at TC Meeting #34, April 3th, 2019
     1. [Issue #346](https://github.com/oasis-tcs/sarif-spec/issues/346): "Add 'reportingDescriptor.deprecatedNames' and 'deprecatedGuids' to match 'deprecatedIds' property"
 
     1. [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
+
+    1. [Issue #338](https://github.com/oasis-tcs/sarif-spec/issues/202): "Localization and post-processed configuration"

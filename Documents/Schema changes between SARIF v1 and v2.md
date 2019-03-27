@@ -1554,6 +1554,66 @@ Start of changes for CSD.2
     - Add a property `deprecatedNames` of type `string[]`, optional: names by which this rule or notification was previously known.
     - Add a property `deprecatedGuids` of type `string[]`, optional: GUIDs by which this rule or notification was previously identified.
 
+- [Issue #338](https://github.com/oasis-tcs/sarif-spec/issues/338): "Localization and post-processed configuration"
+
+    In the `tool` object:
+
+    - Remove the `language` property (move to `run`).
+
+    In the `run` object:
+
+    - Add a property `language` of type `string`, optional, default: `"en-US"`: the language of the localizable strings emitted in this run.
+    - Add a property `translations` of type `toolComponent[]`, optional, minItems: 0, default: `[]`, **externalizable**: contains translations for other components.
+    - Add a property `taxonomies` of type `toolComponent[]`, optional, minItems: 0, default: `[]`**externalizable**: contains standard taxonomies such as CWE; the driver and its extensions can also define their own custom taxonomies.
+    - Add a property `policies` of type `toolComponent[]`, optional, minItems: 0, default: `[]`**externalizable**: contains configurations that override both `reportingDescriptor.defaultConfiguration` (the tool's default severities) and `invocation.configurationOverrides` (severities established at run-time from the command line). 
+
+    In the `toolComponent` object:
+
+    - Rename the property `ruleDescriptors` to `rules`.
+    - Rename the property `taxonDescriptors` to `taxa`.
+    - Rename the property `notificationDescriptors` to `notifications`.
+    - Add a property `language` of type `string`, required for translations; otherwise optional: the language of the localized strings defined in this component.
+    - Add a property `contents` of type `string[]` with enumerated values `"localizedData"` and `"nonLocalizedData"`, unique, default: `[ "localizedData", "nonLocalizedData" ]`: the kinds of data contained in this object.
+    - Add a property `isComprehensive` of type `boolean`: `true` if this object contains a complete definition of the localizable and/or non-localizable data for this component.
+    - Add a property `localizedDataSemanticVersion`, optional, defaults to the `semanticVersion` property of the component: the semantic version of the localized strings defined in this component; used by components that define translations.
+    - Add a property `minimumRequiredLocalizedDataSemanticVersion`: optional, defaults to the `semanticVersion` property of the component: the minimum value of `localizedDataSemanticVersion` required in translations consumed by this component; used by components that consume translations.
+    - Add a property `associatedComponent` of type `toolComponentReference`, optional: specifies the component for which the current component is a translation or a plugin.
+    - Add a property `translationMetadata` of type `translationMetadata`, required for a translation, forbidden for other component types.
+
+    Define a `translationMetadata` object with the following properties:
+
+    - `name` of type string, required.
+    - `fullName` of type string, optional.
+    - `shortDescription` of type `multiformatString`, optional.
+    - `fullDescription` of type `multiformatString`, optional.
+    - `downloadUri` of type `string` in `uri` format, optional.
+    - `informationUri` of type `string` in `uri` format, optional
+
+    In the `result` object:
+
+    - Rename the property `ruleDescriptorReference` to `rule`
+    - Rename the property `taxonomyReferences` to `taxa`.
+
+    In the `notification` object:
+
+    - Rename the property `associatedRuleDescriptorReference` to `associatedRule`.
+    - Rename the property `notificationDescriptorReference` to `descriptor`.
+
+    In the `artifact` object:
+
+    - In the `roles` property:
+        - Add the enumerated values `driver`, `extension`, `translation`, `taxonomy`, `policy`.
+        - Remove the `toolComponent` value.
+
+- In the `reportingDescriptor` object:
+
+    - Rename the property `taxonReferences` to `taxa`.
+    - Rename the property `optionalTaxonReferences` to `optionalTaxa`.
+
+    In the `reportingDescriptorReference` object:
+
+    - Rename the property `toolComponentReference` to `toolComponent`.
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
