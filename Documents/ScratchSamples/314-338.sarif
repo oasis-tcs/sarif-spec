@@ -331,7 +331,6 @@
             "uriBaseId": "TOOL_ROOT"
           },
           "roles": [
-            "toolComponent",
             "driver"
           ],
           "hashes": {
@@ -344,7 +343,6 @@
             "uriBaseId": "TOOL_ROOT"
           },
           "roles": [
-            "toolComponent",
             "extension"
           ],
           "hashes": {
@@ -372,7 +370,7 @@
                 "arguments": [
                   "CA2101"
                 ]
-              }
+              },
               "associatedRule": {
                 "id": "CA2101",
                 "guid": "88888888-8888-8888-8888-888888888888",
