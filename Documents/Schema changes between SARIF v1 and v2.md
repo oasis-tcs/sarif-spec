@@ -1505,7 +1505,6 @@ Start of changes for CSD.2
     In the `result` object
 
     - Add a property `ruleDescriptorReference` of type `reportingDescriptorReference`, optional.
-    - Remove the `ruleIndex` property.
 
     In the `notification` object:
 
