@@ -41,6 +41,8 @@ Presented at TC Meeting #34, April 3th, 2019
 
     1. [Issue #315](https://github.com/oasis-tcs/sarif-spec/issues/315): "Specify URI normalization algorithm"
 
+    1. [Issue #318](https://github.com/oasis-tcs/sarif-spec/issues/318): "Define protocol to allow embedded messages links to refer to other results"
+
     1. [Issue #319](https://github.com/oasis-tcs/sarif-spec/issues/319): "Converge all messages into a common format strings object"
 
     1. Combined change draft for:
