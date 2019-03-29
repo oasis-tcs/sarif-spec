@@ -37,6 +37,8 @@ Presented at TC Meeting #34, April 3th, 2019
 
         - [Issue #336](https://github.com/oasis-tcs/sarif-spec/issues/336): "Changes to toolComponent properties"
 
+    1. [Issue #302](https://github.com/oasis-tcs/sarif-spec/issues/302): "Add address property to physicalLocation object"
+
     1. [Issue #309](https://github.com/oasis-tcs/sarif-spec/issues/309): "Rename run.files to run.artifacts, fileLocation to artifactLocation."
 
     1. [Issue #315](https://github.com/oasis-tcs/sarif-spec/issues/315): "Specify URI normalization algorithm"

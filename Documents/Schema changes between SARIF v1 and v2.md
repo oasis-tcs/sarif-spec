@@ -1604,7 +1604,7 @@ Start of changes for CSD.2
         - Add the enumerated values `driver`, `extension`, `translation`, `taxonomy`, `policy`.
         - Remove the `toolComponent` value.
 
-- In the `reportingDescriptor` object:
+    In the `reportingDescriptor` object:
 
     - Rename the property `taxonReferences` to `taxa`.
     - Rename the property `optionalTaxonReferences` to `optionalTaxa`.
@@ -1612,6 +1612,38 @@ Start of changes for CSD.2
     In the `reportingDescriptorReference` object:
 
     - Rename the property `toolComponentReference` to `toolComponent`.
+
+- [Issue #302](https://github.com/oasis-tcs/sarif-spec/issues/302): "Add address property to physicalLocation object"
+
+    Define an `address` object with the following properties:
+
+    - `baseAddress` of type `string`: a base address rendered as a hexadecimal string
+    - `kind` of type `string`: an open-ended string that identifies the address kind. `"section"` and `"segment"` are well-known values.
+    - `name` of type `string`: a name that is associated with the address, e.g., "`.text`".
+    - `fullyQualifiedName` of type `string`.
+    - `offset` of type `string`: an offset from `baseAddress`, if present, rendered as a hexadecimal string.
+    - `index` of type `integer`: an index into `run.addresses` used to retrieve a cached instance to represent the address.
+    - `parentIndex` of type `integer`: an index into `run.addresses` to retrieve a parent address. The parent can provide a base address (from which the current `offset` value is relevant) and other details.
+
+    In the `physicalLocation` object:
+
+    - Add a property `address` of type `address`, optional.
+
+    In the `run` object:
+
+    - Add a property `addresses` of type `address[]`, optional, minItems: 0, default: `[]`, **externalizable**.
+
+    In the `stackFrame` object:
+
+    - Remove the properties `address` and `offset`.
+
+    In the `artifactContents` object:
+
+    - Add a property `rendered` of type `multiformatString`, optional.
+
+    In the `artifact` object:
+
+    - In the `roles` property, add a value `"memoryContents"`.
 
 ## Changes not yet approved
 
