@@ -1645,6 +1645,10 @@ Start of changes for CSD.2
 
     - In the `roles` property, add a value `"memoryContents"`.
 
+- [Issue #350](https://github.com/oasis-tcs/sarif-spec/issues/350): "Rename reportingConfigurationOverride to configurationOverride"
+
+    Rename the `reportingConfigurationOverride` object to `configurationOverride`.
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"

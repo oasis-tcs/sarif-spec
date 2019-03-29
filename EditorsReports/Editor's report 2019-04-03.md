@@ -76,3 +76,5 @@ Presented at TC Meeting #34, April 3th, 2019
     1. [Issue #202](https://github.com/oasis-tcs/sarif-spec/issues/202): "Restore threadFlowLocation.kind"
 
     1. [Issue #338](https://github.com/oasis-tcs/sarif-spec/issues/338): "Localization and policies"
+
+    1. [Issue #350](https://github.com/oasis-tcs/sarif-spec/issues/350): "Rename reportingConfigurationOverride to configurationOverride"
