@@ -1649,6 +1649,12 @@ Start of changes for CSD.2
 
     Rename the `reportingConfigurationOverride` object to `configurationOverride`.
 
+- [Issue #348](https://github.com/oasis-tcs/sarif-spec/issues/348): "SARIF needs a mechanism to denote an in-flight or completed suppressions review"
+
+    In the `suppression` object:
+
+    - In the `kind` property, add two new values `underReview` and `suppressionRejected`.
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
