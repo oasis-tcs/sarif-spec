@@ -12,6 +12,10 @@ Presented at TC Meeting #34, April 3th, 2019
 
 1. The following issues were closed without further action:
 
+    1. [Issue #190](https://github.com/oasis-tcs/sarif-spec/issues/190): "Distinguish 'tool-specific' from 'generic' properties"
+
+        This was an editorial task that I opened last year. I decided (and Michael agreed) it was not worth doing.
+
     1. [Issue #214](https://github.com/oasis-tcs/sarif-spec/issues/214): "Improve look-up semantics for message strings"
 
         This was about saying that you look up `result.message` in `theRule.messageStrings` first, and only then look for it in `theComponent.globalMessageStrings`. Actually the spec already said that, but I clarified it as part of the rework of the lookup procedure that resulted from #179 (toolComponent), #311 (notification metadata), #324 (descriptor reference), #325 (remove old localization), and #338 (New localization and policies).
