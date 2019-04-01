@@ -31,6 +31,10 @@ Presented at TC Meeting #34, April 3th, 2019
 
     1. [Issue #326](https://github.com/oasis-tcs/sarif-spec/issues/326): "Change run.graphs and result.graphs from objects to arrays"
 
+1. The following changes were made directly in the provisional draft, at editorial discretion:
+
+    1. [Issue #342](https://github.com/oasis-tcs/sarif-spec/issues/342): "Tracking item for minor adjustments to design and errata during spec authoring"
+
 1. Change drafts were made available for the following issues:
 
     1. [Issue #168](https://github.com/oasis-tcs/sarif-spec/issues/168): "Consider adding codeflow.state to capture initial execution state for things like static variables"
