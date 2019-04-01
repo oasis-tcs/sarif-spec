@@ -33,6 +33,8 @@ Presented at TC Meeting #34, April 3th, 2019
 
 1. The following changes were made directly in the provisional draft, at editorial discretion:
 
+    1. [Issue #301](https://github.com/oasis-tcs/sarif-spec/issues/301): "Editorial issues from Jim Kupsch, part 2"
+
     1. [Issue #342](https://github.com/oasis-tcs/sarif-spec/issues/342): "Tracking item for minor adjustments to design and errata during spec authoring"
 
 1. Change drafts were made available for the following issues:
