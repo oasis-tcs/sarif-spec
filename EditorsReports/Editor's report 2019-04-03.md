@@ -98,3 +98,5 @@ Presented at TC Meeting #34, April 3th, 2019
     1. [Issue #348](https://github.com/oasis-tcs/sarif-spec/issues/348): "SARIF needs a mechanism to denote an in-flight or completed suppressions review"
 
     1. [Issue #350](https://github.com/oasis-tcs/sarif-spec/issues/350): "Rename reportingConfigurationOverride to configurationOverride"
+
+    1. [Issue #353](https://github.com/oasis-tcs/sarif-spec/issues/353): "Rename reportingConfigurationOverride to configurationOverride"
