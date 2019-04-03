@@ -89,7 +89,7 @@ Presented at TC Meeting #34, April 3th, 2019
 
         - 1. [Issue #338](https://github.com/oasis-tcs/sarif-spec/issues/338): "Localization and policies"
 
-        - 1. [Issue #347](https://github.com/oasis-tcs/sarif-spec/issues/347): ""
+        - 1. [Issue #347](https://github.com/oasis-tcs/sarif-spec/issues/347): "Add 'referencedOnCommandLine' as a role"
 
     1. [Issue #341](https://github.com/oasis-tcs/sarif-spec/issues/341): "Rename all 'instanceGuid' properties to 'guid'"
 
