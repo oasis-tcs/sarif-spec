@@ -33,6 +33,8 @@ Presented at TC Meeting #34, April 3th, 2019
 
 1. The following changes were made directly in the provisional draft, at editorial discretion:
 
+    1. [Issue #106](https://github.com/oasis-tcs/sarif-spec/issues/106): "Scrub for broken links"
+
     1. [Issue #117](https://github.com/oasis-tcs/sarif-spec/issues/117): "Scrub for 'run vs. file' errors"
 
     1. [Issue #301](https://github.com/oasis-tcs/sarif-spec/issues/301): "Editorial issues from Jim Kupsch, part 2"
