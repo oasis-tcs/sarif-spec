@@ -1655,6 +1655,36 @@ Start of changes for CSD.2
 
     - In the `kind` property, add two new values `underReview` and `suppressionRejected`.
 
+- [Issue #351](https://github.com/oasis-tcs/sarif-spec/issues/351): "Missing rename: run.aggregateIds => run.runAggregates"
+
+    In the `run` object:
+
+    - Rename the `aggregateIds` property to `runAggregates`
+
+- [Issue #352](https://github.com/oasis-tcs/sarif-spec/issues/352): "Missing rename: message.messageId => message.id"
+
+    In the `message` object:
+
+    - Rename the `messageId` property to `id`.
+
+- [Issue #353](https://github.com/oasis-tcs/sarif-spec/issues/353): "Punch list"
+
+    In the `physicalLocation` object:
+
+    - `artifactLocation` is not required.
+
+    - `anyOf` `artifactLocation` and `address` is required.
+
+    In the `address` object:
+
+    - Change the type of the `baseAddress` property from `string` to `integer`.
+
+    - Change the type of the `offset` property from `string` to `integer`.
+
+    In the `kind` property:
+
+    - Document a new value `"module"`.
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
