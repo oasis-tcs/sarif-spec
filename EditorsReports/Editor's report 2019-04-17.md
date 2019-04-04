@@ -16,9 +16,11 @@ Presented at TC Meeting #34, April 3th, 2019
 
         `run.conversion` has everything it needs from it's full-fledged `tool` and `invocation` objects. See the issue for more details.
 
-1. After being approved as amended at TC #34, the following spec change was merged into the provisional draft:
+1. After being approved as amended at TC #34, the following spec changes were merged into the provisional draft:
 
     1. [Issue #353](https://github.com/oasis-tcs/sarif-spec/issues/353): "Punch list"
+
+    1. [Issue #355](https://github.com/oasis-tcs/sarif-spec/issues/355): "Refine URL normalization guidance for file URLs"
 
 1. The following changes approved in e-ballot-2 had already been merged into the provisional draft:
 
