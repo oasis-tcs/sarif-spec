@@ -2,7 +2,7 @@
 
 Laurence J. Golding and Michael Fanning
 
-Presented at TC Meeting #34, April 3th, 2019
+Presented at TC Meeting #35, April 17th, 2019
 
 1. The following issues were closed without further action:
 
@@ -16,9 +16,13 @@ Presented at TC Meeting #34, April 3th, 2019
 
         `run.conversion` has everything it needs from it's full-fledged `tool` and `invocation` objects. See the issue for more details.
 
-1. After being approved as amended at TC #34, the following spec changes were merged into the provisional draft:
+1. After being approved as amended at TC #34, the following spec change was merged into the provisional draft:
 
     1. [Issue #353](https://github.com/oasis-tcs/sarif-spec/issues/353): "Punch list"
+
+1. After being design approved at TC #34, the following spec changes were made directly in the provisional draft (but for your convenience, change drafts are available in the Accepted folder):
+
+    1. [Issue #354](https://github.com/oasis-tcs/sarif-spec/issues/354): "Modify look-up procedure to look for the "closest" string first, then choose your preferred format"
 
     1. [Issue #355](https://github.com/oasis-tcs/sarif-spec/issues/355): "Refine URL normalization guidance for file URLs"
 
