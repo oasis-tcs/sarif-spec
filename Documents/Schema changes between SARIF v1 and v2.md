@@ -1685,6 +1685,30 @@ Start of changes for CSD.2
 
     - Document a new value `"module"`.
 
+- [Issue #356](https://github.com/oasis-tcs/sarif-spec/issues/356): "Express taxonomy relationships to rules"
+
+    Define a `reportingDescriptorRelationship` object with the following properties:
+
+    - `target` of type `reportingDescriptorReference`, required.
+
+    - `kinds` of type `string[]`, required, `minItems`: 1, unique, open-ended, with the following well-known values:
+        - `equal`
+        - `superset`
+        - `subset`
+        - `disjoint`
+        - `incomparable`
+        - `canPrecede`
+        - `canFollow`
+        - `willPrecede`
+        - `willFollow`
+        - `relevant`
+
+    In the `reportingDescriptor` object:
+
+    - Remove the `taxa` property.
+    - Remove the `optionalTaxa` property.
+    - Add a property `relationships` of type `reportingDescriptorRelationship[]`, optional, `minItems`: 0, unique.
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"

@@ -26,6 +26,8 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #355](https://github.com/oasis-tcs/sarif-spec/issues/355): "Refine URL normalization guidance for file URLs"
 
+    1. [Issue #356](https://github.com/oasis-tcs/sarif-spec/issues/356): "Consider expressing taxonomy relationships to rules"
+
 1. The following issues (which I believe to be non-controversial) raised by TC members since TC #34 have been addressed and merged into the provisional draft. Again, change drafts are available in the Accepted folder:
 
     1. [Issue #357](https://github.com/oasis-tcs/sarif-spec/issues/357): "Default toolComponent.associatedComponent to theTool.driver" -- raised by Luke Cartey.
