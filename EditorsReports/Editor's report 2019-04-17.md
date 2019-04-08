@@ -32,6 +32,8 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #357](https://github.com/oasis-tcs/sarif-spec/issues/357): "Default toolComponent.associatedComponent to theTool.driver" -- raised by Luke Cartey.
 
+    1. [Issue #359](https://github.com/oasis-tcs/sarif-spec/issues/357): "Constraints in state objects" -- raised by James Kupsch.
+
 1. The following changes approved in e-ballot-3 had already been speculatively merged into the provisional draft:
 
     1. [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/168): "Define tool component object to represent tool driver and its extensions/plugins"
