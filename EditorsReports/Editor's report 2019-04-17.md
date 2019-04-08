@@ -36,6 +36,8 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #361](https://github.com/oasis-tcs/sarif-spec/issues/361): "state variables should not have syntax restriction and s/be multiformat strings" -- raised by Michael Fanning.
 
+1. Typographical and substantive issues raised by Paul Anderson and Henny Sipma were addressed.
+
 1. The following changes approved in e-ballot-3 had already been speculatively merged into the provisional draft:
 
     1. [Issue #179](https://github.com/oasis-tcs/sarif-spec/issues/168): "Define tool component object to represent tool driver and its extensions/plugins"
