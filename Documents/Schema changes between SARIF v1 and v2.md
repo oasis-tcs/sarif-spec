@@ -1709,6 +1709,28 @@ Start of changes for CSD.2
     - Remove the `optionalTaxa` property.
     - Add a property `relationships` of type `reportingDescriptorRelationship[]`, optional, `minItems`: 0, unique.
 
+- [Issue #361](https://github.com/oasis-tcs/sarif-spec/issues/361): "state variables should not have syntax restriction and s/be multiformat strings"
+
+    In the `threadFlow` object:
+
+    - In the definition of the `initialState` property, change the type of its `additionalProperties` from `string` to `multiformatMessageString`.
+
+    - In the definition of the `immutableState` property, change the type of its `additionalProperties` from `string` to `multiformatMessageString`.
+
+    In the `threadFlowLocation` object:
+
+    - In the definition of the `state` property, change the type of its `additionalProperties` from `string` to `multiformatMessageString`.
+
+    In the `graphTraversal` object:
+
+    - In the definition of the `initialState` property, change the type of its `additionalProperties` from `string` to `multiformatMessageString`.
+
+    - In the definition of the `immutableState` property, change the type of its `additionalProperties` from `string` to `multiformatMessageString`.
+
+    In the `edgeTraversal` object:
+
+    - In the definition of the `finalState` property, change the type of its `additionalProperties` from `string` to `multiformatMessageString`.
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
