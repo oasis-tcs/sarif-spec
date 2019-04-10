@@ -28,13 +28,15 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #356](https://github.com/oasis-tcs/sarif-spec/issues/356): "Consider expressing taxonomy relationships to rules"
 
-1. The following issues (which I believe to be non-controversial) raised by TC members since TC #34 have been addressed and merged into the provisional draft. Again, change drafts are available in the Accepted folder:
+1. The following issues raised by TC members since TC #34 have been addressed and merged into the provisional draft. Again, change drafts are available in the Accepted folder:
 
     1. [Issue #357](https://github.com/oasis-tcs/sarif-spec/issues/357): "Default toolComponent.associatedComponent to theTool.driver" -- raised by Luke Cartey.
 
     1. [Issue #359](https://github.com/oasis-tcs/sarif-spec/issues/357): "Constraints in state objects" -- raised by James Kupsch.
 
     1. [Issue #361](https://github.com/oasis-tcs/sarif-spec/issues/361): "state variables should not have syntax restriction and s/be multiformat strings" -- raised by Michael Fanning.
+
+    1. [Issue #362](https://github.com/oasis-tcs/sarif-spec/issues/362): "Define request and response objects" -- raised by Larry Golding.
 
 1. Typographical and substantive issues raised by Paul Anderson and Henny Sipma were addressed.
 

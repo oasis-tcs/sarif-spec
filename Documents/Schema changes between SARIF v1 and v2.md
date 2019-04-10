@@ -1731,6 +1731,72 @@ Start of changes for CSD.2
 
     - In the definition of the `finalState` property, change the type of its `additionalProperties` from `string` to `multiformatMessageString`.
 
+- [Issue #362](https://github.com/oasis-tcs/sarif-spec/issues/362): "Define request and response objects"
+
+    Define a `request` object with the following properties:
+
+    - `index` of type `integer`, optional: an index into `run.requests` (see below)
+
+    - `protocol` of type `string`, optional. Example: `"HTTP"`
+
+    - `version` of type `string`, optional. Example: `"1.1"`
+
+    - `target` of type `string`, optional. Example: `"/tools/CodeScanner"`
+
+    - `method` of type `string`, optional, with well-known values `GET`, `PUT`, `POST`, `DELETE`, `PATCH`, `HEAD`, `OPTIONS`, `TRACE`, `CONNECT`.
+
+    - `headers` of type `object` with `string`-valued properties, optional.
+
+    - `parameters` of type `object` with `string`-valued properties, optional.
+
+    - `body` of type `artifactContent`, optional.
+
+    Define a `response` object with the following properties:
+
+    - `index` of type `integer`, optional: an index into `run.responses` (see below).
+
+    - `protocol` of type `string`, optional. Example: `"HTTP"`
+
+    - `version` of type `string`, optional. Example: `"1.1"`
+
+    - `statusCode` of type `integer`, optional. Example: `404`
+
+    - `reasonPhrase` of type `string`, optional. Example: `Not found`
+
+    - `headers` of type `object` with `string`-valued properties, optional.
+
+    - `body` of type `artifactContent`, optional.
+
+    In the `result` object:
+
+    - Add a property `request` of type `request`, optional.
+
+    - Add a property `response` of type `response`, optional.
+
+    In the `threadFlowLocation` object:
+
+    - Add a property `request` of type `request`, optional.
+
+    - Add a property `response` of type `response`, optional.
+
+    In the `run` object:
+
+    - Add a property `requests` of type `request[]`, optional, unique, minItems: 0,  default: `[]`.
+
+    - Add a property `responses` of type `response[]`, optional, unique, minItems: 0, default: `[]`.
+
+    In the object held by `run.externalPropertyFileReferences` (this object does not have a name):
+
+    - Add a property `requests` of type `externalPropertyFileReference[]`, optional, unique, minItems: 0, default: `[]`.
+
+    - Add a property `responses` of type `externalPropertyFileReference[]`, optional, unique, minItems: 0, default: `[]`.
+
+    In the `externalProperties` object:
+
+    - Add a property `requests` of type `request[]`, optional, unique, minItems: 0,  default: `[]`
+
+    - Add a property `responses` of type `response[]`, optional, unique, minItems: 0,  default: `[]`
+
 ## Changes not yet approved
 
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
