@@ -38,6 +38,8 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #362](https://github.com/oasis-tcs/sarif-spec/issues/362): "Define request and response objects" -- raised by Larry Golding.
 
+    1. [Issue #363](https://github.com/oasis-tcs/sarif-spec/issues/363): "Allow the artifactIndex property to be absent when the artifactLocation is within an artifact" -- raised by Luke Cartey.
+
 1. Typographical and substantive issues raised by Paul Anderson and Henny Sipma were addressed.
 
 1. The following changes approved in e-ballot-3 had already been speculatively merged into the provisional draft:
