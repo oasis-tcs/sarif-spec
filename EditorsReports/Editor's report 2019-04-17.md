@@ -32,7 +32,9 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #357](https://github.com/oasis-tcs/sarif-spec/issues/357): "Default toolComponent.associatedComponent to theTool.driver" -- raised by Luke Cartey.
 
-    1. [Issue #359](https://github.com/oasis-tcs/sarif-spec/issues/357): "Constraints in state objects" -- raised by James Kupsch.
+    1. [Issue #358](https://github.com/oasis-tcs/sarif-spec/issues/358): "originalUriBaseIds and uri resolution" -- raised by James Kupsch.
+
+    1. [Issue #359](https://github.com/oasis-tcs/sarif-spec/issues/359): "Constraints in state objects" -- raised by James Kupsch.
 
     1. [Issue #361](https://github.com/oasis-tcs/sarif-spec/issues/361): "state variables should not have syntax restriction and s/be multiformat strings" -- raised by Michael Fanning.
 
