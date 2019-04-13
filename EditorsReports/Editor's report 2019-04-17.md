@@ -44,7 +44,7 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #367](https://github.com/oasis-tcs/sarif-spec/issues/367): "Downgrade artifact.mimeType from SHOULD to MAY" -- raised by Luke Cartey
 
-    1. [Issue #368](https://github.com/oasis-tcs/sarif-spec/issues/368): "artifactLocation.artifactIndex => index; artifact.artifactLocation => location" -- raised by Larry Golding
+    1. [Issue #368](https://github.com/oasis-tcs/sarif-spec/issues/368): "artifactLocation.artifactIndex => index; artifact.artifactLocation => location; attachment.artifactLocation => location`" -- raised by Larry Golding
 
     1. [Issue #369](https://github.com/oasis-tcs/sarif-spec/issues/369): "run.invocations is externalizable" -- raised by Larry Golding
 

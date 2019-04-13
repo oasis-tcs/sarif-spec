@@ -1843,6 +1843,10 @@ Start of changes for CSD.2
 
     - Rename the `artifactLocation` property to `location`.
 
+    In the `attachment` object:
+
+    - Rename the `artifactLocation` property to `location`.
+
 - [Issue #369](https://github.com/oasis-tcs/sarif-spec/issues/369): "run.invocations is externalizable"
 
     In the `externalProperties` object:
