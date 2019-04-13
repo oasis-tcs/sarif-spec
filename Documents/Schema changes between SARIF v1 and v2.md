@@ -1797,8 +1797,6 @@ Start of changes for CSD.2
 
     - Add a property `responses` of type `response[]`, optional, unique, minItems: 0,  default: `[]`
 
-## Changes not yet approved
-
 - [Issue #286](https://github.com/oasis-tcs/sarif-spec/issues/286): "Specify optional property file.sourceLanguage to guide in syntax-driven colorization of snippets"
 
     In the `region` object:
@@ -1813,3 +1811,44 @@ Start of changes for CSD.2
 
     - Add a `defaultSourceLanguage` property of type `string`, optional.
 
+- [Issue #366](https://github.com/oasis-tcs/sarif-spec/issues/366): "Review comments from @kupsch"
+
+    In the `artifactLocation` object:
+
+    - Add a property `description` of type `message`, optional.
+
+    In the `toolComponent` object:
+
+    - Remove the `artifactIndices` property. **BREAKING**
+
+    - Add a property `locations` of type `artifactLocation[]`, optional, minItems: 0, default: `[]`
+
+    In the `artifact` object
+
+    - Add a property `description` of type `message`, optional.
+
+    In the `reportingDescriptorRelationship` object:
+
+    - For the `kinds` property:
+        - Make it optional, not required.
+        - Provide a default of `[ "relevant" ]`
+
+- [Issue #368](https://github.com/oasis-tcs/sarif-spec/issues/368): "artifactLocation.artifactIndex => index; artifact.artifactLocation => location"
+
+    In the `artifactLocation` object:
+
+    - Rename the `artifactIndex` property to `index`.
+
+    In the `artifact` object:
+
+    - Rename the `artifactLocation` property to `location`.
+
+- [Issue #369](https://github.com/oasis-tcs/sarif-spec/issues/369): "run.invocations is externalizable"
+
+    In the `externalProperties` object:
+
+    - Add an `invocations` property of type `invocation[]`.
+
+    In the `externalPropertyFileReferences` object:
+
+    - Add an `invocations` property of type `externalPropertyFileReference[]`.

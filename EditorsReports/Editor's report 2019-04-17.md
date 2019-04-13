@@ -40,6 +40,16 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #363](https://github.com/oasis-tcs/sarif-spec/issues/363): "Allow the artifactIndex property to be absent when the artifactLocation is within an artifact" -- raised by Luke Cartey.
 
+    1. [Issue #366](https://github.com/oasis-tcs/sarif-spec/issues/366): "Review comments from @kupsch" -- raised by James Kupsch.
+
+    1. [Issue #367](https://github.com/oasis-tcs/sarif-spec/issues/367): "Downgrade artifact.mimeType from SHOULD to MAY" -- raised by Luke Cartey
+
+    1. [Issue #368](https://github.com/oasis-tcs/sarif-spec/issues/368): "artifactLocation.artifactIndex => index; artifact.artifactLocation => location" -- raised by Larry Golding
+
+    1. [Issue #369](https://github.com/oasis-tcs/sarif-spec/issues/369): "run.invocations is externalizable" -- raised by Larry Golding
+
+    1. [Issue #370](https://github.com/oasis-tcs/sarif-spec/issues/370): "Incorrect statement of meaning of non-empty suppressions array" -- raised by Larry Golding
+
 1. Typographical and substantive issues raised by Paul Anderson and Henny Sipma were addressed.
 
 1. The following changes approved in e-ballot-3 had already been speculatively merged into the provisional draft:
