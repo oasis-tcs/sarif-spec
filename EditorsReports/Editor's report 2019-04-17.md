@@ -42,6 +42,10 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #363](https://github.com/oasis-tcs/sarif-spec/issues/363): "Allow the artifactIndex property to be absent when the artifactLocation is within an artifact" -- raised by Luke Cartey.
 
+    1. [Issue #364](https://github.com/oasis-tcs/sarif-spec/issues/364): "Remove overly restrictive advice on stable, opaque ids" -- raised by Luke Cartey.
+
+    1. [Issue #365](https://github.com/oasis-tcs/sarif-spec/issues/365): "ruleId hierarchical string is incompatible with Semmle rule ids" -- raised by Luke Cartey.
+
     1. [Issue #366](https://github.com/oasis-tcs/sarif-spec/issues/366): "Review comments from @kupsch" -- raised by James Kupsch.
 
     1. [Issue #367](https://github.com/oasis-tcs/sarif-spec/issues/367): "Downgrade artifact.mimeType from SHOULD to MAY" -- raised by Luke Cartey
