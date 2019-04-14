@@ -52,6 +52,14 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #370](https://github.com/oasis-tcs/sarif-spec/issues/370): "Incorrect statement of meaning of non-empty suppressions array" -- raised by Larry Golding
 
+    1. [Issue #371](https://github.com/oasis-tcs/sarif-spec/issues/371): "Separate suppression status from kind" -- raised by Michael Fanning
+
+    1. [Issue #372](https://github.com/oasis-tcs/sarif-spec/issues/372): "Add roles for configuration files" -- raised by Michael Fanning
+
+    1. [Issue #373](https://github.com/oasis-tcs/sarif-spec/issues/373): "Add suppression.justification" -- raised by Michael Fanning
+
+    1. [Issue #374](https://github.com/oasis-tcs/sarif-spec/issues/374): "Loosen restrictions on RMS usage of partial fingerprints" -- raised by Michael Fanning
+
 1. Typographical and substantive issues raised by Paul Anderson and Henny Sipma were addressed.
 
 1. The following changes approved in e-ballot-3 had already been speculatively merged into the provisional draft:

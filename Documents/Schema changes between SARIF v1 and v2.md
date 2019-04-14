@@ -1856,3 +1856,25 @@ Start of changes for CSD.2
     In the `externalPropertyFileReferences` object:
 
     - Add an `invocations` property of type `externalPropertyFileReference[]`.
+
+- [Issue #371](https://github.com/oasis-tcs/sarif-spec/issues/371): "Separate suppression status from kind"
+
+    In the `suppression` object:
+
+    - In the `kind` property, the valid values are `"inSource"` and `"external"`.
+
+    - Add a property `status` of type `string`, optional, with valid values `"accepted"`, `"underReview"` and `"rejected"`, default: `"accepted"`.
+
+- [Issue #372](https://github.com/oasis-tcs/sarif-spec/issues/372): "Add roles for configuration files"
+
+    In the `artifact` object:
+
+    - On the `roles` property, add these two values:
+        - `userSpecifiedConfiguration`: A configuration file supplied by the user.
+        - `toolSpecifiedConfiguration`: A configuration file supplied by the tool vendor.
+
+- [Issue #373](https://github.com/oasis-tcs/sarif-spec/issues/373): "Add suppression.justification"
+
+    In the `suppression` object:
+
+    - Add a property `justification` of type `string`, optional.
