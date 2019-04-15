@@ -16,6 +16,13 @@ Presented at TC Meeting #35, April 17th, 2019
 
         `run.conversion` has everything it needs from it's full-fledged `tool` and `invocation` objects. See the issue for more details.
 
+1. The following change was made at editorial discretion:
+
+    1. [Issue #266](https://github.com/oasis-tcs/sarif-spec/issues/266): "Define an object type for the value of run.externalPropertyFileReferences"
+
+        The spec says that the value of `run.externalPropertyFileReferences` is an object and describes the properties of that object --
+        but it doesn't give that set of properties a name, unlike every other object in the spec. Define an `externalPropertyFileReferences` object.
+
 1. After being approved as amended at TC #34, the following spec change was merged into the provisional draft:
 
     1. [Issue #353](https://github.com/oasis-tcs/sarif-spec/issues/353): "Punch list"

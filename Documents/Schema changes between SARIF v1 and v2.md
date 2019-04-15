@@ -1878,3 +1878,25 @@ Start of changes for CSD.2
     In the `suppression` object:
 
     - Add a property `justification` of type `string`, optional.
+
+- [Issue #266](https://github.com/oasis-tcs/sarif-spec/issues/266): "Define an object type for the value of run.externalPropertyFileReferences"
+
+    Define an `externalPropertyFileReferences` object with the following properties:
+
+    - `addresses` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `artifacts` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `conversion` of type `externalPropertyFileReference`, optional.
+    - `driver` of type `externalPropertyFileReference`, optional.
+    - `extensions` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `externalizedProperties` of type `externalPropertyFileReference`, optional.
+    - `graphs` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `invocations` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `logicalLocations` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `policies` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `requests` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `responses` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `results` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `taxonomies` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `threadFlowLocations` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `translations` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
+    - `properties` of type `propertyBag`, optional.
