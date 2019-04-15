@@ -23,6 +23,11 @@ Presented at TC Meeting #35, April 17th, 2019
         The spec says that the value of `run.externalPropertyFileReferences` is an object and describes the properties of that object --
         but it doesn't give that set of properties a name, unlike every other object in the spec. Define an `externalPropertyFileReferences` object.
 
+    1. [Issue #323](https://github.com/oasis-tcs/sarif-spec/issues/323): "Clarify constraints on the invocations array"
+
+        Add some words to emphasize that the `invocations` array conceptually still represents a single run of a single tool,
+        although that run might spawn or consist of multiple processes.
+
 1. After being approved as amended at TC #34, the following spec change was merged into the provisional draft:
 
     1. [Issue #353](https://github.com/oasis-tcs/sarif-spec/issues/353): "Punch list"
