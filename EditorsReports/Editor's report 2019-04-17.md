@@ -76,6 +76,8 @@ Presented at TC Meeting #35, April 17th, 2019
 
     1. [Issue #374](https://github.com/oasis-tcs/sarif-spec/issues/374): "Loosen restrictions on RMS usage of partial fingerprints" -- raised by Michael Fanning
 
+    1. [Issue #374](https://github.com/oasis-tcs/sarif-spec/issues/374): "@kupsch feedback responses" -- raised by James Kupsch
+
 1. Typographical and substantive issues raised by Paul Anderson and Henny Sipma were addressed.
 
 1. The following changes approved in e-ballot-3 had already been speculatively merged into the provisional draft:
