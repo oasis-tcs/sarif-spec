@@ -13860,7 +13860,7 @@ nodes in a specified graph.</p>
 
 <p class=MsoNormal>A <span class=CODEtemp>result</span> object <b>MAY</b>
 contain a property named <span class=CODEtemp>stacks</span> whose value is an
-array of one or more <span class=CODEtemp>stack</span> objects (§3.41). The <span class=CODEtemp>stacks</span> property is intended for use by
+array of zero or more <span class=CODEtemp>stack</span> objects (§3.41). The <span class=CODEtemp>stacks</span> property is intended for use by
 analysis tools that collect call stack information in the process of producing
 results.</p>
 
@@ -18297,10 +18297,10 @@ property</a></h3>
 
 <p class=MsoNormal>A <span class=CODEtemp>threadFlowLocation</span> object <b>MAY</b>
 contain a property named <span class=CODEtemp>executionOrder</span> whose value
-is a positive integer that represents the temporal order in which execution
-reached this location, across all <span class=CODEtemp>threadFlowLocation</span>
-objects within all <span class=CODEtemp>threadFlow</span> objects belonging to
-a single <span class=CODEtemp>codeFlow</span> (§3.34). <span class=CODEtemp>executionOrder</span>
+is a integer that represents the temporal order in which execution reached this
+location, across all <span class=CODEtemp>threadFlowLocation</span> objects
+within all <span class=CODEtemp>threadFlow</span> objects belonging to a single
+<span class=CODEtemp>codeFlow</span> (§3.34). <span class=CODEtemp>executionOrder</span>
 values are assigned in increasing order of time; for example, execution reaches
 a <span class=CODEtemp>threadFlowLocation</span> whose <span class=CODEtemp>executionOrder</span>
 is 2 occurs before it reaches a <span class=CODEtemp>threadFlowLocation</span> whose
