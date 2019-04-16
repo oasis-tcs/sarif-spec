@@ -922,6 +922,8 @@ Start of changes for CSD.2
 
     - Change the type of the `message` property from `string` to `message`.
 
+    2019/04/16: OBSOLETE. #379 changed it back to `string`.
+
 - [Issue #242](https://github.com/oasis-tcs/sarif-spec/issues/242): "Rename startTime/endTime to startTimeUtc and endTimeUtc"
 
     In the `invocation` object:
@@ -1900,3 +1902,9 @@ Start of changes for CSD.2
     - `threadFlowLocations` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
     - `translations` of type `externalPropertyFileReference[]`, optional, minItems: 0, default: `[]`.
     - `properties` of type `propertyBag`, optional.
+
+- [Issue #379](https://github.com/oasis-tcs/sarif-spec/issues/379): "Feedback from Harlene (MS)"
+
+    In the `exception` object:
+
+    - Change the type of the `message` property from `string` to `message`.
