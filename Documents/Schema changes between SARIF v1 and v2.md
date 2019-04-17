@@ -1907,4 +1907,29 @@ Start of changes for CSD.2
 
     In the `exception` object:
 
-    - Change the type of the `message` property from `string` to `message`.
+    - Change the type of the `message` property from `message` to `string`.
+
+- [Issue #375](https://github.com/oasis-tcs/sarif-spec/issues/375): "Location relationships"
+
+    In the `physicalLocation` object:
+
+    - Remove the `id` property (it's moving to `location`).
+
+    In the `location` object:
+
+    - Add a property `id` of type `integer`, optional, minValue: 0 (moved from `physicalLocation`).
+    - Add a property `relatedTo` of type `integer`, optional, minValue: 0
+    - Add a property `relationshipKinds` of type `string[]`, optional, unique, minItems: 0, default: `[]`, with well-known values `"includes"` and `"isIncludedBy"`.
+
+- [Issue #378](https://github.com/oasis-tcs/sarif-spec/issues/378): "Add properties to describe failed requests"
+
+    In the `request` object:
+
+    - Add a property `noResponseReceived` of type `boolean`, optional, default: `false`.
+    - Add a property `failureReason` of type string, optional.
+
+- [Issue #381](https://github.com/oasis-tcs/sarif-spec/issues/381): "Add properties to describe failed requests"
+
+    In the `threadFlowLocation` object:
+
+    - Add a property `taxa` of type `reportingDescriptorReference[]`, optional, minItems: 0, default: `[]`.
