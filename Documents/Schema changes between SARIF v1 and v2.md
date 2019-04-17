@@ -1935,7 +1935,7 @@ Start of changes for CSD.2
     - Add a property `noResponseReceived` of type `boolean`, optional, default: `false`.
     - Add a property `failureReason` of type string, optional.
 
-- [Issue #381](https://github.com/oasis-tcs/sarif-spec/issues/381): "Add properties to describe failed requests"
+- [Issue #381](https://github.com/oasis-tcs/sarif-spec/issues/381): "Associate descriptor metadata with thread flow locations"
 
     In the `threadFlowLocation` object:
 
