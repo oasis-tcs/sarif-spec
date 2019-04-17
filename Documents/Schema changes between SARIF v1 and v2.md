@@ -1921,6 +1921,13 @@ Start of changes for CSD.2
     - Add a property `relatedTo` of type `integer`, optional, minValue: 0
     - Add a property `relationshipKinds` of type `string[]`, optional, unique, minItems: 0, default: `[]`, with well-known values `"includes"` and `"isIncludedBy"`.
 
+- [Issue #377](https://github.com/oasis-tcs/sarif-spec/issues/377): "Each redaction token in an originalUriBaseId represents a unique location"
+
+    In the `run` object:
+
+    - Remove the `redactionToken` property.
+    - Add a property `redactionTokens` of type `string[]`, optional, minItems: 0, default: `[]`.
+
 - [Issue #378](https://github.com/oasis-tcs/sarif-spec/issues/378): "Add properties to describe failed requests"
 
     In the `request` object:
