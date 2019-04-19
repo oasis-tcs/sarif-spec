@@ -22,4 +22,6 @@ Communicated to the TC before the start of the CSD.2 e-ballot
 
 1. The following issues raised by TC members since TC #35 have been addressed and merged into the provisional draft. Again, change drafts are available in the Accepted folder:
 
-    1. [Issue #383](https://github.com/oasis-tcs/sarif-spec/issues/383): "Editorial issues from Ykaterina"
+    1. [Issue #383](https://github.com/oasis-tcs/sarif-spec/issues/383): "Editorial issues from Yekaterina" -- Raised by Yekaterina O'Neil
+
+    1. [Issue #391](https://github.com/oasis-tcs/sarif-spec/issues/391): "Remaining bugs found by Harlene (MS)" -- Raised by Michael Fanning

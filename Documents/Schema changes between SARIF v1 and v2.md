@@ -1940,3 +1940,27 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - Add a property `taxa` of type `reportingDescriptorReference[]`, optional, minItems: 0, default: `[]`.
+
+- [Issue #391](https://github.com/oasis-tcs/sarif-spec/issues/391): "Remaining bugs found by Harlene (MS)"
+
+    In the `externalPropertyFileReference` object:
+
+    - Add the constraint that `anyOf` `location` or `guid` is required.
+
+    In the `runAutomationDetails` object:
+
+    - Remove the constraint that `anyOf` `id`, `guid`, or `correlationGuid` is required.
+
+    In the `result` object:
+
+    - On the `graphTraversals` property, change `minItems` from 1 to 0.
+    - On the `stacks` property, change `minItems` from 1 to 0.
+    - On the `fixes` property, change `minItems` from 1 to 0.
+
+    In the `threadFlowLocation` object:
+
+    - On the `executionOrder` property, remove the `minValue` constraint (any value is acceptable).
+
+    In the `resultProvenance` object:
+
+    - On the `conversionSources` property, change `minItems` from 1 to 0.
