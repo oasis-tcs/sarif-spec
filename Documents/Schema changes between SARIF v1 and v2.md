@@ -1964,3 +1964,21 @@ Start of changes for CSD.2
     In the `resultProvenance` object:
 
     - On the `conversionSources` property, change `minItems` from 1 to 0.
+
+- [Issue #392](https://github.com/oasis-tcs/sarif-spec/issues/392): "Normative and editorial feedback from Microsoft"
+
+    In the `artifact` object:
+
+    - On the `length` property, change `minValue` to -1 and `default` to -1.
+
+    - On the `roles` property:
+        - Rename the value `traceFile` to `tracedFile`
+        - Add a value `debugOutputFile`
+
+    In the `externalPropertyFileReference` object:
+
+    - On the `itemCount` property, change `minValue` to -1 and `default` to -1.
+
+    On the `threadFlowLocation` object:
+
+    - On the `executionOrder` property, change `minValue` to -1 and `default` to -1.
