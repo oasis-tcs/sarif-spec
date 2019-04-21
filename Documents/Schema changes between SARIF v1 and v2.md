@@ -1911,15 +1911,19 @@ Start of changes for CSD.2
 
 - [Issue #375](https://github.com/oasis-tcs/sarif-spec/issues/375): "Location relationships"
 
-    In the `physicalLocation` object:
+    Define a `locationRelationship` object with the following properties:
 
-    - Remove the `id` property (it's moving to `location`).
+    - `target`  of type `integer`, required, minValue: 0.
+    - `kinds` of type `string[]`, optional, unique with well-known values `"includes"`, `"isIncludedBy"`, and `"relevant"`, default: `[ "relevant" ]`.
 
     In the `location` object:
 
-    - Add a property `id` of type `integer`, optional, minValue: 0 (moved from `physicalLocation`).
-    - Add a property `relatedTo` of type `integer`, optional, minValue: 0
-    - Add a property `relationshipKinds` of type `string[]`, optional, unique, minItems: 0, default: `[]`, with well-known values `"includes"` and `"isIncludedBy"`.
+    - Add a property `id` of type `integer`, optional, minValue: -1, default: -1 (moved from `physicalLocation`).
+    - Add a property `relationships` of type `locationRelationship[]`, optional, unique, default: `[]`.
+
+    In the `physicalLocation` object:
+
+    - Remove the `id` property (moved to `location`).
 
 - [Issue #377](https://github.com/oasis-tcs/sarif-spec/issues/377): "Each redaction token in an originalUriBaseId represents a unique location"
 
