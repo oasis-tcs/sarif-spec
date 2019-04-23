@@ -1979,10 +1979,49 @@ Start of changes for CSD.2
         - Rename the value `traceFile` to `tracedFile`
         - Add a value `debugOutputFile`
 
+    In the `run` object:
+
+    - On the `columnKind` property, remove the default value.
+    - Rename the `requests` property to `webRequests`.
+    - Rename the `response` property to `webResponses`.
+
+    In the `externalPropertyFileReferences` object:
+
+    - Rename the `requests` property to `webRequests`.
+    - Rename the `response` proeprty to `webResponses`.
+
     In the `externalPropertyFileReference` object:
 
     - On the `itemCount` property, change `minValue` to -1 and `default` to -1.
 
-    On the `threadFlowLocation` object:
+    In the `result` object:
+
+    - On the `kind` property, add the value `"informational"`.
+    - On the `stacks` property, make it unique.
+    - On the `relatedLocations` property, make it unique.
+    - Rename the `request` property to `webRequest`.
+    - Rename the `response` property to `webResponse`.
+
+    In the `region` object:
+
+    - On the `charOffset` property, set the default to -1.
+    - On the `byteOffset` property, set the default to -1.
+
+    In the `threadFlowLocation` object:
 
     - On the `executionOrder` property, change `minValue` to -1 and `default` to -1.
+    - Rename the `request` property to `webRequest`.
+    - Rename the `response` property to `webResponse`.
+
+    In the `address` object:
+
+    - In the `kind` property, add values `"function"` and `"page"`.
+
+    Rename the `request` object to `webRequest`.
+
+    Rename the `response` object to `webResponse`.
+
+    In the `externalProperties` object:
+
+    - Rename the `requests` property to `webRequests`.
+    - Rename the `response` proeprty to `webResponses`.
