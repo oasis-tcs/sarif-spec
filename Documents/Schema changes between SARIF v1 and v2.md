@@ -2002,6 +2002,10 @@ Start of changes for CSD.2
     - Rename the `request` property to `webRequest`.
     - Rename the `response` property to `webResponse`.
 
+    In the `locationRelationship` object:
+
+    - Add a property `description` of type `message`, optional.
+
     In the `region` object:
 
     - On the `charOffset` property, set the default to -1.
@@ -2021,7 +2025,16 @@ Start of changes for CSD.2
 
     Rename the `response` object to `webResponse`.
 
+    In the `reportingDescriptorRelationship` object:
+
+    - Add a property `description` of type `message`, optional.
+
+    In the `notification` object:
+
+    - Rename the `physicalLocation` property to `location`, and change its type from `physicalLocation` to `location`.
+
     In the `externalProperties` object:
 
+    - Change the `guid` property from `required` to optional.
     - Rename the `requests` property to `webRequests`.
     - Rename the `response` proeprty to `webResponses`.
