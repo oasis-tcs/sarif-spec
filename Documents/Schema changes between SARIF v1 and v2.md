@@ -1934,10 +1934,9 @@ Start of changes for CSD.2
 
 - [Issue #378](https://github.com/oasis-tcs/sarif-spec/issues/378): "Add properties to describe failed requests"
 
-    In the `request` object:
+    In the `webResponse` object:
 
     - Add a property `noResponseReceived` of type `boolean`, optional, default: `false`.
-    - Add a property `failureReason` of type string, optional.
 
 - [Issue #381](https://github.com/oasis-tcs/sarif-spec/issues/381): "Associate descriptor metadata with thread flow locations"
 
@@ -1988,7 +1987,7 @@ Start of changes for CSD.2
     In the `externalPropertyFileReferences` object:
 
     - Rename the `requests` property to `webRequests`.
-    - Rename the `response` proeprty to `webResponses`.
+    - Rename the `response` property to `webResponses`.
 
     In the `externalPropertyFileReference` object:
 
@@ -2014,6 +2013,7 @@ Start of changes for CSD.2
     In the `threadFlowLocation` object:
 
     - On the `executionOrder` property, change `minValue` to -1 and `default` to -1.
+    - On the `kinds` property, add the value `"value"`.
     - Rename the `request` property to `webRequest`.
     - Rename the `response` property to `webResponse`.
 
@@ -2031,10 +2031,10 @@ Start of changes for CSD.2
 
     In the `notification` object:
 
-    - Rename the `physicalLocation` property to `location`, and change its type from `physicalLocation` to `location`.
+    - Rename the `physicalLocation` property to `locations`, and change its type from `physicalLocation` to `location[]`, still optional, unique, minItems: 0, default: `[]`.
 
     In the `externalProperties` object:
 
     - Change the `guid` property from `required` to optional.
     - Rename the `requests` property to `webRequests`.
-    - Rename the `response` proeprty to `webResponses`.
+    - Rename the `response` property to `webResponses`.
