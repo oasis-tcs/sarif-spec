@@ -1944,6 +1944,12 @@ Start of changes for CSD.2
 
     - Add a property `taxa` of type `reportingDescriptorReference[]`, optional, minItems: 0, default: `[]`.
 
+- [Issue #387](https://github.com/oasis-tcs/sarif-spec/issues/387): "anyOf externalPropertyFileReference location or guid is required"
+
+    In the `externalPropertyFileReference` object:
+
+    - `anyOf` `location` or `guid` is required.
+
 - [Issue #391](https://github.com/oasis-tcs/sarif-spec/issues/391): "Remaining bugs found by Harlene (MS)"
 
     In the `externalPropertyFileReference` object:
