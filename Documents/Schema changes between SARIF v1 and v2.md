@@ -2044,3 +2044,9 @@ Start of changes for CSD.2
     - Change the `guid` property from `required` to optional.
     - Rename the `requests` property to `webRequests`.
     - Rename the `response` property to `webResponses`.
+
+- [Issue #397](https://github.com/oasis-tcs/sarif-spec/issues/397): "Add more address kinds"
+
+    In the `address` object:
+
+    - In the `kind` property, add values `"instruction"` and `"data"`.

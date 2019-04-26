@@ -35,3 +35,5 @@ Communicated to the TC before the start of the CSD.2 e-ballot
     1. [Issue #387](https://github.com/oasis-tcs/sarif-spec/issues/387): "anyOf externalPropertyFileReference location or guid is required" -- Raised by Larry Golding (I think)
 
     1. [Issue #392](https://github.com/oasis-tcs/sarif-spec/issues/392): "Substantive and editorial feedback from MS" -- Raised by Michael Fanning
+
+    1. [Issue #397](https://github.com/oasis-tcs/sarif-spec/issues/397): "Add more address kinds" -- Raised by Larry Golding
