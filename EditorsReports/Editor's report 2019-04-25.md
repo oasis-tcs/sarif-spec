@@ -36,4 +36,6 @@ Communicated to the TC before the start of the CSD.2 e-ballot
 
     1. [Issue #392](https://github.com/oasis-tcs/sarif-spec/issues/392): "Substantive and editorial feedback from MS" -- Raised by Michael Fanning
 
+    1. [Issue #393](https://github.com/oasis-tcs/sarif-spec/issues/393): "Loosen prohibition against array elements in 'root' SARIF document" -- Raised by Michael Fanning
+
     1. [Issue #397](https://github.com/oasis-tcs/sarif-spec/issues/397): "Add more address kinds" -- Raised by Larry Golding
