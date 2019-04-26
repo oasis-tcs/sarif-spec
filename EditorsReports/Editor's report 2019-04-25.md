@@ -30,11 +30,13 @@ Communicated to the TC before the start of the CSD.2 e-ballot
 
     1. [Issue #383](https://github.com/oasis-tcs/sarif-spec/issues/383): "Editorial issues from Yekaterina" -- Raised by Yekaterina O'Neil
 
+    1. [Issue #387](https://github.com/oasis-tcs/sarif-spec/issues/387): "anyOf externalPropertyFileReference location or guid is required" -- Raised by Larry Golding (I think)
+
     1. [Issue #389](https://github.com/oasis-tcs/sarif-spec/issues/389): "toolExecutionSuccessful default too ambiguous" -- Raised by Michael Fanning
 
-    1. [Issue #391](https://github.com/oasis-tcs/sarif-spec/issues/391): "Remaining bugs found by Harlene (MS)" -- Raised by Michael Fanning
+    1. [Issue #390](https://github.com/oasis-tcs/sarif-spec/issues/390): "Make certain invocation and versionControlDetails properties redactable" -- Raised by Yekaterina O'Neil
 
-    1. [Issue #387](https://github.com/oasis-tcs/sarif-spec/issues/387): "anyOf externalPropertyFileReference location or guid is required" -- Raised by Larry Golding (I think)
+    1. [Issue #391](https://github.com/oasis-tcs/sarif-spec/issues/391): "Remaining bugs found by Harlene (MS)" -- Raised by Michael Fanning
 
     1. [Issue #392](https://github.com/oasis-tcs/sarif-spec/issues/392): "Substantive and editorial feedback from MS" -- Raised by Michael Fanning
 
