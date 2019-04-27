@@ -2051,8 +2051,14 @@ Start of changes for CSD.2
 
     - In the `kind` property, add values `"instruction"` and `"data"`.
 
--  [Issue #399](https://github.com/oasis-tcs/sarif-spec/issues/399): "Rename invocation.toolExecutionSuccessful to executionSuccessful"
+- [Issue #399](https://github.com/oasis-tcs/sarif-spec/issues/399): "Rename invocation.toolExecutionSuccessful to executionSuccessful"
 
     In the `invocation` object:
 
     - Rename the `toolExecutionSuccessful` property to `executionSuccessful`.
+
+- [Issue #390](https://github.com/oasis-tcs/sarif-spec/issues/390): "Make certain invocation and versionControlDetails properties redactable"
+
+    In the `artifactLocation` object:
+
+    - Make the `uri` property optional, with default value `"."`.
