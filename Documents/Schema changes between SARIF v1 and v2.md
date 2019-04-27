@@ -2061,4 +2061,14 @@ Start of changes for CSD.2
 
     In the `artifactLocation` object:
 
-    - Make the `uri` property optional, with default value `"."`.
+    - Make the `uri` property optional.
+
+- [Issue #396](https://github.com/oasis-tcs/sarif-spec/issues/396): "Suggesting file path display base to viewers"
+
+    Define a `specialLocations` object with the following properties:
+
+    - `displayBase` of type `artifactLocation`, optional.
+
+    In the `run` object:
+
+    - Add a property `specialLocations` of type `specialLocations`, optional.
