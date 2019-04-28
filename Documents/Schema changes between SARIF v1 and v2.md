@@ -2083,3 +2083,13 @@ Start of changes for CSD.2
     - In the `kind` property, add two more values:
         - `"header"`
         - `"table"`
+
+- [Issue #403](https://github.com/oasis-tcs/sarif-spec/issues/403): "Inline property overrides is broken"
+
+    In the `address` object:
+
+    - Remove the `index` property.
+
+    In the `logicalLocation` object:
+
+    - Remove the `index` property.

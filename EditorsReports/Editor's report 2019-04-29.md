@@ -49,3 +49,5 @@ Communicated to the TC before the start of the CSD.2 e-ballot
     1. [Issue #399](https://github.com/oasis-tcs/sarif-spec/issues/399): "Rename invocation.toolExecutionSuccessful to executionSuccessful" -- Raised by Jim Kupsch
 
     1. [Issue #401](https://github.com/oasis-tcs/sarif-spec/issues/401): "Improved address object design" -- Raised by Larry Golding and Michael Fanning
+
+    1. [Issue #403](https://github.com/oasis-tcs/sarif-spec/issues/403): "Inline property overrides is broken" -- Raised by Michael Fanning
