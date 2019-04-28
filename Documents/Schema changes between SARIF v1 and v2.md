@@ -2072,3 +2072,14 @@ Start of changes for CSD.2
     In the `run` object:
 
     - Add a property `specialLocations` of type `specialLocations`, optional.
+
+- [Issue #401](https://github.com/oasis-tcs/sarif-spec/issues/401): "Improved address object design"
+
+    In the `address` object:
+
+    - Rename the `offset` property to `offsetFromParent`.
+    - Remove the `baseAddress` property.
+    - Add a property `effectiveAddress` of type integer, optional, minValue: -1, default: -1
+    - In the `kind` property, add two more values:
+        - `"header"`
+        - `"table"`
