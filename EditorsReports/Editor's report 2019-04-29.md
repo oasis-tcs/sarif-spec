@@ -50,4 +50,6 @@ Communicated to the TC before the start of the CSD.2 e-ballot
 
     1. [Issue #401](https://github.com/oasis-tcs/sarif-spec/issues/401): "Improved address object design" -- Raised by Larry Golding and Michael Fanning
 
+    1. [Issue #402](https://github.com/oasis-tcs/sarif-spec/issues/402): "Resolve spec vs. schema discrepancy re: "language" property" -- Raised by Michael Fanning, confirmed by Jim Kupsch
+
     1. [Issue #403](https://github.com/oasis-tcs/sarif-spec/issues/403): "Inline property overrides is broken" -- Raised by Michael Fanning
