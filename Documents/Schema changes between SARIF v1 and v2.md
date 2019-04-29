@@ -2077,9 +2077,13 @@ Start of changes for CSD.2
 
     In the `address` object:
 
-    - Rename the `offset` property to `offsetFromParent`.
-    - Remove the `baseAddress` property.
-    - Add a property `effectiveAddress` of type integer, optional, minValue: -1, default: -1
+    - Rename the `baseAddress` property to `absoluteAddress`.
+    - In the renamed `absoluteAddress` property, set minimum: -1, default: -1.
+    - Add a property `relativeAddress` of type `integer`, optional. NO MINIMUM, NO DEFAULT.
+    - Rename the `offset` property to `offsetFromParent`. No other changes. It already has NO MINIMUM, NO DEFAULT.
+    - Add a property `length` of type `integer`, optional, NO MINIMUM, NO DEFAULT.
     - In the `kind` property, add two more values:
         - `"header"`
         - `"table"`
+        - `"stack"`
+        - `"stackFrame"`
