@@ -2,7 +2,7 @@
 
 Laurence J. Golding and Michael Fanning
 
-Communicated to the TC before the start of the CSD.2 e-ballot
+This report describes the changes that were made after TC #35 (April 17th, 2019) and before the start of the CSD.2 e-ballot (May 3rd, 2019):
 
 1. The following issues were closed without further action:
 
