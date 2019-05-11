@@ -603,7 +603,7 @@
         },
 
         "graphs": {
-          "description": "An array of graph objects that will merged with a separate run.",
+          "description": "An array of graph objects that will be merged with a separate run.",
           "type": "array",
           "minItems": 0,
           "default": [],
@@ -2973,7 +2973,7 @@
         },
 
         "releaseDateUtc": {
-          "description": "A string specifying the UTC date (and optionally, the time) of the component’s release.",
+          "description": "A string specifying the UTC date (and optionally, the time) of the componentï¿½s release.",
           "type": "string"
         },
 
