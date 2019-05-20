@@ -44,6 +44,10 @@ This report describes the changes that were made after the first CSD.2 e-ballot 
 
 - [Issue #416](https://github.com/oasis-tcs/sarif-spec/issues/416), "Loosen prohibition of RMS-deducible information in partial fingerprints"
 
+- [Issue #417](https://github.com/oasis-tcs/sarif-spec/issues/417), "External property file schema contains broken $ref's"
+
+- [Issue #419](https://github.com/oasis-tcs/sarif-spec/issues/419), "Change schema URIs"
+
 The following issues were labeled `future` and closed:
 
 - [Issue #412](https://github.com/oasis-tcs/sarif-spec/issues/412), "Consider designing a caching mechanism for code snippets"
