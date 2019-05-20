@@ -32,10 +32,20 @@ This report describes the changes that were made after the first CSD.2 e-ballot 
 
 - [Issue #408](https://github.com/oasis-tcs/sarif-spec/issues/408), "Missing condition in message lookup procedure"
 
+- [Issue #409](https://github.com/oasis-tcs/sarif-spec/issues/409), "artifactLocation.rendered example shows a physicalLocation object instead"
+
 - [Issue #410](https://github.com/oasis-tcs/sarif-spec/issues/410), "3.38.3 location property example includes "message" in the wrong place"
 
 - [Issue #411](https://github.com/oasis-tcs/sarif-spec/issues/411), "Spec mentions "subset" relationship rather than "superset" in several places"
 
 - [Issue #415](https://github.com/oasis-tcs/sarif-spec/issues/415), "logicalLocation.name should not be required"
 
+- [Issue #414](https://github.com/oasis-tcs/sarif-spec/issues/414), "Change location.logicalLocation to logicalLocations array"
+
 - [Issue #416](https://github.com/oasis-tcs/sarif-spec/issues/416), "Loosen prohibition of RMS-deducible information in partial fingerprints"
+
+The following issues were labeled `future` and closed:
+
+- [Issue #412](https://github.com/oasis-tcs/sarif-spec/issues/412), "Consider designing a caching mechanism for code snippets"
+
+- [Issue #413](https://github.com/oasis-tcs/sarif-spec/issues/413), "Consider providing an ability to associate a quality domain with a tool"
