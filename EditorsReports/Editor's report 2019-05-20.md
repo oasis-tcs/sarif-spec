@@ -2,7 +2,7 @@
 
 Laurence J. Golding and Michael Fanning
 
-This report describes the changes that were made after the first CSD.2 e-ballot was approved by the TC (May 8th, 2019) and before the second CSD.2 e-ballot was opened (May 16th, 2019).
+This report describes the changes that were made after the first CSD.2 e-ballot was approved by the TC (May 8th, 2019) and before the second CSD.2 e-ballot was opened (May 20th, 2019).
 
 - [Issue #398](https://github.com/oasis-tcs/sarif-spec/issues/405): "Write an Appendix on how a consumer decides if a run has failed"
 
