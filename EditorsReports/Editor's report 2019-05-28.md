@@ -1,4 +1,4 @@
-# Editor's report
+# Editors' report
 
 Laurence J. Golding and Michael Fanning
 
