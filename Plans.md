@@ -4,11 +4,7 @@
 </div>
 <div>
 <h3>Next Steps</h3>
-<ul>
-<li>Three Statements of Use (SoU) are needed, one of which must be from an OASIS organizational member.  We currently have one SoU from a non-organizational member.</li>
-<li>A short (probably one paragraph) statement is needed comparing/contrasting SARIF with one or two other standards, to show where we fit into the ecosystem relative to others.  This statement will be presented as part of the application for Candidate OASIS Standard.</li>
-</ul>
-<p>Once the above steps are completed, we can move forward with an e-ballot for the following.</p>
+<p>As of 2019-12-02, a 7-day ballot is in progress to approve the following.</p>
 <ul>
 <li>Certification by the TC that all schema and XML instances are well-formed and that expressions are valid</li>
 <li>Approval of the descriptive and compare/contrast paragraphs</li>
