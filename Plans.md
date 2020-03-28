@@ -4,14 +4,9 @@
 </div>
 <div>
 <h3>Next Steps</h3>
-<ol>
-<li>60-day public comment period for Candidate OASIS Standard (concludes 2020-02-18)</li>
-<li>Address any comments received from the comment period (non-material changes only)</li>
-<li>Hold an e-ballot to approve the changes and ask for a Call for Consent for OASIS Standard</li>
-<li>Call for Consent (approx. three weeks for admin plus vote)</li>
-<li>If no objections are received, publication of OASIS Standard (approx. 7 weeks after step 1 ends)</li>
-</ol>
-<p>If all goes well, we should be able to publish by early April, 2020.</p>
+<p>As of 2020-03-27, SARIF v2.1.0 has passed its OASIS Call for
+Consent ballot with no objections.  Publication should occur within
+the next two weeks.</p>
 </div>
 <div>
 <h2>Potential Future Plans</h2>
