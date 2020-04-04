@@ -1,0 +1,51 @@
+Type name: application
+
+Subtype name: sarif+json
+
+Required parameters: N/A
+
+Optional parameters: N/A
+
+Encoding considerations: UTF8 only
+	
+Security considerations:
+
+- The use of absolute paths in analysis result location URIs might reveal sensitive information about the machine on which the scan was performed.
+- The use of the hostname component in analysis result location URI might reveal the network location of the machine on which the scan was performed.
+- The use of raw HTML in message strings expressed in Markdown might allow arbitrary code execution (for example, through javascript: links).
+- The use of deeply nested constructs in Markdown message strings might lead to stack overflow in some Markdown implementations.
+- Certain properties of the SARIF object model might reveal information about the machine on which a scan was run. (The specification allows such properties to be omitted or "redacted".)
+- Certain properties of the SARIF object model (such as the command line that invoked the analysis tool) can contain arbitrary commands which might damage a machine on which they are run.
+
+Interoperability considerations: N/A
+
+Published specification: Static Analysis Results Interchange Format (SARIF) Version 2.1.0. Edited by Michael C. Fanning and Laurence J. Golding. 27 March 2020. OASIS Standard. https://docs.oasisopen.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html. Latest stage: https://docs.oasisopen.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.
+
+Applications that use this media type: The following list is not exhaustive:
+
+- Static analysis tools
+- Static analysis results visualization tools (viewers)
+- Bug filing tools
+- Defect databases
+- Compliance systems
+
+Fragment identifier considerations: N/A
+
+Additional information:
+
+  Deprecated alias names for this type: N/A
+  Magic number(s): N/A
+  File extension(s): .sarif, .sarif.json
+  Macintosh file type code(s): N/A
+
+Person & email address to contact for further information: Michael C. Fanning (mikefan@microsoft.com) and Laurence J. Golding (v-lgold@microsoft.com)
+
+Intended usage: LIMITED USE
+
+Restrictions on usage: N/A
+
+Author: OASIS Static Analysis Results Interchange Format (SARIF) TC (https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)
+
+Change controller: OASIS Open (https://www.oasis-open.org/)
+
+Provisional registration? (standards tree only): No
