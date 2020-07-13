@@ -21,6 +21,7 @@ Security considerations:
 - Any other vulnerabilities associated with Markdown can be leveraged to attack a SARIF processor. For example, the use of deeply nested constructs in Markdown message strings might lead to stack overflow in some Markdown implementations.
 - Certain properties of the SARIF object model might reveal information about the machine on which a scan was run. (The specification allows such properties to be omitted or "redacted".)
 - SARIF files can contain information about how the analysis tool was invoked, including the command line that was executed. This can contain arbitrary commands which might damage a machine on which they are run.
+- SARIF files can contain information about when the analysis tool was invoked. An attacker might be able to deduce how frequently scans are run, and therefore might be able to make a malicious change and then revert it before the next scan detects the problem.
 - SARIF files can contain information about errors encountered by the analysis tool, including its exit code. This can allow an attacker to craft input to attack the analysis tool.
 
 Interoperability considerations: N/A
