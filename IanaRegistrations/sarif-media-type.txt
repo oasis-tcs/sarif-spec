@@ -22,8 +22,8 @@ The SARIF format captures results from static analysis tools. Such analysis migh
 - The use of raw HTML in message strings expressed in Markdown might allow arbitrary code execution (for example, through javascript: links).
 - Any other vulnerabilities associated with Markdown can be leveraged to attack a SARIF processor. For example, the use of deeply nested constructs in Markdown message strings might lead to stack overflow in some Markdown implementations.
 - Certain properties of the SARIF object model might reveal information about the machine on which a scan was run. (The specification allows such properties to be omitted or "redacted".)
-- Certain properties of the SARIF object model (such as the command line that invoked the analysis tool) can contain arbitrary commands which might damage a machine on which they are run.
-
+- SARIF files can contain information about how the analysis tool was invoked, including the command line that was executed. This can contain arbitrary commands which might damage a machine on which they are run.
+- SARIF files can contain information about errors encountered by the analysis tool, including its exit code. This can allow an attacker to craft input to attack the analysis tool.
 
 Interoperability considerations: N/A
 
@@ -48,7 +48,7 @@ Additional information:
 
 Person & email address to contact for further information: Michael C. Fanning (mikefan@microsoft.com) and Laurence J. Golding (v-lgold@microsoft.com)
 
-Intended usage: LIMITED USE
+Intended usage: COMMON
 
 Restrictions on usage: N/A
 
