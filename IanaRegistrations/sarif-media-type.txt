@@ -1,3 +1,5 @@
+(registered 2020-09-15, last updated 2020-09-15)
+
 Type name: application
 
 Subtype name: sarif+json
@@ -7,52 +9,102 @@ Required parameters: N/A
 Optional parameters: N/A
 
 Encoding considerations: Binary: UTF8-encoded text only
-	
+
 Security considerations:
 
-- Since SARIF files are serialized as JSON, they are subject to the same security vulnerabilities as any JSON file.
-- The SARIF format captures results from static analysis tools. Such analysis might disclose information about software vulnerabilities. Therefore SARIF file contents can be extremely sensitive, requiring external privacy and integrity protection. Even when the analysis results themselves are not sensitive, SARIF files can have other security issues:
-- SARIF files can embed the contents of the programming artifacts (such as source or binary files) that were analyzed. Such content can be of any type and may include compressed material, with all their associated vulnerabilities.
-- SARIF files can refer to programming artifacts through arbitrary URIs, with all their associated vulnerabilities.
-- SARIF files produced by web site analysis tools can contain the full contents of the web requests sent by the tool, and the resulting web responses. The contents of the requests and responses can be of any type, with the associated vulnerabilities of those types.
-- The use of absolute paths in analysis result location URIs might reveal sensitive information about the machine on which the scan was performed.
-- The use of the hostname component in analysis result location URI might reveal the network location of the machine on which the scan was performed.
-- The use of raw HTML in message strings expressed in Markdown might allow arbitrary code execution (for example, through javascript: links).
-- Any other vulnerabilities associated with Markdown can be leveraged to attack a SARIF processor. For example, the use of deeply nested constructs in Markdown message strings might lead to stack overflow in some Markdown implementations.
-- Certain properties of the SARIF object model might reveal information about the machine on which a scan was run. (The specification allows such properties to be omitted or "redacted".)
-- SARIF files can contain information about how the analysis tool was invoked, including the command line that was executed. This can contain arbitrary commands which might damage a machine on which they are run.
-- SARIF files can contain information about when the analysis tool was invoked. An attacker might be able to deduce how frequently scans are run, and therefore might be able to make a malicious change and then revert it before the next scan detects the problem.
-- SARIF files can contain information about errors encountered by the analysis tool, including its exit code. This can allow an attacker to craft input to attack the analysis tool.
+   - Since SARIF files are serialized as JSON, they are subject to the same 
+   security vulnerabilities as any JSON file.
 
-Interoperability considerations: N/A
+   - The SARIF format captures results from static analysis tools. Such 
+   analysis might disclose information about software vulnerabilities. 
+   Therefore SARIF file contents can be extremely sensitive, requiring 
+   external privacy and integrity protection. Even when the analysis results 
+   themselves are not sensitive, SARIF files can have other security issues:
 
-Published specification: Static Analysis Results Interchange Format (SARIF) Version 2.1.0. Edited by Michael C. Fanning and Laurence J. Golding. 27 March 2020. OASIS Standard. https://docs.oasisopen.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html. Latest stage: https://docs.oasisopen.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.
+   - SARIF files can embed the contents of the programming artifacts (such as 
+   source or binary files) that were analyzed. Such content can be of any 
+   type and may include compressed material, with all their associated 
+   vulnerabilities.
 
-Applications that use this media type: The following list is not exhaustive:
+   - SARIF files can refer to programming artifacts through arbitrary URIs, 
+   with all their associated vulnerabilities.
 
-- Static analysis tools
-- Static analysis results visualization tools (viewers)
-- Bug filing tools
-- Defect databases
-- Compliance systems
+   - SARIF files produced by web site analysis tools can contain the full 
+   contents of the web requests sent by the tool, and the resulting web 
+   responses. The contents of the requests and responses can be of any type, 
+   with the associated vulnerabilities of those types.
+
+   - The use of absolute paths in analysis result location URIs might reveal 
+   sensitive information about the machine on which the scan was performed.
+
+   - The use of the hostname component in analysis result location URI might 
+   reveal the network location of the machine on which the scan was performed.
+
+   - The use of raw HTML in message strings expressed in Markdown might allow 
+   arbitrary code execution (for example, through javascript: links).
+
+   - Any other vulnerabilities associated with Markdown can be leveraged to 
+   attack a SARIF processor. For example, the use of deeply nested constructs 
+   in Markdown message strings might lead to stack overflow in some Markdown 
+   implementations.
+
+   - Certain properties of the SARIF object model might reveal information 
+   about the machine on which a scan was run. (The specification allows such 
+   properties to be omitted or "redacted".)
+
+   - SARIF files can contain information about how the analysis tool was 
+   invoked, including the command line that was executed. This can contain 
+   arbitrary commands which might damage a machine on which they are run.
+
+   - SARIF files can contain information about when the analysis tool was 
+   invoked. An attacker might be able to deduce how frequently scans are run, 
+   and therefore might be able to make a malicious change and then revert it 
+   before the next scan detects the problem.
+
+   - SARIF files can contain information about errors encountered by the 
+   analysis tool, including its exit code. This can allow an attacker to 
+   craft input to attack the analysis tool.
+
+   Interoperability considerations: N/A
+
+   Published specification: Static Analysis Results Interchange Format 
+   (SARIF) Version 2.1.0. Edited by Michael C. Fanning and Laurence J. 
+   Golding. 27 March 2020. OASIS Standard. 
+
+   https://docs.oasisopen.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html.
+
+   Latest stage: 
+   https://docs.oasisopen.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.
+
+Applications that use this media type: 
+
+   The following list is not exhaustive:
+
+   - Static analysis tools
+   - Static analysis results visualization tools (viewers)
+   - Bug filing tools
+   - Defect databases
+   - Compliance systems
 
 Fragment identifier considerations: N/A
 
 Additional information:
 
-  Deprecated alias names for this type: N/A
-  Magic number(s): N/A
-  File extension(s): .sarif, .sarif.json
-  Macintosh file type code(s): N/A
+   Deprecated alias names for this type: N/A
+   Magic number(s): N/A
+   File extension(s): .sarif, .sarif.json
+   Macintosh file type code(s): N/A
 
-Person & email address to contact for further information: Michael C. Fanning (mikefan@microsoft.com) and Laurence J. Golding (v-lgold@microsoft.com)
+Person & email address to contact for further information: 
+
+   Michael C. Fanning (mikefan&microsoft.com) and Laurence J. Golding 
+   (v-lgold&microsoft.com)
 
 Intended usage: COMMON
 
 Restrictions on usage: N/A
 
-Author: OASIS Static Analysis Results Interchange Format (SARIF) TC (https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)
+Author: OASIS Static Analysis Results Interchange Format (SARIF) TC 
+   (https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)
 
 Change controller: OASIS Open (https://www.oasis-open.org/)
-
-Provisional registration? (standards tree only): No
