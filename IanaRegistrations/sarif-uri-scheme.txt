@@ -1,0 +1,30 @@
+Scheme name: sarif
+
+Status: Permanent
+
+Applications/protocols that use this scheme name:
+   The sarif scheme can be used by any application that processes
+   file that conform to the SARIF 2.1.0 specification, including
+   but not limited to:
+
+   - Static analysis tools
+   - Static analysis results visualization tools (viewers)
+   - Bug filing tools
+   - Defect databases
+   - Compliance systems
+
+Contact:
+   Michael C. Fanning (mikefan&microsoft.com) and Laurence J. Golding 
+   (v-lgold&microsoft.com)
+
+Change controller: OASIS Open (https://www.oasis-open.org/)
+
+References:
+   Static Analysis Results Interchange Format (SARIF) Version 2.1.0.
+   Edited by Michael C. Fanning and Laurence J. Golding. 27 March 2020.
+   OASIS Standard. 
+
+   https://docs.oasisopen.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html.
+
+   Latest stage: 
+   https://docs.oasisopen.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.
