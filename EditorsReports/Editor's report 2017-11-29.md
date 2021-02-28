@@ -11,7 +11,7 @@ Presented at TC Meeting #7, November 29, 2017
 
         Change draft: `Documents/ChangeDrafts/sarif-v1.0-issue-27-rule-help.docx`
 
-    2. Issue [#56](https://github.com/oasis-tcs/sarif-spec/issues/27): "Consider adding namepaces to tags"
+    2. Issue [#56](https://github.com/oasis-tcs/sarif-spec/issues/27): "Consider adding namespaces to tags"
 
         Change draft: `Documents/ChangeDrafts/sarif-v1.0-issue-56-namespaced-tags-with-metadata.docx`
 

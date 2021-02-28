@@ -8726,7 +8726,7 @@ class=CODEtemp>guid</span> whose value is a GUID-valued string (§3.5.3) which pr
 of <span class=CODEtemp>theSarifLog.inlineExternalProperties</span> (§3.13.5) and <span class=CODEtemp>location</span> (§3.16.3) is absent, then <span
 class=CODEtemp>guid</span> <b>SHALL</b> be present.</p>
 
-<p class=MsoNormal>Otherwise (that is, if the extermalized properties are
+<p class=MsoNormal>Otherwise (that is, if the externalized properties are
 persisted in a separate file, in which case <span class=CODEtemp>location</span>
 is required, or if the externalized properties are persisted in an element of <span
 class=CODEtemp>theSarifLog.inlineExternalProperties</span> but <span
@@ -8937,7 +8937,7 @@ is not distinguished from other runs in that category.</p>
 
 <p class=MsoNormal><span class=CODEtemp>id</span> <b>MAY</b> consist of a
 single component. This <b>SHALL</b> be taken to specify a unique identifier for
-the run, withough specifying any category that the run belongs to.</p>
+the run, without specifying any category that the run belongs to.</p>
 
 <p class=Note>EXAMPLE 3: A run whose <span class=CODEtemp>id</span> is <span
 class=CODEtemp>&quot;My Nightly Run Debug x64 2018-10-10&quot;</span> has a
@@ -10857,7 +10857,7 @@ minimumRequiredLocalizedDataSemanticVersion property</a></h3>
 <p class=MsoNormal>If a <span class=CODEtemp>toolComponent</span> object does
 not represent a translation (§3.19.4), it <b>SHOULD</b> contain a property
 named <span class=CODEtemp>minimumRequiredLocalizedDataSemanticVersion</span>
-whose value is a string that specifies the minumum semantic version [<a
+whose value is a string that specifies the minimum semantic version [<a
 href="#SEMVER">SEMVER</a>] of the translated strings that it requires.
 Otherwise, <span class=CODEtemp>minimumRequiredLocalizedDataSemanticVersion</span>
 <b>SHALL</b> be absent.</p>
@@ -14109,7 +14109,7 @@ and sometimes it does not detect a violation but is unable to prove that there
 is none (<span class=CODEtemp>kind</span> = <span class=CODEtemp>&quot;open&quot;</span>).
 <a name="_Hlk6751461">In such a tool, a </a><span class=CODEtemp>kind</span> value
 of <span class=CODEtemp>&quot;open&quot;</span> might be an indication that the
-user should add additional assertions to enabe the tool to determine if there
+user should add additional assertions to enable the tool to determine if there
 is a violation.</p>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
@@ -19985,7 +19985,7 @@ style='color:black'>          &quot;id&quot;: &quot;HR0001&quot;,</span></p>
 
 <p class=Code style='margin:0in;margin-bottom:.0001pt;background:#D9D9D9'><span
 style='color:black'>          &quot;name&quot;:
-&quot;SubstrPropogatesTaint&quot;,</span></p>
+&quot;SubstrPropagatesTaint&quot;,</span></p>
 
 <p class=Code style='margin:0in;margin-bottom:.0001pt;background:#D9D9D9'><span
 style='color:black'>          &quot;shortDescription&quot;: {</span></p>
@@ -25436,7 +25436,7 @@ different converters for the same tool.</p>
 <p class=MsoNormal>A converter <b>SHOULD</b> populate its own semantic version
 [<a href="#SEMVER">SEMVER</a>] property <span class=CODEtemp>theRun.conversion.tool.driver.semanticVersion</span>
 (§3.19.12). If it does, and if a subsequent version of the converter
-synthesizes SARIF elements in a sematically incompatible way, it <b>SHALL</b>
+synthesizes SARIF elements in a semantically incompatible way, it <b>SHALL</b>
 increment the major version component of its semantic version.</p>
 
 <p class=MsoNormal>Notwithstanding this general guidance recommending that a

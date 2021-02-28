@@ -11,7 +11,7 @@
           "language": "en-US",
           "releaseDateUtc": "2019-03-12",
           "informationUri": "https://example.com/tools/codescanner/4.0/en-US/about.html",
-          "downloadUri": "https://example.com/dowloads/codescanner/4.0/en-US/CodeScanner.zip",
+          "downloadUri": "https://example.com/downloads/codescanner/4.0/en-US/CodeScanner.zip",
           "fullName": "CodeScanner for Windows (TM) Version 4.0.5 (en-US)",
           "product": "CodeScanner",
           "productSuite": "Quality Tools from ToolCorp",
@@ -117,7 +117,7 @@
             "language": "en-US",
             "releaseDateUtc": "2019-03-12",
             "informationUri": "https://example.com/tools/codescanner/security-rules/about.html",
-            "downloadUri": "https://example.com/dowloads/codescanner/security-rules/4.0/en-US/translation.sarif.external-property-file",
+            "downloadUri": "https://example.com/downloads/codescanner/security-rules/4.0/en-US/translation.sarif.external-property-file",
             "associatedComponent": {
               "guid": "11111111-1111-1111-1111-111111111111",
               "comment-1": "No index property; this component is associated with the driver."

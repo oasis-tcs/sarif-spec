@@ -10,7 +10,7 @@ Presented at TC Meeting #8, January 10, 2018
 
     2. Issue [#27](https://github.com/oasis-tcs/sarif-spec/issues/27): "Add a help property to rule"
 
-    3. Issue [#56](https://github.com/oasis-tcs/sarif-spec/issues/27): "Consider adding namepaces to tags"
+    3. Issue [#56](https://github.com/oasis-tcs/sarif-spec/issues/27): "Consider adding namespaces to tags"
     
 2. The formal spec language for the following issues was made available for review on January 4th, 2018, and we will move for their adoption in today's meeting:
 

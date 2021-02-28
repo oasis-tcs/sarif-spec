@@ -25,6 +25,6 @@ Changes to the spec text:
 - [Issue #444](https://github.com/oasis-tcs/sarif-spec/issues/444): Errors in K.4 Comprehensive SARIF file
 - [Issue #446](https://github.com/oasis-tcs/sarif-spec/issues/446): Invalid hyperlinks found
 - [Issue #450](https://github.com/oasis-tcs/sarif-spec/issues/450): Use of obsolete baselineState.existing property persists in spec
-- [Issue #451](https://github.com/oasis-tcs/sarif-spec/issues/451): Clarify guidance on use of space in plain text messagess
+- [Issue #451](https://github.com/oasis-tcs/sarif-spec/issues/451): Clarify guidance on use of space in plain text messages
 
 

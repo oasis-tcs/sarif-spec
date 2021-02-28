@@ -1292,7 +1292,7 @@
         },
 
         "instanceGuid": {
-          "description": "A stable, unique identifer for the result in the form of a GUID.",
+          "description": "A stable, unique identifier for the result in the form of a GUID.",
           "type": "string"
         },
 
@@ -1938,7 +1938,7 @@
     },
 
     "versionControlDetails": {
-      "descriptipn": "Specifies the information necessary to retrieve a desired revision from a version control system.",
+      "description": "Specifies the information necessary to retrieve a desired revision from a version control system.",
       "type": "object",
       "additionalProperties": false,
       "properties": {

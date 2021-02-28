@@ -48,7 +48,7 @@ Presented at TC Meeting #29, December 12th, 2018
 
     1. [Issue #198](https://github.com/oasis-tcs/sarif-spec/issues/198): "Support for incremental scan results"
 
-        The new `result.resultProvenance` object, which states the range of times and runs during which the result was detected, seems to cover Ykaterina's needs.
+        The new `result.resultProvenance` object, which states the range of times and runs during which the result was detected, seems to cover Yekaterina's needs.
 
     1. [Issue #261](https://github.com/oasis-tcs/sarif-spec/issues/261): "Explore static text for clickthrough links"
 
