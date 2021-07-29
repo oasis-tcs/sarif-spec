@@ -1,6 +1,38 @@
-# SARIF eco-system information
+# SARIF
+The **Static Analysis Results Interchange Format** (**SARIF**; pronunciation_guide) is a universal representation for the output of [static analysis](https://en.wikipedia.org/wiki/Static_analysis) tools.  It is standardized by the [OASIS](https://en.wikipedia.org/wiki/OASIS_(organization)) [SARIF Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif).
 
-## Direct support
+### Contents
+1. Purpose
+2. Standard
+3. History
+4. Adoption
+5. See also
+6. References
+
+## Purpose
+SARIF creates one common format for representing the results of static analysis tools. This allows visualization tools to work with static analysis tools from multiple vendors. It also facilitates the aggregation of static analysis output from the tools of multiple vendors.
+
+Each static analysis tool has a unique approach to discovering properties of computer program source code. Consequently, tools from different vendors find different sets of vulnerabilities. Combining the output of tools from multiple vendors can provide a more complete picture of vulnerabilities in source code.
+
+By supporting SARIF, a low-cost tool provider gets access to a rich ecosystem of support.
+
+## Standard
+The current version of the standard, v2.1.0, is [publicly available from OASIS](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html).
+
+### How SARIF relates to other standards
+
+(to be completed)
+
+(possibly include a mention of [STIX](https://www.mitre.org/sites/default/files/publications/stix.pdf))
+
+## History
+Early work on SARIF began within Microsoft for use in their tools. It eventually became apparent that SARIF's value could be substantially enhanced by making it an industry-wide standard.
+
+The OASIS SARIF Technical Committee was formed and had its first meeting in September, 2017. The first edition of the SARIF standard was published in March, 2020. It was called version 2.1.0 in recognition of the earlier efforts within Microsoft as well as intermediate pre-standard versions that were in use during the development of the standard. Following publication, the committee suspended its activities, resuming beginning in March, 2021, to begin discussing the direction for future editions of the standard.
+
+## Adoption
+
+### Direct support
 
 - [BinSkim](https://github.com/microsoft/binskim) is a binary-level security checker that validates Window, Mac and *nix binaries.
 - [Brakeman](https://github.com/presidentbeef/brakeman/) is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
@@ -33,7 +65,7 @@
 - [TFSec](https://github.com/tfsec/tfsec) uses static analysis of your terraform templates to spot potential security issues.
 - [Trivy](https://github.com/aquasecurity/trivy) is a vulnerability scanner for containers and other artifacts.
 
-## Converters (i.e. tool output to SARIF conversion code exists)
+### Converters (i.e. tool output to SARIF conversion code exists)
 
 - AndroidStudio
 - Bandit
@@ -46,7 +78,7 @@
 - StaticDriverVerifier
 - TSLint
 
-## SDKs/Documentation
+### SDKs/Documentation
 
 - [C#](https://github.com/microsoft/sarif-sdk)
 - [JS](https://github.com/microsoft/sarif-js-sdk)
@@ -54,7 +86,7 @@
 - [Go](https://github.com/owenrumney/go-sarif)
 - [SARIF Tutorials](https://github.com/microsoft/sarif-tutorials)
 
-## Viewers/SARIF development Support
+### Viewers/SARIF development Support
 
 - [Visual Studio Extension](https://github.com/microsoft/sarif-visualstudio-extension)
 - [Visual Studio Code](https://github.com/microsoft/sarif-vscode-extension)
@@ -62,3 +94,10 @@
 - [SARIF Viewer](https://microsoft.github.io/sarif-web-component/)
 - [SARIF Validator](https://sarifweb.azurewebsites.net/)
 - [GitHub docs](https://docs.github.com/en/enterprise-server@3.0/code-security/secure-coding/integrating-with-code-scanning/sarif-support-for-code-scanning#about-sarif-support)
+
+## See also
+
+* [Static analysis](https://en.wikipedia.org/wiki/Static_analysis)
+
+## References
+
