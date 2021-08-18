@@ -39,7 +39,7 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 - [Checkstyle](https://github.com/checkstyle/checkstyle) is a Java style guidelines checking.
 - [Clang Analyzer](https://clang-analyzer.llvm.org/), the LLVM C/C++ checker, has [added SARIF export](https://github.com/llvm-mirror/clang/commit/962c092aae53360ab4d5b1adac78963694b5963f).
 - [CodeQL](https://github.com/github/codeql) is a multilanguage, intraprocedural checker with a large rule set.
-- [ConeSonar](https://www.grammatech.com/codesonar-cc) is a static analysis tool which identifies programming bugs that can result in system crashes, memory corruption, leaks, data races, and security vulnerabilities.
+- [CodeSonar](https://www.grammatech.com/codesonar-cc) is a static analysis tool which identifies programming bugs that can result in system crashes, memory corruption, leaks, data races, and security vulnerabilities.
 - [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html) is a file scanner that detects plaintext secrets.
 - [DartAnalyzer](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer) is a dart/flutter analyzer.
 - [Detekt](https://github.com/detekt/detekt) is a static code analysis tool for the Kotlin programming language.
