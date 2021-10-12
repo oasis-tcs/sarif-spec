@@ -31,61 +31,62 @@
 2. Future Meetings
 2.1 Future meeting schedule (Co-Chair Keaton)
   Proposed Teleconferences (Thursdays at 08:00 PDT / 15:00 UTC for 1.5 hours)
-  October 15, 2021
+  October 14, 2021
   October 28, 2021
   Tentative in-person meeting for 2022Q1.
 3. Discussion
 3.1 Review recruitment effort to complete the technical committee
- Snyk has not shown for several attempts at contact, we will halt.
- StackHawk meeting, expresses an interest in DAST.
- Reengaged with GitHub, Aditya
- ForAllSecure, fuzzing, willing to engage
+ Snyk has not shown for several attempts at contact, we will halt outreach.
+ Teleconference with StackHawk, who haved expressed an interest in DAST. Will follow-up.
+ Reengaged with GitHub, Aditya Sharad will join the technical committe.
+ Teleconference with ForAllSecure, a fuzzing company, willing to engage. Will follow-up.
  WhiteSource, NTT, sent mail, haven't heard back.
 3.2 Review status of draft Wikipedia page
 3.3 Review status on finalizing SARIF 2.1 errata
- Mike and Eddy to finalize. We will create a special majority vote with a public 15 day review period. 
-3.4 
- AWS CloudFormation Linter, for GHAS
- SARIF export for internal MS threat modeling linter
- VS adding suppressions to the log via the UI, VS code would be a follow-on.
+ Mike and Eddy will finalize the content. We will create a special majority vote with a public 15 day review period. 
+3.4  Review current state of ecosystem ongoing work
+ * SARIF export authored for AWS CloudFormation Linter (for GHAS integration).
+ * SARIF export authored for internal MS threat modeling linter (of public MS threat modeling tool files).
+ * VS adding suppressions to the log via the UI, VS code will be a follow-on.
 3.5 Review current state of taxonomies
- No updates. We will meet with Alex Hoole re: 7PK. This taxonomy was recently updated with new categories, raises questions on versioning and maintenance. Can MicroFocus to get a copy of the definite data? Open to helping. We believe we've implemented all public taxonomies. Finished HDF, GDPR needs examination.
+ * No updates. We will meet with Alex Hoole re: 7PK. This taxonomy was recently updated with new categories, raises questions on versioning and maintenance. Can MicroFocus to get a copy of the definite data? They are open to helping. We believe we've implemented all public taxonomies. Finished HDF. GDPR needs examination as not a perfect fit as a topic.
 3.6 Review SARIF 2.2 execution roadmap and first set of design proposals.
-If we extend into DAST, let's change name to 'Software analysis results interchange format'. For this, we need a recharter of the TC, propose a charter, we vote on it, it will go through OASIS for approval, and scope is subsequently expanded. We will require a new TC, which could handle the new stuff or everything could transfer to the new TC. If it's a close call, let's be sure to keep talking, because it would be help to avoid mechanical costs. Interpretation of work product is what's important. Stefan, David and Chet to drive.
-
-Michael moves that we repurpose our name as 'Software Analysis Results Interchange Format', to increase our scope to the broad range of software-driven quality concerns, for examples, metrics, dynamic analysis, etc.
-Paul seconds, no discussion, no objections
-
-No concrete design proposals. Propose a very simple roadmap:
- * Bless errata
- * Design all non-breaking changes to existing data/structures.
- * Ring-fence breaking changes as a distinct effort
- * Refactoring/general design, DAST, metrics, people, results mgmt.
-
-DAST + metrics
-
+ * If we extend into DAST, let's change name to 'Software analysis results interchange format'. For this, we may need a recharter of the TC, in which we propose a charter, vote on go through OASIS for approval, after which scope is expanded. We may require a new TC, which could handle the new stuff or everything could transfer to the new TC. If it's a close call, let's be sure to keep talking, because it would be help to avoid mechanical costs. Interpretation of work product is what's important. Stefan, David and Chet will drive the decision-making here.
+ * DECISION: Michael moves that we repurpose our name as 'Software Analysis Results Interchange Format', to increase our scope to the broad range of software-driven quality concerns, for examples, metrics, dynamic analysis, etc. Paul seconds, no discussion, no objections
+ * We have no concrete design proposals yet. Michael proposes a very simple moving forward roadmap:
+  - Finalize and ship the errata.
+  - Design all non-breaking changes to existing data/structures.
+  - Ring-fence and design breaking changes as a distinct effort
+  - Convene work threads around four topics, 1) refactoring/general design, 2) DAST, 3) metrics, and  4) results mgmt.
 3.7 Discuss metrics and SARIF refactoring.
- 1. Put it in artifacts table, results remain focused on policy computations. AppInsights, metrics, etc. 30 CodeSonar metrics, metrics at three granularities, the projects, the files, the functions, we need types. Paul is on MISRA committee for software quality metrics, working on a standard set, for the embedded C/C++. There are other ad hoc standards for metrics, not strong. A metric is associated with an analysis, and so it is like a 'run', there is focus on computed values. TODO: get CodeSonar metrics, get MISRA current thinking/proposals, review other standards/formats. Q: what is a metric? it is a property of code, typically rendered as a linear, scalar value. What other types could they be? Recommended ranges, sometimes with constraints. Do we propose a metrics scheme? i.e., do we have a notion of metrics 'rules', i.e., metadata descriptions of metrics. This would argue for result-annotations. Units in metrics and who interprets that or validates it. OMG/KDM Nick Mansourov. Stefan points out that metrics are appealing to customers, be sure to keep this lens in mind. 'Convincing slots to express evaluations'. We are an assessment and evaluation tool. CAST software makes a business out of generating metrics at a large scale for organizations. Talk to Semmle about it, they were a direct competitor back in the day. TODO focus on metrics. 
-
- 2. Push out bulk data descriptions as indirect references. Web is reduced. Standalone format as computed, sparse, point-in-time, efficient, intact.
-
+ * We have two options, express metrics as results *or* expand artifacts table to include metrics data (leaving results focused on policy computations/actual quality defects).
+ * CodeSonar produces 30 quality metrics, is focused on producing a standard set for embedded C/C++ (such as useful for MISRA)
+ * There are other ad hoc standards for metrics, which are not strong. We should gather docs on these for review.
+ * A metric is associated with an analysis, and so it is like a 'run', there is a focus on computed values at a fixed point in time. 
+ * We define a metric as a property of code, typically rendered as a linear scalar value.
+ * A metric could be a range, sometimes with well-known constraints.
+ * An open question is whether we define metadata descriptors of metrics, as we do with rules.
+ * A metric is a 'convincing slot to express evaluations' and are appealing to customers.
+ * CAST software generates metrics at large scale for organizations.
+ * Previously Nick Mansourov presented to the committee on OMG/KDM.
+ * For refactoring, we will define a standalone format which is entirely computed, sparse, point-in-time, efficient.
+ * We will provide a rich set of bulk supporting data as indirect references.
 4. Other Business
- Michael moves to promote Stefan to secretary, Paul seconds, no discussion, no objects, so moved. 
-
+ * Michael moves to promote Stefan to secretary, Paul seconds, no discussion, no objections, approved.
 5. Resolutions and Decisions reached (by 10 minutes prior to scheduled meeting end)
 5.1 End debate of other issues by 10 minutes prior to scheduled meeting end and follow the agenda from this point (Co-Chair Keaton)
 5.2 Review of Decisions Reached (Meeting Secretary)
-  Meeting dates approved, errata directions approved, repo reworking to drive process approved, general roadmap for next three meetings.
+ DECISION: meeting dates approved.
+ DECISION: we propose to rename ourselves 'Software Results Interchange Format'
+ DECISION: we will rework our repository to store work artifacts, with Stefan to own final process.
+ DECISION: we approved our general roadmap to drive next few teleconferences.
 5.3 Review of Action Items (Meeting Secretary)
+ ACTION: Mike and Eddy to finalize errata content.
+ ACTION: Mike will update technical committee contributor membership to include Stefan, Eddy.
+ ACTION: Mike to reach out to Parasoft and others for follow-up.
+ ACTION: David will author our wikipedia page.
+ ACTION: Paul will produce more metrics relevant information, MISRA proposals, etc.
 6. Next Meeting
  October 14, 2021 / 08:00-09:30 PDT / 15:00-16:30 UTC
 7. Adjournment
  Michael moves, Paul seconds, no discussion, no objections, approved.
-
-TODO: Unchair Dr. 
-TODO: posted as SARIF TC documents, finalize/Eddy review for two weeks, vote.
-TODO: Should we update reviewer/other team membership? Add Stefan, Chet, secretary.
-TODO: Michael: Kevin Green, Parasoft
-TODO: David: Update wikipedia page, https://github.com/dmk42/sarif-spec working_draft_wikipedia_page.md branch)
-TODO: Mike/Eddy pull together errata, review, send to David
-
