@@ -6,7 +6,7 @@
   Eddy Nakamura     (Microsoft)             - Voting member
   Michael Fanning   (Microsoft)             - Secretary, taking notes
   Katrina O'Neil    (Micro Focus)           - Voting member
-  Stefan Hagen      (Invidual)              - Attendee
+  Stefan Hagen      (Individual)            - Member
 1.3 Procedures for this meeting (Co-Chair Keaton)
 1.4 Approval of agenda (Co-Chair Keaton)
   https://www.oasis-open.org/committees/download.php/69055/agenda_20210930.html
