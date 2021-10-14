@@ -1,3 +1,0 @@
-/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/test-classes/twitter4j/TwitterTestBase$TestUserInfo.class
-/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/test-classes/twitter4j/TwitterTestBase.class
-/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-async/target/test-classes/twitter4j/AsyncTwitterTest.class

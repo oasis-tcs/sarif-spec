@@ -1,1 +1,0 @@
-/home/kupsch/build/pkg1/twitter4j-3.0.3/twitter4j-media-support/target/test-classes/twitter4j/media/MediaUploadTest.class
