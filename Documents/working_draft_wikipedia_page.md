@@ -28,7 +28,7 @@ The current version of the standard, v2.1.0, is [publicly available from OASIS](
 ## History
 Early work on SARIF began within Microsoft for use in their tools. It eventually became apparent that SARIF's value could be substantially enhanced by making it an industry-wide standard.
 
-The OASIS SARIF Technical Committee was formed and had its first meeting in September, 2017. The first edition of the SARIF standard was published in March, 2020. It was called version 2.1.0 in recognition of the earlier efforts within Microsoft as well as intermediate pre-standard versions that were in use during the development of the standard. Following publication, the committee suspended its activities, resuming beginning in March, 2021, to begin discussing the direction for future editions of the standard.
+The OASIS SARIF Technical Committee was formed and had its first meeting in September, 2017. The first edition of the OASIS SARIF standard was published in March, 2020. It was called version 2.1.0 in recognition of the earlier efforts within Microsoft as well as intermediate pre-standard versions that were in use during the development of the standard. Following publication, the committee suspended its activities, resuming beginning in March, 2021, to begin discussing the direction for future editions of the standard.
 
 ## Adoption
 
@@ -40,6 +40,8 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 - [Checkov](https://github.com/bridgecrewio/checkov/) is a static code analysis tool for infrastructure-as-code.
 - [CodeQL](https://github.com/github/codeql) is a multilanguage, intraprocedural checker with a large rule set.
 - [Clang Analyzer](https://clang-analyzer.llvm.org/), the LLVM C/C++ checker, has [added SARIF export](https://github.com/llvm-mirror/clang/commit/962c092aae53360ab4d5b1adac78963694b5963f).
+- [CodeQL](https://github.com/github/codeql) is a multilanguage, intraprocedural checker with a large rule set.
+- [CodeSonar](https://www.grammatech.com/codesonar-cc) is a static analysis tool which identifies programming bugs that can result in system crashes, memory corruption, leaks, data races, and security vulnerabilities.
 - [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html) is a file scanner that detects plaintext secrets.
 - [DartAnalyzer](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer) is a dart/flutter analyzer.
 - [Detekt](https://github.com/detekt/detekt) is a static code analysis tool for the Kotlin programming language.
@@ -103,3 +105,5 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 
 ## References
 
+1. [OASIS SARIF TC home page](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)
+2. [OASIS SARIF standard v2.1.0](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)
