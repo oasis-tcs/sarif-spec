@@ -37,6 +37,8 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 - [BinSkim](https://github.com/microsoft/binskim) is a binary-level security checker that validates Window, Mac and *nix binaries.
 - [Brakeman](https://github.com/presidentbeef/brakeman/) is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
 - [Checkstyle](https://github.com/checkstyle/checkstyle) is a Java style guidelines checking.
+- [Checkov](https://github.com/bridgecrewio/checkov/) is a static code analysis tool for infrastructure-as-code.
+- [CodeQL](https://github.com/github/codeql) is a multilanguage, intraprocedural checker with a large rule set.
 - [Clang Analyzer](https://clang-analyzer.llvm.org/), the LLVM C/C++ checker, has [added SARIF export](https://github.com/llvm-mirror/clang/commit/962c092aae53360ab4d5b1adac78963694b5963f).
 - [CodeQL](https://github.com/github/codeql) is a multilanguage, intraprocedural checker with a large rule set.
 - [CodeSonar](https://www.grammatech.com/codesonar-cc) is a static analysis tool which identifies programming bugs that can result in system crashes, memory corruption, leaks, data races, and security vulnerabilities.
@@ -63,6 +65,7 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 - [Semgrep](https://github.com/returntocorp/semgrep), sponsored by [R2C](https://r2c.dev/), supports a [variety of languages](https://semgrep.dev/docs/status/).
 - [Sobelow](https://github.com/nccgroup/sobelow) is the security-focused static analyzer for the Elixir Phoenix Framework.
 - [SpotBugs](https://github.com/spotbugs/spotbugs) is a Java code checker.
+- [TerraScan](https://github.com/accurics/terrascan) is a static code analysis tool for infrastructure-as-code.
 - [TFSec](https://github.com/tfsec/tfsec) uses static analysis of your terraform templates to spot potential security issues.
 - [Trivy](https://github.com/aquasecurity/trivy) is a vulnerability scanner for containers and other artifacts.
 
