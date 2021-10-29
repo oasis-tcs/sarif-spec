@@ -1,0 +1,92 @@
+1. Opening Activities
+1.1 Opening comments (Co-Chair Keaton)
+1.2 Introduction of participants/roll call (Co-Chair Keaton)
+  Paul Anderson     (Grammatech, Inc.)      - Voting member
+  David Keaton      (Individual)            - Chair
+  Eddy Nakamura     (Microsoft)             - Voting member
+  Michael Fanning   (Microsoft)             - Secretary, taking notes
+  Katrina O'Neil    (Micro Focus)           - Voting member
+  Stefan Hagen      (Individual)            - Member
+1.3 Procedures for this meeting (Co-Chair Keaton)
+1.4 Approval of agenda (Co-Chair Keaton)
+  https://www.oasis-open.org/committees/download.php/69055/agenda_20210930.html
+  Michael moves, Eddy second, no discussion, objections, approved.
+1.5 Approval of previous minutes [Minutes of 2021-09-17 Meeting #44] (Co-Chair Keaton)
+  https://www.oasis-open.org/apps/org/workgroup/sarif/download.php/69054/SARIF_TC_44.txt
+  Michael moves, Eddy second, no discussion, objections, approved.
+1.6 Review of action items and resolutions (Previous Meeting Fanning)
+ *ACTION Eddy:  Review errata for possible improvements to eco-system validator. Started, nearly complete.
+ *ACTION Michael: Finalize errata docs and send to David for next steps, ballot, etc. Finalized, but unsent.
+ *ACTION Michael: Rework SARIF repository to conform to new suggestion for managing agenda, notes, etc.
+ *ACTION Michael: Reach out to MicroFocus on 7PK copyright issues, if any. Contacted.
+ *ACTION Michael: Author 2.2 roadmap, complete partial 2.2 design work, metrics and refactoring rough proposal.
+1.7 Identification of SARIF TC voting members (Co-Chair Keaton)
+ All voting members present.
+1.7.1 Prospective members attending their first meeting
+1.7.2 Members attaining voting rights at the end of this meeting
+  Stefan Hagen regains voting rights at end of meeting.
+1.7.3 Members losing voting rights if they have not joined this meeting by the time it ends
+1.7.4 Members who previously lost voting rights who are attending this meeting
+1.7.5 Members who have declared a leave of absence
+2. Future Meetings
+2.1 Future meeting schedule (Co-Chair Keaton)
+  Proposed Teleconferences (Thursdays at 08:00 PDT / 15:00 UTC for 1.5 hours)
+  October 14, 2021
+  October 28, 2021
+  Tentative in-person meeting for 2022Q1.
+3. Discussion
+3.1 Review recruitment effort to complete the technical committee
+ Snyk has not shown for several attempts at contact, we will halt outreach.
+ Teleconference with StackHawk, who haved expressed an interest in DAST. Will follow-up.
+ Reengaged with GitHub, Aditya Sharad will join the technical committe.
+ Teleconference with ForAllSecure, a fuzzing company, willing to engage. Will follow-up.
+ WhiteSource, NTT, sent mail, haven't heard back.
+3.2 Review status of draft Wikipedia page
+3.3 Review status on finalizing SARIF 2.1 errata
+ Mike and Eddy will finalize the content. We will create a special majority vote with a public 15 day review period. 
+3.4  Review current state of ecosystem ongoing work
+ * SARIF export authored for AWS CloudFormation Linter (for GHAS integration).
+ * SARIF export authored for internal MS threat modeling linter (of public MS threat modeling tool files).
+ * VS adding suppressions to the log via the UI, VS code will be a follow-on.
+3.5 Review current state of taxonomies
+ * No updates. We will meet with Alex Hoole re: 7PK. This taxonomy was recently updated with new categories, raises questions on versioning and maintenance. Can MicroFocus to get a copy of the definite data? They are open to helping. We believe we've implemented all public taxonomies. Finished HDF. GDPR needs examination as not a perfect fit as a topic.
+3.6 Review SARIF 2.2 execution roadmap and first set of design proposals.
+ * If we extend into DAST, let's change name to 'Software analysis results interchange format'. For this, we may need a recharter of the TC, in which we propose a charter, vote on go through OASIS for approval, after which scope is expanded. We may require a new TC, which could handle the new stuff or everything could transfer to the new TC. If it's a close call, let's be sure to keep talking, because it would be help to avoid mechanical costs. Interpretation of work product is what's important. Stefan, David and Chet will drive the decision-making here.
+ * DECISION: Michael moves that we repurpose our name as 'Software Analysis Results Interchange Format', to increase our scope to the broad range of software-driven quality concerns, for examples, metrics, dynamic analysis, etc. Paul seconds, no discussion, no objections
+ * We have no concrete design proposals yet. Michael proposes a very simple moving forward roadmap:
+  - Finalize and ship the errata.
+  - Design all non-breaking changes to existing data/structures.
+  - Ring-fence and design breaking changes as a distinct effort
+  - Convene work threads around four topics, 1) refactoring/general design, 2) DAST, 3) metrics, and  4) results mgmt.
+3.7 Discuss metrics and SARIF refactoring.
+ * We have two options, express metrics as results *or* expand artifacts table to include metrics data (leaving results focused on policy computations/actual quality defects).
+ * CodeSonar produces 30 quality metrics, is focused on producing a standard set for embedded C/C++ (such as useful for MISRA)
+ * There are other ad hoc standards for metrics, which are not strong. We should gather docs on these for review.
+ * A metric is associated with an analysis, and so it is like a 'run', there is a focus on computed values at a fixed point in time. 
+ * We define a metric as a property of code, typically rendered as a linear scalar value.
+ * A metric could be a range, sometimes with well-known constraints.
+ * An open question is whether we define metadata descriptors of metrics, as we do with rules.
+ * A metric is a 'convincing slot to express evaluations' and are appealing to customers.
+ * CAST software generates metrics at large scale for organizations.
+ * Previously Nick Mansourov presented to the committee on OMG/KDM.
+ * For refactoring, we will define a standalone format which is entirely computed, sparse, point-in-time, efficient.
+ * We will provide a rich set of bulk supporting data as indirect references.
+4. Other Business
+ * Michael moves to promote Stefan to secretary, Paul seconds, no discussion, no objections, approved.
+5. Resolutions and Decisions reached (by 10 minutes prior to scheduled meeting end)
+5.1 End debate of other issues by 10 minutes prior to scheduled meeting end and follow the agenda from this point (Co-Chair Keaton)
+5.2 Review of Decisions Reached (Meeting Secretary)
+ DECISION: meeting dates approved.
+ DECISION: we propose to rename ourselves 'Software Results Interchange Format'
+ DECISION: we will rework our repository to store work artifacts, with Stefan to own final process.
+ DECISION: we approved our general roadmap to drive next few teleconferences.
+5.3 Review of Action Items (Meeting Secretary)
+ ACTION: Mike and Eddy to finalize errata content.
+ ACTION: Mike will update technical committee contributor membership to include Stefan, Eddy.
+ ACTION: Mike to reach out to Parasoft and others for follow-up.
+ ACTION: David will author our wikipedia page.
+ ACTION: Paul will produce more metrics relevant information, MISRA proposals, etc.
+6. Next Meeting
+ October 14, 2021 / 08:00-09:30 PDT / 15:00-16:30 UTC
+7. Adjournment
+ Michael moves, Paul seconds, no discussion, no objections, approved.
