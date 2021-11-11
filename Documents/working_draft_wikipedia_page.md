@@ -34,7 +34,7 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 
 ### Direct support
 
-- [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint) is a tool that validates AWS CloudFormation yaml/json templates against the AWS CloudFormation Resource Specification and additional checks.
+- [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint) is a tool that validates AWS CloudFormation yaml/json templates against the AWS CloudFormation Resource Specification and performs additional checks.
 - [BinSkim](https://github.com/microsoft/binskim) is a binary-level security checker that validates Window, Mac and *nix binaries.
 - [Brakeman](https://github.com/presidentbeef/brakeman/) is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
 - [Checkstyle](https://github.com/checkstyle/checkstyle) is a Java style guidelines checking.
