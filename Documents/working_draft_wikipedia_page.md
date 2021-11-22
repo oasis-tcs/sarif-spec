@@ -34,6 +34,7 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 
 ### Direct support
 
+- [ARM Template Best Practice Analyzer](https://github.com/Azure/template-analyzer) is an ARM template validator that scans ARM templates to ensure security and best practice checks are being followed before deployment.
 - [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint) is a tool that validates AWS CloudFormation yaml/json templates against the AWS CloudFormation Resource Specification and performs additional checks.
 - [BinSkim](https://github.com/microsoft/binskim) is a binary-level security checker that validates Window, Mac and *nix binaries.
 - [Brakeman](https://github.com/presidentbeef/brakeman/) is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
@@ -69,6 +70,7 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 - [TerraScan](https://github.com/accurics/terrascan) is a static code analysis tool for infrastructure-as-code.
 - [TFSec](https://github.com/tfsec/tfsec) uses static analysis of your terraform templates to spot potential security issues.
 - [Trivy](https://github.com/aquasecurity/trivy) is a vulnerability scanner for containers and other artifacts.
+- [Upgrade Assistant](https://github.com/dotnet/upgrade-assistant) is a project that enables automation of common tasks related to upgrading .NET Framework projects to the latest versions of .NET.
 
 ### Converters (i.e. tool output to SARIF conversion code exists)
 
