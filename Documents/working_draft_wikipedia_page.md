@@ -88,9 +88,10 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 ### SDKs/Documentation
 
 - [C#](https://github.com/microsoft/sarif-sdk)
-- [JS](https://github.com/microsoft/sarif-js-sdk)
-- [Python](https://github.com/microsoft/sarif-python-om)
 - [Go](https://github.com/owenrumney/go-sarif)
+- [JS](https://github.com/microsoft/sarif-js-sdk)
+- [PHP](https://github.com/llaville/sarif-php-sdk)
+- [Python](https://github.com/microsoft/sarif-python-om)
 - [SARIF Tutorials](https://github.com/microsoft/sarif-tutorials)
 
 ### Viewers/SARIF development Support
