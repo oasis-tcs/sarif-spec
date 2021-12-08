@@ -20,7 +20,9 @@ By supporting SARIF, a low-cost tool provider gets access to a rich ecosystem of
 The current version of the standard, v2.1.0, is [publicly available from OASIS](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html).
 
 ### How SARIF relates to other standards
-The [Object Management Group](https://en.wikipedia.org/wiki/Object_Management_Group)'s Tools Output Integration Format (TOIF)<sup>\[3\]</sup> is an existing standard that integrates diverse static analysis result formats into the lowest common denominator representation, as one form of evidence in a software assurance system.  By contrast, SARIF accommodates deep, precise expression of static analysis results to provide full support for the capabilities of advanced static analysis systems, enabling the sharing of sophisticated visualization and processing components that previously were specific to individual static analysis tools.
+The [Object Management Group](https://en.wikipedia.org/wiki/Object_Management_Group)'s Tools Output Integration Format (TOIF)<sup>\[3\]</sup> is a standard that integrates diverse static analysis result formats into the lowest common denominator representation, as one form of evidence in a software assurance system.  By contrast, SARIF accommodates deep, precise expression of static analysis results to provide full support for the capabilities of advanced static analysis systems, enabling the sharing of sophisticated visualization and processing components that previously were specific to individual static analysis tools.
+
+The Structured Threat Information eXchange (STIX)<sup>\[4\]</sup> standardized by the [OASIS](https://en.wikipedia.org/wiki/OASIS_(organization)) Cyber Threat Intelligence (CTI) Technical Committee<sup>\[5\]</sup> expresses more general cyber threat information and is not specific to source code analysis.  Since its focus is wider, it is not designed to include the full static analysis capabilities that SARIF provides.
 
 ## History
 Early work on SARIF began within Microsoft for use in their tools. It eventually became apparent that SARIF's value could be substantially enhanced by making it an industry-wide standard.
@@ -109,3 +111,5 @@ The OASIS SARIF Technical Committee was formed and had its first meeting in Sept
 1. [OASIS SARIF TC home page](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)
 2. [OASIS SARIF standard v2.1.0](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)
 3. [OMG Tools Output Integration Format](https://www.omg.org/spec/TOIF/)
+4. [Structured Threat Information eXchange](https://oasis-open.github.io/cti-documentation/stix/intro)
+5. [OASIS Cyber Threat Intelligence (CTI) Technical Committee](https://www.oasis-open.org/committees/cti)
