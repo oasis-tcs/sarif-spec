@@ -24,7 +24,7 @@ References:
    Edited by Michael C. Fanning and Laurence J. Golding. 27 March 2020.
    OASIS Standard. 
 
-   https://docs.oasisopen.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html.
+   https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html.
 
    Latest stage: 
-   https://docs.oasisopen.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.
+   https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.
