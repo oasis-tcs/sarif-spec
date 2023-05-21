@@ -54,7 +54,7 @@ The format is referred to as the "Static Analysis Results Interchange Format" an
 #### Status:
 This document was last revised or approved by the OASIS Static Analysis Results Interchange Format (SARIF) TC on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif#technical.
 
-TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "[Send A Comment](https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ohdf)" button on the TC's web page at https://www.oasis-open.org/committees/sarif/.
+TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "[Send A Comment](https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=sarif)" button on the TC's web page at https://www.oasis-open.org/committees/sarif/.
 
 This specification is provided under the [RF on RAND Terms Mode](https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-RAND-Mode) of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr/), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/odata/ipr.php).
 
@@ -12998,58 +12998,39 @@ SecurityScanner \--disable \"SEC4002,SEC4003\" \--enable SEC6012
 
 ### level property
 
-A reportingConfiguration object **MAY** contain a property named level
-whose value is one of the strings \"warning\", \"error\", \"note\", or
-\"none\", with the same meanings as when those strings appear as the
-value of result.level (§3.27.10) or notification.level (§3.58.6).
+A reportingConfiguration object **MAY** contain a property named level whose value is one of the strings \"warning\", \"error\", \"note\", or \"none\",
+with the same meanings as when those strings appear as the value of result.level (§3.27.10) or notification.level (§3.58.6).
 
 If level is absent, it **SHALL** default to \"warning\".
 
-If theDescriptor describes a rule, then if level is present, it
-**SHALL** provide the value for the level property of any result object
-(§3.27) whose ruleIndex (§3.27.6) or rule property (§3.27.7), either
-explicitly supplied or inferred from its default, identifies
-theDescriptor and which does not itself specify a level property. For
-details of the configuration property resolution procedure, see §3.27.10
-(which illustrates the procedure for the specific case of the
-result.level property).
+If theDescriptor describes a rule, then if level is present, it **SHALL** provide the value for the level property of any result object (§3.27) whose ruleIndex (§3.27.6) or rule property (§3.27.7),
+either explicitly supplied or inferred from its default, identifies theDescriptor and which does not itself specify a level property.
+For details of the configuration property resolution procedure, see §3.27.10 (which illustrates the procedure for the specific case of the result.level property).
 
-If theDescriptor describes a notification, then if level is present, it
-**SHALL** provide the value for the level property of any notification
-object (§3.58) whose descriptor property (§3.58.2) identifies
-theDescriptor and which does not itself specify a level property.
+If theDescriptor describes a notification, then if level is present,
+it **SHALL** provide the value for the level property of any notification object (§3.58) whose descriptor property (§3.58.2) identifies theDescriptor and which does not itself specify a level property.
 
-EXAMPLE: In this example, a tool allows the user to override a rule or
-notification's default level:
+EXAMPLE: In this example, a tool allows the user to override a rule or notification's default level:
 
 WebScanner \--level \"WEB1002:error,WEB1005:warning\"
 
 ### rank property
 
-A reportingConfiguration object **MAY** contain a property named rank
-whose value is a number between 0.0 and 100.0 inclusive, with the same
-interpretation as the value of the result.rank (§3.27.25).
+A reportingConfiguration object **MAY** contain a property named rank whose value is a number between 0.0 and 100.0 inclusive, with the same interpretation as the value of the result.rank (§3.27.25).
 
-If rank is absent, it **SHALL** default to -1.0, which indicates that
-the value is unknown (not set).
+If rank is absent, it **SHALL** default to -1.0, which indicates that the value is unknown (not set).
 
-If theDescriptor describes a rule, then if rank is present, it **SHALL**
-provide the value for the rank property of any result object (§3.27)
-whose ruleIndex (§3.27.6) or rule property (§3.27.7), either explicitly
-supplied or inferred from its default, identifies theDescriptor and
-which does not itself specify a rank property.
+If theDescriptor describes a rule, then if rank is present, it **SHALL** provide the value for the rank property of any result object (§3.27) whose ruleIndex (§3.27.6) or rule property (§3.27.7),
+either explicitly supplied or inferred from its default, identifies theDescriptor and which does not itself specify a rank property.
 
 rank is not applicable to notifications.
 
 ### parameters property
 
-A reportingConfiguration object **MAY** contain a property named
-parameters whose value is a property bag (§3.8). This allows a
-reportingDescriptor object (§3.49) to define configuration information
-that is specific to that descriptor.
+A reportingConfiguration object **MAY** contain a property named parameters whose value is a property bag (§3.8).
+This allows a reportingDescriptor object (§3.49) to define configuration information that is specific to that descriptor.
 
-EXAMPLE: In this example, a rule that specifies the maximum permitted
-source line length is parameterized by the maximum length.
+EXAMPLE: In this example, a rule that specifies the maximum permitted source line length is parameterized by the maximum length.
 
 { \# A reportingDescriptor object (§3.49).
 
@@ -13083,8 +13064,7 @@ source line length is parameterized by the maximum length.
 
 }
 
-The rule provides a default value, but the tool allows the user to
-override it:
+The rule provides a default value, but the tool allows the user to override it:
 
 StyleScanner \*.c \--rule-config \"SA2707:maxLength=80\"
 
@@ -13092,23 +13072,14 @@ StyleScanner \*.c \--rule-config \"SA2707:maxLength=80\"
 
 ### General
 
-A configurationOverride object modifies the effective runtime
-configuration of a specified reportingDescriptor object (§3.49), which
-we refer to as theDescriptor.
+A configurationOverride object modifies the effective runtime configuration of a specified reportingDescriptor object (§3.49), which we refer to as theDescriptor.
 
-NOTE: Together with toolComponent.rules (§3.19.23), the
-configurationOverride object allows the SARIF consumer to determine
-exactly how the tool's analysis rules were configured during the run.
-This is useful in compliance scenarios where, for example, an auditor
-might want to confirm that a particular rule was reconfigured from a
-warning to an error. It might also be useful for reproducing a run.
+NOTE: Together with toolComponent.rules (§3.19.23), the configurationOverride object allows the SARIF consumer to determine exactly how the tool's analysis rules were configured during the run.
+This is useful in compliance scenarios where, for example, an auditor might want to confirm that a particular rule was reconfigured from a warning to an error. It might also be useful for reproducing a run.
 
-The configurationOverride object's descriptor property (§3.51.2)
-identifies theDescriptor. Its configuration property (§3.51.3) overrides
-the values specified in theDescriptor.defaultConfiguration (§3.49.14).
+The configurationOverride object's descriptor property (§3.51.2) identifies theDescriptor. Its configuration property (§3.51.3) overrides the values specified in theDescriptor.defaultConfiguration (§3.49.14).
 
-EXAMPLE: In this example, rule CA2101 is treated as a warning rather
-than an error.
+EXAMPLE: In this example, rule CA2101 is treated as a warning rather than an error.
 
 { \# A run object (§3.14).
 
@@ -13174,41 +13145,27 @@ than an error.
 
 ### descriptor property
 
-A configurationOverride object **SHALL** contain a property named
-descriptor whose value is a reportingDescriptorReference object (§3.52)
-that identifies the reportingDescriptor (§3.49) whose runtime
-configuration is to be modified, which we refer to as theDescriptor.
+A configurationOverride object **SHALL** contain a property named descriptor whose value is a reportingDescriptorReference object (§3.52) that identifies the reportingDescriptor (§3.49) whose runtime configuration is to be modified,
+which we refer to as theDescriptor.
 
 ### configuration property
 
-A configurationOverride object **SHALL** contain a property named
-configuration whose value is a reportingConfiguration object (§3.50)
-each of whose properties overrides the corresponding property in
-theDescriptor.defaultConfiguration (§3.49.14). If any property of
-configuration is absent, the corresponding property of
-theDescriptor.defaultConfiguration is respected.
+A configurationOverride object **SHALL** contain a property named configuration whose value is a reportingConfiguration object (§3.50) each of whose properties overrides the corresponding property in theDescriptor.defaultConfiguration (§3.49.14).
+If any property of configuration is absent, the corresponding property of theDescriptor.defaultConfiguration is respected.
 
 ## reportingDescriptorReference object
 
 ### General
 
-A reportingDescriptorReference object identifies a particular
-reportingDescriptor object (§3.49), which we refer to as theDescriptor,
-among all reportingDescriptor objects defined by theTool, including
-those defined by theTool.driver (§3.18.2) and theTool.extensions
-(§3.18.3).
+A reportingDescriptorReference object identifies a particular reportingDescriptor object (§3.49), which we refer to as theDescriptor,
+among all reportingDescriptor objects defined by theTool, including those defined by theTool.driver (§3.18.2) and theTool.extensions(§3.18.3).
 
-In some cases, there is no reportingDescriptor object associated with a
-reportingDescriptorReference object. In that case, the
-reportingDescriptorReference object **SHALL** contain only the id
-property (§3.52.4), and theDescriptor does not exist.
+In some cases, there is no reportingDescriptor object associated with a reportingDescriptorReference object.
+In that case, the reportingDescriptorReference object **SHALL** contain only the id property (§3.52.4), and theDescriptor does not exist.
 
-EXAMPLE: In this example, a tool emits a tool execution notification
-that refers to a rule. The tool does not provide rule metadata.
-Therefore, associatedRule (§3.58.3) contains only an id property, whose
-value is the id of the rule that failed. Similarly, the tool does not
-provide metadata about its notifications, so \"descriptor\" (§3.58.2)
-contains only the id of the notification.
+EXAMPLE: In this example, a tool emits a tool execution notification that refers to a rule. The tool does not provide rule metadata.
+Therefore, associatedRule (§3.58.3) contains only an id property, whose value is the id of the rule that failed.
+Similarly, the tool does not provide metadata about its notifications, so \"descriptor\" (§3.58.2) contains only the id of the notification.
 
 { \# An invocation object (§3.20).
 
@@ -13246,20 +13203,15 @@ run continues.\"
 
 ### Constraints
 
-If metadata is present, at least one of index (§3.52.5) and guid
-(§3.52.6) **SHALL** be present. If both are present, they **SHALL**
-identify the same reportingDescriptor object (§3.49).
+If metadata is present, at least one of index (§3.52.5) and guid (§3.52.6) **SHALL** be present.
+If both are present, they **SHALL** identify the same reportingDescriptor object (§3.49).
 
 ### reportingDescriptor lookup
 
-theDescriptor **SHALL** be located within the toolComponent object
-(§3.19) identified by the toolComponent property (§3.52.7), which we
-refer to as theComponent. The procedure for looking up a toolComponent
-from a toolComponentReference is described in §3.54.2.
+theDescriptor **SHALL** be located within the toolComponent object (§3.19) identified by the toolComponent property (§3.52.7), which we refer to as theComponent.
+The procedure for looking up a toolComponent from a toolComponentReference is described in §3.54.2.
 
-theDescriptor **SHALL** be located either within theComponent.rules
-(§3.19.23) or theComponent.notifications (§3.19.24), according to this
-table:
+theDescriptor **SHALL** be located either within theComponent.rules (§3.19.23) or theComponent.notifications (§3.19.24), according to this table:
 
 +-------------------------------------------------+--------------------+
 | If the reportingDescriptorReference             | ... then           |
@@ -13280,30 +13232,19 @@ table:
 
 ### id property
 
-A reportingDescriptorReference object **MAY** contain a property named
-id whose value is a hierarchical string (§3.5.4) that either equals
-theDescriptor.id (§3.49.3) or equals theDescriptor.id plus one
-additional hierarchical component.
+A reportingDescriptorReference object **MAY** contain a property named id whose value is a hierarchical string (§3.5.4) that either equals theDescriptor.id (§3.49.3) or equals theDescriptor.id plus one additional hierarchical component.
 
-NOTE: This property does not participate in the lookup, but its presence
-improves the readability of the log file at the expense of increased
-file size.
+NOTE: This property does not participate in the lookup, but its presence improves the readability of the log file at the expense of increased file size.
 
-If id is absent and theResult.ruleId (§3.27.5) is present, then id
-**SHALL** default to theResult.ruleId. If both are present, they
-**SHALL** be equal.
+If id is absent and theResult.ruleId (§3.27.5) is present, then id **SHALL** default to theResult.ruleId.
+If both are present, they **SHALL** be equal.
 
-For more information about the semantics of id when theDescriptor is a
-rule, in particular the usage of the hierarchical components of id, see
-the description of result.ruleId (§3.27.5).
+For more information about the semantics of id when theDescriptor is a rule, in particular the usage of the hierarchical components of id, see the description of result.ruleId (§3.27.5).
 
-EXAMPLE: In this example, the first result object is valid because
-rule.id (inherited from ruleId) equals theDescriptor.id. The second
-result object is also valid because rule.id (this time specified
-directly) equals theDescriptor.id plus one additional hierarchical
-component (\"ghi\"). The third result object is invalid because
-theDescriptor.id is not a "component-wise" prefix of rule.id. The fourth
-result object is invalid because ruleId does not equal rule.id.
+EXAMPLE: In this example, the first result object is valid because rule.id (inherited from ruleId) equals theDescriptor.id.
+The second result object is also valid because rule.id (this time specified directly) equals theDescriptor.id plus one additional hierarchical component (\"ghi\").
+The third result object is invalid because theDescriptor.id is not a "component-wise" prefix of rule.id.
+The fourth result object is invalid because ruleId does not equal rule.id.
 
 { \# A run object (§3.14).
 
@@ -13387,14 +13328,11 @@ result object is invalid because ruleId does not equal rule.id.
 
 ### index property
 
-A reportingDescriptorReference object **MAY** contain a property named
-index whose value is the array index (§3.7.4) into theComponent.rules
-(§3.19.23) or theComponent.notifications (§3.19.24), according to the
-table in §3.52.3.
+A reportingDescriptorReference object **MAY** contain a property named index whose value is the array index (§3.7.4) into theComponent.rules (§3.19.23) or theComponent.notifications (§3.19.24),
+according to the table in §3.52.3.
 
 EXAMPLE 1: In this example, there is more than one rule with id CA1711.
-index uniquely specifies the relevant rule, whether or not there are
-multiple rules with the same id.
+index uniquely specifies the relevant rule, whether or not there are multiple rules with the same id.
 
 { \# A run object (§3.14).
 
@@ -13448,46 +13386,33 @@ multiple rules with the same id.
 
 }
 
-If index is absent and theResult.ruleIndex (§3.27.6) is present, index
-**SHALL** default to theResult.ruleIndex. If both are present, they
-**SHALL** be equal.
+If index is absent and theResult.ruleIndex (§3.27.6) is present, index **SHALL** default to theResult.ruleIndex.
+If both are present, they **SHALL** be equal.
 
 ### guid property
 
-A reportingDescriptorReference object **MAY** contain a property named
-guid whose value is a GUID-valued string (§3.5.3) equal to
-theDescriptor.guid (§3.49.5).
+A reportingDescriptorReference object **MAY** contain a property named guid whose value is a GUID-valued string (§3.5.3) equal to theDescriptor.guid (§3.49.5).
 
 ### toolComponent property
 
-A reportingDescriptorReference object **MAY** contain a property named
-toolComponent whose value is a toolComponentReference object (§3.54)
-that identifies theComponent.
+A reportingDescriptorReference object **MAY** contain a property named toolComponent whose value is a toolComponentReference object (§3.54) that identifies theComponent.
 
-If toolComponent is absent, theComponent shall be taken to be
-theTool.driver (§3.18.2).
+If toolComponent is absent, theComponent shall be taken to be theTool.driver (§3.18.2).
 
 ## reportingDescriptorRelationship object
 
 ### General
 
-A reportingDescriptorRelationship object specifies one or more directed
-relationships from one reportingDescriptor object (§3.49), which we
-refer to as theSource, to another one, which we refer to as theTarget.
+A reportingDescriptorRelationship object specifies one or more directed relationships from one reportingDescriptor object (§3.49), which we refer to as theSource, to another one, which we refer to as theTarget.
 
-reportingDescriptorRelationship objects appear as elements of the
-reportingDescriptor.relationships array (§3.49.15). The
-reportingDescriptor object containing this property is theSource.
+reportingDescriptorRelationship objects appear as elements of the reportingDescriptor.relationships array (§3.49.15).
+The reportingDescriptor object containing this property is theSource.
 
 reportingDescriptorRelationship objects are useful in various scenarios:
 
-1.  In relating analysis rules to taxonomic categories ("taxa"; see
-    §3.19.3).
+1.  In relating analysis rules to taxonomic categories ("taxa"; see §3.19.3).
 
-EXAMPLE 1: In this example, the definition of rule CA1000 states that
-every result that violates this rule falls into the taxonomic category
-("taxon") specified by ID 327 of the Common Weakness Enumeration
-\[[CWE](#CWE)™\]:
+EXAMPLE 1: In this example, the definition of rule CA1000 states that every result that violates this rule falls into the taxonomic category ("taxon") specified by ID 327 of the Common Weakness Enumeration \[[CWE](#CWE)™\]:
 
 { \# A run object (§3.14).
 
@@ -13579,8 +13504,7 @@ every result that violates this rule falls into the taxonomic category
 
 2.  In relating one analysis rule to another.
 
-EXAMPLE 2: In this example, the definition of rule CA1000 states that
-every violation of this rule will lead to a violation of rule CA2000.
+EXAMPLE 2: In this example, the definition of rule CA1000 states that every violation of this rule will lead to a violation of rule CA2000.
 
 { \# A run object (§3.14).
 
@@ -13642,122 +13566,73 @@ every violation of this rule will lead to a violation of rule CA2000.
 
 ### target property
 
-A reportingDescriptorRelationship object **SHALL** contain a property
-named target whose value is a reportingDescriptorReference object which
-identifies theTarget (see §3.53.1).
+A reportingDescriptorRelationship object **SHALL** contain a property named target whose value is a reportingDescriptorReference object which identifies theTarget (see §3.53.1).
 
 ### kinds property
 
-A reportingDescriptorRelationship object **MAY** contain a property
-named kinds whose value is an array of one or more unique (§3.7.3)
-strings each of which specifies a relationship between theSource and
-theTarget (see §3.53.1). If kinds is absent, it **SHALL** default to \[
-\"relevant\" \] (see below for the meaning of \"relevant\").
+A reportingDescriptorRelationship object **MAY** contain a property named kinds whose value is an array of one or more unique (§3.7.3) strings each of which specifies a relationship between theSource and theTarget (see §3.53.1).
+If kinds is absent, it **SHALL** default to \[\"relevant\" \] (see below for the meaning of \"relevant\").
 
-When possible, SARIF producers **SHOULD** use the following values, with
-the specified meanings.
+When possible, SARIF producers **SHOULD** use the following values, with the specified meanings.
 
--   \"equal\": theTarget identifies essentially the same set of items as
-    does theSource (for example, a taxonomic category that identifies
-    the same set of results as this rule).
+- "equal": theTarget identifies essentially the same set of items as does theSource (for example, a taxonomic category that identifies the same set of results as this rule).
+- "superset": theTarget identifies a superset of the items identified by theSource (for example, a taxonomic category that identifies a superset of the results identified by this rule).
+- "subset": theTarget identifies a subset of the items identified by theSource (for example, a taxonomic category that identifies a subset of the results identified by this rule)
+- "disjoint": The sets of items identified by theTarget does not intersect with the set of items identified by theSource.
+- "incomparable": The sets of items identified by theTarget intersects with the set of items identified by theSource but is neither a superset nor a subset.
+- "canFollow": Items identified by theTarget can be caused by, or occur downstream of, items identified by theSource.
+- "canPrecede": Items identified by theSource can be caused by, or occur downstream of, items identified by theTarget.
+- "willFollow": Items identified by theTarget will be caused by, or occur downstream of, items identified by theSource.
+- "willPrecede": Items identified by theSource will be caused by, or occur downstream of, items identified by theTarget.
+- "relevant": theTarget is relevant to theSource in a way not covered by other relationship kinds.
 
--   \"superset\": theTarget identifies a superset of the items
-    identified by theSource (for example, a taxonomic category that
-    identifies a superset of the results identified by this rule).
+If none of these values are appropriate, a SARIF producer **MAY** use any value.
 
--   \"subset\": theTarget identifies a subset of the items identified by
-    theSource (for example, a taxonomic category that identifies a
-    subset of the results identified by this rule)
+NOTE 1: Although \"relevant\" is a catch-all for any relationship not described by the other values, a producer might still wish to define its own more specific values.
 
--   \"disjoint\": The sets of items identified by theTarget does not
-    intersect with the set of items identified by theSource.
-
--   \"incomparable\": The sets of items identified by theTarget
-    intersects with the set of items identified by theSource but is
-    neither a superset nor a subset.
-
--   \"canFollow\": Items identified by theTarget can be caused by, or
-    occur downstream of, items identified by theSource.
-
--   \"canPrecede\": Items identified by theSource can be caused by, or
-    occur downstream of, items identified by theTarget.
-
--   \"willFollow\": Items identified by theTarget will be caused by, or
-    occur downstream of, items identified by theSource.
-
--   \"willPrecede\": Items identified by theSource will be caused by, or
-    occur downstream of, items identified by theTarget.
-
--   \"relevant\": theTarget is relevant to theSource in a way not
-    covered by other relationship kinds.
-
-If none of these values are appropriate, a SARIF producer **MAY** use
-any value.
-
-NOTE 1: Although \"relevant\" is a catch-all for any relationship not
-described by the other values, a producer might still wish to define its
-own more specific values.
-
-NOTE 2: The values \"equal\" and \"superset\" are special in that they
-allow certain elements of result.taxa (§3.27.8) to be elided. See
-§3.27.8, paragraph 2, for more information on this point.
+NOTE 2: The values \"equal\" and \"superset\" are special in that they allow certain elements of result.taxa (§3.27.8) to be elided.
+See §3.27.8, paragraph 2, for more information on this point.
 
 ### description property
 
-A reportingDescriptorRelationship object **MAY** contain a property
-named description whose value is a message object (§3.11) that describes
-the relationship.
+A reportingDescriptorRelationship object **MAY** contain a property named description whose value is a message object (§3.11) that describes the relationship.
 
 ## toolComponentReference object
 
 ### General
 
-A toolComponentReference object identifies a particular toolComponent
-object (§3.19), either theTool.driver (§3.18.2) or an element of
-theTool.extensions (§3.18.3). We refer to the identified toolComponent
-object as theComponent.
+A toolComponentReference object identifies a particular toolComponent object (§3.19), either theTool.driver (§3.18.2) or an element of theTool.extensions (§3.18.3).
+We refer to the identified toolComponent object as theComponent.
 
 ### toolComponent lookup
 
-If neither index (§3.54.4) nor guid (§3.54.5) is present, theComponent
-**SHALL** be theTool.driver (§3.18.2).
+If neither index (§3.54.4) nor guid (§3.54.5) is present, theComponent **SHALL** be theTool.driver (§3.18.2).
 
-If index is present, theComponent **SHALL** be the object at array index
-index within theTool.extensions (§3.18.3).
+If index is present, theComponent **SHALL** be the object at array index index within theTool.extensions (§3.18.3).
 
-If index is absent and guid is present, theComponent **SHALL** be either
-theTool.driver or an element of theTool.extensions, whichever one has a
-matching guid property.
+If index is absent and guid is present, theComponent **SHALL** be either theTool.driver or an element of theTool.extensions, whichever one has a matching guid property.
 
 ### name property
 
-A toolComponentReference object **MAY** contain a property named name
-whose value is a string equal to theComponent.name (§3.19.8).
+A toolComponentReference object **MAY** contain a property named name whose value is a string equal to theComponent.name (§3.19.8).
 
-NOTE: This property does not participate in the lookup, but its presence
-improves the readability of the log file at the expense of increased
-file size.
+NOTE: This property does not participate in the lookup, but its presence improves the readability of the log file at the expense of increased file size.
 
 ### index property
 
-If theComponent is an element of theTool.extensions (§3.18.3), a
-toolComponentReference object **MAY** contain a property named index
-whose value is the array index (§3.7.4) of that element. Otherwise,
-index SHALL be absent.
+If theComponent is an element of theTool.extensions (§3.18.3), a toolComponentReference object **MAY** contain a property named index whose value is the array index (§3.7.4) of that element.
+Otherwise, index SHALL be absent.
 
 ### guid property
 
-A toolComponentReference object **MAY** contain a property named guid
-whose value is a GUID-valued string (§3.5.3) equal to theComponent.guid
-(§3.19.6).
+A toolComponentReference object **MAY** contain a property named guid whose value is a GUID-valued string (§3.5.3) equal to theComponent.guid (§3.19.6).
 
 ## fix object
 
 ### General
 
-A fix object represents a proposed fix for the problem indicated by
-theResult. It specifies a set of artifacts to modify. For each artifact,
-it specifies regions to remove, and provides new content to insert.
+A fix object represents a proposed fix for the problem indicated by theResult. It specifies a set of artifacts to modify.
+For each artifact, it specifies regions to remove, and provides new content to insert.
 
 EXAMPLE:
 
@@ -13793,11 +13668,9 @@ EXAMPLE:
 
 ### description property
 
-A fix object **SHOULD** contain a property named description whose value
-is a message object (§3.11) that describes the proposed fix.
+A fix object **SHOULD** contain a property named description whose value is a message object (§3.11) that describes the proposed fix.
 
-NOTE: The purpose of the description property is to enable a SARIF
-viewer to present the proposed fix to the end user.
+NOTE: The purpose of the description property is to enable a SARIF viewer to present the proposed fix to the end user.
 
 EXAMPLE:
 
@@ -13815,19 +13688,13 @@ EXAMPLE:
 
 ### artifactChanges property
 
-A fix object **SHALL** contain a property named artifactChanges whose
-value is an array of one or more unique (§3.7.3) artifactChange objects
-(§3.56) each of which describes the changes to a single artifact that
-are necessary to effect the fix.
+A fix object **SHALL** contain a property named artifactChanges whose value is an array of one or more unique (§3.7.3) artifactChange objects (§3.56) each of which describes the changes to a single artifact that are necessary to effect the fix.
 
-NOTE: artifactChanges is an array because a fix might require changes to
-multiple artifacts.
+NOTE: artifactChanges is an array because a fix might require changes to multiple artifacts.
 
 The array elements **SHALL** refer to distinct artifacts.
 
-EXAMPLE 1: In this example, two artifactChange objects make identical
-changes (commenting out the first line) in two distinct C-language
-files, src/a.c and src/b.c.
+EXAMPLE 1: In this example, two artifactChange objects make identical changes (commenting out the first line) in two distinct C-language files, src/a.c and src/b.c.
 
 { \# A fix object.
 
@@ -13905,10 +13772,8 @@ files, src/a.c and src/b.c.
 
 }
 
-EXAMPLE 2: This example represents invalid SARIF because the two
-artifactChange objects refer to the same file, src/a.c. It is invalid
-even though the artifactChange objects are distinguished by their
-replacements properties.
+EXAMPLE 2: This example represents invalid SARIF because the two artifactChange objects refer to the same file, src/a.c.
+It is invalid even though the artifactChange objects are distinguished by their replacements properties.
 
 { \# A fix object.
 
@@ -14030,37 +13895,25 @@ EXAMPLE:
 
 ### artifactLocation property
 
-An artifactChange object **SHALL** contain a property named
-artifactLocation whose value is an artifactLocation object (§3.4) that
-represents the location of the artifact.
+An artifactChange object **SHALL** contain a property named artifactLocation whose value is an artifactLocation object (§3.4) that represents the location of the artifact.
 
 ### replacements property
 
-An artifactChange object **SHALL** contain a property named replacements
-whose value is an array of one or more replacement objects (§3.57) each
-of which represents the replacement of a single region of the artifact
-specified by the artifactLocation property (§3.56.2).
+An artifactChange object **SHALL** contain a property named replacements whose value is an array of one or more replacement objects (§3.57)
+each of which represents the replacement of a single region of the artifact specified by the artifactLocation property (§3.56.2).
 
 ## replacement object
 
 ### General
 
-A replacement object represents the replacement of a single region of an
-artifact. If the region's length is zero, it represents an insertion
-point.
+A replacement object represents the replacement of a single region of an artifact.
+If the region's length is zero, it represents an insertion point.
 
-If a replacement object specifies both the removal of a region by means
-of the deletedRegion property (§3.57.3) and the insertion of new content
-by means of the insertedContent property (§3.57.4), then the effect of
-the replacement **SHALL** be as if the removal were performed before the
-insertion.
+If a replacement object specifies both the removal of a region by means of the deletedRegion property (§3.57.3) and the insertion of new content by means of the insertedContent property (§3.57.4),
+then the effect of the replacement **SHALL** be as if the removal were performed before the insertion.
 
-If a single artifactChange object (§3.56) specifies more than one
-replacement, then the effect of the replacements **SHALL** be as if they
-were performed in the order they appear in the replacements array
-(§3.56.3). The deletedRegion property of each replacement object
-**SHALL** specify the location of the replacement in the unmodified
-artifact.
+If a single artifactChange object (§3.56) specifies more than one replacement, then the effect of the replacements **SHALL** be as if they were performed in the order they appear in the replacements array (§3.56.3).
+The deletedRegion property of each replacement object **SHALL** specify the location of the replacement in the unmodified artifact.
 
 EXAMPLE 1: Suppose an artifactChange object contains a replacements
 property whose value is the following array of replacement objects:
@@ -14117,31 +13970,19 @@ property whose value is the following array of replacement objects:
 
 \]
 
-The first replacement object removes 5 bytes starting at offset 12; that
-is, it removes bytes 12--16. Then it inserts the 7 bytes specified by
-the MIME Base64-encoded string in the insertedContent.binary property at
-the same offset.
+The first replacement object removes 5 bytes starting at offset 12; that is, it removes bytes 12--16.
+Then it inserts the 7 bytes specified by the MIME Base64-encoded string in the insertedContent.binary property at the same offset.
 
-The second replacement object removes 3 bytes starting at offset 20
-*with respect to the unmodified file*. Since 5 bytes were removed and 7
-bytes inserted *before* byte 20, the 3 bytes removed actually start at
-byte 22 of the contents after the first change. Since the
-insertedContent property is absent, no content is inserted in place of
-the deleted bytes.
+The second replacement object removes 3 bytes starting at offset 20 *with respect to the unmodified file*.
+Since 5 bytes were removed and 7 bytes inserted *before* byte 20, the 3 bytes removed actually start at byte 22 of the contents after the first change.
+Since the insertedContent property is  absent, no content is inserted in place of the deleted bytes.
 
-In the third replacement object, the length of the region specified by
-the deletedRegion property is zero, so the region represents an
-insertion point. The 7 bytes specified by the insertedContent.binary
-property are inserted at offset 312 with respect to the unmodified
-artifact.
+In the third replacement object, the length of the region specified by the deletedRegion property is zero, so the region represents an insertion point.
+The 7 bytes specified by the insertedContent.binary property are inserted at offset 312 with respect to the unmodified artifact.
 
-A replacement object can represent either a textual replacement or a
-binary replacement, depending on whether the deletedRegion property
-(§3.57.3) specifies a text region (§3.30.2) or a binary region
-(§3.30.3).
+A replacement object can represent either a textual replacement or a binary replacement, depending on whether the deletedRegion property(§3.57.3) specifies a text region (§3.30.2) or a binary region(§3.30.3).
 
-EXAMPLE 2: In this example, the replacements property specifies a
-replacement in a text file.
+EXAMPLE 2: In this example, the replacements property specifies a replacement in a text file.
 
 \"replacements\": \[
 
@@ -14168,87 +14009,55 @@ replacement in a text file.
 
 \]
 
-When performing a replacement in a text artifact, the SARIF producer
-**SHOULD** specify a text replacement rather than a binary replacement.
-This allows the SARIF producer to specify the region without regard to
-whether the artifact starts with a byte order mark (BOM).
+When performing a replacement in a text artifact, the SARIF producer **SHOULD** specify a text replacement rather than a binary replacement.
+This allows the SARIF producer to specify the region without regard to whether the artifact starts with a byte order mark (BOM).
 
 ### Constraints
 
-If the deletedRegion property (§3.57.3) specifies a text region
-(§3.30.2) and the insertedContent property (§3.57.4) is present, then
-the insertedContent property **SHOULD** contain a text property
-(§3.3.2).
+If the deletedRegion property (§3.57.3) specifies a text region (§3.30.2) and the insertedContent property (§3.57.4) is present, then the insertedContent property **SHOULD** contain a text property (§3.3.2).
 
-If the deletedRegion property specifies a binary region (§3.30.3) and
-the insertedContent property is present, then the insertedContent
-property **SHALL** contain a binary property (§3.3.3).
+If the deletedRegion property specifies a binary region (§3.30.3) and the insertedContent property is present, then the insertedContent property **SHALL** contain a binary property (§3.3.3).
 
-Although it is possible to construct a replacement object that neither
-removes nor adds any content, a replacement object **SHOULD** have a
-material effect on the target artifact, either because deletedRegion
-denotes a non-empty region to delete, or because insertedContent
-specifies non-empty content to insert, or both.
+Although it is possible to construct a replacement object that neither removes nor adds any content, a replacement object **SHOULD** have a material effect on the target artifact,
+either because deletedRegion denotes a non-empty region to delete, or because insertedContent specifies non-empty content to insert, or both.
 
 ### deletedRegion property
 
-A replacement object **SHALL** contain a property named deletedRegion
-whose value is a region object (§3.30) specifying the region to delete.
+A replacement object **SHALL** contain a property named deletedRegion whose value is a region object (§3.30) specifying the region to delete.
 
-If the length of the region specified by deletedRegion is zero, then
-deletedRegion specifies an insertion point, and the SARIF consumer
-performing the replacement **SHALL NOT** remove any content.
+If the length of the region specified by deletedRegion is zero, then deletedRegion specifies an insertion point, and the SARIF consumer performing the replacement **SHALL NOT** remove any content.
 
 ### insertedContent property
 
-A replacement object **MAY** contain a property named insertedContent
-whose value is an artifactContent object (§3.3) that specifies the
-content to insert in place of the region specified by the deletedRegion
-property (or at the point specified by deletedRegion, if deletedRegion
-has a length of zero and therefore specifies an insertion point).
+A replacement object **MAY** contain a property named insertedContent whose value is an artifactContent object (§3.3) that specifies the content to insert in place of the region specified by the deletedRegion property
+(or at the point specified by deletedRegion, if deletedRegion has a length of zero and therefore specifies an insertion point).
 
-If the inserted content is specified as text, the text **SHALL** be
-transcoded from UTF-8 (the encoding of all text in all SARIF log files)
-to the encoding of the target artifact before being inserted.
+If the inserted content is specified as text, the text **SHALL** be transcoded from UTF-8 (the encoding of all text in all SARIF log files) to the encoding of the target artifact before being inserted.
 
-NOTE: This implies that a text fix cannot be safely applied unless the
-target artifact's encoding is known.
+NOTE: This implies that a text fix cannot be safely applied unless the target artifact's encoding is known.
 
-If insertedContent is absent or its properties specify content whose
-length is zero, the SARIF consumer performing the replacement **SHALL
-NOT** insert any content.
+If insertedContent is absent or its properties specify content whose length is zero, the SARIF consumer performing the replacement **SHALL NOT** insert any content.
 
 ## notification object
 
 ### General
 
-A notification object describes a condition encountered during the
-execution of an analysis tool which is relevant to the operation of the
-tool itself, as opposed to being relevant to an artifact being analyzed
-by the tool. Conditions relevant to artifacts being analyzed by a tool
-are represented by result objects (§3.27).
+A notification object describes a condition encountered during the execution of an analysis tool which is relevant to the operation of the tool itself,
+as opposed to being relevant to an artifact being analyzed by the tool. Conditions relevant to artifacts being analyzed by a tool are represented by result objects (§3.27).
 
 ### descriptor property
 
-A notification object **SHOULD** contain a property named descriptor
-whose value is a reportingDescriptorReference object (§3.52) that
-identifies this notification.
+A notification object **SHOULD** contain a property named descriptor whose value is a reportingDescriptorReference object (§3.52) that identifies this notification.
 
-If the reportingDescriptor object (§3.49) theDescriptor to which
-descriptor refers exists (that is, if theTool contains a
-reportingDescriptor object that describes this notification), then
-descriptor **SHOULD** refer to theDescriptor.
+If the reportingDescriptor object (§3.49) theDescriptor to which descriptor refers exists (that is, if theTool contains a reportingDescriptor object that describes this notification),
+then descriptor **SHOULD** refer to theDescriptor.
 
-NOTE: If theDescriptor exists but descriptor does not refer to it, a
-SARIF consumer will not be able to locate the metadata for this
-notification.
+NOTE: If theDescriptor exists but descriptor does not refer to it, a SARIF consumer will not be able to locate the metadata for this notification.
 
 ### associatedRule property
 
-If the condition described by the notification object is relevant to a
-particular analysis rule, the notification object **SHOULD** contain a
-property named associatedRule whose value is a
-reportingDescriptorReference object (§3.52) that identifies the rule.
+If the condition described by the notification object is relevant to a particular analysis rule,
+the notification object **SHOULD** contain a property named associatedRule whose value is a reportingDescriptorReference object (§3.52) that identifies the rule.
 
 EXAMPLE: In this example, there is more than one rule with id CA1711.
 associatedRule.index uniquely specifies the relevant rule.
@@ -14327,156 +14136,103 @@ associatedRule.index uniquely specifies the relevant rule.
 
 ### locations property
 
-If the condition described by the notification object is relevant to one
-or more locations, the notification object **MAY** contain a property
-named locations whose value is an array of zero or more unique (§3.7.3)
-location objects (§3.28) that identify those locations.
+If the condition described by the notification object is relevant to one or more locations,
+the notification object **MAY** contain a property named locations whose value is an array of zero or more unique (§3.7.3) location objects (§3.28) that identify those locations.
 
 ### message property
 
-A notification object **SHALL** contain a property named message whose
-value is a message object (§3.11) that describes the condition that was
-encountered. See §3.11.7 for the procedure for looking up a message
-string from a message object, in particular, for the case where the
-message object occurs as the value of notification.message.
+A notification object **SHALL** contain a property named message whose value is a message object (§3.11) that describes the condition that was encountered.
+See §3.11.7 for the procedure for looking up a message string from a message object, in particular, for the case where the message object occurs as the value of notification.message.
 
 ### level property
 
-A notification object **MAY** contain a property named level whose value
-is one of a fixed set of strings that specify the severity level of the
-notification.
+A notification object **MAY** contain a property named level whose value is one of a fixed set of strings that specify the severity level of the notification.
 
-If present, the level property **SHALL** have one of the following
-values, with the specified meanings:
+If present, the level property **SHALL** have one of the following values, with the specified meanings:
 
--   \"error\": A serious problem was found. The condition encountered by
-    the tool resulted in the analysis being halted or caused the results
-    to be incorrect or incomplete.
+- "error": A serious problem was found. The condition encountered by the tool resulted in the analysis being halted or caused the results to be incorrect or incomplete.
+- "warning": A problem that is not considered serious was found.
+  The condition encountered by the tool is such that it is uncertain whether a problem occurred, or is such that the analysis might be incomplete but the results that were generated are probably valid.
+- "note": The notification is purely informational. There is no required action.
+- "none": This is a trace notification (typically, debug output from the tool).
 
--   \"warning\": A problem that is not considered serious was found. The
-    condition encountered by the tool is such that it is uncertain
-    whether a problem occurred, or is such that the analysis might be
-    incomplete but the results that were generated are probably valid.
+If level is absent, it **SHALL** default to the value determined by the procedure defined for result.level (§3.27.10), except throughout the procedure,
+replace ruleConfigurationOverrides with notificationConfigurationOverrides.
 
--   \"note\": The notification is purely informational. There is no
-    required action.
+Analysis tools **SHOULD** treat notifications whose level property is \"error\" as failures and treat the entire run as having failed
+(for example, by settings the exit code to the value that the tool uses to indicate failure, typically a non-zero value).
 
--   \"none\": This is a trace notification (typically, debug output from
-    the tool).
-
-If level is absent, it **SHALL** default to the value determined by the
-procedure defined for result.level (§3.27.10), except throughout the
-procedure, replace ruleConfigurationOverrides with
-notificationConfigurationOverrides.
-
-Analysis tools **SHOULD** treat notifications whose level property is
-\"error\" as failures and treat the entire run as having failed (for
-example, by settings the exit code to the value that the tool uses to
-indicate failure, typically a non-zero value).
-
-Because a notification whose level property is \"error\" describes a
-failed run, an analysis tool **SHALL NOT** override the severity of such
-a notification.
+Because a notification whose level property is \"error\" describes a failed run, an analysis tool **SHALL NOT** override the severity of such a notification.
 
 ### threadId property
 
-A notification object **MAY** contain a property named threadId whose
-value is an integer which identifies the thread associated with this
-notification.
+A notification object **MAY** contain a property named threadId whose value is an integer which identifies the thread associated with this notification.
 
 ### timeUtc property
 
-A notification object **MAY** contain a property named timeUtc whose
-value is a string in the format specified §3.9, specifying the UTC date
-and time at which the analysis tool generated the notification.
+A notification object **MAY** contain a property named timeUtc whose value is a string in the format specified §3.9, specifying the UTC date and time at which the analysis tool generated the notification.
 
 ### exception property
 
-If the notification is a result of a runtime exception, the notification
-object **MAY** contain a property named exception whose value is an
-exception object (§3.59).
+If the notification is a result of a runtime exception, the notification object **MAY** contain a property named exception whose value is an exception object (§3.59).
 
-If the notification is not the result of a runtime exception, the
-exception property **SHALL** be absent.
+If the notification is not the result of a runtime exception, the exception property **SHALL** be absent.
 
 ## exception object
 
 ### General
 
-An exception object describes a runtime exception encountered during the
-execution of an analysis tool. This includes signals in POSIX-conforming
-operating systems
+An exception object describes a runtime exception encountered during the execution of an analysis tool.
+This includes signals in POSIX-conforming operating systems
 
 ### kind property
 
-An exception object **SHOULD** contain a property named kind whose value
-is a string describing the exception.
+An exception object **SHOULD** contain a property named kind whose value is a string describing the exception.
 
-If the exception represents a thrown object, kind **SHALL** be the fully
-qualified type name of the object that was thrown, if that information
-is available.
+If the exception represents a thrown object, kind **SHALL** be the fully qualified type name of the object that was thrown, if that information is available.
 
 EXAMPLE 1: C#: \"System.ArgumentNullException\"
 
-If the exception represents a POSIX signal, kind **SHALL** be the
-symbolic name of the signal as specified in \<signal.h\>.
+If the exception represents a POSIX signal, kind **SHALL** be the symbolic name of the signal as specified in \<signal.h\>.
 
 EXAMPLE 2: POSIX: \"SIGFPE\"
 
-If the tool does not have access to information about the object that
-was thrown, the kind property **SHALL** be absent.
+If the tool does not have access to information about the object that was thrown, the kind property **SHALL** be absent.
 
 ### message property
 
-An exception object **SHOULD** contain a property named message whose
-value is a string that describes the exception.
+An exception object **SHOULD** contain a property named message whose value is a string that describes the exception.
 
-If the tool does not have access to an appropriate property of the
-thrown object, the message property **SHALL** be absent.
+If the tool does not have access to an appropriate property of the thrown object, the message property **SHALL** be absent.
 
-EXAMPLE 1: C++: The tool might populate message with the string returned
-from the what() method of any object derived from std::exception.
+EXAMPLE 1: C++: The tool might populate message with the string returned from the what() method of any object derived from std::exception.
 
-EXAMPLE 2: C#: The tool might populate message with the value returned
-from the ToString() method of the System.Exception object, or (less
-informatively) from that object's Message property.
+EXAMPLE 2: C#: The tool might populate message with the value returned from the ToString() method of the System.Exception object, or (less informatively) from that object's Message property.
 
 ### stack property
 
-An exception object **MAY** contain a property named stack whose value
-is a stack object (§3.44) that describes the sequence of function calls
-leading to the exception.
+An exception object **MAY** contain a property named stack whose value is a stack object (§3.44) that describes the sequence of function calls leading to the exception.
 
 ### innerExceptions property
 
-An exception object **MAY** contain a property named innerExceptions
-whose value is an array of zero or more exception objects each of which
-is considered a cause of the containing exception.
+An exception object **MAY** contain a property named innerExceptions whose value is an array of zero or more exception objects each of which is considered a cause of the containing exception.
 
-NOTE: There is commonly no more than one inner exception. This property
-is an array to accommodate platforms that provide a mechanism for
-aggregating exceptions, such as the System.AggregateException class from
-the .NET Framework.
+NOTE: There is commonly no more than one inner exception. This property is an array to accommodate platforms that provide a mechanism for aggregating exceptions, such as the System.AggregateException class from the .NET Framework.
 
 # External property file format
 
 ## General
 
-External property files (see §3.15.2) conform to a schema distinct from
-that of the root file. External property files contain information that
-makes it possible for a consumer to determine which properties are
-contained in the file, to parse their contents, and to associate the
-external properties with the run to which they belong.
+External property files (see §3.15.2) conform to a schema distinct from that of the root file.
+External property files contain information that makes it possible for a consumer to determine which properties are contained in the file, to parse their contents,
+and to associate the external properties with the run to which they belong.
 
-An external property file **SHALL** contain one or more externalized
-properties. A SARIF consumer **SHALL** treat the value of an
-externalized property exactly as if it had appeared inline in the root
-file as the value of the corresponding property.
+An external property file **SHALL** contain one or more externalized properties.
+A SARIF consumer **SHALL** treat the value of an externalized property exactly as if it had appeared inline in the root file as the value of the corresponding property.
 
 ## External property file naming convention
 
-The file name of an external property file **SHOULD** end with the
-extension \".sarif-external-properties\".
+The file name of an external property file **SHOULD** end with the extension \".sarif-external-properties\".
 
 EXAMPLE 1: scan-results.sarif-external-properties
 
@@ -14488,13 +14244,10 @@ EXAMPLE 2: scan-results.sarif-external-properties.json
 
 ### General
 
-The top-level element of an external property file **SHALL** be an
-object which we refer to as an externalProperties object.
+The top-level element of an external property file **SHALL** be an object which we refer to as an externalProperties object.
 
-EXAMPLE: In this example, run.artifacts and run.properties have been
-externalized to a file with these contents. Note that run.properties has
-been externalized under the property name externalizedProperties, as
-explained in §3.15.3.
+EXAMPLE: In this example, run.artifacts and run.properties have been externalized to a file with these contents.
+Note that run.properties has been externalized under the property name externalizedProperties, as explained in §3.15.3.
 
 { \# An externalProperties object
 
@@ -14550,89 +14303,52 @@ explained in §3.15.3.
 
 ### \$schema property
 
-An externalProperties object **MAY** contain a property named \$schema
-whose value is a string containing an absolute URI from which a JSON
-schema document describing the version of the external property file
-format to which this external property file conforms can be obtained.
+An externalProperties object **MAY** contain a property named \$schema whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to
+which this external property file conforms can be obtained.
 
-If the \$schema property is present, the JSON schema obtained from the
-specified URI **SHALL** describe the version of the external property
-file format corresponding to the SARIF version specified by the version
-property (§4.3.3).
+If the \$schema property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the external property file format corresponding to the SARIF version specified by the version property (§4.3.3).
 
-NOTE 1: The purpose of the \$schema property is to allow JSON schema
-validation tools to locate an appropriate schema against which to
-validate the external property file. This is useful, for example, for
-tool authors who wish to ensure that external property files produced by
-their tools conform to the external property file format.
+NOTE 1: The purpose of the \$schema property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the external property file.
+This is useful, for example, for tool authors who wish to ensure that external property files produced by their tools conform to the external property file format.
 
-NOTE 2: The SARIF external property file schema is available at
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/>
+NOTE 2: The SARIF external property file schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-external-property-file-schema-2.2.json>
 
 ### version property
 
-Depending on the circumstances, an externalProperties object either
-**SHALL** or **MAY** contain a property named version whose value is a
-string designating the version of the SARIF specification to which this
-external property file conforms. If present, this string **SHALL** have
-the value \"2.1.0\".
+Depending on the circumstances, an externalProperties object either **SHALL** or **MAY** contain a property named version whose value is a string designating the version of the SARIF specification to which this external property file conforms.
+If present, this string **SHALL** have the value \"2.1.0\".
 
-If this externalProperties object is the root element of an external
-property file (see §3.15.2), then version **SHALL** be present.
+If this externalProperties object is the root element of an external property file (see §3.15.2), then version **SHALL** be present.
 
-Otherwise (that is, if this externalProperties object is an element of
-theSarifLog.inlineExternalProperties (§3.13.5)), then version **MAY** be
-present. If absent, it **SHALL** default to the value of
-theSarifLog.version (§3.13.2).
+Otherwise (that is, if this externalProperties object is an element of theSarifLog.inlineExternalProperties (§3.13.5)), then version **MAY** be present.
+If absent, it **SHALL** default to the value of theSarifLog.version (§3.13.2).
 
-Although the order in which properties appear in a JSON object value is
-not semantically significant, the version property **SHOULD** appear
-first.
+Although the order in which properties appear in a JSON object value is not semantically significant, the version property **SHOULD** appear first.
 
-NOTE: This will make it easier for parsers to handle multiple versions
-of the external property file format if new versions are defined in the
-future.
+NOTE: This will make it easier for parsers to handle multiple versions of the external property file format if new versions are defined in the future.
 
 ### guid property
 
-An externalProperties object **SHOULD** contain a property named guid
-whose value is a GUID-valued string (§3.5.3) that equals the guid
-property (§3.16.4) of the corresponding externalPropertyFileReference
-object (§3.16) in the run.externalPropertyFiles property (§3.14.2) in
-the root file.
+An externalProperties object **SHOULD** contain a property named guid whose value is a GUID-valued string (§3.5.3) that equals the guid property (§3.16.4) of the corresponding externalPropertyFileReference object (§3.16)
+in the run.externalPropertyFiles property (§3.14.2) in the root file.
 
 ### runGuid property
 
-If the externalized properties contained in this externalProperties
-object are associated with a single run object (§3.14) theRun, and if
-theRun contains an automationDetails.guid property (§3.14.3, §3.17.4),
-the externalProperties object **MAY** contain a property named runGuid
-whose value is a GUID-valued string (§3.5.3) that equals
-theRun.automationDetails.guid. Otherwise (that is, if this
-externalProperties object is associated with more than one run object,
-or if theRun does not define automationDetails.guid), then runGuid
-**SHALL** be absent.
+If the externalized properties contained in this externalProperties object are associated with a single run object (§3.14) theRun, and if theRun contains an automationDetails.guid property (§3.14.3, §3.17.4),
+the externalProperties object **MAY** contain a property named runGuid whose value is a GUID-valued string (§3.5.3) that equals theRun.automationDetails.guid.
+Otherwise (that is, if this externalProperties object is associated with more than one run object, or if theRun does not define automationDetails.guid), then runGuid **SHALL** be absent.
 
 ### The property value properties
 
-An externalProperties object **SHALL** contain zero or more externalized
-properties. The property names in this object, and the names of the
-corresponding externalized properties, are given in the table in
-§3.15.3.
+An externalProperties object **SHALL** contain zero or more externalized properties.
+The property names in this object, and the names of the corresponding externalized properties, are given in the table in §3.15.3.
 
-The corresponding property values are the values of the externalized
-properties, exactly as they would have appeared had they occurred inline
-in the root file.
+The corresponding property values are the values of the externalized properties, exactly as they would have appeared had they occurred inline in the root file.
 
-NOTE 2: See the EXAMPLE in §4.3.1, where the externalized properties are
-run.artifacts and run.properties, the externalized value of
-run.artifacts is stored in a property named artifacts, and the
-externalized value of run.properties is stored in a property named
-externalizedProperties.
+NOTE 2: See the EXAMPLE in §4.3.1, where the externalized properties are run.artifacts and run.properties, the externalized value of run.artifacts is stored in a property named artifacts,
+and the externalized value of run.properties is stored in a property named externalizedProperties.
 
-
-[^1]: Pronounced \'sæ-rɪf ("a" as in "cat", "i" as in "if", emphasis on
-    the first syllable).
+[^1]: Pronounced \'sæ-rɪf ("a" as in "cat", "i" as in "if", emphasis on the first syllable).
 
 -------
 # 3 Conformance
@@ -14642,151 +14358,92 @@ externalizedProperties.
 `See "Guidelines to Writing Conformance Clauses":  
 https://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.`
 `Remove this note before submitting for publication.)`
-=======
-# Conformance
 
-## Conformance targets
+This document defines requirements for the SARIF file format and for certain software components that interact with it.
+The entities ("conformance targets") for which this document defines requirements are:
 
-This document defines requirements for the SARIF file format and for
-certain software components that interact with it. The entities
-("conformance targets") for which this document defines requirements
-are:
+- **SARIF log file**: A log file in the format defined by this  document.
+- **SARIF producer**: A program which emits output in the SARIF format.
+- **Direct producer**: An analysis tool which acts as a SARIF producer.
+- **Converter**: A SARIF producer that transforms the output of an analysis tool from its native output format into the SARIF format.
+- **SARIF post-processor**: A SARIF producer that transforms an existing SARIF log file into a new SARIF log file, for example, by removing or redacting security-sensitive elements.
+- **SARIF consumer**: A program that reads and interprets a SARIF log file.
+- **Viewer**: A SARIF consumer that reads a SARIF log file, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
+- **Result management system**: a software system that consumes the log files produced by analysis tools,
+  produces reports that enable engineering teams to assess the quality of their software artifacts at a point in time and to observe trends in the quality over time,
+  and performs functions such as filing bugs and displaying information about individual results.
+- **Engineering system**: a software development environment within which analysis tools execute.
+  It might include a build system, a source control system, a [result management system](#def_result_management_system), a bug tracking system, a test execution system, and so on.
 
--   **SARIF log file**: A log file in the format defined by this
-    document.
+The normative content in this document defines requirements for SARIF log files, except for those normative requirements that are explicitly designated as defining the behavior of another conformance target.
 
--   **SARIF producer**: A program which emits output in the SARIF
-    format.
-
--   **Direct producer**: An analysis tool which acts as a SARIF
-    producer.
-
--   **Converter**: A SARIF producer that transforms the output of an
-    analysis tool from its native output format into the SARIF format.
-
--   **SARIF post-processor**: A SARIF producer that transforms an
-    existing SARIF log file into a new SARIF log file, for example, by
-    removing or redacting security-sensitive elements.
-
--   **SARIF consumer**: A program that reads and interprets a SARIF log
-    file.
-
--   **Viewer**: A SARIF consumer that reads a SARIF log file, displays a
-    list of the results it contains, and allows an end user to view each
-    result in the context of the artifact in which it occurs.
-
--   **Result management system**: a software system that consumes the
-    log files produced by analysis tools, produces reports that enable
-    engineering teams to assess the quality of their software artifacts
-    at a point in time and to observe trends in the quality over time,
-    and performs functions such as filing bugs and displaying
-    information about individual results.
-
--   **Engineering system**: a software development environment within
-    which analysis tools execute. It might include a build system, a
-    source control system, a [result management
-    system](#def_result_management_system), a bug tracking system, a
-    test execution system, and so on.
-
-The normative content in this document defines requirements for SARIF
-log files, except for those normative requirements that are explicitly
-designated as defining the behavior of another conformance target.
-
-## Conformance Clause 1: SARIF log file
+## 3.1 Conformance Clause 1: SARIF log file
 
 A text file satisfies the "SARIF log file" conformance profile if:
 
--   It conforms to the syntax and semantics defined in §3.
+- It conforms to the syntax and semantics defined in §3.
 
-## Conformance Clause 2: SARIF producer
+## 3.2 Conformance Clause 2: SARIF producer
 
 A program satisfies the "SARIF producer" conformance profile if:
 
--   It produces output in the SARIF format, according to the semantics
-    defined in §3.
+- It produces output in the SARIF format, according to the semantics defined in §3.
+- It satisfies those normative requirements in §3 that are designated as applying to SARIF producers.
 
--   It satisfies those normative requirements in §3 that are designated
-    as applying to SARIF producers.
-
-## Conformance Clause 3: Direct producer
+## 3.3 Conformance Clause 3: Direct producer
 
 An analysis tool satisfies the "Direct producer" conformance profile if:
 
--   It satisfies the "SARIF producer" conformance profile.
+- It satisfies the "SARIF producer" conformance profile.
+- It additionally satisfies those normative requirements in §3 that are designated as applying to "direct producers" or to "analysis tools".
+- It does not emit any objects, properties, or values which, according to §3, are intended to be produced only by converters.
 
--   It additionally satisfies those normative requirements in §3 that
-    are designated as applying to "direct producers" or to "analysis
-    tools".
-
--   It does not emit any objects, properties, or values which, according
-    to §3, are intended to be produced only by converters.
-
-## Conformance Clause 4: Converter
+## 3.4 Conformance Clause 4: Converter
 
 A converter satisfies the "Converter" conformance profile if:
 
--   It satisfies the "SARIF producer" conformance profile.
+- It satisfies the "SARIF producer" conformance profile.
+- It additionally satisfies those normative requirements in §3 that are designated as applying to converters.
+- It does not emit any objects, properties, or values which, according to §3, are intended to be produced only by direct producers.
 
--   It additionally satisfies those normative requirements in §3 that
-    are designated as applying to converters.
-
--   It does not emit any objects, properties, or values which, according
-    to §3, are intended to be produced only by direct producers.
-
-## Conformance Clause 5: SARIF post-processor
+## 3.5 Conformance Clause 5: SARIF post-processor
 
 A SARIF post-processor satisfies the "SARIF post-processor" conformance
 profile if:
 
--   It satisfies the "SARIF consumer" conformance profile.
+- It satisfies the "SARIF consumer" conformance profile.
+- It satisfies the "SARIF producer" conformance profile.
+- It additionally satisfies those normative requirements in §3 that are designated as applying to post-processors.
 
--   It satisfies the "SARIF producer" conformance profile.
-
--   It additionally satisfies those normative requirements in §3 that
-    are designated as applying to post-processors.
-
-## Conformance Clause 6: SARIF consumer
+## 3.6 Conformance Clause 6: SARIF consumer
 
 A consumer satisfies the "SARIF consumer" conformance profile if:
 
--   It reads SARIF log files and interprets them according to the
-    semantics defined in §3.
+- It reads SARIF log files and interprets them according to the semantics defined in §3.
+- It satisfies those normative requirements in §3 that are designated as applying to SARIF consumers.
 
--   It satisfies those normative requirements in §3 that are designated
-    as applying to SARIF consumers.
-
-## Conformance Clause 7: Viewer
+## 3.7 Conformance Clause 7: Viewer
 
 A viewer satisfies the "viewer" conformance profile if:
 
--   It satisfies the "SARIF consumer" conformance profile.
+- It satisfies the "SARIF consumer" conformance profile.
+- It additionally satisfies the normative requirements in §3 that are designated as applying to viewers.
 
--   It additionally satisfies the normative requirements in §3 that are
-    designated as applying to viewers.
-
-## Conformance Clause 8: Result management system
+## 3.8 Conformance Clause 8: Result management system
 
 A result management system satisfies the "result management system"
 conformance profile if:
 
--   It satisfies the "SARIF consumer" conformance profile.
+- It satisfies the "SARIF consumer" conformance profile.
+- It additionally satisfies the normative requirements in §3 and [Appendix B](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
 
--   It additionally satisfies the normative requirements in §3 and
-    [Appendix
-    B](#normative-use-of-fingerprints-by-result-management-systems)
-    ("Use of fingerprints by result management systems") that are
-    designated as applying to result management systems.
-
-## Conformance Clause 9: Engineering system
+## 3.9 Conformance Clause 9: Engineering system
 
 An engineering system satisfies the "engineering system" conformance
 profile if:
 
--   It satisfies the normative requirements in §3 that are designated as
-    applying to engineering systems.
+- It satisfies the normative requirements in §3 that are designated as applying to engineering systems.
 
-
-=======
 -------
 # Appendix A. References
 <!-- Required section -->
@@ -14979,7 +14636,7 @@ Participant Name, Affiliation or "Individual Member"
 ## C.2 Participants
 <!-- A TC can determine who they list here, however, TC Observers must not be listed. It is common practice for TCs to list everyone that was part of the TC during the creation of the document, but this is ultimately a TC decision on who they want to list and not list, and in what order. -->
 The following individuals have participated in the creation of this specification and are gratefully acknowledged:
-**OHDF TC Members:**
+**SARIF TC Members:**
 | First Name | Last Name | Company |
 | :--- | :--- | :--- |
 Philippe | Alman | Something Networks
