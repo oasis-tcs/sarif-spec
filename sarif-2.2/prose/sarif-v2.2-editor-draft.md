@@ -2663,24 +2663,24 @@ A SARIF consumer **SHALL** treat the value of an array-valued property stored in
 
 The following table lists all the externalizable properties together with their corresponding property names in the `externalPropertyFileReferences` object:
 
-| **Externalizable property** | **Property name**          | **Type** |
-|-----------------------------|----------------------------|----------|
-| `run.addresses`           | `addresses`              | array    |
-| `run.artifacts`           | `artifacts`              | array    |
-| `run.conversion`          | `conversion`             | object   |
-| `run.graphs`              | `graphs`                 | array    |
-| `run.invocations`         | `invocations`            | array    |
-| `run.logicalLocations`    | `logicalLocations`       | array    |
-| `run.policies`            | `policies`               | array    |
-| `run.properties`          | `externalizedProperties` | object   |
-| `run.webRequests`         | `webRequests`            | array    |
-| `run.webResponses`        | `webResponses`           | array    |
-| `run.results`             | `results`                | array    |
-| `run.taxonomies`          | `taxonomies`             | array    |
-| `run.threadFlowLocations` | `threadFlowLocations`    | array    |
-| `run.translations`        | `translations`           | array    |
-| `run.tool.driver`         | `driver`                 | object   |
-| `run.tool.extensions`     | `extensions`             | array    |
+| **Externalizable property** | **Property name**        | **Type** |
+|:----------------------------|:-------------------------|:---------|
+| `run.addresses`             | `addresses`              | array    |
+| `run.artifacts`             | `artifacts`              | array    |
+| `run.conversion`            | `conversion`             | object   |
+| `run.graphs`                | `graphs`                 | array    |
+| `run.invocations`           | `invocations`            | array    |
+| `run.logicalLocations`      | `logicalLocations`       | array    |
+| `run.policies`              | `policies`               | array    |
+| `run.properties`            | `externalizedProperties` | object   |
+| `run.webRequests`           | `webRequests`            | array    |
+| `run.webResponses`          | `webResponses`           | array    |
+| `run.results`               | `results`                | array    |
+| `run.taxonomies`            | `taxonomies`             | array    |
+| `run.threadFlowLocations`   | `threadFlowLocations`    | array    |
+| `run.translations`          | `translations`           | array    |
+| `run.tool.driver`           | `driver`                 | object   |
+| `run.tool.extensions`       | `extensions`             | array    |
 
 > NOTE 1: `run.properties` is externalized under the property name `externalizedProperties` to allow this object to have a property bag named `properties`, consistent with all other objects in this document.
 
