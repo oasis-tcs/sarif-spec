@@ -157,7 +157,7 @@ Table of Contents
 		3.10.1 [General](#general-8)
 		3.10.2 [Normalizing file scheme URIs](#normalizing-file-scheme-uris)
 		3.10.3 [URIs that use the sarif scheme](#uris-that-use-the-sarif-scheme)
-		3.10.4 [Internationalized Resource Identifiers (IRIs](#internationalized-resource-identifiers-iris)
+		3.10.4 [Internationalized Resource Identifiers (IRIs)](#internationalized-resource-identifiers-iris)
 	3.11 [message object](#message-object)
 		3.11.1 [General](#general-9)
 		3.11.2 [Constraints](#constraints-1)
