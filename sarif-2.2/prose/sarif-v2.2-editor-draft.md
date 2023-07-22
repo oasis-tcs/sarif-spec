@@ -630,53 +630,29 @@ Table of Contents
 	5.8 [Conformance Clause 7: Viewer](#conformance-clause-7-viewer)
 	5.9 [Conformance Clause 8: Result management system](#conformance-clause-8-result-management-system)
 	5.10 [Conformance Clause 9: Engineering system](#conformance-clause-9-engineering-system)
-
 Appendix A. [(Informative) Acknowledgments](#informative-acknowledgments)
-
 Appendix B. [(Normative) Use of fingerprints by result management systems](#normative-use-of-fingerprints-by-result-management-systems)
-
 Appendix C. [(Informative) Use of SARIF by log file viewers](#informative-use-of-sarif-by-log-file-viewers)
-
 Appendix D. [(Normative) Production of SARIF by converters](#normative-production-of-sarif-by-converters)
-
 Appendix E. [(Informative) Locating rule and notification metadata](#informative-locating-rule-and-notification-metadata)
-
 Appendix F. [(Informative) Producing deterministic SARIF log files](#informative-producing-deterministic-sarif-log-files)
-
 F.1 [General](#general-62)
-
 F.2 [Non-deterministic file format elements](#non-deterministic-file-format-elements)
-
 F.3 [Array and dictionary element ordering](#array-and-dictionary-element-ordering)
-
 F.4 [Absolute paths](#absolute-paths)
-
 F.5 [Inherently non-deterministic tools](#inherently-non-deterministic-tools)
-
 F.6 [Compensating for non-deterministic output](#compensating-for-non-deterministic-output)
-
 F.7 [Interaction between determinism and baselining](#interaction-between-determinism-and-baselining)
-
 Appendix G. [(Informative) Guidance on fixes](#informative-guidance-on-fixes)
-
 Appendix H. [(Informative) Diagnosing results in generated files](#informative-diagnosing-results-in-generated-files)
-
 Appendix I. [(Informative) Detecting incomplete result sets](#informative-detecting-incomplete-result-sets)
-
 Appendix J. [(Informative) Sample sourceLanguage values](#informative-sample-sourcelanguage-values)
-
 Appendix K. [(Informative) Examples](#informative-examples)
-
 K.1 [Minimal valid SARIF log file](#minimal-valid-sarif-log-file)
-
 K.2 [Minimal recommended SARIF log file with source information](#minimal-recommended-sarif-log-file-with-source-information)
-
 K.3 [Minimal recommended SARIF log file without source information](#minimal-recommended-sarif-log-file-without-source-information)
-
 K.4 [Comprehensive SARIF file](#comprehensive-sarif-file)
-
 Appendix L. [(Informative) Revision History](#informative-revision-history)
-
 Appendix M. [(Non-Normative) MIME Types and File Name Extensions](#non-normative-mime-types-and-file-name-extensions)
 
 # 1. Introduction <a id='introduction'></a>
