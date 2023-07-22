@@ -11033,33 +11033,9 @@ Because the purpose is to present as many elements as possible, the file as a wh
 
 The following is a list of MIME types and file extensions for files that conform to this specification, registered according to \[[RFC2048](#RFC2048)\].
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 41%" />
-<col style="width: 18%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>MIME type</strong></th>
-<th><strong>Extension</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>application/sarif+json</td>
-<td><p>.sarif,</p>
-<p>.sarif.json</p></td>
-<td><a href="#file-format">SARIF log files ([§3](#file-format))</a>.</td>
-</tr>
-<tr class="even">
-<td>application/sarif-external-properties+json</td>
-<td><p>.sarif-external-properties,</p>
-<p>.sarif-external-properties.json</p></td>
-<td><a href="#external-property-file-format">SARIF external property files ([§4](#external-property-file-format))</a>.</td>
-</tr>
-</tbody>
-</table>
+| MIME type                                  | Extension                                                      | Description                                                          |
+|:-------------------------------------------|:---------------------------------------------------------------|:---------------------------------------------------------------------|
+| application/sarif+json                     | .sarif,<br>.sarif.json                                         | SARIF log files ([§3](#file-format))                                 |
+| application/sarif-external-properties+json | .sarif-external-properties,<br>.sarif-external-properties.json | SARIF external property files ([§4](#external-property-file-format)) |
 
 [^1]: Pronounced 'sæ-rɪf (“a” as in “cat”, “i” as in “if”, emphasis on the first syllable).
