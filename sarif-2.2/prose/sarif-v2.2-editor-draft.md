@@ -8310,41 +8310,13 @@ If metadata is present, at least one of `index` ([§3.52.5](#index-property-6)) 
 
 `theDescriptor` **SHALL** be located either within `theComponent.rules` ([§3.19.23](#rules-property)) or `theComponent.notifications` ([§3.19.24](#notifications-property)), according to this table:
 
-<table>
-<colgroup>
-<col style="width: 70%" />
-<col style="width: 29%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>If the reportingDescriptorReference</p>
-<p>occurs in:</p></th>
-<th>… then theDescriptor is an element of:</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>invocation.ruleConfigurationOverrides ([§3.20.5](#ruleconfigurationoverrides-property))</td>
-<td>rules</td>
-</tr>
-<tr class="even">
-<td>invocation.notificationConfigurationOverrides ([§3.20.6](#notificationconfigurationoverrides-property))</td>
-<td>notifications</td>
-</tr>
-<tr class="odd">
-<td>result.rule ([§3.27.7](#rule-property))</td>
-<td>rules</td>
-</tr>
-<tr class="even">
-<td>notification.descriptor ([§3.58.2](#descriptor-property-1))</td>
-<td>notifications</td>
-</tr>
-<tr class="odd">
-<td>notification.associatedRule ([§3.58.3](#associatedrule-property))</td>
-<td>rules</td>
-</tr>
-</tbody>
-</table>
+| If the `reportingDescriptorReference` occurs in:                                                          | ... then `theDescriptor` is an element of: |
+|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------|
+| `invocation.ruleConfigurationOverrides` ([§3.20.5](#ruleconfigurationoverrides-property))                 | `rules`                                    |
+| `invocation.notificationConfigurationOverrides` ([§3.20.6](#notificationconfigurationoverrides-property)) | `notifications`                            |
+| `result.rule` ([§3.27.7](#rule-property))                                                                 | `rules`                                    |
+| `notification.descriptor` ([§3.58.2](#descriptor-property-1))                                             | `notifications`                            |
+| `notification.associatedRule` ([§3.58.3](#associatedrule-property))                                       | `rules`                                    |
 
 ### 3.52.4 id property <a id='id-property-7'></a>
 
