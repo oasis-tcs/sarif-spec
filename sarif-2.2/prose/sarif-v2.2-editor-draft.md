@@ -1667,11 +1667,15 @@ Certain properties in this document specify a date and time. The value of every 
 
 	fraction = decimal digit, { decimal digit };
 
-> EXAMPLES:  
-`2016-02-08  
-2016-02-08T16:08Z  
-2016-02-08T16:08:25Z`  
-`2016-02-08T16:08:25.943Z`
+&emsp;&emsp;EXAMPLES:
+
+&emsp;&emsp;`2016-02-08`
+
+&emsp;&emsp;`2016-02-08T16:08Z`
+
+&emsp;&emsp;`2016-02-08T16:08:25Z` 
+
+&emsp;&emsp;`2016-02-08T16:08:25.943Z`
 
 The time component of every date/time-valued property **SHALL** be expressed in Coordinated Universal Time (UTC).
 
