@@ -1156,7 +1156,9 @@ In all EBNF definitions in this spec:
 
 - The following “special sequence” (see EBNF \[[ISO14977:1996](#ISO14977)\], §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
 
-	`? JSON string character ?`
+    ```
+    ? JSON string character ?
+    ```
 
 ## 2.5 Commonly used objects <a id='commonly-used-objects'></a>
 
