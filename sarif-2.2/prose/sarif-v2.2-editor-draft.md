@@ -1982,7 +1982,7 @@ In all EBNF definitions in this spec:
 	\| decimal digit – '0', { decimal digit };
 	```
 
-- The following “special sequence” (see EBNF \[[ISO14977:1996](#ISO14977)\], §4.19-**BROKEN LINK** and §5.11-**BROKEN LINK**) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
+- The following “special sequence” (see EBNF \[[ISO14977:1996](#ISO14977)\],  and ) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
 
 	`? JSON string character ?`
 
@@ -2056,15 +2056,15 @@ An `artifactContent` object **MAY** contain a property named `rendered` whose va
 > EXAMPLE: In this example, a `physicalLocation` object ([§3.29](#physicallocation-object)) denotes a memory address. Its `region.snippet.rendered` property ([§3.29.4](#region-property), [§3.30.13](#snippet-property)) offers a hex view of the relevant address range. The `markdown` property ([§3.12.4](#markdown-property-1)) emphasizes a byte of particular interest.
 
 ```json
-{                                # A physicalLocation object ([§3.29](#physicallocation-object)).
-	"address": {                   # See [§3.29.6](#address-property).
-	"baseAddress": 4202880,      # See [§3.32.6](#absoluteaddress-property).
-	"offset": 64                 # See [§3.32.8](#offsetfromparent-property).
+{                                # A physicalLocation object (§3.29).
+	"address": {                   # See §3.29.6.
+	"baseAddress": 4202880,      # See §3.32.6.
+	"offset": 64                 # See §3.32.8.
 	},
 
-	"region": {                    # See [§3.29.4](#region-property).
-	"snippet": {                 # An artifactContent object. See [§3.30.13](#snippet-property).
-		"rendered": {              # A multiformatMessageString object ([§3.12](#multiformatmessagestring-object)).
+	"region": {                    # See §3.29.4.
+	"snippet": {                 # An artifactContent object. See §3.30.13.
+		"rendered": {              # A multiformatMessageString object (§3.12).
 		"text": "00 00 01 00 00 00 00 00",
 		"markdown": "00 00 **01** 00 00 00 00 00"
 		}
@@ -2173,7 +2173,7 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 > EXAMPLE: In this example, `results\[0\].locations\[0\].physicalLocation.artifactLocation.index` specifies the `artifact` object located at `artifacts\[0\]`.
 
 ```json
-{                                    # A run object ([§3.14](#run-object)).
+{                                    # A run object (§3.14).
   "artifacts": [
     {
       "location": {
@@ -2212,8 +2212,8 @@ An `artifactLocation` object **MAY** have a property named `description` whose v
 > EXAMPLE: In this example, the property values in `run.originalUriBaseIds` ([§3.14.14](#originaluribaseids-property)), which are `artifactLocation` objects, have `description` properties. This allows a SARIF viewer to display helpful information when prompting a user to supply values for the base id symbols.
 
 ```json
-{                                                # A run object ([§3.14](#run-object)).
-  "originalUriBaseIds": {                        # See [§3.14.14](#originaluribaseids-property).
+{                                                # A run object (§3.14).
+  "originalUriBaseIds": {                        # See §3.14.14.
     "PROJROOT": {
       "uri": "file:///C:/browser/",
       "description": {
@@ -2247,18 +2247,18 @@ In contrast, file system paths are typically non-deterministic. For example, a s
 > EXAMPLE: In this example, the location of a result detected by a tool is specified by a relative reference together with a `uriBaseId` that specifies the root of the source code enlistment.
 
 ```json
-{                                                # A run object ([§3.14](#run-object)).
-  "originalUriBaseIds": {                        # See [§3.14.14](#originaluribaseids-property).
+{                                                # A run object (§3.14).
+  "originalUriBaseIds": {                        # See §3.14.14.
     "SRCROOT": {
       "uri": "file:///C:/browser/src/"
     }
   },
 
-  "results": [                                   # See [§3.14.23](#results-property).                                     
-    {                                            # A result object ([§3.27](#result-object)). 
-      "locations": [                             # See [§3.27.12](#locations-property-1).
-        {                                        # A location object ([§3.28](#location-object)).
-          "physicalLocation": {                  # See [§3.28.3](#physicallocation-property).
+  "results": [                                   # See §3.14.23.                                     
+    {                                            # A result object (§3.27). 
+      "locations": [                             # See §3.27.12.
+        {                                        # A location object (§3.28).
+          "physicalLocation": {                  # See §3.28.3.
             "artifactLocation": {                # An artifactLocation object.
               "uri": "ui/window.cpp",
               "uriBaseId": "SRCROOT"
@@ -2340,8 +2340,8 @@ A hierarchical string without a version component **SHALL** be considered older 
 > EXAMPLE: In this example, the partial fingerprint whose property name is `"prohibitedWordHash"` is considered to have been computed with an older version of the “prohibited word hash” algorithm than the partial fingerprint whose property name is `"prohibitedWordHash/v1"`.
 
 ```json
-{                                 # A result object ([§3.27](#result-object)).
-  "partialFingerprints": {        # See [§3.27.17](#partialfingerprints-property).
+{                                 # A result object (§3.27).
+  "partialFingerprints": {        # See §3.27.17.
     "prohibitedWordHash": "4efcc21977b55",
     "prohibitedWordHash/v2": "097886bc876fe"
   }
@@ -2399,10 +2399,10 @@ Even when defining a custom classification system used within an engineering tea
 > EXAMPLE 2: In this example, the SARIF producer tags an artifact with the string `"openSource"`.
 
 ```json
-{                              # A run object ([§3.14](#run-object)).
-  "artifacts": [               # See [§3.14.15](#artifacts-property).
-    {                          # An artifact object ([§3.24](#artifact-object)).
-      "location": {            # See [§3.24.2](#location-property-2).
+{                              # A run object (§3.14).
+  "artifacts": [               # See §3.14.15.
+    {                          # An artifact object (§3.24).
+      "location": {            # See §3.24.2.
         "uri": "http://www.example.com/libraries/jsonParser.js"
       },
       "properties": {
@@ -2425,7 +2425,7 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 > EXAMPLE 1: Continuing the example from [§3.8.2.1](#general-7), suppose the tool wishes to provide additional information about using open source code. It might provide that information within the property bag containing the tag (the property bag belonging to the `artifact` object):
 
 ```json
-{                              # An artifact object ([§3.24](#artifact-object)).
+{                              # An artifact object (§3.24).
   "location": {
     "uri": "http://www.example.com/libraries/jsonParser.js"
   },
@@ -2444,9 +2444,9 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 > EXAMPLE 2: There might be several open source files. To avoid duplicating information, the tool might choose to place the tag metadata in the property bag belonging to `theRun`:
 
 ```json
-{                              # A run object ([§3.14](#run-object)).
+{                              # A run object (§3.14).
   "artifacts": [
-    {                          # An artifact object ([§3.24](#artifact-object)).
+    {                          # An artifact object (§3.24).
       "location": {
         "uri": "http://www.example.com/libraries/jsonParser.js"
       },
@@ -2696,13 +2696,13 @@ There are two distinct placeholders, `{0}` and `{1}` (although `{0}` occurs twic
 > EXAMPLE 2: In this example, the SARIF consumer will replace the placeholder `{0}` in `message.text` with the value `"pBuffer"` from the 0 element of `message.arguments`.
 
 ```json
-{                                                   # A run object ([§3.14](#run-object)).
-  "results": [                                      # See [§3.14.23](#results-property).
-    {                                               # A result object ([§3.27](#result-object)).
-      "ruleId": "CA2101",                           # See [§3.27.5](#ruleid-property).
-      "message": {                                  # See [§3.27.11](#message-property).
-        "text": "Variable '{0}' is uninitialized.", # See [§3.11.8](#text-property-1).
-        "arguments": [ "pBuffer" ]                  # See [§3.11.11](#arguments-property).
+{                                                   # A run object (§3.14).
+  "results": [                                      # See §3.14.23.
+    {                                               # A result object (§3.27).
+      "ruleId": "CA2101",                           # See §3.27.5.
+      "message": {                                  # See §3.27.11.
+        "text": "Variable '{0}' is uninitialized.", # See §3.11.8.
+        "arguments": [ "pBuffer" ]                  # See §3.11.11.
       }
     }
   ]
@@ -2713,7 +2713,7 @@ There are two distinct placeholders, `{0}` and `{1}` (although `{0}` occurs twic
 
 A message string **MAY** include one or more links to locations within artifacts mentioned in the enclosing `result` object ([§3.27](#result-object)). We refer to these links as “embedded links”.
 
-Within a formatted message ([§3.11.4](#formatted-messages)), an embedded link **SHALL** conform to the syntax of a GitHub Flavored Markdown link (see \[[GFM](#GFM)\], §6.6-**BROKEN LINK**, “Links”).
+Within a formatted message ([§3.11.4](#formatted-messages)), an embedded link **SHALL** conform to the syntax of a GitHub Flavored Markdown link (see \[[GFM](#GFM)\], , “Links”).
 
 > NOTE 1: The GFM link syntax is very flexible. Since a SARIF viewer that renders formatted messages will presumably rely on a full-featured GFM processor, there is no need to restrict the embedded link syntax in SARIF formatted messages.
 
@@ -2758,7 +2758,7 @@ In both plain text and formatted messages, if `link destination` is a non-negati
 > EXAMPLE 2: In this example, a plain text message contains an embedded link to a location with a file. The `result` object contains exactly one `location` object whose `id` property matches the `link destination`.
 
 ```json
-{                                  # A result object ([§3.27](#result-object))
+{                                  # A result object (§3.27)
   "ruleId": "TNT0001",
   "message": {
     "text": "Tainted data was used. The data came from [here](3)."
@@ -2923,10 +2923,10 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 
 ```json
 {
-  "version": "2.1.0", # See [§3.13.2](#version-property).
-  "runs": [           # See [§3.13.4](#runs-property).
+  "version": "2.1.0", # See §3.13.2.
+  "runs": [           # See §3.13.4.
     {
-      ...             # A run object ([§3.14](#run-object))
+      ...             # A run object (§3.14)
     },
     ...
     {
@@ -2983,9 +2983,9 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 
   "inlineExternalProperties": [
     {                                            
-      "guid": "00001111-2222-1111-8888-555566667777", # See [§4.3.4](#guid-property-8).
+      "guid": "00001111-2222-1111-8888-555566667777", # See §4.3.4.
 
-      "artifacts": [                                  # See [§4.3.6](#the-property-value-properties).
+      "artifacts": [                                  # See §4.3.6.
         {
           "location": {
             "uri": "apple.png"
@@ -3002,14 +3002,14 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
     }
   ],
 
-  "runs": [                                           # See [§3.13.4](#runs-property).
-    {                                                 # A run object ([§3.14](#run-object)).
-      "tool": {                                       # See [§3.14.6](#tool-property).
+  "runs": [                                           # See §3.13.4.
+    {                                                 # A run object (§3.14).
+      "tool": {                                       # See §3.14.6.
         "driver": {
           "name": "ImageAccessibilityScanner"
         }
       },
-      "externalPropertyFileReferences": {             # See [§3.14.2](#externalpropertyfilereferences-property).
+      "externalPropertyFileReferences": {             # See §3.14.2.
         "artifacts": [
           {
             "location": {
@@ -3053,12 +3053,12 @@ A `run` object describes a single run of an analysis tool and contains the outpu
 
 ```json
 {
-  "tool": {       # See [§3.14.6](#tool-property).
-    ...           # A tool object ([§3.18](#tool-object)).
+  "tool": {       # See §3.14.6.
+    ...           # A tool object (§3.18).
   },
-  "results": [    # See [§3.14.23](#results-property).
+  "results": [    # See §3.14.23.
     {
-      ...         # A result object ([§3.27](#result-object)).
+      ...         # A result object (§3.27).
     },
     ...
     {
@@ -3153,10 +3153,10 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 ```json
 {                                    # A run object.
   "versionControlProvenance": [
-    {                                # A versionControlDetails object ([§3.23](#versioncontroldetails-object)).
-      "repositoryUri": "https://github.com/example/browser",   # See [§3.23.3](#repositoryuri-property).
-      "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e" # See [§3.23.4](#revisionid-property).
-      "branch": "master"             # See [§3.23.5](#branch-property).
+    {                                # A versionControlDetails object (§3.23).
+      "repositoryUri": "https://github.com/example/browser",   # See §3.23.3.
+      "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e" # See §3.23.4.
+      "branch": "master"             # See §3.23.5.
     }
   ]
 }
@@ -3270,12 +3270,12 @@ A SARIF consumer **SHALL** use the following procedure to resolve a URI base id 
   },
 
   "results": [
-    {                                     # A result object ([§3.27](#result-object)).
+    {                                     # A result object (§3.27).
       "ruleId": "CA1001",
       "locations": [
-        {                                 # A location object ([§3.28](#location-object)).
-          "physicalLocation": {           # See [§3.28.3](#physicallocation-property).
-            "artifactLocation": {         # An artifactLocation object ([§3.4](#artifactlocation-object)).
+        {                                 # A location object (§3.28).
+          "physicalLocation": {           # See §3.28.3.
+            "artifactLocation": {         # An artifactLocation object (§3.4).
               "uri": "lib/memory.c",
               "uriBaseId": "SRCROOT"
             }
@@ -3431,7 +3431,7 @@ The order of the elements in the array is significant. It **SHALL** mean that at
 > EXAMPLE 2: In this example, the SARIF producer accepts the Unicode characters NEXT LINE (U+0085) and LINE SEPARATOR (U+2028) as line separators in addition to the usual values.
 
 ```json
-{         # A run object ([§3.14](#run-object)).
+{         # A run object (§3.14).
   ...
   "newlineSequences": [ "\r\n", "\n", "\u0085", "\u2028" ],
   ...
@@ -3467,7 +3467,7 @@ If for any reason different values are used, they **MAY** be any readily identif
 > EXAMPLE 1: In this example, the leading portion of a full path name has been redacted from the redactable property `invocation.commandLine` to avoid revealing information about the machine’s directory layout.
 
 ```json
-{                     # A run object ([§3.14](#run-object)).
+{                     # A run object (§3.14).
   "redactionTokens": [
     "[REDACTED]"
   ],
@@ -3540,18 +3540,18 @@ Every externalizable property whose type is shown in the table as “array” **
 
 ```json
 {                           # A run object.
-  "originalUriBaseIds": {   # See [§3.14.14](#originaluribaseids-property).
+  "originalUriBaseIds": {   # See §3.14.14.
     "LOGSDIR": {
       "uri": "file:///C:/logs/"
     }
   },
   "externalPropertyFileReferences": {
-    "conversion": {         # An externalPropertyFileReference object ([§3.16](#externalpropertyfilereference-object)).
-      "location": {         # See [§3.16.3](#location-property).
+    "conversion": {         # An externalPropertyFileReference object (§3.16).
+      "location": {         # See §3.16.3.
         "uri": "scantool.conversion.sarif-external-properties",
         "uriBaseId": "LOGSDIR"
       },
-      "guid": "11111111-1111-1111-8888-111111111111" # See [§3.16.4](#guid-property).
+      "guid": "11111111-1111-1111-8888-111111111111" # See §3.16.4.
     },
     "results": [
       {
@@ -3581,20 +3581,20 @@ With one exception described below, if a property appears inline in the root fil
 > EXAMPLE 2: In this example, `theRun.conversion` and `theRun.properties` are stored in the same external property file.
 
 ```json
-{                            # A run object ([§3.14](#run-object)).
-  "originalUriBaseIds": {    # See [§3.14.14](#originaluribaseids-property).
+{                            # A run object (§3.14).
+  "originalUriBaseIds": {    # See §3.14.14.
     "LOGSDIR": {
       "uri": "file:///C:/logs/"
     }
   },
   "externalPropertyFileReferences": {
-    "conversion": {     # An externalPropertyFileReference object (see [§3.16](#externalpropertyfilereference-object)).
-      "location": {          # See [§3.16.3](#location-property).
+    "conversion": {     # An externalPropertyFileReference object (see §3.16).
+      "location": {          # See §3.16.3.
         "uri": "scantool.sarif-external-properties",
         "uriBaseId": "LOGSDIR",
         "index": 0
       },
-      "guid": "11111111-1111-1111-8888-111111111111" # See [§3.16.4](#guid-property).
+      "guid": "11111111-1111-1111-8888-111111111111" # See §3.16.4.
     },
     "externalizedProperties": {
       "location": {
@@ -3612,15 +3612,15 @@ With one exception described below, if a property appears inline in the root fil
 > EXAMPLE 3: This example represents invalid SARIF because both elements of the array belonging to the `results` property denote the same external property file.
 
 ```json
-{                            # A run object ([§3.14](#run-object)).
-  "originalUriBaseIds": {    # See [§3.14.14](#originaluribaseids-property).
+{                            # A run object (§3.14).
+  "originalUriBaseIds": {    # See §3.14.14.
     "LOGSDIR": {
       "uri": "file:///C:/logs/"
     }
   },
   "externalPropertyFileReferences": {
     "results": [
-      {                 # An externalPropertyFileReference object (see [§3.16](#externalpropertyfilereference-object)).
+      {                 # An externalPropertyFileReference object (see §3.16).
         "location": {
           "uri": "scantool.results.sarif-external-properties",
           "uriBaseId": "LOGSDIR",
@@ -3699,8 +3699,8 @@ A `runAutomationDetails` object contains information that specifies `theRun`’s
 The run in this example is part of an aggregate of runs which together comprise the nightly execution of the engineering system’s full suite of security tools. `theRun.runAggregates\[0\]` describes that aggregate. Its `id` and `guid` properties both identify the aggregate. Its `correlationGuid` property specifies the collection of such aggregates identified by *all but the last component* of `id`’s hierarchical string; that is, it identifies the collection of aggregates `"Nightly security tools run for sarif-sdk/master/x86/debug"`.
 
 ```json
-{                              # A run object ([§3.14](#run-object)).
-  "automationDetails": {       # See [§3.14.3](#automationdetails-property).
+{                              # A run object (§3.14).
+  "automationDetails": {       # See §3.14.3.
     "description": {
       "text": "This is the {0} nightly run of the Credential Scanner tool on
              all product binaries in the '{1}' branch of the '{2}' repo. The
@@ -3717,7 +3717,7 @@ The run in this example is part of an aggregate of runs which together comprise 
     "guid": "11111111-1111-1111-8888-111111111111",
     "correlationGuid": "22222222-2222-1111-8888-222222222222"
   },
-  "runAggregates": [           # See [§3.14.4](#runaggregates-property).
+  "runAggregates": [           # See §3.14.4.
     {
       "id":
         "Nightly security tools run for sarif-sdk/master/x86/debug/2018-10-05"
@@ -3788,14 +3788,14 @@ If another tool post-processes the log file (for example, by removing certain re
 
 ```json
 {                          # A tool object.
-  "driver": {              # See [§3.18.2](#driver-property).
+  "driver": {              # See §3.18.2.
     "name": "CodeScanner",
     "fullName": "CodeScanner 1.1, Developer Preview (en-US)",
     "semanticVersion": "1.1.2-beta.12",
     "version": "1.1.2b12",
     ...
   },
-  "extensions": [          # See [§3.18.3](#extensions-property).
+  "extensions": [          # See §3.18.3.
     {
       "name": "CodeScanner Security Rules",
       "version": "3.1",
@@ -3848,11 +3848,11 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
 > EXAMPLE: In this example, the tool driver supports the CWE™ taxonomy, and also supports a custom taxonomy that it defines. Any result that violates the driver’s rule `"CA2101"` falls into the `"MemoryManagement"` taxon of its custom taxonomy, as shown by the `"superset"` relationship from the `"MemoryManagement"` taxon to the rule (which is interpreted as “The `MemoryManagement` taxon is a superset of rule `CA2101`”). For more information on relationships, see [§3.49.15](#relationships-property-1) and [§3.53](#reportingdescriptorrelationship-object).
 
 ```json
-{                                  # A run object ([§3.14](#run-object)).
-  "tool": {                        # See [§3.14.6](#tool-property).
-    "driver": {                    # See [§3.18.2](#driver-property).
+{                                  # A run object (§3.14).
+  "tool": {                        # See §3.14.6.
+    "driver": {                    # See §3.18.2.
       "name": "CodeScanner",
-      "semanticVersion": "3.3",    # See [§3.19.12](#semanticversion-property).
+      "semanticVersion": "3.3",    # See §3.19.12.
       "guid": "11111111-1111-1111-8888-111111111111",
       ...
       "rules": [
@@ -3861,9 +3861,9 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
           "shortDescription": {
             "text": "Failed to release dynamic memory."
           },
-          "relationships": [       # See [§3.49.15](#relationships-property-1).
-            {              # A reportingDescriptorRelationship object ([§3.53](#reportingdescriptorrelationship-object)).
-              "target": {          # See [§3.53.2](#target-property-2)
+          "relationships": [       # See §3.49.15.
+            {              # A reportingDescriptorRelationship object (§3.53).
+              "target": {          # See §3.53.2
                 "id": "MemoryManagement",
                 "guid": "66666666-6666-1111-8888-666666666666",
                 "toolComponent": {
@@ -3871,7 +3871,7 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
                   "guid": "11111111-1111-1111-8888-111111111111"
                 }
               },
-              "kinds": [           # See [§3.53.3](#kinds-property-2).
+              "kinds": [           # See §3.53.3.
                 "superset"
               ]
             }
@@ -3982,11 +3982,11 @@ In many cases, a new version of a `toolComponent` defines new localizable string
 > EXAMPLE: In this example, a French translation is available. It translates localizable component-level properties such as `toolComponent.name` ([§3.19.8](#name-property)), as well as rule-level properties such as `reportingDescriptor.shortDescription` ([§3.49.9](#shortdescription-property-2)). The translation can be used because its `localizedDataSemanticVersion` property ([§3.19.31](#localizeddatasemanticversion-property)) is compatible with the translated component’s `minimumRequiredLocalizedDataSemantic` version property ([§3.19.32](#minimumrequiredlocalizeddatasemanticversion-property)).
 
 ```json
-{                                  # A run object ([§3.14](#run-object)).
-  "tool": {                        # See [§3.14.6](#tool-property).
-    "driver": {                    # See [§3.18.2](#driver-property).
+{                                  # A run object (§3.14).
+  "tool": {                        # See §3.14.6.
+    "driver": {                    # See §3.18.2.
       "name": "CodeScanner",
-      "semanticVersion": "3.3",    # See [§3.19.12](#semanticversion-property).
+      "semanticVersion": "3.3",    # See §3.19.12.
       "minimumRequiredLocalizedDataSemanticVersion": "3.1",
       ...
       "rules": [
@@ -4043,14 +4043,14 @@ A SARIF consumer **MAY** offer the user the option of treating results according
 > EXAMPLE: In this example, the tool driver defines rule `CA2101` to be a warning and disables rule `CA2551` by default. However, the corporate security policy specifies that a violation of rule `CA2101` is an error and requires rule `CA2551` to be run. The presence of `run.policies` allows a SARIF viewer to display the results according to the tool’s view or the policy’s view.
 
 ```json
-{                                  # A run object ([§3.14](#run-object)).
-  "tool": {                        # See [§3.14.6](#tool-property).
-    "driver": {                    # See [§3.18.2](#driver-property).
+{                                  # A run object (§3.14).
+  "tool": {                        # See §3.14.6.
+    "driver": {                    # See §3.18.2.
       "name": "CodeScanner",
-      "rules": [                   # See [§3.19.23](#rules-property).
-        {                          # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+      "rules": [                   # See §3.19.23.
+        {                          # A reportingDescriptor object (§3.49).
           "id": "CA2101",
-          "defaultConfiguration" { # See [§3.49.14](#defaultconfiguration-property).
+          "defaultConfiguration" { # See §3.49.14.
             "level": "warning"
           }
         },
@@ -4065,7 +4065,7 @@ A SARIF consumer **MAY** offer the user the option of treating results according
     }
   },
   "policies": [
-    {                              # A toolComponent object ([§3.19](#toolcomponent-object)).
+    {                              # A toolComponent object (§3.19).
       "name": "Example Corp. Security Policy",
       "semanticVersion": "7.0",
       "rules": [
@@ -4216,9 +4216,9 @@ A `toolComponent` object **MAY** contain a property named `globalMessageStrings`
 > EXAMPLE:
 
 ```json
-"driver": {                       # A toolComponent object ([§3.19](#toolcomponent-object)).
+"driver": {                       # A toolComponent object (§3.19).
   "globalMessageStrings": {
-    "call": {                     # A multiformatMessageString object ([§3.12](#multiformatmessagestring-object)).
+    "call": {                     # A multiformatMessageString object (§3.12).
       "text": "Function call",
       "markdown": "Function **call**"
     },
@@ -4241,10 +4241,10 @@ Some tools use the same identifier to refer to multiple distinct (although logic
 > EXAMPLE: In this example, two distinct but related rules have the same rule id. They are distinguished by their message strings.
 
 ```json
-"driver": {                       # A toolComponent object ([§3.19](#toolcomponent-object)).
+"driver": {                       # A toolComponent object (§3.19).
   "name": "CodeScaner",
   "rules": [
-    {                             # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+    {                             # A reportingDescriptor object (§3.49).
       "id": "CA1711",
       "shortDescription": {
         "text": "Certain type name suffixes should not be used."
@@ -4281,9 +4281,9 @@ A tool might use the same identifier to refer to multiple distinct (although log
 > EXAMPLE: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
 
 ```json
-"driver":                        # A toolComponent object ([§3.19](#toolcomponent-object)).
+"driver":                        # A toolComponent object (§3.19).
   "notifications": [
-    {                            # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+    {                            # A reportingDescriptor object (§3.49).
       "id": "ERR0001",
       "level": "error",
       "shortDescription": {
@@ -4360,19 +4360,19 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 > EXAMPLE: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE](#CWE)™\], and also supports a custom taxonomy.
 
 ```json
-{                                 # A run object ([§3.14](#run-object))
-  "tool": {                       # See [§3.14.6](#tool-property).
-    "driver": {                   # See [§3.18.2](#driver-property).
+{                                 # A run object (§3.14)
+  "tool": {                       # See §3.14.6.
+    "driver": {                   # See §3.18.2.
       "name": "CodeScanner",
       "guid": "22222222-2222-1111-8888-222222222222",
-      "rules": [                  # See [§3.19.23](#rules-property).
+      "rules": [                  # See §3.19.23.
         ...
       ],
-      "taxa": [                   # See [§3.19.25](#taxa-property). Here, defines a custom
+      "taxa": [                   # See §3.19.25. Here, defines a custom
         ...                       #  taxonomy.
       ]
       "supportedTaxonomies": [
-        {                         # A toolComponentReference object ([§3.54](#toolcomponentreference-object)).
+        {                         # A toolComponentReference object (§3.54).
           "name": "CWE",          # Declares support for CWE.
           "index": 0,
           "guid": "11111111-1111-1111-8888-111111111111"
@@ -4454,11 +4454,11 @@ When a SARIF consumer is seeking a translation for this object, it **SHALL** onl
 > EXAMPLE: In this example, the tool is at version 3.3, but it only requires strings at version 3.1, because tool versions 3.2 and 3.3 didn’t affect any user-facing localizable strings. Therefore, the translation at index 0 in `theRun.translations` ([§3.14.9](#translations-property)) is acceptable.
 
 ```json
-{                                  # A run object ([§3.14](#run-object)).
-  "tool": {                        # See [§3.14.6](#tool-property).
-    "driver": {                    # See [§3.18.2](#driver-property).
+{                                  # A run object (§3.14).
+  "tool": {                        # See §3.14.6.
+    "driver": {                    # See §3.18.2.
       "name": "CodeScanner",
-      "semanticVersion": "3.3",    # See [§3.19.12](#semanticversion-property).
+      "semanticVersion": "3.3",    # See §3.19.12.
       "minimumRequiredLocalizedDataSemanticVersion": "3.1",
       ...
     }
@@ -4547,7 +4547,7 @@ A SARIF producer **MAY** embed the contents of a response file in the SARIF log 
     "commandLine": "/quiet @analyzer.rsp @strict.rsp" @options.rsp,
 
     "responseFiles": [
-      {                 # An artifactLocation object ([§3.4](#artifactlocation-object)).
+      {                 # An artifactLocation object (§3.4).
         "uri": "analyzer.rsp",
         "uriBaseId": "RESPONSEFILEDIR"
       },
@@ -4733,7 +4733,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 
 ```json
 "toolConfigurationNotifications": [
-  {                                 # A notification object ([§3.58](#notification-object)).
+  {                                 # A notification object (§3.58).
     "descriptor": {
       "id": "UnknownRule"
     },
@@ -4752,7 +4752,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 
 ```json
 "toolConfigurationNotifications": [
-  {                                 # A notification object ([§3.58](#notification-object)).
+  {                                 # A notification object (§3.58).
     "descriptor": {
       "id": "UnknownCommandLineArgument"
     },
@@ -4768,7 +4768,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 
 ```json
 "toolConfigurationNotifications": [
-  {                                 # A notification object ([§3.58](#notification-object)).
+  {                                 # A notification object (§3.58).
     "descriptor": {
       "id": "AccessDenied"
     },
@@ -4797,14 +4797,14 @@ A SARIF producer **MAY** embed the contents of an attachment in the log file by 
 > EXAMPLE: In this example, `image001.png` is a screen shot of the program being analyzed at the point where the result was detected. Note that this example is more appropriate to a dynamic analysis tool than to a static analysis tool.
 
 ```json
-{                                             # A result object ([§3.27](#result-object)).
+{                                             # A result object (§3.27).
   ...
-  "attachments": [                            # See [§3.27.26](#attachments-property).
+  "attachments": [                            # See §3.27.26.
     {                                         # An attachment object.
-      "description": {                        # See [§3.21.2](#description-property-2).
+      "description": {                        # See §3.21.2.
         "text": "Screen shot"
       },
-      "location": {                           # See [§3.21.3](#location-property-1).
+      "location": {                           # See §3.21.3.
         "uri": "file:///C:/ScanOutput/image001.png"
       }
     }
@@ -4849,16 +4849,16 @@ A `conversion` object describes how a converter transformed the output of an ana
         }
       },
       "conversion": {
-        "tool": {                                    # see [§3.22.2](#tool-property-1)
+        "tool": {                                    # see §3.22.2
           "driver": {
             "name": "SARIF SDK Multitool"
           }
         },
-                                                     # see [§3.22.3](#invocation-property)
+                                                     # see §3.22.3
         "invocation":
           "Sarif.Multitool.exe convert -t AndroidStudio northwind.log"
 
-        "analysisToolLogFileLocation": {             # see [§3.22.4](#analysistoollogfiles-property)
+        "analysisToolLogFileLocation": {             # see §3.22.4
           "uri": "northwind.log",   
           "uriBaseId": "$LOG_DIR$"
         } 
@@ -5183,10 +5183,10 @@ If the `artifact` object represents a binary artifact, `encoding` **SHALL** be a
 > EXAMPLE: In this example, the encoding of output.txt is UTF-16BE (obtained from the default), but the encoding of data.txt is UTF-16LE:
 
 ```json
-{                                      # A run object ([§3.14](#run-object))
-  "defaultEncoding": "UTF-16BE",       # See [§3.14.24](#defaultencoding-property).
+{                                      # A run object (§3.14)
+  "defaultEncoding": "UTF-16BE",       # See §3.14.24.
 
-  "artifacts": [                       # See [§3.14.15](#artifacts-property).
+  "artifacts": [                       # See §3.14.15.
     {
       "location": {
         "uri": "output.txt"
@@ -5322,8 +5322,8 @@ A consumer **MAY** act on this hint as follows:
 > EXAMPLE: Given the following:
 
 ```json
-{                           # A run object ([§3.14](#run-object)).
-  "originalUriBaseIds": {   # See [§3.14.14](#originaluribaseids-property).
+{                           # A run object (§3.14).
+  "originalUriBaseIds": {   # See §3.14.14.
     "WEBHOST": {
       "uri": "http://www.example.com/"
     },
@@ -5345,7 +5345,7 @@ A consumer **MAY** act on this hint as follows:
   },
 
   "specialLocations": {
-    "displayBase": {        # An artifactLocation object ([§3.4](#artifactlocation-object)).
+    "displayBase": {        # An artifactLocation object (§3.4).
       "uri": "",            # Empty string is valid relative reference.
       "uriBaseId": "PACKAGE"
     }
@@ -5419,8 +5419,8 @@ Because they occur only in `toolComponent` objects that represent translations, 
 > EXAMPLE:
 
 ```json
-{                           # A toolComponent object ([§3.19](#toolcomponent-object)).
-  "language": "fr-FR",      # The language of the translation (see ([§3.19.21](#language-property)).
+{                           # A toolComponent object (§3.19).
+  "language": "fr-FR",      # The language of the translation (see (§3.19.21).
 
   "translationMetadata": {  # A translation metadata object.
     "name": "CodeScanner translation for fr-FR ",
@@ -5616,7 +5616,7 @@ In either case, if there is no `toolComponent` that defines the taxonomy to whic
 > EXAMPLE: In this example, a tool defines a custom taxonomy (see [§3.19.3](#taxonomies)) consisting of three taxa with ids `"SUP"`, `"INC1"`, and `"INC2"`. The tool emits a result that falls into the taxa `"SUP"` and `"INC2"`, but not into `"INC1"`. According to `relationships\[0\]`, `"SUP"` is a superset of `"CA2101"`; that is, every result that violates `"CA2101"` falls into the taxon `"SUP"`. Therefore, it is not necessary to mention `"SUP"` in `theResult.taxa`. On the other hand, according to `relationships\[2\]`, `"INC2"` is incomparable to `"CA2101"`; that is, the set of results that violate `"CA2101"` intersects with but is neither a superset nor a subset of the set of results that fall into the taxon `"INC2"`. Therefore, it is necessary to mention `"INC2"` in `theResult.taxa`.
 
 ```json
-{                                     # A run object ([§3.14](#run-object)).
+{                                     # A run object (§3.14).
   "tool": {
     "driver": {
       "name": "CodeScanner",
@@ -5828,7 +5828,7 @@ ELSE
 
 \# There is no configuration override for `level`. Is there a default configuration for it?
 
-IF `theDescriptor.defaultConfiguration.level` ([§3.49.14](#defaultconfiguration-property), 
+IF `theDescriptor.defaultConfiguration.level` ([§3.49.14](#defaultconfiguration-property), §, [§3.50.3](#level-property-1)) is present THEN
 
 SET level to `theDescriptor.defaultConfiguration.level`.
 
@@ -5873,15 +5873,15 @@ See [§3.11.7](#message-string-lookup) for the procedure for looking up a messag
 > EXAMPLE 2: In this example, `message.id` refers to the property named `default` defined in the `messageStrings` property of the `reportingDescriptor` object identified by `"CA2101"`.
 
 ```json
-{                                 # A run object ([§3.14](#run-object)).
-  "tool": {                       # See [§3.14.6](#tool-property).
-    "driver": {                   # See [§3.18.2](#driver-property).
+{                                 # A run object (§3.14).
+  "tool": {                       # See §3.14.6.
+    "driver": {                   # See §3.18.2.
       "name": "CodeScanner",
-      "rules": [                  # See [§3.19.23](#rules-property).
-        {                         # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+      "rules": [                  # See §3.19.23.
+        {                         # A reportingDescriptor object (§3.49).
           "id": "CA2101",
           "messageStrings": {
-            "default": {          # A multiformatMessageString object ([§3.12](#multiformatmessagestring-object)).
+            "default": {          # A multiformatMessageString object (§3.12).
               "text": "The default message for this rule.",
               "markdown": "The default message for *this* rule."
             },
@@ -5895,7 +5895,7 @@ See [§3.11.7](#message-string-lookup) for the procedure for looking up a messag
     }
   },
   "results": [
-    {                             # A result object ([§3.27](#result-object)).
+    {                             # A result object (§3.27).
       "ruleId": "CA2101",
       "rule": {
         "index": 0
@@ -5938,15 +5938,15 @@ If the analysis target and the result file are the same, the `analysisTarget` pr
 > EXAMPLE: In this example, the tool’s analysis target was the file mouse.c. During the scan, the tool detected a result in the included file mouse.h.
 
 ```json
-{                                 # A result object ([§3.27](#result-object)).
-  "analysisTarget": {             # An artifactLocation object ([§3.4](#artifactlocation-object)).
+{                                 # A result object (§3.27).
+  "analysisTarget": {             # An artifactLocation object (§3.4).
     "uri": "input/mouse.c",
     "uriBaseId": "SRCROOT"
   },
 
-  "locations": [                  # See [§3.27.12](#locations-property-1).
-    {                             # A location object ([§3.28](#location-object)).
-      "physicalLocation": {       # See [§3.28.3](#physicallocation-property).
+  "locations": [                  # See §3.27.12.
+    {                             # A location object (§3.28).
+      "physicalLocation": {       # See §3.28.3.
         "artifactLocation": {     # An artifactLocation object.
           "uri": "input/mouse.h",
           "uriBaseId": "SRCROOT"
@@ -5996,8 +5996,8 @@ When a result management system uses fingerprint information to determine whethe
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the “context region hash” fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
 
 ```json
-{                                  # A run object ([§3.14](#run-object)).
-  "results": [                     # See [§3.14.23](#results-property).
+{                                  # A run object (§3.14).
+  "results": [                     # See §3.14.23.
     {                              # A result object.
       "fingerprints": {
         "stableResultHash/v1": "1234567900abc"
@@ -6035,7 +6035,7 @@ Each property name in this object **SHALL** be a versioned hierarchical string (
 > EXAMPLE 1: In this example, the producer has calculated a partial fingerprint using version 3 of a partial fingerprint value it refers to as `"prohibitedWordHash"`:
 
 ```json
-{                                 # A result object ([§3.27](#result-object)).
+{                                 # A result object (§3.27).
   "partialFingerprints": {
     "prohibitedWordHash/v3": "097886bc876fe"
   }
@@ -6047,8 +6047,8 @@ When a result management system uses partial fingerprint information to determin
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the “prohibited word hash” partial fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
 
 ```json
-{                                  # A run object ([§3.14](#run-object)).
-  "results": [                     # See [§3.14.23](#results-property).
+{                                  # A run object (§3.14).
+  "results": [                     # See §3.14.23.
     {                              # A result object.
       "partialFingerprints": {
         "prohibitedWordHash/v1": "1234567900abc"
@@ -6152,7 +6152,7 @@ results: [
       }
     ],
     "relatedLocations": [   # An array of location objects
-                            # ([§3.28](#location-object))
+                            # (§3.28)
       {                     # A location object.
         "id": 0,
         "message": {
@@ -6339,7 +6339,7 @@ int x = (y + z) \* q;
 If the analysis tool wanted to emphasize the expression `(y + z)`, it might set the `annotations` property to:
 
 "annotations": [                  # An array of region objects.
-  {                               # A region object ([§3.30](#region-object)).
+  {                               # A region object (§3.30).
     "startLine": 12,
     "startColumn": 9,
     "endColumn": 16,
@@ -6377,10 +6377,10 @@ A `physicalLocation` object **MAY** contain a property named `region` whose valu
 > EXAMPLE 1: In this example, a `physicalLocation` object specifies the location where a result was detected. Its `region` property specifies the portion of the file where the result was detected.
 
 ```json
-{                              # A result object ([§3.27](#result-object)).
-  "locations": [               # See [§3.27.12](#locations-property-1).
-    {                          # A location object ([§3.28](#location-object)).
-      "physicalLocation": {    # See [§3.28.3](#physicallocation-property).
+{                              # A result object (§3.27).
+  "locations": [               # See §3.27.12.
+    {                          # A location object (§3.28).
+      "physicalLocation": {    # See §3.28.3.
         "artifactLocation": {  # A artifactLocation object.
           "uri": "ui/window.c",
           "uriBaseId": "SRCROOT"
@@ -6410,16 +6410,16 @@ If a `physicalLocation` object contains a `region` property ([§3.29.4](#region-
 > EXAMPLE In this example, an analysis tool detected a result on line 42. The tool provides additional context for SARIF viewers by specifying a range of content surrounding the result line.
 
 ```json
-{                                       # A result object ([§3.27](#result-object)).
-  "locations": [                        # See [§3.27.12](#locations-property-1).
-    {                                   # A location object ([§3.28](#location-object)).
-      "physicalLocation": {             # A physicalLocation object ([§3.29](#physicallocation-object)).
-        "artifactLocation": {           # An artifactLocation object ([§3.4](#artifactlocation-object)).
+{                                       # A result object (§3.27).
+  "locations": [                        # See §3.27.12.
+    {                                   # A location object (§3.28).
+      "physicalLocation": {             # A physicalLocation object (§3.29).
+        "artifactLocation": {           # An artifactLocation object (§3.4).
           "uri": "ui/window.c",
           "uriBaseId": "SRCROOT"
         },
 
-        "region": {                      # See [§3.29.4](#region-property).
+        "region": {                      # See §3.29.4.
           "startLine": 42,
           "snippet": {
             "text": "int n = m + 1;"
@@ -6747,20 +6747,20 @@ An `address` object describes a physical or virtual address, or a range of addre
 > EXAMPLE: In this example, the location of the Sections region of a Windows ® Portable Executable file \[[PE](#PE)\] is expressed as an offset from the start of the module. The location of the .text section is in turn expressed as an offset from Sections.
 
 ```json
-{                                  # A run object ([§3.14](#run-object)).
-  "addresses": [                   # See [§3.14.18](#addresses-property).
+{                                  # A run object (§3.14).
+  "addresses": [                   # See §3.14.18.
     {
-      "name": "Multitool.exe",     # See [§3.32.10](#name-property-2).
-      "kind": "module",            # See [§3.32.12](#kind-property-1).
-      "absoluteAddress": 1024      # See [§3.32.6](#absoluteaddress-property).
+      "name": "Multitool.exe",     # See §3.32.10.
+      "kind": "module",            # See §3.32.12.
+      "absoluteAddress": 1024      # See §3.32.6.
     },
     {
       "name": "Sections",
       "kind": "header",
-      "parentIndex": 0,            # See [§3.32.13](#parentindex-property-1).
-      "offsetFromParent": 376,     # See [§3.32.8](#offsetfromparent-property).
+      "parentIndex": 0,            # See §3.32.13.
+      "offsetFromParent": 376,     # See §3.32.8.
       "absoluteAddress": 1400,
-      "relativeAddress": 376       # See [§3.32.7](#relativeaddress-property).
+      "relativeAddress": 376       # See §3.32.7.
     },
     {
       "name": ".text",
@@ -6992,8 +6992,8 @@ The `name` property **SHALL** be suitable for display and **SHALL** follow the n
 ```json
 {                                      # A logicalLocation object.
   "name": "c(float)",
-  "fullyQualifiedName": "b::c(float)", # See [§3.33.5](#fullyqualifiedname-property-1).
-  "kind": "function"                   # See [§3.33.7](#kind-property-2)
+  "fullyQualifiedName": "b::c(float)", # See §3.33.5.
+  "kind": "function"                   # See §3.33.7
 }
 ```
 
@@ -7140,12 +7140,12 @@ Although the values suggested here are useful in the specified categories (for e
 Suppose that an analysis tool detects errors on line 3 (the order number is blank) and line 4 (the total is negative). It might represent the logical locations of these errors as XML Paths (although this is not required), as follows:
 
 ```json
-{                                 # A run object ([§3.14](#run-object))
-  "results": [                    # See [§3.14.23](#results-property).
-    {                             # A result object ([§3.27](#result-object)).
-      "locations": [              # See [§3.27.12](#locations-property-1).
-        {                         # A location object ([§3.28](#location-object)).
-          "logicalLocations": [   # See [§3.28.4](#logicallocations-property-1).
+{                                 # A run object (§3.14)
+  "results": [                    # See §3.14.23.
+    {                             # A result object (§3.27).
+      "locations": [              # See §3.27.12.
+        {                         # A location object (§3.28).
+          "logicalLocations": [   # See §3.28.4.
             {                     # A logicalLocation object.
               "fullyQualifiedName": "/orders/order[1]/@number",
               "index": 2
@@ -7170,7 +7170,7 @@ Suppose that an analysis tool detects errors on line 3 (the order number is blan
     }
   ],
 
-  "logicalLocations": [           # See [§3.14.17](#logicallocations-property).
+  "logicalLocations": [           # See §3.14.17.
     {                             # A logicalLocation object.
       "name": "orders",
       "fullyQualifiedName": "/orders",
@@ -7224,12 +7224,12 @@ Suppose that an analysis tool detects errors on line 3 (the order number is blan
 > Suppose that an analysis tool detects errors on line 4 (one of the product ids blank) and line 5 (the total is negative). It might represent the logical locations of these errors as JSON Pointers (although this is not required), as follows:
 
 ```
-{                                 # A run object ([§3.14](#run-object))
-  "results": [                    # See [§3.14.23](#results-property).
-    {                             # A result object ([§3.27](#result-object)).
-      "locations": [              # See [§3.27.12](#locations-property-1).
-        {                         # A location object ([§3.28](#location-object)).
-          "logicalLocation": {    # See [§3.28.4](#logicallocations-property-1).
+{                                 # A run object (§3.14)
+  "results": [                    # See §3.14.23.
+    {                             # A result object (§3.27).
+      "locations": [              # See §3.27.12.
+        {                         # A location object (§3.28).
+          "logicalLocation": {    # See §3.28.4.
             "fullyQualifiedName": "/orders/0/productIds/1",
             "index": 3
           }
@@ -7248,8 +7248,8 @@ Suppose that an analysis tool detects errors on line 3 (the order number is blan
     }
   ],
 
-  "logicalLocations": [           # See [§3.14.17](#logicallocations-property).
-    {                             # A logicalLocation object ([§3.33](#logicallocation-object)).
+  "logicalLocations": [           # See §3.14.17.
+    {                             # A logicalLocation object (§3.33).
       "name": "orders",
       "fullyQualifiedName": "/orders",
       "kind": "array"
@@ -7299,12 +7299,12 @@ If `thisObject` represents a top-level logical location, then `parentIndex` **SH
 > EXAMPLE: In this example, the logical location `n::f(void)` is nested within the top-level logical location `n`. The `logicalLocation` object representing `n::f(void)` contains a `parentIndex` property that points to the object representing `n`; the object representing `n` does not contain a `parentIndex` property.
 
 ```json
-{                                            # A run object ([§3.14](#run-object)).
-  "logicalLocations": [                      # See [§3.14.17](#logicallocations-property).
+{                                            # A run object (§3.14).
+  "logicalLocations": [                      # See §3.14.17.
     {
-      "name": "f(void)",                     # See [§3.33.4](#name-property-3).
-      "fullyQualifiedName": "n::f(void)",    # See [§3.33.5](#fullyqualifiedname-property-1).
-      "kind": "function",                    # See [§3.33.7](#kind-property-2).
+      "name": "f(void)",                     # See §3.33.4.
+      "fullyQualifiedName": "n::f(void)",    # See §3.33.5.
+      "kind": "function",                    # See §3.33.7.
       "parentIndex": 1
     },
     {
@@ -7326,10 +7326,10 @@ A `locationRelationship` object specifies one or more directed relationships fro
 > EXAMPLE: In this example, the location relationships specify that the file f.h in which the result was found is included by g.h, which is in turn included by g.c. Depending on the circumstances, it might or might not be useful to include both the `"includes"` and `"isIncludedBy"` relationships, as this example does for g.h.
 
 ```json
-{                                        # A result object ([§3.27](#result-object)).
-  "locations": [                         # See [§3.27.12](#locations-property-1).
-    {                                    # A location object ([§3.28](#location-object)).
-      "id": 0,                           # See [§3.28.2](#id-property-2).
+{                                        # A result object (§3.27).
+  "locations": [                         # See §3.27.12.
+    {                                    # A location object (§3.28).
+      "id": 0,                           # See §3.28.2.
       "physicalLocation": {
         "artifactLocation": {
           "uri": "f.h"
@@ -7338,16 +7338,16 @@ A `locationRelationship` object specifies one or more directed relationships fro
           "startLine": 42
         }
       },
-      "relationships": [                 # See [§3.28.7](#relationships-property)
+      "relationships": [                 # See §3.28.7
         {                                # A locationRelationship object.
-          "target": 1,                   # See [§3.34.2](#target-property).
-          "kinds": [ "isIncludedBy" ]    # See [§3.34.3](#kinds-property).
+          "target": 1,                   # See §3.34.2.
+          "kinds": [ "isIncludedBy" ]    # See §3.34.3.
         }
       ]
     }
   ],
 
-  "relatedLocations": [                  # See [§3.27.22](#relatedlocations-property).
+  "relatedLocations": [                  # See §3.27.22.
     {
       "id": 1,
       "physicalLocation": {
@@ -7493,24 +7493,24 @@ A `codeFlow` object describes the progress of one or more programs through one o
 > EXAMPLE
 
 ```json
-{                                       # A result object ([§3.27](#result-object)).
-  "codeFlows": [                        # See [§3.27.18](#codeflows-property).
+{                                       # A result object (§3.27).
+  "codeFlows": [                        # See §3.27.18.
     {                                   # A codeFlow object.
-      "message": {                      # See [§3.36.2](#message-property-4).
+      "message": {                      # See §3.36.2.
         "text": "..."
       },
 
-      "threadFlows": [                  # See [§3.36.3](#threadflows-property).
-        {                               # A threadFlow object ([§3.37](#threadflow-object)).
-          "id": "thread-123",           # See [§3.37.2](#id-property-3).
-          "message": {                  # See [§3.37.3](#message-property-5).
+      "threadFlows": [                  # See §3.36.3.
+        {                               # A threadFlow object (§3.37).
+          "id": "thread-123",           # See §3.37.2.
+          "message": {                  # See §3.37.3.
             "text": "..."
           },
 
-          "locations": [                # See [§3.37.6](#locations-property-2).
-            {                           # A threadFlowLocation object ([§3.38](#threadflowlocation-object)).
-              "location": {             # See [§3.38.3](#location-property-4).
-                "physicalLocation": {   # See [§3.28.3](#physicallocation-property).
+          "locations": [                # See §3.37.6.
+            {                           # A threadFlowLocation object (§3.38).
+              "location": {             # See §3.38.3.
+                "physicalLocation": {   # See §3.28.3.
                   "artifactLocation": {
                     "uri": "ui/window.c",
                     "uriBaseId": "SRCROOT"
@@ -7522,7 +7522,7 @@ A `codeFlow` object describes the progress of one or more programs through one o
                 }
               },
 
-              "state": {                # See [§3.38.9](#state-property).
+              "state": {                # See §3.38.9.
                 "x": {
                   "text": "42"
                 },
@@ -7534,8 +7534,8 @@ A `codeFlow` object describes the progress of one or more programs through one o
                 }
               },
 
-              "nestingLevel": 0,        # See [§3.38.10](#nestinglevel-property).
-              "executionOrder": 2       # See [§3.38.11](#executionorder-property).
+              "nestingLevel": 0,        # See §3.38.10.
+              "executionOrder": 2       # See §3.38.11.
             }
           ]
         }
@@ -7624,8 +7624,8 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 1: In this example, `thisObject` is an element of `theRun.threadFlowLocations`. Its array index is known to be 1, so `thisObject.index` does not need to be present, but since it is present, it equals the array index, as required.
 
 ```json
-{                                 # A run object ([§3.14](#run-object)).
-  "threadFlowLocations": [        # See [§3.14.19](#threadflowlocations-property).
+{                                 # A run object (§3.14).
+  "threadFlowLocations": [        # See §3.14.19.
     ...
     {                             # A threadFlowLocation object: thisObject.
       "index": 1,                 # Optional.
@@ -7642,16 +7642,16 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 2: In this example, `thisObject` is not an element of `theRun.threadFlowLocations`; rather, it is an element of `theResult.codeFlows\[0\].threadFlows\[0\].locations`. There is no cached object; that is, there is no object in `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is absent, as required.
 
 ```json
-{                                 # A run object ([§3.14](#run-object)).
-  "results": [                    # See [§3.14.23](#results-property).
-    {                             # A result object ([§3.27](#result-object)).
-      "codeFlows": [              # See [§3.27.18](#codeflows-property).
-        {                         # A codeFlow object ([§3.36](#codeflow-object)).
-          "threadFlows": [        # See [§3.36.3](#threadflows-property).
-            {                     # A threadFlow object ([§3.37](#threadflow-object)).
-              "locations": [      # See [§3.37.6](#locations-property-2).
+{                                 # A run object (§3.14).
+  "results": [                    # See §3.14.23.
+    {                             # A result object (§3.27).
+      "codeFlows": [              # See §3.27.18.
+        {                         # A codeFlow object (§3.36).
+          "threadFlows": [        # See §3.36.3.
+            {                     # A threadFlow object (§3.37).
+              "locations": [      # See §3.37.6.
                 {                 # A threadFlowLocation object (thisObject).
-                  "location": {   # See [§3.38.3](#location-property-4).
+                  "location": {   # See §3.38.3.
                     ...
                   }
                 }
@@ -7664,7 +7664,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
     }
   ],
   ...
-  "threadFlowLocations": [        # See [§3.14.19](#threadflowlocations-property).
+  "threadFlowLocations": [        # See §3.14.19.
     ...
   ],
 }
@@ -7673,14 +7673,14 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 3: In this example, `thisObject` is again an element of `theResult.codeFlows\[0\].threadFlows\[0\].locations`, not an element of `theRun.threadFlowLocations`. But in this example, there is a cached object, an element of `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is present, as required.
 
 ```json
-{                                 # A run object ([§3.14](#run-object)).
-  "results": [                    # See [§3.14.23](#results-property).
-    {                             # A result object ([§3.27](#result-object)).
-      "codeFlows": [              # See [§3.27.18](#codeflows-property).
-        {                         # A codeFlow object ([§3.36](#codeflow-object)).
-          "threadFlows": [        # See [§3.36.3](#threadflows-property).
-            {                     # A threadFlow object ([§3.37](#threadflow-object)).
-              "locations": [      # See [§3.37.6](#locations-property-2).
+{                                 # A run object (§3.14).
+  "results": [                    # See §3.14.23.
+    {                             # A result object (§3.27).
+      "codeFlows": [              # See §3.27.18.
+        {                         # A codeFlow object (§3.36).
+          "threadFlows": [        # See §3.36.3.
+            {                     # A threadFlow object (§3.37).
+              "locations": [      # See §3.37.6.
                 {                 # An threadFlowLocation object: thisObject.
                   "index": 0      # index is present so no other properties.
                 }
@@ -7693,9 +7693,9 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
     }
   ],
   ...
-  "threadFlowLocations": [        # See [§3.14.19](#threadflowlocations-property).
+  "threadFlowLocations": [        # See §3.14.19.
     {                             # The cached threadFlowLocation object.
-      "location": {               # See [§3.38.3](#location-property-4).
+      "location": {               # See §3.38.3.
         ...
       }
     },
@@ -7715,13 +7715,13 @@ There are analysis tools whose native output format includes the equivalent of a
 Note the use of `executionOrder` ([§3.38.11](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
 
 ```json
-{                                     # A codeFlow object ([§3.36](#codeflow-object)).
-  "threadFlows": [                    # See [§3.36.3](#threadflows-property).
-    {                                 # A threadFlow object ([§3.37](#threadflow-object)).
-      "message": {                    # See [§3.37.3](#message-property-5).
+{                                     # A codeFlow object (§3.36).
+  "threadFlows": [                    # See §3.36.3.
+    {                                 # A threadFlow object (§3.37).
+      "message": {                    # See §3.37.3.
         "text": "An external program."
       },
-      "locations": [                  # See [§3.37.6](#locations-property-2).
+      "locations": [                  # See §3.37.6.
         {                             # A threadFlowLocation object.
           "executionOrder": 1,
           "location": {               # A location object with only a message.
@@ -7985,8 +7985,8 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 > EXAMPLE: This example illustrates the scenario in the above note.
 
 ```json
-{                                # A run object ([§3.14](#run-object)).
-  "tool": {                      # See [§3.14.6](#tool-property).
+{                                # A run object (§3.14).
+  "tool": {                      # See §3.14.6.
     "driver": {
       "name": "TaintDetector",
       "rules": [
@@ -7999,8 +7999,8 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
         },
         ...
       ],
-      "taxa": [                  # Custom taxonomy ([§3.19.3](#taxonomies)) for helper rules.
-        {                        # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+      "taxa": [                  # Custom taxonomy (§3.19.3) for helper rules.
+        {                        # A reportingDescriptor object (§3.49).
           "id": "HR0001",
           "name": "SubstrPropogatesTaint",
           "shortDescription": {
@@ -8013,18 +8013,18 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
     }
   },
 
-  "results": [                   # See [§3.14.23](#results-property).
-    {                            # A result object [§3.27](#result-object).
+  "results": [                   # See §3.14.23.
+    {                            # A result object §3.27.
       "ruleId": "TD0001",
       ...
-      "codeFlows": [             # See [§3.27.18](#codeflows-property).
-        {                        # A codeFlow object ([§3.36](#codeflow-object)).
-          "threadFlows": [       # See [§3.36.3](#threadflows-property).
-            {                    # A threadFlow object ([§3.37](#threadflow-object)).
-              "locations": [     # See [§3.37.6](#locations-property-2).
+      "codeFlows": [             # See §3.27.18.
+        {                        # A codeFlow object (§3.36).
+          "threadFlows": [       # See §3.36.3.
+            {                    # A threadFlow object (§3.37).
+              "locations": [     # See §3.37.6.
                 ...
                 {                # A threadFlowLocation object.
-                  "location": {  # See [§3.38.3](#location-property-4).
+                  "location": {  # See §3.38.3.
                     "physicalLocation": {
                       "artifactLocation": {
                         "uri": "io/input.c",
@@ -8036,7 +8036,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
                     }
                   },
                   "taxa": [
-                    {        # A reportingDescriptorReference object ([§3.52](#reportingdescriptorreference-object)).
+                    {        # A reportingDescriptorReference object (§3.52).
                       "id": "HR0001",
                       "index": 0
                     }
@@ -8086,11 +8086,11 @@ A `node` object **SHALL** contain a property named `id` whose value is a string 
 > EXAMPLE: This graph is invalid because two nodes have the same `id`, even though the nodes are within unrelated nested graphs.
 
 ```json
-{                             # A graph object ([§3.39](#graph-object)).
-  "nodes": [                  # See [§3.39.3](#nodes-property).
+{                             # A graph object (§3.39).
+  "nodes": [                  # See §3.39.3.
     {                         # A node object.
       "id": "n1",
-      "children": [           # See [§3.40.5](#children-property).
+      "children": [           # See §3.40.5.
         {
           "id": "n3"
         }
@@ -8144,11 +8144,11 @@ An `edge` object **SHALL** contain a property named `sourceNodeId` whose value i
 > EXAMPLE: In this example, an edge connects two nodes defined in unrelated nested graphs.
 
 ```json
-{                             # A graph object ([§3.39](#graph-object)).
-  "nodes": [                  # See [§3.39.3](#nodes-property).
+{                             # A graph object (§3.39).
+  "nodes": [                  # See §3.39.3.
     {                         # A node object.
       "id": "n1",
-      "children": [           # See [§3.40.5](#children-property).
+      "children": [           # See §3.40.5.
         {
           "id": "n3"
         }
@@ -8163,7 +8163,7 @@ An `edge` object **SHALL** contain a property named `sourceNodeId` whose value i
       ]
     }
   ],
-  "edges": [                  # See [§3.39.4](#edges-property).
+  "edges": [                  # See §3.39.4.
     {
       "sourceNodeId": "n3",   # Source node and target node are in separate
       "targetNodeId": "n4"    # nested graphs: ok.
@@ -8234,21 +8234,21 @@ The `edgeTraversal` objects **SHALL** be connected end to end; that is, the targ
 This example also demonstrates the usage of `graphTraversal.initialState` ([§3.42.6](#initialstate-property-1)) and `edgeTraversal.finalState` ([§3.43.4](#finalstate-property)).
 
 ```json
-{                                          # A result object ([§3.27](#result-object)).
-  "graphs": [                              # See [§3.27.19](#graphs-property-1).
-    {                                      # A graph object ([§3.39](#graph-object)).
-      "nodes": [                           # See [§3.39.3](#nodes-property).
-        { "id": "n1" },                    # A node object ([§3.40](#node-object)).
+{                                          # A result object (§3.27).
+  "graphs": [                              # See §3.27.19.
+    {                                      # A graph object (§3.39).
+      "nodes": [                           # See §3.39.3.
+        { "id": "n1" },                    # A node object (§3.40).
         { "id": "n2" },
         { "id": "n3" },
         { "id": "n4" }
       ],
 
-      "edges": [                           # See [§3.39.4](#edges-property).
-        {                                  # An edge object ([§3.41](#edge-object)).
-          "id": "e1",                      # See [§3.41.2](#id-property-5).
-          "sourceNodeId": "n1",            # See [§3.41.4](#sourcenodeid-property).
-          "targetNodeId": "n2"             # See [§3.41.5](#targetnodeid-property).
+      "edges": [                           # See §3.39.4.
+        {                                  # An edge object (§3.41).
+          "id": "e1",                      # See §3.41.2.
+          "sourceNodeId": "n1",            # See §3.41.4.
+          "targetNodeId": "n2"             # See §3.41.5.
         },
         {
           "id": "e2",
@@ -8264,11 +8264,11 @@ This example also demonstrates the usage of `graphTraversal.initialState` ([§3.
     }
   ],
 
-  "graphTraversals": [                     # See [§3.27.20](#graphtraversals-property).
-    {                                      # A graphTraversal object ([§3.42](#graphtraversal-object)).
-      "resultGraphIndex": 0,               # See [§3.42.3](#resultgraphindex-property).
+  "graphTraversals": [                     # See §3.27.20.
+    {                                      # A graphTraversal object (§3.42).
+      "resultGraphIndex": 0,               # See §3.42.3.
 
-      "initialState": {                    # See [§3.42.6](#initialstate-property-1).
+      "initialState": {                    # See §3.42.6.
         "x": {
           "text": "1"
         },
@@ -8280,11 +8280,11 @@ This example also demonstrates the usage of `graphTraversal.initialState` ([§3.
         }
       },
 
-      "edgeTraversals": [                  # See [§3.42.8](#edgetraversals-property).
-        {                                  # An edgeTraversal object ([§3.43](#edgetraversal-object)).
-          "edgeId": "e1",                  # See [§3.43.2](#edgeid-property).
+      "edgeTraversals": [                  # See §3.42.8.
+        {                                  # An edgeTraversal object (§3.43).
+          "edgeId": "e1",                  # See §3.43.2.
 
-          "finalState": {                  # See [§3.43.4](#finalstate-property).
+          "finalState": {                  # See §3.43.4.
             "x": {
               "text": "4"
             },
@@ -8368,9 +8368,9 @@ will be collapsed into a single “step over.” As a result, she will visit the
 > `\[ na1, na2, na3, na4 \]`
 
 ```json
-{                                           # A result object ([§3.27](#result-object)).
-  "graphs": [                               # See [§3.27.19](#graphs-property-1).
-    {                                       # A graph object ([§3.39](#graph-object)).
+{                                           # A result object (§3.27).
+  "graphs": [                               # See §3.27.19.
+    {                                       # A graph object (§3.39).
       "nodes": [
         {
           "id": "functionA",
@@ -8402,8 +8402,8 @@ will be collapsed into a single “step over.” As a result, she will visit the
     }
   ],
 
-  "graphTraversals": [                      # See [§3.27.20](#graphtraversals-property).
-    {                                       # A graphTraversal object ([§3.42](#graphtraversal-object)).
+  "graphTraversals": [                      # See §3.27.20.
+    {                                       # A graphTraversal object (§3.42).
       "resultGraphIndex": 0,                # The graph being traversed.
       "edgeTraversals": [
         { "edgeId": "ea1" },
@@ -8707,7 +8707,7 @@ a SARIF converter might transform it into the following SARIF log file:
           "name": "CodeScanner"
         }
       },
-      "conversion": {  # A conversion object (see [§3.22](#conversion-object)).
+      "conversion": {  # A conversion object (see §3.22).
         ...
       },
       "results": [
@@ -8717,14 +8717,14 @@ a SARIF converter might transform it into the following SARIF log file:
             "text": "Assertions are unreliable. ..."
           },
           ...
-          "provenance": {              # See [§3.27.29](#provenance-property).
+          "provenance": {              # See §3.27.29.
             "conversionSources": [     # An array of physicalLocation objects 
-              {                        # ([§3.29](#physicallocation-object)).
-                "artifactLocation": {  # See [§3.29.3](#artifactlocation-property).
+              {                        # (§3.29).
+                "artifactLocation": {  # See §3.29.3.
                   "uri": "CodeScanner.log",
                   "uriBaseId": "$LOGSROOT"
                 },
-                "region": {            # See [§3.29.4](#region-property).
+                "region": {            # See §3.29.4.
                   "startLine": 3,
                   "startColumn": 3,
                   "endLine": 12,
@@ -8949,7 +8949,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 ```json
 {                         # A reportingDescriptor object for a rule.
   "messageStrings": {
-    "objectCreation":  {  # A multiformatMessageString object ([§3.12](#multiformatmessagestring-object)).
+    "objectCreation":  {  # A multiformatMessageString object (§3.12).
       "text": "{0} creates a new instance of {1} which is never used.
               Pass the instance as an argument to another method,
               assign the instance to a variable,
@@ -9043,7 +9043,7 @@ A `reportingConfiguration` object **MAY** contain a property named `parameters` 
 > EXAMPLE: In this example, a rule that specifies the maximum permitted source line length is parameterized by the maximum length.
 
 ```json
-{                                  # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+{                                  # A reportingDescriptor object (§3.49).
   "id": "SA2707",
   "name": {
     "text": "LimitSourceLineLength"
@@ -9078,13 +9078,13 @@ The `configurationOverride` object’s `descriptor` property ([§3.51.2](#descri
 > EXAMPLE: In this example, rule `CA2101` is treated as a warning rather than an error.
 
 ```json
-{                                           # A run object ([§3.14](#run-object)).
-  "tool": {                                 # See [§3.14.6](#tool-property).
-    "driver": {                             # See [§3.18.2](#driver-property).
+{                                           # A run object (§3.14).
+  "tool": {                                 # See §3.14.6.
+    "driver": {                             # See §3.18.2.
       "name": "CodeScanner",
-      "rules": [                            # See [§3.19.23](#rules-property).
+      "rules": [                            # See §3.19.23.
         {                                   # A reportingDescriptor object
-          "id": "CA2101",                   #  ([§3.49](#reportingdescriptor-object)).
+          "id": "CA2101",                   #  (§3.49).
           "defaultConfiguration": {
             "level": "error"
           }
@@ -9093,15 +9093,15 @@ The `configurationOverride` object’s `descriptor` property ([§3.51.2](#descri
     }
   },
 
-  "invocations": [                          # See [§3.14.11](#invocations-property).
-    {                                       # An invocation object ([§3.20](#invocation-object)).
-      "ruleConfigurationOverrides": [       # See [§3.20.5](#ruleconfigurationoverrides-property).
+  "invocations": [                          # See §3.14.11.
+    {                                       # An invocation object (§3.20).
+      "ruleConfigurationOverrides": [       # See §3.20.5.
         {                                   # A configurationOverride object
-                                            #  ([§3.51](#configurationoverride-object)).
-          "descriptor": {                   # See [§3.51.2](#descriptor-property).
+                                            #  (§3.51).
+          "descriptor": {                   # See §3.51.2.
             "index": 0
           },
-          "configuration": {                # See [§3.51.3](#configuration-property).
+          "configuration": {                # See §3.51.3.
             "level": "warning"
           }
         }
@@ -9131,13 +9131,13 @@ In some cases, there is no `reportingDescriptor` object associated with a `repor
 > EXAMPLE: In this example, a tool emits a tool execution notification that refers to a rule. The tool does not provide rule metadata. Therefore, `associatedRule` ([§3.58.3](#associatedrule-property)) contains only an `id` property, whose value is the id of the rule that failed. Similarly, the tool does not provide metadata about its notifications, so `"descriptor"` ([§3.58.2](#descriptor-property-1)) contains only the id of the notification.
 
 ```json
-{                                            # An invocation object ([§3.20](#invocation-object)).
-  "toolExecutionNotifications": [            # See [§3.20.21](#toolexecutionnotifications-property).
-    {                                        # A notification object ([§3.58](#notification-object)).
-      "descriptor": {                        # See [§3.58.2](#descriptor-property-1).
+{                                            # An invocation object (§3.20).
+  "toolExecutionNotifications": [            # See §3.20.21.
+    {                                        # A notification object (§3.58).
+      "descriptor": {                        # See §3.58.2.
         "id": "CTN9999"
       },
-      "associatedRule": {                    # See 
+      "associatedRule": {                    # See §.3.58.3
         "id": "C2001"
       },
       "level": "error",
@@ -9209,22 +9209,22 @@ For more information about the semantics of `id` when `theDescriptor` is a rule,
 > EXAMPLE: In this example, the first `result` object is valid because `rule.id` (inherited from `ruleId`) equals `theDescriptor.id`. The second `result` object is also valid because `rule.id` (this time specified directly) equals `theDescriptor.id` plus one additional hierarchical component (`"ghi"`). The third `result` object is invalid because `theDescriptor.id` is not a “component-wise” prefix of `rule.id`. The fourth `result` object is invalid because `ruleId` does not equal `rule.id`.
 
 ```json
-{                             # A run object ([§3.14](#run-object)).
-  "tool": {                   # See [§3.14.6](#tool-property).
-    "driver": {               # See [§3.18.2](#driver-property).
+{                             # A run object (§3.14).
+  "tool": {                   # See §3.14.6.
+    "driver": {               # See §3.18.2.
       "name": "CodeScanner",
-      "rules": [              # See [§3.19.23](#rules-property).
-        {                     # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
-          "id": "abc/def",    # See [§3.49.3](#id-property-6).
+      "rules": [              # See §3.19.23.
+        {                     # A reportingDescriptor object (§3.49).
+          "id": "abc/def",    # See §3.49.3.
           ...
         },
         ...
       ]
     }
   },
-  "results": [                # See [§3.14.23](#results-property).
-    {                         # A result object ([§3.27](#result-object)).
-      "ruleId": "abc/def",    # See [§3.27.5](#ruleid-property).
+  "results": [                # See §3.14.23.
+    {                         # A result object (§3.27).
+      "ruleId": "abc/def",    # See §3.27.5.
       "rule": {
         "index": 0
       },
@@ -9258,13 +9258,13 @@ A `reportingDescriptorReference` object **MAY** contain a property named `index`
 > EXAMPLE 1: In this example, there is more than one rule with id `CA1711`. `index` uniquely specifies the relevant rule, whether or not there are multiple rules with the same id.
 
 ```json
-{                            # A run object ([§3.14](#run-object)).
-  "tool": {                  # See [§3.14.6](#tool-property).
-    "driver": {              # See [§3.18.2](#driver-property).
+{                            # A run object (§3.14).
+  "tool": {                  # See §3.14.6.
+    "driver": {              # See §3.18.2.
       "name": "CodeScanner",
-      "rules": [             # See [§3.19.23](#rules-property).
-        {                    # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
-          "id": "CA1711",    # See [§3.49.3](#id-property-6).
+      "rules": [             # See §3.19.23.
+        {                    # A reportingDescriptor object (§3.49).
+          "id": "CA1711",    # See §3.49.3.
           ...
         },
         {                    # Another reportingDescriptor with the same id.
@@ -9274,9 +9274,9 @@ A `reportingDescriptorReference` object **MAY** contain a property named `index`
       ]
     }
   },
-  "results": [               # See [§3.14.23](#results-property).
-    {                        # A result object ([§3.27](#result-object)).
-      "ruleId": "CA1711",    # See [§3.27.5](#ruleid-property).
+  "results": [               # See §3.14.23.
+    {                        # A result object (§3.27).
+      "ruleId": "CA1711",    # See §3.27.5.
 
                              # A reportingDescriptorReference object.
       "rule": {
@@ -9314,16 +9314,16 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 > EXAMPLE 1: In this example, the definition of rule `CA1000` states that every result that violates this rule falls into the taxonomic category (“taxon”) specified by ID 327 of the Common Weakness Enumeration \[[CWE](#CWE)™\]:
 
 ```json
-{                              # A run object ([§3.14](#run-object)).
-  "tool": {                    # See [§3.14.6](#tool-property).
-    "driver": {                # See [§3.18.2](#driver-property).
+{                              # A run object (§3.14).
+  "tool": {                    # See §3.14.6.
+    "driver": {                # See §3.18.2.
       "name": "CodeScanner",
-      "rules": [               # See [§3.19.23](#rules-property).
-        {                      # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+      "rules": [               # See §3.19.23.
+        {                      # A reportingDescriptor object (§3.49).
           "id": "CA1000",
           "relationships": [
             {                  # A reportingDescriptorRelationship object.
-              "target": {      # See [§3.53.2](#target-property-2).
+              "target": {      # See §3.53.2.
                 "id": "327",
                 "guid": "33333333-0000-1111-8888-111111111111",
                 "toolComponent": {
@@ -9367,17 +9367,17 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 > EXAMPLE 2: In this example, the definition of rule `CA1000` states that every violation of this rule will lead to a violation of rule `CA2000`.
 
 ```json
-{                              # A run object ([§3.14](#run-object)).
-  "tool": {                    # See [§3.14.6](#tool-property).
-    "driver": {                # See [§3.18.2](#driver-property).
+{                              # A run object (§3.14).
+  "tool": {                    # See §3.14.6.
+    "driver": {                # See §3.18.2.
       "name": "CodeScanner",
-      "rules": [               # See [§3.19.23](#rules-property).
-        {                      # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+      "rules": [               # See §3.19.23.
+        {                      # A reportingDescriptor object (§3.49).
           "id": "CA1000",
           "guid": "11111111-0000-1111-8888-000000000001"
           "relationships": [
             {                  # A reportingDescriptor object.
-              "target": {      # See [§3.53.2](#target-property-2).
+              "target": {      # See §3.53.2.
                 "id": "CA2000",
                 "guid": "11111111-0000-1111-8888-000000000002",
               },
@@ -9475,14 +9475,14 @@ A `fix` object represents a proposed fix for the problem indicated by `theResult
 > EXAMPLE:
 
 ```json
-{                                   # A result object ([§3.27](#result-object)).
-  "fixes": [                        # See [§3.27.30](#fixes-property).
+{                                   # A result object (§3.27).
+  "fixes": [                        # See §3.27.30.
     {                               # A fix object.
-      "description": {              # See [§3.55.2](#description-property-8).
+      "description": {              # See §3.55.2.
         "text": "Private member names begin with '_'"
       },
-      "artifactChanges": [          # See [§3.55.3](#artifactchanges-property).
-        {                           # An artifactChange object ([§3.56](#artifactchange-object)).
+      "artifactChanges": [          # See §3.55.3.
+        {                           # An artifactChange object (§3.56).
           ...
         }
       ]
@@ -9522,18 +9522,18 @@ The array elements **SHALL** refer to distinct artifacts.
 ```json
 {                                    # A fix object.
   "artifactChanges": [                   
-    {                                # An artifactChange object ([§3.56](#artifactchange-object)).
-      "artifactLocation": {          # See [§3.56.2](#artifactlocation-property-1).
+    {                                # An artifactChange object (§3.56).
+      "artifactLocation": {          # See §3.56.2.
         "uri": "src/a.c"
       },
-      "replacements": [              # See [§3.56.3](#replacements-property).
-        {                            # A replacement object ([§3.57](#replacement-object)).
-          "deletedRegion": {         # See [§3.57.3](#deletedregion-property).
+      "replacements": [              # See §3.56.3.
+        {                            # A replacement object (§3.57).
+          "deletedRegion": {         # See §3.57.3.
             "startLine": 1,
             "startColumn": 1,
             "endColumn": 1
           },
-          "insertedContent": {       # See [§3.57.4](#insertedcontent-property).
+          "insertedContent": {       # See §3.57.4.
             "text": "// "
           }
         }
@@ -9565,18 +9565,18 @@ The array elements **SHALL** refer to distinct artifacts.
 ```json
 {                                    # A fix object.
   "artifactChanges": [                   
-    {                                # An artifactChange object ([§3.56](#artifactchange-object)).
-      "artifactLocation": {          # See [§3.56.2](#artifactlocation-property-1).
+    {                                # An artifactChange object (§3.56).
+      "artifactLocation": {          # See §3.56.2.
         "uri": "src/a.c"
       },
-      "replacements": [              # See [§3.56.3](#replacements-property).
-        {                            # A replacement object ([§3.57](#replacement-object)).
-          "deletedRegion": {         # See [§3.57.3](#deletedregion-property).
+      "replacements": [              # See §3.56.3.
+        {                            # A replacement object (§3.57).
+          "deletedRegion": {         # See §3.57.3.
             "startLine": 1,
             "startColumn": 1,
             "endColumn": 1
           },
-          "insertedContent": {       # See [§3.57.4](#insertedcontent-property).
+          "insertedContent": {       # See §3.57.4.
             "text": "// "
           }
         }
@@ -9612,14 +9612,14 @@ An `artifactChange` object represents a change to a single artifact.
 > EXAMPLE:
 
 ```json
-{                             # A fix object ([§3.55](#fix-object)).
-  "artifactChanges": [        # See [§3.55.3](#artifactchanges-property).
+{                             # A fix object (§3.55).
+  "artifactChanges": [        # See §3.55.3.
     {                          
-      "artifactLocation": {   # See [§3.56.2](#artifactlocation-property-1).
+      "artifactLocation": {   # See §3.56.2.
         "uri": "a.h"
       },
-      "replacements": [       # See [§3.56.3](#replacements-property).
-        {                     # A replacement object ([§3.57](#replacement-object)).
+      "replacements": [       # See §3.56.3.
+        {                     # A replacement object (§3.57).
           ...
         },
         {                     # Another replacement object.
@@ -9693,7 +9693,7 @@ A `replacement` object can represent either a textual replacement or a binary re
 ```json
 "replacements": [
   {
-    "deletedRegion": { # The region object represents a text region ([§3.30.2](#text-regions)).
+    "deletedRegion": { # The region object represents a text region (§3.30.2).
       "startLine": 12,
       "startColumn": 5,
       "endColumn": 9
@@ -9752,12 +9752,12 @@ If the condition described by the `notification` object is relevant to a particu
 > EXAMPLE: In this example, there is more than one rule with id `CA1711`. `associatedRule.index` uniquely specifies the relevant rule.
 
 ```json
-{                                      # A run object ([§3.14](#run-object)).
-  "tool": {                            # See [§3.14.6](#tool-property).
-    "driver": {                        # See [§3.18.2](#driver-property).
+{                                      # A run object (§3.14).
+  "tool": {                            # See §3.14.6.
+    "driver": {                        # See §3.18.2.
       "name": "CodeScanner",
-      "rules": [                       # See [§3.19.23](#rules-property).
-        {                              # A reportingDescriptor object ([§3.49](#reportingdescriptor-object)).
+      "rules": [                       # See §3.19.23.
+        {                              # A reportingDescriptor object (§3.49).
           "id": "CA1711",
           ...
         },
@@ -9768,10 +9768,10 @@ If the condition described by the `notification` object is relevant to a particu
       ]
     }
   },
-  "invocations": [                      # See [§3.14.11](#invocations-property).
-    {                                   # An invocation object ([§3.20](#invocation-object)).
-      "toolConfigurationNotifications": [ # See [§3.20.22](#toolconfigurationnotifications-property).
-        {                               # A notification object ([§3.58](#notification-object)).
+  "invocations": [                      # See §3.14.11.
+    {                                   # An invocation object (§3.20).
+      "toolConfigurationNotifications": [ # See §3.20.22.
+        {                               # A notification object (§3.58).
           "descriptor": {
             "id": "CFG0001"
           },
@@ -9900,18 +9900,18 @@ The top-level element of an external property file **SHALL** be an object which 
 
 ```json
 {                             # An externalProperties object
-  "version": "2.1.0",         # See [§4.3.3](#version-property-4).
+  "version": "2.1.0",         # See §4.3.3.
 
-  "$schema":                  # See [§4.3.2](#schema-property-1).
+  "$schema":                  # See §4.3.2.
     "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json",
 
-                              # See [§4.3.4](#guid-property-8).
+                              # See §4.3.4.
   "guid": "00001111-2222-1111-8888-555566667777",
 
-                              # See [§4.3.5](#runguid-property).
+                              # See §4.3.5.
   "runGuid": "88889999-AAAA-1111-8888-DDDDEEEEFFFF",
 
-  "artifacts": {              # See [§4.3.6](#the-property-value-properties).
+  "artifacts": {              # See §4.3.6.
     {
       "location": {
         "uri": "apple.png"
@@ -10174,7 +10174,7 @@ Some information contained in the result is not useful in constructing a fingerp
 
 A result management system **SHOULD NOT** include an absolute line number (or an absolute byte location in a binary artifact) in its fingerprint computation.
 
-> NOTE: The inclusion of non-deterministic file format elements ([Appendix F](#informative-producing-deterministic-sarif-log-files), 
+> NOTE: The inclusion of non-deterministic file format elements ([Appendix F](#informative-producing-deterministic-sarif-log-files), §F.2) or non-deterministic absolute URIs ([Appendix F](#informative-producing-deterministic-sarif-log-files), §F.4) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
 
 It is difficult to devise an algorithm that constructs a truly stable fingerprint for a result. Fortunately, for practical purposes, the fingerprint does not need to be absolutely stable; it only needs to be stable enough to reduce the number of results that are erroneously reported as “new” to a low enough level that the development team can manage the erroneously reported results without too much effort.
 
@@ -10461,22 +10461,22 @@ The first option is more compact; the second allows a SARIF viewer to present re
 > EXAMPLE 1: In this example, the analysis tool populates `region.snippet` and `contextRegion.snippet`, allowing a SARIF viewer to display just enough context (one hopes) to diagnose the result.
 
 ```json
-{                                           # A run object ([§3.14](#run-object)).
-  "originalUriBaseIds": {                   # See [§3.14.14](#originaluribaseids-property)
+{                                           # A run object (§3.14).
+  "originalUriBaseIds": {                   # See §3.14.14
     "GENERATED": {
       "uri": "file:///C:/code/browser/obj/"
     }
   },
 
-  "results": [                              # See [§3.14.23](#results-property).
-    {                                       # A result object ([§3.27](#result-object)).
-      "ruleId": "CS6789",                   # See [§3.27.5](#ruleid-property).
-      "message": {                          # See [§3.27.11](#message-property).
+  "results": [                              # See §3.14.23.
+    {                                       # A result object (§3.27).
+      "ruleId": "CS6789",                   # See §3.27.5.
+      "message": {                          # See §3.27.11.
         "text": "Division by 0"
       },
-      "locations": [                        # See [§3.27.12](#locations-property-1).
-        {                                   # A location object ([§3.28](#location-object)).
-          "physicalLocation": {             # See [§3.28.3](#physicallocation-property).
+      "locations": [                        # See §3.27.12.
+        {                                   # A location object (§3.28).
+          "physicalLocation": {             # See §3.28.3.
             "artifactLocation": {
               "uri": "ui/window.g.cs",      # A generated file (".g").
               "uriBaseId": "GENERATED"
@@ -10542,14 +10542,14 @@ The first option is more compact; the second allows a SARIF viewer to present re
     }
   ],
 
-  "artifacts": [                            # See [§3.14.15](#artifacts-property).
-    {                                       # An artifact object ([§3.24](#artifact-object)).
-      "location": {                         # See [§3.24.2](#location-property-2).
+  "artifacts": [                            # See §3.14.15.
+    {                                       # An artifact object (§3.24).
+      "location": {                         # See §3.24.2.
         "uri": "ui/window.g.cs",
         "uriBaseId": "GENERATED"
       },
-      "contents": {                         # See [§3.24.8](#contents-property-1).
-        "text": "..."                       # See [§3.3.2](#text-property).
+      "contents": {                         # See §3.24.8.
+        "text": "..."                       # See §3.3.2.
       }
     }
   ]
