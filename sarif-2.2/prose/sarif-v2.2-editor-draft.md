@@ -630,6 +630,7 @@ Table of Contents
 	5.8 [Conformance Clause 7: Viewer](#conformance-clause-7-viewer)  
 	5.9 [Conformance Clause 8: Result management system](#conformance-clause-8-result-management-system)  
 	5.10 [Conformance Clause 9: Engineering system](#conformance-clause-9-engineering-system)  
+
 Appendix A. [(Informative) Acknowledgments](#informative-acknowledgments)  
 Appendix B. [(Normative) Use of fingerprints by result management systems](#normative-use-of-fingerprints-by-result-management-systems)  
 Appendix C. [(Informative) Use of SARIF by log file viewers](#informative-use-of-sarif-by-log-file-viewers)  
