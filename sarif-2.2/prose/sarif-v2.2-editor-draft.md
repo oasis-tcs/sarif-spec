@@ -653,7 +653,7 @@ Appendix K. [(Informative) Examples](#informative-examples)
 	K.3 [Minimal recommended SARIF log file without source information](#minimal-recommended-sarif-log-file-without-source-information)  
 	K.4 [Comprehensive SARIF file](#comprehensive-sarif-file)  
 Appendix L. [(Informative) Revision History](#informative-revision-history)  
-Appendix M. [(Non-Normative) MIME Types and File Name Extensions](#non-normative-mime-types-and-file-name-extensions)  
+Appendix M. [(Informative) MIME Types and File Name Extensions](#non-normative-mime-types-and-file-name-extensions)  
 
 # 1. Introduction <a id='introduction'></a>
 
@@ -11028,7 +11028,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
 </tbody>
 </table>
 
-# Appendix M. (Non-Normative) MIME Types and File Name Extensions <a id='non-normative-mime-types-and-file-name-extensions'></a>
+# Appendix M. (Informative) MIME Types and File Name Extensions <a id='non-normative-mime-types-and-file-name-extensions'></a>
 
 The following is a list of MIME types and file extensions for files that conform to this specification, registered according to \[[RFC2048](#RFC2048)\].
 
