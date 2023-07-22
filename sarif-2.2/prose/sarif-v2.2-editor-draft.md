@@ -897,14 +897,15 @@ For purposes of this document, the following terms and definitions apply:
 <span id="def_reporting_configuration" class="anchor"></span>**reporting configuration**
 - the subset of [reporting metadata](#def_reporting_metadata) that a [tool](#def_static_analysis_tool) can configure at runtime, before performing its scan  
  
-> Examples: severity level, rank
+    Examples: severity level, rank
 
 **reporting descriptor**
 - container for [reporting metadata](#def_reporting_metadata)
 
 <span id="def_reporting_metadata" class="anchor"></span>**reporting metadata**
 - information that describes a class of related [reporting items](#def_reporting_item)  
-> Examples: id, description
+    
+    Examples: id, description
 
 **repository**
 - container for a related set of files in a version control system
@@ -931,11 +932,12 @@ For purposes of this document, the following terms and definitions apply:
 
 <span id="def_rule" class="anchor"></span>**rule**
 - specific criterion for correctness verified by an [analysis tool](#def_static_analysis_tool)
-> NOTE 1: Many analysis tools associate a [rule id](#def_rule_id) with each [result](#def_result) they report, but some do not.
 
-> NOTE 2: Some rules verify generally accepted criteria for correctness; others verify conventions in use in a particular team or organization.
+    NOTE 1: Many analysis tools associate a [rule id](#def_rule_id) with each [result](#def_result) they report, but some do not.
 
-> Examples: “Variables must be initialized before use.”, “Class names must begin with an uppercase letter.”.
+    NOTE 2: Some rules verify generally accepted criteria for correctness; others verify conventions in use in a particular team or organization.
+
+    Examples: “Variables must be initialized before use.”, “Class names must begin with an uppercase letter.”.
 
 <span id="def_rule_configuration" class="anchor"></span>**rule configuration**
 - [reporting configuration](#def_reporting_configuration) that applies to a [rule](#def_rule)
@@ -1164,9 +1166,9 @@ In all EBNF definitions in this spec:
 
 This document uses the following notation for certain commonly used objects:
 
-
+|   |   |
+|---|---|
 | `theSarifLog`        | The root object of the SARIF log file.                                                                                                                                                                                                                                                                                                                             |
-| ---------------------  | -------------------------------------------- |
 | `theRun`             | The `run` object ([§3.14](#run-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                 |
 | `theTool`            | The value of `theRun.tool` ([§3.14.6](#tool-property))                                                                                                                                                                                                                                                                                                                             |
 | `theDescriptor`      | The `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) identified by the `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) under discussion.                                                                                                                                                                                                                                     |
@@ -1315,14 +1317,14 @@ The `uriBaseId` property can be any string; it does not need to have any particu
 ```
 
 > NOTE: There are various reasons for providing the `uriBaseId` property:
-
-- Portability: A log file that contains relative references together with `uriBaseId` properties can be interpreted on a machine where the files are located at a different absolute location.
-
-- Determinism: A log file that uses `uriBaseId` properties has a better chance of being “deterministic”; that is, of being identical from run to run if none of its inputs have changed, even if those runs occur on machines where the files are located at different absolute locations. For more information on this point, see Appendix F.
-
-- Security: The use of `uriBaseId` properties avoids the persistence of absolute path names in the log file. Absolute path names can reveal information that might be sensitive.
-
-- Semantics: Assuming the reader of the log file (an end user or another tool) has the necessary context, they can understand the meaning of the location specified by the `uri` property, for example, “this is a source file”.
+>
+> - Portability: A log file that contains relative references together with `uriBaseId` properties can be interpreted on a machine where the files are located at a different absolute location.
+>
+> - Determinism: A log file that uses `uriBaseId` properties has a better chance of being “deterministic”; that is, of being identical from run to run if none of its inputs have changed, even if those runs occur on machines where the files are located at different absolute locations. For more information on this point, see Appendix F.
+>
+> - Security: The use of `uriBaseId` properties avoids the persistence of absolute path names in the log file. Absolute path names can reveal information that might be sensitive.
+>
+> - Semantics: Assuming the reader of the log file (an end user or another tool) has the necessary context, they can understand the meaning of the location specified by the `uri` property, for example, “this is a source file”.
 
 For more guidance on the intended use of the `uriBaseId` property, see [§3.4.7](#guidance-on-the-use-of-artifactlocation-objects).
 
@@ -1866,10 +1868,10 @@ Within a given `message` object:
 - A given placeholder index **SHALL** have the same meaning in the plain text and formatted message strings (so they can be replaced with the same element of the `arguments` array).
 
 > EXAMPLE 1: Suppose a `message` object’s `text` property ([§3.11.8](#text-property-1)) contains this string:
-
-`"The variable \"{0}\" defined on line {1} is never used. Consider removing \"{0}\"."`
-
-There are two distinct placeholders, `{0}` and `{1}` (although `{0}` occurs twice). Therefore, the `arguments` array will have at least two elements, the first corresponding to `{0}` and the second corresponding to `{1}`.
+> 
+> `"The variable \"{0}\" defined on line {1} is never used. Consider removing \"{0}\"."`
+> 
+> There are two distinct placeholders, `{0}` and `{1}` (although `{0}` occurs twice). Therefore, the `arguments` array will have at least two elements, the first corresponding to `{0}` and the second corresponding to `{1}`.
 
 > EXAMPLE 2: In this example, the SARIF consumer will replace the placeholder `{0}` in `message.text` with the value `"pBuffer"` from the 0 element of `message.arguments`.
 
@@ -1897,17 +1899,19 @@ Within a formatted message ([§3.11.4](#formatted-messages)), an embedded link *
 
 Within a plain text message ([§3.11.3](#plain-text-messages)), an embedded link **SHALL** conform to the following syntax (which is a greatly restricted subset of the GFM link syntax) before JSON encoding:
 
-	escaped link character = "\" | "[" | "]";
+```
+    escaped link character = "\" | "[" | "]";
 
-	normal link character = ? JSON string character ? – escaped link character;
+    normal link character = ? JSON string character ? – escaped link character;
 
-	link character = normal link character | ("\", escaped link character);
+    link character = normal link character | ("\", escaped link character);
 
-	link text = { link character };
+    link text = { link character };
 
-	link destination = ? Any valid URI ?;
+    link destination = ? Any valid URI ?;
 
-	embedded link = "[", link text, "](", link destination, ")";
+    embedded link = "[", link text, "](", link destination, ")";
+```
 
 `link text` is the message text visible to the user.
 
@@ -1916,16 +1920,14 @@ Literal square brackets ("`[`" and "`]`") in the link text of a plain text messa
 > NOTE 2: When a SARIF log file is serialized as JSON, JSON encoding doubles the backslash.
 
 > EXAMPLE 1: Consider this embedded link whose link text contains square brackets and backslashes:
-
-```json
-"message": {
-  "text": "Prohibited term used in [para\\[0\\]\\\\spans\\[2\\](1)."
-}
-```
-
-A SARIF viewer would render it as follows:
-
-Prohibited term used in para\[0\]\spans\[2\].
+> 
+>       "message": {
+>         "text": "Prohibited term used in [para\\[0\\]\\\\spans\\[2\\](1)."
+>       }
+> 
+> A SARIF viewer would render it as follows:
+> 
+> Prohibited term used in para\[0\]\spans\[2\].
 
 Literal square brackets and (doubled) backslashes **MAY** appear anywhere else in a plain text message without being escaped.
 
@@ -2005,41 +2007,41 @@ The procedure is:
 
 IF `theMessage.text` is present and the desired language is `theRun.language` THEN
 
-Use the `text` or `markdown` property of `theMessage` as appropriate.
+&emsp;&emsp;Use the `text` or `markdown` property of `theMessage` as appropriate.
 
 IF the string has not yet been found THEN
 
-IF `theMessage` occurs as the value of `result.message` ([§3.27.11](#message-property)) THEN
+&emsp;&emsp;IF `theMessage` occurs as the value of `result.message` ([§3.27.11](#message-property)) THEN
 
-LET `theRule` be the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), an element of `theComponent.rules` ([§3.19.23](#rules-property)), which defines the rule that was violated by this result.
+&emsp;&emsp;&emsp;&emsp;LET `theRule` be the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), an element of `theComponent.rules` ([§3.19.23](#rules-property)), which defines the rule that was violated by this result.
 
-IF `theRule` exists AND `theRule.messageStrings` ([§3.49.11](#messagestrings-property)) is present AND contains a property whose name equals `theMessage.id` THEN
+&emsp;&emsp;&emsp;&emsp;IF `theRule` exists AND `theRule.messageStrings` ([§3.49.11](#messagestrings-property)) is present AND contains a property whose name equals `theMessage.id` THEN
 
-LET `theMFMS` be the `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that is the value of that property.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;LET `theMFMS` be the `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that is the value of that property.
 
-Use the `text` or `markdown` property of `theMFMS` as appropriate.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Use the `text` or `markdown` property of `theMFMS` as appropriate.
 
-ELSE IF `theMessage` occurs as the value of `notification.message` ([§3.58.5](#message-property-8)) THEN
+&emsp;&emsp;ELSE IF `theMessage` occurs as the value of `notification.message` ([§3.58.5](#message-property-8)) THEN
 
-LET `theDescriptor` be the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), an element of `theComponent.notifications` ([§3.19.23](#rules-property)), which describes this notification.
+&emsp;&emsp;&emsp;&emsp;LET `theDescriptor` be the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), an element of `theComponent.notifications` ([§3.19.23](#rules-property)), which describes this notification.
 
-IF `theDescriptor` exists AND `theDescriptor.messageStrings` is present AND contains a property whose name equals `theMessage.id` THEN
+&emsp;&emsp;&emsp;&emsp;IF `theDescriptor` exists AND `theDescriptor.messageStrings` is present AND contains a property whose name equals `theMessage.id` THEN
 
-LET `theMFMS` be the `multiformatMessageString` object that is the value of that property.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;LET `theMFMS` be the `multiformatMessageString` object that is the value of that property.
 
-Use the `text` or `markdown` property of `theMFMS` as appropriate.
-
-IF the string has not yet been found THEN
-
-IF `theComponent.globalMessageStrings` ([§3.19.22](#globalmessagestrings-property)) is present AND contains a property whose name equals `theMessage.id` THEN
-
-LET `theMFMS` be the `multiformatMessageString` object that is the value of that property.
-
-Use the `text` or `markdown` property of `theMFMS` as appropriate.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Use the `text` or `markdown` property of `theMFMS` as appropriate.
 
 IF the string has not yet been found THEN
 
-The lookup procedure fails (which means the SARIF log file is invalid).
+&emsp;&emsp;IF `theComponent.globalMessageStrings` ([§3.19.22](#globalmessagestrings-property)) is present AND contains a property whose name equals `theMessage.id` THEN
+
+&emsp;&emsp;&emsp;&emsp;LET `theMFMS` be the `multiformatMessageString` object that is the value of that property.
+
+&emsp;&emsp;&emsp;&emsp;Use the `text` or `markdown` property of `theMFMS` as appropriate.
+
+IF the string has not yet been found THEN
+
+&emsp;&emsp;The lookup procedure fails (which means the SARIF log file is invalid).
 
 ### 3.11.8 text property <a id='text-property-1'></a>
 
@@ -5863,12 +5865,12 @@ A `region` object whose `byteOffset` equals the number of bytes in the artifact 
 A `region` object **MAY** contain a property named `snippet` whose value is an `artifactContent` object ([§3.3](#artifactcontent-object)) representing the portion of the artifact specified by the `region` object.
 
 > NOTE: The `snippet` property has various uses:
-
-- It allows a SARIF viewer to present the contents of the region even if the artifact from which it was taken is not available.
-
-- It also allows an end user examining a SARIF log file to see the relevant content without opening another file.
-
-- It can be used to improve result matching.
+>
+> - It allows a SARIF viewer to present the contents of the region even if the artifact from which it was taken is not available.
+> 
+> - It also allows an end user examining a SARIF log file to see the relevant content without opening another file.
+> 
+> - It can be used to improve result matching.
 
 ### 3.30.14 message property <a id='message-property-2'></a>
 
@@ -5955,19 +5957,19 @@ This procedure assumes that the `offsetFromParent` ([§3.32.8](#offsetfromparent
 
 FUNCTION `CalculateAbsoluteAddress`(`addr`)
 
-IF `addr.absoluteAddress` exists THEN
+&emsp;&emsp;IF `addr.absoluteAddress` exists THEN
 
-RETURN `addr.absoluteAddress`
+&emsp;&emsp;&emsp;&emsp;RETURN `addr.absoluteAddress`
 
-ELSE IF `addr.parentIndex` exists THEN
+&emsp;&emsp;ELSE IF `addr.parentIndex` exists THEN
 
-LET `theParent` = the parent object (see [§3.32.2](#parent-child-relationships)) of `addr`
+&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [§3.32.2](#parent-child-relationships)) of `addr`
 
-RETURN `addr.offsetFromParent` + `CalculateAbsoluteAddress`(`theParent`)
+&emsp;&emsp;&emsp;&emsp;RETURN `addr.offsetFromParent` + `CalculateAbsoluteAddress`(`theParent`)
 
-ELSE
+&emsp;&emsp;ELSE
 
-ERROR "Absolute address cannot be determined".
+&emsp;&emsp;&emsp;&emsp;ERROR "Absolute address cannot be determined".
 
 If `CalculateAbsoluteAddress`(`thisObject`) or any of its recursive invocations encounters an ERROR, the absolute address cannot be determined.
 
@@ -5981,19 +5983,19 @@ This procedure assumes that the `offsetFromParent` ([§3.32.8](#offsetfromparent
 
 FUNCTION `CalculateRelativeAddress`(`addr`)
 
-IF `addr.relativeAddress` exists THEN
+&emsp;&emsp;IF `addr.relativeAddress` exists THEN
 
-RETURN `addr.relativeAddress`
+&emsp;&emsp;&emsp;&emsp;RETURN `addr.relativeAddress`
 
-ELSE IF `addr.parentIndex` exists THEN
+&emsp;&emsp;ELSE IF `addr.parentIndex` exists THEN
 
-LET `theParent` = the parent object (see [§3.32.2](#parent-child-relationships)) of `addr`
+&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [§3.32.2](#parent-child-relationships)) of `addr`
 
-RETURN `addr.offsetFromParent` + `CalculateRelativeAddress`(`theParent`)
+&emsp;&emsp;&emsp;&emsp;RETURN `addr.offsetFromParent` + `CalculateRelativeAddress`(`theParent`)
 
-ELSE
+&emsp;&emsp;ELSE
 
-RETURN 0
+&emsp;&emsp;&emsp;&emsp;RETURN 0
 
 If `CalculateRelativeAddress`(`thisObject`) or any of its recursive invocations encounters an ERROR, the relative address cannot be determined.
 
@@ -7081,22 +7083,22 @@ A SARIF viewer **SHALL NOT** assume that expressions mentioned in previous steps
 ```
 
 > EXAMPLE 2: In C++, a property name within the `state` object might be:
-
-- A variable name such as `"index"`.
-
-- An array element reference such as `"names[index]"`.
-
-- An object property reference such as `"names[index]->first"`.
-
-- Any other expression that produces a value.
+> 
+> - A variable name such as `"index"`.
+> 
+> - An array element reference such as `"names[index]"`.
+> 
+> - An object property reference such as `"names[index]->first"`.
+> 
+> - Any other expression that produces a value.
 
 > EXAMPLE 3: In C++, a property value within the `state` object might be:
-
-- An integer such as `"42"` (note that the property value is a string).
-
-- A string such as `"\"John\""` (the double quotes are escaped as they would be in a JSON serialization; other serializations might represent the double quotes differently).
-
-- A Boolean such as `"true"`.
+> 
+> - An integer such as `"42"` (note that the property value is a string).
+> 
+> - A string such as `"\"John\""` (the double quotes are escaped as they would be in a JSON serialization; other serializations might represent the double quotes differently).
+> 
+> - A Boolean such as `"true"`.
 
 In a property value that represents a constraint, the item being constrained **SHALL BE** represented by the string `"{expr}"`. (See > EXAMPLE 1 above, which shows a constraint on the expression `"y – x"`.)
 
@@ -7139,12 +7141,12 @@ The `importance` property **SHALL** have one of the following values, with the s
 If this property is absent, it **SHALL** be considered to have the value `"important"`.
 
 > NOTE: A viewer might use this property to offer the user three options for viewing a lengthy code flow:
-
-- A “normal view,” which omits locations whose `importance` property is `"unimportant"`.
-
-- An “abbreviated view,” which displays only those locations whose `importance` property is `"essential"`.
-
-- A “verbose view,” which displays all the locations in the code flow.
+> 
+> - A “normal view,” which omits locations whose `importance` property is `"unimportant"`.
+> 
+> - An “abbreviated view,” which displays only those locations whose `importance` property is `"essential"`.
+> 
+> - A “verbose view,” which displays all the locations in the code flow.
 
 ### 3.38.14 taxa property <a id='taxa-property-2'></a>
 
@@ -9810,8 +9812,6 @@ These conditions apply separately to each run in the log file.
 This Appendix contains a list of sample values for the `artifact.sourceLanguage` property ([§3.24.10](#sourcelanguage-property)) for some common programming languages. The purpose of this Appendix is to promote interoperability by encouraging SARIF producers to use the same identifiers for these languages.
 
 The names of some of the languages in this list are the trademarks of their respective owners.
-
-- 
 
 - `abap`
 
