@@ -119,7 +119,7 @@ Table of Contents
 	2.4 [Syntax notation](#syntax-notation)  
 	2.5 [Commonly used objects](#commonly-used-objects)  
 3. [File format](#file-format)  
-	3.1 [General](#conventions--general)  
+	3.1 [General](#file-format--general)  
 	3.2 [SARIF file naming convention](#sarif-file-naming-convention)  
 	3.3 [artifactContent object](#artifactcontent-object)
 		3.3.1 [General](#artifactcontent-object--general)  
@@ -1156,7 +1156,7 @@ This document uses the following notation for certain commonly used objects:
 
 # 3. File format <a id='file-format'></a>
 
-## 3.1 General <a id='conventions--general'></a>
+## 3.1 General <a id='file-format--general'></a>
 
 SARIF defines an object model, the top level of which is the `sarifLog` object ([§3.13](#sariflog-object)), which contains the results of one or more analysis runs. The runs do not need to be produced by the same analysis tool.
 
@@ -1188,7 +1188,7 @@ Certain properties in this document represent the contents of portions of artifa
 
 ### 3.3.2 text property <a id='text-property'></a>
 
-If the external artifact is a text artifact, an `artifactContent` object **SHOULD** contain a property named `text` whose value is a string containing the relevant text. Since SARIF log files are encoded in UTF-8 (\[[RFC3629](#RFC3629)\]; see [§3.1](#conventions--general)), this means that if the external artifact is a text artifact in any encoding other than UTF-8, the SARIF producer **SHALL** transcode the text to UTF-8 before assigning it to the `text` property. The SARIF producer **SHALL** escape any characters that JSON \[[RFC8259](#RFC8259)\] requires to be escaped.
+If the external artifact is a text artifact, an `artifactContent` object **SHOULD** contain a property named `text` whose value is a string containing the relevant text. Since SARIF log files are encoded in UTF-8 (\[[RFC3629](#RFC3629)\]; see [§3.1](#file-format--general)), this means that if the external artifact is a text artifact in any encoding other than UTF-8, the SARIF producer **SHALL** transcode the text to UTF-8 before assigning it to the `text` property. The SARIF producer **SHALL** escape any characters that JSON \[[RFC8259](#RFC8259)\] requires to be escaped.
 
 Notwithstanding any necessary transcoding and escaping, the SARIF producer **SHALL** preserve the text artifact’s line breaking convention (for example, `"\n"` or `"\r\n"`).
 
@@ -1764,9 +1764,9 @@ In certain circumstances, a URI can refer to an element of the current SARIF log
 
 ### 3.10.4 Internationalized Resource Identifiers (IRIs) <a id='internationalized-resource-identifiers-iris'></a>
 
-If a URI-valued property refers to a resource identified by an Internationalized Resource Identifier (IRI) \[[RFC3987](#RFC3987)\], the SARIF producer **SHALL** first transform the IRI into a URI, using the mapping mechanism specified in [§3.1](#conventions--general) of the standard \[[RFC3987](#RFC3987)\], and then assign the transformed value to the property. The string value of a URI-valued property **SHALL NOT** include Unicode characters such as `"é"`; such characters are permitted in IRIs but are not permitted in URIs. [§3.1](#conventions--general) of the standard \[[RFC3987](#RFC3987)\] describes how to replace such characters with “percent-encoded” equivalents to produce a valid URI.
+If a URI-valued property refers to a resource identified by an Internationalized Resource Identifier (IRI) \[[RFC3987](#RFC3987)\], the SARIF producer **SHALL** first transform the IRI into a URI, using the mapping mechanism specified in [§3.1](#file-format--general) of the standard \[[RFC3987](#RFC3987)\], and then assign the transformed value to the property. The string value of a URI-valued property **SHALL NOT** include Unicode characters such as `"é"`; such characters are permitted in IRIs but are not permitted in URIs. [§3.1](#file-format--general) of the standard \[[RFC3987](#RFC3987)\] describes how to replace such characters with “percent-encoded” equivalents to produce a valid URI.
 
-> EXAMPLE: Suppose a URI-valued property needs to refer to a resource identified by the string `"http://www.example.com/hu/sör.txt"`. This string contains the character `"ö"`, so it is a valid IRI but not a valid URI. Following the procedure in [§3.1](#conventions--general) of the standard \[[RFC3987](#RFC3987)\], a SARIF producer would transform this string to the valid URI `"http://www.example.com/hu/s%C3%B6r.txt"` before assigning it to the property.
+> EXAMPLE: Suppose a URI-valued property needs to refer to a resource identified by the string `"http://www.example.com/hu/sör.txt"`. This string contains the character `"ö"`, so it is a valid IRI but not a valid URI. Following the procedure in [§3.1](#file-format--general) of the standard \[[RFC3987](#RFC3987)\], a SARIF producer would transform this string to the valid URI `"http://www.example.com/hu/s%C3%B6r.txt"` before assigning it to the property.
 
 ## 3.11 message object <a id='message-object'></a>
 
@@ -7678,7 +7678,7 @@ A `webRequest` object **MAY** contain a property named `body` whose value is an 
 
 If the request body is entirely textual, `body.text` ([§3.3.2](#text-property)) **SHOULD** be present. If present, it **SHALL** contain the request body, transcoded to UTF-8 if necessary.
 
-> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [§3.1](#conventions--general)).
+> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [§3.1](#file-format--general)).
 
 > NOTE 2: If necessary, the character encoding actually used in the request can be deduced from the value of the `Content-Type` header (see [§3.46.7](#headers-property)), for example, `"text/plain; charset=ascii"`.
 
@@ -7750,7 +7750,7 @@ A `webResponse` object **MAY** contain a property named `body` whose value is an
 
 If the response body is entirely textual, `body.text` ([§3.3.2](#text-property)) **SHOULD** be present. If present, it **SHALL** contain the response body, transcoded to UTF-8 if necessary.
 
-> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [§3.1](#conventions--general)).
+> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [§3.1](#file-format--general)).
 
 > NOTE 2: If necessary, the character encoding actually used in the response can be deduced from the value of the `Content-Type` header (see [§3.47.7](#headers-property-1)), for example, `"text/plain; charset=ascii"`.
 
