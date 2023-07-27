@@ -1,4 +1,4 @@
-<img src="media/image1.png" style="width:3.01036in;height:0.61978in" />
+<img src="media/OASISLogo-v3.0.png" style="width:3.01036in;height:0.61978in" />
 
 Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01 (redlined)
 
@@ -5954,7 +5954,7 @@ If `CalculateAbsoluteAddress`(`thisObject`) or any of its recursive invocations 
 
 If both `absoluteAddress` and `offsetFromParent` exist, then `absoluteAddress` **SHALL** equal the value that `CalculateAbsoluteAddress` would have returned if `absoluteAddress` were absent, if `CalculateAbsoluteAddress` would have returned successfully in that circumstance.
 
-### 3.32.4 Relative address calculation <a id='relative-address-calculation'></a> 
+### 3.32.4 Relative address calculation <a id='relative-address-calculation'></a>
 
 Each `address` object has an associated value called its “relative address” which is the offset of the address from the address of the top-most object in its parent chain. The relative address is calculated by executing the function `CalculateRelativeAddress` defined below on `thisObject` or by any procedure with the same result.
 
