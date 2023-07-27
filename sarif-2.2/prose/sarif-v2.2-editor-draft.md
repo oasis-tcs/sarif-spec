@@ -1292,7 +1292,7 @@ The `uriBaseId` property can be any string; it does not need to have any particu
 >   "uriBaseId": "%srcroot%"
 > }
 > ```
-> 
+
 > NOTE: There are various reasons for providing the `uriBaseId` property:
 >
 > - Portability: A log file that contains relative references together with `uriBaseId` properties can be interpreted on a machine where the files are located at a different absolute location.
