@@ -2681,7 +2681,7 @@ The following table lists all the externalizable properties together with their 
 | `run.threadFlowLocations` | `threadFlowLocations`    | array  |
 | `run.translations`        | `translations`           | array  |
 | `run.tool.driver`         | `driver`                 | object |
-| `run.tool.extensions`       | `extensions`             | array    |
+| `run.tool.extensions`     | `extensions`             | array  |
 
 > NOTE 1: `run.properties` is externalized under the property name `externalizedProperties` to allow this object to have a property bag named `properties`, consistent with all other objects in this document.
 
@@ -8316,7 +8316,7 @@ If metadata is present, at least one of `index` ([§3.52.5](#reportingdescriptor
 | `invocation.ruleConfigurationOverrides` ([§3.20.5](#ruleconfigurationoverrides-property))                 | `rules`                                    |
 | `invocation.notificationConfigurationOverrides` ([§3.20.6](#notificationconfigurationoverrides-property)) | `notifications`                            |
 | `result.rule` ([§3.27.7](#rule-property))                                                                 | `rules`                                    |
-| `notification.descriptor` ([§3.58.2](#notification-object--descriptor-property))                                             | `notifications`                            |
+| `notification.descriptor` ([§3.58.2](#notification-object--descriptor-property))                          | `notifications`                            |
 | `notification.associatedRule` ([§3.58.3](#associatedrule-property))                                       | `rules`                                    |
 
 ### 3.52.4 id property <a id='reportingdescriptorreference-object--id-property'></a>
