@@ -292,7 +292,7 @@ Although the values suggested here are useful in the specified categories (for e
 > 
 > Suppose that an analysis tool detects errors on line 4 (one of the product ids blank) and line 5 (the total is negative). It might represent the logical locations of these errors as JSON Pointers (although this is not required), as follows:
 > 
-> ```
+> ```json
 > {                                 # A run object (§3.14)
 >   "results": [                    # See §3.14.23.
 >     {                             # A result object (§3.27).
