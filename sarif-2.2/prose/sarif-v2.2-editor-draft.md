@@ -2455,7 +2455,7 @@ The array **SHOULD** contain elements representing at least those artifacts in w
 > 
 >   ```json
 >   "artifacts": [
->    {
+>     {
 >       "location": {
 >           "uri": "file:///C:/Code/main.c"
 >       },
@@ -2464,7 +2464,7 @@ The array **SHOULD** contain elements representing at least those artifacts in w
 >            "sha-256": "b13ce2678a8807ba0765ab94a0ecd394f869bc81"
 >       }
 >     }
->   }
+>   ]
 >   ```
 
 In some cases, an artifact might be nested within another artifact (for example, a compressed container), referred to as its "parent." An artifact that is not nested within another artifact is referred to as a "top-level artifact". An artifact that is nested within another artifact is referred to as a "nested artifact". Within the `artifacts` array, an `artifact` object representing a nested artifact is linked to its parent *via* its `parentIndex` property ([§3.24.3](#artifact-object--parentindex-property)). For an example, see [§3.24.3](#artifact-object--parentindex-property).
