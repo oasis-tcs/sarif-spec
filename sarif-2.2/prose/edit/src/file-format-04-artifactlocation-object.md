@@ -118,7 +118,7 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 >               "uri": "file:///C:/Code/main.c",
 >               "index": 0
 >             },
->             "region: {
+>             "region": {
 >               "startLine": 24,
 >               "startColumn": 9
 >             }
