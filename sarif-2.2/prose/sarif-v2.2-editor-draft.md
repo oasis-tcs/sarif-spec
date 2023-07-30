@@ -1122,15 +1122,15 @@ Where this document describes a syntactic construct, it uses the extended Backus
 In all EBNF definitions in this spec:
 
 - The following syntax rules are assumed:
-	```
-	decimal digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
+  ```
+  decimal digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 
-	non negative integer =
+  non negative integer =
 
-	"0"
+  "0"
 
-	| decimal digit – '0', { decimal digit };
-	```
+  | decimal digit – '0', { decimal digit };
+  ```
 
 - The following "special sequence" (see EBNF \[[ISO14977:1996](#ISO14977)\], §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
 
@@ -1209,19 +1209,19 @@ An `artifactContent` object **MAY** contain a property named `rendered` whose va
 > 
 > ```json
 > {                                # A physicalLocation object (§3.29).
-> 	"address": {                   # See §3.29.6.
-> 	"baseAddress": 4202880,      # See §3.32.6.
-> 	"offset": 64                 # See §3.32.8.
-> 	},
+>   "address": {                   # See §3.29.6.
+>     "baseAddress": 4202880,      # See §3.32.6.
+>     "offset": 64                 # See §3.32.8.
+>   },
 > 
-> 	"region": {                    # See §3.29.4.
-> 	"snippet": {                 # An artifactContent object. See §3.30.13.
-> 		"rendered": {              # A multiformatMessageString object (§3.12).
-> 		"text": "00 00 01 00 00 00 00 00",
-> 		"markdown": "00 00 **01** 00 00 00 00 00"
-> 		}
-> 	}
-> 	}
+>   "region": {                    # See §3.29.4.
+>     "snippet": {                 # An artifactContent object. See §3.30.13.
+>       "rendered": {              # A multiformatMessageString object (§3.12).
+>         "text": "00 00 01 00 00 00 00 00",
+>         "markdown": "00 00 **01** 00 00 00 00 00"
+>       }
+>     }
+>   }
 > }
 > ```
 
@@ -1275,7 +1275,7 @@ A SARIF consumer **SHALL** use the following procedure to resolve a `uriBaseId` 
 
 > EXAMPLE 1: In this example the SARIF consumer’s command line specifies that any `uriBaseId` property whose value is `"SRCROOT"` refers to the absolute URI `"file:///C:/browser/src/"`:
 > 
->    	C:> SarifAnalyzer --input log.sarif --uriBaseId SRCROOT="file:///C:/browser/src/"
+>      C:> SarifAnalyzer --input log.sarif --uriBaseId SRCROOT="file:///C:/browser/src/"
 
 2.  If `uriBaseId` is not yet resolved and `theRun.originalUriBaseIds` ([§3.14.14](#originaluribaseids-property)) is present, the consumer **SHALL** attempt to resolve the `uriBaseId` from the information in `originalUriBaseIds`, in the manner specified in [§3.14.14](#originaluribaseids-property).
 
@@ -1477,7 +1477,7 @@ In string-valued properties and property names that are *not* described as hiera
 
 Certain hierarchical strings in this document (for example, the property names in `result.fingerprints` ([§3.27.16](#fingerprints-property)) and `result.partialFingerprints` ([§3.27.17](#partialfingerprints-property))) are said to be "versioned." This means that if the last `component` of the string is of the form
 
-	version component = "v", non negative integer;
+    version component = "v", non negative integer;
 
 then a SARIF consumer **SHALL** consider that component to represent the version number of the entity specified by the string.
 
@@ -1624,26 +1624,26 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 
 Certain properties in this document specify a date and time. The value of every such property, if present, **SHALL** be a string in the following format, which is compatible with the ISO standard for date and time formats \[[ISO8601:2004](#ISO86012004)\]:
 
-	date time = date, [ "T", time, "Z" ] (* UTC time *);
+    date time = date, [ "T", time, "Z" ] (* UTC time *);
 
-	date = year, "-", month, "-", day;
+    date = year, "-", month, "-", day;
 
-	year = 4 * decimal digit;
+    year = 4 * decimal digit;
 
-	month = 2 * decimal digit (* from 01 to 12 *);
+    month = 2 * decimal digit (* from 01 to 12 *);
 
-	day = 2 * decimal digit (* from 01 to 31 *);
+    day = 2 * decimal digit (* from 01 to 31 *);
 
-	time = hour, ":", minute, [ ":", second, [ ".", fraction ] ];
+    time = hour, ":", minute, [ ":", second, [ ".", fraction ] ];
 
-	hour = 2 * decimal digit (* from 00 to 24, to represent midnight at the
-								end of a calendar day *);
+    hour = 2 * decimal digit (* from 00 to 24, to represent midnight at the
+                                end of a calendar day *);
 
-	minute = 2 * decimal digit (* from 00 to 59 *);
+    minute = 2 * decimal digit (* from 00 to 59 *);
 
-	second = 2 * decimal digit (* from 00 to 60, to accommodate leap second *);
+    second = 2 * decimal digit (* from 00 to 60, to accommodate leap second *);
 
-	fraction = decimal digit, { decimal digit };
+    fraction = decimal digit, { decimal digit };
 
 &emsp;&emsp;EXAMPLES:
 
@@ -1697,13 +1697,13 @@ If a URI uses the `"file"` scheme \[[RFC8089](#RFC8089)\] and the specified path
 
 > EXAMPLE 1: A file-based URI that references a network share.
 > 
-> 	    file://build.example.com/drops/Build-2018-04-19.01/src
+>       file://build.example.com/drops/Build-2018-04-19.01/src
 
 If a URI uses the `"file"` scheme and the specified path is *not* network-accessible, the SARIF producer **SHOULD NOT** include the host name.
 
 > EXAMPLE 2: A file-based URI that references the local file system.
 > 
-> 	    file:///C:/src
+>       file:///C:/src
 
 A SARIF producer **MAY** choose to omit the hostname (authority) from a file URI, for example, for security reasons. If it does so, then to maximize interoperability with previous versions of the URI specification, the URI **SHOULD** start with `"file:///"`, as in EXAMPLE 2. See the standard \[[RFC8089](#RFC8089)\] for more information on this point.
 
@@ -1829,9 +1829,9 @@ SARIF consumers that are not prepared to deal with the security implications of 
 
 A message string **MAY** include one or more "placeholders." The syntax of a placeholder is:
 
-	placeholder = "{", index, "}";
+    placeholder = "{", index, "}";
 
-	index = non negative integer;
+    index = non negative integer;
 
 `index` represents a zero-based index into the array of strings contained in the `arguments` property ([§3.11.11](#message-object--arguments-property)).
 
@@ -2258,11 +2258,11 @@ A `run` object **MAY** contain a property named `language` whose value is a stri
 
 > EXAMPLE 1: The language is region-neutral English:
 > 
->   	"language": "en"
+>     "language": "en"
 
 > EXAMPLE 2: The language is French as spoken in France:
 > 
->   	"language": "fr-FR"
+>     "language": "fr-FR"
 
 ### 3.14.8 taxonomies property <a id='taxonomies-property'></a>
 

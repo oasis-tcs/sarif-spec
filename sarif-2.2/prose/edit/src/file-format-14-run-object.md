@@ -57,11 +57,11 @@ A `run` object **MAY** contain a property named `language` whose value is a stri
 
 > EXAMPLE 1: The language is region-neutral English:
 > 
->       "language": "en"
+>     "language": "en"
 
 > EXAMPLE 2: The language is French as spoken in France:
 > 
->       "language": "fr-FR"
+>     "language": "fr-FR"
 
 ### taxonomies property
 

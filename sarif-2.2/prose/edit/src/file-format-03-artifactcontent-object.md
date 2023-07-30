@@ -29,17 +29,17 @@ An `artifactContent` object **MAY** contain a property named `rendered` whose va
 > ```json
 > {                                # A physicalLocation object (§3.29).
 >   "address": {                   # See §3.29.6.
->   "baseAddress": 4202880,      # See §3.32.6.
->   "offset": 64                 # See §3.32.8.
+>     "baseAddress": 4202880,      # See §3.32.6.
+>     "offset": 64                 # See §3.32.8.
 >   },
 > 
 >   "region": {                    # See §3.29.4.
->   "snippet": {                 # An artifactContent object. See §3.30.13.
+>     "snippet": {                 # An artifactContent object. See §3.30.13.
 >       "rendered": {              # A multiformatMessageString object (§3.12).
->       "text": "00 00 01 00 00 00 00 00",
->       "markdown": "00 00 **01** 00 00 00 00 00"
+>         "text": "00 00 01 00 00 00 00 00",
+>         "markdown": "00 00 **01** 00 00 00 00 00"
 >       }
->   }
+>     }
 >   }
 > }
 > ```
