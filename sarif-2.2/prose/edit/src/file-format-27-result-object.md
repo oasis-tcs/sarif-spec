@@ -586,13 +586,15 @@ When a result management system uses partial fingerprint information to determin
 >   "results": [                     # See §3.14.23.
 >     {                              # A result object.
 >       "partialFingerprints": {
->         "prohibitedWordHash/v1": "1234567900abc"
+>         "prohibitedWordHash/v1": "1234567900abc",
 >         "prohibitedWordHash/v2": "234567900abcd"
+>       }
 >     },
 >     {
 >       "partialFingerprints": {
->         "prohibitedWordHash/v2": "234567900abcd"
+>         "prohibitedWordHash/v2": "234567900abcd",
 >         "prohibitedWordHash/v3": "34567900abcde"
+>       }
 >     }
 >   ]
 > }
