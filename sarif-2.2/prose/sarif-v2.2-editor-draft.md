@@ -5154,15 +5154,17 @@ When a result management system uses fingerprint information to determine whethe
 >   "results": [                     # See §3.14.23.
 >     {                              # A result object.
 >       "fingerprints": {
->         "stableResultHash/v1": "1234567900abc"
+>         "stableResultHash/v1": "1234567900abc",
 >         "stableResultHash/v2": "234567900abcd"
+>       }
 >     },
 >     {
 >       "fingerprints": {
->         "stableResultHash/v2": "234567900abcd"
+>         "stableResultHash/v2": "234567900abcd",
 >         "stableResultHash/v3": "34567900abcde"
+>       }
 >     }
->  ]
+>   ]
 > }
 > ```
 
