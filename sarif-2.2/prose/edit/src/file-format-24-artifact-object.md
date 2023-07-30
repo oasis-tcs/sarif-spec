@@ -50,7 +50,7 @@ If this `artifact` object represents a top-level artifact, then `parentIndex` **
 >     "mimeType": "application/x-contoso-animation",
 >     "parentIndex": 1
 >   }
-> }
+> ]
 > ```
 
 ### offset property
