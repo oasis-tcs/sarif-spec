@@ -89,7 +89,7 @@ A SARIF viewer or result management system **MAY** use the additional hierarchic
 >       }
 >     }
 >   ]
-> ]
+> }
 > ```
 
 Direct producers **SHALL** emit either or both of `ruleId` and `rule.id` ([§3.27.7](#rule-property), [§3.52.4](#reportingdescriptorreference-object--id-property)). If `rule.id` is absent, `ruleId` **SHALL** be present. If `rule.id` is present, `ruleId` **MAY** be present. If `ruleId` and `rule.id` are both present, they **SHALL** be equal.
