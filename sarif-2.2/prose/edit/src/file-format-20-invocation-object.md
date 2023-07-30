@@ -75,7 +75,7 @@ A SARIF producer **MAY** embed the contents of a response file in the SARIF log 
 >         "uri": "options.rsp",
 >         "uriBaseId": "RESPONSEFILEDIR"
 >       }
->     }
+>     ]
 >     ...
 > }
 > ```
