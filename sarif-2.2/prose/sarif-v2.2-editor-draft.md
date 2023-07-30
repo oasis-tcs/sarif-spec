@@ -5289,7 +5289,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 > The result might appear in the log file like this:
 > 
 > ```json
-> results: [
+> "results": [
 >   {
 >     "ruleId": "JS3056",
 >     "level": "error",
