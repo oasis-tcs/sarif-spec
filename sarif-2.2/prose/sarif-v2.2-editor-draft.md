@@ -4104,34 +4104,36 @@ This property makes it possible to map any `artifactLocation` to the repository,
 >   "originalUriBaseIds": {
 >     "HOME": {
 >       "uri": "file:///home/user/"
->     }
+>     },
 >     "PACKAGE_ROOT": {
 >       "uri": "package/",
 >       "uriBaseId": "HOME"
->     },
+>     }
 >   },
 > 
 >   "versionControlProvenance": [
 >     {
 >       "repositoryUri": "https://github.com/example-corp/package",
->       "revisionId": "b87c4e9"
+>       "revisionId": "b87c4e9",
 >       "mappedTo": {
 >         "uriBaseId": "PACKAGE_ROOT"
->       },
+>       }
 >     },
 >     {
 >       "repositoryUri": "https://github.com/example-corp/plugin1",
->       "revisionId": "cafdac7"
+>       "revisionId": "cafdac7",
 >       "mappedTo": {
->         "uriBaseId": "PACKAGE_ROOT"
->         "uri": "plugin1",
+>         "uriBaseId": "PACKAGE_ROOT",
+>         "uri": "plugin1"
+>       }
 >     },
 >     {
 >       "repositoryUri": "https://github.com/example-corp/plugin2",
->       "revisionId": "d0dc2c0"
+>       "revisionId": "d0dc2c0",
 >       "mappedTo": {
->         "uriBaseId": "PACKAGE_ROOT"
->         "uri": "plugin2",
+>         "uriBaseId": "PACKAGE_ROOT",
+>         "uri": "plugin2"
+>       }
 >     }
 >   ],
 > 
