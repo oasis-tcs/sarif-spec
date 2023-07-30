@@ -1,6 +1,6 @@
 # External property file format
 
-## General{#external-property-file-format--general
+## General{#external-property-file-format--general}
 
 External property files (see [§3.15.2](#rationale)) conform to a schema distinct from that of the root file. External property files contain information that makes it possible for a consumer to determine which properties are contained in the file, to parse their contents, and to associate the external properties with the run to which they belong.
 

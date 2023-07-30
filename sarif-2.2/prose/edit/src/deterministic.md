@@ -21,7 +21,7 @@ toc:
     enumerate: F.7
 ---
 -->
-# (Informative) Producing deterministic SARIF log files <a id='informative-producing-deterministic-sarif-log-files'></a>
+# (Informative) Producing deterministic SARIF log files
 
 ## General{#informative-producing-deterministic-sarif-log-files--general}
 
@@ -143,7 +143,7 @@ The algorithms used by some tools are inherently non-deterministic because, for 
 
 Such tools can avoid this source of non-determinism by, for example, providing a command-line argument to specify the random number generator seed.
 
-## Compensating for non-deterministic output <a id='compensating-for-non-deterministic-output'></a>
+## Compensating for non-deterministic output
 
 If an analysis tool does not produce deterministic output, a build system can add additional processing steps to compensate.
 

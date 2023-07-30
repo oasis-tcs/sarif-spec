@@ -323,7 +323,7 @@ The `threadFlowLocations` array may contain all or any subset of the `threadFlow
 
 > NOTE: Defining `threadFlowLocation` objects within `run.threadFlowLocations` can reduce the size of the log file if certain locations occur frequently, either within a single thread flow (for example, if the thread flow represents a loop) or across thread flows (for example, if all thread flows start at the program entry point and share their first few locations).
 
-### graphs property{#run-object--graphs-property
+### graphs property{#run-object--graphs-property}
 
 A `run` object **MAY** contain a property named `graphs` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `graph` objects ([§3.39](#graph-object)). A `graph` object represents a directed graph: a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph).
 

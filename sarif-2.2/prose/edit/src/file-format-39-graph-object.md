@@ -1,6 +1,6 @@
 ## graph object
 
-### General{#graph-object--general'></a>
+### General{#graph-object--general}
 
 A `graph` object represents a directed graph, a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph). `graph` objects **MAY** be defined both at the run level in `run.graphs` ([§3.14.20](#run-object--graphs-property)) and at the result level in `result.graphs` ([§3.27.19](#result-object--graphs-property)).
 

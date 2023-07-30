@@ -1,6 +1,6 @@
 ## message object
 
-### General <a id='message-object--general'></a>
+### General{#message-object--general}
 
 Certain objects in this document define messages intended to be viewed by a user. SARIF represents such a message with a `message` object, which offers the following features:
 
@@ -264,7 +264,7 @@ If the `markdown` property is present, the `text` property ([§3.11.8](#message-
 
 SARIF consumers that cannot (or choose not to) render formatted text **SHALL** ignore the `markdown` property and use the `text` property instead.
 
-### id property{#message-object--id-property
+### id property{#message-object--id-property}
 
 A `message` object **MAY** contain a property named `id` whose value is a non-empty string containing the identifier for the desired message. See [§3.11.7](#message-string-lookup) for details of the message string lookup procedure.
 
