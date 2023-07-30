@@ -49,6 +49,6 @@ A `translationMetadata` object **MAY** contain a property named `fullDescription
 
 A `translationMetadata` object **MAY** contain a property named `downloadUri` whose value is a string containing the absolute URI \[[RFC3986](#RFC3986)\] from which the translation can be downloaded.
 
-### informationUri{#translationmetadata-object--informationuri-property}
+### informationUri property{#translationmetadata-object--informationuri-property}
 
 A `translationMetadata` object **MAY** contain a property named `informationUri` whose value is a string containing the absolute URI \[[RFC3986](#RFC3986)\] at which information about the translation can be found.
