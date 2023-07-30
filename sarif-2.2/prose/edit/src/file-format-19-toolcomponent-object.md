@@ -466,7 +466,7 @@ A tool might use the same identifier to refer to multiple distinct (although log
 > EXAMPLE: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
 > 
 > ```json
-> "driver":                        # A toolComponent object (§3.19).
+> "driver": {                      # A toolComponent object (§3.19).
 >   "notifications": [
 >     {                            # A reportingDescriptor object (§3.49).
 >       "id": "ERR0001",
