@@ -7,14 +7,19 @@ This separation of concerns optimizes both the reading experience of users (UX) 
 
 This way we can slice and dice well-sized and coherent parts of the prose and minimize workarounds that enable the online rendition for specific processors (like those in use at Bitbucket, Codeberg, GitHub, GitLab, or sourcehut).
 
-The editors will want to ensure consistency with the related SARIF schema set revision, the examples, as well as other terms and statements within the prose text of initially approx. ten thousand lines.
+The editors ensure consistency with:
+
+- the related SARIF schema set revision
+- the examples
+- other required terms and statements within the prose text
 
 ## Structure of this tree
 
-In the `src` folder we keep the actual source content.
+The directory structure is:
 
-The `bin` and `etc` folders hold any tools and configuration files applicable as they become available.
+- `bin`: any specific tools for building and testing the user documents
+- `etc`: files providing context for builds and for configuring tools
+- `src`: the actual source files, optimized for editing, tracing, and verification
+- `test`: test code to ensure correctness of changes
 
-Finally the `test` folder provides the tests we execute to ensure correctness of changes and minimize the occurrence of regressions.
-
-**Note**: The `build` folder is local only and supports building user targeting document formats from the sources in `src`.
+**Note**: Any `build` folder in here is local-only and supports building user targeting document formats from the sources in `src`.
