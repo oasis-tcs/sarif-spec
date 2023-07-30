@@ -121,7 +121,7 @@ Table of Contents
 3. [File format](#file-format)  
 	3.1 [General](#file-format--general)  
 	3.2 [SARIF file naming convention](#sarif-file-naming-convention)  
-	3.3 [artifactContent object](#artifactcontent-object)
+	3.3 [artifactContent object](#artifactcontent-object)  
 		3.3.1 [General](#artifactcontent-object--general)  
 		3.3.2 [text property](#artifactcontent-object--text-property)  
 		3.3.3 [binary property](#binary-property)  
@@ -1002,7 +1002,6 @@ For purposes of this document, the following terms and definitions apply:
 
 **web analysis tool**
 - [analysis tool](#def_static_analysis_tool) that models and analyzes the interaction between a web client and a server.
-
 
 ## 1.3 Normative References <a id='normative-references'></a>
 
