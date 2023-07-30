@@ -36,8 +36,8 @@ Even when defining a custom classification system used within an engineering tea
 >           "openSource"
 >         ]
 >       }
->     ]
->   },
+>     }
+>   ],
 >   ...
 > }
 > ```
