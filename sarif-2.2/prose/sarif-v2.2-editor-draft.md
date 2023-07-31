@@ -2651,7 +2651,7 @@ In some engineering environments, a single tool run might analyze hundreds of th
 
 To mitigate these problems, SARIF allows certain properties of a `run` object and its sub-objects to be stored in separate files. We refer to these files as "external property files", and we refer to the file containing the `run` object itself as the "root file". We refer to a property that can be stored in an external property file as an "externalizable property." We refer to a property that *has* been stored in an external property file as an "externalized property."
 
-The format of an external property file is described in [§4.](#external-property-file-format)
+The format of an external property file is described in [§4](#external-property-file-format)
 
 A SARIF consumer **SHALL** treat the value of an object-valued property stored in an external property file exactly as if it had appeared inline in the root file as the value of the corresponding property.
 
@@ -9128,13 +9128,13 @@ The normative content in this document defines requirements for SARIF log files,
 
 A text file satisfies the "SARIF log file" conformance profile if:
 
-- It conforms to the syntax and semantics defined in [§3.](#file-format)
+- It conforms to the syntax and semantics defined in [§3](#file-format)
 
 ## 5.3 Conformance Clause 2: SARIF producer <a id='conformance-clause-2-sarif-producer'></a>
 
 A program satisfies the "SARIF producer" conformance profile if:
 
-- It produces output in the SARIF format, according to the semantics defined in [§3.](#file-format)
+- It produces output in the SARIF format, according to the semantics defined in [§3](#file-format)
 
 - It satisfies those normative requirements in [§3](#file-format) that are designated as applying to SARIF producers.
 
@@ -9172,7 +9172,7 @@ A SARIF post-processor satisfies the "SARIF post-processor" conformance profile 
 
 A consumer satisfies the "SARIF consumer" conformance profile if:
 
-- It reads SARIF log files and interprets them according to the semantics defined in [§3.](#file-format)
+- It reads SARIF log files and interprets them according to the semantics defined in [§3](#file-format)
 
 - It satisfies those normative requirements in [§3](#file-format) that are designated as applying to SARIF consumers.
 
