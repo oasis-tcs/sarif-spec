@@ -186,7 +186,7 @@ The text-related and binary-related properties in a `region` object **SHALL** be
 >   "endLine": 1,      // Missing endLine defaults to startLine.
 >   "endColumn": 5,    // Missing endColumn defaults to (length of endLine + 1),
 >                      // exclusive of newline sequence.
->   "byteOffset": 2
+>   "byteOffset": 2,
 >   "byteLength": 6
 > }
 > ```
