@@ -69,7 +69,7 @@ The array elements **SHALL** refer to distinct artifacts.
 >             "text": "// "
 >           }
 >         }
->       }
+>       ]
 >     },
 >     {
 >       "artifactLocation": {
@@ -86,7 +86,7 @@ The array elements **SHALL** refer to distinct artifacts.
 >             "text": "// "
 >           }
 >         }
->       }
+>       ]
 >     }
 >   ]
 > }
