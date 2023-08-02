@@ -30,7 +30,7 @@ A `runAutomationDetails` object contains information that specifies `theRun`’s
 >   "runAggregates": [           # See §3.14.4.
 >     {
 >       "id":
->         "Nightly security tools run for sarif-sdk/master/x86/debug/2018-10-05"
+>         "Nightly security tools run for sarif-sdk/master/x86/debug/2018-10-05",
 >       "guid": "33333333-3333-1111-8888-333333333333",
 >       "correlationGuid": "44444444-4444-1111-8888-444444444444"
 >     }
