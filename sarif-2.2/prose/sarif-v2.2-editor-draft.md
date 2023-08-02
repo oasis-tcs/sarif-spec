@@ -1065,11 +1065,11 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="GFMENG" class="anchor"></span>**GFMENG\]** "GitHub Engineering: A formal spec for GitHub Flavored Markdown", <https://githubengineering.com/a-formal-spec-for-github-markdown/>.
 
-**\[ISO9899:2011\]** "Information technology – Programming languages – C", ISO/IEC 9899, December 2011, <https://www.iso.org/standard/57853.html>.
+**\[**<span id="ISO9899" class="anchor"></span>**ISO9899:2011\]** "Information technology – Programming languages – C", ISO/IEC 9899, December 2011, <https://www.iso.org/standard/57853.html>.
 
-**\[ISO14882:2017\]** "Information technology – Programming languages – C++", ISO/IEC 14882, December 2017, <https://www.iso.org/standard/68564.html>.
+**\[**<span id="ISO14882" class="anchor"></span>**ISO14882:2017\]** "Information technology – Programming languages – C++", ISO/IEC 14882, December 2017, <https://www.iso.org/standard/68564.html>.
 
-**\[ISO23270:2006\]** "Information technology – Programming languages – C#", ISO/IEC 23270, September 2006, <https://www.iso.org/standard/42926.html>.
+**\[**<span id="ISO23270" class="anchor"></span>**ISO23270:2006\]** "Information technology – Programming languages – C#", ISO/IEC 23270, September 2006, <https://www.iso.org/standard/42926.html>.
 
 **\[**<span id="PE" class="anchor"></span>**PE\]** "PE Format", March 17, 2019, <https://docs.microsoft.com/en-us/windows/desktop/debug/pe-format>.
 
