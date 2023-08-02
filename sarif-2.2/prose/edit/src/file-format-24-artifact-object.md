@@ -34,7 +34,7 @@ If this `artifact` object represents a top-level artifact, then `parentIndex` **
 >     "location": {
 >       "uri": "file:///C:/Code/app.zip"
 >     },
->     "mimeType": "application/zip",
+>     "mimeType": "application/zip"
 >   },
 >   {
 >     "location": {
