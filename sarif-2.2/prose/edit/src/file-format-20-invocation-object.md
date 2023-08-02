@@ -257,7 +257,8 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 >     "level": "warning",
 >     "message": {
 >       "text": "Could not disable rule \"ABC0001\"
->                because there is no rule with that id." 
+>                because there is no rule with that id."
+>     }
 >   }
 > ]
 > ```
