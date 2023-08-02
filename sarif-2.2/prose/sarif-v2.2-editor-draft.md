@@ -1041,7 +1041,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="RFC5646" class="anchor"></span>**RFC5646\]** Phillips, A., Ed., and M. Davis, Ed., "Tags for Identifying Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646, September 2009, <http://www.rfc-editor.org/info/rfc5646>.
 
-**<span id="RFC6901" class="anchor"></span>**\[RFC6901\]** Bryan, P., Ed., Zyp, K., and Nottingham, M., Ed., "JavaScript Object Notation (JSON) Pointer", RFC 6901, DOI 10.17487/RFC6901, April 2013, <http://www.rfc-editor.org/info/rfc6901>.
+**\[**<span id="RFC6901" class="anchor"></span>**RFC6901\]** Bryan, P., Ed., Zyp, K., and Nottingham, M., Ed., "JavaScript Object Notation (JSON) Pointer", RFC 6901, DOI 10.17487/RFC6901, April 2013, <http://www.rfc-editor.org/info/rfc6901>.
 
 **\[**<span id="RFC7230" class="anchor"></span>**RFC7230\]** Fielding, R., Ed., and Reschke, J., Ed., "Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing", RFC 7230, DOI 10.17487/RFC7230, June 2014, <http://www.rfc-editor.org/info/rfc7230>.
 
