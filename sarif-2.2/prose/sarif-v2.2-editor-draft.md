@@ -2495,7 +2495,7 @@ If a nested logical location appears in the `logicalLocations` array, then the `
 >   {
 >     "name": "namespaceB",
 >     "fullyQualifiedName": "namespaceA::namespaceB",
->     "kind": "namespace"
+>     "kind": "namespace",
 >     "parentIndex": 2
 >   },
 >   {
