@@ -1011,17 +1011,17 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="GFM" class="anchor"></span>**GFM\]** "GitHub-Flavored Markdown spec", Version 0.28-gfm (2017-08-01), <https://github.github.com/gfm/>.
 
-**\[**<span id="IANA_ENC" class="anchor"></span>**IANA-ENC\]** Freed, Ned and Dürst, Martin, "Character Sets", 2017-12-20, <https://www.iana.org/assignments/character-sets/character-sets.xhtml>.
+**\[**<span id="IANA-ENC" class="anchor"></span>**IANA-ENC\]** Freed, Ned and Dürst, Martin, "Character Sets", 2017-12-20, <https://www.iana.org/assignments/character-sets/character-sets.xhtml>.
 
-**\[**<span id="IANA_HASH" class="anchor"></span>**IANA-HASH\]** "Hash Function Textual Names", <https://www.iana.org/assignments/hash-function-text-names/hash-function-text-names.xhtml>, July 4, 2017.
+**\[**<span id="IANA-HASH" class="anchor"></span>**IANA-HASH\]** "Hash Function Textual Names", <https://www.iana.org/assignments/hash-function-text-names/hash-function-text-names.xhtml>, July 4, 2017.
 
-**\[**<span id="ISO3166" class="anchor"></span>**ISO3166-1:2013\]** "Codes for the representation of names of countries and their subdivisions – Part 1: Country codes", ISO 3166-1:2013, November, 2013, <https://www.iso.org/standard/63545.html>.
+**\[**<span id="ISO3166-1;2013" class="anchor"></span>**ISO3166-1:2013\]** "Codes for the representation of names of countries and their subdivisions – Part 1: Country codes", ISO 3166-1:2013, November, 2013, <https://www.iso.org/standard/63545.html>.
 
-**\[**<span id="ISO639" class="anchor"></span>**ISO639-1:2002\]** "Codes for the representation of names of languages – Part 1: Alpha-2 code", ISO 639-1:2002, July 2002, <https://www.iso.org/standard/22109.html>.
+**\[**<span id="ISO639-1;2002" class="anchor"></span>**ISO639-1:2002\]** "Codes for the representation of names of languages – Part 1: Alpha-2 code", ISO 639-1:2002, July 2002, <https://www.iso.org/standard/22109.html>.
 
-**\[**<span id="ISO86012004" class="anchor"></span>**ISO8601:2004\]** "Data elements and interchange formats -- Information interchange -- Representation of dates and times", ISO 8601:2004, December 2004, <https://www.iso.org/standard/40874.html>.
+**\[**<span id="ISO8601;2004" class="anchor"></span>**ISO8601:2004\]** "Data elements and interchange formats -- Information interchange -- Representation of dates and times", ISO 8601:2004, December 2004, <https://www.iso.org/standard/40874.html>.
 
-**\[**<span id="ISO14977" class="anchor"></span>**ISO14977:1996\]** "Information technology – Syntactic metalanguage – Extended BNF", ISO/IEC 14977:1996(E), December 1996, <https://www.iso.org/standard/26153.html>.
+**\[**<span id="ISO14977;1996" class="anchor"></span>**ISO14977:1996\]** "Information technology – Syntactic metalanguage – Extended BNF", ISO/IEC 14977:1996(E), December 1996, <https://www.iso.org/standard/26153.html>.
 
 **\[**<span id="JSCHEMA01" class="anchor"></span>**JSCHEMA01\]** Wright, A., "JSON Schema: A Media Type for Describing JSON Documents", April 2017 (expires October 2017), <http://json-schema.org/latest/json-schema-core.html>.
 
@@ -1065,11 +1065,11 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="GFMENG" class="anchor"></span>**GFMENG\]** "GitHub Engineering: A formal spec for GitHub Flavored Markdown", <https://githubengineering.com/a-formal-spec-for-github-markdown/>.
 
-**\[**<span id="ISO9899" class="anchor"></span>**ISO9899:2011\]** "Information technology – Programming languages – C", ISO/IEC 9899, December 2011, <https://www.iso.org/standard/57853.html>.
+**\[**<span id="ISO9899;2011" class="anchor"></span>**ISO9899:2011\]** "Information technology – Programming languages – C", ISO/IEC 9899, December 2011, <https://www.iso.org/standard/57853.html>.
 
-**\[**<span id="ISO14882" class="anchor"></span>**ISO14882:2017\]** "Information technology – Programming languages – C++", ISO/IEC 14882, December 2017, <https://www.iso.org/standard/68564.html>.
+**\[**<span id="ISO9899;2017" class="anchor"></span>**ISO14882:2017\]** "Information technology – Programming languages – C++", ISO/IEC 14882, December 2017, <https://www.iso.org/standard/68564.html>.
 
-**\[**<span id="ISO23270" class="anchor"></span>**ISO23270:2006\]** "Information technology – Programming languages – C#", ISO/IEC 23270, September 2006, <https://www.iso.org/standard/42926.html>.
+**\[**<span id="ISO23270;2006" class="anchor"></span>**ISO23270:2006\]** "Information technology – Programming languages – C#", ISO/IEC 23270, September 2006, <https://www.iso.org/standard/42926.html>.
 
 **\[**<span id="PE" class="anchor"></span>**PE\]** "PE Format", March 17, 2019, <https://docs.microsoft.com/en-us/windows/desktop/debug/pe-format>.
 
@@ -1117,7 +1117,7 @@ A SARIF object consists of a set of properties. The value of a property can itse
 
 ## 2.4 Syntax notation <a id='syntax-notation'></a>
 
-Where this document describes a syntactic construct, it uses the extended Backus-Naur form (EBNF) \[[ISO14977:1996](#ISO14977)\].
+Where this document describes a syntactic construct, it uses the extended Backus-Naur form (EBNF) \[[ISO14977:1996](#ISO14977;1996)\].
 
 In all EBNF definitions in this spec:
 
@@ -1132,7 +1132,7 @@ In all EBNF definitions in this spec:
   | decimal digit – '0', { decimal digit };
   ```
 
-- The following "special sequence" (see EBNF \[[ISO14977:1996](#ISO14977)\], §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
+- The following "special sequence" (see EBNF \[[ISO14977:1996](#ISO14977;1996)\], §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
 
     ```
     ? JSON string character ?
@@ -1621,7 +1621,7 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 
 ## 3.9 Date/time properties <a id='datetime-properties'></a>
 
-Certain properties in this document specify a date and time. The value of every such property, if present, **SHALL** be a string in the following format, which is compatible with the ISO standard for date and time formats \[[ISO8601:2004](#ISO86012004)\]:
+Certain properties in this document specify a date and time. The value of every such property, if present, **SHALL** be a string in the following format, which is compatible with the ISO standard for date and time formats \[[ISO8601:2004](#ISO8601;2004)\]:
 
     date time = date, [ "T", time, "Z" ] (* UTC time *);
 
@@ -2557,7 +2557,7 @@ If `results` is absent, it **SHALL** default to `null`.
 
 ### 3.14.24 defaultEncoding property <a id='defaultencoding-property'></a>
 
-A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([§3.24.9](#encoding-property)) of any `artifact` object ([§3.24](#artifact-object)) in `theRun.artifacts` ([§3.14.15](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA_ENC)\].
+A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([§3.24.9](#encoding-property)) of any `artifact` object ([§3.24](#artifact-object)) in `theRun.artifacts` ([§3.14.15](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA-ENC)\].
 
 If this property is absent, it **SHALL** be interpreted as meaning that there is no default file encoding. In that case, the encoding of any `artifact` object that does not contain an `encoding` property **SHALL** be taken to be unknown.
 
@@ -3346,9 +3346,9 @@ Depending on the circumstances, a `toolComponent` object either **SHALL** or **M
 
     language value = language code, "-", country code;
 
-    language code = ? ISO 2-character language name \[[ISO639-1:2002](#ISO639)\] ?;
+    language code = ? ISO 2-character language name \[[ISO639-1:2002](#ISO639-1;2002)\] ?;
 
-    country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166)\] ?;
+    country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;
 
 If this object represents a translation (see [§3.19.4](#translations)), `language` **SHALL** be present; otherwise it **MAY** be present.
 
@@ -4329,7 +4329,7 @@ An `artifact` object **MAY** contain a property named contents whose value is an
 
 ### 3.24.9 encoding property <a id='encoding-property'></a>
 
-If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value is a case-sensitive string that specifies the artifact’s text encoding. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA_ENC)\].
+If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value is a case-sensitive string that specifies the artifact’s text encoding. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA-ENC)\].
 
 If the `artifact` object represents a text artifact and this property is absent, it **SHALL** default to the value of `theRun.defaultEncoding` ([§3.14.24](#defaultencoding-property)), if that property is present; otherwise, the artifact’s encoding **SHALL** be taken to be unknown.
 
@@ -4420,7 +4420,7 @@ An `artifact` object **MAY** contain a property named `hashes` whose value is a 
 > }
 > ```
 
-To maximize interoperability, the property names **SHOULD** appear in the IANA registry of hash function textual names \[[IANA-HASH](#IANA_HASH)\]. SARIF consumers that need to verify hash values **SHOULD** be able to compute any hash function whose name appears in the IANA registry.
+To maximize interoperability, the property names **SHOULD** appear in the IANA registry of hash function textual names \[[IANA-HASH](#IANA-HASH)\]. SARIF consumers that need to verify hash values **SHOULD** be able to compute any hash function whose name appears in the IANA registry.
 
 The object **SHOULD** contain a property named `"sha-256"`. SARIF consumers that need to verify hash values **SHALL** be able to compute a SHA-256 hash.
 

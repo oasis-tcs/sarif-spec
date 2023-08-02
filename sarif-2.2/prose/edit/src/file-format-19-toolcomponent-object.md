@@ -378,9 +378,9 @@ Depending on the circumstances, a `toolComponent` object either **SHALL** or **M
 
     language value = language code, "-", country code;
 
-    language code = ? ISO 2-character language name \[[ISO639-1:2002](#ISO639)\] ?;
+    language code = ? ISO 2-character language name \[[ISO639-1:2002](#ISO639-1;2002)\] ?;
 
-    country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166)\] ?;
+    country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;
 
 If this object represents a translation (see [§3.19.4](#translations)), `language` **SHALL** be present; otherwise it **MAY** be present.
 

@@ -357,7 +357,7 @@ If `results` is absent, it **SHALL** default to `null`.
 
 ### defaultEncoding property
 
-A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([§3.24.9](#encoding-property)) of any `artifact` object ([§3.24](#artifact-object)) in `theRun.artifacts` ([§3.14.15](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA_ENC)\].
+A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([§3.24.9](#encoding-property)) of any `artifact` object ([§3.24](#artifact-object)) in `theRun.artifacts` ([§3.14.15](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA-ENC)\].
 
 If this property is absent, it **SHALL** be interpreted as meaning that there is no default file encoding. In that case, the encoding of any `artifact` object that does not contain an `encoding` property **SHALL** be taken to be unknown.
 

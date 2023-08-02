@@ -1,6 +1,6 @@
 ## Date/time properties{#datetime-properties}
 
-Certain properties in this document specify a date and time. The value of every such property, if present, **SHALL** be a string in the following format, which is compatible with the ISO standard for date and time formats \[[ISO8601:2004](#ISO86012004)\]:
+Certain properties in this document specify a date and time. The value of every such property, if present, **SHALL** be a string in the following format, which is compatible with the ISO standard for date and time formats \[[ISO8601:2004](#ISO8601;2004)\]:
 
     date time = date, [ "T", time, "Z" ] (* UTC time *);
 

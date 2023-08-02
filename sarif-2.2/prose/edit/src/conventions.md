@@ -22,7 +22,7 @@ A SARIF object consists of a set of properties. The value of a property can itse
 
 ## Syntax notation
 
-Where this document describes a syntactic construct, it uses the extended Backus-Naur form (EBNF) \[[ISO14977:1996](#ISO14977)\].
+Where this document describes a syntactic construct, it uses the extended Backus-Naur form (EBNF) \[[ISO14977:1996](#ISO14977;1996)\].
 
 In all EBNF definitions in this spec:
 
@@ -37,7 +37,7 @@ In all EBNF definitions in this spec:
   | decimal digit – '0', { decimal digit };
   ```
 
-- The following "special sequence" (see EBNF \[[ISO14977:1996](#ISO14977)\], §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
+- The following "special sequence" (see EBNF \[[ISO14977:1996](#ISO14977;1996)\], §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
 
     ```
     ? JSON string character ?
