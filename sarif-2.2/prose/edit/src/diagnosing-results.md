@@ -171,7 +171,7 @@ The recommended solution is for the analysis tool to create a new entry in `theR
 >     {
 >       "location": {
 >         "uri": "ui/window.g.cs",
->         "uriBaseId": "GENERATED",
+>         "uriBaseId": "GENERATED"
 >       },
 >       "lastModifiedTimeUtc": "2019-04-13T11:45:23.477",
 >       "contents": {
@@ -182,7 +182,7 @@ The recommended solution is for the analysis tool to create a new entry in `theR
 >     {
 >       "location": {
 >         "uri": "ui/window.g.cs",
->         "uriBaseId": "GENERATED",
+>         "uriBaseId": "GENERATED"
 >       },
 >       "lastModifiedTimeUtc": "2019-04-13T11:46:27.013",
 >       "contents": {
