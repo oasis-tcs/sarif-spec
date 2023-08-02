@@ -157,7 +157,7 @@ An `artifactLocation` object **MAY** have a property named `description` whose v
 >         "text": "The build output directory."
 >       }
 >     }
->   },
+>   }
 > }
 > ```
 
