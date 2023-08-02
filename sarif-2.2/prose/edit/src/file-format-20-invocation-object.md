@@ -60,7 +60,7 @@ A SARIF producer **MAY** embed the contents of a response file in the SARIF log 
 > 
 > ```json
 > {                       # An invocation object.
->     "commandLine": "/quiet @analyzer.rsp @strict.rsp" @options.rsp,
+>     "commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rsp",
 > 
 >     "responseFiles": [
 >       {                 # An artifactLocation object (§3.4).
