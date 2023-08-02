@@ -110,7 +110,7 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 >      "versionControlProvenance": [
 >       {                                # A versionControlDetails object (§3.23).
 >           "repositoryUri": "https://github.com/example/browser",   # See §3.23.3.
->           "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e" # See §3.23.4.
+>           "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e", # See §3.23.4.
 >           "branch": "master"             # See §3.23.5.
 >       }
 >       ]
