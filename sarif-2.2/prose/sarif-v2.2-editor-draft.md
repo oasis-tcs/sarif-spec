@@ -8373,6 +8373,7 @@ For more information about the semantics of `id` when `theDescriptor` is a rule,
 >       "rule": {
 >         "id": "abc/defg/hij", # INVALID: Not equal to ruleId.
 >         "index": 0
+>       }
 >     }
 >   ]
 > }
