@@ -9703,7 +9703,7 @@ The recommended solution is for the analysis tool to create a new entry in `theR
 > 
 >     {
 >       "location": {
->         "uri": ui/window.g.cs",
+>         "uri": "ui/window.g.cs",
 >         "uriBaseId": "GENERATED",
 >       },
 >       "lastModifiedTimeUtc": "2019-04-13T11:46:27.013",
