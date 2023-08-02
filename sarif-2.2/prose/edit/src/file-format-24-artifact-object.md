@@ -38,7 +38,7 @@ If this `artifact` object represents a top-level artifact, then `parentIndex` **
 >   },
 >   {
 >     "location": {
->       "uri": "/docs/intro.docx",
+>       "uri": "/docs/intro.docx"
 >     },
 >     "mimeType":
 >       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
