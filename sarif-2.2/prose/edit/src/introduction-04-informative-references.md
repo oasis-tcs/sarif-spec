@@ -28,4 +28,4 @@ TAR
 :    "GNU tar 1.32: Basic Tar Format", <http://www.gnu.org/software/tar/manual/html_node/Standard.html>.
 
 ZIP
-:    ".ZIP File Format Specification, Version 6.3.6, Revised April 26, 2019", <https://pkware.cachefly.net/webdocs/casestudies/APP> NOTE.TXT>.
+:    ".ZIP File Format Specification, Version 6.3.6, Revised April 26, 2019", <https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.6.TXT>.

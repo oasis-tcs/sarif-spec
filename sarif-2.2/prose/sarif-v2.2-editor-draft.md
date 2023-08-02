@@ -1075,7 +1075,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="TAR" class="anchor"></span>**TAR\]** "GNU tar 1.32: Basic Tar Format", <http://www.gnu.org/software/tar/manual/html_node/Standard.html>.
 
-**\[**<span id="ZIP" class="anchor"></span>**ZIP\]** ".ZIP File Format Specification, Version 6.3.6, Revised April 26, 2019", <https://pkware.cachefly.net/webdocs/casestudies/APP> NOTE.TXT>.
+**\[**<span id="ZIP" class="anchor"></span>**ZIP\]** ".ZIP File Format Specification, Version 6.3.6, Revised April 26, 2019", <https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.6.TXT>.
 
 ## 1.5 Trademarks <a id='trademarks'></a>
 
