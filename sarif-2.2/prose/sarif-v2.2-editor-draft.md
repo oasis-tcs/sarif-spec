@@ -689,210 +689,210 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 For purposes of this document, the following terms and definitions apply:
 
 <dl>
-  <dt id="def;analysis-target">analysis target</dt>
-  <dd>[artifact](def;artifact) which an [analysis tool](def;static-analysis-tool) is instructed to analyze</dd>
-  <dt id="def;artifact">artifact</dt>
+  <dt id="#def;analysis-target">analysis target</dt>
+  <dd><a href="#def;artifact">artifact</a> which an <a href="#def;static-analysis-tool">analysis tool</a> is instructed to analyze</dd>
+  <dt id="#def;artifact">artifact</dt>
   <dd>sequence of bytes addressable *via* a URI<br><br>
       Examples: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed *via* an HTTP request; an arbitrary stream of bytes returned from an HTTP request.</dd>
-  <dt id="def;baseline">baseline</dt>
-  <dd>set of [results](def;result) produced by a single [run](#def-run) of a set of [analysis tools](def;static-analysis-tool) on a set of [artifacts](def;artifact)<br><br>
-      NOTE: A [result management system](def;result-management-system) can compare the results of a subsequent [run](def;run) to a baseline produced by a [baseline run](def;baseline-run) to determine whether new results have been introduced.</dd>
-  <dt id="def;baseline-run">baseline run</dt>
-  <dd>[run](def;run) that produces a [baseline](#def-baseline) to which subsequent runs can be compared</dd>
-  <dt id="def;binary-artifact">binary artifact</dt>
-  <dd>[artifact](def;artifact) considered as a sequence of bytes</dd>
-  <dt id="def;binary-region">binary region</dt>
-  <dd>[region](#def-region) representing a contiguous range of zero or more bytes in a [binary artifact](def;binary-file)</dd>
-  <dt id="def;call-stack">call stack</dt>
+  <dt id="#def;baseline">baseline</dt>
+  <dd>set of <a href="#def;result">results</a> produced by a single <a href="#def-run">run</a> of a set of <a href="#def;static-analysis-tool">analysis tools</a> on a set of <a href="#def;artifact">artifacts</a><br><br>
+      NOTE: A <a href="#def;result-management-system">result management system</a> can compare the results of a subsequent <a href="#def;run">run</a> to a baseline produced by a <a href="#def;baseline-run">baseline run</a> to determine whether new results have been introduced.</dd>
+  <dt id="#def;baseline-run">baseline run</dt>
+  <dd><a href="#def;run">run</a> that produces a <a href="#def-baseline">baseline</a> to which subsequent runs can be compared</dd>
+  <dt id="#def;binary-artifact">binary artifact</dt>
+  <dd><a href="#def;artifact">artifact</a> considered as a sequence of bytes</dd>
+  <dt id="#def;binary-region">binary region</dt>
+  <dd><a href="#def-region">region</a> representing a contiguous range of zero or more bytes in a <a href="#def;binary-file">binary artifact</a></dd>
+  <dt id="#def;call-stack">call stack</dt>
   <dd>sequence of nested function calls</dd>
-  <dt id="def;camelcase-name">camelCase name</dt>
+  <dt id="#def;camelcase-name">camelCase name</dt>
   <dd>name that begins with a lowercase letter, in which each subsequent word begins with an uppercase letter<br><br>
       Example: `camelCase`, `version`, `fullName`.</dd>
-  <dt id="def;code-flow">code flow</dt>
-  <dd>set of one or more [thread flows](def;thread-flow) which together specify a pattern of code execution relevant to detecting a [result](def;result)</dd>
-  <dt id="def;column-number">column (number)</dt>
-  <dd>1-based index of a character within a [line](def;line)</dd>
-  <dt id="def;configuration-file">configuration file</dt>
-  <dd>file, typically textual, that configures the execution of an [analysis tool](def;static-analysis-tool) or [tool component](def;tool-component)</dd>
-  <dt id="def;converter">converter</dt>
-  <dd>[SARIF producer](def;sarif-producer) that transforms the output of an [analysis tool](def;static-analysis-tool) from its native output format into the SARIF format</dd>
-  <dt id="def;custom-taxonomy">custom taxonomy</dt>
-  <dd>[taxonomy](def;taxonomic-category) defined by and intended for use with a particular [analysis tool](def;static-analysis-tool)</dd>
-  <dt id="def;direct-producer">direct producer</dt>
-  <dd>[analysis tool](def;static-analysis-tool) which acts as a [SARIF producer](def;sarif-producer)</dd>
-  <dt id="def;driver">driver</dt>
-  <dd>[tool component](def;tool-component) containing an [analysis tool](def;static-analysis-tool)’s or [converter](def;converter)’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis [rules](#def-rule)</dd>
-  <dt id="def;embedded-link">embedded link</dt>
-  <dd>syntactic construct which enables a [message string](def;message-string) to refer to a location within an [artifact](def;artifact) mentioned in a [result](#def-result)</dd>
-  <dt id="def;engineering-system">engineering system</dt>
-  <dd>software development environment within which [analysis tools](def;static-analysis-tool) execute<br><br>
-      NOTE: An engineering system might include a build system, a source control system, a [result management system](def;result-management-system), a bug tracking system, a test execution system, and so on.</dd>
-  <dt id="def;empty-array">empty array</dt>
+  <dt id="#def;code-flow">code flow</dt>
+  <dd>set of one or more <a href="#def;thread-flow">thread flows</a> which together specify a pattern of code execution relevant to detecting a <a href="#def;result">result</a></dd>
+  <dt id="#def;column-number">column (number)</dt>
+  <dd>1-based index of a character within a <a href="#def;line">line</a></dd>
+  <dt id="#def;configuration-file">configuration file</dt>
+  <dd>file, typically textual, that configures the execution of an <a href="#def;static-analysis-tool">analysis tool</a> or <a href="#def;tool-component">tool component</a></dd>
+  <dt id="#def;converter">converter</dt>
+  <dd><a href="#def;sarif-producer">SARIF producer</a> that transforms the output of an <a href="#def;static-analysis-tool">analysis tool</a> from its native output format into the SARIF format</dd>
+  <dt id="#def;custom-taxonomy">custom taxonomy</dt>
+  <dd><a href="#def;taxonomic-category">taxonomy</a> defined by and intended for use with a particular <a href="#def;static-analysis-tool">analysis tool</a></dd>
+  <dt id="#def;direct-producer">direct producer</dt>
+  <dd><a href="#def;static-analysis-tool">analysis tool</a> which acts as a <a href="#def;sarif-producer">SARIF producer</a></dd>
+  <dt id="#def;driver">driver</dt>
+  <dd><a href="#def;tool-component">tool component</a> containing an <a href="#def;static-analysis-tool">analysis tool</a>’s or <a href="#def;converter">converter</a>’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis <a href="#def-rule">rules</a></dd>
+  <dt id="#def;embedded-link">embedded link</dt>
+  <dd>syntactic construct which enables a <a href="#def;message-string">message string</a> to refer to a location within an <a href="#def;artifact">artifact</a> mentioned in a <a href="#def-result">result</a></dd>
+  <dt id="#def;engineering-system">engineering system</dt>
+  <dd>software development environment within which <a href="#def;static-analysis-tool">analysis tools</a> execute<br><br>
+      NOTE: An engineering system might include a build system, a source control system, a <a href="#def;result-management-system">result management system</a>, a bug tracking system, a test execution system, and so on.</dd>
+  <dt id="#def;empty-array">empty array</dt>
   <dd>array that contains no elements, and so has a length of 0</dd>
-  <dt id="def;empty-object">empty object</dt>
+  <dt id="#def;empty-object">empty object</dt>
   <dd>object that contains no properties</dd>
-  <dt id="def;empty-string">empty string</dt>
+  <dt id="#def;empty-string">empty string</dt>
   <dd>string that contains no characters, and so has a length of 0</dd>
-  <dt id="def;end-user">(end) user</dt>
-  <dd>person who uses the information in a [log file](def;log-file) to investigate, [triage](def;triage), or resolve [results](#def-result)</dd>
-  <dt id="def;extension">extension</dt>
-  <dd>[tool component](def;tool-component) other than the [driver](def;driver) (for example, a [plugin](#def-plugin), a [configuration file](def;configuration-file), or a [taxonomy](def;taxonomic-category))</dd>
-  <dt id="def;external-property-file">external property file</dt>
-  <dd>file containing the values of one or more [externalized properties](def;externalized-property)</dd>
-  <dt id="def;externalizable-property">externalizable property</dt>
-  <dd>property that can be contained in an [external property file](def;external-property-file)</dd>
-  <dt id="def;externalized-property">externalized property</dt>
-  <dd>property stored outside of the [SARIF log file](def;log-file) to which it logically belongs</dd>
-  <dt id="def;false-positive">false positive</dt>
-  <dd>[result](def;result) which an [end user](def;end-user) decides does not actually represent a [problem](def;problem)</dd>
-  <dt id="def;fingerprint">fingerprint</dt>
-  <dd>[stable value](def;stable-value) that can be used by a [result management system](def;result-management-system) to uniquely identify a [result](def;result) over time, even if a relevant [artifact](#def-artifact) is modified</dd>
-  <dt id="def;formatted-message">formatted message</dt>
-  <dd>[message string](def;message-string) which contains formatting information such as Markdown formatting characters</dd>
-  <dt id="def;fully-qualified-logical-name">fully qualified logical name</dt>
-  <dd>string that fully identifies the programmatic construct specified by a [logical location](def;logical-location), typically by means of a hierarchical identifier.<br><br>
-      Example: The fully qualified logical name of the C# method `f(void)` in class `C` in namespace `N` is `"N.C.f(void)"`. Its [logical name](def;logical-name) is `"f(void)"`.</dd>
-  <dt id="def;hierarchical-string">hierarchical string</dt>
+  <dt id="#def;end-user">(end) user</dt>
+  <dd>person who uses the information in a <a href="#def;log-file">log file</a> to investigate, <a href="#def;triage">triage</a>, or resolve <a href="#def-result">results</a></dd>
+  <dt id="#def;extension">extension</dt>
+  <dd><a href="#def;tool-component">tool component</a> other than the <a href="#def;driver">driver</a> (for example, a <a href="#def-plugin">plugin</a>, a <a href="#def;configuration-file">configuration file</a>, or a <a href="#def;taxonomic-category">taxonomy</a>)</dd>
+  <dt id="#def;external-property-file">external property file</dt>
+  <dd>file containing the values of one or more <a href="#def;externalized-property">externalized properties</a></dd>
+  <dt id="#def;externalizable-property">externalizable property</dt>
+  <dd>property that can be contained in an <a href="#def;external-property-file">external property file</a></dd>
+  <dt id="#def;externalized-property">externalized property</dt>
+  <dd>property stored outside of the <a href="#def;log-file">SARIF log file</a> to which it logically belongs</dd>
+  <dt id="#def;false-positive">false positive</dt>
+  <dd><a href="#def;result">result</a> which an <a href="#def;end-user">end user</a> decides does not actually represent a <a href="#def;problem">problem</a></dd>
+  <dt id="#def;fingerprint">fingerprint</dt>
+  <dd><a href="#def;stable-value">stable value</a> that can be used by a <a href="#def;result-management-system">result management system</a> to uniquely identify a <a href="#def;result">result</a> over time, even if a relevant <a href="#def-artifact">artifact</a> is modified</dd>
+  <dt id="#def;formatted-message">formatted message</dt>
+  <dd><a href="#def;message-string">message string</a> which contains formatting information such as Markdown formatting characters</dd>
+  <dt id="#def;fully-qualified-logical-name">fully qualified logical name</dt>
+  <dd>string that fully identifies the programmatic construct specified by a <a href="#def;logical-location">logical location</a>, typically by means of a hierarchical identifier.<br><br>
+      Example: The fully qualified logical name of the C# method `f(void)` in class `C` in namespace `N` is `"N.C.f(void)"`. Its <a href="#def;logical-name">logical name</a> is `"f(void)"`.</dd>
+  <dt id="#def;hierarchical-string">hierarchical string</dt>
   <dd>string in the format `<component>{/<component>}*`</dd>
-  <dt id="def;line">line</dt>
-  <dd>contiguous sequence of characters, starting either at the beginning of an [artifact](def;artifact) or immediately after a [newline sequence](def;newline-sequence), and ending at and including the nearest subsequent newline sequence, if one is present, or else extending to the end of the artifact</dd>
-  <dt id="def;line-number">line (number)</dt>
+  <dt id="#def;line">line</dt>
+  <dd>contiguous sequence of characters, starting either at the beginning of an <a href="#def;artifact">artifact</a> or immediately after a <a href="#def;newline-sequence">newline sequence</a>, and ending at and including the nearest subsequent newline sequence, if one is present, or else extending to the end of the artifact</dd>
+  <dt id="#def;line-number">line (number)</dt>
   <dd>1-based index of a line within a file<br><br>
-      NOTE: Abbreviated to "line" when there is no danger of ambiguity with "[line](def;line)" in the sense of a sequence of characters.</dd>
-  <dt id="def;localizable">localizable</dt>
+      NOTE: Abbreviated to "line" when there is no danger of ambiguity with "<a href="#def;line">line</a>" in the sense of a sequence of characters.</dd>
+  <dt id="#def;localizable">localizable</dt>
   <dd>subject to being translated from one natural language to another</dd>
-  <dt id="def;log-file">log file</dt>
-  <dd>output file produced by an [analysis tool](def;static-analysis-tool), which enumerates the [results](def;result) produced by the tool</dd>
-  <dt id="def;log-file-viewer">(log file) viewer</dt>
-  <dd>[SARIF consumer](def;sarif-consumer) that reads a [log file](def;log-file), displays a list of the [results](def;result) it contains, and allows an [end user](def;end-user) to view each result in the context of the [artifact](def;artifact) in which it occurs</dd>
-  <dt id="def;logical-location">logical location</dt>
-  <dd>location specified by reference to a programmatic construct, without specifying the [artifact](def;artifact) within which that construct occurs<br><br>
+  <dt id="#def;log-file">log file</dt>
+  <dd>output file produced by an <a href="#def;static-analysis-tool">analysis tool</a>, which enumerates the <a href="#def;result">results</a> produced by the tool</dd>
+  <dt id="#def;log-file-viewer">(log file) viewer</dt>
+  <dd><a href="#def;sarif-consumer">SARIF consumer</a> that reads a <a href="#def;log-file">log file</a>, displays a list of the <a href="#def;result">results</a> it contains, and allows an <a href="#def;end-user">end user</a> to view each result in the context of the <a href="#def;artifact">artifact</a> in which it occurs</dd>
+  <dt id="#def;logical-location">logical location</dt>
+  <dd>location specified by reference to a programmatic construct, without specifying the <a href="#def;artifact">artifact</a> within which that construct occurs<br><br>
       Example: A class name, a method name, a namespace.</dd>
-  <dt id="def;logical-name">logical name</dt>
-  <dd>string that partially identifies the programmatic construct specified by a [logical location](def;logical-location) by specifying the most specific (often the rightmost) component of its [fully qualified logical name](#def;fully-qualified-logical-name).<br><br>
-      Example: The logical name of the C# method `f(void)` in class `C` in namespace `N` is `"f(void)"`. Its [fully qualified logical name](#def;fully-qualified-logical-name) is `"N.C.f(void)"`.</dd>
-  <dt id="def;message-string">message string</dt>
+  <dt id="#def;logical-name">logical name</dt>
+  <dd>string that partially identifies the programmatic construct specified by a <a href="#def;logical-location">logical location</a> by specifying the most specific (often the rightmost) component of its <a href="#def;fully-qualified-logical-name">fully qualified logical name</a>.<br><br>
+      Example: The logical name of the C# method `f(void)` in class `C` in namespace `N` is `"f(void)"`. Its <a href="#def;fully-qualified-logical-name">fully qualified logical name</a> is `"N.C.f(void)"`.</dd>
+  <dt id="#def;message-string">message string</dt>
   <dd>human-readable string that conveys information relevant to an element in a SARIF file</dd>
-  <dt id="def;nested-artifact">nested artifact</dt>
-  <dd>[artifact](def;artifact) that is contained within another artifact</dd>
-  <dt id="def;nested-logical-location">nested logical location</dt>
-  <dd>[logical location](def;logical-location) that is contained within another logical location<br><br>
+  <dt id="#def;nested-artifact">nested artifact</dt>
+  <dd><a href="#def;artifact">artifact</a> that is contained within another artifact</dd>
+  <dt id="#def;nested-logical-location">nested logical location</dt>
+  <dd><a href="#def;logical-location">logical location</a> that is contained within another logical location<br><br>
       Example: A method within a class in C++</dd>
-  <dt id="def;newline-sequence">newline sequence</dt>
+  <dt id="#def;newline-sequence">newline sequence</dt>
   <dd>sequence of one or more characters representing the end of a line of text<br><br>
       NOTE: Some systems represent a newline sequence with a single newline character; others represent it as a carriage return character followed by a newline character.</dd>
-  <dt id="def;notification">notification</dt>
-  <dd>[reporting item](def;reporting-item) that describes a condition encountered by a [tool](def;static-analysis-tool) during its execution</dd>
-  <dt id="def;opaque">opaque</dt>
+  <dt id="#def;notification">notification</dt>
+  <dd><a href="#def;reporting-item">reporting item</a> that describes a condition encountered by a <a href="#def;static-analysis-tool">tool</a> during its execution</dd>
+  <dt id="#def;opaque">opaque</dt>
   <dd>neither human-readable nor machine-parseable into constituent parts</dd>
-  <dt id="def;parent-artifact">parent (artifact)</dt>
-  <dd>[artifact](def;artifact) which contains one or more [nested artifacts](def;nested-artifact)</dd>
-  <dt id="def;physical-location">physical location</dt>
-  <dd>location specified by reference to an [artifact](def;artifact), possibly together with a [region](#def-region) within that artifact</dd>
-  <dt id="def;plain-text-message">plain text message</dt>
-  <dd>[message string](def;message-string) which does not contain any formatting information</dd>
-  <dt id="def;plugin">plugin</dt>
-  <dd>[tool component](def;tool-component) that defines additional [rules](def;rule)</dd>
-  <dt id="def;policy">policy</dt>
-  <dd>set of [rule configurations](def;rule-configuration) that specify how [results](def;result) that violate the [rules](#def-rule) defined by a particular [tool component](def;tool-component) are to be treated</dd>
-  <dt id="def;problem">problem</dt>
-  <dd>[result](def;result) which indicates a condition that has the potential to detract from the quality of the program<br><br>
+  <dt id="#def;parent-artifact">parent (artifact)</dt>
+  <dd><a href="#def;artifact">artifact</a> which contains one or more <a href="#def;nested-artifact">nested artifacts</a></dd>
+  <dt id="#def;physical-location">physical location</dt>
+  <dd>location specified by reference to an <a href="#def;artifact">artifact</a>, possibly together with a <a href="#def-region">region</a> within that artifact</dd>
+  <dt id="#def;plain-text-message">plain text message</dt>
+  <dd><a href="#def;message-string">message string</a> which does not contain any formatting information</dd>
+  <dt id="#def;plugin">plugin</dt>
+  <dd><a href="#def;tool-component">tool component</a> that defines additional <a href="#def;rule">rules</a></dd>
+  <dt id="#def;policy">policy</dt>
+  <dd>set of <a href="#def;rule-configuration">rule configurations</a> that specify how <a href="#def;result">results</a> that violate the <a href="#def-rule">rules</a> defined by a particular <a href="#def;tool-component">tool component</a> are to be treated</dd>
+  <dt id="#def;problem">problem</dt>
+  <dd><a href="#def;result">result</a> which indicates a condition that has the potential to detract from the quality of the program<br><br>
       Example: A security vulnerability, a deviation from contractual or legal requirements, a deviation from stylistic standards.</dd>
-  <dt id="def;property">property</dt>
+  <dt id="#def;property">property</dt>
   <dd>attribute of an object consisting of a name and a value associated with the name</dd>
-  <dt id="def;property-bag">property bag</dt>
-  <dd>object consisting of an unordered set of non-standardized [properties](def;property) with arbitrary [camelCase names](def;camelCase-name)</dd>
-  <dt id="def;redactable-property">redactable property</dt>
-  <dd>[property](def;property) that potentially contains sensitive information that a SARIF [direct producer](def;direct-producer) or a [SARIF post-processor](def;post-processor) might wish to redact</dd>
-  <dt id="def;region">region</dt>
-  <dd>contiguous portion of an [artifact](def;artifact)</dd>
-  <dt id="def;reporting-item">reporting item</dt>
-  <dd>unit of output produced by a [tool](def;static-analysis-tool), either a [result](def;result) or a [notification](#def-notification)</dd>
-  <dt id="def;reporting-configuration">reporting configuration</dt>
-  <dd>the subset of [reporting metadata](def;reporting-metadata) that a [tool](def;static-analysis-tool) can configure at runtime, before performing its scan<br><br>
+  <dt id="#def;property-bag">property bag</dt>
+  <dd>object consisting of an unordered set of non-standardized <a href="#def;property">properties</a> with arbitrary <a href="#def;camelCase-name">camelCase names</a></dd>
+  <dt id="#def;redactable-property">redactable property</dt>
+  <dd><a href="#def;property">property</a> that potentially contains sensitive information that a SARIF <a href="#def;direct-producer">direct producer</a> or a <a href="#def;post-processor">SARIF post-processor</a> might wish to redact</dd>
+  <dt id="#def;region">region</dt>
+  <dd>contiguous portion of an <a href="#def;artifact">artifact</a></dd>
+  <dt id="#def;reporting-item">reporting item</dt>
+  <dd>unit of output produced by a <a href="#def;static-analysis-tool">tool</a>, either a <a href="#def;result">result</a> or a <a href="#def-notification">notification</a></dd>
+  <dt id="#def;reporting-configuration">reporting configuration</dt>
+  <dd>the subset of <a href="#def;reporting-metadata">reporting metadata</a> that a <a href="#def;static-analysis-tool">tool</a> can configure at runtime, before performing its scan<br><br>
       Examples: severity level, rank</dd>
-  <dt id="def;reporting-descriptor">reporting descriptor</dt>
-  <dd>container for [reporting metadata](def;reporting-metadata)</dd>
-  <dt id="def;reporting-metadata">reporting metadata</dt>
-  <dd>information that describes a class of related [reporting items](def;reporting-item)<br><br>
+  <dt id="#def;reporting-descriptor">reporting descriptor</dt>
+  <dd>container for <a href="#def;reporting-metadata">reporting metadata</a></dd>
+  <dt id="#def;reporting-metadata">reporting metadata</dt>
+  <dd>information that describes a class of related <a href="#def;reporting-item">reporting items</a><br><br>
       Examples: id, description</dd>
-  <dt id="def;repository">repository</dt>
+  <dt id="#def;repository">repository</dt>
   <dd>container for a related set of files in a version control system</dd>
-  <dt id="def;response-file">response file</dt>
-  <dd>file containing arguments for a [tool](def;static-analysis-tool), which are interpreted as if they had appeared directly on the command line</dd>
-  <dt id="def;result">result</dt>
-  <dd>[reporting item](def;reporting-item) that describes a condition present in an [artifact](def;artifact)</dd>
-  <dt id="def;result-file">result file</dt>
-  <dd>[artifact](#def-artifact) in which an [analysis tool](def;static-analysis-tool) detects a [result](def;result)</dd>
-  <dt id="def;result-management-system">result management system</dt>
-  <dd>software system that consumes the [log files](def;log-file) produced by [analysis tools](def;static-analysis-tool), produces reports that enable engineering teams to assess the quality of their software [artifacts](def;artifact) at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual [results](#def-result)<br><br>
-      NOTE: A result management system can interact with a [log file viewer](def;log-file-viewer) to display information about individual defects.</dd>
-  <dt id="def;result-matching">result matching</dt>
-  <dd>process of determining whether two [results](def;result) are reporting the same condition in the code</dd>
-  <dt id="def;root-file">root file</dt>
-  <dd>[SARIF log file](def;log-file) to which one or more [external property files](def;external-property-file) logically belong</dd>
-  <dt id="def;rule">rule</dt>
-  <dd>specific criterion for correctness verified by an [analysis tool](def;static-analysis-tool)<br><br>
-      NOTE 1: Many analysis tools associate a [rule id](def;rule-id) with each [result](def;result) they report, but some do not.<br><br>
+  <dt id="#def;response-file">response file</dt>
+  <dd>file containing arguments for a <a href="#def;static-analysis-tool">tool</a>, which are interpreted as if they had appeared directly on the command line</dd>
+  <dt id="#def;result">result</dt>
+  <dd><a href="#def;reporting-item">reporting item</a> that describes a condition present in an <a href="#def;artifact">artifact</a></dd>
+  <dt id="#def;result-file">result file</dt>
+  <dd><a href="#def-artifact">artifact</a> in which an <a href="#def;static-analysis-tool">analysis tool</a> detects a <a href="#def;result">result</a></dd>
+  <dt id="#def;result-management-system">result management system</dt>
+  <dd>software system that consumes the <a href="#def;log-file">log files</a> produced by <a href="#def;static-analysis-tool">analysis tools</a>, produces reports that enable engineering teams to assess the quality of their software <a href="#def;artifact">artifacts</a> at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual <a href="#def-result">results</a><br><br>
+      NOTE: A result management system can interact with a <a href="#def;log-file-viewer">log file viewer</a> to display information about individual defects.</dd>
+  <dt id="#def;result-matching">result matching</dt>
+  <dd>process of determining whether two <a href="#def;result">results</a> are reporting the same condition in the code</dd>
+  <dt id="#def;root-file">root file</dt>
+  <dd><a href="#def;log-file">SARIF log file</a> to which one or more <a href="#def;external-property-file">external property files</a> logically belong</dd>
+  <dt id="#def;rule">rule</dt>
+  <dd>specific criterion for correctness verified by an <a href="#def;static-analysis-tool">analysis tool</a><br><br>
+      NOTE 1: Many analysis tools associate a <a href="#def;rule-id">rule id</a> with each <a href="#def;result">result</a> they report, but some do not.<br><br>
       NOTE 2: Some rules verify generally accepted criteria for correctness; others verify conventions in use in a particular team or organization.<br><br>
       Examples: "Variables must be initialized before use.", "Class names must begin with an uppercase letter.".</dd>
-  <dt id="def;rule-configuration">rule configuration</dt>
-  <dd>[reporting configuration](def;reporting-configuration) that applies to a [rule](def;rule)</dd>
-  <dt id="def;rule-id">rule id</dt>
-  <dd>[stable value](def;stable-value) which an [analysis tool](def;static-analysis-tool) associates with a [rule](def;rule)<br><br>
+  <dt id="#def;rule-configuration">rule configuration</dt>
+  <dd><a href="#def;reporting-configuration">reporting configuration</a> that applies to a <a href="#def;rule">rule</a></dd>
+  <dt id="#def;rule-id">rule id</dt>
+  <dd><a href="#def;stable-value">stable value</a> which an <a href="#def;static-analysis-tool">analysis tool</a> associates with a <a href="#def;rule">rule</a><br><br>
       NOTE: A rule id is more likely to remain stable if it is a symbolic or numeric value, as opposed to a descriptive string.<br><br>
       Example: `CA2001`</dd>
-  <dt id="def;rule-metadata">rule metadata</dt>
-  <dd>[reporting metadata](def;reporting-metadata) that describes a [rule](def;rule)</dd>
-  <dt id="def;run">run</dt>
-  <dd>1\. invocation of a specified [analysis tool](def;static-analysis-tool) on a specified version of a specified set of [analysis targets](def;analysis-target), with a specified set of runtime parameters<br><br>
-      2\. set of [results](def;result) produced by such an invocation</dd>
-  <dt id="def;sarif-consumer">SARIF consumer</dt>
+  <dt id="#def;rule-metadata">rule metadata</dt>
+  <dd><a href="#def;reporting-metadata">reporting metadata</a> that describes a <a href="#def;rule">rule</a></dd>
+  <dt id="#def;run">run</dt>
+  <dd>1\. invocation of a specified <a href="#def;static-analysis-tool">analysis tool</a> on a specified version of a specified set of <a href="#def;analysis-target">analysis targets</a>, with a specified set of runtime parameters<br><br>
+      2\. set of <a href="#def;result">results</a> produced by such an invocation</dd>
+  <dt id="#def;sarif-consumer">SARIF consumer</dt>
   <dd>program that reads and interprets a SARIF log file</dd>
-  <dt id="def;sarif-log-file">SARIF log file</dt>
-  <dd>[log file](def;log-file) in the format defined by this document</dd>
-  <dt id="def;sarif-post-processor">SARIF post-processor</dt>
-  <dd>[SARIF producer](def;sarif-producer) that transforms an existing [SARIF log file](def;sarif-log-file) into a new SARIF log file, for example, by removing or redacting security-sensitive elements.</dd>
-  <dt id="def;sarif-producer">SARIF producer</dt>
+  <dt id="#def;sarif-log-file">SARIF log file</dt>
+  <dd><a href="#def;log-file">log file</a> in the format defined by this document</dd>
+  <dt id="#def;sarif-post-processor">SARIF post-processor</dt>
+  <dd><a href="#def;sarif-producer">SARIF producer</a> that transforms an existing <a href="#def;sarif-log-file">SARIF log file</a> into a new SARIF log file, for example, by removing or redacting security-sensitive elements.</dd>
+  <dt id="#def;sarif-producer">SARIF producer</dt>
   <dd>program that emits output in the SARIF format</dd>
-  <dt id="def;stable-value">stable value</dt>
+  <dt id="#def;stable-value">stable value</dt>
   <dd>value which, once established, never changes over time</dd>
-  <dt id="def;standard-taxonomy">standard taxonomy</dt>
-  <dd>[taxonomy](def;taxonomic-category) defined without reference to a particular [analysis tool](def;static-analysis-tool)</dd>
-  <dt id="def;static-analysis-tool">(static analysis) tool</dt>
-  <dd>program that examines [artifacts](def;artifact) to detect problems, without executing the program<br><br>
+  <dt id="#def;standard-taxonomy">standard taxonomy</dt>
+  <dd><a href="#def;taxonomic-category">taxonomy</a> defined without reference to a particular <a href="#def;static-analysis-tool">analysis tool</a></dd>
+  <dt id="#def;static-analysis-tool">(static analysis) tool</dt>
+  <dd>program that examines <a href="#def;artifact">artifacts</a> to detect problems, without executing the program<br><br>
       Example: Lint</dd>
-  <dt id="def;taxon-pl-taxa">taxon (pl. taxa)</dt>
-  <dd>one of a set of categories which together comprise a [taxonomy](def;taxonomic-category)</dd>
-  <dt id="def;taxonomy">taxonomy</dt>
+  <dt id="#def;taxon-pl-taxa">taxon (pl. taxa)</dt>
+  <dd>one of a set of categories which together comprise a <a href="#def;taxonomic-category">taxonomy</a></dd>
+  <dt id="#def;taxonomy">taxonomy</dt>
   <dd>classification of analysis results into a set of categories</dd>
-  <dt id="def;tag">tag</dt>
-  <dd>string that conveys additional information about the SARIF [log file](def;log-file) element to which it applies</dd>
-  <dt id="def;text-artifact">text artifact</dt>
-  <dd>[artifact](def;artifact) considered as a sequence of characters organized into [lines](#def-line) and [columns](def;column)</dd>
-  <dt id="def;text-region">text region</dt>
-  <dd>[region](#def-region) representing a contiguous range of zero or more characters in a [text artifact](def;text-file)</dd>
-  <dt id="def;thread-flow">thread flow</dt>
+  <dt id="#def;tag">tag</dt>
+  <dd>string that conveys additional information about the SARIF <a href="#def;log-file">log file</a> element to which it applies</dd>
+  <dt id="#def;text-artifact">text artifact</dt>
+  <dd><a href="#def;artifact">artifact</a> considered as a sequence of characters organized into <a href="#def-line">lines</a> and <a href="#def;column">columns</a></dd>
+  <dt id="#def;text-region">text region</dt>
+  <dd><a href="#def-region">region</a> representing a contiguous range of zero or more characters in a <a href="#def;text-file">text artifact</a></dd>
+  <dt id="#def;thread-flow">thread flow</dt>
   <dd>temporally ordered set of code locations specifying a possible execution path through the code, which occur within a single thread of execution, such as an operating system thread or a fiber</dd>
-  <dt id="def;tool-component">tool component</dt>
-  <dd>component of an [analysis tool](def;static-analysis-tool) or [converter](def;converter), either its [driver](#def-driver) or an [extension](def;extension), consisting of one or more files</dd>
-  <dt id="def;top-level-artifact">top-level artifact</dt>
-  <dd>[artifact](#def-artifact) which is not contained within any other artifact</dd>
-  <dt id="def;top-level-logical-location">top-level logical location</dt>
-  <dd>[logical location](def;logical-location) that is not nested within another logical location<br><br>
+  <dt id="#def;tool-component">tool component</dt>
+  <dd>component of an <a href="#def;static-analysis-tool">analysis tool</a> or <a href="#def;converter">converter</a>, either its <a href="#def-driver">driver</a> or an <a href="#def;extension">extension</a>, consisting of one or more files</dd>
+  <dt id="#def;top-level-artifact">top-level artifact</dt>
+  <dd><a href="#def-artifact">artifact</a> which is not contained within any other artifact</dd>
+  <dt id="#def;top-level-logical-location">top-level logical location</dt>
+  <dd><a href="#def;logical-location">logical location</a> that is not nested within another logical location<br><br>
       Example: A global function in C++</dd>
-  <dt id="def;translation">translation</dt>
-  <dd>rendering of a [tool component](def;tool-component)’s [localizable](def;localizable) strings into another language</dd>
-  <dt id="def;triage">triage</dt>
-  <dd>decide whether a [result](def;result) indicates a [problem](#def-problem) that needs to be corrected</dd>
-  <dt id="def;user">user</dt>
-  <dd>see [end user](def;end-user).</dd>
-  <dt id="def;vcs">VCS</dt>
+  <dt id="#def;translation">translation</dt>
+  <dd>rendering of a <a href="#def;tool-component">tool component</a>’s <a href="#def;localizable">localizable</a> strings into another language</dd>
+  <dt id="#def;triage">triage</dt>
+  <dd>decide whether a <a href="#def;result">result</a> indicates a <a href="#def-problem">problem</a> that needs to be corrected</dd>
+  <dt id="#def;user">user</dt>
+  <dd>see <a href="#def;end-user">end user</a>.</dd>
+  <dt id="#def;vcs">VCS</dt>
   <dd>version control system</dd>
-  <dt id="def;viewer">viewer</dt>
-  <dd>see [log file viewer](def;log-file-viewer).</dd>
-  <dt id="def;web-analysis-tool">web analysis tool</dt>
-  <dd>[analysis tool](def;static-analysis-tool) that models and analyzes the interaction between a web client and a server.</dd>
+  <dt id="#def;viewer">viewer</dt>
+  <dd>see <a href="#def;log-file-viewer">log file viewer</a>.</dd>
+  <dt id="#def;web-analysis-tool">web analysis tool</dt>
+  <dd><a href="#def;static-analysis-tool">analysis tool</a> that models and analyzes the interaction between a web client and a server.</dd>
 </dl>
 
 ## 1.3 Normative References <a id='normative-references'></a>
