@@ -695,14 +695,14 @@ For purposes of this document, the following terms and definitions apply:
   <dd>sequence of bytes addressable *via* a URI<br><br>
       Examples: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed *via* an HTTP request; an arbitrary stream of bytes returned from an HTTP request.</dd>
   <dt id="#def;baseline">baseline</dt>
-  <dd>set of <a href="#def;result">results</a> produced by a single <a href="#def-run">run</a> of a set of <a href="#def;static-analysis-tool">analysis tools</a> on a set of <a href="#def;artifact">artifacts</a><br><br>
+  <dd>set of <a href="#def;result">results</a> produced by a single <a href="#def;run">run</a> of a set of <a href="#def;static-analysis-tool">analysis tools</a> on a set of <a href="#def;artifact">artifacts</a><br><br>
       NOTE: A <a href="#def;result-management-system">result management system</a> can compare the results of a subsequent <a href="#def;run">run</a> to a baseline produced by a <a href="#def;baseline-run">baseline run</a> to determine whether new results have been introduced.</dd>
   <dt id="#def;baseline-run">baseline run</dt>
-  <dd><a href="#def;run">run</a> that produces a <a href="#def-baseline">baseline</a> to which subsequent runs can be compared</dd>
+  <dd><a href="#def;run">run</a> that produces a <a href="#def;baseline">baseline</a> to which subsequent runs can be compared</dd>
   <dt id="#def;binary-artifact">binary artifact</dt>
   <dd><a href="#def;artifact">artifact</a> considered as a sequence of bytes</dd>
   <dt id="#def;binary-region">binary region</dt>
-  <dd><a href="#def-region">region</a> representing a contiguous range of zero or more bytes in a <a href="#def;binary-file">binary artifact</a></dd>
+  <dd><a href="#def;region">region</a> representing a contiguous range of zero or more bytes in a <a href="#def;binary-file">binary artifact</a></dd>
   <dt id="#def;call-stack">call stack</dt>
   <dd>sequence of nested function calls</dd>
   <dt id="#def;camelcase-name">camelCase name</dt>
@@ -721,9 +721,9 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="#def;direct-producer">direct producer</dt>
   <dd><a href="#def;static-analysis-tool">analysis tool</a> which acts as a <a href="#def;sarif-producer">SARIF producer</a></dd>
   <dt id="#def;driver">driver</dt>
-  <dd><a href="#def;tool-component">tool component</a> containing an <a href="#def;static-analysis-tool">analysis tool</a>’s or <a href="#def;converter">converter</a>’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis <a href="#def-rule">rules</a></dd>
+  <dd><a href="#def;tool-component">tool component</a> containing an <a href="#def;static-analysis-tool">analysis tool</a>’s or <a href="#def;converter">converter</a>’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis <a href="#def;rule">rules</a></dd>
   <dt id="#def;embedded-link">embedded link</dt>
-  <dd>syntactic construct which enables a <a href="#def;message-string">message string</a> to refer to a location within an <a href="#def;artifact">artifact</a> mentioned in a <a href="#def-result">result</a></dd>
+  <dd>syntactic construct which enables a <a href="#def;message-string">message string</a> to refer to a location within an <a href="#def;artifact">artifact</a> mentioned in a <a href="#def;result">result</a></dd>
   <dt id="#def;engineering-system">engineering system</dt>
   <dd>software development environment within which <a href="#def;static-analysis-tool">analysis tools</a> execute<br><br>
       NOTE: An engineering system might include a build system, a source control system, a <a href="#def;result-management-system">result management system</a>, a bug tracking system, a test execution system, and so on.</dd>
@@ -734,9 +734,9 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="#def;empty-string">empty string</dt>
   <dd>string that contains no characters, and so has a length of 0</dd>
   <dt id="#def;end-user">(end) user</dt>
-  <dd>person who uses the information in a <a href="#def;log-file">log file</a> to investigate, <a href="#def;triage">triage</a>, or resolve <a href="#def-result">results</a></dd>
+  <dd>person who uses the information in a <a href="#def;log-file">log file</a> to investigate, <a href="#def;triage">triage</a>, or resolve <a href="#def;result">results</a></dd>
   <dt id="#def;extension">extension</dt>
-  <dd><a href="#def;tool-component">tool component</a> other than the <a href="#def;driver">driver</a> (for example, a <a href="#def-plugin">plugin</a>, a <a href="#def;configuration-file">configuration file</a>, or a <a href="#def;taxonomic-category">taxonomy</a>)</dd>
+  <dd><a href="#def;tool-component">tool component</a> other than the <a href="#def;driver">driver</a> (for example, a <a href="#def;plugin">plugin</a>, a <a href="#def;configuration-file">configuration file</a>, or a <a href="#def;taxonomic-category">taxonomy</a>)</dd>
   <dt id="#def;external-property-file">external property file</dt>
   <dd>file containing the values of one or more <a href="#def;externalized-property">externalized properties</a></dd>
   <dt id="#def;externalizable-property">externalizable property</dt>
@@ -746,7 +746,7 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="#def;false-positive">false positive</dt>
   <dd><a href="#def;result">result</a> which an <a href="#def;end-user">end user</a> decides does not actually represent a <a href="#def;problem">problem</a></dd>
   <dt id="#def;fingerprint">fingerprint</dt>
-  <dd><a href="#def;stable-value">stable value</a> that can be used by a <a href="#def;result-management-system">result management system</a> to uniquely identify a <a href="#def;result">result</a> over time, even if a relevant <a href="#def-artifact">artifact</a> is modified</dd>
+  <dd><a href="#def;stable-value">stable value</a> that can be used by a <a href="#def;result-management-system">result management system</a> to uniquely identify a <a href="#def;result">result</a> over time, even if a relevant <a href="#def;artifact">artifact</a> is modified</dd>
   <dt id="#def;formatted-message">formatted message</dt>
   <dd><a href="#def;message-string">message string</a> which contains formatting information such as Markdown formatting characters</dd>
   <dt id="#def;fully-qualified-logical-name">fully qualified logical name</dt>
@@ -788,13 +788,13 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="#def;parent-artifact">parent (artifact)</dt>
   <dd><a href="#def;artifact">artifact</a> which contains one or more <a href="#def;nested-artifact">nested artifacts</a></dd>
   <dt id="#def;physical-location">physical location</dt>
-  <dd>location specified by reference to an <a href="#def;artifact">artifact</a>, possibly together with a <a href="#def-region">region</a> within that artifact</dd>
+  <dd>location specified by reference to an <a href="#def;artifact">artifact</a>, possibly together with a <a href="#def;region">region</a> within that artifact</dd>
   <dt id="#def;plain-text-message">plain text message</dt>
   <dd><a href="#def;message-string">message string</a> which does not contain any formatting information</dd>
   <dt id="#def;plugin">plugin</dt>
   <dd><a href="#def;tool-component">tool component</a> that defines additional <a href="#def;rule">rules</a></dd>
   <dt id="#def;policy">policy</dt>
-  <dd>set of <a href="#def;rule-configuration">rule configurations</a> that specify how <a href="#def;result">results</a> that violate the <a href="#def-rule">rules</a> defined by a particular <a href="#def;tool-component">tool component</a> are to be treated</dd>
+  <dd>set of <a href="#def;rule-configuration">rule configurations</a> that specify how <a href="#def;result">results</a> that violate the <a href="#def;rule">rules</a> defined by a particular <a href="#def;tool-component">tool component</a> are to be treated</dd>
   <dt id="#def;problem">problem</dt>
   <dd><a href="#def;result">result</a> which indicates a condition that has the potential to detract from the quality of the program<br><br>
       Example: A security vulnerability, a deviation from contractual or legal requirements, a deviation from stylistic standards.</dd>
@@ -807,7 +807,7 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="#def;region">region</dt>
   <dd>contiguous portion of an <a href="#def;artifact">artifact</a></dd>
   <dt id="#def;reporting-item">reporting item</dt>
-  <dd>unit of output produced by a <a href="#def;static-analysis-tool">tool</a>, either a <a href="#def;result">result</a> or a <a href="#def-notification">notification</a></dd>
+  <dd>unit of output produced by a <a href="#def;static-analysis-tool">tool</a>, either a <a href="#def;result">result</a> or a <a href="#def;notification">notification</a></dd>
   <dt id="#def;reporting-configuration">reporting configuration</dt>
   <dd>the subset of <a href="#def;reporting-metadata">reporting metadata</a> that a <a href="#def;static-analysis-tool">tool</a> can configure at runtime, before performing its scan<br><br>
       Examples: severity level, rank</dd>
@@ -823,9 +823,9 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="#def;result">result</dt>
   <dd><a href="#def;reporting-item">reporting item</a> that describes a condition present in an <a href="#def;artifact">artifact</a></dd>
   <dt id="#def;result-file">result file</dt>
-  <dd><a href="#def-artifact">artifact</a> in which an <a href="#def;static-analysis-tool">analysis tool</a> detects a <a href="#def;result">result</a></dd>
+  <dd><a href="#def;artifact">artifact</a> in which an <a href="#def;static-analysis-tool">analysis tool</a> detects a <a href="#def;result">result</a></dd>
   <dt id="#def;result-management-system">result management system</dt>
-  <dd>software system that consumes the <a href="#def;log-file">log files</a> produced by <a href="#def;static-analysis-tool">analysis tools</a>, produces reports that enable engineering teams to assess the quality of their software <a href="#def;artifact">artifacts</a> at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual <a href="#def-result">results</a><br><br>
+  <dd>software system that consumes the <a href="#def;log-file">log files</a> produced by <a href="#def;static-analysis-tool">analysis tools</a>, produces reports that enable engineering teams to assess the quality of their software <a href="#def;artifact">artifacts</a> at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual <a href="#def;result">results</a><br><br>
       NOTE: A result management system can interact with a <a href="#def;log-file-viewer">log file viewer</a> to display information about individual defects.</dd>
   <dt id="#def;result-matching">result matching</dt>
   <dd>process of determining whether two <a href="#def;result">results</a> are reporting the same condition in the code</dd>
@@ -869,22 +869,22 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="#def;tag">tag</dt>
   <dd>string that conveys additional information about the SARIF <a href="#def;log-file">log file</a> element to which it applies</dd>
   <dt id="#def;text-artifact">text artifact</dt>
-  <dd><a href="#def;artifact">artifact</a> considered as a sequence of characters organized into <a href="#def-line">lines</a> and <a href="#def;column">columns</a></dd>
+  <dd><a href="#def;artifact">artifact</a> considered as a sequence of characters organized into <a href="#def;line">lines</a> and <a href="#def;column">columns</a></dd>
   <dt id="#def;text-region">text region</dt>
-  <dd><a href="#def-region">region</a> representing a contiguous range of zero or more characters in a <a href="#def;text-file">text artifact</a></dd>
+  <dd><a href="#def;region">region</a> representing a contiguous range of zero or more characters in a <a href="#def;text-file">text artifact</a></dd>
   <dt id="#def;thread-flow">thread flow</dt>
   <dd>temporally ordered set of code locations specifying a possible execution path through the code, which occur within a single thread of execution, such as an operating system thread or a fiber</dd>
   <dt id="#def;tool-component">tool component</dt>
-  <dd>component of an <a href="#def;static-analysis-tool">analysis tool</a> or <a href="#def;converter">converter</a>, either its <a href="#def-driver">driver</a> or an <a href="#def;extension">extension</a>, consisting of one or more files</dd>
+  <dd>component of an <a href="#def;static-analysis-tool">analysis tool</a> or <a href="#def;converter">converter</a>, either its <a href="#def;driver">driver</a> or an <a href="#def;extension">extension</a>, consisting of one or more files</dd>
   <dt id="#def;top-level-artifact">top-level artifact</dt>
-  <dd><a href="#def-artifact">artifact</a> which is not contained within any other artifact</dd>
+  <dd><a href="#def;artifact">artifact</a> which is not contained within any other artifact</dd>
   <dt id="#def;top-level-logical-location">top-level logical location</dt>
   <dd><a href="#def;logical-location">logical location</a> that is not nested within another logical location<br><br>
       Example: A global function in C++</dd>
   <dt id="#def;translation">translation</dt>
   <dd>rendering of a <a href="#def;tool-component">tool component</a>’s <a href="#def;localizable">localizable</a> strings into another language</dd>
   <dt id="#def;triage">triage</dt>
-  <dd>decide whether a <a href="#def;result">result</a> indicates a <a href="#def-problem">problem</a> that needs to be corrected</dd>
+  <dd>decide whether a <a href="#def;result">result</a> indicates a <a href="#def;problem">problem</a> that needs to be corrected</dd>
   <dt id="#def;user">user</dt>
   <dd>see <a href="#def;end-user">end user</a>.</dd>
   <dt id="#def;vcs">VCS</dt>

@@ -6,17 +6,17 @@ artifact
 Examples: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed *via* an HTTP request; an arbitrary stream of bytes returned from an HTTP request.
 
 baseline
-:    set of [results](#def;result) produced by a single [run](#def-run) of a set of [analysis tools](#def;static-analysis-tool) on a set of [artifacts](#def;artifact)
+:    set of [results](#def;result) produced by a single [run](#def;run) of a set of [analysis tools](#def;static-analysis-tool) on a set of [artifacts](#def;artifact)
 NOTE: A [result management system](#def;result-management-system) can compare the results of a subsequent [run](#def;run) to a baseline produced by a [baseline run](#def;baseline-run) to determine whether new results have been introduced.
 
 baseline run
-:    [run](#def;run) that produces a [baseline](#def-baseline) to which subsequent runs can be compared
+:    [run](#def;run) that produces a [baseline](#def;baseline) to which subsequent runs can be compared
 
 binary artifact
 :    [artifact](#def;artifact) considered as a sequence of bytes
 
 binary region
-:    [region](#def-region) representing a contiguous range of zero or more bytes in a [binary artifact](#def;binary-file)
+:    [region](#def;region) representing a contiguous range of zero or more bytes in a [binary artifact](#def;binary-file)
 
 call stack
 :    sequence of nested function calls
@@ -44,10 +44,10 @@ direct producer
 :  [analysis tool](#def;static-analysis-tool) which acts as a [SARIF producer](#def;sarif-producer)
 
 driver
-:  [tool component](#def;tool-component) containing an [analysis tool](#def;static-analysis-tool)’s or [converter](#def;converter)’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis [rules](#def-rule)
+:  [tool component](#def;tool-component) containing an [analysis tool](#def;static-analysis-tool)’s or [converter](#def;converter)’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis [rules](#def;rule)
 
 embedded link
-:  syntactic construct which enables a [message string](#def;message-string) to refer to a location within an [artifact](#def;artifact) mentioned in a [result](#def-result)
+:  syntactic construct which enables a [message string](#def;message-string) to refer to a location within an [artifact](#def;artifact) mentioned in a [result](#def;result)
 
 engineering system
 :  software development environment within which [analysis tools](#def;static-analysis-tool) execute
@@ -63,10 +63,10 @@ empty string
 :  string that contains no characters, and so has a length of 0
 
 (end) user
-:  person who uses the information in a [log file](#def;log-file) to investigate, [triage](#def;triage), or resolve [results](#def-result)
+:  person who uses the information in a [log file](#def;log-file) to investigate, [triage](#def;triage), or resolve [results](#def;result)
 
 extension
-:  [tool component](#def;tool-component) other than the [driver](#def;driver) (for example, a [plugin](#def-plugin), a [configuration file](#def;configuration-file), or a [taxonomy](#def;taxonomic-category))
+:  [tool component](#def;tool-component) other than the [driver](#def;driver) (for example, a [plugin](#def;plugin), a [configuration file](#def;configuration-file), or a [taxonomy](#def;taxonomic-category))
 
 external property file
 :  file containing the values of one or more [externalized properties](#def;externalized-property)
@@ -81,7 +81,7 @@ false positive
 :  [result](#def;result) which an [end user](#def;end-user) decides does not actually represent a [problem](#def;problem)
 
 fingerprint
-:  [stable value](#def;stable-value) that can be used by a [result management system](#def;result-management-system) to uniquely identify a [result](#def;result) over time, even if a relevant [artifact](#def-artifact) is modified
+:  [stable value](#def;stable-value) that can be used by a [result management system](#def;result-management-system) to uniquely identify a [result](#def;result) over time, even if a relevant [artifact](#def;artifact) is modified
 
 formatted message
 :  [message string](#def;message-string) which contains formatting information such as Markdown formatting characters
@@ -141,7 +141,7 @@ parent (artifact)
 :  [artifact](#def;artifact) which contains one or more [nested artifacts](#def;nested-artifact)
 
 physical location
-:  location specified by reference to an [artifact](#def;artifact), possibly together with a [region](#def-region) within that artifact
+:  location specified by reference to an [artifact](#def;artifact), possibly together with a [region](#def;region) within that artifact
 
 plain text message
 :  [message string](#def;message-string) which does not contain any formatting information
@@ -150,7 +150,7 @@ plugin
 :  [tool component](#def;tool-component) that defines additional [rules](#def;rule)
 
 policy
-:  set of [rule configurations](#def;rule-configuration) that specify how [results](#def;result) that violate the [rules](#def-rule) defined by a particular [tool component](#def;tool-component) are to be treated
+:  set of [rule configurations](#def;rule-configuration) that specify how [results](#def;result) that violate the [rules](#def;rule) defined by a particular [tool component](#def;tool-component) are to be treated
 
 problem
 :  [result](#def;result) which indicates a condition that has the potential to detract from the quality of the program
@@ -169,7 +169,7 @@ region
 :  contiguous portion of an [artifact](#def;artifact)
 
 reporting item
-:  unit of output produced by a [tool](#def;static-analysis-tool), either a [result](#def;result) or a [notification](#def-notification)
+:  unit of output produced by a [tool](#def;static-analysis-tool), either a [result](#def;result) or a [notification](#def;notification)
 
 reporting configuration
 :  the subset of [reporting metadata](#def;reporting-metadata) that a [tool](#def;static-analysis-tool) can configure at runtime, before performing its scan  
@@ -192,10 +192,10 @@ result
 :  [reporting item](#def;reporting-item) that describes a condition present in an [artifact](#def;artifact)
 
 result file
-:  [artifact](#def-artifact) in which an [analysis tool](#def;static-analysis-tool) detects a [result](#def;result)
+:  [artifact](#def;artifact) in which an [analysis tool](#def;static-analysis-tool) detects a [result](#def;result)
 
 result management system
-:  software system that consumes the [log files](#def;log-file) produced by [analysis tools](#def;static-analysis-tool), produces reports that enable engineering teams to assess the quality of their software [artifacts](#def;artifact) at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual [results](#def-result)
+:  software system that consumes the [log files](#def;log-file) produced by [analysis tools](#def;static-analysis-tool), produces reports that enable engineering teams to assess the quality of their software [artifacts](#def;artifact) at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual [results](#def;result)
 NOTE: A result management system can interact with a [log file viewer](#def;log-file-viewer) to display information about individual defects.
 
 result matching
@@ -257,19 +257,19 @@ tag
 :  string that conveys additional information about the SARIF [log file](#def;log-file) element to which it applies
 
 text artifact
-:  [artifact](#def;artifact) considered as a sequence of characters organized into [lines](#def-line) and [columns](#def;column)
+:  [artifact](#def;artifact) considered as a sequence of characters organized into [lines](#def;line) and [columns](#def;column)
 
 text region
-:  [region](#def-region) representing a contiguous range of zero or more characters in a [text artifact](#def;text-file)
+:  [region](#def;region) representing a contiguous range of zero or more characters in a [text artifact](#def;text-file)
 
 thread flow
 :  temporally ordered set of code locations specifying a possible execution path through the code, which occur within a single thread of execution, such as an operating system thread or a fiber
 
 tool component
-:  component of an [analysis tool](#def;static-analysis-tool) or [converter](#def;converter), either its [driver](#def-driver) or an [extension](#def;extension), consisting of one or more files
+:  component of an [analysis tool](#def;static-analysis-tool) or [converter](#def;converter), either its [driver](#def;driver) or an [extension](#def;extension), consisting of one or more files
 
 top-level artifact
-:  [artifact](#def-artifact) which is not contained within any other artifact
+:  [artifact](#def;artifact) which is not contained within any other artifact
 
 top-level logical location
 :  [logical location](#def;logical-location) that is not nested within another logical location
@@ -279,7 +279,7 @@ translation
 :  rendering of a [tool component](#def;tool-component)’s [localizable](#def;localizable) strings into another language
 
 triage
-:  decide whether a [result](#def;result) indicates a [problem](#def-problem) that needs to be corrected
+:  decide whether a [result](#def;result) indicates a [problem](#def;problem) that needs to be corrected
 
 user
 :  see [end user](#def;end-user).
