@@ -66,6 +66,7 @@ TOC = 'toc'
 
 CITE_COSMETICS_TEMPLATE = '**\\[**<span id="$label$" class="anchor"></span>**$code$\\]** $text$'
 CITATION_SOURCES = ('introduction-03-normative-references.md', 'introduction-04-informative-references.md')
+GLOSSARY_SOURCES = ('introduction-02-terminology-glossary.md',)
 
 # Type declarations:
 META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
@@ -150,7 +151,6 @@ def main(argv: list[str]) -> int:
                 first_meta_slot = len(lines) + len(part_lines) - 1
 
         if resource.name in CITATION_SOURCES:  # TODO: citation management -> class
-            print(f'patching citations from {resource}')
             patched = []
             in_citation = False
             for line in part_lines:
@@ -166,7 +166,6 @@ def main(argv: list[str]) -> int:
                     text = ''
                     continue
                 if in_citation:
-                    print(line, end='')
                     if line.startswith(COLON):
                         text += line.lstrip(COLON).strip()
                         continue
@@ -186,6 +185,35 @@ def main(argv: list[str]) -> int:
                         continue
                 else:
                     patched.append(line)
+            part_lines = [a for a in patched]
+
+        if resource.name in GLOSSARY_SOURCES:  # TODO: glossary management -> class
+            patched = ['<dl>' + NL]
+            in_definition = False
+            for line in part_lines:
+                if not in_definition and line.strip() and not line.startswith(COLON):
+                    # the term -> glossary term, the visible text in the square brackets for refs
+                    in_definition = True
+                    # prepare the data triplet
+                    term = line.strip()
+                    label = 'def;' + label_derive_from(term)
+                    definition = ''
+                    continue
+                if in_definition:
+                    if line.startswith(COLON):
+                        definition += line.lstrip(COLON).strip()
+                        continue
+                    if line.strip():
+                        definition += '<br><br>' + NL + ' ' * 6 + line.strip()
+                        continue
+                    if not line.strip():
+                        item = f'{" " * 2}<dt id="{label}">{term}</dt>\n{" " * 2}<dd>{definition}</dd>\n'
+                        in_definition = False
+                        patched.append(item)
+                        continue
+                else:
+                    patched.append(line)
+            patched.append('</dl>' + NL + NL)
             part_lines = [a for a in patched]
 
         lines.extend(part_lines)
