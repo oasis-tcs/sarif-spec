@@ -20,7 +20,7 @@ This document defines requirements for the SARIF file format and for certain sof
 
 - **Result management system**: a software system that consumes the log files produced by analysis tools, produces reports that enable engineering teams to assess the quality of their software artifacts at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual results.
 
-- **Engineering system**: a software development environment within which analysis tools execute. It might include a build system, a source control system, a [result management system](#def_result_management_system), a bug tracking system, a test execution system, and so on.
+- **Engineering system**: a software development environment within which analysis tools execute. It might include a build system, a source control system, a [result management system](#def;result-management-system), a bug tracking system, a test execution system, and so on.
 
 The normative content in this document defines requirements for SARIF log files, except for those normative requirements that are explicitly designated as defining the behavior of another conformance target.
 

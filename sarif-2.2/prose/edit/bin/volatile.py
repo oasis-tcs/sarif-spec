@@ -21,6 +21,7 @@ FULL_STOP = '.'
 HASH = '#'
 SEMI = ';'
 SPACE = ' '
+TM = '™'
 
 # Configuration and runtime parameter candidates:
 BINDER_AT = pathlib.Path('etc') / 'bind.txt'
@@ -161,7 +162,7 @@ def main(argv: list[str]) -> int:
                     in_citation = True
                     # prepare the data triplet
                     code = line.strip()
-                    label = code.replace(COLON, SEMI).rstrip('™')
+                    label = code.replace(COLON, SEMI).rstrip(TM)
                     text = ''
                     continue
                 if in_citation:
@@ -286,6 +287,12 @@ def main(argv: list[str]) -> int:
                     print('-', f'{resource}:{slot + 1}', sem_ref, '-->', evil_ref)
                     line = line.replace(sem_ref, evil_ref)
                     lines[slot] = line
+            if '[CWE](#CEW)' in line:
+                lines[slot] = line.replace('[CWE](#CEW)', f'[CWE{TM}](#CEW)')  # Do not ask. Thanks.
+            if '[F.2](#' in line:
+                lines[slot] = line.replace('[F.2](#', '[Appendix F.2](#')  # Do not ask. Thanks.
+            if '[F.4](#' in line:
+                lines[slot] = line.replace('[F.4](#', '[Appendix F.4](#')  # Do not ask. Thanks.
 
     # Process the text display of section refs TODO
     for slot, line in enumerate(lines):
