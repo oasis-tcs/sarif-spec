@@ -16,7 +16,11 @@ import yaml
 ENCODING = 'utf-8'
 NL = '\n'
 CB_END = '}'
+COLON = ':'
 FULL_STOP = '.'
+HASH = '#'
+SEMI = ';'
+SPACE = ' '
 
 # Configuration and runtime parameter candidates:
 BINDER_AT = pathlib.Path('etc') / 'bind.txt'
@@ -58,6 +62,9 @@ CHILDREN = 'children'
 ENUMERATE = 'enumerate'
 LABEL = 'label'
 TOC = 'toc'
+
+CITE_COSMETICS_TEMPLATE = '**\\[**<span id="$label$" class="anchor"></span>**$code$\\]** $text$'
+CITATION_SOURCES = ('introduction-03-normative-references.md', 'introduction-04-informative-references.md')
 
 # Type declarations:
 META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
@@ -140,6 +147,46 @@ def main(argv: list[str]) -> int:
             meta_hooks[len(lines) + len(part_lines) - 1] = {}
             if first_meta_slot is None:
                 first_meta_slot = len(lines) + len(part_lines) - 1
+
+        if resource.name in CITATION_SOURCES:  # TODO: citation management -> class
+            print(f'patching citations from {resource}')
+            patched = []
+            in_citation = False
+            for line in part_lines:
+                if line.startswith(HASH):
+                    patched.append(line)
+                    continue
+                if line.strip() and not line.startswith(COLON):
+                    # the term -> citation code, the visible text in the square brackets
+                    in_citation = True
+                    # prepare the data triplet
+                    code = line.strip()
+                    label = code.replace(COLON, SEMI).rstrip('™')
+                    text = ''
+                    continue
+                if in_citation:
+                    print(line, end='')
+                    if line.startswith(COLON):
+                        text += line.lstrip(COLON).strip()
+                        continue
+                    if line.strip():
+                        text += SPACE + line.strip()
+                        continue
+                    if not line.strip():
+                        citation = (
+                            CITE_COSMETICS_TEMPLATE.replace('$label$', label)
+                            .replace('$code$', code)
+                            .replace('$text$', text)
+                            + NL
+                        )
+                        in_citation = False
+                        patched.append(citation)
+                        patched.append(line)
+                        continue
+                else:
+                    patched.append(line)
+            part_lines = [a for a in patched]
+
         lines.extend(part_lines)
 
     # TODO: counter management -> class
