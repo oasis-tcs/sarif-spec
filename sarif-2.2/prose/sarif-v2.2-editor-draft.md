@@ -764,33 +764,33 @@ For purposes of this document, the following terms and definitions apply:
 <span id="def;external-property-file" class="anchor"></span>**external property file**
 - file containing the values of one or more [externalized properties](def;externalized-property)
 
-<span id="def;externalizable-property" class="anchor">**externalizable property**
+<span id="def;externalizable-property" class="anchor"></span>**externalizable property**
 - property that can be contained in an [external property file](def;external-property-file)
 
 <span id="def;externalized-property" class="anchor"></span>**externalized property**
 - property stored outside of the [SARIF log file](def;log-file) to which it logically belongs
 
-<span id="def;false-positive" class="anchor">**false positive**
+<span id="def;false-positive" class="anchor"></span>**false positive**
 - [result](def;result) which an [end user](def;end-user) decides does not actually represent a [problem](def;problem)
 
-<span id="def;fingerprint" class="anchor">**fingerprint**
+<span id="def;fingerprint" class="anchor"></span>**fingerprint**
 - [stable value](def;stable-value) that can be used by a [result management system](def;result-management-system) to uniquely identify a [result](def;result) over time, even if a relevant [artifact](#def-artifact) is modified
 
 <span id="def;fully-qualified-logical-name" class="anchor"></span>**formatted message**
 - [message string](def;message-string) which contains formatting information such as Markdown formatting characters
 
-<span id="def;fully-qualified-logical-name" class="anchor">**fully qualified logical name**
+<span id="def;fully-qualified-logical-name" class="anchor"></span>**fully qualified logical name**
 - string that fully identifies the programmatic construct specified by a [logical location](def;logical-location), typically by means of a hierarchical identifier.
 
     Example: The fully qualified logical name of the C# method `f(void)` in class `C` in namespace `N` is `"N.C.f(void)"`. Its [logical name](def;logical-name) is `"f(void)"`.
 
-<span id="def;hierarchical-string" class="anchor">**hierarchical string**
+<span id="def;hierarchical-string" class="anchor"></span>**hierarchical string**
 - string in the format `<component>{/<component>}*`
 
 <span id="def;line" class="anchor"></span>**line**
 - contiguous sequence of characters, starting either at the beginning of an [artifact](def;artifact) or immediately after a [newline sequence](def;newline-sequence), and ending at and including the nearest subsequent newline sequence, if one is present, or else extending to the end of the artifact
 
-<span id="def;line-number" class="anchor">**line (number)**
+<span id="def;line-number" class="anchor"></span>**line (number)**
 - 1-based index of a line within a file
 
     NOTE: Abbreviated to "line" when there is no danger of ambiguity with "[line](def;line)" in the sense of a sequence of characters.
@@ -820,7 +820,7 @@ For purposes of this document, the following terms and definitions apply:
 <span id="def;nested-artifact" class="anchor"></span>**nested artifact**
 - [artifact](def;artifact) that is contained within another artifact
 
-<span id="def;nested-logical-location" class="anchor">**nested logical location**
+<span id="def;nested-logical-location" class="anchor"></span>**nested logical location**
 - [logical location](def;logical-location) that is contained within another logical location
 
     Example: A method within a class in C++
@@ -833,22 +833,22 @@ For purposes of this document, the following terms and definitions apply:
 <span id="def;notification" class="anchor"></span>**notification**
 - [reporting item](def;reporting-item) that describes a condition encountered by a [tool](def;static-analysis-tool) during its execution
 
-<span id="def;opaque" class="anchor">**opaque**
+<span id="def;opaque" class="anchor"></span>**opaque**
 - neither human-readable nor machine-parseable into constituent parts
 
-<span id="def;parent-artifact" class="anchor">**parent (artifact)**
+<span id="def;parent-artifact" class="anchor"></span>**parent (artifact)**
 - [artifact](def;artifact) which contains one or more [nested artifacts](def;nested-artifact)
 
-<span id="def;physical-location" class="anchor">**physical location**
+<span id="def;physical-location" class="anchor"></span>**physical location**
 - location specified by reference to an [artifact](def;artifact), possibly together with a [region](#def-region) within that artifact
 
-<span id="def;plain-text-message" class="anchor">**plain text message**
+<span id="def;plain-text-message" class="anchor"></span>**plain text message**
 - [message string](def;message-string) which does not contain any formatting information
 
 <span id="def;plugin" class="anchor"></span>**plugin**
 - [tool component](def;tool-component) that defines additional [rules](def;rule)
 
-<span id="def;policy" class="anchor">**policy**
+<span id="def;policy" class="anchor"></span>**policy**
 - set of [rule configurations](def;rule-configuration) that specify how [results](def;result) that violate the [rules](#def-rule) defined by a particular [tool component](def;tool-component) are to be treated
 
 <span id="def;problem" class="anchor"></span>**problem**
