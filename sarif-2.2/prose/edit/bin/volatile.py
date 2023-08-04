@@ -7,6 +7,7 @@ sources and build the delivery items.
 Currently impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
 """
 import pathlib
+import re
 import sys
 from typing import Union
 
@@ -22,6 +23,13 @@ BINDER_AT = pathlib.Path('etc') / 'bind.txt'
 SOURCE_AT = pathlib.Path('src')
 BUILD_AT = pathlib.Path('build')
 
+# Parsers and magical literals:
+IS_CITE_REF = 'cite'
+CITE_REF_DETECT = re.compile(r'\\\[\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)\\\]')  # \[[ref](#label)\] pattern
+IS_SEC_REF = 'sec'
+SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)')  # [ref](#label) pattern
+
+
 # Specific tokens:
 HC_BEG = '<!--'
 HC_END = '-->'
@@ -32,6 +40,8 @@ TOK_LAB = '{#'
 H = '#'
 TOC_HEADER = """Table of Contents
 """
+
+SEC_LABEL_TEXT = {}  # Mapping section labels to the display text
 
 TOC_TEMPLATE = {
     1: '$sec_cnt_disp$ [$text$](#$label$)  ',
@@ -103,6 +113,11 @@ def label_derive_from(text: str) -> str:
     return slug.lower()
 
 
+def label_in(text: str) -> bool:
+    """Detect if the text line contains a label."""
+    return '](#' in text
+
+
 def main(argv: list[str]) -> int:
     """Drive the assembly."""
 
@@ -141,11 +156,13 @@ def main(argv: list[str]) -> int:
     for slot, line in enumerate(lines):
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
+        is_plain = True  # No special meta data needed
         for tag in sec_cnt:
             if line.startswith(tag):
                 # manage counter
                 if not meta_hook:
                     # auto counters
+                    is_plain = True
                     nxt_lvl = sec_lvl[tag]
                     sec_cnt[tag] += 1
                     if nxt_lvl < cur_lvl:
@@ -164,6 +181,7 @@ def main(argv: list[str]) -> int:
                         sec_cnt_disp += FULL_STOP
                 else:
                     # pull in counters from meta
+                    is_plain = False
                     app_lvl = 1  # belt and braces ...
                     text = line.split(tag, 1)[1].rstrip()
                     if TOK_LAB in text:
@@ -187,6 +205,7 @@ def main(argv: list[str]) -> int:
                     text = text.split(TOK_LAB, 1)[0]
                 else:
                     label = label_derive_from(text)
+                SEC_LABEL_TEXT[label] = (f'§{sec_cnt_disp}' if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
 
                 line = tag + text + ' ' + TOK_SEC.replace('$thing$', label)
 
@@ -202,6 +221,44 @@ def main(argv: list[str]) -> int:
                     .replace('$text$', text)
                     .replace('$label$', label)
                 )
+
+    # Process the text display of citation refs
+    for slot, line in enumerate(lines):
+        if label_in(line):
+            for ref in CITE_REF_DETECT.finditer(line):
+                if ref:
+                    # Found citation label in markdown format
+                    found = ref.groupdict()
+                    trigger_text = found['text']
+                    if trigger_text != IS_CITE_REF:
+                        raise RuntimeError(f'false positive cite ref in ({line.rstrip(NL)})')
+                    label = found['label']
+                    text = label.replace(';', ':')
+                    sem_ref = f'\\[[cite](#{label})\\]'
+                    evil_ref = f'\\[[{text}](#{label})\\]'  # \[[GFMCMARK](#GFMCMARK)\]
+                    print('-', f'{resource}:{slot + 1}', sem_ref, '-->', evil_ref)
+                    line = line.replace(sem_ref, evil_ref)
+                    lines[slot] = line
+
+    # Process the text display of section refs TODO
+    for slot, line in enumerate(lines):
+        if label_in(line):
+            for ref in SEC_REF_DETECT.finditer(line):
+                if ref:
+                    # Found section label in markdown format
+                    found = ref.groupdict()
+                    trigger_text = found['text']
+                    if trigger_text != IS_SEC_REF:
+                        raise RuntimeError(f'false positive sec ref in ({line.rstrip(NL)})')
+                    label = found['label']
+                    if label not in SEC_LABEL_TEXT:
+                        raise RuntimeError(f'missing register label for sec ref in ({line.rstrip(NL)})')
+                    text = SEC_LABEL_TEXT[label]
+                    sem_ref = f'[sec](#{label})'
+                    evil_ref = f'[{text}](#{label})'  # [GFMCMARK](#GFMCMARK)
+                    print('-', f'{resource}:{slot + 1}', sem_ref, '-->', evil_ref)
+                    line = line.replace(sem_ref, evil_ref)
+                    lines[slot] = line
 
     tic_toc.append(NL)
     # Inject the table of contents:
