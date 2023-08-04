@@ -26,7 +26,7 @@ A `fix` object represents a proposed fix for the problem indicated by `theResult
 
 ### description property{#fix-object--description-property}
 
-A `fix` object **SHOULD** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the proposed fix.
+A `fix` object **SHOULD** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the proposed fix.
 
 > NOTE: The purpose of the `description` property is to enable a SARIF viewer to present the proposed fix to the end user.
 
@@ -43,7 +43,7 @@ A `fix` object **SHOULD** contain a property named `description` whose value is 
 
 ### artifactChanges property
 
-A `fix` object **SHALL** contain a property named `artifactChanges` whose value is an array of one or more unique ([§3.7.3](#array-properties-with-unique-values)) `artifactChange` objects ([§3.56](#artifactchange-object)) each of which describes the changes to a single artifact that are necessary to effect the fix.
+A `fix` object **SHALL** contain a property named `artifactChanges` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) `artifactChange` objects ([sec](#artifactchange-object)) each of which describes the changes to a single artifact that are necessary to effect the fix.
 
 > NOTE: `artifactChanges` is an array because a fix might require changes to multiple artifacts.
 

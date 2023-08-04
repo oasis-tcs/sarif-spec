@@ -23,7 +23,7 @@ This Appendix contains examples of complete, valid SARIF files, to complement th
 
 This is a minimal valid SARIF log file. It contains only those elements required by this document (elements which the document states **SHALL** be present).
 
-The file contains a single `run` object ([§3.14](#run-object)) with an empty `results` array ([§3.14.23](#results-property)), as would happen if the tool detected no issues in any of the artifacts it scanned.
+The file contains a single `run` object ([sec](#run-object)) with an empty `results` array ([sec](#results-property)), as would happen if the tool detected no issues in any of the artifacts it scanned.
 
 ```json
 {
@@ -48,13 +48,13 @@ This is a minimal recommended SARIF log file for the case where an analysis tool
 
 The file contains those elements recommended by this document (elements which the document states "**SHOULD**" be present), in addition to the required elements.
 
-The file contains a single `run` object ([§3.14](#run-object)) with a `results` array ([§3.14.23](#results-property)). The results array contains a single `result` object ([§3.27](#result-object)) so the recommended elements of the `result` object can be shown.
+The file contains a single `run` object ([sec](#run-object)) with a `results` array ([sec](#results-property)). The results array contains a single `result` object ([sec](#result-object)) so the recommended elements of the `result` object can be shown.
 
-Its `run.artifacts` property ([§3.14.15](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
+Its `run.artifacts` property ([sec](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
 
-It does not contain a `run.logicalLocations` property ([§3.14.17](#run-object--logicallocations-property)), because when physical location information is available, that property is optional (it "**MAY**" be present).
+It does not contain a `run.logicalLocations` property ([sec](#run-object--logicallocations-property)), because when physical location information is available, that property is optional (it "**MAY**" be present).
 
-This example also includes a `toolComponent.rules` property ([§3.19.23](#rules-property)) containing rule metadata, even though rule metadata is optional, to show how a SARIF log file can be self-contained, in the sense of containing all the information necessary to interpret the results.
+This example also includes a `toolComponent.rules` property ([sec](#rules-property)) containing rule metadata, even though rule metadata is optional, to show how a SARIF log file can be self-contained, in the sense of containing all the information necessary to interpret the results.
 
 ```json
 {
@@ -131,11 +131,11 @@ This is a minimal recommended SARIF file for the case where an analysis tool pro
 
 The file contains those elements recommended by this document (elements which the document states "**SHOULD**" be present), in addition to the required elements.
 
-The file contains a single `run` object ([§3.14](#run-object)) with a `results` array ([§3.14.23](#results-property)). The results array contains a single `result` object ([§3.27](#result-object)) so the recommended elements of the `result` object can be shown.
+The file contains a single `run` object ([sec](#run-object)) with a `results` array ([sec](#results-property)). The results array contains a single `result` object ([sec](#result-object)) so the recommended elements of the `result` object can be shown.
 
-Its `run.artifacts` property ([§3.14.15](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
+Its `run.artifacts` property ([sec](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
 
-It contains a `run.logicalLocations` property ([§3.14.17](#run-object--logicallocations-property)), because when physical location information is not available, that property is recommended.
+It contains a `run.logicalLocations` property ([sec](#run-object--logicallocations-property)), because when physical location information is not available, that property is recommended.
 
 ```json
 {

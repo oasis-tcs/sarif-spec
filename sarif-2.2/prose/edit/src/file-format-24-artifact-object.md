@@ -6,21 +6,21 @@ An `artifact` object represents a single artifact.
 
 ### location property{#artifact-object--location-property}
 
-Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `location` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)).
+Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `location` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)).
 
 If the `artifact` object represents a top-level artifact, then `location` **SHALL** be present.
 
-If the `artifact` object represents a nested artifact whose location relative to the root of its parent can be expressed only by means of a path, then `location` **SHALL** be present, and the value of its `uri` property **SHALL** be a relative reference \[[RFC3986](#RFC3986)\] beginning with `"/"` expressing that path.
+If the `artifact` object represents a nested artifact whose location relative to the root of its parent can be expressed only by means of a path, then `location` **SHALL** be present, and the value of its `uri` property **SHALL** be a relative reference \[[cite](#RFC3986)\] beginning with `"/"` expressing that path.
 
 If the `artifact` object represents a nested artifact whose location within its parent can be expressed only by a byte offset from the start of the parent, and not by means of a path, then `location` **SHALL NOT** be present.
 
-If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `location` **MAY** be present; if it is absent, then `offset` ([§3.24.4](#offset-property)) **SHALL** be present. If `location` is present, the value of its `uri` property **SHALL** be a relative reference expressing the path of the nested artifact within the parent.
+If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `location` **MAY** be present; if it is absent, then `offset` ([sec](#offset-property)) **SHALL** be present. If `location` is present, the value of its `uri` property **SHALL** be a relative reference expressing the path of the nested artifact within the parent.
 
-For an example, see [§3.24.3](#artifact-object--parentindex-property).
+For an example, see [sec](#artifact-object--parentindex-property).
 
 ### parentIndex property{#artifact-object--parentindex-property}
 
-If this `artifact` object represents a nested artifact, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([§3.7.4](#array-indices)) of the parent artifact's `artifact` object within `theRun.artifacts` ([§3.14.15](#artifacts-property)).
+If this `artifact` object represents a nested artifact, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([sec](#array-indices)) of the parent artifact's `artifact` object within `theRun.artifacts` ([sec](#artifacts-property)).
 
 If this `artifact` object represents a top-level artifact, then `parentIndex` **SHALL** be absent.
 
@@ -63,7 +63,7 @@ If the `artifact` object represents a nested artifact whose location relative to
 
 If the `artifact` object represents a nested artifact whose location within its parent can only be expressed by means of a path, and not by means of a byte offset from the start of the parent, then `offset` **SHALL NOT** be present.
 
-If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `offset` **MAY** be present; if it is absent, then `location` ([§3.24.2](#artifact-object--location-property)) **SHALL** be present. If `offset` is present, its value **SHALL** be that byte offset.
+If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `offset` **MAY** be present; if it is absent, then `location` ([sec](#artifact-object--location-property)) **SHALL** be present. If `offset` is present, its value **SHALL** be that byte offset.
 
 ### length property{#artifact-object--length-property}
 
@@ -73,13 +73,13 @@ If `length` is absent, it **SHALL** default to -1, which indicates that the valu
 
 ### roles property
 
-An `artifact` object **MAY** contain a property named `roles` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) strings each of which specifies a role that this artifact played in the analysis.
+An `artifact` object **MAY** contain a property named `roles` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings each of which specifies a role that this artifact played in the analysis.
 
 Each array element **SHALL** have one of the following values, with the specified meanings:
 
 - `"analysisTarget"`: The analysis tool was instructed to scan this artifact.
 
-- `"attachment"`: The artifact is an attachment mentioned in `result.attachments` ([§3.27.26](#attachments-property)).
+- `"attachment"`: The artifact is an attachment mentioned in `result.attachments` ([sec](#attachments-property)).
 
 - `"conversionSource"`: The artifact is an output from an analysis tool in a non-SARIF format that was converted to SARIF.
 
@@ -89,15 +89,15 @@ Each array element **SHALL** have one of the following values, with the specifie
 
     NOTE 1: URIs do not represent "directories" in the file system sense. Even if the URI `https://www.example.com/dir/file` addresses a resource, the URI `https://www.example.com/dir` might also address a resource. Nonetheless, if the analysis tool knows that `https://www.example.com/dir` is not itself a resource, but only a prefix for other URIs that *are* resources, it is appropriate for the tool to mark `https://www.example.com/dir` with the `"directory"` role.
 
-- `"driver"`: The file belongs to the analysis tool’s driver ([§3.18.2](#driver-property)).
+- `"driver"`: The file belongs to the analysis tool’s driver ([sec](#driver-property)).
 
-- `"extension"`: The file belongs to one of the analysis tool’s extensions ([§3.18.3](#extensions-property)).
+- `"extension"`: The file belongs to one of the analysis tool’s extensions ([sec](#extensions-property)).
 
-- `"externalPropertyFile"`: The artifact is an external property file ([§4](#external-property-file-format)).
+- `"externalPropertyFile"`: The artifact is an external property file ([sec](#external-property-file-format)).
 
 - `"memoryContents"`: The artifact contains the contents of a portion of memory.
 
-- `"policy"`: The file belongs to a policy ([§3.19.5](#policies)).
+- `"policy"`: The file belongs to a policy ([sec](#policies)).
 
 - `"referencedOnCommandLine"`: The artifact was referenced on the command line.
 
@@ -105,27 +105,27 @@ Each array element **SHALL** have one of the following values, with the specifie
 
     NOTE 2: A single run might analyze files from multiple repositories.
 
-- `"responseFile"`: The artifact contains command line arguments to a program, as specified in `invocation.responseFiles` ([§3.20.4](#responsefiles-property)).
+- `"responseFile"`: The artifact contains command line arguments to a program, as specified in `invocation.responseFiles` ([sec](#responsefiles-property)).
 
 - `"resultFile"`: A result was detected in this artifact (which the analysis tool was not explicitly instructed to scan).
 
     NOTE 3: For example, a scanner might be configured to analyze a C source file and find a result in a header file that it includes. The header file may be marked with the `"resultFile"` role. The C file should be marked with the `"analysisTarget"` role, however, as it was explicitly configured as a scan target.
 
-- `"standardStream"`: The artifact contains the contents of one of the standard input or output streams, as specified in `invocation.stdin`, `invocation.stdout`, `invocation.stderr`, or `invocation.stdoutStderr` ([§3.20.23](#stdin-stdout-stderr-and-stdoutstderr-properties)).
+- `"standardStream"`: The artifact contains the contents of one of the standard input or output streams, as specified in `invocation.stdin`, `invocation.stdout`, `invocation.stderr`, or `invocation.stdoutStderr` ([sec](#stdin-stdout-stderr-and-stdoutstderr-properties)).
 
-- `"taxonomy"`: The file belongs to a taxonomy ([§3.19.3](#taxonomies)).
+- `"taxonomy"`: The file belongs to a taxonomy ([sec](#taxonomies)).
 
 - `"toolSpecifiedConfiguration"`: The artifact is a configuration file provided by the tool.
 
 - `"tracedFile"`: The analysis tool traced through this artifact while executing or simulating the execution of the code under test.
 
-- `"translation"`: The file belongs to a translation ([§3.19.4](#translations)).
+- `"translation"`: The file belongs to a translation ([sec](#translations)).
 
 - `"userSpecifiedConfiguration"`: The artifact is a configuration file provided by the user.
 
 > The following role values denote artifacts that have changed since some previous time which we refer to as the "baseline time."
 >
-> A SARIF producer **MAY** determine the baseline time in any way. (For example, if `theRun.baselineGuid` ([§3.14.5](#baselineguid-property)) is present, the tool might use its start time as the baseline time. Alternatively, the tool might use version control information, such as the time of some commit before the one being analyzed.)
+> A SARIF producer **MAY** determine the baseline time in any way. (For example, if `theRun.baselineGuid` ([sec](#baselineguid-property)) is present, the tool might use its start time as the baseline time. Alternatively, the tool might use version control information, such as the time of some commit before the one being analyzed.)
 
 - `"added"`: The artifact was added after the baseline time.
 
@@ -143,17 +143,17 @@ Each array element **SHALL** have one of the following values, with the specifie
 
 ### mimeType property
 
-An `artifact` object **MAY** contain a property named `mimeType` whose value is a string that specifies the artifact’s MIME type \[[RFC2045](#RFC2045)\]. For information about the use of mimeType by SARIF viewers, see Appendix C.
+An `artifact` object **MAY** contain a property named `mimeType` whose value is a string that specifies the artifact’s MIME type \[[cite](#RFC2045)\]. For information about the use of mimeType by SARIF viewers, see Appendix C.
 
 ### contents property{#artifact-object--contents-property}
 
-An `artifact` object **MAY** contain a property named contents whose value is an `artifactContent` object ([§3.3](#artifactcontent-object)) representing the entire contents of the artifact.
+An `artifact` object **MAY** contain a property named contents whose value is an `artifactContent` object ([sec](#artifactcontent-object)) representing the entire contents of the artifact.
 
 ### encoding property
 
-If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value is a case-sensitive string that specifies the artifact’s text encoding. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA-ENC)\].
+If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value is a case-sensitive string that specifies the artifact’s text encoding. The string **SHALL** be one of the character set names defined by IANA \[[cite](#IANA-ENC)\].
 
-If the `artifact` object represents a text artifact and this property is absent, it **SHALL** default to the value of `theRun.defaultEncoding` ([§3.14.24](#defaultencoding-property)), if that property is present; otherwise, the artifact’s encoding **SHALL** be taken to be unknown.
+If the `artifact` object represents a text artifact and this property is absent, it **SHALL** default to the value of `theRun.defaultEncoding` ([sec](#defaultencoding-property)), if that property is present; otherwise, the artifact’s encoding **SHALL** be taken to be unknown.
 
 If the `artifact` object represents a binary artifact, `encoding` **SHALL** be absent.
 
@@ -185,11 +185,11 @@ If the `artifact` object represents a binary artifact, `encoding` **SHALL** be a
 
 #### General{#sourcelanguage-property--general}
 
-If an `artifact` object represents a text artifact that contains source code, it **MAY** contain a property named `sourceLanguage` whose value is a hierarchical string ([§3.5.4](#hierarchical-strings)) that specifies the programming language in which the source code is written. If the `artifact` object does not represent a text artifact containing source code, `sourceLanguage` **SHALL** be absent.
+If an `artifact` object represents a text artifact that contains source code, it **MAY** contain a property named `sourceLanguage` whose value is a hierarchical string ([sec](#hierarchical-strings)) that specifies the programming language in which the source code is written. If the `artifact` object does not represent a text artifact containing source code, `sourceLanguage` **SHALL** be absent.
 
 For the remainder of this section, we assume that the `artifact` object represents a text artifact that contains source code.
 
-> NOTE 1: This property is intended to help SARIF viewers to render code snippets ([§3.30.13](#snippet-property)) with appropriate syntax coloring.
+> NOTE 1: This property is intended to help SARIF viewers to render code snippets ([sec](#snippet-property)) with appropriate syntax coloring.
 
 If the artifact contains source code in a mix of languages, and if it is possible to identify one of those languages as the "primary" language of the artifact, then `sourceLanguage` **SHALL** specify that language.
 
@@ -199,9 +199,9 @@ If the artifact contains source code in a mix of languages, and if it is possibl
 
 If it is not possible to identify a primary language, `sourceLanguage` **MAY** specify any language used in the artifact, or it **MAY** be absent.
 
-> NOTE 3: In either case, it is possible to specify a source language for any region by using `region.sourceLanguage` (see [§3.30.15](#region-object--sourcelanguage-property)).
+> NOTE 3: In either case, it is possible to specify a source language for any region by using `region.sourceLanguage` (see [sec](#region-object--sourcelanguage-property)).
 
-If `sourceLanguage` is absent, it **SHALL** default to the value of `theRun.defaultSourceLanguage` ([§3.14.25](#defaultsourcelanguage-property)). If both `artifact.sourceLanguage` and `theRun.defaultSourceLanguage` are absent, the artifact’s source language **SHALL** be taken to be unknown. In that case, a SARIF viewer **MAY** use any method or heuristic to determine the artifact’s source language, for example, by examining its file name extension or MIME type, or by prompting the user.
+If `sourceLanguage` is absent, it **SHALL** default to the value of `theRun.defaultSourceLanguage` ([sec](#defaultsourcelanguage-property)). If both `artifact.sourceLanguage` and `theRun.defaultSourceLanguage` are absent, the artifact’s source language **SHALL** be taken to be unknown. In that case, a SARIF viewer **MAY** use any method or heuristic to determine the artifact’s source language, for example, by examining its file name extension or MIME type, or by prompting the user.
 
 #### Source language identifier conventions and practices
 
@@ -225,11 +225,11 @@ To maximize interoperability, SARIF producers and consumers **SHOULD** conform t
 
   - Compare source language identifiers case-insensitively.
 
-[Appendix I](#informative-sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
+[sec](#informative-sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
 
 ### hashes property
 
-An `artifact` object **MAY** contain a property named `hashes` whose value is a non-empty object ([§3.6](#object-properties)) each of whose property names specifies the name of a hash function, and each of whose property values represents the value produced by that hash function.
+An `artifact` object **MAY** contain a property named `hashes` whose value is a non-empty object ([sec](#object-properties)) each of whose property names specifies the name of a hash function, and each of whose property values represents the value produced by that hash function.
 
 > EXAMPLE: In this example, each of the hash functions SHA-256 and SHA-512 were used to compute hash values for the file.
 > 
@@ -242,7 +242,7 @@ An `artifact` object **MAY** contain a property named `hashes` whose value is a 
 > }
 > ```
 
-To maximize interoperability, the property names **SHOULD** appear in the IANA registry of hash function textual names \[[IANA-HASH](#IANA-HASH)\]. SARIF consumers that need to verify hash values **SHOULD** be able to compute any hash function whose name appears in the IANA registry.
+To maximize interoperability, the property names **SHOULD** appear in the IANA registry of hash function textual names \[[cite](#IANA-HASH)\]. SARIF consumers that need to verify hash values **SHOULD** be able to compute any hash function whose name appears in the IANA registry.
 
 The object **SHOULD** contain a property named `"sha-256"`. SARIF consumers that need to verify hash values **SHALL** be able to compute a SHA-256 hash.
 
@@ -266,10 +266,10 @@ Each property value **SHALL** be a string representation of the hash digest of t
 
 ### lastModifiedTimeUtc property
 
-An `artifact` object **MAY** contain a property named `lastModifiedTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the artifact was most recently modified.
+An `artifact` object **MAY** contain a property named `lastModifiedTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the artifact was most recently modified.
 
-> NOTE: In scenarios where a tool has analyzed files on a network file share or on a local disk, an engineering system might use this property, rather than `hashes` ([§3.24.11](#hashes-property)), as the most lightweight mechanism to determine whether the analysis needs to be repeated.
+> NOTE: In scenarios where a tool has analyzed files on a network file share or on a local disk, an engineering system might use this property, rather than `hashes` ([sec](#hashes-property)), as the most lightweight mechanism to determine whether the analysis needs to be repeated.
 
 ### description property{#artifact-object--description-property}
 
-An `artifact` object **MAY** have a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the artifact.
+An `artifact` object **MAY** have a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the artifact.

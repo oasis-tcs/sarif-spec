@@ -2,19 +2,19 @@
 
 ### General{#notification-object--general}
 
-A `notification` object describes a condition encountered during the execution of an analysis tool which is relevant to the operation of the tool itself, as opposed to being relevant to an artifact being analyzed by the tool. Conditions relevant to artifacts being analyzed by a tool are represented by `result` objects ([§3.27](#result-object)).
+A `notification` object describes a condition encountered during the execution of an analysis tool which is relevant to the operation of the tool itself, as opposed to being relevant to an artifact being analyzed by the tool. Conditions relevant to artifacts being analyzed by a tool are represented by `result` objects ([sec](#result-object)).
 
 ### descriptor property{#notification-object--descriptor-property}
 
-A `notification` object **SHOULD** contain a property named `descriptor` whose value is a `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) that identifies this notification.
+A `notification` object **SHOULD** contain a property named `descriptor` whose value is a `reportingDescriptorReference` object ([sec](#reportingdescriptorreference-object)) that identifies this notification.
 
-If the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) `theDescriptor` to which `descriptor` refers exists (that is, if `theTool` contains a `reportingDescriptor` object that describes this notification), then `descriptor` **SHOULD** refer to `theDescriptor`.
+If the `reportingDescriptor` object ([sec](#reportingdescriptor-object)) `theDescriptor` to which `descriptor` refers exists (that is, if `theTool` contains a `reportingDescriptor` object that describes this notification), then `descriptor` **SHOULD** refer to `theDescriptor`.
 
 > NOTE: If `theDescriptor` exists but `descriptor` does not refer to it, a SARIF consumer will not be able to locate the metadata for this notification.
 
 ### associatedRule property
 
-If the condition described by the `notification` object is relevant to a particular analysis rule, the `notification` object **SHOULD** contain a property named `associatedRule` whose value is a `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) that identifies the rule.
+If the condition described by the `notification` object is relevant to a particular analysis rule, the `notification` object **SHOULD** contain a property named `associatedRule` whose value is a `reportingDescriptorReference` object ([sec](#reportingdescriptorreference-object)) that identifies the rule.
 
 > EXAMPLE: In this example, there is more than one rule with id `CA1711`. `associatedRule.index` uniquely specifies the relevant rule.
 > 
@@ -59,11 +59,11 @@ If the condition described by the `notification` object is relevant to a particu
 
 ### locations property{#notification-object--locations-property}
 
-If the condition described by the `notification` object is relevant to one or more locations, the `notification` object **MAY** contain a property named `locations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `location` objects ([§3.28](#location-object)) that identify those locations.
+If the condition described by the `notification` object is relevant to one or more locations, the `notification` object **MAY** contain a property named `locations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `location` objects ([sec](#location-object)) that identify those locations.
 
 ### message property{#notification-object--message-property}
 
-A `notification` object **SHALL** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) that describes the condition that was encountered. See [§3.11.7](#message-string-lookup) for the procedure for looking up a message string from a `message` object, in particular, for the case where the `message` object occurs as the value of `notification.message`.
+A `notification` object **SHALL** contain a property named `message` whose value is a `message` object ([sec](#message-object)) that describes the condition that was encountered. See [sec](#message-string-lookup) for the procedure for looking up a message string from a `message` object, in particular, for the case where the `message` object occurs as the value of `notification.message`.
 
 ### level property{#notification-object--level-property}
 
@@ -79,7 +79,7 @@ If present, the `level` property **SHALL** have one of the following values, wit
 
 - `"none"`: This is a trace notification (typically, debug output from the tool).
 
-If `level` is absent, it **SHALL** default to the value determined by the procedure defined for `result.level` ([§3.27.10](#result-object--level-property)), except throughout the procedure, replace `ruleConfigurationOverrides` with `notificationConfigurationOverrides`.
+If `level` is absent, it **SHALL** default to the value determined by the procedure defined for `result.level` ([sec](#result-object--level-property)), except throughout the procedure, replace `ruleConfigurationOverrides` with `notificationConfigurationOverrides`.
 
 Analysis tools **SHOULD** treat notifications whose `level` property is `"error"` as failures and treat the entire run as having failed (for example, by settings the exit code to the value that the tool uses to indicate failure, typically a non-zero value).
 
@@ -91,10 +91,10 @@ A `notification` object **MAY** contain a property named `threadId` whose value 
 
 ### timeUtc property
 
-A `notification` object **MAY** contain a property named `timeUtc` whose value is a string in the format specified [§3.9](#datetime-properties), specifying the UTC date and time at which the analysis tool generated the notification.
+A `notification` object **MAY** contain a property named `timeUtc` whose value is a string in the format specified [sec](#datetime-properties), specifying the UTC date and time at which the analysis tool generated the notification.
 
 ### exception property
 
-If the notification is a result of a runtime exception, the `notification` object **MAY** contain a property named `exception` whose value is an `exception` object ([§3.59](#exception-object)).
+If the notification is a result of a runtime exception, the `notification` object **MAY** contain a property named `exception` whose value is an `exception` object ([sec](#exception-object)).
 
 If the notification is not the result of a runtime exception, the `exception` property **SHALL** be absent.

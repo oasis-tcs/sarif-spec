@@ -6,7 +6,7 @@ A `multiformatMessageString` object groups together all available textual format
 
 ### Localizable multiformatMessageStrings
 
-Certain `multiformatMessageString`-valued properties in this document, for example, `reportingDescriptor.shortDescription` ([§3.49.9](#reportingdescriptor-object--shortdescription-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
+Certain `multiformatMessageString`-valued properties in this document, for example, `reportingDescriptor.shortDescription` ([sec](#reportingdescriptor-object--shortdescription-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
 
 ### text property{#multiformatmessagestring-object--text-property}
 
@@ -16,6 +16,6 @@ A `multiformatMessageString` object **SHALL** contain a property named `text` wh
 
 ### markdown property{#multiformatmessagestring-object--markdown-property}
 
-A `multiformatMessageString` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([§3.11.4](#formatted-messages)) expressed in GitHub-Flavored Markdown \[[GFM](#GFM)\].
+A `multiformatMessageString` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([sec](#formatted-messages)) expressed in GitHub-Flavored Markdown \[[cite](#GFM)\].
 
-SARIF consumers that cannot (or choose not to) render formatted text **SHALL** ignore the `markdown` property and use the `text` property ([§3.12.3](#multiformatmessagestring-object--text-property)) instead.
+SARIF consumers that cannot (or choose not to) render formatted text **SHALL** ignore the `markdown` property and use the `text` property ([sec](#multiformatmessagestring-object--text-property)) instead.

@@ -18,4 +18,4 @@ There are various reasons why a viewer might need to know the type of informatio
 
 - If the result occurs in a source file that is nested within (for example) a compressed container file, then the viewer needs to know the file type of the container so that it can extract the source file.
 
-There are various ways that a viewer might obtain file type information. In the SARIF format, the `mimeType` ([§3.24.7](#mimetype-property)) and `sourceLanguage` ([§3.24.10](#artifact-object--sourcelanguage-property)) properties of the `artifact` object ([§3.24](#artifact-object)) provides this information. In the absence of these properties, a viewer can fall back to examining the filename extension, for example ".c".
+There are various ways that a viewer might obtain file type information. In the SARIF format, the `mimeType` ([sec](#mimetype-property)) and `sourceLanguage` ([sec](#artifact-object--sourcelanguage-property)) properties of the `artifact` object ([sec](#artifact-object)) provides this information. In the absence of these properties, a viewer can fall back to examining the filename extension, for example ".c".

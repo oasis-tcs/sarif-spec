@@ -4,7 +4,7 @@
 
 A `logicalLocation` object describes a logical location. A logical location is a location specified by a programmatic construct such as a namespace, a type, or a method, without regard to the physical location where the construct occurs.
 
-`logicalLocation` objects occur in two places: as array elements of `run.logicalLocations` ([§3.14.17](#run-object--logicallocations-property)) and as array elements of `location.logicalLocations` ([§3.28.4](#location-object--logicallocations-property)).
+`logicalLocation` objects occur in two places: as array elements of `run.logicalLocations` ([sec](#run-object--logicallocations-property)) and as array elements of `location.logicalLocations` ([sec](#location-object--logicallocations-property)).
 
 ### Logical location naming rules
 
@@ -16,7 +16,7 @@ Whenever possible, logical names and fully qualified logical names **SHOULD** co
 
 This is not always possible, for two reasons:
 
-- For certain values of `logicalLocation.kind` ([§3.33.7](#logicallocation-object--kind-property)), there is no language syntax to specify the fully qualified name.
+- For certain values of `logicalLocation.kind` ([sec](#logicallocation-object--kind-property)), there is no language syntax to specify the fully qualified name.
 
 > EXAMPLE 2: Suppose the logical location is the local variable `pBuffer` in the C++ method `"N::C::f(void)"`. `logicalLocation.kind` is `"variable"`. There is no way to express the fully qualified name in C++. The SARIF producer might choose a fully qualified name such as `"N::C::f(void)?pBuffer"`.
 
@@ -36,7 +36,7 @@ This is not always possible, for two reasons:
 
 ### index property{#logicallocation-object--index-property}
 
-Depending on the circumstances, a `logicalLocation` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.logicalLocations` ([§3.14.17](#run-object--logicallocations-property)) of a `logicalLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.logicalLocations` as the "cached object."
+Depending on the circumstances, a `logicalLocation` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.logicalLocations` ([sec](#run-object--logicallocations-property)) of a `logicalLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.logicalLocations` as the "cached object."
 
 If `thisObject` is an element of `theRun.logicalLocations`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.logicalLocations`.
 
@@ -48,15 +48,15 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 1: This allows a SARIF producer to reduce the size of the log file by reusing the same `logicalLocation` object in multiple results.
 
-> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [§3.38.2](#threadflowlocation-object--index-property).
+> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [sec](#threadflowlocation-object--index-property).
 
 ### name property{#logicallocation-object--name-property}
 
 A `logicalLocation` object **SHOULD** contain a property named `name` whose value is the logical name of the programmatic construct specified by this object. For example, this property might contain the name of a class or a method.
 
-The `name` property **SHALL** be suitable for display and **SHALL** follow the naming rules for logical names described in [§3.33.2](#logical-location-naming-rules).
+The `name` property **SHALL** be suitable for display and **SHALL** follow the naming rules for logical names described in [sec](#logical-location-naming-rules).
 
-> NOTE: A C++ analysis tool might have available both the source code form of a function name and the compiler’s "decorated" function name (which encodes the function signature in a manner that is compiler-dependent and not easily readable). The tool would place the source code form of the function name in the `name` property, and the decorated name in the `decoratedName` property ([§3.33.6](#decoratedname-property)).
+> NOTE: A C++ analysis tool might have available both the source code form of a function name and the compiler’s "decorated" function name (which encodes the function signature in a manner that is compiler-dependent and not easily readable). The tool would place the source code form of the function name in the `name` property, and the decorated name in the `decoratedName` property ([sec](#decoratedname-property)).
 
 > EXAMPLE: In this C++ example, the fully qualified name is `"b::c(float)"`, so `"name"` is the rightmost component, `"c(float)"`.
 > 
@@ -70,7 +70,7 @@ The `name` property **SHALL** be suitable for display and **SHALL** follow the n
 
 ### fullyQualifiedName property{#logicallocation-object--fullyqualifiedname-property}
 
-Depending on the circumstances, a `logicalLocation` object either **SHOULD** or **MAY** contain a property named `fullyQualifiedName` whose value is the fully qualified name of the logical location. This name **SHALL** follow the naming rules for fully qualified names described in [§3.33.2](#logical-location-naming-rules).
+Depending on the circumstances, a `logicalLocation` object either **SHOULD** or **MAY** contain a property named `fullyQualifiedName` whose value is the fully qualified name of the logical location. This name **SHALL** follow the naming rules for fully qualified names described in [sec](#logical-location-naming-rules).
 
 If this `logicalLocation` object represents a top-level logical location, then `fullyQualifiedName` **MAY** be present. If present, it **SHALL** equal `name`; if absent, it **SHALL** default to `name`. If this object does not represent a top-level logical location, `fullyQualifiedName` **SHOULD** be present.
 
@@ -131,7 +131,7 @@ It is possible for two or more distinct logical locations to have the same fully
 > 
 > - It allows a SARIF viewer to display the logical location in a way that is easily understood by users.
 > 
-> - As mentioned in [§3.28.1](#location-object--general), `fullyQualifiedName` is also particularly convenient for fingerprinting, although the more detailed information in `run.logicalLocations` could be used instead.
+> - As mentioned in [sec](#location-object--general), `fullyQualifiedName` is also particularly convenient for fingerprinting, although the more detailed information in `run.logicalLocations` could be used instead.
 > 
 > - It relieves viewers from having to format the logical location from the more detailed information in `run.logicalLocations`.
 > 
@@ -359,7 +359,7 @@ If a logical location is both a member and a type (for example, a nested class i
 
 ### parentIndex property{#logicallocation-object--parentindex-property}
 
-If this `logicalLocation` object represents a nested logical location, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([§3.7.4](#array-indices)) of the parent `logicalLocation` object within `theRun.logicalLocations` ([§3.14.17](#run-object--logicallocations-property)).
+If this `logicalLocation` object represents a nested logical location, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([sec](#array-indices)) of the parent `logicalLocation` object within `theRun.logicalLocations` ([sec](#run-object--logicallocations-property)).
 
 If `thisObject` represents a top-level logical location, then `parentIndex` **SHALL** be absent.
 

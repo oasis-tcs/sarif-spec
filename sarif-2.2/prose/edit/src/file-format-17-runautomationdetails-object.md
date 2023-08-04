@@ -40,11 +40,11 @@ A `runAutomationDetails` object contains information that specifies `theRun`’s
 
 ### description property{#runautomationdetails-object--description-property}
 
-A `runAutomationDetails` object **MAY** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the role played within the engineering system by `theRun`.
+A `runAutomationDetails` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the role played within the engineering system by `theRun`.
 
 ### id property{#runautomationdetails-object--id-property}
 
-A `runAutomationDetails` object **MAY** contain a property named `id` whose value is a hierarchical string ([§3.5.4](#hierarchical-strings)) that uniquely identifies `theRun` within the engineering system.
+A `runAutomationDetails` object **MAY** contain a property named `id` whose value is a hierarchical string ([sec](#hierarchical-strings)) that uniquely identifies `theRun` within the engineering system.
 
 A result management system or other components of the engineering system **MAY** use `run.automationDetails.id` to associate the information in the log with additional information not provided by the analysis tool that produced it.
 
@@ -54,7 +54,7 @@ An engineering system **MAY** define any number of components and interpret them
 
 > EXAMPLE 1: A run whose `id` is `"My Nightly Run/Debug/x64/2018-10-10"` belongs to the category `"My Nightly Run/Debug/x64"`. Presumably, this is the run from October 10, 2018.
 
-The trailing component of `id` **MAY** be empty; note that the grammar for a hierarchical identifier ([§3.5.4.1](#hierarchical-strings--general)) permits any component to be empty. This **SHALL** be taken to signify that the run belongs to the specified category, but that the run itself has no unique identifier.
+The trailing component of `id` **MAY** be empty; note that the grammar for a hierarchical identifier ([sec](#hierarchical-strings--general)) permits any component to be empty. This **SHALL** be taken to signify that the run belongs to the specified category, but that the run itself has no unique identifier.
 
 > EXAMPLE 2: A run whose `id` is `"My Nightly Run/Debug/x64/"` belongs to the category `"My Nightly Run/Debug/x64"` but is not distinguished from other runs in that category.
 
@@ -64,14 +64,14 @@ The trailing component of `id` **MAY** be empty; note that the grammar for a hie
 
 ### guid property{#runautomationdetails-object--guid-property}
 
-A `runAutomationDetails` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that provides a unique, stable identifier for `theRun`.
+A `runAutomationDetails` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that provides a unique, stable identifier for `theRun`.
 
 A result management system or other components of the engineering system **MAY** use `run.automationDetails.guid` to associate the information in the log with additional information not provided by the analysis tool that produced it.
 
 ### correlationGuid property{#runautomationdetails-object--correlationguid-property}
 
-A `runAutomationDetails` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) which is shared by all such runs of the same type, and differs between any two runs of different types.
+A `runAutomationDetails` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which is shared by all such runs of the same type, and differs between any two runs of different types.
 
-If `id` ([§3.17.3](#runautomationdetails-object--id-property)) is present, `correlationGuid` **SHALL** identify the category of runs specified by all but the last hierarchical component (which **MAY** be empty according to the grammar ([§3.5.4.1](#hierarchical-strings--general)) for hierarchical strings) of `id`.
+If `id` ([sec](#runautomationdetails-object--id-property)) is present, `correlationGuid` **SHALL** identify the category of runs specified by all but the last hierarchical component (which **MAY** be empty according to the grammar ([sec](#hierarchical-strings--general)) for hierarchical strings) of `id`.
 
 > NOTE: Consider an engineering system that allows engineers to define "build definitions", and that assigns a GUID to each build definition. In such a system, the build definition’s GUID could serve as `run.automationDetails.correlationGuid`. It would be the same for all runs produced by the same build definition, and different between any two runs produced by different build definitions.

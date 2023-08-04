@@ -1,6 +1,6 @@
 ## Date/time properties{#datetime-properties}
 
-Certain properties in this document specify a date and time. The value of every such property, if present, **SHALL** be a string in the following format, which is compatible with the ISO standard for date and time formats \[[ISO8601:2004](#ISO8601;2004)\]:
+Certain properties in this document specify a date and time. The value of every such property, if present, **SHALL** be a string in the following format, which is compatible with the ISO standard for date and time formats \[[cite](#ISO8601;2004)\]:
 
     date time = date, [ "T", time, "Z" ] (* UTC time *);
 
@@ -37,7 +37,7 @@ The time component of every date/time-valued property **SHALL** be expressed in 
 
 > NOTE 1: The name of every date/time-valued property ends in "Utc" to emphasize that requirement.
 
-The time components of date/time-valued properties in property bags ([§3.8](#property-bags)) **SHOULD** also be expressed in UTC.
+The time components of date/time-valued properties in property bags ([sec](#property-bags)) **SHOULD** also be expressed in UTC.
 
 > NOTE 2: This might not always be possible if the property comes from a source that does not provide time zone information.
 

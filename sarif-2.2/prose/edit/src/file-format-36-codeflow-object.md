@@ -61,8 +61,8 @@ A `codeFlow` object describes the progress of one or more programs through one o
 
 ### message property{#codeflow-object--message-property}
 
-A `codeFlow` object **MAY** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) relevant to the code flow.
+A `codeFlow` object **MAY** contain a property named `message` whose value is a `message` object ([sec](#message-object)) relevant to the code flow.
 
 ### threadFlows property
 
-A `codeFlow` object **SHALL** contain a property named `threadFlows` whose value is an array of one or more `threadFlow` objects ([§3.37](#threadflow-object)) each of which describes the progress of a program through a single thread of execution such as an operating system thread or a fiber.
+A `codeFlow` object **SHALL** contain a property named `threadFlows` whose value is an array of one or more `threadFlow` objects ([sec](#threadflow-object)) each of which describes the progress of a program through a single thread of execution such as an operating system thread or a fiber.

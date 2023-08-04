@@ -2,7 +2,7 @@
 
 ### General{#location-object--general}
 
-A `location` object describes a location. Depending on the circumstances, a `location` object is described by physical location ([§3.29](#physicallocation-object)), a logical location ([§3.33](#logicallocation-object)), both, or in rare circumstances, neither (see below).
+A `location` object describes a location. Depending on the circumstances, a `location` object is described by physical location ([sec](#physicallocation-object)), a logical location ([sec](#logicallocation-object)), both, or in rare circumstances, neither (see below).
 
 A logical location specifies a programmatic construct, for example, a class name or a function name, without specifying the artifact within which that construct occurs.
 
@@ -10,15 +10,15 @@ A logical location specifies a programmatic construct, for example, a class name
 > 
 > - In the absence of symbol information, binary analysis tools might not have source code locations available, so information about line and column numbers might not be present in the log file. In this case, code editors, other programs, or end users can use logical location to navigate from a result to the correct source code location.
 > 
-> - Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See [Appendix B](#normative-use-of-fingerprints-by-result-management-systems) for more information about fingerprinting. The `logicalLocation.fullyQualifiedName` property ([§3.33.5](#logicallocation-object--fullyqualifiedname-property)) is particularly convenient for fingerprinting.
+> - Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See [sec](#normative-use-of-fingerprints-by-result-management-systems) for more information about fingerprinting. The `logicalLocation.fullyQualifiedName` property ([sec](#logicallocation-object--fullyqualifiedname-property)) is particularly convenient for fingerprinting.
 > 
 > - In the analysis of structured data files such as XML or JSON, internal structural information (such as an XML path like `"/orders[2]/customers/lastName"`) might be helpful.
 
-In rare circumstances, there might be neither physical nor logical location information available for a `location` object. See [§3.38](#threadflowlocation-object) for an example. In that case, the location object **SHOULD** contain a message property ([§3.28.5](#location-object--message-property)) explaining the significance of this "location."
+In rare circumstances, there might be neither physical nor logical location information available for a `location` object. See [sec](#threadflowlocation-object) for an example. In that case, the location object **SHOULD** contain a message property ([sec](#location-object--message-property)) explaining the significance of this "location."
 
 ### id property{#location-object--id-property}
 
-A `location` object **MAY** contain a property named `id` whose value is a non-negative integer that is unique among all `location` objects belonging to `theResult`. The value does not need to be unique across all `result` objects ([§3.27](#result-object)) in `theRun`.
+A `location` object **MAY** contain a property named `id` whose value is a non-negative integer that is unique among all `location` objects belonging to `theResult`. The value does not need to be unique across all `result` objects ([sec](#result-object)) in `theRun`.
 
 If `id` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
@@ -30,25 +30,25 @@ If `id` is absent, it **SHALL** default to -1, which indicates that the value is
 >     result.codeFlows[0].threadFlows[0].locations[0].location
 >     result.stacks[0].frames[0].location
 
-The `id` property has two purposes: to enable an embedded link ([§3.11.6](#messages-with-embedded-links)) within a `message` object ([§3.11](#message-object)) to refer to `thisObject`, and to identify `thisObject` as the target of a `locationRelationship` ([§3.34](#locationrelationship-object)). If no `message` object within `theResult` refers to `thisObject` *via* an embedded link and no `locationRelationship` object within `theResult` specifies `thisObject` as its target, the `id` property does not need to appear.
+The `id` property has two purposes: to enable an embedded link ([sec](#messages-with-embedded-links)) within a `message` object ([sec](#message-object)) to refer to `thisObject`, and to identify `thisObject` as the target of a `locationRelationship` ([sec](#locationrelationship-object)). If no `message` object within `theResult` refers to `thisObject` *via* an embedded link and no `locationRelationship` object within `theResult` specifies `thisObject` as its target, the `id` property does not need to appear.
 
 ### physicalLocation property
 
-Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `physicalLocation` whose value is a `physicalLocation` object ([§3.29](#physicallocation-object)) that identifies the file within which the location lies. If physical location information is available and the `logicalLocations` property ([§3.28.4](#location-object--logicallocations-property)) is absent or empty, `physicalLocation` **SHALL** be present. If physical location is available and `logicalLocations` is present and non-empty, `physicalLocation` **MAY** be present. If physical location information is not available, `physicalLocation` **SHALL NOT** be present.
+Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `physicalLocation` whose value is a `physicalLocation` object ([sec](#physicallocation-object)) that identifies the file within which the location lies. If physical location information is available and the `logicalLocations` property ([sec](#location-object--logicallocations-property)) is absent or empty, `physicalLocation` **SHALL** be present. If physical location is available and `logicalLocations` is present and non-empty, `physicalLocation` **MAY** be present. If physical location information is not available, `physicalLocation` **SHALL NOT** be present.
 
 ### logicalLocations property{#location-object--logicallocations-property}
 
-Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `logicalLocations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `logicalLocation` objects ([§3.33](#logicallocation-object)) that identify the programmatic construct within which the location lies. If logical location information is available and the `physicalLocation` property ([§3.28.3](#physicallocation-property)) is absent, `logicalLocations` **SHALL** be present and non-empty. If logical location information is available and `physicalLocation` is present, `logicalLocations` **MAY** be present. If logical location information is not available, `logicalLocations` **SHALL NOT** be present.
+Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `logicalLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `logicalLocation` objects ([sec](#logicallocation-object)) that identify the programmatic construct within which the location lies. If logical location information is available and the `physicalLocation` property ([sec](#physicallocation-property)) is absent, `logicalLocations` **SHALL** be present and non-empty. If logical location information is available and `physicalLocation` is present, `logicalLocations` **MAY** be present. If logical location information is not available, `logicalLocations` **SHALL NOT** be present.
 
 > NOTE: `logicalLocations` is an array because some logical locations can be expressed in more than one way. For example, the logical location of an element in an HTML document might be expressed by an XML Path expression such as `/html/body/img[1]` or by a CSS selector such as `#logo`.
 
 ### message property{#location-object--message-property}
 
-A `location` object **MAY** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) relevant to the location.
+A `location` object **MAY** contain a property named `message` whose value is a `message` object ([sec](#message-object)) relevant to the location.
 
 ### annotations property
 
-A `location` object **MAY** contain a property named `annotations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `region` objects ([§3.30](#region-object)) each of which describes a region within the artifact specified by the `location` object that is relevant to the location. Each of these `region` objects **SHOULD** contain a `message` property ([§3.30.14](#region-object--message-property)) that explains the relevance of the region to the location.
+A `location` object **MAY** contain a property named `annotations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `region` objects ([sec](#region-object)) each of which describes a region within the artifact specified by the `location` object that is relevant to the location. Each of these `region` objects **SHOULD** contain a `message` property ([sec](#region-object--message-property)) that explains the relevance of the region to the location.
 
 > EXAMPLE: Consider a `location` object which describes the declaration statement
 > 
@@ -73,4 +73,4 @@ A `location` object **MAY** contain a property named `annotations` whose value i
 
 ### relationships property{#location-object--relationships-property}
 
-A `location` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `locationRelationship` objects ([§3.34](#locationrelationship-object)) each of which declares one or more directed relationship from `thisObject` to another `location` object, which we refer to as `theTarget`, specified by `locationRelationship.target` ([§3.34.2](#locationrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `locationRelationship.kinds` ([§3.34.3](#locationrelationship-object--kinds-property)).
+A `location` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `locationRelationship` objects ([sec](#locationrelationship-object)) each of which declares one or more directed relationship from `thisObject` to another `location` object, which we refer to as `theTarget`, specified by `locationRelationship.target` ([sec](#locationrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `locationRelationship.kinds` ([sec](#locationrelationship-object--kinds-property)).

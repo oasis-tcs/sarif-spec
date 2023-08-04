@@ -14,33 +14,33 @@ A `resultProvenance` object contains information about the how and when `theResu
 
 ### firstDetectionTimeUtc property
 
-A `resultProvenance` object **MAY** contain a property named `firstDetectionTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the result was first detected. It **SHOULD** specify the start time of the run in which the result was first detected, as opposed to, for example, the time within the run at which the result was actually generated.
+A `resultProvenance` object **MAY** contain a property named `firstDetectionTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the result was first detected. It **SHOULD** specify the start time of the run in which the result was first detected, as opposed to, for example, the time within the run at which the result was actually generated.
 
 > NOTE: Using the run’s start time makes it possible to group together results that were first detected in the same run.
 
 ### lastDetectionTimeUtc property
 
-A `resultProvenance` object **MAY** contain a property named `lastDetectionTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the result was most recently detected. It **SHOULD** specify the start time of the run in which the result was most recently detected, as opposed to, for example, the time within the run at which the result was actually generated.
+A `resultProvenance` object **MAY** contain a property named `lastDetectionTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the result was most recently detected. It **SHOULD** specify the start time of the run in which the result was most recently detected, as opposed to, for example, the time within the run at which the result was actually generated.
 
 > NOTE: Using the run’s start time makes it possible to group together results that were detected in the same run.
 
 If `lastDetectionTimeUtc` is absent, its default value **SHALL** be determined as follows:
 
-1.  If `run.invocations` is present, and if the `startTimeUtc` property ([§3.20.7](#starttimeutc-property)) is present on any of the `invocation` objects ([§3.20](#invocation-object)) in that array, then the default is the earliest of those times.
+1.  If `run.invocations` is present, and if the `startTimeUtc` property ([sec](#starttimeutc-property)) is present on any of the `invocation` objects ([sec](#invocation-object)) in that array, then the default is the earliest of those times.
 
 2.  Otherwise, there is no default.
 
 ### firstDetectionRunGuid property
 
-A `resultProvenance` object **MAY** contain a property named `firstDetectionRunGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([§3.14.3](#automationdetails-property), [§3.17.4](#runautomationdetails-object--guid-property)) of the run in which `theResult` was first detected (either the current run or some previous run).
+A `resultProvenance` object **MAY** contain a property named `firstDetectionRunGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([sec](#automationdetails-property), [sec](#runautomationdetails-object--guid-property)) of the run in which `theResult` was first detected (either the current run or some previous run).
 
 ### lastDetectionRunGuid property
 
-A `resultProvenance` object **MAY** contain a property named `lastDetectionRunGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([§3.14.3](#automationdetails-property), [§3.17.4](#runautomationdetails-object--guid-property)) of the run in which `theResult` was most recently detected (either the current run or some previous run).
+A `resultProvenance` object **MAY** contain a property named `lastDetectionRunGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([sec](#automationdetails-property), [sec](#runautomationdetails-object--guid-property)) of the run in which `theResult` was most recently detected (either the current run or some previous run).
 
 ### invocationIndex property
 
-If `theRun.invocations` ([§3.14.11](#invocations-property)) is present, a `resultProvenance` object **MAY** contain a property named `invocationIndex` whose value is the array index ([§3.7.4](#array-indices)) within the `invocations` property of the `invocation` object ([§3.20](#invocation-object)) that describes the tool invocation as a result of which `theResult` was detected.
+If `theRun.invocations` ([sec](#invocations-property)) is present, a `resultProvenance` object **MAY** contain a property named `invocationIndex` whose value is the array index ([sec](#array-indices)) within the `invocations` property of the `invocation` object ([sec](#invocation-object)) that describes the tool invocation as a result of which `theResult` was detected.
 
 If `theRun.invocations` is absent, `invocationIndex` **SHALL** be absent.
 
@@ -54,13 +54,13 @@ If `invocationIndex` is absent and `theRun.invocations` is present and contains 
 
 Some analysis tools produce output files that describe the analysis run as a whole; we refer to these as "per-run" files. Some tools produce one or more output files for each result; we refer to these as "per-result" files. Some tools produce both per-run and per-result files.
 
-A `resultProvenance` object **MAY** contain a property named `conversionSources` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `physicalLocation` objects ([§3.29](#physicallocation-object)).
+A `resultProvenance` object **MAY** contain a property named `conversionSources` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `physicalLocation` objects ([sec](#physicallocation-object)).
 
 If `theResult` was produced by a converter, and if the analysis tool whose output was converted to SARIF produced any per-result files for this result, then the `physicalLocation` objects in the array **SHALL** specify the relevant portions of the per-result files for this result.
 
 Otherwise (that is, if the `run` object was not produced by a converter, or if there were no per-run files for this result), then if `conversionSources` is present, its value **SHALL** be an empty array.
 
-Per-run files are handled by the `conversion.analysisToolLogFiles` property ([§3.22.4](#analysistoollogfiles-property)).
+Per-run files are handled by the `conversion.analysisToolLogFiles` property ([sec](#analysistoollogfiles-property)).
 
 > NOTE: This property is intended to be useful to developers of converters, to help them debug the conversion from the analysis tool’s native output format to the SARIF format.
 

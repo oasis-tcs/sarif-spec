@@ -6,7 +6,7 @@ A `threadFlowLocation` object represents a location visited by an analysis tool 
 
 ### index property{#threadflowlocation-object--index-property}
 
-Depending on the circumstances, a `threadFlowLocation` object either **MAY**, **SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.threadFlowLocations` ([§3.14.19](#threadflowlocations-property)) of a `threadFlowLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.threadFlowLocations` as the "cached object."
+Depending on the circumstances, a `threadFlowLocation` object either **MAY**, **SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.threadFlowLocations` ([sec](#threadflowlocations-property)) of a `threadFlowLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.threadFlowLocations` as the "cached object."
 
 If `thisObject` is an element of `theRun.threadFlowLocations`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.threadFlowLocations`.
 
@@ -103,13 +103,13 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 ### location property{#threadflowlocation-object--location-property}
 
-If location information is available, a `threadFlowLocation` object **SHALL** contain a property named `location` whose value is a `location` object ([§3.28](#location-object)) that specifies the location to which the `threadFlowLocation` object refers. If location information is not available, `location` **SHALL** be absent.
+If location information is available, a `threadFlowLocation` object **SHALL** contain a property named `location` whose value is a `location` object ([sec](#location-object)) that specifies the location to which the `threadFlowLocation` object refers. If location information is not available, `location` **SHALL** be absent.
 
-There are analysis tools whose native output format includes the equivalent of a SARIF code flow, but which do not provide location information for every step in the code flow. A SARIF converter for such a format might not be able to populate `location`. However, if the native output format associates a human readable message with such a step, the SARIF converter **SHOULD** create a `location` object and populate only its `message` property ([§3.28.5](#location-object--message-property)). A SARIF direct producer which creates such code flows **SHOULD** populate `location.message`, even if no actual location information is available.
+There are analysis tools whose native output format includes the equivalent of a SARIF code flow, but which do not provide location information for every step in the code flow. A SARIF converter for such a format might not be able to populate `location`. However, if the native output format associates a human readable message with such a step, the SARIF converter **SHOULD** create a `location` object and populate only its `message` property ([sec](#location-object--message-property)). A SARIF direct producer which creates such code flows **SHOULD** populate `location.message`, even if no actual location information is available.
 
 > EXAMPLE: In this example, a file is locked by another program before a thread attempts to write to it. The analysis tool has no location information for the other program; in fact, the analysis tool might merely be simulating an execution sequence in which a *hypothetical* external program locks the file. Nevertheless, it provides a helpful message.
 > 
-> Note the use of `executionOrder` ([§3.38.11](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
+> Note the use of `executionOrder` ([sec](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
 > 
 > ```json
 > {                                     # A codeFlow object (§3.36).
@@ -167,23 +167,23 @@ A `threadFlowLocation` object **MAY** contain a property named `module` whose va
 
 ### stack property{#threadflowlocation-object--stack-property}
 
-A `threadFlowLocation` object **MAY** contain a property named `stack` whose value is a `stack` object ([§3.44](#stack-object)) that represents the call stack leading to this location.
+A `threadFlowLocation` object **MAY** contain a property named `stack` whose value is a `stack` object ([sec](#stack-object)) that represents the call stack leading to this location.
 
 ### webRequest property{#threadflowlocation-object--webrequest-property}
 
-A `threadFlowLocation` object **MAY** contain a property named `webRequest` whose value is a `webRequest` object ([§3.46](#webrequest-object)) that describes an HTTP request sent from this location.
+A `threadFlowLocation` object **MAY** contain a property named `webRequest` whose value is a `webRequest` object ([sec](#webrequest-object)) that describes an HTTP request sent from this location.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
 ### webResponse property{#threadflowlocation-object--webresponse-property}
 
-A `threadFlowLocation` object **MAY** contain a property named `webResponse` whose value is a `webResponse` object ([§3.47](#webresponse-object)) that describes the response to the HTTP request sent from this location.
+A `threadFlowLocation` object **MAY** contain a property named `webResponse` whose value is a `webResponse` object ([sec](#webresponse-object)) that describes the response to the HTTP request sent from this location.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
 ### kinds property{#threadflowlocation-object--kinds-property}
 
-A `threadFlowLocation` object **MAY** contain a property named `kinds` whose value is an array of unique ([§3.7.3](#array-properties-with-unique-values)) strings that describe the meaning of this location. The strings **SHOULD** be human-readable (as opposed to, for example, GUIDs or hash values).
+A `threadFlowLocation` object **MAY** contain a property named `kinds` whose value is an array of unique ([sec](#array-properties-with-unique-values)) strings that describe the meaning of this location. The strings **SHOULD** be human-readable (as opposed to, for example, GUIDs or hash values).
 
 When possible, SARIF producers **SHOULD** use the following values, with the specified meanings.
 
@@ -280,7 +280,7 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 
 ### state property
 
-A `threadFlowLocation` object **MAY** contain a property named `state` whose value is an object ([§3.6](#object-properties)) in which each property name represents an item relevant to the location in the context of the code flow, and the corresponding property value is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that specifies either the value of or a constraint on that item.
+A `threadFlowLocation` object **MAY** contain a property named `state` whose value is an object ([sec](#object-properties)) in which each property name represents an item relevant to the location in the context of the code flow, and the corresponding property value is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that specifies either the value of or a constraint on that item.
 
 > NOTE: This property enables a SARIF viewer to present a debugger-like "watch window" experience as the user navigates through a code flow.
 
@@ -339,7 +339,7 @@ A viewer that renders a `threadFlow` **SHOULD** provide a visual representation 
 
 ### executionOrder property
 
-A `threadFlowLocation` object **MAY** contain a property named `executionOrder` whose value is a non-negative integer that represents the temporal order in which execution reached this location, across all `threadFlowLocation` objects within all `threadFlow` objects belonging to a single `codeFlow` ([§3.36](#codeflow-object)). `executionOrder` values are assigned in increasing order of time; for example, execution reaches a `threadFlowLocation` whose `executionOrder` is 2 occurs before it reaches a `threadFlowLocation` whose `executionOrder` is 3. If two `threadFlowLocation`s in different `threadFlow` objects within the same `codeFlow` have the same value for `executionOrder`, it means that execution reached both of those locations simultaneously. For that reason, values of `executionOrder` within a single `threadFlow` **SHALL** be unique.
+A `threadFlowLocation` object **MAY** contain a property named `executionOrder` whose value is a non-negative integer that represents the temporal order in which execution reached this location, across all `threadFlowLocation` objects within all `threadFlow` objects belonging to a single `codeFlow` ([sec](#codeflow-object)). `executionOrder` values are assigned in increasing order of time; for example, execution reaches a `threadFlowLocation` whose `executionOrder` is 2 occurs before it reaches a `threadFlowLocation` whose `executionOrder` is 3. If two `threadFlowLocation`s in different `threadFlow` objects within the same `codeFlow` have the same value for `executionOrder`, it means that execution reached both of those locations simultaneously. For that reason, values of `executionOrder` within a single `threadFlow` **SHALL** be unique.
 
 It is only necessary to assign a value to `executionOrder` when the temporal ordering of a `threadFlowLocation` relative to a location in a different `threadFlow` is significant to the detection of a result.
 
@@ -349,7 +349,7 @@ If `executionOrder` is absent, it **SHALL** default to -1, which indicates that 
 
 ### executionTimeUtc property
 
-A `threadFlowLocation` object **MAY** contain a property named `executionTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the thread of execution through the code reached this location.
+A `threadFlowLocation` object **MAY** contain a property named `executionTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the thread of execution through the code reached this location.
 
 ### importance property
 
@@ -375,9 +375,9 @@ If this property is absent, it **SHALL** be considered to have the value `"impor
 
 ### taxa property{#threadflowlocation-object--taxa-property}
 
-A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `reportingDescriptorReference` objects each of which specifies a category into which this `threadFlowLocation` falls.
+A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptorReference` objects each of which specifies a category into which this `threadFlowLocation` falls.
 
-> NOTE: The motivation for this property is an analysis tool that uses a set of rules to guide its analysis as it traces tainted data from a source to a sink. For example, at one location, the tool might apply a rule that says: "If the input to `String.Substr` is tainted, then so is the return value." Such a tool can represent these "helper rules" as a custom taxonomy ([§3.19.3](#taxonomies)), an array of `reportingDescriptor` objects ([§3.49](#reportingdescriptor-object)). Each member of `threadFlowLocation.taxa` can reference one of these helper rules.
+> NOTE: The motivation for this property is an analysis tool that uses a set of rules to guide its analysis as it traces tainted data from a source to a sink. For example, at one location, the tool might apply a rule that says: "If the input to `String.Substr` is tainted, then so is the return value." Such a tool can represent these "helper rules" as a custom taxonomy ([sec](#taxonomies)), an array of `reportingDescriptor` objects ([sec](#reportingdescriptor-object)). Each member of `threadFlowLocation.taxa` can reference one of these helper rules.
 
 > EXAMPLE: This example illustrates the scenario in the above note.
 > 

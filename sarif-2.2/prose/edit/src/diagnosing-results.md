@@ -22,9 +22,9 @@ It can be difficult to diagnose results in generated files for the following rea
 
 For both singly and multiply generated files, there are two options (which can be used together):
 
-1.  Use the `physicalLocation` object’s ([§3.29](#physicallocation-object)) `region` ([§3.29.4](#region-property)) and `contextRegion` ([§3.29.5](#contextregion-property)) properties to store enough of the generated file’s contents to facilitate diagnosis. The `region` object’s ([§3.30](#region-object)) `snippet` property ([§3.30.13](#snippet-property)) holds the relevant portion of the file contents.
+1.  Use the `physicalLocation` object’s ([sec](#physicallocation-object)) `region` ([sec](#region-property)) and `contextRegion` ([sec](#contextregion-property)) properties to store enough of the generated file’s contents to facilitate diagnosis. The `region` object’s ([sec](#region-object)) `snippet` property ([sec](#snippet-property)) holds the relevant portion of the file contents.
 
-2.  Use the `artifact` object’s ([§3.24](#artifact-object)) `contents` ([§3.24.8](#artifact-object--contents-property)) property to persist the entire contents of the file in `theRun.artifacts` ([§3.14.15](#artifacts-property)).
+2.  Use the `artifact` object’s ([sec](#artifact-object)) `contents` ([sec](#artifact-object--contents-property)) property to persist the entire contents of the file in `theRun.artifacts` ([sec](#artifacts-property)).
 
 The first option is more compact; the second allows a SARIF viewer to present results with greater context.
 

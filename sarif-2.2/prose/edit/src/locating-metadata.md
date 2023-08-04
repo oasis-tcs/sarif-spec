@@ -8,7 +8,7 @@ toc:
 -->
 # (Informative) Locating rule and notification metadata
 
-The SARIF format allows rule and notification metadata to be included in a SARIF log file (see [§3.19.23](#rules-property) and [§3.19.24](#notifications-property)). A SARIF log file does not need to include any metadata. This raises the questions of when metadata should be included in a log file, and how to locate the metadata if it is not included in the log file.
+The SARIF format allows rule and notification metadata to be included in a SARIF log file (see [sec](#rules-property) and [sec](#notifications-property)). A SARIF log file does not need to include any metadata. This raises the questions of when metadata should be included in a log file, and how to locate the metadata if it is not included in the log file.
 
 Metadata should be included in a log file in the following circumstances:
 
@@ -18,4 +18,4 @@ Metadata should be included in a log file in the following circumstances:
 
 - Neither of the above applies, but the increased log file size due to the metadata is not considered significant.
 
-If metadata is not included in the log file, and if external property files (see [§3.15.2](#rationale)) are not used, this document does not specify a mechanism for locating the metadata. If the SARIF log file is produced in the context of an engineering system that provides a service from which metadata can be obtained (for example, a result management system, or a web service dedicated to metadata), then tooling can be created to merge a log file with the relevant metadata when required (for example, when presenting the results in a log file viewer).
+If metadata is not included in the log file, and if external property files (see [sec](#rationale)) are not used, this document does not specify a mechanism for locating the metadata. If the SARIF log file is produced in the context of an engineering system that provides a service from which metadata can be obtained (for example, a result management system, or a web service dedicated to metadata), then tooling can be created to merge a log file with the relevant metadata when required (for example, when presenting the results in a log file viewer).

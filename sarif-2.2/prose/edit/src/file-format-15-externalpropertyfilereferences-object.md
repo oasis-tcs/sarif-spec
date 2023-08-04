@@ -2,7 +2,7 @@
 
 ### General{#externalpropertyfilereferences-object--general}
 
-An `externalPropertyFileReferences` object contains information that enables a SARIF consumer to locate the external property files (see [§3.15.2](#rationale)) that contain the values of all externalized properties associated with `theRun`.
+An `externalPropertyFileReferences` object contains information that enables a SARIF consumer to locate the external property files (see [sec](#rationale)) that contain the values of all externalized properties associated with `theRun`.
 
 ### Rationale
 
@@ -14,7 +14,7 @@ In some engineering environments, a single tool run might analyze hundreds of th
 
 To mitigate these problems, SARIF allows certain properties of a `run` object and its sub-objects to be stored in separate files. We refer to these files as "external property files", and we refer to the file containing the `run` object itself as the "root file". We refer to a property that can be stored in an external property file as an "externalizable property." We refer to a property that *has* been stored in an external property file as an "externalized property."
 
-The format of an external property file is described in [§4](#external-property-file-format)
+The format of an external property file is described in [sec](#external-property-file-format)
 
 A SARIF consumer **SHALL** treat the value of an object-valued property stored in an external property file exactly as if it had appeared inline in the root file as the value of the corresponding property.
 
@@ -49,7 +49,7 @@ The following table lists all the externalizable properties together with their 
 
 > NOTE 2: Note that `run.conversion.tool.driver` and `run.conversion.tool.extensions` are not separately externalizable. Rather, the `run.conversion` property as a whole is externalizable.
 
-Every externalizable property whose type is shown in the table as "object" **SHALL**, if externalized, be stored in a single external property file. In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an `externalPropertyFileReference` object ([§3.16](#externalpropertyfilereference-object)) specifying the location of the external property file.
+Every externalizable property whose type is shown in the table as "object" **SHALL**, if externalized, be stored in a single external property file. In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an `externalPropertyFileReference` object ([sec](#externalpropertyfilereference-object)) specifying the location of the external property file.
 
 Every externalizable property whose type is shown in the table as "array" **SHALL**, if externalized, be stored in one or more external property files. In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an array of zero or more `externalPropertyFileReference` objects specifying the locations of those external property files.
 
@@ -159,6 +159,6 @@ With one exception described below, if a property appears inline in the root fil
 > }
 > ```
 
-The exception is that if `run.tool.driver` is externalized, it **SHALL** still occur inline in the root file. The inline `driver` property **SHOULD** contain only properties that identify the tool, such as `name` ([§3.19.8](#toolcomponent-object--name-property)) and `semanticVersion` ([§3.19.12](#semanticversion-property)); it **SHOULD NOT** contain properties such as `globalMessageStrings` ([§3.19.22](#globalmessagestrings-property)), `rules` ([§3.19.23](#rules-property)), `notifications` ([§3.19.24](#notifications-property)), and `taxa` ([§3.19.25](#toolcomponent-object--taxa-property)), which take up a large amount of space.
+The exception is that if `run.tool.driver` is externalized, it **SHALL** still occur inline in the root file. The inline `driver` property **SHOULD** contain only properties that identify the tool, such as `name` ([sec](#toolcomponent-object--name-property)) and `semanticVersion` ([sec](#semanticversion-property)); it **SHOULD NOT** contain properties such as `globalMessageStrings` ([sec](#globalmessagestrings-property)), `rules` ([sec](#rules-property)), `notifications` ([sec](#notifications-property)), and `taxa` ([sec](#toolcomponent-object--taxa-property)), which take up a large amount of space.
 
 > NOTE 3: This makes it possible to identify the tool that produced the log file without locating and opening the external property file, while still getting the benefit of externalizing those properties that take up a large amount of space.

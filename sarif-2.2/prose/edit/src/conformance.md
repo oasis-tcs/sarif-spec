@@ -28,15 +28,15 @@ The normative content in this document defines requirements for SARIF log files,
 
 A text file satisfies the "SARIF log file" conformance profile if:
 
-- It conforms to the syntax and semantics defined in [§3](#file-format)
+- It conforms to the syntax and semantics defined in [sec](#file-format)
 
 ## Conformance Clause 2: SARIF producer
 
 A program satisfies the "SARIF producer" conformance profile if:
 
-- It produces output in the SARIF format, according to the semantics defined in [§3](#file-format)
+- It produces output in the SARIF format, according to the semantics defined in [sec](#file-format)
 
-- It satisfies those normative requirements in [§3](#file-format) that are designated as applying to SARIF producers.
+- It satisfies those normative requirements in [sec](#file-format) that are designated as applying to SARIF producers.
 
 ## Conformance Clause 3: Direct producer
 
@@ -44,9 +44,9 @@ An analysis tool satisfies the "Direct producer" conformance profile if:
 
 - It satisfies the "SARIF producer" conformance profile.
 
-- It additionally satisfies those normative requirements in [§3](#file-format) that are designated as applying to "direct producers" or to "analysis tools".
+- It additionally satisfies those normative requirements in [sec](#file-format) that are designated as applying to "direct producers" or to "analysis tools".
 
-- It does not emit any objects, properties, or values which, according to [§3](#file-format), are intended to be produced only by converters.
+- It does not emit any objects, properties, or values which, according to [sec](#file-format), are intended to be produced only by converters.
 
 ## Conformance Clause 4: Converter
 
@@ -54,9 +54,9 @@ A converter satisfies the "Converter" conformance profile if:
 
 - It satisfies the "SARIF producer" conformance profile.
 
-- It additionally satisfies those normative requirements in [§3](#file-format) that are designated as applying to converters.
+- It additionally satisfies those normative requirements in [sec](#file-format) that are designated as applying to converters.
 
-- It does not emit any objects, properties, or values which, according to [§3](#file-format), are intended to be produced only by direct producers.
+- It does not emit any objects, properties, or values which, according to [sec](#file-format), are intended to be produced only by direct producers.
 
 ## Conformance Clause 5: SARIF post-processor
 
@@ -66,15 +66,15 @@ A SARIF post-processor satisfies the "SARIF post-processor" conformance profile 
 
 - It satisfies the "SARIF producer" conformance profile.
 
-- It additionally satisfies those normative requirements in [§3](#file-format) that are designated as applying to post-processors.
+- It additionally satisfies those normative requirements in [sec](#file-format) that are designated as applying to post-processors.
 
 ## Conformance Clause 6: SARIF consumer
 
 A consumer satisfies the "SARIF consumer" conformance profile if:
 
-- It reads SARIF log files and interprets them according to the semantics defined in [§3](#file-format)
+- It reads SARIF log files and interprets them according to the semantics defined in [sec](#file-format)
 
-- It satisfies those normative requirements in [§3](#file-format) that are designated as applying to SARIF consumers.
+- It satisfies those normative requirements in [sec](#file-format) that are designated as applying to SARIF consumers.
 
 ## Conformance Clause 7: Viewer
 
@@ -82,7 +82,7 @@ A viewer satisfies the "viewer" conformance profile if:
 
 - It satisfies the "SARIF consumer" conformance profile.
 
-- It additionally satisfies the normative requirements in [§3](#file-format) that are designated as applying to viewers.
+- It additionally satisfies the normative requirements in [sec](#file-format) that are designated as applying to viewers.
 
 ## Conformance Clause 8: Result management system
 
@@ -90,10 +90,10 @@ A result management system satisfies the "result management system" conformance 
 
 - It satisfies the "SARIF consumer" conformance profile.
 
-- It additionally satisfies the normative requirements in [§3](#file-format) and [Appendix B](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
+- It additionally satisfies the normative requirements in [sec](#file-format) and [sec](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
 
 ## Conformance Clause 9: Engineering system
 
 An engineering system satisfies the "engineering system" conformance profile if:
 
-- It satisfies the normative requirements in [§3](#file-format) that are designated as applying to engineering systems.
+- It satisfies the normative requirements in [sec](#file-format) that are designated as applying to engineering systems.

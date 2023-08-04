@@ -6,9 +6,9 @@ An `address` object describes a physical or virtual address, or a range of addre
 
 ### Parent-child relationships
 
-`address` objects can be linked by their `parentIndex` properties ([§3.32.13](#address-object--parentindex-property)) to form a chain in which each address is specified as an offset from a "parent" object which we refer to as `theParent`.
+`address` objects can be linked by their `parentIndex` properties ([sec](#address-object--parentindex-property)) to form a chain in which each address is specified as an offset from a "parent" object which we refer to as `theParent`.
 
-> EXAMPLE: In this example, the location of the Sections region of a Windows ® Portable Executable file \[[PE](#PE)\] is expressed as an offset from the start of the module. The location of the .text section is in turn expressed as an offset from Sections.
+> EXAMPLE: In this example, the location of the Sections region of a Windows ® Portable Executable file \[[cite](#PE)\] is expressed as an offset from the start of the module. The location of the .text section is in turn expressed as an offset from Sections.
 > 
 > ```json
 > {                                  # A run object (§3.14).
@@ -43,7 +43,7 @@ An `address` object describes a physical or virtual address, or a range of addre
 
 Each `address` object has an associated value called its "absolute address" which is the offset of the address from the start of the addressable region. The absolute address is calculated by executing the function `CalculateAbsoluteAddress` defined below on `thisObject` or by any procedure with the same result.
 
-This procedure assumes that the `offsetFromParent` ([§3.32.8](#offsetfromparent-property)) and `parentIndex` ([§3.32.13](#address-object--parentindex-property)) properties are either both present or both absent; if this is not the case, the SARIF file is invalid.
+This procedure assumes that the `offsetFromParent` ([sec](#offsetfromparent-property)) and `parentIndex` ([sec](#address-object--parentindex-property)) properties are either both present or both absent; if this is not the case, the SARIF file is invalid.
 
 FUNCTION `CalculateAbsoluteAddress`(`addr`)
 
@@ -53,7 +53,7 @@ FUNCTION `CalculateAbsoluteAddress`(`addr`)
 
 &emsp;&emsp;ELSE IF `addr.parentIndex` exists THEN
 
-&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [§3.32.2](#parent-child-relationships)) of `addr`
+&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [sec](#parent-child-relationships)) of `addr`
 
 &emsp;&emsp;&emsp;&emsp;RETURN `addr.offsetFromParent` + `CalculateAbsoluteAddress`(`theParent`)
 
@@ -69,7 +69,7 @@ If both `absoluteAddress` and `offsetFromParent` exist, then `absoluteAddress` *
 
 Each `address` object has an associated value called its "relative address" which is the offset of the address from the address of the top-most object in its parent chain. The relative address is calculated by executing the function `CalculateRelativeAddress` defined below on `thisObject` or by any procedure with the same result.
 
-This procedure assumes that the `offsetFromParent` ([§3.32.8](#offsetfromparent-property)) and `parentIndex` ([§3.32.13](#address-object--parentindex-property)) properties are either both present or both absent; if this is not the case, the SARIF file is invalid.
+This procedure assumes that the `offsetFromParent` ([sec](#offsetfromparent-property)) and `parentIndex` ([sec](#address-object--parentindex-property)) properties are either both present or both absent; if this is not the case, the SARIF file is invalid.
 
 FUNCTION `CalculateRelativeAddress`(`addr`)
 
@@ -79,7 +79,7 @@ FUNCTION `CalculateRelativeAddress`(`addr`)
 
 &emsp;&emsp;ELSE IF `addr.parentIndex` exists THEN
 
-&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [§3.32.2](#parent-child-relationships)) of `addr`
+&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [sec](#parent-child-relationships)) of `addr`
 
 &emsp;&emsp;&emsp;&emsp;RETURN `addr.offsetFromParent` + `CalculateRelativeAddress`(`theParent`)
 
@@ -93,7 +93,7 @@ If both `relativeAddress` and `offsetFromParent` exist, then `relativeAddress` *
 
 ### index property{#address-object--index-property}
 
-Depending on the circumstances, an `address` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.addresses` ([§3.14.18](#addresses-property)) of an `address` object that provides the properties for `thisObject`. We refer to the object in `theRun.addresses` as the "cached object."
+Depending on the circumstances, an `address` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.addresses` ([sec](#addresses-property)) of an `address` object that provides the properties for `thisObject`. We refer to the object in `theRun.addresses` as the "cached object."
 
 If `thisObject` is an element of `theRun.addresses`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.addresses`.
 
@@ -105,17 +105,17 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 1: This allows a SARIF producer to reduce the size of the log file by reusing the same `address` object in multiple results.
 
-> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [§3.38.2](#threadflowlocation-object--index-property).
+> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [sec](#threadflowlocation-object--index-property).
 
 ### absoluteAddress property
 
-An `address` object **MAY** contain a property named `absoluteAddress` whose value is a non-negative integer containing the absolute address (see [§3.32.3](#absolute-address-calculation)) of `thisObject`.
+An `address` object **MAY** contain a property named `absoluteAddress` whose value is a non-negative integer containing the absolute address (see [sec](#absolute-address-calculation)) of `thisObject`.
 
 If `absoluteAddress` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
 ### relativeAddress property
 
-If `parentIndex` ([§3.32.13](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `relativeAddress` whose value, if present, is an integer containing the relative address (see [§3.32.4](#relative-address-calculation)) of `thisObject`.
+If `parentIndex` ([sec](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `relativeAddress` whose value, if present, is an integer containing the relative address (see [sec](#relative-address-calculation)) of `thisObject`.
 
 If `parentIndex` is absent, `relativeAddress` **SHALL** be absent.
 
@@ -123,7 +123,7 @@ If `relativeAddress` is absent, it **SHALL** default to `null`, which indicates 
 
 ### offsetFromParent property
 
-If `parentIndex` ([§3.32.13](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `offsetFromParent` whose value, if present, is an integer containing the offset of this address from the absolute address of `theParent` (see [§3.32.2](#parent-child-relationships)). This is the case even if the absolute address of the parent cannot be determined by the procedure in [§3.32.3](#absolute-address-calculation).
+If `parentIndex` ([sec](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `offsetFromParent` whose value, if present, is an integer containing the offset of this address from the absolute address of `theParent` (see [sec](#parent-child-relationships)). This is the case even if the absolute address of the parent cannot be determined by the procedure in [sec](#absolute-address-calculation).
 
 > NOTE 1: The rationale is that the absolute address always exists, even if the log file does not contain enough information to determine it, so it is always sensible to talk about an offset from that address.
 
@@ -187,6 +187,6 @@ Although a function does contain executable code, the value `"function"` **SHOUL
 
 ### parentIndex property{#address-object--parentindex-property}
 
-If `theParent` exists (that is, if `thisObject` is expressed as an offset from some other address), then an `address` object **SHALL** contain a property named `parentIndex` whose value is the array index ([§3.7.4](#array-indices)) of `theParent` within `theRun.addresses` ([§3.14.18](#addresses-property)).
+If `theParent` exists (that is, if `thisObject` is expressed as an offset from some other address), then an `address` object **SHALL** contain a property named `parentIndex` whose value is the array index ([sec](#array-indices)) of `theParent` within `theRun.addresses` ([sec](#addresses-property)).
 
 If `theParent` does not exist, then `parentIndex` **SHALL** be absent.

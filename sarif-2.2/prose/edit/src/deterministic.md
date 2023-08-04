@@ -169,7 +169,7 @@ Because a new problem has been introduced, `log_20170614.sarif` will contain a r
 
     ToolX --input a.c b.c --baseline log_20170915.sarif --output log_20170916.sarif
 
-The result object that first appeared in `log_20160615.sarif` still appears in `log_20160616.sarif`, but since it existed in the baseline, its baselineState will now be `"unchanged"` or `"updated"` as appropriate (see [§3.27.24](#baselinestate-property)).
+The result object that first appeared in `log_20160615.sarif` still appears in `log_20160616.sarif`, but since it existed in the baseline, its baselineState will now be `"unchanged"` or `"updated"` as appropriate (see [sec](#baselinestate-property)).
 
 The result is that even though none of the analysis target files have changed, the log file has changed, or at least, a simple file comparison (such as comparing the hash of the new log with the hash of the baseline) will report that it has changed.
 

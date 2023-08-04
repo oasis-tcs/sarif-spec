@@ -2,7 +2,7 @@
 
 ### General{#webresponse-object--general}
 
-A `webResponse` object describes the response to an HTTP request \[[RFC7230](#RFC7230)\]. The request itself is described by a `webRequest` object ([§3.46](#webrequest-object)).
+A `webResponse` object describes the response to an HTTP request \[[cite](#RFC7230)\]. The request itself is described by a `webRequest` object ([sec](#webrequest-object)).
 
 > NOTE: This object is primarily useful to web analysis tools.
 
@@ -12,7 +12,7 @@ A `webResponse` object does not need to represent a valid HTTP response.
 
 ### index property{#webresponse-object--index-property}
 
-Depending on the circumstances, a `webResponse` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.webResponses` ([§3.14.22](#webresponses-property)) of a `webResponse` object that provides additional properties for `thisObject`. We refer to the object in `theRun.webResponses` as the "cached object."
+Depending on the circumstances, a `webResponse` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.webResponses` ([sec](#webresponses-property)) of a `webResponse` object that provides additional properties for `thisObject`. We refer to the object in `theRun.webResponses` as the "cached object."
 
 If `thisObject` is an element of `theRun.webResponses`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.webResponses`.
 
@@ -24,7 +24,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 1: This allows a SARIF producer to reduce the size of the log file by reusing the same `webResponse` object in multiple results.
 
-> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [§3.38.2](#threadflowlocation-object--index-property).
+> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [sec](#threadflowlocation-object--index-property).
 
 ### protocol property{#webresponse-object--protocol-property}
 
@@ -46,27 +46,27 @@ A `webResponse` object **SHOULD** contain a property named `statusCode` whose va
 
 ### reasonPhrase property
 
-A `webResponse` object **SHOULD** contain a property named `reasonPhrase` whose value is a string containing the textual description of the `statusCode` ([§3.47.5](#statuscode-property)) found on the HTTP status line.
+A `webResponse` object **SHOULD** contain a property named `reasonPhrase` whose value is a string containing the textual description of the `statusCode` ([sec](#statuscode-property)) found on the HTTP status line.
 
 > EXAMPLE: `"reasonPhrase": "OK"`
 
-If `noResponseReceived` ([§3.47.9](#noresponsereceived-property)) is `true`, then `reasonPhrase` **SHOULD** instead contain a string describing the reason that no response was received.
+If `noResponseReceived` ([sec](#noresponsereceived-property)) is `true`, then `reasonPhrase` **SHOULD** instead contain a string describing the reason that no response was received.
 
 ### headers property{#webresponse-object--headers-property}
 
-A `webResponse` object **SHOULD** contain a property named `headers` whose value is an object ([§3.6](#object-properties)) whose property names are the names of the HTTP headers in the response (for example, `"Content-Type"`) and whose corresponding values are the header values (for example, `"text/plain; charset=ascii"`).
+A `webResponse` object **SHOULD** contain a property named `headers` whose value is an object ([sec](#object-properties)) whose property names are the names of the HTTP headers in the response (for example, `"Content-Type"`) and whose corresponding values are the header values (for example, `"text/plain; charset=ascii"`).
 
 ### body property{#webresponse-object--body-property}
 
-A `webResponse` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([§3.3](#artifactcontent-object)) containing the body of the response.
+A `webResponse` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([sec](#artifactcontent-object)) containing the body of the response.
 
-If the response body is entirely textual, `body.text` ([§3.3.2](#artifactcontent-object--text-property)) **SHOULD** be present. If present, it **SHALL** contain the response body, transcoded to UTF-8 if necessary.
+If the response body is entirely textual, `body.text` ([sec](#artifactcontent-object--text-property)) **SHOULD** be present. If present, it **SHALL** contain the response body, transcoded to UTF-8 if necessary.
 
-> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [§3.1](#file-format--general)).
+> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [sec](#file-format--general)).
 
-> NOTE 2: If necessary, the character encoding actually used in the response can be deduced from the value of the `Content-Type` header (see [§3.47.7](#webresponse-object--headers-property)), for example, `"text/plain; charset=ascii"`.
+> NOTE 2: If necessary, the character encoding actually used in the response can be deduced from the value of the `Content-Type` header (see [sec](#webresponse-object--headers-property)), for example, `"text/plain; charset=ascii"`.
 
-If the response body is entirely textual, `body.binary` ([§3.3.3](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding \[[RFC2045](#RFC2045)\] of the body as it was actually transmitted.
+If the response body is entirely textual, `body.binary` ([sec](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding \[[cite](#RFC2045)\] of the body as it was actually transmitted.
 
 If the response body consists partially or entirely of binary data, `body.binary` **SHALL** be present and **SHALL** contain the MIME Base64 encoding of the body. In this situation, `body.text` **SHALL** be absent.
 
@@ -74,4 +74,4 @@ If the response body consists partially or entirely of binary data, `body.binary
 
 If no response to the HTTP request was received (for example, because of a network failure), the `webResponse` object **SHALL** contain a property named `noResponseReceived` whose value is a Boolean `true`. If a response was received, `noResponseReceived` **SHALL** either be present with the value `false`, or absent, in which case it defaults to `false`.
 
-If `noResponseReceived` is `true`, then `reasonPhrase` ([§3.47.6](#reasonphrase-property)), which normally contains the reason phrase from the HTTP response line, **SHOULD** instead contain a string describing the reason that no response was received.
+If `noResponseReceived` is `true`, then `reasonPhrase` ([sec](#reasonphrase-property)), which normally contains the reason phrase from the HTTP response line, **SHOULD** instead contain a string describing the reason that no response was received.

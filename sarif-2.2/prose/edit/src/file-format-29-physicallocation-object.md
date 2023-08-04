@@ -6,17 +6,17 @@ A `physicalLocation` object represents the physical location where a result was 
 
 ### Constraints{#physicallocation-object--constraints}
 
-Either the `artifactLocation` property ([§3.29.3](#physicallocation-object--artifactlocation-property)), the `address` property ([§3.29.6](#address-property)), or both **SHALL** be present.
+Either the `artifactLocation` property ([sec](#physicallocation-object--artifactlocation-property)), the `address` property ([sec](#address-property)), or both **SHALL** be present.
 
-If `region.byteLength` ([§3.29.4](#region-property), [§3.30.12](#bytelength-property)) and `address.length` ([§3.29.6](#address-property), [§3.32.9](#address-object--length-property)) are both present, then `region.byteLength` **SHALL** equal the absolute value of `address.length`.
+If `region.byteLength` ([sec](#region-property), [sec](#bytelength-property)) and `address.length` ([sec](#address-property), [sec](#address-object--length-property)) are both present, then `region.byteLength` **SHALL** equal the absolute value of `address.length`.
 
 ### artifactLocation property{#physicallocation-object--artifactlocation-property}
 
-A `physicalLocation` object **MAY** contain a property named `artifactLocation` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) that represents the location of the artifact. If `artifactLocation` is absent, then `address` ([§3.29.6](#address-property)) **SHALL** be present.
+A `physicalLocation` object **MAY** contain a property named `artifactLocation` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that represents the location of the artifact. If `artifactLocation` is absent, then `address` ([sec](#address-property)) **SHALL** be present.
 
 ### region property
 
-A `physicalLocation` object **MAY** contain a property named `region` whose value is a `region` object ([§3.30](#region-object)) that represents a relevant portion of the artifact. In particular, if the `physicalLocation` object occurs within the `locations` property ([§3.27.12](#result-object--locations-property)) of a `result` object ([§3.27](#result-object)), the region property **SHALL** specify the region within the artifact where the result was detected.
+A `physicalLocation` object **MAY** contain a property named `region` whose value is a `region` object ([sec](#region-object)) that represents a relevant portion of the artifact. In particular, if the `physicalLocation` object occurs within the `locations` property ([sec](#result-object--locations-property)) of a `result` object ([sec](#result-object)), the region property **SHALL** specify the region within the artifact where the result was detected.
 
 > EXAMPLE 1: In this example, a `physicalLocation` object specifies the location where a result was detected. Its `region` property specifies the portion of the file where the result was detected.
 > 
@@ -47,7 +47,7 @@ If the `region` property is absent, the `physicalLocation` object refers to the 
 
 ### contextRegion property
 
-If a `physicalLocation` object contains a `region` property ([§3.29.4](#region-property)), it **MAY** also contain a property named `contextRegion` whose value is a `region` object ([§3.30](#region-object)) which specifies a region that is a proper superset of the region specified by the `region` property. If `region` is absent, `contextRegion` **SHALL** be absent.
+If a `physicalLocation` object contains a `region` property ([sec](#region-property)), it **MAY** also contain a property named `contextRegion` whose value is a `region` object ([sec](#region-object)) which specifies a region that is a proper superset of the region specified by the `region` property. If `region` is absent, `contextRegion` **SHALL** be absent.
 
 > NOTE: `contextRegion` enables a viewer to provide visual context when displaying a portion of an artifact. It can also be used to improve result matching.
 
@@ -85,4 +85,4 @@ If a `physicalLocation` object contains a `region` property ([§3.29.4](#region-
 
 ### address property
 
-A `physicalLocation` object **MAY** contain a property named address whose value is an `address` object ([§3.32](#address-object)) that represents the physical or virtual address of this location. If `address` is absent, then `artifactLocation` ([§3.29.3](#physicallocation-object--artifactlocation-property)) **SHALL** be present.
+A `physicalLocation` object **MAY** contain a property named address whose value is an `address` object ([sec](#address-object)) that represents the physical or virtual address of this location. If `address` is absent, then `artifactLocation` ([sec](#physicallocation-object--artifactlocation-property)) **SHALL** be present.

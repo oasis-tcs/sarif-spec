@@ -30,7 +30,7 @@ If the tool does not have access to an appropriate property of the thrown object
 
 ### stack property{#exception-object--stack-property}
 
-An `exception` object **MAY** contain a property named `stack` whose value is a `stack` object ([§3.44](#stack-object)) that describes the sequence of function calls leading to the exception.
+An `exception` object **MAY** contain a property named `stack` whose value is a `stack` object ([sec](#stack-object)) that describes the sequence of function calls leading to the exception.
 
 ### innerExceptions property
 

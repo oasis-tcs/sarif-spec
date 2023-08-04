@@ -31,9 +31,9 @@ Although the order in which properties appear in a JSON object value is not sema
 
 ### \$schema property{#sariflog-object--schema-property}
 
-A `sarifLog` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document \[[JSCHEMA01](#JSCHEMA01)\] describing the version of the SARIF format to which this log file conforms can be obtained.
+A `sarifLog` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document \[[cite](#JSCHEMA01)\] describing the version of the SARIF format to which this log file conforms can be obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([§3.13.2](#sariflog-object--version-property)).
+If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([sec](#sariflog-object--version-property)).
 
 > NOTE 1: The purpose of the `\$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the log file. This is useful, for example, for tool authors who wish to ensure that logs produced by their tools conform to the SARIF format.
 
@@ -41,7 +41,7 @@ If the `\$schema` property is present, the JSON schema obtained from the specifi
 
 ### runs property
 
-A `sarifLog` object **SHALL** contain a property named `runs` whose value is either `null` or an array of zero or more `run` objects ([§3.14](#run-object)).
+A `sarifLog` object **SHALL** contain a property named `runs` whose value is either `null` or an array of zero or more `run` objects ([sec](#run-object)).
 
 The value of `runs` **SHALL** be an array with at least one element except in the following circumstances:
 
@@ -55,11 +55,11 @@ The value of `runs` **SHALL** be an array with at least one element except in th
 
 ### inlineExternalProperties property
 
-A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `externalProperties` objects ([§4.3](#externalproperties-object)).
+A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `externalProperties` objects ([sec](#externalproperties-object)).
 
 > NOTE: This property allows multiple runs to share large data sets in a single, self-contained log file.
 
-> EXAMPLE: In this example, two tools analyze the same set of image files, stored in `sarifLog.inlineExternalProperties[0].artifacts`. The first tool locates the inline `externalProperties` object by means of a URI with the `sarif` scheme (see [§3.10.3](#uris-that-use-the-sarif-scheme)). The second tool locates the object by means of its `guid` property ([§4.3.4](#externalproperties-object--guid-property)).
+> EXAMPLE: In this example, two tools analyze the same set of image files, stored in `sarifLog.inlineExternalProperties[0].artifacts`. The first tool locates the inline `externalProperties` object by means of a URI with the `sarif` scheme (see [sec](#uris-that-use-the-sarif-scheme)). The second tool locates the object by means of its `guid` property ([sec](#externalproperties-object--guid-property)).
 > 
 > ```json
 > {

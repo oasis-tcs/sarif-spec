@@ -2,21 +2,21 @@
 
 ### Localizable strings
 
-Certain string-valued properties in this document, for example, `toolComponent.name` ([§3.19.8](#toolcomponent-object--name-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
+Certain string-valued properties in this document, for example, `toolComponent.name` ([sec](#toolcomponent-object--name-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
 
 ### Redactable strings
 
-Certain string-valued properties in this document (for example, `invocation.commandLine` ([§3.20.2](#commandline-property))) might contain sensitive information that a SARIF producer or a SARIF post-processor might choose to redact. We describe these properties as "redactable." The description of every redactable property will state that it is redactable.
+Certain string-valued properties in this document (for example, `invocation.commandLine` ([sec](#commandline-property))) might contain sensitive information that a SARIF producer or a SARIF post-processor might choose to redact. We describe these properties as "redactable." The description of every redactable property will state that it is redactable.
 
-If a SARIF producer or a SARIF post-processor chooses to redact sensitive information in a redactable property, it **SHALL** replace the sensitive information with a string whose value is an element of `theRun.redactionTokens` ([§3.14.28](#redactiontokens-property)).
+If a SARIF producer or a SARIF post-processor chooses to redact sensitive information in a redactable property, it **SHALL** replace the sensitive information with a string whose value is an element of `theRun.redactionTokens` ([sec](#redactiontokens-property)).
 
 ### GUID-valued strings
 
-Certain string-valued properties in this document provide unique stable identifiers in the form of a GUID or UUID \[[RFC4122](#RFC4122)\]. This document uses the term "GUID".
+Certain string-valued properties in this document provide unique stable identifiers in the form of a GUID or UUID \[[cite](#RFC4122)\]. This document uses the term "GUID".
 
 > EXAMPLE: `"f81d4fae-7dec-11d0-a765-00a0c91e6bf6"`
 
-> NOTE 1: The UUID standard \[[RFC4122](#RFC4122)\] allows hex digits in either upper or lower case. It does not permit delimiters such as curly braces (`"{"`, `"}"`) around the value.
+> NOTE 1: The UUID standard \[[cite](#RFC4122)\] allows hex digits in either upper or lower case. It does not permit delimiters such as curly braces (`"{"`, `"}"`) around the value.
 
 The description of every GUID-valued property will state that it is GUID-valued.
 
@@ -26,7 +26,7 @@ The description of every GUID-valued property will state that it is GUID-valued.
 
 #### General{#hierarchical-strings--general}
 
-Certain string-valued properties and certain property names in this document (for example, the value of the `runAutomationDetails.id` property ([§3.17.3](#runautomationdetails-object--id-property)), and the property names in a property bag ([§3.8](#property-bags))) are said to be "hierarchical." This means that the string consists of a sequence of forward-slash-separated components, with this syntax:
+Certain string-valued properties and certain property names in this document (for example, the value of the `runAutomationDetails.id` property ([sec](#runautomationdetails-object--id-property)), and the property names in a property bag ([sec](#property-bags))) are said to be "hierarchical." This means that the string consists of a sequence of forward-slash-separated components, with this syntax:
 
 ```
 hierarchical string = component, { "/", component };
@@ -38,7 +38,7 @@ component character = ? JSON string character ? - "/";
 
 > NOTE 1: The grammar prohibits a `component` from containing a forward slash. There is no escape mechanism to allow a `component` to include a forward slash.
 
-For examples, see [§3.8.2](#tags) and [§3.17.3](#runautomationdetails-object--id-property).
+For examples, see [sec](#tags) and [sec](#runautomationdetails-object--id-property).
 
 The description of every hierarchical string will state that it is hierarchical.
 
@@ -50,7 +50,7 @@ In string-valued properties and property names that are *not* described as hiera
 
 #### Versioned hierarchical strings
 
-Certain hierarchical strings in this document (for example, the property names in `result.fingerprints` ([§3.27.16](#fingerprints-property)) and `result.partialFingerprints` ([§3.27.17](#partialfingerprints-property))) are said to be "versioned." This means that if the last `component` of the string is of the form
+Certain hierarchical strings in this document (for example, the property names in `result.fingerprints` ([sec](#fingerprints-property)) and `result.partialFingerprints` ([sec](#partialfingerprints-property))) are said to be "versioned." This means that if the last `component` of the string is of the form
 
     version component = "v", non negative integer;
 
