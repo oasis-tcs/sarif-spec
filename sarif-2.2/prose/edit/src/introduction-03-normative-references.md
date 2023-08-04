@@ -4,7 +4,7 @@ BCP14
 :    Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", March 1997, <https://tools.ietf.org/html/bcp14>.
 
 ECMA404
-:    The JSON Data Interchange Syntax", ECMA-404, 2<sup>nd</sup> Edition, December, 2017, <https://www.ecma-international.org/wp-content/uploads/ECMA-404_2nd_edition_december_2017.pdf>**.**
+:    "The JSON Data Interchange Syntax", ECMA-404, 2<sup>nd</sup> Edition, December, 2017, <https://www.ecma-international.org/wp-content/uploads/ECMA-404_2nd_edition_december_2017.pdf>**.**
 
 GFM
 :    "GitHub-Flavored Markdown spec", Version 0.28-gfm (2017-08-01), <https://github.github.com/gfm/>.
