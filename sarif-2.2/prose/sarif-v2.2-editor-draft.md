@@ -3900,7 +3900,7 @@ A `conversion` object describes how a converter transformed the output of an ana
 >         },
 >                                                      # see §3.22.3
 >         "invocation":
->           "Sarif.Multitool.exe convert -t AndroidStudio northwind.log"
+>           "Sarif.Multitool.exe convert -t AndroidStudio northwind.log",
 > 
 >         "analysisToolLogFileLocation": {             # see §3.22.4
 >           "uri": "northwind.log",   
