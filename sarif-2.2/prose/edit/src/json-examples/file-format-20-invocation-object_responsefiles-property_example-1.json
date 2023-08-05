@@ -1,0 +1,18 @@
+{
+  "commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rsp",
+  "responseFiles": [
+    {
+      "uri": "analyzer.rsp",
+      "uriBaseId": "RESPONSEFILEDIR"
+    },
+    {
+      "uri": "strict.rsp",
+      "uriBaseId": "RESPONSEFILEDIR"
+    },
+    {
+      "uri": "options.rsp",
+      "uriBaseId": "RESPONSEFILEDIR"
+    }
+  ],
+  "...member-inject": "..."
+}

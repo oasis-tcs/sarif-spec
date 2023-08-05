@@ -1,0 +1,13 @@
+{
+  "toolConfigurationNotifications": [
+    {
+      "descriptor": {
+        "id": "AccessDenied"
+      },
+      "level": "error",
+      "message": {
+        "text": "Cannot read from directory \"C:\\code\"."
+      }
+    }
+  ]
+}
