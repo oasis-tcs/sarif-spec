@@ -104,7 +104,7 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 >       "location": {
 >         "uri": "file:///C:/Code/main.c"
 >       },
->       "sourceLanguage": "c",
+>       "sourceLanguage": "c"
 >     }
 >   ],
 >   "results": [
