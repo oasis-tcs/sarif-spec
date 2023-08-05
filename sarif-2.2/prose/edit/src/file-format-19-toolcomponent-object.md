@@ -235,7 +235,7 @@ A SARIF consumer **MAY** offer the user the option of treating results according
       "rules": [                   # See §3.19.23.
         {                          # A reportingDescriptor object (§3.49).
           "id": "CA2101",
-          "defaultConfiguration" { # See §3.49.14.
+          "defaultConfiguration": { # See §3.49.14.
             "level": "warning"
           }
         },
@@ -256,13 +256,13 @@ A SARIF consumer **MAY** offer the user the option of treating results according
       "rules": [
         {
           "id": "CA2101",
-          "defaultConfiguration" {
+          "defaultConfiguration": {
             "level": "error"
           }
         },
         {
           "id": "CA2551",
-          "defaultConfiguration" {
+          "defaultConfiguration": {
             "enabled": true
           }
         }
@@ -555,7 +555,7 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 >       ],
 >       "taxa": [                   # See §3.19.25. Here, defines a custom
 >         ...                       #  taxonomy.
->       ]
+>       ],
 >       "supportedTaxonomies": [
 >         {                         # A toolComponentReference object (§3.54).
 >           "name": "CWE",          # Declares support for CWE.
