@@ -2880,7 +2880,7 @@ At least one of `version` ([§3.19.13](#toolcomponent-object--version-property))
 
 ### 3.19.3 Taxonomies <a id='taxonomies'></a>
 
-A taxonomy is a classification of results into a set of categories. Some taxonomies are defined publicly, without reference to any particular tool; we refer to these as "standard taxonomies." An example is the Common Weakness Enumeration \[[CWE™](#CWE)™\]. A tool can also define its own classification (in addition to the classification implied by its rule definitions); we refer to this as a "custom taxonomy." We refer to a category within a taxonomy as a "taxon" (*pl.* "taxa").
+A taxonomy is a classification of results into a set of categories. Some taxonomies are defined publicly, without reference to any particular tool; we refer to these as "standard taxonomies." An example is the Common Weakness Enumeration \[[CWE™](#CWE)\]. A tool can also define its own classification (in addition to the classification implied by its rule definitions); we refer to this as a "custom taxonomy." We refer to a category within a taxonomy as a "taxon" (*pl.* "taxa").
 
 A taxonomy is represented by a `toolComponent` object. Its taxa are stored in the `taxa` property ([§3.19.25](#toolcomponent-object--taxa-property)).
 
@@ -3356,7 +3356,7 @@ A tool might use the same identifier to refer to multiple distinct (although log
 
 A `toolComponent` object **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `reportingDescriptor` objects ([§3.49](#reportingdescriptor-object)) each of which provides information about a taxon defined by the component.
 
-If the `toolComponent` describes a standard taxonomy (for example, the Common Weakness Enumeration \[[CWE™](#CWE)™\]), it **SHALL NOT** contain `rules` ([§3.19.23](#rules-property)) or `notifications` ([§3.19.24](#notifications-property)).
+If the `toolComponent` describes a standard taxonomy (for example, the Common Weakness Enumeration \[[CWE™](#CWE)\]), it **SHALL NOT** contain `rules` ([§3.19.23](#rules-property)) or `notifications` ([§3.19.24](#notifications-property)).
 
 > NOTE: Tool components representing standard taxonomies are stored in `run.taxonomies` ([§3.14.8](#taxonomies-property)), but will typically be persisted to external property files (see [§3.15.2](#rationale)).
 
@@ -3402,7 +3402,7 @@ A `toolComponent` object that contains a `supportedTaxonomies` property **SHALL*
 
 If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a reference to itself in `supportedTaxonomies`.
 
-> EXAMPLE 1: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE™](#CWE)™\], and also supports a custom taxonomy.
+> EXAMPLE 1: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE™](#CWE)\], and also supports a custom taxonomy.
 > 
 > ```json
 > {                                 # A run object (§3.14)
@@ -8332,7 +8332,7 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 
 1.  In relating analysis rules to taxonomic categories ("taxa"; see [§3.19.3](#taxonomies)).
 
-> EXAMPLE 1: In this example, the definition of rule `CA1000` states that every result that violates this rule falls into the taxonomic category ("taxon") specified by ID 327 of the Common Weakness Enumeration \[[CWE™](#CWE)™\]:
+> EXAMPLE 1: In this example, the definition of rule `CA1000` states that every result that violates this rule falls into the taxonomic category ("taxon") specified by ID 327 of the Common Weakness Enumeration \[[CWE™](#CWE)\]:
 > 
 > ```json
 > {                              # A run object (§3.14).
