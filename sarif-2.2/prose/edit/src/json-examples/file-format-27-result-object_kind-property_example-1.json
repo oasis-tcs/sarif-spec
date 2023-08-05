@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "ruleId": "ABC0001",
+      "kind": "notApplicable",
+      "message": {
+        "text": "\"MyTool64.exe\" was not evaluated for rule ABC0001 because it is not a 32-bit binary."
+      },
+      "locations": [
+        {
+          "physicalLocation": {
+            "uri": "file://C:/bin/MyTool64.exe"
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "ABC0002",
+      "kind": "informational",
+      "message": {
+        "text": "\"MyTool64.exe\" was compiled with Example Corporation Compiler version 10.2.2."
+      },
+      "locations": [
+        {
+          "physicalLocation": {
+            "uri": "file://C:/bin/MyTool64.exe"
+          }
+        }
+      ]
+    }
+  ]
+}

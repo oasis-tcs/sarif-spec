@@ -4694,7 +4694,7 @@ In either case, if there is no `toolComponent` that defines the taxonomy to whic
 >             },
 >             {
 >               "target": {
->                 "id": "INC2"
+>                 "id": "INC2",
 >                 "guid": "33333333-3333-1111-8888-333333333333"
 >               },
 >               "kinds": [
