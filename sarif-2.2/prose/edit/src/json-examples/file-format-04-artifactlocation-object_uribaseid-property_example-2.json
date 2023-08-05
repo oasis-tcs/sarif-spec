@@ -1,4 +1,6 @@
-"artifactLocation": {
-   "uri": "drivers/video/hidef/driver.c",
-   "uriBaseId": "%srcroot%"
+{
+  "artifactLocation": {
+    "uri": "drivers/video/hidef/driver.c",
+    "uriBaseId": "%srcroot%"
+  }
 }
