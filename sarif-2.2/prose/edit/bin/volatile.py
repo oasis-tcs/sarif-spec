@@ -33,6 +33,7 @@ IS_CITE_REF = 'cite'
 CITE_REF_DETECT = re.compile(r'\\\[\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)\\\]')  # \[[ref](#label)\] pattern
 IS_SEC_REF = 'sec'
 SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)')  # [ref](#label) pattern
+MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
 
 
 # Specific tokens:
@@ -207,7 +208,17 @@ def main(argv: list[str]) -> int:
                         definition += '<br><br>' + NL + ' ' * 6 + line.strip()
                         continue
                     if not line.strip():
-                        item = f'{" " * 2}<dt id="{label}">{term}</dt>\n{" " * 2}<dd>{definition}</dd>\n'
+                        for ref in MD_REF_DETECT.finditer(definition):
+                            if ref:
+                                # Found ref in markdown format
+                                found = ref.groupdict()
+                                text = found['text']
+                                target = found['target']
+                                md_ref = f'[{text}](#{target})'
+                                html_ref = f'<a href="#{target}">{text}</a>'
+                                definition = definition.replace(md_ref, html_ref)
+
+                        item = f'{" " * 2}<dt id="#{label}">{term}</dt>\n{" " * 2}<dd>{definition}</dd>\n'
                         in_definition = False
                         patched.append(item)
                         continue
