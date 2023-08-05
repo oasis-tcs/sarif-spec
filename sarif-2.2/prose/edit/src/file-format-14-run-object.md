@@ -429,7 +429,7 @@ If for any reason different values are used, they **MAY** be any readily identif
 > 
 >   "invocation": {
 >     "commandLine": "SourceScanner --input [REDACTED]/src/ui"
->   }
+>   },
 >   ...
 > }
 > ```
