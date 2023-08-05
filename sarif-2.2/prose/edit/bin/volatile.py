@@ -326,8 +326,8 @@ def main(argv: list[str]) -> int:
                     print('-', f'{resource}:{slot + 1}', sem_ref, '-->', evil_ref)
                     line = line.replace(sem_ref, evil_ref)
                     lines[slot] = line
-            if '[CWE](#CEW)' in line:
-                lines[slot] = line.replace('[CWE](#CEW)', f'[CWE{TM}](#CEW)')  # Do not ask. Thanks.
+            if '[CWE](#CWE)' in line:
+                lines[slot] = line.replace('[CWE](#CWE)', f'[CWE{TM}](#CWE)')  # Do not ask. Thanks.
             if '[F.2](#' in line:
                 lines[slot] = line.replace('[F.2](#', '[Appendix F.2](#')  # Do not ask. Thanks.
             if '[F.4](#' in line:
