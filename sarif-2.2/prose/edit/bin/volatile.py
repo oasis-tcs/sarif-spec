@@ -218,7 +218,7 @@ def main(argv: list[str]) -> int:
                                 html_ref = f'<a href="#{target}">{text}</a>'
                                 definition = definition.replace(md_ref, html_ref)
 
-                        item = f'{" " * 2}<dt id="#{label}">{term}</dt>\n{" " * 2}<dd>{definition}</dd>\n'
+                        item = f'{" " * 2}<dt id="{label}">{term}</dt>\n{" " * 2}<dd>{definition}</dd>\n'
                         in_definition = False
                         patched.append(item)
                         continue
