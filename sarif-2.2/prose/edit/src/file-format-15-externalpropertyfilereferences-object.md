@@ -88,7 +88,7 @@ Every externalizable property whose type is shown in the table as "array" **SHAL
 >         "itemCount": 4277
 >       }
 >     ]
->   }
+>   },
 >   ...
 > }
 > ```
@@ -121,7 +121,7 @@ With one exception described below, if a property appears inline in the root fil
 >       },
 >       "guid": "11111111-1111-1111-8888-111111111111"
 >     }
->   }
+>   },
 >   ...
 > }
 > ```
@@ -154,7 +154,7 @@ With one exception described below, if a property appears inline in the root fil
 >         "guid": "22222222-2222-1111-8888-222222222222"
 >       }
 >     ]
->   }
+>   },
 >   ...
 > }
 > ```
