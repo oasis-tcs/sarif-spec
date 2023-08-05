@@ -222,8 +222,8 @@ rule metadata
 :  [reporting metadata](#def;reporting-metadata) that describes a [rule](#def;rule)
 
 run
-:  1\. invocation of a specified [analysis tool](#def;static-analysis-tool) on a specified version of a specified set of [analysis targets](#def;analysis-target), with a specified set of runtime parameters
-2\. set of [results](#def;result) produced by such an invocation
+:  1. invocation of a specified [analysis tool](#def;static-analysis-tool) on a specified version of a specified set of [analysis targets](#def;analysis-target), with a specified set of runtime parameters
+2. set of [results](#def;result) produced by such an invocation
 
 SARIF consumer
 :  program that reads and interprets a SARIF log file

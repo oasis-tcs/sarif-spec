@@ -845,8 +845,8 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;rule-metadata">rule metadata</dt>
   <dd><a href="#def;reporting-metadata">reporting metadata</a> that describes a <a href="#def;rule">rule</a></dd>
   <dt id="def;run">run</dt>
-  <dd>1\. invocation of a specified <a href="#def;static-analysis-tool">analysis tool</a> on a specified version of a specified set of <a href="#def;analysis-target">analysis targets</a>, with a specified set of runtime parameters<br><br>
-      2\. set of <a href="#def;result">results</a> produced by such an invocation</dd>
+  <dd>1. invocation of a specified <a href="#def;static-analysis-tool">analysis tool</a> on a specified version of a specified set of <a href="#def;analysis-target">analysis targets</a>, with a specified set of runtime parameters<br><br>
+      2. set of <a href="#def;result">results</a> produced by such an invocation</dd>
   <dt id="def;sarif-consumer">SARIF consumer</dt>
   <dd>program that reads and interprets a SARIF log file</dd>
   <dt id="def;sarif-log-file">SARIF log file</dt>
