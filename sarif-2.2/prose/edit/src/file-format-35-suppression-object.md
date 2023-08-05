@@ -14,11 +14,11 @@ A `suppression` object **SHALL** contain a property named `kind` whose value is 
 
 - `"inSource"`: The result is suppressed by a syntactic construct offered by the programming language.
 
-    EXAMPLE: The `SuppressMessage` attribute in the .NET Framework.
+    EXAMPLE 1: The `SuppressMessage` attribute in the .NET Framework.
 
 - `"external"`: The result is suppressed in an external, persistent store.
 
-    EXAMPLE: A database containing historical information about the results from analysis tools. Such a store might offer the ability to mark a result as "suppressed," meaning that if the result is encountered again, it is to be ignored.
+    EXAMPLE 1: A database containing historical information about the results from analysis tools. Such a store might offer the ability to mark a result as "suppressed," meaning that if the result is encountered again, it is to be ignored.
 
 ### status property
 

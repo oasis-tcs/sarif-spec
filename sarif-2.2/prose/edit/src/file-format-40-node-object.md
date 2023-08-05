@@ -8,7 +8,7 @@ A `node` object represents a node in the graph represented by the containing `gr
 
 A `node` object **SHALL** contain a property named `id` whose value is a string that uniquely identifies the node within `theGraph`. `id` **SHALL** be unique among all nodes in `theGraph`, regardless of nesting (see [sec](#children-property)).
 
-> EXAMPLE: This graph is invalid because two nodes have the same `id`, even though the nodes are within unrelated nested graphs.
+> EXAMPLE 1: This graph is invalid because two nodes have the same `id`, even though the nodes are within unrelated nested graphs.
 > 
 > ```json
 > {                             # A graph object (§3.39).

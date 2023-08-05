@@ -44,7 +44,7 @@ Depending on the circumstances, a `result` object either **SHALL**, **MAY**, or 
 
 A SARIF viewer or result management system **MAY** use the additional hierarchical components to allow a user to suppress a subset of the violations of a given rule. A result management system **MAY** also use the additional components to more precisely match results between runs.
 
-> EXAMPLE: In this example, the first result describes a violation of rule `CA2101`. Its `ruleId` consists entirely of the rule’s identifier. The second and third results both describe violations of rule `CA5350`. Each of their `ruleId`s specifies an additional hierarchical component that more precisely describes the rule violation. Note that `rule.index` ([sec](#rule-property), [sec](#reportingdescriptorreference-object--index-property)) for both those results is `1`; despite the additional hierarchical components in `ruleId`, both results describe violations of the same rule.
+> EXAMPLE 1: In this example, the first result describes a violation of rule `CA2101`. Its `ruleId` consists entirely of the rule’s identifier. The second and third results both describe violations of rule `CA5350`. Each of their `ruleId`s specifies an additional hierarchical component that more precisely describes the rule violation. Note that `rule.index` ([sec](#rule-property), [sec](#reportingdescriptorreference-object--index-property)) for both those results is `1`; despite the additional hierarchical components in `ruleId`, both results describe violations of the same rule.
 > 
 > A SARIF viewer or result management system might allow a user to suppress, for example, only those violations of rule `CA5350` which specify `md5` as the second hierarchical component of `ruleId`; that is, to allow the use of MD5 but still warn about the uses of other weak cryptographic algorithms.
 > 
@@ -148,7 +148,7 @@ In either case, if there is no `toolComponent` that defines the taxonomy to whic
 
 > NOTE 2: The rationale for this restriction is that `toolComponent.index` serves to locate the `toolComponent` object defining the rule, and `index` serves to locate the rule within that `toolComponent`. If there is no relevant `toolComponent` object, neither of those properties is meaningful. On the other hand, properties such as `id` ([sec](#reportingdescriptorreference-object--id-property)), `guid` ([sec](#reportingdescriptorreference-object--guid-property)), `toolComponent.name` ([sec](#toolcomponentreference-object--name-property)), and `toolComponent.guid` ([sec](#toolcomponentreference-object--guid-property)) are useful for readability and for identification, even if the `toolComponent` itself is absent, so they are permitted.
 
-> EXAMPLE: In this example, a tool defines a custom taxonomy (see [sec](#taxonomies)) consisting of three taxa with ids `"SUP"`, `"INC1"`, and `"INC2"`. The tool emits a result that falls into the taxa `"SUP"` and `"INC2"`, but not into `"INC1"`. According to `relationships[0]`, `"SUP"` is a superset of `"CA2101"`; that is, every result that violates `"CA2101"` falls into the taxon `"SUP"`. Therefore, it is not necessary to mention `"SUP"` in `theResult.taxa`. On the other hand, according to `relationships[2]`, `"INC2"` is incomparable to `"CA2101"`; that is, the set of results that violate `"CA2101"` intersects with but is neither a superset nor a subset of the set of results that fall into the taxon `"INC2"`. Therefore, it is necessary to mention `"INC2"` in `theResult.taxa`.
+> EXAMPLE 1: In this example, a tool defines a custom taxonomy (see [sec](#taxonomies)) consisting of three taxa with ids `"SUP"`, `"INC1"`, and `"INC2"`. The tool emits a result that falls into the taxa `"SUP"` and `"INC2"`, but not into `"INC1"`. According to `relationships[0]`, `"SUP"` is a superset of `"CA2101"`; that is, every result that violates `"CA2101"` falls into the taxon `"SUP"`. Therefore, it is not necessary to mention `"SUP"` in `theResult.taxa`. On the other hand, according to `relationships[2]`, `"INC2"` is incomparable to `"CA2101"`; that is, the set of results that violate `"CA2101"` intersects with but is neither a superset nor a subset of the set of results that fall into the taxon `"INC2"`. Therefore, it is necessary to mention `"INC2"` in `theResult.taxa`.
 > 
 > ```json
 > {                                     # A run object (§3.14).
@@ -244,7 +244,7 @@ If present, the `kind` property **SHALL** have one of the following values, with
 
 - `"notApplicable"`: The rule specified by `ruleId` was not evaluated, because it does not apply to the analysis target.
 
-> EXAMPLE: In this example, a binary checker has a rule that applies to 32-bit binaries only. It produces a `"notApplicable"` result if it is run on a 64-bit binary. It also has a rule that checks the compiler version and produces an informational result:
+> EXAMPLE 1: In this example, a binary checker has a rule that applies to 32-bit binaries only. It produces a `"notApplicable"` result if it is run on a 64-bit binary. It also has a rule that checks the compiler version and produces an informational result:
 > 
 > ```json
 > "results": [
@@ -305,7 +305,7 @@ If present, the `level` property **SHALL** have one of the following values, wit
 
 - `"none"`: The concept of "severity" does not apply to this result because the `kind` property ([sec](#result-object--kind-property)) has a value other than `"fail"`.
 
-> EXAMPLE: In this example, the tool reports an opportunity to improve the code.
+> EXAMPLE 1: In this example, the tool reports an opportunity to improve the code.
 > 
 > ```json
 > "results": [
@@ -468,7 +468,7 @@ If the analysis target differs from the result file, a `result` object **SHOULD*
 
 If the analysis target and the result file are the same, the `analysisTarget` property **SHOULD** be absent.
 
-> EXAMPLE: In this example, the tool’s analysis target was the file mouse.c. During the scan, the tool detected a result in the included file mouse.h.
+> EXAMPLE 1: In this example, the tool’s analysis target was the file mouse.c. During the scan, the tool detected a result in the included file mouse.h.
 > 
 > ```json
 > {                                 # A result object (§3.27).
@@ -663,7 +663,7 @@ A `result` object **MAY** contain a property named `stacks` whose value is an ar
 
 A `result` object **MAY** contain a property named `relatedLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `location` objects ([sec](#location-object)) each of which represents a location relevant to understanding the result.
 
-> EXAMPLE: Suppose that a tool for analyzing JavaScript™ has a rule that reports a problem when a variable declared in an inner scope hides a variable with the same name in an enclosing scope. The tool would report the problem on the line where the inner variable is declared. The tool could choose to add an element to the `relatedLocations` array, specifying the location where the outer variable was declared.  
+> EXAMPLE 1: Suppose that a tool for analyzing JavaScript™ has a rule that reports a problem when a variable declared in an inner scope hides a variable with the same name in an enclosing scope. The tool would report the problem on the line where the inner variable is declared. The tool could choose to add an element to the `relatedLocations` array, specifying the location where the outer variable was declared.  
 >   
 > The result might appear in the log file like this:
 > 

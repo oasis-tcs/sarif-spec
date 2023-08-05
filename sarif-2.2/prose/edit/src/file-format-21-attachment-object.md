@@ -6,7 +6,7 @@ An `attachment` object describes an artifact relevant to the detection of a resu
 
 A SARIF producer **MAY** embed the contents of an attachment in the log file by mentioning the attachment in `theRun.artifacts` ([sec](#artifacts-property)) and providing a value for `artifact.contents` ([sec](#artifact-object--contents-property)).
 
-> EXAMPLE: In this example, `image001.png` is a screen shot of the program being analyzed at the point where the result was detected. Note that this example is more appropriate to a dynamic analysis tool than to a static analysis tool.
+> EXAMPLE 1: In this example, `image001.png` is a screen shot of the program being analyzed at the point where the result was detected. Note that this example is more appropriate to a dynamic analysis tool than to a static analysis tool.
 > 
 > ```json
 > {                                             # A result object (§3.27).

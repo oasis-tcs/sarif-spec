@@ -24,7 +24,7 @@ If the external artifact is a UTF-8 text artifact, the `binary` property **SHOUL
 
 An `artifactContent` object **MAY** contain a property named `rendered` whose value is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that provides a rendered view of the contents.
 
-> EXAMPLE: In this example, a `physicalLocation` object ([sec](#physicallocation-object)) denotes a memory address. Its `region.snippet.rendered` property ([sec](#region-property), [sec](#snippet-property)) offers a hex view of the relevant address range. The `markdown` property ([sec](#multiformatmessagestring-object--markdown-property)) emphasizes a byte of particular interest.
+> EXAMPLE 1: In this example, a `physicalLocation` object ([sec](#physicallocation-object)) denotes a memory address. Its `region.snippet.rendered` property ([sec](#region-property), [sec](#snippet-property)) offers a hex view of the relevant address range. The `markdown` property ([sec](#multiformatmessagestring-object--markdown-property)) emphasizes a byte of particular interest.
 > 
 > ```json
 > {                                # A physicalLocation object (§3.29).

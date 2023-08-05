@@ -8,7 +8,7 @@ An `address` object describes a physical or virtual address, or a range of addre
 
 `address` objects can be linked by their `parentIndex` properties ([sec](#address-object--parentindex-property)) to form a chain in which each address is specified as an offset from a "parent" object which we refer to as `theParent`.
 
-> EXAMPLE: In this example, the location of the Sections region of a Windows ® Portable Executable file \[[cite](#PE)\] is expressed as an offset from the start of the module. The location of the .text section is in turn expressed as an offset from Sections.
+> EXAMPLE 1: In this example, the location of the Sections region of a Windows ® Portable Executable file \[[cite](#PE)\] is expressed as an offset from the start of the module. The location of the .text section is in turn expressed as an offset from Sections.
 > 
 > ```json
 > {                                  # A run object (§3.14).
@@ -147,7 +147,7 @@ An `address` object **MAY** contain a property named `name` whose value is a str
 
 An `address` object **MAY** contain a property named `fullyQualifiedName` whose value is a string containing the fully qualified name of this address.
 
-> EXAMPLE: `"fullyQualifiedName": "MyDll.dll+0x47"`
+> EXAMPLE 1: `"fullyQualifiedName": "MyDll.dll+0x47"`
 > 
 > This name consists of two components. The first component is the name of the address at which the module was loaded into memory. The second component represents an offset from that address.
 

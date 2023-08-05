@@ -14,7 +14,7 @@ If a SARIF producer or a SARIF post-processor chooses to redact sensitive inform
 
 Certain string-valued properties in this document provide unique stable identifiers in the form of a GUID or UUID \[[cite](#RFC4122)\]. This document uses the term "GUID".
 
-> EXAMPLE: `"f81d4fae-7dec-11d0-a765-00a0c91e6bf6"`
+> EXAMPLE 1: `"f81d4fae-7dec-11d0-a765-00a0c91e6bf6"`
 
 > NOTE 1: The UUID standard \[[cite](#RFC4122)\] allows hex digits in either upper or lower case. It does not permit delimiters such as curly braces (`"{"`, `"}"`) around the value.
 
@@ -64,7 +64,7 @@ In string-valued properties and property names that are described as hierarchica
 
 A hierarchical string without a version component **SHALL** be considered older than any corresponding string with a version component.
 
-> EXAMPLE: In this example, the partial fingerprint whose property name is `"prohibitedWordHash"` is considered to have been computed with an older version of the "prohibited word hash" algorithm than the partial fingerprint whose property name is `"prohibitedWordHash/v1"`.
+> EXAMPLE 1: In this example, the partial fingerprint whose property name is `"prohibitedWordHash"` is considered to have been computed with an older version of the "prohibited word hash" algorithm than the partial fingerprint whose property name is `"prohibitedWordHash/v1"`.
 > 
 > ```json
 > {                                 # A result object (§3.27).

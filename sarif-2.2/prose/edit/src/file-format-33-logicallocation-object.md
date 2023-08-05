@@ -58,7 +58,7 @@ The `name` property **SHALL** be suitable for display and **SHALL** follow the n
 
 > NOTE: A C++ analysis tool might have available both the source code form of a function name and the compiler’s "decorated" function name (which encodes the function signature in a manner that is compiler-dependent and not easily readable). The tool would place the source code form of the function name in the `name` property, and the decorated name in the `decoratedName` property ([sec](#decoratedname-property)).
 
-> EXAMPLE: In this C++ example, the fully qualified name is `"b::c(float)"`, so `"name"` is the rightmost component, `"c(float)"`.
+> EXAMPLE 1: In this C++ example, the fully qualified name is `"b::c(float)"`, so `"name"` is the rightmost component, `"c(float)"`.
 > 
 > ```json
 > {                                      # A logicalLocation object.
@@ -78,7 +78,7 @@ It is possible for two or more distinct logical locations to have the same fully
 
 > NOTE: This is an extremely rare corner case.
 
-> EXAMPLE: Suppose a tool analyzes two C++ source files:
+> EXAMPLE 1: Suppose a tool analyzes two C++ source files:
 > 
 > ```cpp
 > // file1.cpp
@@ -143,7 +143,7 @@ A `logicalLocation` object **MAY** contain a property named `decoratedName` whos
 
 > NOTE: Some compilers refer to this representation as a "mangled name." It typically encodes the function’s name, signature, return type, and the class and namespace (if any) to which it belongs.
 
-> EXAMPLE: In this example, the `decoratedName` property contains a "mangled" name emitted by a C++ compiler:
+> EXAMPLE 1: In this example, the `decoratedName` property contains a "mangled" name emitted by a C++ compiler:
 > 
 > ```json
 > {                                              # A logicalLocation object
@@ -365,7 +365,7 @@ If `thisObject` represents a top-level logical location, then `parentIndex` **SH
 
 > NOTE: `parentIndex` makes it possible to navigate from the `logicalLocation` object representing a nested logical location to the `logicalLocation` objects representing each of its parent logical locations in turn, up to the top-level logical location.
 
-> EXAMPLE: In this example, the logical location `n::f(void)` is nested within the top-level logical location `n`. The `logicalLocation` object representing `n::f(void)` contains a `parentIndex` property that points to the object representing `n`; the object representing `n` does not contain a `parentIndex` property.
+> EXAMPLE 1: In this example, the logical location `n::f(void)` is nested within the top-level logical location `n`. The `logicalLocation` object representing `n::f(void)` contains a `parentIndex` property that points to the object representing `n`; the object representing `n` does not contain a `parentIndex` property.
 > 
 > ```json
 > {                                            # A run object (§3.14).

@@ -20,7 +20,7 @@ A consumer **MAY** act on this hint as follows:
 
 4.  Otherwise, render the displayed URI as an absolute URI (or in some other appropriate form, such as a (`uriBaseId`, `uri`) pair.
 
-> EXAMPLE: Given the following:
+> EXAMPLE 1: Given the following:
 > 
 > ```json
 > {                           # A run object (§3.14).

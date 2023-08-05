@@ -30,13 +30,13 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 A `webRequest` object **SHOULD** contain a property named `protocol` whose value is a string containing the name of the web protocol used in the request, found on the HTTP request line.
 
-> EXAMPLE: `"protocol": "HTTP"`
+> EXAMPLE 1: `"protocol": "HTTP"`
 
 ### version property{#webrequest-object--version-property}
 
 A `webRequest` object **SHOULD** contain a property named `version` whose value is a string containing the version of the web protocol used in the request, found on the HTTP request line.
 
-> EXAMPLE: `"version": "1.1"`
+> EXAMPLE 1: `"version": "1.1"`
 
 ### target property{#webrequest-object--target-property}
 

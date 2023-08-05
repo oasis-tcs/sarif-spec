@@ -8,7 +8,7 @@ A `configurationOverride` object modifies the effective runtime configuration of
 
 The `configurationOverride` object’s `descriptor` property ([sec](#configurationoverride-object--descriptor-property)) identifies `theDescriptor`. Its `configuration` property ([sec](#configuration-property)) overrides the values specified in `theDescriptor.defaultConfiguration` ([sec](#defaultconfiguration-property)).
 
-> EXAMPLE: In this example, rule `CA2101` is treated as a warning rather than an error.
+> EXAMPLE 1: In this example, rule `CA2101` is treated as a warning rather than an error.
 > 
 > ```json
 > {                                           # A run object (§3.14).

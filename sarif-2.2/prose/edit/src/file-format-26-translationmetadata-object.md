@@ -6,7 +6,7 @@ A `translationMetadata` object describes a translation. It is necessary because 
 
 Because they occur only in `toolComponent` objects that represent translations, the properties of a `translationMetadata` object are not themselves localized ([sec](#localizable-strings)).
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {                           # A toolComponent object (§3.19).

@@ -64,7 +64,7 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([se
 
 > NOTE: This property is intended to be useful to developers of converters, to help them debug the conversion from the analysis tool’s native output format to the SARIF format.
 
-> EXAMPLE: Given this analysis tool’s output file:
+> EXAMPLE 1: Given this analysis tool’s output file:
 > 
 > ```xml
 > <?xml version="1.0" encoding="UTF-8"?>

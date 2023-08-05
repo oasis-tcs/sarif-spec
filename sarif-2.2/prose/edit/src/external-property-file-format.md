@@ -22,7 +22,7 @@ The file name **MAY** end with the additional extension `".json"`.
 
 The top-level element of an external property file **SHALL** be an object which we refer to as an `externalProperties` object.
 
-> EXAMPLE: In this example, `run.artifacts` and `run.properties` have been externalized to a file with these contents. Note that `run.properties` has been externalized under the property name `externalizedProperties`, as explained in [sec](#properties).
+> EXAMPLE 1: In this example, `run.artifacts` and `run.properties` have been externalized to a file with these contents. Note that `run.properties` has been externalized under the property name `externalizedProperties`, as explained in [sec](#properties).
 > 
 > ```json
 > {                             # An externalProperties object

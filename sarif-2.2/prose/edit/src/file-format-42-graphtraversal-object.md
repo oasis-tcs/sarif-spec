@@ -32,7 +32,7 @@ For details of how properties within a "state" object are represented, see EXAMP
 
 A `graphTraversal` object **MAY** contain a property named `immutableState` whose value is an object ([sec](#object-properties)) each of whose properties is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that represents the value of a relevant item that remains constant throughout the traversal.
 
-> EXAMPLE: In this example, `immutableState` holds the value of a global variable that remains constant throughout the traversal.
+> EXAMPLE 1: In this example, `immutableState` holds the value of a global variable that remains constant throughout the traversal.
 > 
 > ```json
 > {                                          # A graphTraversal object.
@@ -50,7 +50,7 @@ A `graphTraversal` object **MAY** contain a property named `edgeTraversals` whos
 
 The `edgeTraversal` objects **SHALL** be connected end to end; that is, the target node of every traversed edge except the last **SHALL** equal the source node of the next edge.
 
-> EXAMPLE: In this example, the `graphTraversal` contains two `edgeTraversal` objects. The id of the first traversed edge is `"e1"`, which connects node `"n1"` to node `"n2"`. The id of the second traversed edge is `"e3"`, which connects node `"n2"` to node `"n4"`. This is a valid graph traversal because the target node of each traversed edge is the source node of the next.
+> EXAMPLE 1: In this example, the `graphTraversal` contains two `edgeTraversal` objects. The id of the first traversed edge is `"e1"`, which connects node `"n1"` to node `"n2"`. The id of the second traversed edge is `"e3"`, which connects node `"n2"` to node `"n4"`. This is a valid graph traversal because the target node of each traversed edge is the source node of the next.
 > 
 > This example also demonstrates the usage of `graphTraversal.initialState` ([sec](#graphtraversal-object--initialstate-property)) and `edgeTraversal.finalState` ([sec](#finalstate-property)).
 > 

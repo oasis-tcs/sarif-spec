@@ -26,7 +26,7 @@ If this `artifact` object represents a top-level artifact, then `parentIndex` **
 
 > NOTE: `parentIndex` makes it possible to navigate from the `artifact` object representing a nested artifact to the `artifact` objects representing each of its parent artifacts in turn, up to the top-level artifact.
 
-> EXAMPLE: This example demonstrates two levels of artifact nesting. The top-level artifact is a ZIP archive represented by the `artifact` object at index 0 in the `artifacts` array. The archive contains a word processing document at the specified absolute path from its root; the document is represented by the `artifact` object at index 1. Finally, the document contains an embedded media object of the specified length at the specified offset from its beginning; the media object is represented by the `artifact` object at index 2. The media object’s `parentIndex` property refers to its parent document; the document’s `parentIndex` property refers to its parent ZIP archive, and the ZIP archive does not have a `parentIndex` property.
+> EXAMPLE 1: This example demonstrates two levels of artifact nesting. The top-level artifact is a ZIP archive represented by the `artifact` object at index 0 in the `artifacts` array. The archive contains a word processing document at the specified absolute path from its root; the document is represented by the `artifact` object at index 1. Finally, the document contains an embedded media object of the specified length at the specified offset from its beginning; the media object is represented by the `artifact` object at index 2. The media object’s `parentIndex` property refers to its parent document; the document’s `parentIndex` property refers to its parent ZIP archive, and the ZIP archive does not have a `parentIndex` property.
 > 
 > ```json
 > "artifacts": [
@@ -157,7 +157,7 @@ If the `artifact` object represents a text artifact and this property is absent,
 
 If the `artifact` object represents a binary artifact, `encoding` **SHALL** be absent.
 
-> EXAMPLE: In this example, the encoding of output.txt is UTF-16BE (obtained from the default), but the encoding of data.txt is UTF-16LE:
+> EXAMPLE 1: In this example, the encoding of output.txt is UTF-16BE (obtained from the default), but the encoding of data.txt is UTF-16LE:
 > 
 > ```json
 > {                                      # A run object (§3.14)
@@ -195,7 +195,7 @@ If the artifact contains source code in a mix of languages, and if it is possibl
 
 > NOTE 2: Typically, this is the language implied by the file name extension.
 
-> EXAMPLE: In an HTML file that contains embedded JavaScript™, `sourceLanguage` would be `"html"`.
+> EXAMPLE 1: In an HTML file that contains embedded JavaScript™, `sourceLanguage` would be `"html"`.
 
 If it is not possible to identify a primary language, `sourceLanguage` **MAY** specify any language used in the artifact, or it **MAY** be absent.
 
@@ -231,7 +231,7 @@ To maximize interoperability, SARIF producers and consumers **SHOULD** conform t
 
 An `artifact` object **MAY** contain a property named `hashes` whose value is a non-empty object ([sec](#object-properties)) each of whose property names specifies the name of a hash function, and each of whose property values represents the value produced by that hash function.
 
-> EXAMPLE: In this example, each of the hash functions SHA-256 and SHA-512 were used to compute hash values for the file.
+> EXAMPLE 1: In this example, each of the hash functions SHA-256 and SHA-512 were used to compute hash values for the file.
 > 
 > ```json
 > {                   # A file object.

@@ -4,7 +4,7 @@
 
 A `run` object describes a single run of an analysis tool and contains the output of that run.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {
@@ -103,7 +103,7 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 
 > NOTE 4: This document refers to a fixed revision of a set of files as a "revision". Different VCSs use different terms; for example, Git calls it a "commit".
 
-> EXAMPLE: In this example, an analysis tool has scanned files from one repository: the GitHub repository `example/browser`.
+> EXAMPLE 1: In this example, an analysis tool has scanned files from one repository: the GitHub repository `example/browser`.
 > 
 >   ```json
 >   {                                    # A run object.
@@ -250,7 +250,7 @@ The array **SHOULD** contain elements representing at least those artifacts in w
 
 > NOTE: `artifact` objects contain information that is useful for viewers. Viewers will be able to provide the most information to users if the `artifacts` property is present and contains information for every artifact in which results were detected.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 >   ```json
 >   "artifacts": [
@@ -282,7 +282,7 @@ In some cases, a logical location might be nested within another logical locatio
 
 If a nested logical location appears in the `logicalLocations` array, then the `logicalLocations` array **SHALL** also contain elements describing each of its parents, up to and including the top-level logical location.
 
-> EXAMPLE: In this example, a result was detected in the C++ class `namespaceA::namespaceB::classC`. The `logicalLocations` array contains not only an element describing the class, but also elements describing its containing namespaces.
+> EXAMPLE 1: In this example, a result was detected in the C++ class `namespaceA::namespaceB::classC`. The `logicalLocations` array contains not only an element describing the class, but also elements describing its containing namespaces.
 > 
 > ```json
 > "logicalLocations": [

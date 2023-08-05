@@ -24,7 +24,7 @@ If `id` is absent, it **SHALL** default to -1, which indicates that the value is
 
 > NOTE: Negative values are forbidden because their use would suggest some non-obvious semantic difference between positive and negative values.
 
-> EXAMPLE: Within a `result` object, the following property values (among others) are `location` objects, and no two of them can have the same value for `id`:
+> EXAMPLE 1: Within a `result` object, the following property values (among others) are `location` objects, and no two of them can have the same value for `id`:
 > 
 >     result.relatedLocations[0]
 >     result.codeFlows[0].threadFlows[0].locations[0].location
@@ -50,7 +50,7 @@ A `location` object **MAY** contain a property named `message` whose value is a 
 
 A `location` object **MAY** contain a property named `annotations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `region` objects ([sec](#region-object)) each of which describes a region within the artifact specified by the `location` object that is relevant to the location. Each of these `region` objects **SHOULD** contain a `message` property ([sec](#region-object--message-property)) that explains the relevance of the region to the location.
 
-> EXAMPLE: Consider a `location` object which describes the declaration statement
+> EXAMPLE 1: Consider a `location` object which describes the declaration statement
 > 
 > ```cs
 > int x = (y + z) * q;

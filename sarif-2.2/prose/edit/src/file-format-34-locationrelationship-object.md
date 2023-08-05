@@ -6,7 +6,7 @@ A `locationRelationship` object specifies one or more directed relationships fro
 
 `locationRelationship` objects appear as elements of the `location.relationships` array ([sec](#location-object--relationships-property)). The `location` object containing this property is `theSource`.
 
-> EXAMPLE: In this example, the location relationships specify that the file f.h in which the result was found is included by g.h, which is in turn included by g.c. Depending on the circumstances, it might or might not be useful to include both the `"includes"` and `"isIncludedBy"` relationships, as this example does for g.h.
+> EXAMPLE 1: In this example, the location relationships specify that the file f.h in which the result was found is included by g.h, which is in turn included by g.c. Depending on the circumstances, it might or might not be useful to include both the `"includes"` and `"isIncludedBy"` relationships, as this example does for g.h.
 > 
 > ```json
 > {                                        # A result object (§3.27).

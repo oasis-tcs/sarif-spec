@@ -16,7 +16,7 @@ If the `reportingDescriptor` object ([sec](#reportingdescriptor-object)) `theDes
 
 If the condition described by the `notification` object is relevant to a particular analysis rule, the `notification` object **SHOULD** contain a property named `associatedRule` whose value is a `reportingDescriptorReference` object ([sec](#reportingdescriptorreference-object)) that identifies the rule.
 
-> EXAMPLE: In this example, there is more than one rule with id `CA1711`. `associatedRule.index` uniquely specifies the relevant rule.
+> EXAMPLE 1: In this example, there is more than one rule with id `CA1711`. `associatedRule.index` uniquely specifies the relevant rule.
 > 
 > ```json
 > {                                      # A run object (§3.14).

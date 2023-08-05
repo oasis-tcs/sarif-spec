@@ -4,7 +4,7 @@
 
 A `sarifLog` object specifies the version of the file format and contains the output from one or more runs.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {
@@ -59,7 +59,7 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 
 > NOTE: This property allows multiple runs to share large data sets in a single, self-contained log file.
 
-> EXAMPLE: In this example, two tools analyze the same set of image files, stored in `sarifLog.inlineExternalProperties[0].artifacts`. The first tool locates the inline `externalProperties` object by means of a URI with the `sarif` scheme (see [sec](#uris-that-use-the-sarif-scheme)). The second tool locates the object by means of its `guid` property ([sec](#externalproperties-object--guid-property)).
+> EXAMPLE 1: In this example, two tools analyze the same set of image files, stored in `sarifLog.inlineExternalProperties[0].artifacts`. The first tool locates the inline `externalProperties` object by means of a URI with the `sarif` scheme (see [sec](#uris-that-use-the-sarif-scheme)). The second tool locates the object by means of its `guid` property ([sec](#externalproperties-object--guid-property)).
 > 
 > ```json
 > {

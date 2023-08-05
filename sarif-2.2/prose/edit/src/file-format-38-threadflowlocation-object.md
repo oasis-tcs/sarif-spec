@@ -107,7 +107,7 @@ If location information is available, a `threadFlowLocation` object **SHALL** co
 
 There are analysis tools whose native output format includes the equivalent of a SARIF code flow, but which do not provide location information for every step in the code flow. A SARIF converter for such a format might not be able to populate `location`. However, if the native output format associates a human readable message with such a step, the SARIF converter **SHOULD** create a `location` object and populate only its `message` property ([sec](#location-object--message-property)). A SARIF direct producer which creates such code flows **SHOULD** populate `location.message`, even if no actual location information is available.
 
-> EXAMPLE: In this example, a file is locked by another program before a thread attempts to write to it. The analysis tool has no location information for the other program; in fact, the analysis tool might merely be simulating an execution sequence in which a *hypothetical* external program locks the file. Nevertheless, it provides a helpful message.
+> EXAMPLE 1: In this example, a file is locked by another program before a thread attempts to write to it. The analysis tool has no location information for the other program; in fact, the analysis tool might merely be simulating an execution sequence in which a *hypothetical* external program locks the file. Nevertheless, it provides a helpful message.
 > 
 > Note the use of `executionOrder` ([sec](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
 > 
@@ -379,7 +379,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 
 > NOTE: The motivation for this property is an analysis tool that uses a set of rules to guide its analysis as it traces tainted data from a source to a sink. For example, at one location, the tool might apply a rule that says: "If the input to `String.Substr` is tainted, then so is the return value." Such a tool can represent these "helper rules" as a custom taxonomy ([sec](#taxonomies)), an array of `reportingDescriptor` objects ([sec](#reportingdescriptor-object)). Each member of `threadFlowLocation.taxa` can reference one of these helper rules.
 
-> EXAMPLE: This example illustrates the scenario in the above note.
+> EXAMPLE 1: This example illustrates the scenario in the above note.
 > 
 > ```json
 > {                                # A run object (§3.14).

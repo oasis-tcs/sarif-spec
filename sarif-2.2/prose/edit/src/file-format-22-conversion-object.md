@@ -4,7 +4,7 @@
 
 A `conversion` object describes how a converter transformed the output of an analysis tool from the analysis tool’s native output format into the SARIF format.
 
-> EXAMPLE: In this example, a converter has converted an AndroidStudio output file into a SARIF log file:
+> EXAMPLE 1: In this example, a converter has converted an AndroidStudio output file into a SARIF log file:
 > 
 > ```json
 > {

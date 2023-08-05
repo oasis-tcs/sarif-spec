@@ -30,7 +30,7 @@ Standard taxonomies **SHALL** be stored in the `run.taxonomies` array ([sec](#ta
 
 A custom taxonomy is represented by providing a `toolComponent` object in `tool.driver` ([sec](#driver-property)) or `tool.extensions` ([sec](#extensions-property)) with a `taxa` property. Such a `toolComponent` object **MAY** still contain `rules` and/or `notifications` as usual.
 
-> EXAMPLE: In this example, the tool driver supports the CWE™ taxonomy, and also supports a custom taxonomy that it defines. Any result that violates the driver’s rule `"CA2101"` falls into the `"MemoryManagement"` taxon of its custom taxonomy, as shown by the `"superset"` relationship from the `"MemoryManagement"` taxon to the rule (which is interpreted as "The `MemoryManagement` taxon is a superset of rule `CA2101`"). For more information on relationships, see [sec](#reportingdescriptor-object--relationships-property) and [sec](#reportingdescriptorrelationship-object).
+> EXAMPLE 1: In this example, the tool driver supports the CWE™ taxonomy, and also supports a custom taxonomy that it defines. Any result that violates the driver’s rule `"CA2101"` falls into the `"MemoryManagement"` taxon of its custom taxonomy, as shown by the `"superset"` relationship from the `"MemoryManagement"` taxon to the rule (which is interpreted as "The `MemoryManagement` taxon is a superset of rule `CA2101`"). For more information on relationships, see [sec](#reportingdescriptor-object--relationships-property) and [sec](#reportingdescriptorrelationship-object).
 > 
 > ```json
 > {                                  # A run object (§3.14).
@@ -164,7 +164,7 @@ To facilitate the identification of translations that are associated with a give
 
 In many cases, a new version of a `toolComponent` defines new localizable strings or requires changes to existing ones (for example, when the tool defines new analysis rules). But in some cases, a new version of a `toolComponent` can use existing translations (for example, in the case of a bug fix release). To ensure that new translations are created only when necessary, a translation component **SHOULD** populate `localizedDataSemanticVersion` ([sec](#localizeddatasemanticversion-property)), and a translatable component **SHOULD** populate `minimumRequiredLocalizedDataSemanticVersion` ([sec](#minimumrequiredlocalizeddatasemanticversion-property)). See the descriptions of those two properties for an explanation of the interaction between them.
 
-> EXAMPLE: In this example, a French translation is available. It translates localizable component-level properties such as `toolComponent.name` ([sec](#toolcomponent-object--name-property)), as well as rule-level properties such as `reportingDescriptor.shortDescription` ([sec](#reportingdescriptor-object--shortdescription-property)). The translation can be used because its `localizedDataSemanticVersion` property ([sec](#localizeddatasemanticversion-property)) is compatible with the translated component’s `minimumRequiredLocalizedDataSemantic` version property ([sec](#minimumrequiredlocalizeddatasemanticversion-property)).
+> EXAMPLE 1: In this example, a French translation is available. It translates localizable component-level properties such as `toolComponent.name` ([sec](#toolcomponent-object--name-property)), as well as rule-level properties such as `reportingDescriptor.shortDescription` ([sec](#reportingdescriptor-object--shortdescription-property)). The translation can be used because its `localizedDataSemanticVersion` property ([sec](#localizeddatasemanticversion-property)) is compatible with the translated component’s `minimumRequiredLocalizedDataSemantic` version property ([sec](#minimumrequiredlocalizeddatasemanticversion-property)).
 > 
 > ```json
 > {                                  # A run object (§3.14).
@@ -225,7 +225,7 @@ A SARIF consumer **MAY** offer the user the option of treating results according
 
 > NOTE: The rationale is that when a user asks to see how a policy views a set of results, they want to see exactly what the policy has to say, regardless of any configuration options that might have been selected when the log was created.
 
-> EXAMPLE: In this example, the tool driver defines rule `CA2101` to be a warning and disables rule `CA2551` by default. However, the corporate security policy specifies that a violation of rule `CA2101` is an error and requires rule `CA2551` to be run. The presence of `run.policies` allows a SARIF viewer to display the results according to the tool’s view or the policy’s view.
+> EXAMPLE 1: In this example, the tool driver defines rule `CA2101` to be a warning and disables rule `CA2551` by default. However, the corporate security policy specifies that a violation of rule `CA2101` is an error and requires rule `CA2551` to be run. The presence of `run.policies` allows a SARIF viewer to display the results according to the tool’s view or the policy’s view.
 
 ```json
 {                                  # A run object (§3.14).
@@ -294,25 +294,25 @@ A `toolComponent` object **SHALL** contain a property named `name` whose value i
 
 A `toolComponent` object **MAY** contain a property named `fullName` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the tool component along with its version and any other useful identifying information, such as its locale.
 
-> EXAMPLE: `"CodeScanner 1.1, Developer Preview (en-US)"`
+> EXAMPLE 1: `"CodeScanner 1.1, Developer Preview (en-US)"`
 
 ### product property
 
 A `toolComponent` object **MAY** contain a property named `product` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the product to which the tool component belongs.
 
-> EXAMPLE: `"product": "Example Software Corp. Security Scanner"`
+> EXAMPLE 1: `"product": "Example Software Corp. Security Scanner"`
 
 ### productSuite property
 
 A `toolComponent` object **MAY** contain a property named `productSuite` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the suite of products to which the tool component belongs.
 
-> EXAMPLE: `"productSuite": "Example Software Corp. Quality Tools"`
+> EXAMPLE 1: `"productSuite": "Example Software Corp. Quality Tools"`
 
 ### semanticVersion property
 
 A `toolComponent` object **MAY** contain a property named `semanticVersion` whose value is a string containing the tool component’s version in a format that conforms to the syntax and semantics specified by Semantic Versioning \[[cite](#SEMVER)\].
 
-> EXAMPLE: `"semanticVersion": "1.1.2-beta.12"`
+> EXAMPLE 1: `"semanticVersion": "1.1.2-beta.12"`
 
 > NOTE 1: Semantic versions are sortable in chronological order of release. The presence of the `semanticVersion` property allows results management systems to (for example) restrict the results they display to versions newer than a specified version, or to restrict the results to a particular major version.
 
@@ -334,7 +334,7 @@ where the `non negative integer`s follow the logical order of the components of 
 
 If the operating system does not provide such a value, the `dottedQuadFileVersion` property **SHALL** be absent.
 
-> EXAMPLE: On the Microsoft Windows® platform, this information is available in the `FILEVERSION` member of the `VERSIONINFO` structure.
+> EXAMPLE 1: On the Microsoft Windows® platform, this information is available in the `FILEVERSION` member of the `VERSIONINFO` structure.
 
 ### releaseDateUtc property
 
@@ -356,7 +356,7 @@ A `toolComponent` object **MAY** contain a property named `informationUri` whose
 
 A `toolComponent` object **MAY** contain a property named `organization` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the company or organization that produced the tool component.
 
-> EXAMPLE: `"organization": "Example Software Corp."`
+> EXAMPLE 1: `"organization": "Example Software Corp."`
 
 ### shortDescription property{#toolcomponent-object--shortdescription-property}
 
@@ -398,7 +398,7 @@ If this property is absent, it **SHALL** default to `"en-US"`.
 
 A `toolComponent` object **MAY** contain a property named `globalMessageStrings` whose value is an object ([sec](#object-properties)) each of whose property values is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)). The property names correspond to `id` properties ([sec](#message-object--id-property)) within `message` objects ([sec](#message-object)).
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > "driver": {                       # A toolComponent object (§3.19).
@@ -423,7 +423,7 @@ A `toolComponent` object **MAY** contain a property named `rules` whose value is
 
 Some tools use the same identifier to refer to multiple distinct (although logically related) rules. Therefore, the `id` properties ([sec](#reportingdescriptor-object--id-property)) of the `reportingDescriptor` objects do not need to be unique within the array.
 
-> EXAMPLE: In this example, two distinct but related rules have the same rule id. They are distinguished by their message strings.
+> EXAMPLE 1: In this example, two distinct but related rules have the same rule id. They are distinguished by their message strings.
 > 
 > ```json
 > "driver": {                       # A toolComponent object (§3.19).
@@ -463,7 +463,7 @@ A `toolComponent` object **MAY** contain a property named `notifications` whose 
 
 A tool might use the same identifier to refer to multiple distinct (although logically related) notifications. Therefore, the `id` properties ([sec](#reportingdescriptor-object--id-property)) of the `reportingDescriptor` objects do not need to be unique within the array.
 
-> EXAMPLE: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
+> EXAMPLE 1: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
 > 
 > ```json
 > "driver": {                      # A toolComponent object (§3.19).
@@ -502,7 +502,7 @@ If the `toolComponent` describes a standard taxonomy (for example, the Common We
 
 If the `toolComponent` describes a tool driver or plugin that defines its own custom taxonomy, it **MAY** contain all of `rules`, `notifications`, and `taxa`.
 
-> EXAMPLE: In this example, a `toolComponent` object represents the Common Weakness Enumeration.
+> EXAMPLE 1: In this example, a `toolComponent` object represents the Common Weakness Enumeration.
 > 
 > ```json
 > {                                   # A toolComponent object.
@@ -542,7 +542,7 @@ A `toolComponent` object that contains a `supportedTaxonomies` property **SHALL*
 
 If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a reference to itself in `supportedTaxonomies`.
 
-> EXAMPLE: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE](#CWE)™\], and also supports a custom taxonomy.
+> EXAMPLE 1: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE](#CWE)™\], and also supports a custom taxonomy.
 > 
 > ```json
 > {                                 # A run object (§3.14)
@@ -636,7 +636,7 @@ When a SARIF consumer is seeking a translation for this object, it **SHALL** onl
 
 > NOTE: `minimumRequiredocalizedDataSemanticVersion` can differ from `semanticVersion` for two reasons. First, successive versions of a translated component (even versions whose minor version component is incremented) might be able to use the same set of translated strings. Second, the translation itself might be versioned if, for example, the translation author discovers a typo or decides to clarify a message string.
 
-> EXAMPLE: In this example, the tool is at version 3.3, but it only requires strings at version 3.1, because tool versions 3.2 and 3.3 didn’t affect any user-facing localizable strings. Therefore, the translation at index 0 in `theRun.translations` ([sec](#translations-property)) is acceptable.
+> EXAMPLE 1: In this example, the tool is at version 3.3, but it only requires strings at version 3.1, because tool versions 3.2 and 3.3 didn’t affect any user-facing localizable strings. Therefore, the translation at index 0 in `theRun.translations` ([sec](#translations-property)) is acceptable.
 > 
 > ```json
 > {                                  # A run object (§3.14).

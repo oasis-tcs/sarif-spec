@@ -95,7 +95,7 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 
 > NOTE 3: If `index` is absent, the SARIF consumer will not be able to locate the additional information contained in the `artifact` object about the artifact specified by `thisObject`.
 
-> EXAMPLE: In this example, `results[0].locations[0].physicalLocation.artifactLocation.index` specifies the `artifact` object located at `artifacts[0]`.
+> EXAMPLE 1: In this example, `results[0].locations[0].physicalLocation.artifactLocation.index` specifies the `artifact` object located at `artifacts[0]`.
 > 
 > ```json
 > {                                    # A run object (§3.14).
@@ -134,7 +134,7 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 
 An `artifactLocation` object **MAY** have a property named `description` whose value is a `message` object ([sec](#message-object)) that describes this location.
 
-> EXAMPLE: In this example, the property values in `run.originalUriBaseIds` ([sec](#originaluribaseids-property)), which are `artifactLocation` objects, have `description` properties. This allows a SARIF viewer to display helpful information when prompting a user to supply values for the base id symbols.
+> EXAMPLE 1: In this example, the property values in `run.originalUriBaseIds` ([sec](#originaluribaseids-property)), which are `artifactLocation` objects, have `description` properties. This allows a SARIF viewer to display helpful information when prompting a user to supply values for the base id symbols.
 > 
 > ```json
 > {                                                # A run object (§3.14).
@@ -169,7 +169,7 @@ In contrast, file system paths are typically non-deterministic. For example, a s
 
 `artifactLocation` objects **MAY** represent both deterministic and non-deterministic URIs. In either case, the `uri` property ([sec](#uri-property)) **SHOULD** be deterministic, either because it is a deterministic relative reference (for example, the relative path to a file from the root of the directory tree containing the analyzed source code) or because it is an absolute URI. If the URI is non-deterministic, the `uriBaseId` property ([sec](#uribaseid-property)) **SHOULD** capture the non-deterministic portion of the URI, for example, the absolute path to the root of the directory tree containing the analyzed source code.
 
-> EXAMPLE: In this example, the location of a result detected by a tool is specified by a relative reference together with a `uriBaseId` that specifies the root of the source code enlistment.
+> EXAMPLE 1: In this example, the location of a result detected by a tool is specified by a relative reference together with a `uriBaseId` that specifies the root of the source code enlistment.
 > 
 > ```json
 > {                                                # A run object (§3.14).

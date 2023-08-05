@@ -173,7 +173,7 @@ To specify a byte region, at least `byteOffset` ([sec](#byteoffset-property)) **
 
 The text-related and binary-related properties in a `region` object **SHALL** be treated independently. That is, the value of a text-related property **SHALL NOT** be inferred from the value of any set of binary-related properties, and *vice versa*.
 
-> EXAMPLE: This example is based on the sample text file shown in NOTE 1 of [sec](#text-regions). It represents invalid SARIF because the text-related and binary-related properties are inconsistent. At first glance they appear to be consistent because the byte at offset 2 is indeed on line 1:
+> EXAMPLE 1: This example is based on the sample text file shown in NOTE 1 of [sec](#text-regions). It represents invalid SARIF because the text-related and binary-related properties are inconsistent. At first glance they appear to be consistent because the byte at offset 2 is indeed on line 1:
 > 
 >     { "startLine": 1, "byteOffset": 2, "byteLength": 6 }
 > 

@@ -16,7 +16,7 @@ An `edge` object **MAY** contain a property named `label` whose value is a `mess
 
 An `edge` object **SHALL** contain a property named `sourceNodeId` whose value is a string that identifies the source node (the node at which the edge starts). It **SHALL** equal the `id` property ([sec](#node-object--id-property)) of one of the `node` objects ([sec](#node-object)) in `theGraph`. It **MAY** equal the id of any node within `theGraph`, regardless of nesting (see [sec](#children-property)).
 
-> EXAMPLE: In this example, an edge connects two nodes defined in unrelated nested graphs.
+> EXAMPLE 1: In this example, an edge connects two nodes defined in unrelated nested graphs.
 > 
 > ```json
 > {                             # A graph object (§3.39).

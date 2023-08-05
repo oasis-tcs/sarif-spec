@@ -4,7 +4,7 @@
 
 An `artifactChange` object represents a change to a single artifact.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {                             # A fix object (§3.55).

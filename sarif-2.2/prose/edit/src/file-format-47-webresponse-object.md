@@ -30,25 +30,25 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 A `webResponse` object **SHOULD** contain a property named `protocol` whose value is a string containing the name of the web protocol used in the response, found on the HTTP status line.
 
-> EXAMPLE: `"protocol": "HTTP"`
+> EXAMPLE 1: `"protocol": "HTTP"`
 
 ### version property{#webresponse-object--version-property}
 
 A `webResponse` object **SHOULD** contain a property named `version` whose value is a string containing the version of the web protocol used in the response, found on the HTTP status line.
 
-> EXAMPLE: `"version": "1.1"`
+> EXAMPLE 1: `"version": "1.1"`
 
 ### statusCode property
 
 A `webResponse` object **SHOULD** contain a property named `statusCode` whose value is an integer containing the status code that describes the result of the request, found on the HTTP status line.
 
-> EXAMPLE: `"statusCode": 200`
+> EXAMPLE 1: `"statusCode": 200`
 
 ### reasonPhrase property
 
 A `webResponse` object **SHOULD** contain a property named `reasonPhrase` whose value is a string containing the textual description of the `statusCode` ([sec](#statuscode-property)) found on the HTTP status line.
 
-> EXAMPLE: `"reasonPhrase": "OK"`
+> EXAMPLE 1: `"reasonPhrase": "OK"`
 
 If `noResponseReceived` ([sec](#noresponsereceived-property)) is `true`, then `reasonPhrase` **SHOULD** instead contain a string describing the reason that no response was received.
 

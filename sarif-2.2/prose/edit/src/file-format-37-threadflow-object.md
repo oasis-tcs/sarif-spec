@@ -28,7 +28,7 @@ For details of how properties within a "state" object are represented, see EXAMP
 
 A `threadFlow` object **MAY** contain a property named `immutableState` whose value is an object ([sec](#object-properties)) each of whose property values is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that represents the value of a relevant item that remains constant throughout the thread flow.
 
-> EXAMPLE: In this example, `immutableState` holds the value of a global variable that remains constant throughout the thread flow.
+> EXAMPLE 1: In this example, `immutableState` holds the value of a global variable that remains constant throughout the thread flow.
 > 
 > ```json
 > {                                          # A threadFlow object.

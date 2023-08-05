@@ -42,7 +42,7 @@ If `arguments` is absent, it **SHALL** default to `null`.
 
 An empty array **SHALL** mean that the tool was invoked with no command line arguments. `null` **SHALL** mean that the command line arguments, if any, are not known.
 
-> EXAMPLE: If the tool is implemented as a C# or Java program, `arguments` would contain the contents of the `args` array passed to the entry point method.
+> EXAMPLE 1: If the tool is implemented as a C# or Java program, `arguments` would contain the contents of the `args` array passed to the entry point method.
 
 > NOTE: Although the `commandLine` property ([sec](#commandline-property)) contains the same information, parsing it is error prone even if one understands the command shell’s quoting and escaping conventions. SARIF consumers might find the pre-parsed `arguments` property easier to use.
 
@@ -56,7 +56,7 @@ An empty array **SHALL** mean that the tool was invoked with no command line arg
 
 A SARIF producer **MAY** embed the contents of a response file in the SARIF log file by mentioning the response file in `theRun.artifacts` ([sec](#artifacts-property)) and providing a value for `artifact.contents` ([sec](#artifact-object--contents-property)).
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {                       # An invocation object.
@@ -140,7 +140,7 @@ If the SARIF producer process exited due to a signal, an `invocation` object **M
 
 If the SARIF producer process did not exit due to a signal, the `exitSignalNumber` property **SHALL** be absent.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {                       # An invocation object
@@ -157,7 +157,7 @@ If the analysis tool process failed to start, an `invocation` object **MAY** con
 
 If the analysis tool process started successfully (regardless of whether or how it subsequently failed), the `processStartFailureMessage` property **SHALL** be absent.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {                       # An invocation object
@@ -171,7 +171,7 @@ An `invocation` object **SHALL** contain a property named `executionSuccessful` 
 
 > NOTE: This property is needed because not all programs exit with an exit code of 0 on success and non-0 on failure.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {

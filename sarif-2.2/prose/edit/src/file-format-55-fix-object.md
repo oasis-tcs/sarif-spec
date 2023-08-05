@@ -4,7 +4,7 @@
 
 A `fix` object represents a proposed fix for the problem indicated by `theResult`. It specifies a set of artifacts to modify. For each artifact, it specifies regions to remove, and provides new content to insert.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {                                   # A result object (§3.27).
@@ -30,7 +30,7 @@ A `fix` object **SHOULD** contain a property named `description` whose value is 
 
 > NOTE: The purpose of the `description` property is to enable a SARIF viewer to present the proposed fix to the end user.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > "fix": {

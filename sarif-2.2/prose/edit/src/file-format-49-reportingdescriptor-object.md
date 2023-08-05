@@ -14,7 +14,7 @@ Either the `shortDescription` property ([sec](#reportingdescriptor-object--short
 
 A `reportingDescriptor` object **SHALL** contain a property named `id` whose value is a string. In the case of a rule, `id` **SHALL** contain a stable identifier for the rule and **SHOULD** be opaque. In the case of a notification, `id` does not need be a stable, opaque identifier; it **MAY** be a user-readable identifier.
 
-> EXAMPLE: `"id": "CA2101"`
+> EXAMPLE 1: `"id": "CA2101"`
 
 > NOTE 1: Rule identifiers must be stable for two reasons:
 > 
@@ -34,7 +34,7 @@ A `reportingDescriptor` object **MAY** contain a property named `deprecatedIds` 
 
 Now the result management system has the problem of matching results between the newer and the older versions of the tool. `deprecatedIds` solves this problem.
 
-> EXAMPLE: In this example, version 1 of an analysis tool defines rule `CA1000`. A run of this tool finds two results. The result management system decides that neither result was previously detected, so it marks them as with `"baselineState": "new"` ([sec](#baselinestate-property)), producing this log:
+> EXAMPLE 1: In this example, version 1 of an analysis tool defines rule `CA1000`. A run of this tool finds two results. The result management system decides that neither result was previously detected, so it marks them as with `"baselineState": "new"` ([sec](#baselinestate-property)), producing this log:
 > 
 > ```json
 > {
@@ -156,7 +156,7 @@ A `reportingDescriptor` object **MAY** contain a property named `name` whose val
 
 > NOTE: A rule name is suitable in contexts where a readable identifier is preferable and where the lack of stability is not a concern.
 
-> EXAMPLE: `"name": "``SpecifyMarshalingForPInvokeStringArguments"`
+> EXAMPLE 1: `"name": "``SpecifyMarshalingForPInvokeStringArguments"`
 
 ### deprecatedNames property
 
@@ -168,7 +168,7 @@ The array elements **SHALL** occur in the same order in every translation ([sec]
 
 A `reportingDescriptor` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) that provides a concise description of the reporting item. The `shortDescription` property **SHOULD** be a single sentence that is understandable when visible space is limited to a single line of text.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {                         # A reportingDescriptor object
@@ -198,7 +198,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 
 > NOTE: Additional properties are permitted in the `messageStrings` property for the convenience of tool vendors, who might find it easier to emit the entire set of messages defined in the reporting metadata, rather than restricting it to those messages that happen to appear in the log file.
 
-> EXAMPLE:
+> EXAMPLE 1:
 > 
 > ```json
 > {                         # A reportingDescriptor object for a rule.
