@@ -37,7 +37,7 @@ The top-level element of an external property file **SHALL** be an object which 
 >                               # See §4.3.5.
 >   "runGuid": "88889999-AAAA-1111-8888-DDDDEEEEFFFF",
 > 
->   "artifacts": {              # See §4.3.6.
+>   "artifacts": [              # See §4.3.6.
 >     {
 >       "location": {
 >         "uri": "apple.png"
@@ -50,7 +50,7 @@ The top-level element of an external property file **SHALL** be an object which 
 >       },
 >       "mimeType": "image/png"
 >     }
->   },
+>   ],
 > 
 >   "externalizedProperties": {
 >     "team": "Security Assurance Team"
