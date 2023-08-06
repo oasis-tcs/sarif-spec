@@ -1,209 +1,3 @@
-<!--
----
-toc:
-  auto: false
-  label: (Informative) Examples
-  enumerate: Appendix K.
-  children:
-  - label: Minimal valid SARIF log file
-    enumerate: K.1
-  - label: Minimal recommended SARIF log file with source information
-    enumerate: K.2
-  - label: Minimal recommended SARIF log file without source information
-    enumerate: K.3
-  - label: Comprehensive SARIF file
-    enumerate: K.4
----
--->
-# (Informative) Examples
-
-This Appendix contains examples of complete, valid SARIF files, to complement the fragments shown in examples throughout this document.
-
-## Minimal valid SARIF log file
-
-This is a minimal valid SARIF log file. It contains only those elements required by this document (elements which the document states **SHALL** be present).
-
-The file contains a single `run` object ([sec](#run-object)) with an empty `results` array ([sec](#results-property)), as would happen if the tool detected no issues in any of the artifacts it scanned.
-
-```json
-{
-  "version": "2.1.0",
-  "runs": [
-    {
-      "tool": {
-        "driver": {
-          "name": "CodeScanner"
-        }
-      },
-      "results": [
-      ]
-    }
-  ]
-}
-```
-
-## Minimal recommended SARIF log file with source information
-
-This is a minimal recommended SARIF log file for the case where an analysis tool produced results and source location information is available.
-
-The file contains those elements recommended by this document (elements which the document states "**SHOULD**" be present), in addition to the required elements.
-
-The file contains a single `run` object ([sec](#run-object)) with a `results` array ([sec](#results-property)). The results array contains a single `result` object ([sec](#result-object)) so the recommended elements of the `result` object can be shown.
-
-Its `run.artifacts` property ([sec](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
-
-It does not contain a `run.logicalLocations` property ([sec](#run-object--logicallocations-property)), because when physical location information is available, that property is optional (it "**MAY**" be present).
-
-This example also includes a `toolComponent.rules` property ([sec](#rules-property)) containing rule metadata, even though rule metadata is optional, to show how a SARIF log file can be self-contained, in the sense of containing all the information necessary to interpret the results.
-
-```json
-{
-  "version": "2.1.0",
-  "runs": [
-    {
-      "tool": {
-        "driver": {
-          "name": "CodeScanner",
-          "rules": [
-            {
-              "id": "C2001",
-              "fullDescription": {
-                "text": "A variable was used without being initialized. This can result
-                        in runtime errors such as null reference exceptions."
-              },
-              "messageStrings": {
-                "default": {
-                  "text": "Variable \"{0}\" was used without being initialized."
-                }
-              }
-            }
-          ]
-        }
-      },
-      "artifacts": [
-        {
-          "location": {
-            "uri": "src/collections/list.cpp",
-            "uriBaseId": "SRCROOT"
-          },
-          "sourceLanguage": "c"
-        }
-      ],
-      "results": [
-        {
-          "ruleId": "C2001",
-          "ruleIndex": 0,
-          "message": {
-            "id": "default",
-            "arguments": [
-              "count"
-            ]
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/collections/list.cpp",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 15
-                }
-              },
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "collections::list::add"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-## Minimal recommended SARIF log file without source information
-
-This is a minimal recommended SARIF file for the case where an analysis tool produced results and source location information is not available.
-
-The file contains those elements recommended by this document (elements which the document states "**SHOULD**" be present), in addition to the required elements.
-
-The file contains a single `run` object ([sec](#run-object)) with a `results` array ([sec](#results-property)). The results array contains a single `result` object ([sec](#result-object)) so the recommended elements of the `result` object can be shown.
-
-Its `run.artifacts` property ([sec](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
-
-It contains a `run.logicalLocations` property ([sec](#run-object--logicallocations-property)), because when physical location information is not available, that property is recommended.
-
-```json
-{
-  "version": "2.1.0",
-  "runs": [
-    {
-      "tool": {
-        "driver": {
-          "name": "BinaryScanner"
-        }
-      },
-      "artifacts": [
-        {
-          "location": {
-            "uri": "bin/example",
-            "uriBaseId": "BINROOT"
-          }
-        }
-      ],
-      "logicalLocations": [
-        {
-          "name": "Example",
-          "kind": "namespace"
-        },
-        {
-          "name": "Worker",
-          "fullyQualifiedName": "Example.Worker",
-          "kind": "type",
-          "parentIndex": 0
-        },
-        {
-          "name": "DoWork",
-          "fullyQualifiedName": "Example.Worker.DoWork",
-          "kind": "function",
-          "parentIndex": 1
-        }
-      ],
-      "results": [
-        {
-          "ruleId": "B6412",
-          "message": {
-            "text": "The insecure method \"Crypto.Sha1.Encrypt\" should not be used."
-          },
-          "level": "warning",
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Example.Worker.DoWork",
-                  "index": 2
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-## Comprehensive SARIF file
-
-The purpose of this example is to demonstrate the usage of as many SARIF elements as possible. Not all elements are shown, because some are mutually exclusive.
-
-Because the purpose is to present as many elements as possible, the file as a whole does not represent best practices for SARIF usage, nor does it represent the output of a single, coherent analysis. For example, the result presented in the file involves a runtime exception, but at the same time it is marked as suppressed (to demonstrate the `result.suppressions` property), which is unrealistic.
-
-```json
 {
   "version": "2.1.0",
   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json",
@@ -261,15 +55,12 @@ Because the purpose is to present as many elements as possible, the file as a wh
                 "text": "A variable was used without being initialized."
               },
               "fullDescription": {
-                "text": "A variable was used without being initialized. This can result
-                         in runtime errors such as null reference exceptions."
+                "text": "A variable was used without being initialized. This can result in runtime errors such as null reference exceptions."
               },
               "messageStrings": {
                 "default": {
-                  "text": "Variable \"{0}\" was used without being initialized.
-                           It was declared [here]({1}).",
-                  "markdown": "Variable `{0}` was used without being initialized.
-                           It was declared [here]({1})."
+                  "text": "Variable \"{0}\" was used without being initialized. It was declared [here]({1}).",
+                  "markdown": "Variable `{0}` was used without being initialized. It was declared [here]({1})."
                 }
               }
             }
@@ -379,8 +170,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
               },
               "level": "warning",
               "message": {
-                "text": "Could not disable rule \"ABC0001\" because
-                         there is no rule with that id."
+                "text": "Could not disable rule \"ABC0001\" because there is no rule with that id."
               }
             }
           ],
@@ -404,8 +194,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
               },
               "level": "error",
               "message": {
-                "text": "Exception evaluating rule \"C2001\". Rule disabled;
-                         run continues."
+                "text": "Exception evaluating rule \"C2001\". Rule disabled; run continues."
               },
               "locations": [
                 {
@@ -432,8 +221,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                         },
                         "logicalLocations": [
                           {
-                            "fullyQualifiedName":
-                              "Rules.SecureHashAlgorithmRule.Evaluate"
+                            "fullyQualifiedName": "Rules.SecureHashAlgorithmRule.Evaluate"
                           }
                         ],
                         "physicalLocation": {
@@ -449,8 +237,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                       "location": {
                         "logicalLocations": [
                           {
-                            "fullyQualifiedName":
-                              "ExecutionEngine.Engine.EvaluateRule"
+                            "fullyQualifiedName": "ExecutionEngine.Engine.EvaluateRule"
                           }
                         ],
                         "physicalLocation": {
@@ -546,7 +333,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
           "location": {
             "uri": "app.zip",
             "uriBaseId": "BINROOT"
-          }, 
+          },
           "mimeType": "application/zip",
           "length": 310450,
           "hashes": {
@@ -557,8 +344,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
           "location": {
             "uri": "docs/intro.docx"
           },
-          "mimeType":
-             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "parentIndex": 5,
           "offset": 17522,
           "length": 4050
@@ -681,7 +467,6 @@ Because the purpose is to present as many elements as possible, the file as a wh
               "message": {
                 "text": "Path from declaration to usage"
               },
-
               "threadFlows": [
                 {
                   "id": "thread-52",
@@ -695,7 +480,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                         },
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
@@ -734,14 +519,14 @@ Because the purpose is to present as many elements as possible, the file as a wh
                       "location": {
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
                           "region": {
                             "startLine": 15,
                             "snippet": {
-                             "text": "offset = (y + z) * q + 1;"
+                              "text": "offset = (y + z) * q + 1;"
                             }
                           }
                         },
@@ -769,14 +554,12 @@ Because the purpose is to present as many elements as possible, the file as a wh
                       "importance": "essential",
                       "location": {
                         "message": {
-                          "text": "Uninitialized variable \"ptr\" passed to
-                                   method \"add_core\".",
-                          "markdown": "Uninitialized variable `ptr` passed to
-                                       method `add_core`."
+                          "text": "Uninitialized variable \"ptr\" passed to method \"add_core\".",
+                          "markdown": "Uninitialized variable `ptr` passed to method `add_core`."
                         },
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
@@ -835,7 +618,11 @@ Because the purpose is to present as many elements as possible, the file as a wh
                   },
                   "module": "platform",
                   "threadId": 52,
-                  "parameters": [ "null", "0", "14" ]
+                  "parameters": [
+                    "null",
+                    "0",
+                    "14"
+                  ]
                 },
                 {
                   "location": {
@@ -862,7 +649,9 @@ Because the purpose is to present as many elements as possible, the file as a wh
                   },
                   "module": "platform",
                   "threadId": 52,
-                  "parameters": [ "14" ]
+                  "parameters": [
+                    "14"
+                  ]
                 },
                 {
                   "location": {
@@ -891,7 +680,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                   "threadId": 52
                 }
               ]
-            } 
+            }
           ],
           "addresses": [
             {
@@ -938,8 +727,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
               ]
             }
           ],
-          "hostedViewerUri":
-            "https://www.example.com/viewer/3918d370-c636-40d8-bf23-8c176043a2df",
+          "hostedViewerUri": "https://www.example.com/viewer/3918d370-c636-40d8-bf23-8c176043a2df",
           "workItemUris": [
             "https://github.com/example/project/issues/42",
             "https://github.com/example/project/issues/54"
@@ -956,4 +744,3 @@ Because the purpose is to present as many elements as possible, the file as a wh
     }
   ]
 }
-```

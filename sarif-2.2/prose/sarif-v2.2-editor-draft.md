@@ -10140,7 +10140,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
               },
               "associatedRule": {
                 "id": "C2001",
-                "index": 0,
+                "index": 0
               },
               "level": "error",
               "message": {
@@ -10501,7 +10501,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                               "markdown": "`(y + z) = 42`"
                             }
                           }
-                        ],
+                        ]
                       },
                       "module": "platform"
                     },
@@ -10571,7 +10571,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                         "fullyQualifiedName": "collections::list::add_core",
                         "index": 0
                       }
-                    ],
+                    ]
                   },
                   "module": "platform",
                   "threadId": 52,
