@@ -8349,7 +8349,7 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 >                 "guid": "33333333-0000-1111-8888-111111111111",
 >                 "toolComponent": {
 >                   "name": "CWE",
->                   "guid": "33333333-0000-1111-8888-000000000000",
+>                   "guid": "33333333-0000-1111-8888-000000000000"
 >                 }
 >               },
 >               "kinds": [
@@ -8395,12 +8395,12 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 >       "rules": [               # See §3.19.23.
 >         {                      # A reportingDescriptor object (§3.49).
 >           "id": "CA1000",
->           "guid": "11111111-0000-1111-8888-000000000001"
+>           "guid": "11111111-0000-1111-8888-000000000001",
 >           "relationships": [
 >             {                  # A reportingDescriptor object.
 >               "target": {      # See §3.53.2.
 >                 "id": "CA2000",
->                 "guid": "11111111-0000-1111-8888-000000000002",
+>                 "guid": "11111111-0000-1111-8888-000000000002"
 >               },
 >               "kinds": [
 >                 "willFollow"
