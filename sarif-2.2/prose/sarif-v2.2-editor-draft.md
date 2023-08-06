@@ -6800,7 +6800,7 @@ There are analysis tools whose native output format includes the equivalent of a
 >               "region": {
 >                 "startLine": 42,
 >                 "snippet": {
->                   "text": "    fprintf(fd, "test\\n");"
+>                   "text": "    fprintf(fd, \"test\\n\");"
 >                 }
 >               } 
 >             }
