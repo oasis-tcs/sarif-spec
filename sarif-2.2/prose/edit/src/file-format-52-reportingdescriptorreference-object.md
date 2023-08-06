@@ -77,7 +77,7 @@ For more information about the semantics of `id` when `theDescriptor` is a rule,
 >       "ruleId": "abc/def",    # See §3.27.5.
 >       "rule": {
 >         "index": 0
->       },
+>       }
 >     },
 >     {
 >       "rule": {
