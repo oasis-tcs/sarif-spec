@@ -6714,7 +6714,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 >   ...
 >   "threadFlowLocations": [        # See §3.14.19.
 >     ...
->   ],
+>   ]
 > }
 > ```
 
@@ -6748,7 +6748,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 >       }
 >     },
 >     ...
->   ],
+>   ]
 > }
 > ```
 
