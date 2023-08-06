@@ -68,9 +68,9 @@ If this property is present, a SARIF viewer **MAY** provide a visual cue informi
 >             { "id": "nb1" },
 >             { "id": "nb2" },
 >             { "id": "nb3" }
->           ],
+>           ]
 >         }
->       ]
+>       ],
 >       "edges": [
 >         { "id": "ea1", "sourceNodeId": "na1", "targetNodeId": "na2" },
 >         { "id": "ea2", "sourceNodeId": "na2", "targetNodeId": "na3" },
