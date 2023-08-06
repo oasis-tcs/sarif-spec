@@ -1,0 +1,14 @@
+{
+  "logicalLocations": [
+    {
+      "name": "f(void)",
+      "fullyQualifiedName": "n::f(void)",
+      "kind": "function",
+      "parentIndex": 1
+    },
+    {
+      "name": "n",
+      "kind": "namespace"
+    }
+  ]
+}

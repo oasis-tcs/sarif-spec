@@ -53,7 +53,7 @@ A `locationRelationship` object specifies one or more directed relationships fro
 >       ]
 >     },
 >     {
->       "id": 2
+>       "id": 2,
 >       "physicalLocation": {
 >         "artifactLocation": {
 >           "uri": "g.c"
