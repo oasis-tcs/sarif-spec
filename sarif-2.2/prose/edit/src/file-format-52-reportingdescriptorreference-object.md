@@ -15,7 +15,7 @@ In some cases, there is no `reportingDescriptor` object associated with a `repor
 >       "descriptor": {                        # See §3.58.2.
 >         "id": "CTN9999"
 >       },
->       "associatedRule": {                    # See §.3.58.3
+>       "associatedRule": {                    # See §3.58.3.
 >         "id": "C2001"
 >       },
 >       "level": "error",

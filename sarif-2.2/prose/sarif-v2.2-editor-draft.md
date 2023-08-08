@@ -3893,16 +3893,16 @@ A `conversion` object describes how a converter transformed the output of an ana
 >         }
 >       },
 >       "conversion": {
->         "tool": {                                    # see §3.22.2
+>         "tool": {                                    # See §3.22.2.
 >           "driver": {
 >             "name": "SARIF SDK Multitool"
 >           }
 >         },
->                                                      # see §3.22.3
+>                                                      # See §3.22.3.
 >         "invocation":
 >           "Sarif.Multitool.exe convert -t AndroidStudio northwind.log",
 > 
->         "analysisToolLogFileLocation": {             # see §3.22.4
+>         "analysisToolLogFileLocation": {             # See §3.22.4.
 >           "uri": "northwind.log",   
 >           "uriBaseId": "$LOG_DIR$"
 >         } 
@@ -5201,8 +5201,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 >         }
 >       }
 >     ],
->     "relatedLocations": [   # An array of location objects
->                             # (§3.28)
+>     "relatedLocations": [   # An array of location objects (§3.28).
 >       {                     # A location object.
 >         "id": 0,
 >         "message": {
@@ -8185,7 +8184,7 @@ In some cases, there is no `reportingDescriptor` object associated with a `repor
 >       "descriptor": {                        # See §3.58.2.
 >         "id": "CTN9999"
 >       },
->       "associatedRule": {                    # See §.3.58.3
+>       "associatedRule": {                    # See §3.58.3.
 >         "id": "C2001"
 >       },
 >       "level": "error",

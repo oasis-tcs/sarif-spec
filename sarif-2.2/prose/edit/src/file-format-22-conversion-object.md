@@ -17,16 +17,16 @@ A `conversion` object describes how a converter transformed the output of an ana
 >         }
 >       },
 >       "conversion": {
->         "tool": {                                    # see §3.22.2
+>         "tool": {                                    # See §3.22.2.
 >           "driver": {
 >             "name": "SARIF SDK Multitool"
 >           }
 >         },
->                                                      # see §3.22.3
+>                                                      # See §3.22.3.
 >         "invocation":
 >           "Sarif.Multitool.exe convert -t AndroidStudio northwind.log",
 > 
->         "analysisToolLogFileLocation": {             # see §3.22.4
+>         "analysisToolLogFileLocation": {             # See §3.22.4.
 >           "uri": "northwind.log",   
 >           "uriBaseId": "$LOG_DIR$"
 >         } 

@@ -688,8 +688,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 >         }
 >       }
 >     ],
->     "relatedLocations": [   # An array of location objects
->                             # (§3.28)
+>     "relatedLocations": [   # An array of location objects (§3.28).
 >       {                     # A location object.
 >         "id": 0,
 >         "message": {
