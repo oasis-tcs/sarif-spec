@@ -6,6 +6,7 @@ sources and build the delivery items.
 
 Currently impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
 """
+import json
 import pathlib
 import re
 import sys
@@ -19,6 +20,7 @@ CB_END = '}'
 COLON = ':'
 FULL_STOP = '.'
 HASH = '#'
+PARA = '§'
 SEMI = ';'
 SPACE = ' '
 TM = '™'
@@ -27,6 +29,8 @@ TM = '™'
 BINDER_AT = pathlib.Path('etc') / 'bind.txt'
 SOURCE_AT = pathlib.Path('src')
 BUILD_AT = pathlib.Path('build')
+SECTION_DISPLAY_TO_LABEL_AT = pathlib.Path('etc') / 'section-display-to-label.json'
+SECTION_LABEL_TO_DISPLAY_AT = pathlib.Path('etc') / 'section-label-to-display.json'
 
 # Parsers and magical literals:
 IS_CITE_REF = 'cite'
@@ -47,6 +51,7 @@ H = '#'
 TOC_HEADER = """Table of Contents
 """
 
+SECTION_DISPLAY_TO_LABEL = {}
 SEC_LABEL_TEXT = {}  # Mapping section labels to the display text
 
 TOC_TEMPLATE = {
@@ -292,8 +297,9 @@ def main(argv: list[str]) -> int:
                     text = text.split(TOK_LAB, 1)[0]
                 else:
                     label = label_derive_from(text)
-                SEC_LABEL_TEXT[label] = (f'§{sec_cnt_disp}' if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
-
+                clean_sec_cnt_disp = (f'{PARA}{sec_cnt_disp}' if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
+                SEC_LABEL_TEXT[label] = clean_sec_cnt_disp
+                SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
                 line = tag + text + ' ' + TOK_SEC.replace('$thing$', label)
 
                 line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
@@ -323,7 +329,6 @@ def main(argv: list[str]) -> int:
                     text = label.replace(';', ':')
                     sem_ref = f'\\[[cite](#{label})\\]'
                     evil_ref = f'\\[[{text}](#{label})\\]'  # \[[GFMCMARK](#GFMCMARK)\]
-                    print('-', f'{resource}:{slot + 1}', sem_ref, '-->', evil_ref)
                     line = line.replace(sem_ref, evil_ref)
                     lines[slot] = line
             if '[CWE](#CWE)' in line:
@@ -349,7 +354,6 @@ def main(argv: list[str]) -> int:
                     text = SEC_LABEL_TEXT[label]
                     sem_ref = f'[sec](#{label})'
                     evil_ref = f'[{text}](#{label})'  # [GFMCMARK](#GFMCMARK)
-                    print('-', f'{resource}:{slot + 1}', sem_ref, '-->', evil_ref)
                     line = line.replace(sem_ref, evil_ref)
                     lines[slot] = line
 
@@ -365,8 +369,15 @@ def main(argv: list[str]) -> int:
         del lines[-1]
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
-
     dump_assembly(lines, BUILD_AT / 'tmp.md')
+
+    with SECTION_DISPLAY_TO_LABEL_AT.open('wt', encoding=ENCODING) as handle:
+        json.dump(SECTION_DISPLAY_TO_LABEL, handle, indent=2)
+    SECTION_LABEL_TO_DISPLAY = {
+        label: disp for label, disp in sorted((label, disp) for disp, label in SECTION_DISPLAY_TO_LABEL.items())
+    }
+    with SECTION_LABEL_TO_DISPLAY_AT.open('wt', encoding=ENCODING) as handle:
+        json.dump(SECTION_LABEL_TO_DISPLAY, handle, indent=2)
 
     return 0
 
