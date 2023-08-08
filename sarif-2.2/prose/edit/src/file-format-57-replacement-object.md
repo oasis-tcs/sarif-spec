@@ -52,7 +52,7 @@ A `replacement` object can represent either a textual replacement or a binary re
 > ```json
 > "replacements": [
 >   {
->     "deletedRegion": { # The region object represents a text region (§3.30.2).
+>     "deletedRegion": { # The region object represents a text region ((#text-regions)).
 >       "startLine": 12,
 >       "startColumn": 5,
 >       "endColumn": 9

@@ -67,8 +67,8 @@ A hierarchical string without a version component **SHALL** be considered older 
 > EXAMPLE 1: In this example, the partial fingerprint whose property name is `"prohibitedWordHash"` is considered to have been computed with an older version of the "prohibited word hash" algorithm than the partial fingerprint whose property name is `"prohibitedWordHash/v1"`.
 > 
 > ```json
-> {                                 # A result object (§3.27).
->   "partialFingerprints": {        # See §3.27.17.
+> {                                 # A result object ((#result-object)).
+>   "partialFingerprints": {        # See (#partialfingerprints-property).
 >     "prohibitedWordHash": "4efcc21977b55",
 >     "prohibitedWordHash/v2": "097886bc876fe"
 >   }

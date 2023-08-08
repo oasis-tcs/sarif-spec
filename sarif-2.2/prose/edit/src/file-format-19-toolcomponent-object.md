@@ -33,11 +33,11 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
 > EXAMPLE 1: In this example, the tool driver supports the CWE™ taxonomy, and also supports a custom taxonomy that it defines. Any result that violates the driver’s rule `"CA2101"` falls into the `"MemoryManagement"` taxon of its custom taxonomy, as shown by the `"superset"` relationship from the `"MemoryManagement"` taxon to the rule (which is interpreted as "The `MemoryManagement` taxon is a superset of rule `CA2101`"). For more information on relationships, see [sec](#reportingdescriptor-object--relationships-property) and [sec](#reportingdescriptorrelationship-object).
 > 
 > ```json
-> {                                  # A run object (§3.14).
->   "tool": {                        # See §3.14.6.
->     "driver": {                    # See §3.18.2.
+> {                                  # A run object ((#run-object)).
+>   "tool": {                        # See (#run-object--tool-property).
+>     "driver": {                    # See (#driver-property).
 >       "name": "CodeScanner",
->       "semanticVersion": "3.3",    # See §3.19.12.
+>       "semanticVersion": "3.3",    # See (#semanticversion-property).
 >       "guid": "11111111-1111-1111-8888-111111111111",
 >       ...
 >       "rules": [
@@ -46,9 +46,9 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
 >           "shortDescription": {
 >             "text": "Failed to release dynamic memory."
 >           },
->           "relationships": [       # See §3.49.15.
->             {              # A reportingDescriptorRelationship object (§3.53).
->               "target": {          # See §3.53.2
+>           "relationships": [       # See (#reportingdescriptor-object--relationships-property).
+>             {              # A reportingDescriptorRelationship object ((#reportingdescriptorrelationship-object)).
+>               "target": {          # See (#reportingdescriptorrelationship-object).2
 >                 "id": "MemoryManagement",
 >                 "guid": "66666666-6666-1111-8888-666666666666",
 >                 "toolComponent": {
@@ -56,7 +56,7 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
 >                   "guid": "11111111-1111-1111-8888-111111111111"
 >                 }
 >               },
->               "kinds": [           # See §3.53.3.
+>               "kinds": [           # See (#reportingdescriptorrelationship-object--kinds-property).
 >                 "superset"
 >               ]
 >             }
@@ -167,11 +167,11 @@ In many cases, a new version of a `toolComponent` defines new localizable string
 > EXAMPLE 1: In this example, a French translation is available. It translates localizable component-level properties such as `toolComponent.name` ([sec](#toolcomponent-object--name-property)), as well as rule-level properties such as `reportingDescriptor.shortDescription` ([sec](#reportingdescriptor-object--shortdescription-property)). The translation can be used because its `localizedDataSemanticVersion` property ([sec](#localizeddatasemanticversion-property)) is compatible with the translated component’s `minimumRequiredLocalizedDataSemantic` version property ([sec](#minimumrequiredlocalizeddatasemanticversion-property)).
 > 
 > ```json
-> {                                  # A run object (§3.14).
->   "tool": {                        # See §3.14.6.
->     "driver": {                    # See §3.18.2.
+> {                                  # A run object ((#run-object)).
+>   "tool": {                        # See (#run-object--tool-property).
+>     "driver": {                    # See (#driver-property).
 >       "name": "CodeScanner",
->       "semanticVersion": "3.3",    # See §3.19.12.
+>       "semanticVersion": "3.3",    # See (#semanticversion-property).
 >       "minimumRequiredLocalizedDataSemanticVersion": "3.1",
 >       ...
 >       "rules": [
@@ -228,14 +228,14 @@ A SARIF consumer **MAY** offer the user the option of treating results according
 > EXAMPLE 1: In this example, the tool driver defines rule `CA2101` to be a warning and disables rule `CA2551` by default. However, the corporate security policy specifies that a violation of rule `CA2101` is an error and requires rule `CA2551` to be run. The presence of `run.policies` allows a SARIF viewer to display the results according to the tool’s view or the policy’s view.
 
 ```json
-{                                  # A run object (§3.14).
-  "tool": {                        # See §3.14.6.
-    "driver": {                    # See §3.18.2.
+{                                  # A run object ((#run-object)).
+  "tool": {                        # See (#run-object--tool-property).
+    "driver": {                    # See (#driver-property).
       "name": "CodeScanner",
-      "rules": [                   # See §3.19.23.
-        {                          # A reportingDescriptor object (§3.49).
+      "rules": [                   # See (#rules-property).
+        {                          # A reportingDescriptor object ((#reportingdescriptor-object)).
           "id": "CA2101",
-          "defaultConfiguration": { # See §3.49.14.
+          "defaultConfiguration": { # See (#defaultconfiguration-property).
             "level": "warning"
           }
         },
@@ -250,7 +250,7 @@ A SARIF consumer **MAY** offer the user the option of treating results according
     }
   },
   "policies": [
-    {                              # A toolComponent object (§3.19).
+    {                              # A toolComponent object ((#toolcomponent-object)).
       "name": "Example Corp. Security Policy",
       "semanticVersion": "7.0",
       "rules": [
@@ -401,9 +401,9 @@ A `toolComponent` object **MAY** contain a property named `globalMessageStrings`
 > EXAMPLE 1:
 > 
 > ```json
-> "driver": {                       # A toolComponent object (§3.19).
+> "driver": {                       # A toolComponent object ((#toolcomponent-object)).
 >   "globalMessageStrings": {
->     "call": {                     # A multiformatMessageString object (§3.12).
+>     "call": {                     # A multiformatMessageString object ((#multiformatmessagestring-object)).
 >       "text": "Function call",
 >       "markdown": "Function **call**"
 >     },
@@ -426,10 +426,10 @@ Some tools use the same identifier to refer to multiple distinct (although logic
 > EXAMPLE 1: In this example, two distinct but related rules have the same rule id. They are distinguished by their message strings.
 > 
 > ```json
-> "driver": {                       # A toolComponent object (§3.19).
+> "driver": {                       # A toolComponent object ((#toolcomponent-object)).
 >   "name": "CodeScaner",
 >   "rules": [
->     {                             # A reportingDescriptor object (§3.49).
+>     {                             # A reportingDescriptor object ((#reportingdescriptor-object)).
 >       "id": "CA1711",
 >       "shortDescription": {
 >         "text": "Certain type name suffixes should not be used."
@@ -466,9 +466,9 @@ A tool might use the same identifier to refer to multiple distinct (although log
 > EXAMPLE 1: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
 > 
 > ```json
-> "driver": {                      # A toolComponent object (§3.19).
+> "driver": {                      # A toolComponent object ((#toolcomponent-object)).
 >   "notifications": [
->     {                            # A reportingDescriptor object (§3.49).
+>     {                            # A reportingDescriptor object ((#reportingdescriptor-object)).
 >       "id": "ERR0001",
 >       "level": "error",
 >       "shortDescription": {
@@ -546,18 +546,18 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 > 
 > ```json
 > {                                 # A run object (§3.14)
->   "tool": {                       # See §3.14.6.
->     "driver": {                   # See §3.18.2.
+>   "tool": {                       # See (#run-object--tool-property).
+>     "driver": {                   # See (#driver-property).
 >       "name": "CodeScanner",
 >       "guid": "22222222-2222-1111-8888-222222222222",
->       "rules": [                  # See §3.19.23.
+>       "rules": [                  # See (#rules-property).
 >         ...
 >       ],
->       "taxa": [                   # See §3.19.25. Here, defines a custom
+>       "taxa": [                   # See (#toolcomponent-object--taxa-property). Here, defines a custom
 >         ...                       #  taxonomy.
 >       ],
 >       "supportedTaxonomies": [
->         {                         # A toolComponentReference object (§3.54).
+>         {                         # A toolComponentReference object ((#toolcomponentreference-object)).
 >           "name": "CWE",          # Declares support for CWE.
 >           "index": 0,
 >           "guid": "11111111-1111-1111-8888-111111111111"
@@ -639,11 +639,11 @@ When a SARIF consumer is seeking a translation for this object, it **SHALL** onl
 > EXAMPLE 1: In this example, the tool is at version 3.3, but it only requires strings at version 3.1, because tool versions 3.2 and 3.3 didn’t affect any user-facing localizable strings. Therefore, the translation at index 0 in `theRun.translations` ([sec](#translations-property)) is acceptable.
 > 
 > ```json
-> {                                  # A run object (§3.14).
->   "tool": {                        # See §3.14.6.
->     "driver": {                    # See §3.18.2.
+> {                                  # A run object ((#run-object)).
+>   "tool": {                        # See (#run-object--tool-property).
+>     "driver": {                    # See (#driver-property).
 >       "name": "CodeScanner",
->       "semanticVersion": "3.3",    # See §3.19.12.
+>       "semanticVersion": "3.3",    # See (#semanticversion-property).
 >       "minimumRequiredLocalizedDataSemanticVersion": "3.1",
 >       ...
 >     }

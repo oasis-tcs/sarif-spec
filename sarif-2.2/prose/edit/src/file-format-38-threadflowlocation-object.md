@@ -21,8 +21,8 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 1: In this example, `thisObject` is an element of `theRun.threadFlowLocations`. Its array index is known to be 1, so `thisObject.index` does not need to be present, but since it is present, it equals the array index, as required.
 > 
 > ```json
-> {                                 # A run object (§3.14).
->   "threadFlowLocations": [        # See §3.14.19.
+> {                                 # A run object ((#run-object)).
+>   "threadFlowLocations": [        # See (#threadflowlocations-property).
 >     ...
 >     {                             # A threadFlowLocation object: thisObject.
 >       "index": 1,                 # Optional.
@@ -39,16 +39,16 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 2: In this example, `thisObject` is not an element of `theRun.threadFlowLocations`; rather, it is an element of `theResult.codeFlows[0].threadFlows[0].locations`. There is no cached object; that is, there is no object in `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is absent, as required.
 > 
 > ```json
-> {                                 # A run object (§3.14).
->   "results": [                    # See §3.14.23.
->     {                             # A result object (§3.27).
->       "codeFlows": [              # See §3.27.18.
->         {                         # A codeFlow object (§3.36).
->           "threadFlows": [        # See §3.36.3.
->             {                     # A threadFlow object (§3.37).
->               "locations": [      # See §3.37.6.
+> {                                 # A run object ((#run-object)).
+>   "results": [                    # See (#results-property).
+>     {                             # A result object ((#result-object)).
+>       "codeFlows": [              # See (#codeflows-property).
+>         {                         # A codeFlow object ((#codeflow-object)).
+>           "threadFlows": [        # See (#threadflows-property).
+>             {                     # A threadFlow object ((#threadflow-object)).
+>               "locations": [      # See (#threadflow-object--locations-property).
 >                 {                 # A threadFlowLocation object (thisObject).
->                   "location": {   # See §3.38.3.
+>                   "location": {   # See (#threadflowlocation-object--location-property).
 >                     ...
 >                   }
 >                 }
@@ -61,7 +61,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 >     }
 >   ],
 >   ...
->   "threadFlowLocations": [        # See §3.14.19.
+>   "threadFlowLocations": [        # See (#threadflowlocations-property).
 >     ...
 >   ]
 > }
@@ -70,14 +70,14 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 3: In this example, `thisObject` is again an element of `theResult.codeFlows[0].threadFlows[0].locations`, not an element of `theRun.threadFlowLocations`. But in this example, there is a cached object, an element of `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is present, as required.
 > 
 > ```json
-> {                                 # A run object (§3.14).
->   "results": [                    # See §3.14.23.
->     {                             # A result object (§3.27).
->       "codeFlows": [              # See §3.27.18.
->         {                         # A codeFlow object (§3.36).
->           "threadFlows": [        # See §3.36.3.
->             {                     # A threadFlow object (§3.37).
->               "locations": [      # See §3.37.6.
+> {                                 # A run object ((#run-object)).
+>   "results": [                    # See (#results-property).
+>     {                             # A result object ((#result-object)).
+>       "codeFlows": [              # See (#codeflows-property).
+>         {                         # A codeFlow object ((#codeflow-object)).
+>           "threadFlows": [        # See (#threadflows-property).
+>             {                     # A threadFlow object ((#threadflow-object)).
+>               "locations": [      # See (#threadflow-object--locations-property).
 >                 {                 # An threadFlowLocation object: thisObject.
 >                   "index": 0      # index is present so no other properties.
 >                 }
@@ -90,9 +90,9 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 >     }
 >   ],
 >   ...
->   "threadFlowLocations": [        # See §3.14.19.
+>   "threadFlowLocations": [        # See (#threadflowlocations-property).
 >     {                             # The cached threadFlowLocation object.
->       "location": {               # See §3.38.3.
+>       "location": {               # See (#threadflowlocation-object--location-property).
 >         ...
 >       }
 >     },
@@ -112,13 +112,13 @@ There are analysis tools whose native output format includes the equivalent of a
 > Note the use of `executionOrder` ([sec](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
 > 
 > ```json
-> {                                     # A codeFlow object (§3.36).
->   "threadFlows": [                    # See §3.36.3.
->     {                                 # A threadFlow object (§3.37).
->       "message": {                    # See §3.37.3.
+> {                                     # A codeFlow object ((#codeflow-object)).
+>   "threadFlows": [                    # See (#threadflows-property).
+>     {                                 # A threadFlow object ((#threadflow-object)).
+>       "message": {                    # See (#threadflow-object--message-property).
 >         "text": "An external program."
 >       },
->       "locations": [                  # See §3.37.6.
+>       "locations": [                  # See (#threadflow-object--locations-property).
 >         {                             # A threadFlowLocation object.
 >           "executionOrder": 1,
 >           "location": {               # A location object with only a message.
@@ -382,8 +382,8 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 > EXAMPLE 1: This example illustrates the scenario in the above note.
 > 
 > ```json
-> {                                # A run object (§3.14).
->   "tool": {                      # See §3.14.6.
+> {                                # A run object ((#run-object)).
+>   "tool": {                      # See (#run-object--tool-property).
 >     "driver": {
 >       "name": "TaintDetector",
 >       "rules": [
@@ -397,7 +397,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 >         ...
 >       ],
 >       "taxa": [                  # Custom taxonomy (§3.19.3) for helper rules.
->         {                        # A reportingDescriptor object (§3.49).
+>         {                        # A reportingDescriptor object ((#reportingdescriptor-object)).
 >           "id": "HR0001",
 >           "name": "SubstrPropogatesTaint",
 >           "shortDescription": {
@@ -410,18 +410,18 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 >     }
 >   },
 > 
->   "results": [                   # See §3.14.23.
->     {                            # A result object §3.27.
+>   "results": [                   # See (#results-property).
+>     {                            # A result object (#result-object).
 >       "ruleId": "TD0001",
 >       ...
->       "codeFlows": [             # See §3.27.18.
->         {                        # A codeFlow object (§3.36).
->           "threadFlows": [       # See §3.36.3.
->             {                    # A threadFlow object (§3.37).
->               "locations": [     # See §3.37.6.
+>       "codeFlows": [             # See (#codeflows-property).
+>         {                        # A codeFlow object ((#codeflow-object)).
+>           "threadFlows": [       # See (#threadflows-property).
+>             {                    # A threadFlow object ((#threadflow-object)).
+>               "locations": [     # See (#threadflow-object--locations-property).
 >                 ...
 >                 {                # A threadFlowLocation object.
->                   "location": {  # See §3.38.3.
+>                   "location": {  # See (#threadflowlocation-object--location-property).
 >                     "physicalLocation": {
 >                       "artifactLocation": {
 >                         "uri": "io/input.c",
@@ -433,7 +433,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 >                     }
 >                   },
 >                   "taxa": [
->                     {        # A reportingDescriptorReference object (§3.52).
+>                     {        # A reportingDescriptorReference object ((#reportingdescriptorreference-object)).
 >                       "id": "HR0001",
 >                       "index": 0
 >                     }

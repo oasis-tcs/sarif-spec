@@ -9,14 +9,14 @@ A SARIF producer **MAY** embed the contents of an attachment in the log file by 
 > EXAMPLE 1: In this example, `image001.png` is a screen shot of the program being analyzed at the point where the result was detected. Note that this example is more appropriate to a dynamic analysis tool than to a static analysis tool.
 > 
 > ```json
-> {                                             # A result object (§3.27).
+> {                                             # A result object ((#result-object)).
 >   ...
->   "attachments": [                            # See §3.27.26.
+>   "attachments": [                            # See (#attachments-property).
 >     {                                         # An attachment object.
->       "description": {                        # See §3.21.2.
+>       "description": {                        # See (#attachment-object--description-property).
 >         "text": "Screen shot"
 >       },
->       "location": {                           # See §3.21.3.
+>       "location": {                           # See (#attachment-object--location-property).
 >         "uri": "file:///C:/ScanOutput/image001.png"
 >       }
 >     }

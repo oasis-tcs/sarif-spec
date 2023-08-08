@@ -9,10 +9,10 @@ A `locationRelationship` object specifies one or more directed relationships fro
 > EXAMPLE 1: In this example, the location relationships specify that the file f.h in which the result was found is included by g.h, which is in turn included by g.c. Depending on the circumstances, it might or might not be useful to include both the `"includes"` and `"isIncludedBy"` relationships, as this example does for g.h.
 > 
 > ```json
-> {                                        # A result object (§3.27).
->   "locations": [                         # See §3.27.12.
->     {                                    # A location object (§3.28).
->       "id": 0,                           # See §3.28.2.
+> {                                        # A result object ((#result-object)).
+>   "locations": [                         # See (#result-object--locations-property).
+>     {                                    # A location object ((#location-object)).
+>       "id": 0,                           # See (#location-object--id-property).
 >       "physicalLocation": {
 >         "artifactLocation": {
 >           "uri": "f.h"
@@ -21,16 +21,16 @@ A `locationRelationship` object specifies one or more directed relationships fro
 >           "startLine": 42
 >         }
 >       },
->       "relationships": [                 # See §3.28.7
+>       "relationships": [                 # See (#location-object).7
 >         {                                # A locationRelationship object.
->           "target": 1,                   # See §3.34.2.
->           "kinds": [ "isIncludedBy" ]    # See §3.34.3.
+>           "target": 1,                   # See (#locationrelationship-object--target-property).
+>           "kinds": [ "isIncludedBy" ]    # See (#locationrelationship-object--kinds-property).
 >         }
 >       ]
 >     }
 >   ],
 > 
->   "relatedLocations": [                  # See §3.27.22.
+>   "relatedLocations": [                  # See (#relatedlocations-property).
 >     {
 >       "id": 1,
 >       "physicalLocation": {

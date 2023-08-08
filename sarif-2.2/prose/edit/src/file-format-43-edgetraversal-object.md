@@ -49,9 +49,9 @@ If this property is present, a SARIF viewer **MAY** provide a visual cue informi
 > &emsp;&emsp;`[ na1, na2, na3, na4 ]`
 > 
 > ```json
-> {                                           # A result object (§3.27).
->   "graphs": [                               # See §3.27.19.
->     {                                       # A graph object (§3.39).
+> {                                           # A result object ((#result-object)).
+>   "graphs": [                               # See (#result-object--graphs-property).
+>     {                                       # A graph object ((#graph-object)).
 >       "nodes": [
 >         {
 >           "id": "functionA",
@@ -83,8 +83,8 @@ If this property is present, a SARIF viewer **MAY** provide a visual cue informi
 >     }
 >   ],
 > 
->   "graphTraversals": [                      # See §3.27.20.
->     {                                       # A graphTraversal object (§3.42).
+>   "graphTraversals": [                      # See (#graphtraversals-property).
+>     {                                       # A graphTraversal object ((#graphtraversal-object)).
 >       "resultGraphIndex": 0,                # The graph being traversed.
 >       "edgeTraversals": [
 >         { "edgeId": "ea1" },

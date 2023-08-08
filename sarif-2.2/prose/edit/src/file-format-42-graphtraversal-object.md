@@ -55,21 +55,21 @@ The `edgeTraversal` objects **SHALL** be connected end to end; that is, the targ
 > This example also demonstrates the usage of `graphTraversal.initialState` ([sec](#graphtraversal-object--initialstate-property)) and `edgeTraversal.finalState` ([sec](#finalstate-property)).
 > 
 > ```json
-> {                                          # A result object (§3.27).
->   "graphs": [                              # See §3.27.19.
->     {                                      # A graph object (§3.39).
->       "nodes": [                           # See §3.39.3.
->         { "id": "n1" },                    # A node object (§3.40).
+> {                                          # A result object ((#result-object)).
+>   "graphs": [                              # See (#result-object--graphs-property).
+>     {                                      # A graph object ((#graph-object)).
+>       "nodes": [                           # See (#nodes-property).
+>         { "id": "n1" },                    # A node object ((#node-object)).
 >         { "id": "n2" },
 >         { "id": "n3" },
 >         { "id": "n4" }
 >       ],
 > 
->       "edges": [                           # See §3.39.4.
->         {                                  # An edge object (§3.41).
->           "id": "e1",                      # See §3.41.2.
->           "sourceNodeId": "n1",            # See §3.41.4.
->           "targetNodeId": "n2"             # See §3.41.5.
+>       "edges": [                           # See (#edges-property).
+>         {                                  # An edge object ((#edge-object)).
+>           "id": "e1",                      # See (#edge-object--id-property).
+>           "sourceNodeId": "n1",            # See (#sourcenodeid-property).
+>           "targetNodeId": "n2"             # See (#targetnodeid-property).
 >         },
 >         {
 >           "id": "e2",
@@ -85,11 +85,11 @@ The `edgeTraversal` objects **SHALL** be connected end to end; that is, the targ
 >     }
 >   ],
 > 
->   "graphTraversals": [                     # See §3.27.20.
->     {                                      # A graphTraversal object (§3.42).
->       "resultGraphIndex": 0,               # See §3.42.3.
+>   "graphTraversals": [                     # See (#graphtraversals-property).
+>     {                                      # A graphTraversal object ((#graphtraversal-object)).
+>       "resultGraphIndex": 0,               # See (#resultgraphindex-property).
 > 
->       "initialState": {                    # See §3.42.6.
+>       "initialState": {                    # See (#graphtraversal-object--initialstate-property).
 >         "x": {
 >           "text": "1"
 >         },
@@ -101,11 +101,11 @@ The `edgeTraversal` objects **SHALL** be connected end to end; that is, the targ
 >         }
 >       },
 > 
->       "edgeTraversals": [                  # See §3.42.8.
->         {                                  # An edgeTraversal object (§3.43).
->           "edgeId": "e1",                  # See §3.43.2.
+>       "edgeTraversals": [                  # See (#edgetraversals-property).
+>         {                                  # An edgeTraversal object ((#edgetraversal-object)).
+>           "edgeId": "e1",                  # See (#edgeid-property).
 > 
->           "finalState": {                  # See §3.43.4.
+>           "finalState": {                  # See (#finalstate-property).
 >             "x": {
 >               "text": "4"
 >             },

@@ -203,7 +203,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 > ```json
 > {                         # A reportingDescriptor object for a rule.
 >   "messageStrings": {
->     "objectCreation":  {  # A multiformatMessageString object (§3.12).
+>     "objectCreation":  {  # A multiformatMessageString object ((#multiformatmessagestring-object)).
 >       "text": "{0} creates a new instance of {1} which is never used.
 >               Pass the instance as an argument to another method,
 >               assign the instance to a variable,

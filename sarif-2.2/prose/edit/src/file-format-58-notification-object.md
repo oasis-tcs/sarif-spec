@@ -19,12 +19,12 @@ If the condition described by the `notification` object is relevant to a particu
 > EXAMPLE 1: In this example, there is more than one rule with id `CA1711`. `associatedRule.index` uniquely specifies the relevant rule.
 > 
 > ```json
-> {                                      # A run object (§3.14).
->   "tool": {                            # See §3.14.6.
->     "driver": {                        # See §3.18.2.
+> {                                      # A run object ((#run-object)).
+>   "tool": {                            # See (#run-object--tool-property).
+>     "driver": {                        # See (#driver-property).
 >       "name": "CodeScanner",
->       "rules": [                       # See §3.19.23.
->         {                              # A reportingDescriptor object (§3.49).
+>       "rules": [                       # See (#rules-property).
+>         {                              # A reportingDescriptor object ((#reportingdescriptor-object)).
 >           "id": "CA1711",
 >           ...
 >         },
@@ -35,10 +35,10 @@ If the condition described by the `notification` object is relevant to a particu
 >       ]
 >     }
 >   },
->   "invocations": [                      # See §3.14.11.
->     {                                   # An invocation object (§3.20).
->       "toolConfigurationNotifications": [ # See §3.20.22.
->         {                               # A notification object (§3.58).
+>   "invocations": [                      # See (#invocations-property).
+>     {                                   # An invocation object ((#invocation-object)).
+>       "toolConfigurationNotifications": [ # See (#toolconfigurationnotifications-property).
+>         {                               # A notification object ((#notification-object)).
 >           "descriptor": {
 >             "id": "CFG0001"
 >           },

@@ -60,7 +60,7 @@ A `location` object **MAY** contain a property named `annotations` whose value i
 >
 > ```json
 > "annotations": [                  # An array of region objects.
->   {                               # A region object (§3.30).
+>   {                               # A region object ((#region-object)).
 >     "startLine": 12,
 >     "startColumn": 9,
 >     "endColumn": 16,

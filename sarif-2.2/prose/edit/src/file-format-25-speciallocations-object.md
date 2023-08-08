@@ -23,8 +23,8 @@ A consumer **MAY** act on this hint as follows:
 > EXAMPLE 1: Given the following:
 > 
 > ```json
-> {                           # A run object (§3.14).
->   "originalUriBaseIds": {   # See §3.14.14.
+> {                           # A run object ((#run-object)).
+>   "originalUriBaseIds": {   # See (#originaluribaseids-property).
 >     "WEBHOST": {
 >       "uri": "http://www.example.com/"
 >     },
@@ -46,7 +46,7 @@ A consumer **MAY** act on this hint as follows:
 >   },
 > 
 >   "specialLocations": {
->     "displayBase": {        # An artifactLocation object (§3.4).
+>     "displayBase": {        # An artifactLocation object ((#artifactlocation-object)).
 >       "uri": "",            # Empty string is valid relative reference.
 >       "uriBaseId": "PACKAGE"
 >     }

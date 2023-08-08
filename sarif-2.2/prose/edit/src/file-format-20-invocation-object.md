@@ -63,7 +63,7 @@ A SARIF producer **MAY** embed the contents of a response file in the SARIF log 
 >     "commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rsp",
 > 
 >     "responseFiles": [
->       {                 # An artifactLocation object (§3.4).
+>       {                 # An artifactLocation object ((#artifactlocation-object)).
 >         "uri": "analyzer.rsp",
 >         "uriBaseId": "RESPONSEFILEDIR"
 >       },
@@ -247,7 +247,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 > 
 > ```json
 > "toolConfigurationNotifications": [
->   {                                 # A notification object (§3.58).
+>   {                                 # A notification object ((#notification-object)).
 >     "descriptor": {
 >       "id": "UnknownRule"
 >     },
@@ -267,7 +267,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 > 
 > ```json
 > "toolConfigurationNotifications": [
->   {                                 # A notification object (§3.58).
+>   {                                 # A notification object ((#notification-object)).
 >     "descriptor": {
 >       "id": "UnknownCommandLineArgument"
 >     },
@@ -283,7 +283,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 > 
 > ```json
 > "toolConfigurationNotifications": [
->   {                                 # A notification object (§3.58).
+>   {                                 # A notification object ((#notification-object)).
 >     "descriptor": {
 >       "id": "AccessDenied"
 >     },

@@ -161,9 +161,9 @@ If the `artifact` object represents a binary artifact, `encoding` **SHALL** be a
 > 
 > ```json
 > {                                      # A run object (§3.14)
->   "defaultEncoding": "UTF-16BE",       # See §3.14.24.
+>   "defaultEncoding": "UTF-16BE",       # See (#defaultencoding-property).
 > 
->   "artifacts": [                       # See §3.14.15.
+>   "artifacts": [                       # See (#artifacts-property).
 >     {
 >       "location": {
 >         "uri": "output.txt"

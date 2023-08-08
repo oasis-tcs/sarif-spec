@@ -31,22 +31,22 @@ The first option is more compact; the second allows a SARIF viewer to present re
 > EXAMPLE 1: In this example, the analysis tool populates `region.snippet` and `contextRegion.snippet`, allowing a SARIF viewer to display just enough context (one hopes) to diagnose the result.
 > 
 > ```json
-> {                                           # A run object (§3.14).
->   "originalUriBaseIds": {                   # See §3.14.14
+> {                                           # A run object ((#run-object)).
+>   "originalUriBaseIds": {                   # See (#run-object).14
 >     "GENERATED": {
 >       "uri": "file:///C:/code/browser/obj/"
 >     }
 >   },
 > 
->   "results": [                              # See §3.14.23.
->     {                                       # A result object (§3.27).
->       "ruleId": "CS6789",                   # See §3.27.5.
->       "message": {                          # See §3.27.11.
+>   "results": [                              # See (#results-property).
+>     {                                       # A result object ((#result-object)).
+>       "ruleId": "CS6789",                   # See (#ruleid-property).
+>       "message": {                          # See (#result-object--message-property).
 >         "text": "Division by 0"
 >       },
->       "locations": [                        # See §3.27.12.
->         {                                   # A location object (§3.28).
->           "physicalLocation": {             # See §3.28.3.
+>       "locations": [                        # See (#result-object--locations-property).
+>         {                                   # A location object ((#location-object)).
+>           "physicalLocation": {             # See (#physicallocation-property).
 >             "artifactLocation": {
 >               "uri": "ui/window.g.cs",      # A generated file (".g").
 >               "uriBaseId": "GENERATED"
@@ -112,14 +112,14 @@ The first option is more compact; the second allows a SARIF viewer to present re
 >     }
 >   ],
 > 
->   "artifacts": [                            # See §3.14.15.
->     {                                       # An artifact object (§3.24).
->       "location": {                         # See §3.24.2.
+>   "artifacts": [                            # See (#artifacts-property).
+>     {                                       # An artifact object ((#artifact-object)).
+>       "location": {                         # See (#artifact-object--location-property).
 >         "uri": "ui/window.g.cs",
 >         "uriBaseId": "GENERATED"
 >       },
->       "contents": {                         # See §3.24.8.
->         "text": "..."                       # See §3.3.2.
+>       "contents": {                         # See (#artifact-object--contents-property).
+>         "text": "..."                       # See (#artifactcontent-object--text-property).
 >       }
 >     }
 >   ]

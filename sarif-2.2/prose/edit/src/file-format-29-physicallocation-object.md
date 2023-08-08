@@ -21,10 +21,10 @@ A `physicalLocation` object **MAY** contain a property named `region` whose valu
 > EXAMPLE 1: In this example, a `physicalLocation` object specifies the location where a result was detected. Its `region` property specifies the portion of the file where the result was detected.
 > 
 > ```json
-> {                              # A result object (§3.27).
->   "locations": [               # See §3.27.12.
->     {                          # A location object (§3.28).
->       "physicalLocation": {    # See §3.28.3.
+> {                              # A result object ((#result-object)).
+>   "locations": [               # See (#result-object--locations-property).
+>     {                          # A location object ((#location-object)).
+>       "physicalLocation": {    # See (#physicallocation-property).
 >         "artifactLocation": {  # A artifactLocation object.
 >           "uri": "ui/window.c",
 >           "uriBaseId": "SRCROOT"
@@ -54,16 +54,16 @@ If a `physicalLocation` object contains a `region` property ([sec](#region-prope
 > EXAMPLE In this example, an analysis tool detected a result on line 42. The tool provides additional context for SARIF viewers by specifying a range of content surrounding the result line.
 > 
 > ```json
-> {                                       # A result object (§3.27).
->   "locations": [                        # See §3.27.12.
->     {                                   # A location object (§3.28).
->       "physicalLocation": {             # A physicalLocation object (§3.29).
->         "artifactLocation": {           # An artifactLocation object (§3.4).
+> {                                       # A result object ((#result-object)).
+>   "locations": [                        # See (#result-object--locations-property).
+>     {                                   # A location object ((#location-object)).
+>       "physicalLocation": {             # A physicalLocation object ((#physicallocation-object)).
+>         "artifactLocation": {           # An artifactLocation object ((#artifactlocation-object)).
 >           "uri": "ui/window.c",
 >           "uriBaseId": "SRCROOT"
 >         },
 > 
->         "region": {                      # See §3.29.4.
+>         "region": {                      # See (#region-property).
 >           "startLine": 42,
 >           "snippet": {
 >             "text": "int n = m + 1;"

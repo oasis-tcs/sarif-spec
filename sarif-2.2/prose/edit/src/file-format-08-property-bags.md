@@ -25,10 +25,10 @@ Even when defining a custom classification system used within an engineering tea
 > EXAMPLE 2: In this example, the SARIF producer tags an artifact with the string `"openSource"`.
 > 
 > ```json
-> {                              # A run object (§3.14).
->   "artifacts": [               # See §3.14.15.
->     {                          # An artifact object (§3.24).
->       "location": {            # See §3.24.2.
+> {                              # A run object ((#run-object)).
+>   "artifacts": [               # See (#artifacts-property).
+>     {                          # An artifact object ((#artifact-object)).
+>       "location": {            # See (#artifact-object--location-property).
 >         "uri": "http://www.example.com/libraries/jsonParser.js"
 >       },
 >       "properties": {
@@ -51,7 +51,7 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 > EXAMPLE 1: Continuing the example from [sec](#tags--general), suppose the tool wishes to provide additional information about using open source code. It might provide that information within the property bag containing the tag (the property bag belonging to the `artifact` object):
 > 
 > ```json
-> {                              # An artifact object (§3.24).
+> {                              # An artifact object ((#artifact-object)).
 >   "location": {
 >     "uri": "http://www.example.com/libraries/jsonParser.js"
 >   },
@@ -70,9 +70,9 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 > EXAMPLE 2: There might be several open source files. To avoid duplicating information, the tool might choose to place the tag metadata in the property bag belonging to `theRun`:
 > 
 > ```json
-> {                              # A run object (§3.14).
+> {                              # A run object ((#run-object)).
 >   "artifacts": [
->     {                          # An artifact object (§3.24).
+>     {                          # An artifact object ((#artifact-object)).
 >       "location": {
 >         "uri": "http://www.example.com/libraries/jsonParser.js"
 >       },

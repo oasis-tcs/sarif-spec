@@ -26,18 +26,18 @@ The top-level element of an external property file **SHALL** be an object which 
 > 
 > ```json
 > {                             # An externalProperties object
->   "version": "2.1.0",         # See §4.3.3.
+>   "version": "2.1.0",         # See (#externalproperties-object--version-property).
 > 
->   "$schema":                  # See §4.3.2.
+>   "$schema":                  # See (#externalproperties-object--schema-property).
 >     "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json",
 > 
->                               # See §4.3.4.
+>                               # See (#externalproperties-object--guid-property).
 >   "guid": "00001111-2222-1111-8888-555566667777",
 > 
->                               # See §4.3.5.
+>                               # See (#runguid-property).
 >   "runGuid": "88889999-AAAA-1111-8888-DDDDEEEEFFFF",
 > 
->   "artifacts": [              # See §4.3.6.
+>   "artifacts": [              # See (#the-property-value-properties).
 >     {
 >       "location": {
 >         "uri": "apple.png"

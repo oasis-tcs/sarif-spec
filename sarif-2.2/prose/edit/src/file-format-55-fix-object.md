@@ -7,14 +7,14 @@ A `fix` object represents a proposed fix for the problem indicated by `theResult
 > EXAMPLE 1:
 > 
 > ```json
-> {                                   # A result object (§3.27).
->   "fixes": [                        # See §3.27.30.
+> {                                   # A result object ((#result-object)).
+>   "fixes": [                        # See (#fixes-property).
 >     {                               # A fix object.
->       "description": {              # See §3.55.2.
+>       "description": {              # See (#fix-object--description-property).
 >         "text": "Private member names begin with '_'"
 >       },
->       "artifactChanges": [          # See §3.55.3.
->         {                           # An artifactChange object (§3.56).
+>       "artifactChanges": [          # See (#artifactchanges-property).
+>         {                           # An artifactChange object ((#artifactchange-object)).
 >           ...
 >         }
 >       ]
@@ -54,18 +54,18 @@ The array elements **SHALL** refer to distinct artifacts.
 > ```json
 > {                                    # A fix object.
 >   "artifactChanges": [                   
->     {                                # An artifactChange object (§3.56).
->       "artifactLocation": {          # See §3.56.2.
+>     {                                # An artifactChange object ((#artifactchange-object)).
+>       "artifactLocation": {          # See (#artifactchange-object--artifactlocation-property).
 >         "uri": "src/a.c"
 >       },
->       "replacements": [              # See §3.56.3.
->         {                            # A replacement object (§3.57).
->           "deletedRegion": {         # See §3.57.3.
+>       "replacements": [              # See (#replacements-property).
+>         {                            # A replacement object ((#replacement-object)).
+>           "deletedRegion": {         # See (#deletedregion-property).
 >             "startLine": 1,
 >             "startColumn": 1,
 >             "endColumn": 1
 >           },
->           "insertedContent": {       # See §3.57.4.
+>           "insertedContent": {       # See (#insertedcontent-property).
 >             "text": "// "
 >           }
 >         }
@@ -97,18 +97,18 @@ The array elements **SHALL** refer to distinct artifacts.
 > ```json
 > {                                    # A fix object.
 >   "artifactChanges": [                   
->     {                                # An artifactChange object (§3.56).
->       "artifactLocation": {          # See §3.56.2.
+>     {                                # An artifactChange object ((#artifactchange-object)).
+>       "artifactLocation": {          # See (#artifactchange-object--artifactlocation-property).
 >         "uri": "src/a.c"
 >       },
->       "replacements": [              # See §3.56.3.
->         {                            # A replacement object (§3.57).
->           "deletedRegion": {         # See §3.57.3.
+>       "replacements": [              # See (#replacements-property).
+>         {                            # A replacement object ((#replacement-object)).
+>           "deletedRegion": {         # See (#deletedregion-property).
 >             "startLine": 1,
 >             "startColumn": 1,
 >             "endColumn": 1
 >           },
->           "insertedContent": {       # See §3.57.4.
+>           "insertedContent": {       # See (#insertedcontent-property).
 >             "text": "// "
 >           }
 >         }

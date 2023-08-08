@@ -9,6 +9,7 @@ Currently impersonating phase zero concatenate and map from the initial sources 
 import json
 import pathlib
 import re
+import os
 import sys
 from typing import Union
 
@@ -25,6 +26,9 @@ SEMI = ';'
 SPACE = ' '
 TM = '™'
 
+# Optionally dump the look-up tables (LUT)s for section display and label:
+DUMP_LUT = bool(os.getenv('DUMP_LUT', ''))
+
 # Configuration and runtime parameter candidates:
 BINDER_AT = pathlib.Path('etc') / 'bind.txt'
 SOURCE_AT = pathlib.Path('src')
@@ -39,6 +43,16 @@ IS_SEC_REF = 'sec'
 SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)')  # [ref](#label) pattern
 MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
 
+# Detecting code block references with label values
+# e.g. ' #  ((#run-object)).'
+SEC_LABEL_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<label>\(#(?P<value>[0-9a-z-]+)\))\)\.')
+# e.g. ' #  (#run-object).'
+SEC_LABEL_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))\.')
+
+# Reverse detection patterns for documentation purposes
+# e.g. ' # A run object (§3.14).' or ' #  (§3.1.2).'
+SEC_DISP_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<disp>§[0-9.]+)\)\.')
+SEC_DISP_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<disp>§[0-9.]+)\.')  # e.g. ' # See §3.14.14.'
 
 # Specific tokens:
 HC_BEG = '<!--'
@@ -133,6 +147,17 @@ def label_in(text: str) -> bool:
     return '](#' in text
 
 
+def code_block_label_in(text: str) -> bool:
+    """Detect if the text line contains a code block section label."""
+    return '(#' in text and ' # ' in text
+
+
+def load_label_to_display_lut(path: Union[str, pathlib.Path] = SECTION_LABEL_TO_DISPLAY_AT) -> dict[str, str]:
+    """Load the LUT for section labels -> display."""
+    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+        return json.load(handle)
+
+
 def main(argv: list[str]) -> int:
     """Drive the assembly."""
 
@@ -142,6 +167,8 @@ def main(argv: list[str]) -> int:
         if not (SOURCE_AT / resource).is_file():
             print(f'Problem reading {resource}')
             return 1
+
+    display_from = load_label_to_display_lut()
 
     lines: list[str] = []
     meta_hooks = {}
@@ -357,6 +384,36 @@ def main(argv: list[str]) -> int:
                     line = line.replace(sem_ref, evil_ref)
                     lines[slot] = line
 
+    # Process the code blocks for references to map from label to display value
+    for slot, line in enumerate(lines):
+        if code_block_label_in(line):
+            for ref in SEC_LABEL_BRACKET_CB_DETECT.finditer(line):
+                if ref:
+                    # Found bracketed label ref to section in code block
+                    found = ref.groupdict()
+                    value = found['value']
+                    if not value or value not in display_from:
+                        continue
+                    label = found['label']
+                    display = display_from[value]
+                    sem_ref = label
+                    disp_ref = display
+                    line = line.replace(sem_ref, disp_ref)
+                    lines[slot] = line
+            for ref in SEC_LABEL_FREE_CB_DETECT.finditer(line):
+                if ref:
+                    # Found free label ref to section in code block
+                    found = ref.groupdict()
+                    value = found['value']
+                    if not value or value not in display_from:
+                        continue
+                    label = found['label']
+                    display = display_from[value]
+                    sem_ref = label
+                    disp_ref = display
+                    line = line.replace(sem_ref, disp_ref)
+                    lines[slot] = line
+
     tic_toc.append(NL)
     # Inject the table of contents:
     for slot, line in enumerate(lines):
@@ -371,13 +428,14 @@ def main(argv: list[str]) -> int:
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'tmp.md')
 
-    with SECTION_DISPLAY_TO_LABEL_AT.open('wt', encoding=ENCODING) as handle:
-        json.dump(SECTION_DISPLAY_TO_LABEL, handle, indent=2)
-    SECTION_LABEL_TO_DISPLAY = {
-        label: disp for label, disp in sorted((label, disp) for disp, label in SECTION_DISPLAY_TO_LABEL.items())
-    }
-    with SECTION_LABEL_TO_DISPLAY_AT.open('wt', encoding=ENCODING) as handle:
-        json.dump(SECTION_LABEL_TO_DISPLAY, handle, indent=2)
+    if DUMP_LUT:
+        with SECTION_DISPLAY_TO_LABEL_AT.open('wt', encoding=ENCODING) as handle:
+            json.dump(SECTION_DISPLAY_TO_LABEL, handle, indent=2)
+        SECTION_LABEL_TO_DISPLAY = {
+            label: disp for label, disp in sorted((label, disp) for disp, label in SECTION_DISPLAY_TO_LABEL.items())
+        }
+        with SECTION_LABEL_TO_DISPLAY_AT.open('wt', encoding=ENCODING) as handle:
+            json.dump(SECTION_LABEL_TO_DISPLAY, handle, indent=2)
 
     return 0
 

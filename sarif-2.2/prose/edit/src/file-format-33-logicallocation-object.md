@@ -63,8 +63,8 @@ The `name` property **SHALL** be suitable for display and **SHALL** follow the n
 > ```json
 > {                                      # A logicalLocation object.
 >   "name": "c(float)",
->   "fullyQualifiedName": "b::c(float)", # See §3.33.5.
->   "kind": "function"                   # See §3.33.7
+>   "fullyQualifiedName": "b::c(float)", # See (#logicallocation-object--fullyqualifiedname-property).
+>   "kind": "function"                   # See (#logicallocation-object).7
 > }
 > ```
 
@@ -210,11 +210,11 @@ Although the values suggested here are useful in the specified categories (for e
 > 
 > ```json
 > {                                 # A run object (§3.14)
->   "results": [                    # See §3.14.23.
->     {                             # A result object (§3.27).
->       "locations": [              # See §3.27.12.
->         {                         # A location object (§3.28).
->           "logicalLocations": [   # See §3.28.4.
+>   "results": [                    # See (#results-property).
+>     {                             # A result object ((#result-object)).
+>       "locations": [              # See (#result-object--locations-property).
+>         {                         # A location object ((#location-object)).
+>           "logicalLocations": [   # See (#location-object--logicallocations-property).
 >             {                     # A logicalLocation object.
 >               "fullyQualifiedName": "/orders/order[1]/@number",
 >               "index": 2
@@ -239,7 +239,7 @@ Although the values suggested here are useful in the specified categories (for e
 >     }
 >   ],
 > 
->   "logicalLocations": [           # See §3.14.17.
+>   "logicalLocations": [           # See (#run-object--logicallocations-property).
 >     {                             # A logicalLocation object.
 >       "name": "orders",
 >       "fullyQualifiedName": "/orders",
@@ -294,11 +294,11 @@ Although the values suggested here are useful in the specified categories (for e
 > 
 > ```json
 > {                                 # A run object (§3.14)
->   "results": [                    # See §3.14.23.
->     {                             # A result object (§3.27).
->       "locations": [              # See §3.27.12.
->         {                         # A location object (§3.28).
->           "logicalLocation": {    # See §3.28.4.
+>   "results": [                    # See (#results-property).
+>     {                             # A result object ((#result-object)).
+>       "locations": [              # See (#result-object--locations-property).
+>         {                         # A location object ((#location-object)).
+>           "logicalLocation": {    # See (#location-object--logicallocations-property).
 >             "fullyQualifiedName": "/orders/0/productIds/1",
 >             "index": 3
 >           }
@@ -317,8 +317,8 @@ Although the values suggested here are useful in the specified categories (for e
 >     }
 >   ],
 > 
->   "logicalLocations": [           # See §3.14.17.
->     {                             # A logicalLocation object (§3.33).
+>   "logicalLocations": [           # See (#run-object--logicallocations-property).
+>     {                             # A logicalLocation object ((#logicallocation-object)).
 >       "name": "orders",
 >       "fullyQualifiedName": "/orders",
 >       "kind": "array"
@@ -368,12 +368,12 @@ If `thisObject` represents a top-level logical location, then `parentIndex` **SH
 > EXAMPLE 1: In this example, the logical location `n::f(void)` is nested within the top-level logical location `n`. The `logicalLocation` object representing `n::f(void)` contains a `parentIndex` property that points to the object representing `n`; the object representing `n` does not contain a `parentIndex` property.
 > 
 > ```json
-> {                                            # A run object (§3.14).
->   "logicalLocations": [                      # See §3.14.17.
+> {                                            # A run object ((#run-object)).
+>   "logicalLocations": [                      # See (#run-object--logicallocations-property).
 >     {
->       "name": "f(void)",                     # See §3.33.4.
->       "fullyQualifiedName": "n::f(void)",    # See §3.33.5.
->       "kind": "function",                    # See §3.33.7.
+>       "name": "f(void)",                     # See (#logicallocation-object--name-property).
+>       "fullyQualifiedName": "n::f(void)",    # See (#logicallocation-object--fullyqualifiedname-property).
+>       "kind": "function",                    # See (#logicallocation-object--kind-property).
 >       "parentIndex": 1
 >     },
 >     {

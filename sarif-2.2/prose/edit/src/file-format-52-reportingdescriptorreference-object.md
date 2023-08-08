@@ -9,13 +9,13 @@ In some cases, there is no `reportingDescriptor` object associated with a `repor
 > EXAMPLE 1: In this example, a tool emits a tool execution notification that refers to a rule. The tool does not provide rule metadata. Therefore, `associatedRule` ([sec](#associatedrule-property)) contains only an `id` property, whose value is the id of the rule that failed. Similarly, the tool does not provide metadata about its notifications, so `"descriptor"` ([sec](#notification-object--descriptor-property)) contains only the id of the notification.
 > 
 > ```json
-> {                                            # An invocation object (§3.20).
->   "toolExecutionNotifications": [            # See §3.20.21.
->     {                                        # A notification object (§3.58).
->       "descriptor": {                        # See §3.58.2.
+> {                                            # An invocation object ((#invocation-object)).
+>   "toolExecutionNotifications": [            # See (#toolexecutionnotifications-property).
+>     {                                        # A notification object ((#notification-object)).
+>       "descriptor": {                        # See (#notification-object--descriptor-property).
 >         "id": "CTN9999"
 >       },
->       "associatedRule": {                    # See §3.58.3.
+>       "associatedRule": {                    # See (#associatedrule-property).
 >         "id": "C2001"
 >       },
 >       "level": "error",
@@ -59,22 +59,22 @@ For more information about the semantics of `id` when `theDescriptor` is a rule,
 > EXAMPLE 1: In this example, the first `result` object is valid because `rule.id` (inherited from `ruleId`) equals `theDescriptor.id`. The second `result` object is also valid because `rule.id` (this time specified directly) equals `theDescriptor.id` plus one additional hierarchical component (`"ghi"`). The third `result` object is invalid because `theDescriptor.id` is not a "component-wise" prefix of `rule.id`. The fourth `result` object is invalid because `ruleId` does not equal `rule.id`.
 > 
 > ```json
-> {                             # A run object (§3.14).
->   "tool": {                   # See §3.14.6.
->     "driver": {               # See §3.18.2.
+> {                             # A run object ((#run-object)).
+>   "tool": {                   # See (#run-object--tool-property).
+>     "driver": {               # See (#driver-property).
 >       "name": "CodeScanner",
->       "rules": [              # See §3.19.23.
->         {                     # A reportingDescriptor object (§3.49).
->           "id": "abc/def",    # See §3.49.3.
+>       "rules": [              # See (#rules-property).
+>         {                     # A reportingDescriptor object ((#reportingdescriptor-object)).
+>           "id": "abc/def",    # See (#reportingdescriptor-object--id-property).
 >           ...
 >         },
 >         ...
 >       ]
 >     }
 >   },
->   "results": [                # See §3.14.23.
->     {                         # A result object (§3.27).
->       "ruleId": "abc/def",    # See §3.27.5.
+>   "results": [                # See (#results-property).
+>     {                         # A result object ((#result-object)).
+>       "ruleId": "abc/def",    # See (#ruleid-property).
 >       "rule": {
 >         "index": 0
 >       }
@@ -109,13 +109,13 @@ A `reportingDescriptorReference` object **MAY** contain a property named `index`
 > EXAMPLE 1: In this example, there is more than one rule with id `CA1711`. `index` uniquely specifies the relevant rule, whether or not there are multiple rules with the same id.
 > 
 > ```json
-> {                            # A run object (§3.14).
->   "tool": {                  # See §3.14.6.
->     "driver": {              # See §3.18.2.
+> {                            # A run object ((#run-object)).
+>   "tool": {                  # See (#run-object--tool-property).
+>     "driver": {              # See (#driver-property).
 >       "name": "CodeScanner",
->       "rules": [             # See §3.19.23.
->         {                    # A reportingDescriptor object (§3.49).
->           "id": "CA1711",    # See §3.49.3.
+>       "rules": [             # See (#rules-property).
+>         {                    # A reportingDescriptor object ((#reportingdescriptor-object)).
+>           "id": "CA1711",    # See (#reportingdescriptor-object--id-property).
 >           ...
 >         },
 >         {                    # Another reportingDescriptor with the same id.
@@ -125,9 +125,9 @@ A `reportingDescriptorReference` object **MAY** contain a property named `index`
 >       ]
 >     }
 >   },
->   "results": [               # See §3.14.23.
->     {                        # A result object (§3.27).
->       "ruleId": "CA1711",    # See §3.27.5.
+>   "results": [               # See (#results-property).
+>     {                        # A result object ((#result-object)).
+>       "ruleId": "CA1711",    # See (#ruleid-property).
 > 
 >                              # A reportingDescriptorReference object.
 >       "rule": {

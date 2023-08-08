@@ -151,7 +151,7 @@ In either case, if there is no `toolComponent` that defines the taxonomy to whic
 > EXAMPLE 1: In this example, a tool defines a custom taxonomy (see [sec](#taxonomies)) consisting of three taxa with ids `"SUP"`, `"INC1"`, and `"INC2"`. The tool emits a result that falls into the taxa `"SUP"` and `"INC2"`, but not into `"INC1"`. According to `relationships[0]`, `"SUP"` is a superset of `"CA2101"`; that is, every result that violates `"CA2101"` falls into the taxon `"SUP"`. Therefore, it is not necessary to mention `"SUP"` in `theResult.taxa`. On the other hand, according to `relationships[2]`, `"INC2"` is incomparable to `"CA2101"`; that is, the set of results that violate `"CA2101"` intersects with but is neither a superset nor a subset of the set of results that fall into the taxon `"INC2"`. Therefore, it is necessary to mention `"INC2"` in `theResult.taxa`.
 > 
 > ```json
-> {                                     # A run object (§3.14).
+> {                                     # A run object ((#run-object)).
 >   "tool": {
 >     "driver": {
 >       "name": "CodeScanner",
@@ -406,15 +406,15 @@ See [sec](#message-string-lookup) for the procedure for looking up a message str
 > EXAMPLE 2: In this example, `message.id` refers to the property named `default` defined in the `messageStrings` property of the `reportingDescriptor` object identified by `"CA2101"`.
 > 
 > ```json
-> {                                 # A run object (§3.14).
->   "tool": {                       # See §3.14.6.
->     "driver": {                   # See §3.18.2.
+> {                                 # A run object ((#run-object)).
+>   "tool": {                       # See (#run-object--tool-property).
+>     "driver": {                   # See (#driver-property).
 >       "name": "CodeScanner",
->       "rules": [                  # See §3.19.23.
->         {                         # A reportingDescriptor object (§3.49).
+>       "rules": [                  # See (#rules-property).
+>         {                         # A reportingDescriptor object ((#reportingdescriptor-object)).
 >           "id": "CA2101",
 >           "messageStrings": {
->             "default": {          # A multiformatMessageString object (§3.12).
+>             "default": {          # A multiformatMessageString object ((#multiformatmessagestring-object)).
 >               "text": "The default message for this rule.",
 >               "markdown": "The default message for *this* rule."
 >             },
@@ -428,7 +428,7 @@ See [sec](#message-string-lookup) for the procedure for looking up a message str
 >     }
 >   },
 >   "results": [
->     {                             # A result object (§3.27).
+>     {                             # A result object ((#result-object)).
 >       "ruleId": "CA2101",
 >       "rule": {
 >         "index": 0
@@ -471,15 +471,15 @@ If the analysis target and the result file are the same, the `analysisTarget` pr
 > EXAMPLE 1: In this example, the tool’s analysis target was the file mouse.c. During the scan, the tool detected a result in the included file mouse.h.
 > 
 > ```json
-> {                                 # A result object (§3.27).
->   "analysisTarget": {             # An artifactLocation object (§3.4).
+> {                                 # A result object ((#result-object)).
+>   "analysisTarget": {             # An artifactLocation object ((#artifactlocation-object)).
 >     "uri": "input/mouse.c",
 >     "uriBaseId": "SRCROOT"
 >   },
 > 
->   "locations": [                  # See §3.27.12.
->     {                             # A location object (§3.28).
->       "physicalLocation": {       # See §3.28.3.
+>   "locations": [                  # See (#result-object--locations-property).
+>     {                             # A location object ((#location-object)).
+>       "physicalLocation": {       # See (#physicallocation-property).
 >         "artifactLocation": {     # An artifactLocation object.
 >           "uri": "input/mouse.h",
 >           "uriBaseId": "SRCROOT"
@@ -529,8 +529,8 @@ When a result management system uses fingerprint information to determine whethe
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the "context region hash" fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
 > 
 > ```json
-> {                                  # A run object (§3.14).
->   "results": [                     # See §3.14.23.
+> {                                  # A run object ((#run-object)).
+>   "results": [                     # See (#results-property).
 >     {                              # A result object.
 >       "fingerprints": {
 >         "stableResultHash/v1": "1234567900abc",
@@ -570,7 +570,7 @@ Each property name in this object **SHALL** be a versioned hierarchical string (
 > EXAMPLE 1: In this example, the producer has calculated a partial fingerprint using version 3 of a partial fingerprint value it refers to as `"prohibitedWordHash"`:
 > 
 > ```json
-> {                                 # A result object (§3.27).
+> {                                 # A result object ((#result-object)).
 >   "partialFingerprints": {
 >     "prohibitedWordHash/v3": "097886bc876fe"
 >   }
@@ -582,8 +582,8 @@ When a result management system uses partial fingerprint information to determin
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the "prohibited word hash" partial fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
 > 
 > ```json
-> {                                  # A run object (§3.14).
->   "results": [                     # See §3.14.23.
+> {                                  # A run object ((#run-object)).
+>   "results": [                     # See (#results-property).
 >     {                              # A result object.
 >       "partialFingerprints": {
 >         "prohibitedWordHash/v1": "1234567900abc",
@@ -688,7 +688,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 >         }
 >       }
 >     ],
->     "relatedLocations": [   # An array of location objects (§3.28).
+>     "relatedLocations": [   # An array of location objects ((#location-object)).
 >       {                     # A location object.
 >         "id": 0,
 >         "message": {

@@ -83,13 +83,13 @@ Within a given `message` object:
 > EXAMPLE 2: In this example, the SARIF consumer will replace the placeholder `{0}` in `message.text` with the value `"pBuffer"` from the 0 element of `message.arguments`.
 > 
 > ```json
-> {                                                   # A run object (§3.14).
->   "results": [                                      # See §3.14.23.
->     {                                               # A result object (§3.27).
->       "ruleId": "CA2101",                           # See §3.27.5.
->       "message": {                                  # See §3.27.11.
->         "text": "Variable '{0}' is uninitialized.", # See §3.11.8.
->         "arguments": [ "pBuffer" ]                  # See §3.11.11.
+> {                                                   # A run object ((#run-object)).
+>   "results": [                                      # See (#results-property).
+>     {                                               # A result object ((#result-object)).
+>       "ruleId": "CA2101",                           # See (#ruleid-property).
+>       "message": {                                  # See (#result-object--message-property).
+>         "text": "Variable '{0}' is uninitialized.", # See (#message-object--text-property).
+>         "arguments": [ "pBuffer" ]                  # See (#message-object--arguments-property).
 >       }
 >     }
 >   ]

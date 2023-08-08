@@ -57,18 +57,18 @@ Every externalizable property whose type is shown in the table as "array" **SHAL
 > 
 > ```json
 > {                           # A run object.
->   "originalUriBaseIds": {   # See §3.14.14.
+>   "originalUriBaseIds": {   # See (#originaluribaseids-property).
 >     "LOGSDIR": {
 >       "uri": "file:///C:/logs/"
 >     }
 >   },
 >   "externalPropertyFileReferences": {
->     "conversion": {         # An externalPropertyFileReference object (§3.16).
->       "location": {         # See §3.16.3.
+>     "conversion": {         # An externalPropertyFileReference object ((#externalpropertyfilereference-object)).
+>       "location": {         # See (#externalpropertyfilereference-object--location-property).
 >         "uri": "scantool.conversion.sarif-external-properties",
 >         "uriBaseId": "LOGSDIR"
 >       },
->       "guid": "11111111-1111-1111-8888-111111111111" # See §3.16.4.
+>       "guid": "11111111-1111-1111-8888-111111111111" # See (#externalpropertyfilereference-object--guid-property).
 >     },
 >     "results": [
 >       {
@@ -98,20 +98,20 @@ With one exception described below, if a property appears inline in the root fil
 > EXAMPLE 2: In this example, `theRun.conversion` and `theRun.properties` are stored in the same external property file.
 > 
 > ```json
-> {                            # A run object (§3.14).
->   "originalUriBaseIds": {    # See §3.14.14.
+> {                            # A run object ((#run-object)).
+>   "originalUriBaseIds": {    # See (#originaluribaseids-property).
 >     "LOGSDIR": {
 >       "uri": "file:///C:/logs/"
 >     }
 >   },
 >   "externalPropertyFileReferences": {
 >     "conversion": {     # An externalPropertyFileReference object (see §3.16).
->       "location": {          # See §3.16.3.
+>       "location": {          # See (#externalpropertyfilereference-object--location-property).
 >         "uri": "scantool.sarif-external-properties",
 >         "uriBaseId": "LOGSDIR",
 >         "index": 0
 >       },
->       "guid": "11111111-1111-1111-8888-111111111111" # See §3.16.4.
+>       "guid": "11111111-1111-1111-8888-111111111111" # See (#externalpropertyfilereference-object--guid-property).
 >     },
 >     "externalizedProperties": {
 >       "location": {
@@ -129,8 +129,8 @@ With one exception described below, if a property appears inline in the root fil
 > EXAMPLE 3: This example represents invalid SARIF because both elements of the array belonging to the `results` property denote the same external property file.
 > 
 > ```json
-> {                            # A run object (§3.14).
->   "originalUriBaseIds": {    # See §3.14.14.
+> {                            # A run object ((#run-object)).
+>   "originalUriBaseIds": {    # See (#originaluribaseids-property).
 >     "LOGSDIR": {
 >       "uri": "file:///C:/logs/"
 >     }

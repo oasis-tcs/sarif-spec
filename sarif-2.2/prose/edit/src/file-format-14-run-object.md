@@ -8,12 +8,12 @@ A `run` object describes a single run of an analysis tool and contains the outpu
 > 
 > ```json
 > {
->   "tool": {       # See §3.14.6.
->     ...           # A tool object (§3.18).
+>   "tool": {       # See (#run-object--tool-property).
+>     ...           # A tool object ((#tool-object)).
 >   },
->   "results": [    # See §3.14.23.
+>   "results": [    # See (#results-property).
 >     {
->       ...         # A result object (§3.27).
+>       ...         # A result object ((#result-object)).
 >     },
 >     ...
 >     {
@@ -108,10 +108,10 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 >   ```json
 >   {                                    # A run object.
 >      "versionControlProvenance": [
->       {                                # A versionControlDetails object (§3.23).
->           "repositoryUri": "https://github.com/example/browser",   # See §3.23.3.
->           "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e", # See §3.23.4.
->           "branch": "master"             # See §3.23.5.
+>       {                                # A versionControlDetails object ((#versioncontroldetails-object)).
+>           "repositoryUri": "https://github.com/example/browser",   # See (#repositoryuri-property).
+>           "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e", # See (#revisionid-property).
+>           "branch": "master"             # See (#branch-property).
 >       }
 >       ]
 >   }
@@ -225,12 +225,12 @@ A SARIF consumer **SHALL** use the following procedure to resolve a URI base id 
 >   },
 > 
 >   "results": [
->     {                                     # A result object (§3.27).
+>     {                                     # A result object ((#result-object)).
 >       "ruleId": "CA1001",
 >       "locations": [
->         {                                 # A location object (§3.28).
->           "physicalLocation": {           # See §3.28.3.
->             "artifactLocation": {         # An artifactLocation object (§3.4).
+>         {                                 # A location object ((#location-object)).
+>           "physicalLocation": {           # See (#physicallocation-property).
+>             "artifactLocation": {         # An artifactLocation object ((#artifactlocation-object)).
 >               "uri": "lib/memory.c",
 >               "uriBaseId": "SRCROOT"
 >             }
@@ -386,7 +386,7 @@ The order of the elements in the array is significant. It **SHALL** mean that at
 > EXAMPLE 2: In this example, the SARIF producer accepts the Unicode characters NEXT LINE (U+0085) and LINE SEPARATOR (U+2028) as line separators in addition to the usual values.
 > 
 > ```json
-> {         # A run object (§3.14).
+> {         # A run object ((#run-object)).
 >   ...
 >   "newlineSequences": [ "\r\n", "\n", "\u0085", "\u2028" ],
 >   ...
@@ -422,7 +422,7 @@ If for any reason different values are used, they **MAY** be any readily identif
 > EXAMPLE 1: In this example, the leading portion of a full path name has been redacted from the redactable property `invocation.commandLine` to avoid revealing information about the machine’s directory layout.
 > 
 > ```json
-> {                     # A run object (§3.14).
+> {                     # A run object ((#run-object)).
 >   "redactionTokens": [
 >     "[REDACTED]"
 >   ],

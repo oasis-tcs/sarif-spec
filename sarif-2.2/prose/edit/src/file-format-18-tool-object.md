@@ -20,14 +20,14 @@ If another tool post-processes the log file (for example, by removing certain re
 > 
 > ```json
 > {                          # A tool object.
->   "driver": {              # See §3.18.2.
+>   "driver": {              # See (#driver-property).
 >     "name": "CodeScanner",
 >     "fullName": "CodeScanner 1.1, Developer Preview (en-US)",
 >     "semanticVersion": "1.1.2-beta.12",
 >     "version": "1.1.2b12",
 >     ...
 >   },
->   "extensions": [          # See §3.18.3.
+>   "extensions": [          # See (#extensions-property).
 >     {
 >       "name": "CodeScanner Security Rules",
 >       "version": "3.1",

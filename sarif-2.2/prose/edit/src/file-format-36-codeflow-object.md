@@ -7,24 +7,24 @@ A `codeFlow` object describes the progress of one or more programs through one o
 > EXAMPLE
 > 
 > ```json
-> {                                       # A result object (§3.27).
->   "codeFlows": [                        # See §3.27.18.
+> {                                       # A result object ((#result-object)).
+>   "codeFlows": [                        # See (#codeflows-property).
 >     {                                   # A codeFlow object.
->       "message": {                      # See §3.36.2.
+>       "message": {                      # See (#codeflow-object--message-property).
 >         "text": "..."
 >       },
 > 
->       "threadFlows": [                  # See §3.36.3.
->         {                               # A threadFlow object (§3.37).
->           "id": "thread-123",           # See §3.37.2.
->           "message": {                  # See §3.37.3.
+>       "threadFlows": [                  # See (#threadflows-property).
+>         {                               # A threadFlow object ((#threadflow-object)).
+>           "id": "thread-123",           # See (#threadflow-object--id-property).
+>           "message": {                  # See (#threadflow-object--message-property).
 >             "text": "..."
 >           },
 > 
->           "locations": [                # See §3.37.6.
->             {                           # A threadFlowLocation object (§3.38).
->               "location": {             # See §3.38.3.
->                 "physicalLocation": {   # See §3.28.3.
+>           "locations": [                # See (#threadflow-object--locations-property).
+>             {                           # A threadFlowLocation object ((#threadflowlocation-object)).
+>               "location": {             # See (#threadflowlocation-object--location-property).
+>                 "physicalLocation": {   # See (#physicallocation-property).
 >                   "artifactLocation": {
 >                     "uri": "ui/window.c",
 >                     "uriBaseId": "SRCROOT"
@@ -36,7 +36,7 @@ A `codeFlow` object describes the progress of one or more programs through one o
 >                 }
 >               },
 > 
->               "state": {                # See §3.38.9.
+>               "state": {                # See (#state-property).
 >                 "x": {
 >                   "text": "42"
 >                 },
@@ -48,8 +48,8 @@ A `codeFlow` object describes the progress of one or more programs through one o
 >                 }
 >               },
 > 
->               "nestingLevel": 0,        # See §3.38.10.
->               "executionOrder": 2       # See §3.38.11.
+>               "nestingLevel": 0,        # See (#nestinglevel-property).
+>               "executionOrder": 2       # See (#executionorder-property).
 >             }
 >           ]
 >         }

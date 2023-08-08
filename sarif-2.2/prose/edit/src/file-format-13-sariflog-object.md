@@ -8,8 +8,8 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 > 
 > ```json
 > {
->   "version": "2.1.0", # See §3.13.2.
->   "runs": [           # See §3.13.4.
+>   "version": "2.1.0", # See (#sariflog-object--version-property).
+>   "runs": [           # See (#runs-property).
 >     {
 >       ...             # A run object (§3.14)
 >     },
@@ -68,9 +68,9 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 > 
 >   "inlineExternalProperties": [
 >     {                                            
->       "guid": "00001111-2222-1111-8888-555566667777", # See §4.3.4.
+>       "guid": "00001111-2222-1111-8888-555566667777", # See (#externalproperties-object--guid-property).
 > 
->       "artifacts": [                                  # See §4.3.6.
+>       "artifacts": [                                  # See (#the-property-value-properties).
 >         {
 >           "location": {
 >             "uri": "apple.png"
@@ -87,14 +87,14 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 >     }
 >   ],
 > 
->   "runs": [                                           # See §3.13.4.
->     {                                                 # A run object (§3.14).
->       "tool": {                                       # See §3.14.6.
+>   "runs": [                                           # See (#runs-property).
+>     {                                                 # A run object ((#run-object)).
+>       "tool": {                                       # See (#run-object--tool-property).
 >         "driver": {
 >           "name": "ImageAccessibilityScanner"
 >         }
 >       },
->       "externalPropertyFileReferences": {             # See §3.14.2.
+>       "externalPropertyFileReferences": {             # See (#externalpropertyfilereferences-property).
 >         "artifacts": [
 >           {
 >             "location": {

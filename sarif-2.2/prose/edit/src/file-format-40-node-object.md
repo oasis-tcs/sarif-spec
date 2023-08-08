@@ -11,11 +11,11 @@ A `node` object **SHALL** contain a property named `id` whose value is a string 
 > EXAMPLE 1: This graph is invalid because two nodes have the same `id`, even though the nodes are within unrelated nested graphs.
 > 
 > ```json
-> {                             # A graph object (§3.39).
->   "nodes": [                  # See §3.39.3.
+> {                             # A graph object ((#graph-object)).
+>   "nodes": [                  # See (#nodes-property).
 >     {                         # A node object.
 >       "id": "n1",
->       "children": [           # See §3.40.5.
+>       "children": [           # See (#children-property).
 >         {
 >           "id": "n3"
 >         }

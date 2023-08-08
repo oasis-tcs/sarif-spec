@@ -11,20 +11,20 @@ An `address` object describes a physical or virtual address, or a range of addre
 > EXAMPLE 1: In this example, the location of the Sections region of a Windows ® Portable Executable file \[[cite](#PE)\] is expressed as an offset from the start of the module. The location of the .text section is in turn expressed as an offset from Sections.
 > 
 > ```json
-> {                                  # A run object (§3.14).
->   "addresses": [                   # See §3.14.18.
+> {                                  # A run object ((#run-object)).
+>   "addresses": [                   # See (#addresses-property).
 >     {
->       "name": "Multitool.exe",     # See §3.32.10.
->       "kind": "module",            # See §3.32.12.
->       "absoluteAddress": 1024      # See §3.32.6.
+>       "name": "Multitool.exe",     # See (#address-object--name-property).
+>       "kind": "module",            # See (#address-object--kind-property).
+>       "absoluteAddress": 1024      # See (#absoluteaddress-property).
 >     },
 >     {
 >       "name": "Sections",
 >       "kind": "header",
->       "parentIndex": 0,            # See §3.32.13.
->       "offsetFromParent": 376,     # See §3.32.8.
+>       "parentIndex": 0,            # See (#address-object--parentindex-property).
+>       "offsetFromParent": 376,     # See (#offsetfromparent-property).
 >       "absoluteAddress": 1400,
->       "relativeAddress": 376       # See §3.32.7.
+>       "relativeAddress": 376       # See (#relativeaddress-property).
 >     },
 >     {
 >       "name": ".text",

@@ -7,14 +7,14 @@ An `artifactChange` object represents a change to a single artifact.
 > EXAMPLE 1:
 > 
 > ```json
-> {                             # A fix object (§3.55).
->   "artifactChanges": [        # See §3.55.3.
+> {                             # A fix object ((#fix-object)).
+>   "artifactChanges": [        # See (#artifactchanges-property).
 >     {                          
->       "artifactLocation": {   # See §3.56.2.
+>       "artifactLocation": {   # See (#artifactchange-object--artifactlocation-property).
 >         "uri": "a.h"
 >       },
->       "replacements": [       # See §3.56.3.
->         {                     # A replacement object (§3.57).
+>       "replacements": [       # See (#replacements-property).
+>         {                     # A replacement object ((#replacement-object)).
 >           ...
 >         },
 >         {                     # Another replacement object.

@@ -11,13 +11,13 @@ The `configurationOverride` object’s `descriptor` property ([sec](#configurati
 > EXAMPLE 1: In this example, rule `CA2101` is treated as a warning rather than an error.
 > 
 > ```json
-> {                                           # A run object (§3.14).
->   "tool": {                                 # See §3.14.6.
->     "driver": {                             # See §3.18.2.
+> {                                           # A run object ((#run-object)).
+>   "tool": {                                 # See (#run-object--tool-property).
+>     "driver": {                             # See (#driver-property).
 >       "name": "CodeScanner",
->       "rules": [                            # See §3.19.23.
+>       "rules": [                            # See (#rules-property).
 >         {                                   # A reportingDescriptor object
->           "id": "CA2101",                   #  (§3.49).
+>           "id": "CA2101",                   #  ((#reportingdescriptor-object)).
 >           "defaultConfiguration": {
 >             "level": "error"
 >           }
@@ -26,15 +26,15 @@ The `configurationOverride` object’s `descriptor` property ([sec](#configurati
 >     }
 >   },
 > 
->   "invocations": [                          # See §3.14.11.
->     {                                       # An invocation object (§3.20).
->       "ruleConfigurationOverrides": [       # See §3.20.5.
+>   "invocations": [                          # See (#invocations-property).
+>     {                                       # An invocation object ((#invocation-object)).
+>       "ruleConfigurationOverrides": [       # See (#ruleconfigurationoverrides-property).
 >         {                                   # A configurationOverride object
->                                             #  (§3.51).
->           "descriptor": {                   # See §3.51.2.
+>                                             #  ((#configurationoverride-object)).
+>           "descriptor": {                   # See (#configurationoverride-object--descriptor-property).
 >             "index": 0
 >           },
->           "configuration": {                # See §3.51.3.
+>           "configuration": {                # See (#configuration-property).
 >             "level": "warning"
 >           }
 >         }

@@ -102,14 +102,14 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([se
 >             "text": "Assertions are unreliable. ..."
 >           },
 >           ...
->           "provenance": {              # See §3.27.29.
+>           "provenance": {              # See (#provenance-property).
 >             "conversionSources": [     # An array of physicalLocation objects 
 >               {                        # (§3.29).
->                 "artifactLocation": {  # See §3.29.3.
+>                 "artifactLocation": {  # See (#physicallocation-object--artifactlocation-property).
 >                   "uri": "CodeScanner.log",
 >                   "uriBaseId": "$LOGSROOT"
 >                 },
->                 "region": {            # See §3.29.4.
+>                 "region": {            # See (#region-property).
 >                   "startLine": 3,
 >                   "startColumn": 3,
 >                   "endLine": 12,

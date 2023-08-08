@@ -13,16 +13,16 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 > EXAMPLE 1: In this example, the definition of rule `CA1000` states that every result that violates this rule falls into the taxonomic category ("taxon") specified by ID 327 of the Common Weakness Enumeration \[[CWE](#CWE)\]:
 > 
 > ```json
-> {                              # A run object (§3.14).
->   "tool": {                    # See §3.14.6.
->     "driver": {                # See §3.18.2.
+> {                              # A run object ((#run-object)).
+>   "tool": {                    # See (#run-object--tool-property).
+>     "driver": {                # See (#driver-property).
 >       "name": "CodeScanner",
->       "rules": [               # See §3.19.23.
->         {                      # A reportingDescriptor object (§3.49).
+>       "rules": [               # See (#rules-property).
+>         {                      # A reportingDescriptor object ((#reportingdescriptor-object)).
 >           "id": "CA1000",
 >           "relationships": [
 >             {                  # A reportingDescriptorRelationship object.
->               "target": {      # See §3.53.2.
+>               "target": {      # See (#reportingdescriptorrelationship-object--target-property).
 >                 "id": "327",
 >                 "guid": "33333333-0000-1111-8888-111111111111",
 >                 "toolComponent": {
@@ -66,17 +66,17 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 > EXAMPLE 2: In this example, the definition of rule `CA1000` states that every violation of this rule will lead to a violation of rule `CA2000`.
 > 
 > ```json
-> {                              # A run object (§3.14).
->   "tool": {                    # See §3.14.6.
->     "driver": {                # See §3.18.2.
+> {                              # A run object ((#run-object)).
+>   "tool": {                    # See (#run-object--tool-property).
+>     "driver": {                # See (#driver-property).
 >       "name": "CodeScanner",
->       "rules": [               # See §3.19.23.
->         {                      # A reportingDescriptor object (§3.49).
+>       "rules": [               # See (#rules-property).
+>         {                      # A reportingDescriptor object ((#reportingdescriptor-object)).
 >           "id": "CA1000",
 >           "guid": "11111111-0000-1111-8888-000000000001",
 >           "relationships": [
 >             {                  # A reportingDescriptor object.
->               "target": {      # See §3.53.2.
+>               "target": {      # See (#reportingdescriptorrelationship-object--target-property).
 >                 "id": "CA2000",
 >                 "guid": "11111111-0000-1111-8888-000000000002"
 >               },

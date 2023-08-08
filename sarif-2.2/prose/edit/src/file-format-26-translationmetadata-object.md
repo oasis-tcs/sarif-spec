@@ -9,7 +9,7 @@ Because they occur only in `toolComponent` objects that represent translations, 
 > EXAMPLE 1:
 > 
 > ```json
-> {                           # A toolComponent object (§3.19).
+> {                           # A toolComponent object ((#toolcomponent-object)).
 >   "language": "fr-FR",      # The language of the translation (see (§3.19.21).
 > 
 >   "translationMetadata": {  # A translation metadata object.

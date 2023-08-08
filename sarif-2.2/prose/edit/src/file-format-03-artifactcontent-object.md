@@ -27,15 +27,15 @@ An `artifactContent` object **MAY** contain a property named `rendered` whose va
 > EXAMPLE 1: In this example, a `physicalLocation` object ([sec](#physicallocation-object)) denotes a memory address. Its `region.snippet.rendered` property ([sec](#region-property), [sec](#snippet-property)) offers a hex view of the relevant address range. The `markdown` property ([sec](#multiformatmessagestring-object--markdown-property)) emphasizes a byte of particular interest.
 > 
 > ```json
-> {                                # A physicalLocation object (§3.29).
->   "address": {                   # See §3.29.6.
->     "baseAddress": 4202880,      # See §3.32.6.
->     "offset": 64                 # See §3.32.8.
+> {                                # A physicalLocation object ((#physicallocation-object)).
+>   "address": {                   # See (#address-property).
+>     "baseAddress": 4202880,      # See (#absoluteaddress-property).
+>     "offset": 64                 # See (#offsetfromparent-property).
 >   },
 > 
->   "region": {                    # See §3.29.4.
->     "snippet": {                 # An artifactContent object. See §3.30.13.
->       "rendered": {              # A multiformatMessageString object (§3.12).
+>   "region": {                    # See (#region-property).
+>     "snippet": {                 # An artifactContent object. See (#snippet-property).
+>       "rendered": {              # A multiformatMessageString object ((#multiformatmessagestring-object)).
 >         "text": "00 00 01 00 00 00 00 00",
 >         "markdown": "00 00 **01** 00 00 00 00 00"
 >       }

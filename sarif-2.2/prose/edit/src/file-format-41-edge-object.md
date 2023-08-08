@@ -19,11 +19,11 @@ An `edge` object **SHALL** contain a property named `sourceNodeId` whose value i
 > EXAMPLE 1: In this example, an edge connects two nodes defined in unrelated nested graphs.
 > 
 > ```json
-> {                             # A graph object (§3.39).
->   "nodes": [                  # See §3.39.3.
+> {                             # A graph object ((#graph-object)).
+>   "nodes": [                  # See (#nodes-property).
 >     {                         # A node object.
 >       "id": "n1",
->       "children": [           # See §3.40.5.
+>       "children": [           # See (#children-property).
 >         {
 >           "id": "n3"
 >         }
@@ -38,7 +38,7 @@ An `edge` object **SHALL** contain a property named `sourceNodeId` whose value i
 >       ]
 >     }
 >   ],
->   "edges": [                  # See §3.39.4.
+>   "edges": [                  # See (#edges-property).
 >     {
 >       "sourceNodeId": "n3",   # Source node and target node are in separate
 >       "targetNodeId": "n4"    # nested graphs: ok.
