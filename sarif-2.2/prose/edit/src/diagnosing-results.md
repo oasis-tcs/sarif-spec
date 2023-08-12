@@ -29,7 +29,7 @@ For both singly and multiply generated files, there are two options (which can b
 The first option is more compact; the second allows a SARIF viewer to present results with greater context.
 
 > EXAMPLE 1: In this example, the analysis tool populates `region.snippet` and `contextRegion.snippet`, allowing a SARIF viewer to display just enough context (one hopes) to diagnose the result.
-> 
+>
 > ```json
 > {                                           # A run object ((#run-object)).
 >   "originalUriBaseIds": {                   # See (#run-object).14
@@ -76,7 +76,7 @@ The first option is more compact; the second allows a SARIF viewer to present re
 > ```
 
 > EXAMPLE 2: In this example, the analysis tool populates `artifact.contents`, allowing a SARIF viewer to present the result in a larger context at the expense of a larger log file.
-> 
+>
 > ```json
 > {
 >   "originalUriBaseIds": {
@@ -131,7 +131,7 @@ Multiply generated files are treated similarly, but they present an additional p
 The recommended solution is for the analysis tool to create a new entry in `theRun.artifacts` for each version of the generated files. The result might look like the following example.
 
 > EXAMPLE 3: In this example, `"ui/window.g.cs"` is multiply generated. The analysis tool creates distinct entries in `theRun.artifacts` to distinguish the two versions.
-> 
+>
 > ```json
 > {
 >   "originalUriBaseIds": {

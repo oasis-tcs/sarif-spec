@@ -17,11 +17,11 @@ A `reportingDescriptor` object **SHALL** contain a property named `id` whose val
 > EXAMPLE 1: `"id": "CA2101"`
 
 > NOTE 1: Rule identifiers must be stable for two reasons:
-> 
+>
 > - So build automation scripts can refer to specific checks, for example, to disable them, without the risk of a script breaking if a rule id changes.
-> 
+>
 > - So result management systems can compare results from one run to the next, without erroneously designating results as "new" because a rule id has changed.
-> 
+>
 > Rule identifiers should be opaque – that is, they should not convey information to a user – because a rule's implementation might change over time. Suppose a rule id is `"DoNotDoXOrY"`, suppose circumstances change so that "Y" is now acceptable, and suppose the implementation of the rule changes accordingly. Because the rule id must not change, the string `"DoNotDoXOrY"` will continue to be persisted to logs, where it will convey outdated guidance to users in a way that an opaque identifier such as "`CA2101"` would not.
 
 > NOTE 2: Despite the fact that the `result.ruleId` property ([sec](#ruleid-property)) is permitted to be a hierarchical string ([sec](#hierarchical-strings)) whose trailing components denote a subset of the specified rule, SARIF does not support separate metadata for such "sub-rules". The `id` property of a `reportingDescriptor` object always specifies an entire rule (or notification), not a subset of one.
@@ -35,7 +35,7 @@ A `reportingDescriptor` object **MAY** contain a property named `deprecatedIds` 
 Now the result management system has the problem of matching results between the newer and the older versions of the tool. `deprecatedIds` solves this problem.
 
 > EXAMPLE 1: In this example, version 1 of an analysis tool defines rule `CA1000`. A run of this tool finds two results. The result management system decides that neither result was previously detected, so it marks them as with `"baselineState": "new"` ([sec](#baselinestate-property)), producing this log:
-> 
+>
 > ```json
 > {
 >   "tool": {
@@ -70,15 +70,15 @@ Now the result management system has the problem of matching results between the
 >   ]
 > }
 > ```
-> 
+>
 > The engineering team decides that these results are false positive, so they add in-source suppressions, for example (in C#):
-> 
+>
 >     [SuppressMessage("CA1000", ...)]
 >     ...
 >     [SuppressMessage("CA1000", ...)]
-> 
+>
 > Now the tool developers decide that rule `CA1000` is too broad, so in version 2 of the tool, they divide it into two new rules, `CA1001` and `CA1002`. The engineering team runs the new tool, and the result management system performs result matching, producing this log:
-> 
+>
 > ```json
 > {
 >   "tool": {
@@ -133,13 +133,13 @@ Now the result management system has the problem of matching results between the
 >   ]
 > }
 > ```
-> 
+>
 > There are a few things to notice:
-> 
+>
 > - In `tool.driver.rules`, each of the new rules is associated with its id from the previous tool version.
-> 
+>
 > - As a result, the analysis tool can determine that the in-source suppressions still apply, even though the rule ids have changed, so it correctly marks each result with `"kind": "inSource"`.
-> 
+>
 > - Furthermore, the result management system can determine that these are the same results it saw in the previous run, so it correctly marks them with `"baselineState": "unchanged"` or `"updated"` as appropriate (see [sec](#baselinestate-property)).
 
 ### guid property{#reportingdescriptor-object--guid-property}
@@ -169,7 +169,7 @@ The array elements **SHALL** occur in the same order in every translation ([sec]
 A `reportingDescriptor` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) that provides a concise description of the reporting item. The `shortDescription` property **SHOULD** be a single sentence that is understandable when visible space is limited to a single line of text.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                         # A reportingDescriptor object
 >   "shortDescription": {
@@ -199,7 +199,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 > NOTE: Additional properties are permitted in the `messageStrings` property for the convenience of tool vendors, who might find it easier to emit the entire set of messages defined in the reporting metadata, rather than restricting it to those messages that happen to appear in the log file.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                         # A reportingDescriptor object for a rule.
 >   "messageStrings": {

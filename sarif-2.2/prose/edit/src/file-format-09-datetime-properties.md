@@ -29,7 +29,7 @@ Certain properties in this document specify a date and time. The value of every 
 
 &emsp;&emsp;`2016-02-08T16:08Z`
 
-&emsp;&emsp;`2016-02-08T16:08:25Z` 
+&emsp;&emsp;`2016-02-08T16:08:25Z`
 
 &emsp;&emsp;`2016-02-08T16:08:25.943Z`
 

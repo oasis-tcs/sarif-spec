@@ -5,7 +5,7 @@
 An `artifactChange` object represents a change to a single artifact.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                             # A fix object ((#fix-object)).
 >   "artifactChanges": [        # See (#artifactchanges-property).

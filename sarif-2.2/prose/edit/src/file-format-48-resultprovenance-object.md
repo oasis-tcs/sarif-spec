@@ -5,11 +5,11 @@
 A `resultProvenance` object contains information about the how and when `theResult` was detected.
 
 > NOTE: This information is useful to various human and automated participants in an engineering system. For example:
-> 
+>
 > - A build engineer might use the information to understand the specific tool invocation that produced the result, for example, if the violated rule should not have been configured to run at all.
-> 
+>
 > - A developer reviewing results might use the information to determine how long an issue has existed in the code.
-> 
+>
 > - A result management system might be responsible for associating logically identical results from one run to the next, making it possible for the developer to determine how long the result has existed. Such a result management system might populate this information.
 
 ### firstDetectionTimeUtc property
@@ -65,7 +65,7 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([se
 > NOTE: This property is intended to be useful to developers of converters, to help them debug the conversion from the analysis tool’s native output format to the SARIF format.
 
 > EXAMPLE 1: Given this analysis tool’s output file:
-> 
+>
 > ```xml
 > <?xml version="1.0" encoding="UTF-8"?>
 > <problems>
@@ -79,9 +79,9 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([se
 >   </problem>
 > </problems>
 > ```
-> 
+>
 > a SARIF converter might transform it into the following SARIF log file:
-> 
+>
 > ```json
 > {
 >   ...

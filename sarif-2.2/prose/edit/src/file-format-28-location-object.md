@@ -7,11 +7,11 @@ A `location` object describes a location. Depending on the circumstances, a `loc
 A logical location specifies a programmatic construct, for example, a class name or a function name, without specifying the artifact within which that construct occurs.
 
 > NOTE: Among the reasons for including logical locations in the SARIF format in addition to physical locations are the following:
-> 
+>
 > - In the absence of symbol information, binary analysis tools might not have source code locations available, so information about line and column numbers might not be present in the log file. In this case, code editors, other programs, or end users can use logical location to navigate from a result to the correct source code location.
-> 
+>
 > - Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See [sec](#normative-use-of-fingerprints-by-result-management-systems) for more information about fingerprinting. The `logicalLocation.fullyQualifiedName` property ([sec](#logicallocation-object--fullyqualifiedname-property)) is particularly convenient for fingerprinting.
-> 
+>
 > - In the analysis of structured data files such as XML or JSON, internal structural information (such as an XML path like `"/orders[2]/customers/lastName"`) might be helpful.
 
 In rare circumstances, there might be neither physical nor logical location information available for a `location` object. See [sec](#threadflowlocation-object) for an example. In that case, the location object **SHOULD** contain a message property ([sec](#location-object--message-property)) explaining the significance of this "location."
@@ -25,7 +25,7 @@ If `id` is absent, it **SHALL** default to -1, which indicates that the value is
 > NOTE: Negative values are forbidden because their use would suggest some non-obvious semantic difference between positive and negative values.
 
 > EXAMPLE 1: Within a `result` object, the following property values (among others) are `location` objects, and no two of them can have the same value for `id`:
-> 
+>
 >     result.relatedLocations[0]
 >     result.codeFlows[0].threadFlows[0].locations[0].location
 >     result.stacks[0].frames[0].location
@@ -51,11 +51,11 @@ A `location` object **MAY** contain a property named `message` whose value is a 
 A `location` object **MAY** contain a property named `annotations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `region` objects ([sec](#region-object)) each of which describes a region within the artifact specified by the `location` object that is relevant to the location. Each of these `region` objects **SHOULD** contain a `message` property ([sec](#region-object--message-property)) that explains the relevance of the region to the location.
 
 > EXAMPLE 1: Consider a `location` object which describes the declaration statement
-> 
+>
 > ```cs
 > int x = (y + z) * q;
 > ```
-> 
+>
 > If the analysis tool wanted to emphasize the expression `(y + z)`, it might set the `annotations` property to:
 >
 > ```json

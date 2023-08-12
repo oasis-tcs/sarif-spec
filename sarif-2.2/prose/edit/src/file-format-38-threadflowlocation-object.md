@@ -19,7 +19,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > NOTE 1: This allows a SARIF producer to reduce the size of the log file by reusing the same `threadFlowLocation` object in multiple thread flows.
 
 > EXAMPLE 1: In this example, `thisObject` is an element of `theRun.threadFlowLocations`. Its array index is known to be 1, so `thisObject.index` does not need to be present, but since it is present, it equals the array index, as required.
-> 
+>
 > ```json
 > {                                 # A run object ((#run-object)).
 >   "threadFlowLocations": [        # See (#threadflowlocations-property).
@@ -37,7 +37,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > ```
 
 > EXAMPLE 2: In this example, `thisObject` is not an element of `theRun.threadFlowLocations`; rather, it is an element of `theResult.codeFlows[0].threadFlows[0].locations`. There is no cached object; that is, there is no object in `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is absent, as required.
-> 
+>
 > ```json
 > {                                 # A run object ((#run-object)).
 >   "results": [                    # See (#results-property).
@@ -68,7 +68,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > ```
 
 > EXAMPLE 3: In this example, `thisObject` is again an element of `theResult.codeFlows[0].threadFlows[0].locations`, not an element of `theRun.threadFlowLocations`. But in this example, there is a cached object, an element of `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is present, as required.
-> 
+>
 > ```json
 > {                                 # A run object ((#run-object)).
 >   "results": [                    # See (#results-property).
@@ -108,9 +108,9 @@ If location information is available, a `threadFlowLocation` object **SHALL** co
 There are analysis tools whose native output format includes the equivalent of a SARIF code flow, but which do not provide location information for every step in the code flow. A SARIF converter for such a format might not be able to populate `location`. However, if the native output format associates a human readable message with such a step, the SARIF converter **SHOULD** create a `location` object and populate only its `message` property ([sec](#location-object--message-property)). A SARIF direct producer which creates such code flows **SHOULD** populate `location.message`, even if no actual location information is available.
 
 > EXAMPLE 1: In this example, a file is locked by another program before a thread attempts to write to it. The analysis tool has no location information for the other program; in fact, the analysis tool might merely be simulating an execution sequence in which a *hypothetical* external program locks the file. Nevertheless, it provides a helpful message.
-> 
+>
 > Note the use of `executionOrder` ([sec](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
-> 
+>
 > ```json
 > {                                     # A codeFlow object ((#codeflow-object)).
 >   "threadFlows": [                    # See (#threadflows-property).
@@ -252,7 +252,7 @@ The interpretations of values other than those above depends on the producer. A 
 A SARIF producer **MAY** provide additional kind-dependent information by populating `threadFlowLocation.properties` with properties whose names and values depend on the kind. A SARIF consumer that knows how to interpret `kinds` for this tool **MAY** use this additional information.
 
 > EXAMPLE 1: In this example, tainted data enters the system at this location.
-> 
+>
 > ```json
 > "kinds": [
 >   "acquire",
@@ -261,7 +261,7 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 > ```
 
 > EXAMPLE 2: In this example, the "taint" state of a data item at this location is unknown:
-> 
+>
 > ```json
 > "kinds": [
 >   "taint",
@@ -270,7 +270,7 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 > ```
 
 > EXAMPLE 3: In this example, control leaves a function at this location.
-> 
+>
 > ```
 > "kinds": [
 >   "exit",
@@ -287,7 +287,7 @@ A `threadFlowLocation` object **MAY** contain a property named `state` whose val
 A SARIF viewer **SHALL NOT** assume that expressions mentioned in previous steps but not mentioned in the current step are still present with unchanged values.
 
 > EXAMPLE 1: In this example, the `state` property captures the values of the expressions `"x"`, `"y"`, and `"x + y"`, and a constraint on the expression `"y – x"`.
-> 
+>
 > ```json
 > {                              # A threadFlowLocation object.
 >   "state": {
@@ -308,21 +308,21 @@ A SARIF viewer **SHALL NOT** assume that expressions mentioned in previous steps
 > ```
 
 > EXAMPLE 2: In C++, a property name within the `state` object might be:
-> 
+>
 > - A variable name such as `"index"`.
-> 
+>
 > - An array element reference such as `"names[index]"`.
-> 
+>
 > - An object property reference such as `"names[index]->first"`.
-> 
+>
 > - Any other expression that produces a value.
 
 > EXAMPLE 3: In C++, a property value within the `state` object might be:
-> 
+>
 > - An integer such as `"42"` (note that the property value is a string).
-> 
+>
 > - A string such as `"\"John\""` (the double quotes are escaped as they would be in a JSON serialization; other serializations might represent the double quotes differently).
-> 
+>
 > - A Boolean such as `"true"`.
 
 In a property value that represents a constraint, the item being constrained **SHALL BE** represented by the string `"{expr}"`. (See > EXAMPLE 1 above, which shows a constraint on the expression `"y – x"`.)
@@ -366,11 +366,11 @@ The `importance` property **SHALL** have one of the following values, with the s
 If this property is absent, it **SHALL** be considered to have the value `"important"`.
 
 > NOTE: A viewer might use this property to offer the user three options for viewing a lengthy code flow:
-> 
+>
 > - A "normal view," which omits locations whose `importance` property is `"unimportant"`.
-> 
+>
 > - An "abbreviated view," which displays only those locations whose `importance` property is `"essential"`.
-> 
+>
 > - A "verbose view," which displays all the locations in the code flow.
 
 ### taxa property{#threadflowlocation-object--taxa-property}
@@ -380,7 +380,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 > NOTE: The motivation for this property is an analysis tool that uses a set of rules to guide its analysis as it traces tainted data from a source to a sink. For example, at one location, the tool might apply a rule that says: "If the input to `String.Substr` is tainted, then so is the return value." Such a tool can represent these "helper rules" as a custom taxonomy ([sec](#taxonomies)), an array of `reportingDescriptor` objects ([sec](#reportingdescriptor-object)). Each member of `threadFlowLocation.taxa` can reference one of these helper rules.
 
 > EXAMPLE 1: This example illustrates the scenario in the above note.
-> 
+>
 > ```json
 > {                                # A run object ((#run-object)).
 >   "tool": {                      # See (#run-object--tool-property).

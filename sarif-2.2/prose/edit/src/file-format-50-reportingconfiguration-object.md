@@ -15,7 +15,7 @@ A `reportingConfiguration` object **MAY** contain a property named `enabled` who
 If this property is absent, it **SHALL** default to `true`.
 
 > EXAMPLE 1: In this example, a tool allows the user to enable or disable rules or notifications:
-> 
+>
 >     SecurityScanner --disable "SEC4002,SEC4003" --enable SEC6012
 
 ### level property{#reportingconfiguration-object--level-property}
@@ -29,7 +29,7 @@ If `theDescriptor` describes a rule, then if `level` is present, it **SHALL** pr
 If `theDescriptor` describes a notification, then if `level` is present, it **SHALL** provide the value for the `level` property of any `notification` object ([sec](#notification-object)) whose `descriptor` property ([sec](#notification-object--descriptor-property)) identifies `theDescriptor` and which does not itself specify a `level` property.
 
 > EXAMPLE 1: In this example, a tool allows the user to override a rule or notification’s default level:
-> 
+>
 >     WebScanner --level "WEB1002:error,WEB1005:warning"
 
 ### rank property{#reportingconfiguration-object--rank-property}
@@ -47,7 +47,7 @@ If `theDescriptor` describes a rule, then if `rank` is present, it **SHALL** pro
 A `reportingConfiguration` object **MAY** contain a property named `parameters` whose value is a property bag ([sec](#property-bags)). This allows a `reportingDescriptor` object ([sec](#reportingdescriptor-object)) to define configuration information that is specific to that descriptor.
 
 > EXAMPLE 1: In this example, a rule that specifies the maximum permitted source line length is parameterized by the maximum length.
-> 
+>
 > ```json
 > {                                  # A reportingDescriptor object ((#reportingdescriptor-object)).
 >   "id": "SA2707",
@@ -66,7 +66,7 @@ A `reportingConfiguration` object **MAY** contain a property named `parameters` 
 >   }
 > }
 > ```
-> 
+>
 > The rule provides a default value, but the tool allows the user to override it:
-> 
+>
 >     StyleScanner *.c --rule-config "SA2707:maxLength=80"

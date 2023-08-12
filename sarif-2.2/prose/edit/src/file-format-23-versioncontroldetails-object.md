@@ -112,23 +112,23 @@ This property makes it possible to map any `artifactLocation` to the repository,
 > ```
 >
 > The object is to determine to which repository, if any, the file `plugin1/x.c` specified by the result location belongs. The algorithm proceeds as follows, using a simplified notation (*uriBaseId*, *uri*) to denote an `artifactLocation`:
-> 
+>
 > 1.  Use the information in `originalUriBaseIds` and the procedure specified in [sec](#originaluribaseids-property) to calculate the "resolved artifact location" `a`:  
->       
+>
 >     `(PACKAGE_ROOT, plugin1/x.c)` → `(HOME, package/plugin1/x.c)` → `(null, file:///home/user/package/plugin1/x.c)`.
-> 
+>
 > 2.  In the same way, calculate the resolved artifact location `v` from the `mappedTo` property of each element `vcd` of the `versionControlProvenance` array:
-> 
+>
 >     - `(PACKAGE_ROOT, null)` → `(HOME, package)` → `(null, file:///home/user/package)`
-> 
+>
 >     - `(PACKAGE_ROOT, plugin1)` → `(HOME, package/plugin1)` → `(null, file:///home/user/package/plugin1)`
-> 
+>
 >     - `(PACKAGE_ROOT, plugin2)` → `(HOME, package/plugin2)` → `(null, file:///home/user/package/plugin2)`
-> 
+>
 > 3.  The set of `vcd` for which `v.uriBaseId` equals `a.uriBaseId` (which is `null`) and for which `v.uri` is a *prefix* of `a.uri` (which is `file:///home/user/package/plugin1/x.c`) contains the objects at indices 0 and 1. It does not contain the object at index 2 because `file:///home/user/package/plugin2` is not a prefix of `file:///home/user/package/plugin1/x.c`.
-> 
+>
 > 4.  The set is not empty (it contains indices 0 and 1).
-> 
+>
 > 5.  The member of the set for with the longest `v.uri` is the object at index 1, because `file:///home/user/package/plugin1` is longer than `file:///home/user/package`.
-> 
+>
 Therefore, the specified file belongs to the repository specified by the `versionControlDetails` object at index 1, namely `https://github.com/example-corp/plugin1`.

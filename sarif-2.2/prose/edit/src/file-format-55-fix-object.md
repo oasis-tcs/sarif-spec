@@ -5,7 +5,7 @@
 A `fix` object represents a proposed fix for the problem indicated by `theResult`. It specifies a set of artifacts to modify. For each artifact, it specifies regions to remove, and provides new content to insert.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                                   # A result object ((#result-object)).
 >   "fixes": [                        # See (#fixes-property).
@@ -31,7 +31,7 @@ A `fix` object **SHOULD** contain a property named `description` whose value is 
 > NOTE: The purpose of the `description` property is to enable a SARIF viewer to present the proposed fix to the end user.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > "fix": {
 >   "description": {
@@ -50,7 +50,7 @@ A `fix` object **SHALL** contain a property named `artifactChanges` whose value 
 The array elements **SHALL** refer to distinct artifacts.
 
 > EXAMPLE 1: In this example, two `artifactChange` objects make identical changes (commenting out the first line) in two distinct C-language files, `src/a.c` and `src/b.c`.
->  
+>
 > ```json
 > {                                    # A fix object.
 >   "artifactChanges": [                   
@@ -93,7 +93,7 @@ The array elements **SHALL** refer to distinct artifacts.
 > ```
 
 > EXAMPLE 2: This example represents invalid SARIF because the two `artifactChange` objects refer to the same file, `src/a.c`. It is invalid even though the `artifactChange` objects are distinguished by their `replacements` properties.
-> 
+>
 > ```json
 > {                                    # A fix object.
 >   "artifactChanges": [                   

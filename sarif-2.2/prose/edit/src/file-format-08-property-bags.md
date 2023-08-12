@@ -23,7 +23,7 @@ Even when defining a custom classification system used within an engineering tea
 > EXAMPLE 1: Rather than adding the tag `"shipBlocking"` to a result, consider defining a taxonomy such as "Shipping Impact". This enables metadata such as a description and a help URI to be associated with each taxonomic category.
 
 > EXAMPLE 2: In this example, the SARIF producer tags an artifact with the string `"openSource"`.
-> 
+>
 > ```json
 > {                              # A run object ((#run-object)).
 >   "artifacts": [               # See (#artifacts-property).
@@ -49,7 +49,7 @@ Even when defining a custom classification system used within an engineering tea
 A SARIF log file **MAY** provide additional information about any tag value by including a property whose name is the same as that tag value and whose value is any JSON value. If present, this property **SHALL** be located by searching first in the property bag that contains the tag, and then in the property bag of the containing `run` object ([sec](#run-object)) `theRun`, if any.
 
 > EXAMPLE 1: Continuing the example from [sec](#tags--general), suppose the tool wishes to provide additional information about using open source code. It might provide that information within the property bag containing the tag (the property bag belonging to the `artifact` object):
-> 
+>
 > ```json
 > {                              # An artifact object ((#artifact-object)).
 >   "location": {
@@ -68,7 +68,7 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 > ```
 
 > EXAMPLE 2: There might be several open source files. To avoid duplicating information, the tool might choose to place the tag metadata in the property bag belonging to `theRun`:
-> 
+>
 > ```json
 > {                              # A run object ((#run-object)).
 >   "artifacts": [

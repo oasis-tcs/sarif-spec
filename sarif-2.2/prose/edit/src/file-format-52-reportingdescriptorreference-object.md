@@ -7,7 +7,7 @@ A `reportingDescriptorReference` object identifies a particular `reportingDescri
 In some cases, there is no `reportingDescriptor` object associated with a `reportingDescriptorReference` object. In that case, the `reportingDescriptorReference` object **SHALL** contain only the `id` property ([sec](#reportingdescriptorreference-object--id-property)), and `theDescriptor` does not exist.
 
 > EXAMPLE 1: In this example, a tool emits a tool execution notification that refers to a rule. The tool does not provide rule metadata. Therefore, `associatedRule` ([sec](#associatedrule-property)) contains only an `id` property, whose value is the id of the rule that failed. Similarly, the tool does not provide metadata about its notifications, so `"descriptor"` ([sec](#notification-object--descriptor-property)) contains only the id of the notification.
-> 
+>
 > ```json
 > {                                            # An invocation object ((#invocation-object)).
 >   "toolExecutionNotifications": [            # See (#toolexecutionnotifications-property).
@@ -57,7 +57,7 @@ If `id` is absent and `theResult.ruleId` ([sec](#ruleid-property)) is present, t
 For more information about the semantics of `id` when `theDescriptor` is a rule, in particular the usage of the hierarchical components of `id`, see the description of `result.ruleId` ([sec](#ruleid-property)).
 
 > EXAMPLE 1: In this example, the first `result` object is valid because `rule.id` (inherited from `ruleId`) equals `theDescriptor.id`. The second `result` object is also valid because `rule.id` (this time specified directly) equals `theDescriptor.id` plus one additional hierarchical component (`"ghi"`). The third `result` object is invalid because `theDescriptor.id` is not a "component-wise" prefix of `rule.id`. The fourth `result` object is invalid because `ruleId` does not equal `rule.id`.
-> 
+>
 > ```json
 > {                             # A run object ((#run-object)).
 >   "tool": {                   # See (#run-object--tool-property).
@@ -107,7 +107,7 @@ For more information about the semantics of `id` when `theDescriptor` is a rule,
 A `reportingDescriptorReference` object **MAY** contain a property named `index` whose value is the array index ([sec](#array-indices)) into `theComponent.rules` ([sec](#rules-property)) or `theComponent.notifications` ([sec](#notifications-property)), according to the table in [sec](#reportingdescriptor-lookup).
 
 > EXAMPLE 1: In this example, there is more than one rule with id `CA1711`. `index` uniquely specifies the relevant rule, whether or not there are multiple rules with the same id.
-> 
+>
 > ```json
 > {                            # A run object ((#run-object)).
 >   "tool": {                  # See (#run-object--tool-property).

@@ -31,23 +31,23 @@ This property is intended to enable a viewing experience in which the user can e
 If this property is present, a SARIF viewer **MAY** provide a visual cue informing the user that they have the option of either stepping over the current edge and into the nested graph, or of stepping over the entire traversal of the nested graph.
 
 > EXAMPLE 1: This example defines a graph containing two nested graphs, the first representing code locations in function `A` and the second representing locations in function `B`. Node `na2` in function `A` represents a call to function `B`.
-> 
+>
 > The example defines a graph traversal consisting of a set of edge traversals which start at node `"na1"` in function `A`, call into function `B`, and ultimately return to and continue execution in function `A`.
-> 
+>
 > Suppose the user executes the first edge traversal, which traverses edge `ea1`.The next edge traversal has a `stepOverEdgeCount` property value of 4. Therefore, the SARIF viewer informs her that she can now choose to either step into function `B` by traversing edge `"eab"`, or step over the function call by traversing 4 edges, the last of which (edge `"eba"`) returns to function `A` at node `"na3"`.
-> 
+>
 > If she chooses to enter the nested graph, she will visit the following nodes, in this order:
-> 
+>
 > &emsp;&emsp;`[ na1, na2, nb1, nb2, nb3, na3, na4 ]`
-> 
+>
 > If she chooses not to enter the nested graph, the traversal of the edges
-> 
+>
 > &emsp;&emsp;`[ eab, eb1, eb2, eba ]`
-> 
+>
 > will be collapsed into a single "step over." As a result, she will visit the following nodes, in this order:
-> 
+>
 > &emsp;&emsp;`[ na1, na2, na3, na4 ]`
-> 
+>
 > ```json
 > {                                           # A result object ((#result-object)).
 >   "graphs": [                               # See (#result-object--graphs-property).

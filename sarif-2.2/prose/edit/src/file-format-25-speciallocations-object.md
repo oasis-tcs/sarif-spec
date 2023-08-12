@@ -21,7 +21,7 @@ A consumer **MAY** act on this hint as follows:
 4.  Otherwise, render the displayed URI as an absolute URI (or in some other appropriate form, such as a (`uriBaseId`, `uri`) pair.
 
 > EXAMPLE 1: Given the following:
-> 
+>
 > ```json
 > {                           # A run object ((#run-object)).
 >   "originalUriBaseIds": {   # See (#originaluribaseids-property).
@@ -53,9 +53,9 @@ A consumer **MAY** act on this hint as follows:
 >   }
 > }
 > ```
-> 
+>
 > These equivalent locations would display as `src/f.c` because the scheme, authority, and initial path segments match:
-> 
+>
 > ```json
 > {
 >   "uri": "f.c",
@@ -71,9 +71,9 @@ A consumer **MAY** act on this hint as follows:
 >   "uri": "file:///home/user/mySoftware/src/f.c"
 > }
 > ```
-> 
+>
 > These equivalent locations would display as `/usr/include/stdio.h` because the scheme and authority match, but not the path:
-> 
+>
 > ```json
 > {
 >   "uri": "/usr/include/stdio.h",
@@ -84,9 +84,9 @@ A consumer **MAY** act on this hint as follows:
 >   "uri": "file:///usr/include/stdio.h"
 > }
 > ```
-> 
+>
 > These equivalent locations would display as `http://www.example.com/hello` because the scheme and authority do not match:
-> 
+>
 > ```
 > {
 >   "uri": "hello",
@@ -97,14 +97,14 @@ A consumer **MAY** act on this hint as follows:
 >   "uri": "http://www.example.com/hello"
 > }
 > ```
-> 
+>
 > If `displayBase` were changed to
-> 
+>
 > ```json
 > "displayBase": {
 >   "uri": "",
 >   "uriBaseId": "HOME"
 > }
 > ```
-> 
+>
 > the URIs displayed as `src/f.c` would instead be displayed as `mySoftware/src/f.c`. All other display values would be unchanged.

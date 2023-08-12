@@ -19,16 +19,16 @@ If any text properties are present, enough text properties **SHALL** be present 
 ### Text regions
 
 > NOTE 1: The examples in this section assume a text file with the following contents:
-> 
+>
 >     abcd\r\nefg\r\nhijk\r\nlmn\r\n
-> 
+>
 > Breaking the lines for the sake of readability, the contents are:
-> 
+>
 >     abcd\r\n
 >     efg\r\n
 >     hijk\r\n
 >     lmn\r\n
-> 
+>
 > The file contains four lines, each of which ends with the two-character newline sequence `"\r\n"`, which is explicitly displayed for clarity.
 
 The line number of the first line in a text artifact **SHALL** be 1. The column number of the first character in each line **SHALL** be 1. The character offset of the first character in the artifact **SHALL** be 0.
@@ -58,7 +58,7 @@ A text region **SHALL** specify both its start (the location of its first charac
 A text region does not include the character specified by `endColumn` (see [sec](#endcolumn-property)).
 
 > EXAMPLE 1: The following regions (among others) all specify the range of characters `"bc"`.
-> 
+>
 > ```json
 > {
 >   "startLine": 1,
@@ -83,7 +83,7 @@ A text region does not include the character specified by `endColumn` (see [sec]
 > ```
 
 > EXAMPLE 2: The following region is invalid, even though it might appear to specify the same range of characters `"bc"` as in > EXAMPLE 1:
-> 
+>
 > ```json
 > {
 >   "startLine": 1,
@@ -91,17 +91,17 @@ A text region does not include the character specified by `endColumn` (see [sec]
 >   "endColumn": 4     # Specifies the column one past the "c"
 > }
 > ```
-> 
+>
 > This is because the line/column properties and the offset/length properties, taken independently, specify different regions:
-> 
+>
 > - `"startColumn"` is absent, and so defaults to 1 (see [sec](#startcolumn-property)).
-> 
+>
 > - `"endLine"` is absent, and so defaults to `"startLine"`, which in this example is 1 (see [sec](#endline-property)).
-> 
+>
 > - `"charLength"` is absent, and so defaults to 0 (see [sec](#charlength-property)).
-> 
+>
 > In summary, the above region is equivalent to the region
-> 
+>
 > ```json
 > {
 >   "startLine": 1,
@@ -113,23 +113,23 @@ A text region does not include the character specified by `endColumn` (see [sec]
 >   "charLength": 0
 > }
 > ```
-> 
+>
 > Now we can see that the line/column properties represent the range of characters `"abc"`, while the offset/length properties represent an insertion point before the character `"b"` (see [sec](#charlength-property)). Those two regions are not the same, and so the region is invalid.
-> 
+>
 If a region spans one or more lines, it **SHALL** include the newline sequences of all but the last line in the region.
 
 > NOTE 5: This is not an independent requirement; it is a consequence of the specification for the default value of `endColumn`.
 
 > EXAMPLE 3: The region
-> 
+>
 >     { "startLine": 2 }
-> 
+>
 > includes the characters `"efg"`.
 
 > EXAMPLE 4: The region
-> 
+>
 >     { "startLine": 2, "endLine": 3 }
-> 
+>
 > includes the characters `"efg\r\nhijk"`.
 
 To specify an entire line together with its trailing newline sequence, specify the region’s end point to be column 1 on the next line.
@@ -137,9 +137,9 @@ To specify an entire line together with its trailing newline sequence, specify t
 > NOTE 6: This is again a consequence of the specification of `endColumn`, which states that it specifies the character one past the end of the region.
 
 > EXAMPLE 5: The region
-> 
+>
 >     { "startLine": 2, "endLine": 3, "endColumn": 1 }
-> 
+>
 > includes the characters `"efg\r\n"`.
 
 A region of length 0 is referred to as an "insertion point." An insertion point **MAY** be specified either by specifying `charLength` as 0, or by specifying the same values for `startColumn` and `endColumn`.
@@ -147,19 +147,19 @@ A region of length 0 is referred to as an "insertion point." An insertion point 
 > NOTE 7: Once more, this is again a consequence of the specification of `endColumn`.
 
 > EXAMPLE 6: These regions (among others) specify an insertion point before the `"b"` on line 1.
-> 
+>
 >     { "startLine": 1, "startColumn": 2, "endColumn": 2 }
 >     { "charOffset": 1, "charLength": 0 }
 
 > EXAMPLE 7: These regions (among others) specify an insertion point at the beginning of the file:
-> 
+>
 >     { "startLine": 1, "startColumn": 1, "endColumn": 1 }
 >     { "charOffset": 0, "charLength": 0 }
 
 To specify an insertion point after the last character in an artifact, set `endLine` to the number of the last line in the artifact, and set `endColumn` to a value one greater than the number of characters on the line, *including* any trailing newline sequence.
 
 > EXAMPLE 8: These regions (among others) specify an insertion point at the very end of the file. Note that the last line contains the five characters (including the newline sequence) `"lmn\r\n"`.
-> 
+>
 >     { "startLine": 4, "startColumn": 6, "endColumn": 6 }
 >     { "charOffset": 22, "charLength": 0 }
 
@@ -174,11 +174,11 @@ To specify a byte region, at least `byteOffset` ([sec](#byteoffset-property)) **
 The text-related and binary-related properties in a `region` object **SHALL** be treated independently. That is, the value of a text-related property **SHALL NOT** be inferred from the value of any set of binary-related properties, and *vice versa*.
 
 > EXAMPLE 1: This example is based on the sample text file shown in NOTE 1 of [sec](#text-regions). It represents invalid SARIF because the text-related and binary-related properties are inconsistent. At first glance they appear to be consistent because the byte at offset 2 is indeed on line 1:
-> 
+>
 >     { "startLine": 1, "byteOffset": 2, "byteLength": 6 }
-> 
+>
 > However, because the default values for the missing text-related properties are determined entirely from the existing text-related properties, and independently of any binary-related properties, this region is in fact equivalent to this one:
-> 
+>
 > ```json
 > {
 >   "startLine": 1,
@@ -248,9 +248,9 @@ A `region` object **MAY** contain a property named `snippet` whose value is an `
 > NOTE: The `snippet` property has various uses:
 >
 > - It allows a SARIF viewer to present the contents of the region even if the artifact from which it was taken is not available.
-> 
+>
 > - It also allows an end user examining a SARIF log file to see the relevant content without opening another file.
-> 
+>
 > - It can be used to improve result matching.
 
 ### message property{#region-object--message-property}

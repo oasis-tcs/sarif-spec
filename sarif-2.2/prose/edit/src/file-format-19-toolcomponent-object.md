@@ -31,7 +31,7 @@ Standard taxonomies **SHALL** be stored in the `run.taxonomies` array ([sec](#ta
 A custom taxonomy is represented by providing a `toolComponent` object in `tool.driver` ([sec](#driver-property)) or `tool.extensions` ([sec](#extensions-property)) with a `taxa` property. Such a `toolComponent` object **MAY** still contain `rules` and/or `notifications` as usual.
 
 > EXAMPLE 1: In this example, the tool driver supports the CWE™ taxonomy, and also supports a custom taxonomy that it defines. Any result that violates the driver’s rule `"CA2101"` falls into the `"MemoryManagement"` taxon of its custom taxonomy, as shown by the `"superset"` relationship from the `"MemoryManagement"` taxon to the rule (which is interpreted as "The `MemoryManagement` taxon is a superset of rule `CA2101`"). For more information on relationships, see [sec](#reportingdescriptor-object--relationships-property) and [sec](#reportingdescriptorrelationship-object).
-> 
+>
 > ```json
 > {                                  # A run object ((#run-object)).
 >   "tool": {                        # See (#run-object--tool-property).
@@ -165,7 +165,7 @@ To facilitate the identification of translations that are associated with a give
 In many cases, a new version of a `toolComponent` defines new localizable strings or requires changes to existing ones (for example, when the tool defines new analysis rules). But in some cases, a new version of a `toolComponent` can use existing translations (for example, in the case of a bug fix release). To ensure that new translations are created only when necessary, a translation component **SHOULD** populate `localizedDataSemanticVersion` ([sec](#localizeddatasemanticversion-property)), and a translatable component **SHOULD** populate `minimumRequiredLocalizedDataSemanticVersion` ([sec](#minimumrequiredlocalizeddatasemanticversion-property)). See the descriptions of those two properties for an explanation of the interaction between them.
 
 > EXAMPLE 1: In this example, a French translation is available. It translates localizable component-level properties such as `toolComponent.name` ([sec](#toolcomponent-object--name-property)), as well as rule-level properties such as `reportingDescriptor.shortDescription` ([sec](#reportingdescriptor-object--shortdescription-property)). The translation can be used because its `localizedDataSemanticVersion` property ([sec](#localizeddatasemanticversion-property)) is compatible with the translated component’s `minimumRequiredLocalizedDataSemantic` version property ([sec](#minimumrequiredlocalizeddatasemanticversion-property)).
-> 
+>
 > ```json
 > {                                  # A run object ((#run-object)).
 >   "tool": {                        # See (#run-object--tool-property).
@@ -210,7 +210,8 @@ In many cases, a new version of a `toolComponent` defines new localizable string
 >   ...
 > }
 > ```
-> 
+>
+
 ### Policies
 
 A policy is a set of rule configurations that specify how results that violate the rules defined by a particular tool component are to be treated.
@@ -387,11 +388,11 @@ If this object represents a translation (see [sec](#translations)), `language` *
 If this property is absent, it **SHALL** default to `"en-US"`.
 
 > EXAMPLE 1: The language is region-neutral English:
-> 
+>
 >     "language": "en"
 
 > EXAMPLE 2: The language is French as spoken in France:
-> 
+>
 >     "language": "fr-FR"
 
 ### globalMessageStrings property
@@ -399,7 +400,7 @@ If this property is absent, it **SHALL** default to `"en-US"`.
 A `toolComponent` object **MAY** contain a property named `globalMessageStrings` whose value is an object ([sec](#object-properties)) each of whose property values is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)). The property names correspond to `id` properties ([sec](#message-object--id-property)) within `message` objects ([sec](#message-object)).
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > "driver": {                       # A toolComponent object ((#toolcomponent-object)).
 >   "globalMessageStrings": {
@@ -424,7 +425,7 @@ A `toolComponent` object **MAY** contain a property named `rules` whose value is
 Some tools use the same identifier to refer to multiple distinct (although logically related) rules. Therefore, the `id` properties ([sec](#reportingdescriptor-object--id-property)) of the `reportingDescriptor` objects do not need to be unique within the array.
 
 > EXAMPLE 1: In this example, two distinct but related rules have the same rule id. They are distinguished by their message strings.
-> 
+>
 > ```json
 > "driver": {                       # A toolComponent object ((#toolcomponent-object)).
 >   "name": "CodeScaner",
@@ -464,7 +465,7 @@ A `toolComponent` object **MAY** contain a property named `notifications` whose 
 A tool might use the same identifier to refer to multiple distinct (although logically related) notifications. Therefore, the `id` properties ([sec](#reportingdescriptor-object--id-property)) of the `reportingDescriptor` objects do not need to be unique within the array.
 
 > EXAMPLE 1: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
-> 
+>
 > ```json
 > "driver": {                      # A toolComponent object ((#toolcomponent-object)).
 >   "notifications": [
@@ -491,7 +492,8 @@ A tool might use the same identifier to refer to multiple distinct (although log
 >   ]
 > }
 > ```
-> 
+>
+
 ### taxa property{#toolcomponent-object--taxa-property}
 
 A `toolComponent` object **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptor` objects ([sec](#reportingdescriptor-object)) each of which provides information about a taxon defined by the component.
@@ -503,7 +505,7 @@ If the `toolComponent` describes a standard taxonomy (for example, the Common We
 If the `toolComponent` describes a tool driver or plugin that defines its own custom taxonomy, it **MAY** contain all of `rules`, `notifications`, and `taxa`.
 
 > EXAMPLE 1: In this example, a `toolComponent` object represents the Common Weakness Enumeration.
-> 
+>
 > ```json
 > {                                   # A toolComponent object.
 >   "name": "CWE",
@@ -543,7 +545,7 @@ A `toolComponent` object that contains a `supportedTaxonomies` property **SHALL*
 If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a reference to itself in `supportedTaxonomies`.
 
 > EXAMPLE 1: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE](#CWE)\], and also supports a custom taxonomy.
-> 
+>
 > ```json
 > {                                 # A run object (§3.14)
 >   "tool": {                       # See (#run-object--tool-property).
@@ -583,7 +585,8 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 >   ...
 > }
 > ```
-> 
+>
+
 ### translationMetadata property
 
 If a `toolComponent` object represents a translation ([sec](#translations)), it **SHALL** contain a property named `translationMetadata` whose value is a `translationMetadata` object ([sec](#translationmetadata-object)) that contains descriptive information about the translation itself, as opposed to describing the component whose localizable strings ([sec](#localizable-strings)) it translates. Otherwise, `translationMetadata` **SHALL** be absent.
@@ -603,7 +606,7 @@ A `toolComponent` object **SHOULD** contain a property named `contents` whose va
 If `contents` is absent, it **SHALL** default to `[ "localizedData", "nonLocalizedData" ]`.
 
 > NOTE: The purpose of this property is to help protect components from misuse. Within a SARIF file, the component types are all stored in their own properties, so there is no danger of mistaking, for example, a translation (stored in `run.translations` ([sec](#translations-property))) for a policy (stored in `run.policies` ([sec](#policies-property))). But components such as translations and policies are typically authored independently from a tool and stored separately from its log files. The author of a translation (which contains only `"localizedData"`) can help prevent its misuse as a policy (which requires `"nonLocalizedData"`) by setting `contents` to `[ "localizedData" ]`.
-> 
+>
 > For example, a user might specify the path to a policy file on a tool’s command line. If the specified file does not claim to contain `"nonLocalizedData"`, the tool could conclude that the file does not contain a policy and warn the user.
 
 ### isComprehensive property
@@ -613,7 +616,7 @@ A `toolComponent` object **SHOULD** contain a property named `isComprehensive` w
 If `isComprehensive` is absent, it **SHALL** default to `false`.
 
 > NOTE: This property is useful because tools are permitted to emit `rules` ([sec](#rules-property)), `notifications` ([sec](#notifications-property)), or `taxa` ([sec](#toolcomponent-object--taxa-property)) properties that contain only those items relevant to the current run. For example, a tool might define hundreds of rules, but if a scan detects violations of only two of them, then the `rules` property (if it is present at all, which it does not need to be) need only contain metadata for those two rules.
-> 
+>
 > So, for example, the author of a translation ([sec](#translations)) would want to work from a log file whose `contents` array includes `"localizedData"` and whose `isComprehensive` property is set to `true`. Similarly, the author of a policy ([sec](#policies)) would want to work from a log file whose `contents` array contains `"nonLocalizedData"` and whose `isComprehensive` property is set to `true`.
 
 ### localizedDataSemanticVersion property
@@ -637,7 +640,7 @@ When a SARIF consumer is seeking a translation for this object, it **SHALL** onl
 > NOTE: `minimumRequiredocalizedDataSemanticVersion` can differ from `semanticVersion` for two reasons. First, successive versions of a translated component (even versions whose minor version component is incremented) might be able to use the same set of translated strings. Second, the translation itself might be versioned if, for example, the translation author discovers a typo or decides to clarify a message string.
 
 > EXAMPLE 1: In this example, the tool is at version 3.3, but it only requires strings at version 3.1, because tool versions 3.2 and 3.3 didn’t affect any user-facing localizable strings. Therefore, the translation at index 0 in `theRun.translations` ([sec](#translations-property)) is acceptable.
-> 
+>
 > ```json
 > {                                  # A run object ((#run-object)).
 >   "tool": {                        # See (#run-object--tool-property).
@@ -658,7 +661,8 @@ When a SARIF consumer is seeking a translation for this object, it **SHALL** onl
 >   ...
 > }
 > ```
-> 
+>
+
 ### associatedComponent property
 
 If this `toolComponent` object represents a plugin (see [sec](#tool-object--general)), a taxonomy ([sec](#taxonomies)), a translation ([sec](#translations)), or a policy ([sec](#policies)), it **MAY** contain a property named `associatedComponent` whose value is a `toolComponentReference` object ([sec](#toolcomponentreference-object)) which identifies the component (either `theTool.driver` ([sec](#driver-property)) or an element of `theTool.extensions` ([sec](#extensions-property))) to which this plugin, translation, or policy applies. If `associatedComponent` is absent, it **SHALL** default to a reference to `theTool.driver`.

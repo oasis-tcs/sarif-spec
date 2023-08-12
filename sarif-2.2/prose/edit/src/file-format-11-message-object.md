@@ -75,13 +75,13 @@ Within a given `message` object:
 - A given placeholder index **SHALL** have the same meaning in the plain text and formatted message strings (so they can be replaced with the same element of the `arguments` array).
 
 > EXAMPLE 1: Suppose a `message` object’s `text` property ([sec](#message-object--text-property)) contains this string:
-> 
+>
 > `"The variable \"{0}\" defined on line {1} is never used. Consider removing \"{0}\"."`
-> 
+>
 > There are two distinct placeholders, `{0}` and `{1}` (although `{0}` occurs twice). Therefore, the `arguments` array will have at least two elements, the first corresponding to `{0}` and the second corresponding to `{1}`.
 
 > EXAMPLE 2: In this example, the SARIF consumer will replace the placeholder `{0}` in `message.text` with the value `"pBuffer"` from the 0 element of `message.arguments`.
-> 
+>
 > ```json
 > {                                                   # A run object ((#run-object)).
 >   "results": [                                      # See (#results-property).
@@ -127,13 +127,13 @@ Literal square brackets ("`[`" and "`]`") in the link text of a plain text messa
 > NOTE 2: When a SARIF log file is serialized as JSON, JSON encoding doubles the backslash.
 
 > EXAMPLE 1: Consider this embedded link whose link text contains square brackets and backslashes:
-> 
+>
 >       "message": {
 >         "text": "Prohibited term used in [para\\[0\\]\\\\spans\\[2\\](1)."
 >       }
-> 
+>
 > A SARIF viewer would render it as follows:
-> 
+>
 > Prohibited term used in para\[0\]\spans\[2\].
 
 Literal square brackets and (doubled) backslashes **MAY** appear anywhere else in a plain text message without being escaped.
@@ -143,7 +143,7 @@ In both plain text and formatted messages, if `link destination` is a non-negati
 > NOTE 3: Negative values are forbidden because their use would suggest some non-obvious semantic difference between positive and negative values.
 
 > EXAMPLE 2: In this example, a plain text message contains an embedded link to a location with a file. The `result` object contains exactly one `location` object whose `id` property matches the `link destination`.
-> 
+>
 > ```json
 > {                                  # A result object (§3.27)
 >   "ruleId": "TNT0001",
@@ -179,9 +179,9 @@ In both plain text and formatted messages, if `link destination` is a non-negati
 The `link destination` in embedded links in both plain text messages and formatted messages **MAY** use the `sarif` URI scheme ([sec](#uris-that-use-the-sarif-scheme)). This allows a message to refer to any content elsewhere in the SARIF log file.
 
 > EXAMPLE 1: A `result.message` ([sec](#result-object--message-property)) can refer to another result in the same run (or, for that matter, in another run within the same log file) as follows:
-> 
+>
 > `"There was [another result](sarif:/runs/0/results/42) found by this code flow."`
-> 
+>
 > A SARIF viewer executing in an IDE might respond to a click on such a link by selecting the target result in an error list window and navigating the editor to that result’s location.
 
 Because the `"sarif"` URI scheme uses JSON pointer \[[cite](#RFC6901)\], which locates array elements by their array index, these URIs are potentially fragile if the SARIF log file is transformed by a post-processor.
@@ -193,9 +193,9 @@ Because the `"sarif"` URI scheme uses JSON pointer \[[cite](#RFC6901)\], which l
 When a tool displays on the console a result message containing an embedded link, it **MAY** reformat the link (for example, by removing the square brackets around the `link text`). If the `link destination` is an integer, and hence specifies a `location` object belonging to `theResult`, the tool **SHOULD** replace the integer with a string representation of the specified location.
 
 > EXAMPLE 4: Suppose a tool chooses to display the result message from Example 3, which contains an integer-valued `link destination`, on the console. The output might be:  
->   
+>
 > `Tainted data was used. The data came from here: C:\code\input.c(25, 19).`  
->   
+>
 > Note that in addition to providing a string representation of the location, the tool removed the `[…](…)` link syntax and separated the link text from the location with a colon. Finally, the tool recognized that the location’s URI used the `file` scheme and chose to display it as a file system path rather than a URI.
 
 ### Message string lookup

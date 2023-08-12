@@ -15,19 +15,19 @@ The `commandLine` property is redactable ([sec](#redactable-strings)) because it
 > NOTE 2: Redacting sensitive information from `commandLine` makes it more difficult to precisely reproduce an analysis run. The value of `commandLine` would have to be combined with information from another source to allow the run to be repeated.
 
 > EXAMPLE 1: Suppose a tool is invoked with the command line
-> 
+>
 >     C:\Users\mary\Tools\DbScanner.exe /ConnectionString  
 >     "Server=Corp;Db=Accounting;User=Admin;Password=S3cr#t"  
 >     /input *.sql
-> 
+>
 > Then `commandLine` might contain the redacted string
-> 
+>
 >     [REDACTED]\DbScanner.exe /connectionString=[REDACTED] /input=*.sql
 
 The `commandLine` property might describe a command that would be harmful if it were executed. For this reason, a SARIF consumer that receives a SARIF log file from an untrusted source **SHOULD NOT** execute the command line without first examining it carefully. In particular, an automated SARIF consumer **SHALL NOT** execute a command line in a SARIF log file from an untrusted source.
 
 > EXAMPLE 2: An example of a harmful command line:
-> 
+>
 > ```
 >   {                               # An invocation object
 >     "commandLine": "rm -rf /"
@@ -57,7 +57,7 @@ An empty array **SHALL** mean that the tool was invoked with no command line arg
 A SARIF producer **MAY** embed the contents of a response file in the SARIF log file by mentioning the response file in `theRun.artifacts` ([sec](#artifacts-property)) and providing a value for `artifact.contents` ([sec](#artifact-object--contents-property)).
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                       # An invocation object.
 >     "commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rsp",
@@ -109,7 +109,7 @@ For examples, see [sec](#exitcodedescription-property).
 If the SARIF producer process did not exit due to a signal, an `invocation` object **MAY** contain a property named `exitCodeDescription` whose value is a string describing the reason for the process exit.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                       # An invocation object
 >   "exitCode": 0,
@@ -118,7 +118,7 @@ If the SARIF producer process did not exit due to a signal, an `invocation` obje
 > ```
 
 > EXAMPLE 2:
-> 
+>
 > ```json
 > {                       # An invocation object
 >   "exitCode": 2,
@@ -141,7 +141,7 @@ If the SARIF producer process exited due to a signal, an `invocation` object **M
 If the SARIF producer process did not exit due to a signal, the `exitSignalNumber` property **SHALL** be absent.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                       # An invocation object
 >   "exitSignalNumber": 3,
@@ -158,7 +158,7 @@ If the analysis tool process failed to start, an `invocation` object **MAY** con
 If the analysis tool process started successfully (regardless of whether or how it subsequently failed), the `processStartFailureMessage` property **SHALL** be absent.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                       # An invocation object
 >   "processStartFailureMessage": "WebScan.exe is not recognized as a command."
@@ -172,7 +172,7 @@ An `invocation` object **SHALL** contain a property named `executionSuccessful` 
 > NOTE: This property is needed because not all programs exit with an exit code of 0 on success and non-0 on failure.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {
 >   "exitCode": 1,
@@ -230,9 +230,9 @@ An `invocation` object **MAY** contain a property named `toolExecutionNotificati
 The information in `toolExecutionNotifications` is primarily intended for the developers of the analysis tool, to aid them in diagnosing bugs in the tool. This contrasts with the information in `results`, which is intended for the developers of the code being analyzed. However, viewers **MAY** still present tool notifications to users, so users are aware of any tool problems. At a minimum, viewers **SHOULD** make users aware of tool notifications whose `level` property is `"error"`.
 
 > NOTE: Depending on the nature of the error, a tool that encounters a runtime error might or might not be able to continue running.  
->   
+>
 > If the error occurs in the course of evaluating a rule, the tool might report the error in `toolExecutionNotifications`, disable the rule, and continue to execute the remaining rules.  
->   
+>
 > If the error occurs outside of the evaluation of a rule, the tool might report the error in `toolExecutionNotifications` and then halt. If the tool exits abnormally, it might not have the opportunity to report the error. But if the tool is running under the control of an orchestration process that can detect the error, that process might add a notification for the error to the log file, or even synthesize a log file to hold the error, if the tool did not have the opportunity to create one.
 
 ### toolConfigurationNotifications property
@@ -244,7 +244,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 > NOTE: Many tools can be parameterized with information about which rules to run, and how those rules should be configured. In some cases, if the configuration information is invalid, the tool can ignore the invalid information and continue to run.
 
 > EXAMPLE 1: A tool is invoked with a configuration file which specifies that the tool should disable rule `ABC0001`, but there is no rule whose id is `ABC0001`. The tool reports the problem in `toolConfigurationNotifications`. The tool might continue to run, reporting results for the rules that are correctly configured.
-> 
+>
 > ```json
 > "toolConfigurationNotifications": [
 >   {                                 # A notification object ((#notification-object)).
@@ -264,7 +264,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 > ```
 
 > EXAMPLE 2: A tool is invoked with an unknown command-line argument. The tool reports the problem in `toolConfigurationNotifications`. The tool might report the problem as a warning and continue to run, or it might report the problem as an error and terminate.
-> 
+>
 > ```json
 > "toolConfigurationNotifications": [
 >   {                                 # A notification object ((#notification-object)).
@@ -280,7 +280,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 > ```
 
 > EXAMPLE 3: A tool is invoked with a command-line argument that specifies the name of a directory containing files to analyze, but the user who invoked the tool does not have read access to that directory. The tool reports the problem as an error in `toolConfigurationNotifications` and then terminates.
-> 
+>
 > ```json
 > "toolConfigurationNotifications": [
 >   {                                 # A notification object ((#notification-object)).

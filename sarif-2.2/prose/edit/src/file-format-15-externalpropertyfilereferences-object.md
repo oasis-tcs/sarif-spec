@@ -54,7 +54,7 @@ Every externalizable property whose type is shown in the table as "object" **SHA
 Every externalizable property whose type is shown in the table as "array" **SHALL**, if externalized, be stored in one or more external property files. In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an array of zero or more `externalPropertyFileReference` objects specifying the locations of those external property files.
 
 > EXAMPLE 1: In this example, `run.conversion` is stored in the file `C:\logs\scantool.conversion.sarif-external-properties` and `run.results` is divided into the files `C:\logs\scantools.results-1.sarif-external-properties` and `C:\logs\scantools.results-2.sarif-external-properties`.
-> 
+>
 > ```json
 > {                           # A run object.
 >   "originalUriBaseIds": {   # See (#originaluribaseids-property).
@@ -96,7 +96,7 @@ Every externalizable property whose type is shown in the table as "array" **SHAL
 With one exception described below, if a property appears inline in the root file, its name **SHALL NOT** appear as one of the property names in `externalPropertyFileReferences`. Since an external property file can contain multiple externalized properties, `externalPropertyFileReference` objects belonging to distinct properties **MAY** denote the same external property file. However, if an array-valued externalizable property is divided among multiple external property files, the `externalPropertyFileReference` objects belonging to that property **SHALL** denote distinct external property files.
 
 > EXAMPLE 2: In this example, `theRun.conversion` and `theRun.properties` are stored in the same external property file.
-> 
+>
 > ```json
 > {                            # A run object ((#run-object)).
 >   "originalUriBaseIds": {    # See (#originaluribaseids-property).
@@ -127,7 +127,7 @@ With one exception described below, if a property appears inline in the root fil
 > ```
 
 > EXAMPLE 3: This example represents invalid SARIF because both elements of the array belonging to the `results` property denote the same external property file.
-> 
+>
 > ```json
 > {                            # A run object ((#run-object)).
 >   "originalUriBaseIds": {    # See (#originaluribaseids-property).

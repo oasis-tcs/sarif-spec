@@ -27,13 +27,13 @@ Aside from normalization, SARIF producers **SHALL NOT** make any other changes t
 If a URI uses the `"file"` scheme \[[cite](#RFC8089)\] and the specified path is network-accessible, the SARIF producer **SHALL** include the host name.
 
 > EXAMPLE 1: A file-based URI that references a network share.
-> 
+>
 >       file://build.example.com/drops/Build-2018-04-19.01/src
 
 If a URI uses the `"file"` scheme and the specified path is *not* network-accessible, the SARIF producer **SHOULD NOT** include the host name.
 
 > EXAMPLE 2: A file-based URI that references the local file system.
-> 
+>
 >       file:///C:/src
 
 A SARIF producer **MAY** choose to omit the hostname (authority) from a file URI, for example, for security reasons. If it does so, then to maximize interoperability with previous versions of the URI specification, the URI **SHOULD** start with `"file:///"`, as in EXAMPLE 2. See the standard \[[cite](#RFC8089)\] for more information on this point.
@@ -57,7 +57,7 @@ SARIF producers **SHALL** create `"file"` scheme URIs by means of the following 
 6.  Optionally, divide the resulting URI into a base URI and a relative URI (preserving case in both parts), and create an entry for the base URI in `theRun.originalUriBaseIds` ([sec](#originaluribaseids-property)).
 
 > NOTE 3: URI and path manipulation are complex topics. Many operating systems, languages, and frameworks provide methods to perform these operations, which is preferable to having every SARIF producer reimplement them. For example, in C#, the operation can be performed as follows:
-> 
+>
 > ```cs
 > using System;
 > 
@@ -77,11 +77,11 @@ SARIF producers **SHALL** create `"file"` scheme URIs by means of the following 
 SARIF consumers SHALL NOT normalize ".." segments out of a path. A consumer SHOULD reject paths that contain ".." segments, otherwise a consumer SHALL treat distinct portions of paths up to and including the rightmost ".." segment as unique directories on the file system, even if \[[cite](#RFC3986)\] normalization would produce identical paths.
 
 > EXAMPLE 3: Consider the following three URIs:
-> 
+>
 > - `file:///d1/../f1`
-> 
+>
 > - `file:///d1/../f2`
-> 
+>
 > - `file:///d1/d2/../../f3`
 
 A consumer would treat `f1` and `f2` as residing in the same directory. So, for example, if a viewer prompted the user to supply the directory where `f1` resides, it could search for `f2` in the same directory, without prompting again. On the other hand, even though `f3` appears to reside in the same directory as `f1` and `f2`, the viewer would not assume that, and would prompt the user to supply the directory where `f3` resides.

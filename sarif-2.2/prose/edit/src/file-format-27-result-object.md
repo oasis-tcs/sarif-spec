@@ -45,9 +45,9 @@ Depending on the circumstances, a `result` object either **SHALL**, **MAY**, or 
 A SARIF viewer or result management system **MAY** use the additional hierarchical components to allow a user to suppress a subset of the violations of a given rule. A result management system **MAY** also use the additional components to more precisely match results between runs.
 
 > EXAMPLE 1: In this example, the first result describes a violation of rule `CA2101`. Its `ruleId` consists entirely of the rule’s identifier. The second and third results both describe violations of rule `CA5350`. Each of their `ruleId`s specifies an additional hierarchical component that more precisely describes the rule violation. Note that `rule.index` ([sec](#rule-property), [sec](#reportingdescriptorreference-object--index-property)) for both those results is `1`; despite the additional hierarchical components in `ruleId`, both results describe violations of the same rule.
-> 
+>
 > A SARIF viewer or result management system might allow a user to suppress, for example, only those violations of rule `CA5350` which specify `md5` as the second hierarchical component of `ruleId`; that is, to allow the use of MD5 but still warn about the uses of other weak cryptographic algorithms.
-> 
+>
 > ```json
 > {
 >   "tool": {
@@ -149,7 +149,7 @@ In either case, if there is no `toolComponent` that defines the taxonomy to whic
 > NOTE 2: The rationale for this restriction is that `toolComponent.index` serves to locate the `toolComponent` object defining the rule, and `index` serves to locate the rule within that `toolComponent`. If there is no relevant `toolComponent` object, neither of those properties is meaningful. On the other hand, properties such as `id` ([sec](#reportingdescriptorreference-object--id-property)), `guid` ([sec](#reportingdescriptorreference-object--guid-property)), `toolComponent.name` ([sec](#toolcomponentreference-object--name-property)), and `toolComponent.guid` ([sec](#toolcomponentreference-object--guid-property)) are useful for readability and for identification, even if the `toolComponent` itself is absent, so they are permitted.
 
 > EXAMPLE 1: In this example, a tool defines a custom taxonomy (see [sec](#taxonomies)) consisting of three taxa with ids `"SUP"`, `"INC1"`, and `"INC2"`. The tool emits a result that falls into the taxa `"SUP"` and `"INC2"`, but not into `"INC1"`. According to `relationships[0]`, `"SUP"` is a superset of `"CA2101"`; that is, every result that violates `"CA2101"` falls into the taxon `"SUP"`. Therefore, it is not necessary to mention `"SUP"` in `theResult.taxa`. On the other hand, according to `relationships[2]`, `"INC2"` is incomparable to `"CA2101"`; that is, the set of results that violate `"CA2101"` intersects with but is neither a superset nor a subset of the set of results that fall into the taxon `"INC2"`. Therefore, it is necessary to mention `"INC2"` in `theResult.taxa`.
-> 
+>
 > ```json
 > {                                     # A run object ((#run-object)).
 >   "tool": {
@@ -245,7 +245,7 @@ If present, the `kind` property **SHALL** have one of the following values, with
 - `"notApplicable"`: The rule specified by `ruleId` was not evaluated, because it does not apply to the analysis target.
 
 > EXAMPLE 1: In this example, a binary checker has a rule that applies to 32-bit binaries only. It produces a `"notApplicable"` result if it is run on a 64-bit binary. It also has a rule that checks the compiler version and produces an informational result:
-> 
+>
 > ```json
 > "results": [
 >   {
@@ -306,7 +306,7 @@ If present, the `level` property **SHALL** have one of the following values, wit
 - `"none"`: The concept of "severity" does not apply to this result because the `kind` property ([sec](#result-object--kind-property)) has a value other than `"fail"`.
 
 > EXAMPLE 1: In this example, the tool reports an opportunity to improve the code.
-> 
+>
 > ```json
 > "results": [
 >   {
@@ -384,7 +384,7 @@ The `message` property **SHOULD** provide sufficient details to allow an end use
 - The full range of responses to the problem that the end user could take (including the definition of conditions where it might be appropriate not to fix the problem, or to conclude that the result is a false positive).
 
 > EXAMPLE 1: This is an example of a `message`:
-> 
+>
 > ```json
 > "results": [
 >   {
@@ -404,7 +404,7 @@ The `message` property **SHOULD** provide sufficient details to allow an end use
 See [sec](#message-string-lookup) for the procedure for looking up a message string from a `message` object, in particular, for the case where the `message` object occurs as the value of `result.message`.
 
 > EXAMPLE 2: In this example, `message.id` refers to the property named `default` defined in the `messageStrings` property of the `reportingDescriptor` object identified by `"CA2101"`.
-> 
+>
 > ```json
 > {                                 # A run object ((#run-object)).
 >   "tool": {                       # See (#run-object--tool-property).
@@ -469,7 +469,7 @@ If the analysis target differs from the result file, a `result` object **SHOULD*
 If the analysis target and the result file are the same, the `analysisTarget` property **SHOULD** be absent.
 
 > EXAMPLE 1: In this example, the tool’s analysis target was the file mouse.c. During the scan, the tool detected a result in the included file mouse.h.
-> 
+>
 > ```json
 > {                                 # A result object ((#result-object)).
 >   "analysisTarget": {             # An artifactLocation object ((#artifactlocation-object)).
@@ -515,7 +515,7 @@ Each property value in this object **SHALL** be a string that provides a stable 
 Each property name in this object **SHALL** be a versioned hierarchical string ([sec](#versioned-hierarchical-strings)). A result management system **MAY** use the property names to identify the method used to calculate the fingerprint.
 
 > EXAMPLE 1: In this example, the producer has calculated a fingerprint using version 2 of a fingerprinting method it refers to as `"stableResultHash"`:
-> 
+>
 > ```json
 > {
 >     "fingerprints": {
@@ -527,7 +527,7 @@ Each property name in this object **SHALL** be a versioned hierarchical string (
 When a result management system uses fingerprint information to determine whether two results are logically identical, it **SHOULD** use the latest version of the fingerprint available in both results.
 
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the "context region hash" fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
-> 
+>
 > ```json
 > {                                  # A run object ((#run-object)).
 >   "results": [                     # See (#results-property).
@@ -568,7 +568,7 @@ Each property value in this object **SHALL** be a string that contributes to the
 Each property name in this object **SHALL** be a versioned hierarchical string ([sec](#versioned-hierarchical-strings)). A SARIF producer **MAY** use the property name to identify the nature of the information used to compute the partial fingerprint.
 
 > EXAMPLE 1: In this example, the producer has calculated a partial fingerprint using version 3 of a partial fingerprint value it refers to as `"prohibitedWordHash"`:
-> 
+>
 > ```json
 > {                                 # A result object ((#result-object)).
 >   "partialFingerprints": {
@@ -580,7 +580,7 @@ Each property name in this object **SHALL** be a versioned hierarchical string (
 When a result management system uses partial fingerprint information to determine whether two results are logically identical, it **SHOULD** use the latest version of the partial fingerprint available in both results.
 
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the "prohibited word hash" partial fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
-> 
+>
 > ```json
 > {                                  # A run object ((#run-object)).
 >   "results": [                     # See (#results-property).
@@ -615,7 +615,7 @@ Because result management systems might come to depend on the choice of property
 - Avoid removing existing property names and partial fingerprints, since existing result management systems might rely on them.
 
 > EXAMPLE 3: In this example, a SARIF-producing document checker has computed a partial fingerprint that hashes a word that should not appear in a document together with the document’s language.
-> 
+>
 > ```json
 > {                           # A result object.
 >   ...
@@ -627,7 +627,7 @@ Because result management systems might come to depend on the choice of property
 > ```
 
 > EXAMPLE 4. In this example, the SARIF producer has chosen an arbitrary value for the property name.
-> 
+>
 > ```
 > {                           # A result object
 >   ...
@@ -664,9 +664,9 @@ A `result` object **MAY** contain a property named `stacks` whose value is an ar
 A `result` object **MAY** contain a property named `relatedLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `location` objects ([sec](#location-object)) each of which represents a location relevant to understanding the result.
 
 > EXAMPLE 1: Suppose that a tool for analyzing JavaScript™ has a rule that reports a problem when a variable declared in an inner scope hides a variable with the same name in an enclosing scope. The tool would report the problem on the line where the inner variable is declared. The tool could choose to add an element to the `relatedLocations` array, specifying the location where the outer variable was declared.  
->   
+>
 > The result might appear in the log file like this:
-> 
+>
 > ```json
 > "results": [
 >   {
@@ -707,9 +707,9 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 >     ...
 > ]
 > ```
-> 
+>
 > The tool might write messages to the console like this:
-> 
+>
 > ```
 > C:\Code\a.js(6,10-10): error : JS3056: Name 'index' cannot be used in this scope because it would give a different meaning to 'index'.
 > C:\Code\a.js(2,6-6): info : JS3056: The previous declaration of 'index' was here.
@@ -746,9 +746,9 @@ This property **SHALL** have one of the following values, with the specified mea
 - `"absent"`: This result was detected in the baseline run but was not detected in the current run.
 
 > NOTE 1: The purpose of `baselineState` is to allow (for example) a measurement of how many new results were introduced in the run, and how many previously existing results no longer appear.
-> 
+>
 > To assign a value to `baselineState`, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. [sec](#normative-use-of-fingerprints-by-result-management-systems) discusses how a result management system can assign a "fingerprint" to each result. See also the description of the `fingerprints` ([sec](#fingerprints-property)) and `partialFingerprints` ([sec](#partialfingerprints-property)) properties.
-> 
+>
 > An analysis tool that works together with such a result management system can use the fingerprint to determine whether two results are logically the same; two results with the same fingerprint are considered logically the same.
 
 > NOTE 2: A result management system might respond to a "new" result by filing an issue in a bug tracking system. It might respond to an "updated" result by editing the details of an existing issue in the bug tracking system, or by attaching an updated SARIF log to the issue. It might respond to an "absent" result by resolving the issue. It might take no action at all for an "unchanged" issue, or it might simply update its internal information about the range of runs that contained the result.
@@ -756,7 +756,7 @@ This property **SHALL** have one of the following values, with the specified mea
 If `baselineState` is present on any `result` object in `theRun`, it **SHALL** be present on every such `result` object.
 
 > NOTE 3: The presence of `baselineState` on any `result` implies that the SARIF producer performed a comprehensive comparison between the results in the current run and those in some previous run. A SARIF consumer is entitled to expect that the differencing operation produced a `baselineState` value for every result.
-> 
+>
 > This is conceptually similar to a tool that compares two text files, and for every line, concludes that it exists in the left-hand file, the right-hand file, or both. The tool must provide this information for every line in both files; it cannot leave some lines "undetermined."
 
 ### rank property{#result-object--rank-property}
@@ -810,5 +810,5 @@ A `result` object **MAY** contain a property named `fixes` whose value is an arr
 A `result` object **MAY** contain a property named `occurrenceCount` whose value is a positive integer specifying the number of times a result with `theResult.correlationGuid` ([sec](#result-object--correlationguid-property)) has been observed.
 
 > NOTE: This property is intended for the scenario where multiple SARIF files are being merged into a single SARIF file, with the intent that each logically distinct result (see [sec](#distinguishing-logically-identical-from-logically-distinct-results)) occurs only once in the merged file. In that case, the system performing the merge would select one occurrence of each logically distinct result to serve as the exemplar for that class of results, and it would set `occurrenceCount` on that instance to the number of times a result with that `correlationGuid` occurred in the input files.
-> 
+>
 > This property can also be useful even in the context of a single log file. Consider an accessibility checker that detects an accessibility problem at a particular location. Suppose the checker has access to activity logs that trace user paths through the application. The checker could use those logs to determine how many times users encountered the location with the accessibility problem, and store that information in `occurrenceCount`.

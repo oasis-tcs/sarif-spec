@@ -17,7 +17,7 @@ Each tool component is represented by a `toolComponent` object ([sec](#toolcompo
 If another tool post-processes the log file (for example, by removing certain results, or by adding information that was not known to the analysis tool), the post-processing tool **SHOULD NOT** alter any part of the tool object.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {                          # A tool object.
 >   "driver": {              # See (#driver-property).

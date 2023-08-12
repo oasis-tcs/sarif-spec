@@ -23,7 +23,7 @@ This is not always possible, for two reasons:
 - For other values of `logicalLocation.kind`, it is sometimes but not always possible to express the logical location in language syntax.
 
 > EXAMPLE 3: Suppose the logical location is the anonymous callback function in this JavaScript™ function:
-> 
+>
 > ```js
 > function click_it() {
 >   $("button").click(function(){
@@ -31,7 +31,7 @@ This is not always possible, for two reasons:
 >   });
 > }
 > ```
-> 
+>
 > `logicalLocation.kind` is `"function"`, for which it is sometimes possible to specify a fully qualified name. But there is no language syntax to express the name of an anonymous callback. The SARIF producer might choose a fully qualified name such as `"click_it?anon-1"`.
 
 ### index property{#logicallocation-object--index-property}
@@ -59,7 +59,7 @@ The `name` property **SHALL** be suitable for display and **SHALL** follow the n
 > NOTE: A C++ analysis tool might have available both the source code form of a function name and the compiler’s "decorated" function name (which encodes the function signature in a manner that is compiler-dependent and not easily readable). The tool would place the source code form of the function name in the `name` property, and the decorated name in the `decoratedName` property ([sec](#decoratedname-property)).
 
 > EXAMPLE 1: In this C++ example, the fully qualified name is `"b::c(float)"`, so `"name"` is the rightmost component, `"c(float)"`.
-> 
+>
 > ```json
 > {                                      # A logicalLocation object.
 >   "name": "c(float)",
@@ -79,7 +79,7 @@ It is possible for two or more distinct logical locations to have the same fully
 > NOTE: This is an extremely rare corner case.
 
 > EXAMPLE 1: Suppose a tool analyzes two C++ source files:
-> 
+>
 > ```cpp
 > // file1.cpp
 > namespace A {
@@ -95,11 +95,11 @@ It is possible for two or more distinct logical locations to have the same fully
 >     }
 > } 
 > ```
-> 
+>
 > These could not coexist in the same compilation, but there is no reason two such source files could not exist.
-> 
+>
 > If the tool detected one result in `class B` in *file1.cpp*, and another result in `namespace B` in *file2.cpp*, the `fullyQualifiedName` for both would be `A::B`. However, they would be distinguished by their `parentIndex` properties:
-> 
+>
 > ```json
 > "logicalLocations": [
 >   {
@@ -126,15 +126,15 @@ It is possible for two or more distinct logical locations to have the same fully
 > ```
 
 > NOTE: There are a few reasons the `fullyQualifiedName` property exists, even though the information it contains can be reconstructed from the `name` properties of this object and its parent objects in `run.logicalLocations`:
-> 
+>
 > - `run.logicalLocations` might not be present.
-> 
+>
 > - It allows a SARIF viewer to display the logical location in a way that is easily understood by users.
-> 
+>
 > - As mentioned in [sec](#location-object--general), `fullyQualifiedName` is also particularly convenient for fingerprinting, although the more detailed information in `run.logicalLocations` could be used instead.
-> 
+>
 > - It relieves viewers from having to format the logical location from the more detailed information in `run.logicalLocations`.
-> 
+>
 > - It is useful for producing readable in-source suppressions (for example, "suppress all instance of rule `CA2101` in the class `NamespaceA.NamespaceB.ClassC`").
 
 ### decoratedName property
@@ -144,7 +144,7 @@ A `logicalLocation` object **MAY** contain a property named `decoratedName` whos
 > NOTE: Some compilers refer to this representation as a "mangled name." It typically encodes the function’s name, signature, return type, and the class and namespace (if any) to which it belongs.
 
 > EXAMPLE 1: In this example, the `decoratedName` property contains a "mangled" name emitted by a C++ compiler:
-> 
+>
 > ```json
 > {                                              # A logicalLocation object
 >   "name": "c(float)",
@@ -196,7 +196,7 @@ Although the values suggested here are useful in the specified categories (for e
   - `"declaration"`
 
 > EXAMPLE 1: Consider the following XML document:
-> 
+>
 > ```xml
 > 1.  <?xml version="1.0"?>
 > 2.  <orders>
@@ -205,9 +205,9 @@ Although the values suggested here are useful in the specified categories (for e
 > 5.    </order>
 > 6.  </order>
 > ```
-> 
+>
 > Suppose that an analysis tool detects errors on line 3 (the order number is blank) and line 4 (the total is negative). It might represent the logical locations of these errors as XML Paths (although this is not required), as follows:
-> 
+>
 > ```json
 > {                                 # A run object (§3.14)
 >   "results": [                    # See (#results-property).
@@ -266,19 +266,19 @@ Although the values suggested here are useful in the specified categories (for e
 >   ]
 > }
 > ```
-> 
+>
 > - Values for locations within JSON documents:
-> 
+>
 >   - `"object"`
-> 
+>
 >   - `"array"`
-> 
+>
 >   - `"property"`
-> 
+>
 >   - `"value"`
 
 > EXAMPLE 2: Consider the following JSON document:
-> 
+>
 > ```json
 > 1.  {
 > 2.    "orders": [
@@ -289,9 +289,9 @@ Although the values suggested here are useful in the specified categories (for e
 > 7.    ]
 > 8.  }
 > ```
-> 
+>
 > Suppose that an analysis tool detects errors on line 4 (one of the product ids blank) and line 5 (the total is negative). It might represent the logical locations of these errors as JSON Pointers (although this is not required), as follows:
-> 
+>
 > ```json
 > {                                 # A run object (§3.14)
 >   "results": [                    # See (#results-property).
@@ -366,7 +366,7 @@ If `thisObject` represents a top-level logical location, then `parentIndex` **SH
 > NOTE: `parentIndex` makes it possible to navigate from the `logicalLocation` object representing a nested logical location to the `logicalLocation` objects representing each of its parent logical locations in turn, up to the top-level logical location.
 
 > EXAMPLE 1: In this example, the logical location `n::f(void)` is nested within the top-level logical location `n`. The `logicalLocation` object representing `n::f(void)` contains a `parentIndex` property that points to the object representing `n`; the object representing `n` does not contain a `parentIndex` property.
-> 
+>
 > ```json
 > {                                            # A run object ((#run-object)).
 >   "logicalLocations": [                      # See (#run-object--logicallocations-property).

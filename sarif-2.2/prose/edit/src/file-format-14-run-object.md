@@ -5,7 +5,7 @@
 A `run` object describes a single run of an analysis tool and contains the output of that run.
 
 > EXAMPLE 1:
-> 
+>
 > ```json
 > {
 >   "tool": {       # See (#run-object--tool-property).
@@ -56,11 +56,11 @@ A `run` object **SHALL** contain a property named `tool` whose value is a `tool`
 A `run` object **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([sec](#localizable-strings)) in `theRun` (except for localizable strings that occur within `theRun.translations` ([sec](#translations-property))), in the format specified by the language tags standard \[[cite](#RFC5646)\]. If this property is absent, it **SHALL** default to `"en-US"`.
 
 > EXAMPLE 1: The language is region-neutral English:
-> 
+>
 >     "language": "en"
 
 > EXAMPLE 2: The language is French as spoken in France:
-> 
+>
 >     "language": "fr-FR"
 
 ### taxonomies property
@@ -104,8 +104,8 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 > NOTE 4: This document refers to a fixed revision of a set of files as a "revision". Different VCSs use different terms; for example, Git calls it a "commit".
 
 > EXAMPLE 1: In this example, an analysis tool has scanned files from one repository: the GitHub repository `example/browser`.
-> 
->   ```json
+>
+> ```json
 >   {                                    # A run object.
 >      "versionControlProvenance": [
 >       {                                # A versionControlDetails object ((#versioncontroldetails-object)).
@@ -126,13 +126,13 @@ If the `artifactLocation` object’s `uri` property ([sec](#uri-property)) is a 
 If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be omitted.
 
 > NOTE 1: A SARIF producer might omit such an absolute URI, or a SARIF postprocessor might remove it, for various reasons:
-> 
+>
 > - To avoid revealing sensitive information such as a user name in a URI, for example, `file:///C:/Users/Mary/code/TheProject/`.
-> 
+>
 > - To produce deterministic output (see [sec](#informative-producing-deterministic-sarif-log-files)) by avoiding path names that differ depending on the machine where the analysis tool runs.
 
 > EXAMPLE 1: In this example, the "top-level" property `PROJECTROOT` specifies a URI containing a username:
-> 
+>
 > ```json
 > "originalUriBaseIds": {
 >  "PROJECTROOT": {
@@ -150,9 +150,9 @@ If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be o
 >   }
 > }
 > ```
-> 
+>
 > A post-processor might remove `uri` to avoid revealing a username. The advantage of this approach over removing the entire `PROJECTROOT` property is that it retains the `description` property:
-> 
+>
 > ```json
 > "originalUriBaseIds": {
 >  "PROJECTROOT": {
@@ -197,7 +197,7 @@ A SARIF consumer **SHALL** use the following procedure to resolve a URI base id 
 3.  Prepend `artifactLocation.uri` to `resolvedUri`.
 
 4.  If `artifactLocation.uri` is an absolute URI, `resolvedUri` is the final resolved URI, and the procedure succeeds.  
-      
+  
     Otherwise:
 
 5.  If `uriBaseId` is absent, the resolution procedure fails.
@@ -210,8 +210,8 @@ A SARIF consumer **SHALL** use the following procedure to resolve a URI base id 
 
 7.  Otherwise (that is, if `uriBaseId` is present and its value has not previously been encountered during this resolution), return to Step 2.
 
->   EXAMPLE 2: In this example, the URI base id `"SRCROOT"` on the machine where the SARIF producer ran was `"file:///C:/code/MyProject/src/"`. The producer detected a result in a file whose location relative to that URI base id was `"lib/memory.c"`. A viewer which wished to display that file would first attempt to locate it on the local file system at `"C:\code\MyProject\src\lib\memory.c"`. If the file did not exist at that location, the viewer might prompt the user for the location.
-> 
+> EXAMPLE 2: In this example, the URI base id `"SRCROOT"` on the machine where the SARIF producer ran was `"file:///C:/code/MyProject/src/"`. The producer detected a result in a file whose location relative to that URI base id was `"lib/memory.c"`. A viewer which wished to display that file would first attempt to locate it on the local file system at `"C:\code\MyProject\src\lib\memory.c"`. If the file did not exist at that location, the viewer might prompt the user for the location.
+>
 > ```json
 > {                                         # A run object.
 >   "originalUriBaseIds": {
@@ -251,7 +251,7 @@ The array **SHOULD** contain elements representing at least those artifacts in w
 > NOTE: `artifact` objects contain information that is useful for viewers. Viewers will be able to provide the most information to users if the `artifacts` property is present and contains information for every artifact in which results were detected.
 
 > EXAMPLE 1:
-> 
+>
 >   ```json
 >   "artifacts": [
 >     {
@@ -283,7 +283,7 @@ In some cases, a logical location might be nested within another logical locatio
 If a nested logical location appears in the `logicalLocations` array, then the `logicalLocations` array **SHALL** also contain elements describing each of its parents, up to and including the top-level logical location.
 
 > EXAMPLE 1: In this example, a result was detected in the C++ class `namespaceA::namespaceB::classC`. The `logicalLocations` array contains not only an element describing the class, but also elements describing its containing namespaces.
-> 
+>
 > ```json
 > "logicalLocations": [
 >   {
@@ -384,7 +384,7 @@ The order of the elements in the array is significant. It **SHALL** mean that at
 > NOTE: This property is useful for SARIF consumers that are sensitive to the value of the line number properties `startLine` ([sec](#startline-property)) and `endLine` ([sec](#endline-property)) in `region` objects ([sec](#region-object)). It ensures that the consumer counts lines in the same way as the producer. A SARIF viewer might use this property when highlighting a region to ensure that it highlights the correct lines. More critically, a tool that applies fixes (see [sec](#fix-object)), especially one that applies them automatically, can use this property to ensure that it inserts and removes content on the correct lines.
 
 > EXAMPLE 2: In this example, the SARIF producer accepts the Unicode characters NEXT LINE (U+0085) and LINE SEPARATOR (U+2028) as line separators in addition to the usual values.
-> 
+>
 > ```json
 > {         # A run object ((#run-object)).
 >   ...
@@ -420,7 +420,7 @@ If `redactionTokens` contains a single element, that element **SHOULD** be the s
 If for any reason different values are used, they **MAY** be any readily identifiable strings. An example of a situation where a SARIF producer might choose a different redaction token is if the string `"[REDACTED]"` occurs in the value of a redactable property in `theRun`.
 
 > EXAMPLE 1: In this example, the leading portion of a full path name has been redacted from the redactable property `invocation.commandLine` to avoid revealing information about the machine’s directory layout.
-> 
+>
 > ```json
 > {                     # A run object ((#run-object)).
 >   "redactionTokens": [

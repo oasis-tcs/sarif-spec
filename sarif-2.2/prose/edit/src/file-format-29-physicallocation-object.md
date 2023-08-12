@@ -19,7 +19,7 @@ A `physicalLocation` object **MAY** contain a property named `artifactLocation` 
 A `physicalLocation` object **MAY** contain a property named `region` whose value is a `region` object ([sec](#region-object)) that represents a relevant portion of the artifact. In particular, if the `physicalLocation` object occurs within the `locations` property ([sec](#result-object--locations-property)) of a `result` object ([sec](#result-object)), the region property **SHALL** specify the region within the artifact where the result was detected.
 
 > EXAMPLE 1: In this example, a `physicalLocation` object specifies the location where a result was detected. Its `region` property specifies the portion of the file where the result was detected.
-> 
+>
 > ```json
 > {                              # A result object ((#result-object)).
 >   "locations": [               # See (#result-object--locations-property).
@@ -52,7 +52,7 @@ If a `physicalLocation` object contains a `region` property ([sec](#region-prope
 > NOTE: `contextRegion` enables a viewer to provide visual context when displaying a portion of an artifact. It can also be used to improve result matching.
 
 > EXAMPLE In this example, an analysis tool detected a result on line 42. The tool provides additional context for SARIF viewers by specifying a range of content surrounding the result line.
-> 
+>
 > ```json
 > {                                       # A result object ((#result-object)).
 >   "locations": [                        # See (#result-object--locations-property).

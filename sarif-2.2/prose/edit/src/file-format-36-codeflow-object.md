@@ -5,7 +5,7 @@
 A `codeFlow` object describes the progress of one or more programs through one or more thread flows, which together lead to the detection of a problem in the system being analyzed. We define a thread flow as a temporally ordered sequence of code locations occurring within a single thread of execution, typically an operating system thread or a fiber. The thread flows in a code flow **MAY** lie within a single process, within multiple processes on the same machine, or within multiple processes on multiple machines.
 
 > EXAMPLE
-> 
+>
 > ```json
 > {                                       # A result object ((#result-object)).
 >   "codeFlows": [                        # See (#codeflows-property).

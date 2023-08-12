@@ -11,7 +11,7 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 1.  In relating analysis rules to taxonomic categories ("taxa"; see [sec](#taxonomies)).
 
 > EXAMPLE 1: In this example, the definition of rule `CA1000` states that every result that violates this rule falls into the taxonomic category ("taxon") specified by ID 327 of the Common Weakness Enumeration \[[CWE](#CWE)\]:
-> 
+>
 > ```json
 > {                              # A run object ((#run-object)).
 >   "tool": {                    # See (#run-object--tool-property).
@@ -64,7 +64,7 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 2.  In relating one analysis rule to another.
 
 > EXAMPLE 2: In this example, the definition of rule `CA1000` states that every violation of this rule will lead to a violation of rule `CA2000`.
-> 
+>
 > ```json
 > {                              # A run object ((#run-object)).
 >   "tool": {                    # See (#run-object--tool-property).

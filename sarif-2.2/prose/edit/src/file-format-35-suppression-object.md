@@ -35,19 +35,19 @@ A `suppression` object **MAY** contain a property named `status` whose value is 
 A `suppression` object **MAY** contain a property named `location` whose value is a `location` object ([sec](#location-object)) that specifies the location where the suppression is persisted.
 
 > NOTE: In the common scenario, a suppression is represented by a source code construct (which we will refer to as a "suppression construct") such as an attribute or a specially formatted comment at the location where the result was detected. In this scenario, `location` is unnecessary, although it is permitted, because an end user who navigates from the result to the source code location will see the suppression attribute or comment near the relevant code.
-> 
+>
 > Nevertheless, there are several scenarios where `location` is useful. Here are some examples:
-> 
+>
 > When the suppression construct is placed in a separate compiled source file, `kind` ([sec](#suppression-object--kind-property)) is `"inSource"`, and `location.physicalLocation` ([sec](#physicallocation-property)) specifies the location of the suppression attribute in that separate file.
-> 
+>
 > Even when the suppression construct is adjacent to the result line, `location.physicalLocation` can be useful because it allows you to include in the log file a source code snippet containing the suppression construct, using `location.physicalLocation.region.snippet` ([sec](#region-property), [sec](#snippet-property)).
-> 
+>
 > When a tool detects a result within a method, but the suppression construct is applied to some higher-level construct such as the enclosing class, then `kind` is again `"inSource"`, `location.logicalLocation` ([sec](#location-object--logicallocations-property)) can specify the construct to which the suppression was applied, and `location.physicalLocation` can still usefully specify the location of the suppression construct in the source file, since it is distant from the result.
-> 
+>
 > In a similar case, a binary analysis tool that detected the suppression within an executable file’s metadata could provide `location.logicalLocation` even if it could not provide `location.physicalLocation`.
-> 
+>
 > If a suppression is stored in a separate, non-compiled file, sometimes called a "sidecar file," `kind` is `"external"`, and `location.physicalLocation` specifies the location of the suppression within the sidecar file. The sidecar file might even be another SARIF file.
-> 
+>
 > If a suppression is stored in a database, `kind` is again `"external"`, and `location.physicalLocation` might specify the URI of a query that returns the database information that describes the suppression.
 
 ### guid property{#suppression-object--guid-property}
