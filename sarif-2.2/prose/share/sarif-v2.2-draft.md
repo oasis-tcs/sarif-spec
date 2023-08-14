@@ -1,4 +1,4 @@
-<img src="media/OASISLogo-v3.0.png" style="width:3.01036in;height:0.61978in" />
+![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
 Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01 (redlined)
 

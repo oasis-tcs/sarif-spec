@@ -64,6 +64,8 @@ TOK_LAB = '{#'
 H = '#'
 TOC_HEADER = """Table of Contents
 """
+LOCAL_LOGO = '<img src="media/OASISLogo-v3.0.png" style="width:3.01036in;height:0.61978in" />'
+OASIS_LOGO = '![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)'
 
 SECTION_DISPLAY_TO_LABEL = {}
 SEC_LABEL_TEXT = {}  # Mapping section labels to the display text
@@ -272,10 +274,16 @@ def main(argv: list[str]) -> int:
     # TODO: ToC builder -> class
     tic_toc = [TOC_HEADER]
     did_appendix_sep = False
+    logo_patched = False
     for slot, line in enumerate(lines):
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
         is_plain = True  # No special meta data needed
+        if not logo_patched:
+            if line.startswith(LOCAL_LOGO):
+                line = line.replace(LOCAL_LOGO, OASIS_LOGO)
+                lines[slot] = line
+                logo_patched = True
         for tag in sec_cnt:
             if line.startswith(tag):
                 # manage counter
