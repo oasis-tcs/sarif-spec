@@ -14,7 +14,7 @@ A `versionControlDetails` object **SHOULD** contain sufficient information to un
 
 ### repositoryUri property
 
-A `versionControlDetails` object **SHALL** contain a property named `repositoryUri` whose value is a string containing an absolute URI \[[cite](#RFC3986)\] that specifies the location of the repository containing the scanned files.
+A `versionControlDetails` object **SHALL** contain a property named `repositoryUri` whose value is a string containing an absolute URI [cite](#RFC3986) that specifies the location of the repository containing the scanned files.
 
 ### revisionId property
 

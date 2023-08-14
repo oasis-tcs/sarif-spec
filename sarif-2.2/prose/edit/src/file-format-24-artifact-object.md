@@ -10,7 +10,7 @@ Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, 
 
 If the `artifact` object represents a top-level artifact, then `location` **SHALL** be present.
 
-If the `artifact` object represents a nested artifact whose location relative to the root of its parent can be expressed only by means of a path, then `location` **SHALL** be present, and the value of its `uri` property **SHALL** be a relative reference \[[cite](#RFC3986)\] beginning with `"/"` expressing that path.
+If the `artifact` object represents a nested artifact whose location relative to the root of its parent can be expressed only by means of a path, then `location` **SHALL** be present, and the value of its `uri` property **SHALL** be a relative reference [cite](#RFC3986) beginning with `"/"` expressing that path.
 
 If the `artifact` object represents a nested artifact whose location within its parent can be expressed only by a byte offset from the start of the parent, and not by means of a path, then `location` **SHALL NOT** be present.
 
@@ -143,7 +143,7 @@ Each array element **SHALL** have one of the following values, with the specifie
 
 ### mimeType property
 
-An `artifact` object **MAY** contain a property named `mimeType` whose value is a string that specifies the artifact’s MIME type \[[cite](#RFC2045)\]. For information about the use of mimeType by SARIF viewers, see Appendix C.
+An `artifact` object **MAY** contain a property named `mimeType` whose value is a string that specifies the artifact’s MIME type [cite](#RFC2045). For information about the use of mimeType by SARIF viewers, see Appendix C.
 
 ### contents property{#artifact-object--contents-property}
 
@@ -151,7 +151,7 @@ An `artifact` object **MAY** contain a property named contents whose value is an
 
 ### encoding property
 
-If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value is a case-sensitive string that specifies the artifact’s text encoding. The string **SHALL** be one of the character set names defined by IANA \[[cite](#IANA-ENC)\].
+If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value is a case-sensitive string that specifies the artifact’s text encoding. The string **SHALL** be one of the character set names defined by IANA [cite](#IANA-ENC).
 
 If the `artifact` object represents a text artifact and this property is absent, it **SHALL** default to the value of `theRun.defaultEncoding` ([sec](#defaultencoding-property)), if that property is present; otherwise, the artifact’s encoding **SHALL** be taken to be unknown.
 
@@ -242,7 +242,7 @@ An `artifact` object **MAY** contain a property named `hashes` whose value is a 
 > }
 > ```
 
-To maximize interoperability, the property names **SHOULD** appear in the IANA registry of hash function textual names \[[cite](#IANA-HASH)\]. SARIF consumers that need to verify hash values **SHOULD** be able to compute any hash function whose name appears in the IANA registry.
+To maximize interoperability, the property names **SHOULD** appear in the IANA registry of hash function textual names [cite](#IANA-HASH). SARIF consumers that need to verify hash values **SHOULD** be able to compute any hash function whose name appears in the IANA registry.
 
 The object **SHOULD** contain a property named `"sha-256"`. SARIF consumers that need to verify hash values **SHALL** be able to compute a SHA-256 hash.
 

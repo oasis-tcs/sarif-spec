@@ -38,9 +38,9 @@ SECTION_LABEL_TO_DISPLAY_AT = pathlib.Path('etc') / 'section-label-to-display.js
 
 # Parsers and magical literals:
 IS_CITE_REF = 'cite'
-CITE_REF_DETECT = re.compile(r'\\\[\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)\\\]')  # \[[ref](#label)\] pattern
+CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')  # \[[cite](#label)\] pattern
 IS_SEC_REF = 'sec'
-SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)')  # [ref](#label) pattern
+SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)')  # [sec](#label) pattern
 MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
 
 # Detecting code block references with label values
@@ -362,7 +362,7 @@ def main(argv: list[str]) -> int:
                         raise RuntimeError(f'false positive cite ref in ({line.rstrip(NL)})')
                     label = found['label']
                     text = label.replace(';', ':')
-                    sem_ref = f'\\[[cite](#{label})\\]'
+                    sem_ref = f'[cite](#{label})'
                     evil_ref = f'\\[[{text}](#{label})\\]'  # \[[GFMCMARK](#GFMCMARK)\]
                     line = line.replace(sem_ref, evil_ref)
                     lines[slot] = line

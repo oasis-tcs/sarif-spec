@@ -16,6 +16,6 @@ A `multiformatMessageString` object **SHALL** contain a property named `text` wh
 
 ### markdown property{#multiformatmessagestring-object--markdown-property}
 
-A `multiformatMessageString` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([sec](#formatted-messages)) expressed in GitHub-Flavored Markdown \[[cite](#GFM)\].
+A `multiformatMessageString` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([sec](#formatted-messages)) expressed in GitHub-Flavored Markdown [cite](#GFM).
 
 SARIF consumers that cannot (or choose not to) render formatted text **SHALL** ignore the `markdown` property and use the `text` property ([sec](#multiformatmessagestring-object--text-property)) instead.

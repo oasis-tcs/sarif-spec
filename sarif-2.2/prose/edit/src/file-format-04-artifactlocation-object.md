@@ -2,7 +2,7 @@
 
 ### General{#artifactlocation--general}
 
-Certain properties in this document specify the location of an artifact. SARIF represents an artifact’s location with an `artifactLocation` object. The most important member of an `artifactLocation` object is its `uri` property ([sec](#uri-property)). If the `uri` property contains a relative reference (the term used in the URI standard \[[cite](#RFC3986)\] for what is commonly called a "relative URI"), the `uriBaseId` property ([sec](#uribaseid-property)) can sometimes be used to resolve the relative reference to an absolute URI.
+Certain properties in this document specify the location of an artifact. SARIF represents an artifact’s location with an `artifactLocation` object. The most important member of an `artifactLocation` object is its `uri` property ([sec](#uri-property)). If the `uri` property contains a relative reference (the term used in the URI standard [cite](#RFC3986) for what is commonly called a "relative URI"), the `uriBaseId` property ([sec](#uribaseid-property)) can sometimes be used to resolve the relative reference to an absolute URI.
 
 ### Constraints{#artifactlocation-object--constraints}
 
@@ -14,15 +14,15 @@ If both `uri` and `index` are present, they **SHALL** both denote the same artif
 
 ### uri property
 
-Depending on the circumstances, an `artifactLocation` object either **SHALL**, **SHALL NOT**, or **MAY** contain a property named `uri` whose value is a string containing a URI \[[cite](#RFC3986)\] that specifies the location of the artifact.
+Depending on the circumstances, an `artifactLocation` object either **SHALL**, **SHALL NOT**, or **MAY** contain a property named `uri` whose value is a string containing a URI [cite](#RFC3986) that specifies the location of the artifact.
 
-If `thisObject` describes a nested artifact whose location within its parent container can be expressed by a path from the root of the container, then if `uri` is present, it **SHALL** specify a relative-path reference per section 4.2 of \[[cite](#RFC3986)\] expressing that path. A relative reference **SHALL NOT** begin with two slash characters (a ‘network-path’ reference per section 4.2 of \[[cite](#RFC3986)\]. A relative reference **SHALL NOT** begin with a single slash character (an ‘absolute-path’ reference per section 4.2 of \[[cite](#RFC3986)\]) unless doing so is required to distinguish between distinct items in archive formats, such as zip and tar.
+If `thisObject` describes a nested artifact whose location within its parent container can be expressed by a path from the root of the container, then if `uri` is present, it **SHALL** specify a relative-path reference per section 4.2 of [cite](#RFC3986) expressing that path. A relative reference **SHALL NOT** begin with two slash characters (a ‘network-path’ reference per section 4.2 of [cite](#RFC3986). A relative reference **SHALL NOT** begin with a single slash character (an ‘absolute-path’ reference per section 4.2 of [cite](#RFC3986)) unless doing so is required to distinguish between distinct items in archive formats, such as zip and tar.
 
 > NOTE 1: For example, `"/a.txt"` and `"a.txt"` can both exist as distinct files in the same archive.
 
 > NOTE 2: A relative path is useful to reference any artifact with a fixed location relative to a non-deterministic root, e.g., the relative version control path of a file as distinct from a local enlistment root. The uriBaseId (3.4.4) property can be used to express the non-deterministic absolute URI root. This approach assists in log file diffing and other scenarios where a clear distinction between data that is consistent or not between scan environments is helpful.
 
-If the nested artifact is a member of an archive file (for example, zip \[[cite](#ZIP)\] or tar \[[cite](#TAR)\]), `uri` **SHOULD** specify the member name or path as specified by the archive.
+If the nested artifact is a member of an archive file (for example, zip [cite](#ZIP) or tar [cite](#TAR)), `uri` **SHOULD** specify the member name or path as specified by the archive.
 
 If `thisObject` occurs as the value of a "top-level" property in `theRun.originalBaseIds` ([sec](#originaluribaseids-property)), then `uri` **MAY** be absent. See [sec](#originaluribaseids-property) for an explanation and an example of this point. Otherwise:
 

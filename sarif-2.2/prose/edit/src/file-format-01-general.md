@@ -6,8 +6,8 @@ A SARIF log file **SHALL** contain a serialization of the SARIF object model int
 
 > NOTE 1: In the future, other serializations might be defined.
 
-The top-level value in the log file, representing the `sarifLog` object, **SHALL** conform to the JSON object grammar; that is, it **SHALL** consist of a comma-separated sequence of name/value pairs, enclosed in curly brackets, as specified by JSON \[[cite](#RFC8259)\].
+The top-level value in the log file, representing the `sarifLog` object, **SHALL** conform to the JSON object grammar; that is, it **SHALL** consist of a comma-separated sequence of name/value pairs, enclosed in curly brackets, as specified by JSON [cite](#RFC8259).
 
-A SARIF log file **SHALL** be encoded in UTF-8 \[[cite](#RFC3629)\].
+A SARIF log file **SHALL** be encoded in UTF-8 [cite](#RFC3629).
 
-> NOTE 2: JSON \[[cite](#RFC8259)\] requires this encoding for any JSON text "exchanged between systems that are not part of a closed ecosystem."
+> NOTE 2: JSON [cite](#RFC8259) requires this encoding for any JSON text "exchanged between systems that are not part of a closed ecosystem."

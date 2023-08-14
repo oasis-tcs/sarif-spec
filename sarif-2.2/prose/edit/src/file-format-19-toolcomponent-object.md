@@ -311,13 +311,13 @@ A `toolComponent` object **MAY** contain a property named `productSuite` whose v
 
 ### semanticVersion property
 
-A `toolComponent` object **MAY** contain a property named `semanticVersion` whose value is a string containing the tool component’s version in a format that conforms to the syntax and semantics specified by Semantic Versioning \[[cite](#SEMVER)\].
+A `toolComponent` object **MAY** contain a property named `semanticVersion` whose value is a string containing the tool component’s version in a format that conforms to the syntax and semantics specified by Semantic Versioning [cite](#SEMVER).
 
 > EXAMPLE 1: `"semanticVersion": "1.1.2-beta.12"`
 
 > NOTE 1: Semantic versions are sortable in chronological order of release. The presence of the `semanticVersion` property allows results management systems to (for example) restrict the results they display to versions newer than a specified version, or to restrict the results to a particular major version.
 
-Unless the author of the converter knows that the version number of the tool from which it converts is intended to be interpreted according to Semantic Versioning \[[cite](#SEMVER)\], the converter **SHALL NOT** emit the `semanticVersion` property in `run.tool` ([sec](#run-object--tool-property)), although of course it may emit its own `semanticVersion` property (the one in `run.conversion.tool` ([sec](#conversion-object--tool-property))).
+Unless the author of the converter knows that the version number of the tool from which it converts is intended to be interpreted according to Semantic Versioning [cite](#SEMVER), the converter **SHALL NOT** emit the `semanticVersion` property in `run.tool` ([sec](#run-object--tool-property)), although of course it may emit its own `semanticVersion` property (the one in `run.conversion.tool` ([sec](#conversion-object--tool-property))).
 
 ### version property{#toolcomponent-object--version-property}
 
@@ -343,13 +343,13 @@ A `toolComponent` object **MAY** contain a property named `releaseDateUtc` whose
 
 ### downloadUri property{#toolcomponent-object--downloaduri-property}
 
-A `toolComponent` object **MAY** contain a property named `downloadUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI \[[cite](#RFC3986)\] from which this version of the tool component can be downloaded.
+A `toolComponent` object **MAY** contain a property named `downloadUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI [cite](#RFC3986) from which this version of the tool component can be downloaded.
 
 > NOTE: This property is localizable to allow different language versions of a tool to be downloaded from their own URIs.
 
 ### informationUri property{#toolcomponent-object--informationuri-property}
 
-A `toolComponent` object **MAY** contain a property named `informationUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI \[[cite](#RFC3986)\] at which information about this version of the tool component can be found.
+A `toolComponent` object **MAY** contain a property named `informationUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI [cite](#RFC3986) at which information about this version of the tool component can be found.
 
 > NOTE: This property is localizable to allow tool information in different languages to be found at different URIs.
 
@@ -375,13 +375,13 @@ The beginning of `fullDescription` (for example, its first sentence) **SHOULD** 
 
 ### language property
 
-Depending on the circumstances, a `toolComponent` object either **SHALL** or **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([sec](#localizable-strings)) contained in the component (except for those in the `translationMetadata` property ([sec](#translationmetadata-property))), in a subset of the format specified by the language tags standard \[[cite](#RFC5646)\]. The subset consists of strings conforming to the syntax
+Depending on the circumstances, a `toolComponent` object either **SHALL** or **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([sec](#localizable-strings)) contained in the component (except for those in the `translationMetadata` property ([sec](#translationmetadata-property))), in a subset of the format specified by the language tags standard [cite](#RFC5646). The subset consists of strings conforming to the syntax
 
     language value = language code, "-", country code;
 
-    language code = ? ISO 2-character language name \[[cite](#ISO639-1;2002)\] ?;
+    language code = ? ISO 2-character language name [cite](#ISO639-1;2002) ?;
 
-    country code = ? ISO country code \[[cite](#ISO3166-1;2013)\] ?;
+    country code = ? ISO country code [cite](#ISO3166-1;2013) ?;
 
 If this object represents a translation (see [sec](#translations)), `language` **SHALL** be present; otherwise it **MAY** be present.
 
@@ -621,7 +621,7 @@ If `isComprehensive` is absent, it **SHALL** default to `false`.
 
 ### localizedDataSemanticVersion property
 
-If a `toolComponent` object represents a translation ([sec](#translations)), it **SHOULD** contain a property named `localizedDataSemanticVersion` whose value is a string that specifies the semantic version \[[cite](#SEMVER)\] of the translated strings. Otherwise, `localizedDataSemanticVersion` **MAY** be present, in which case it represents the semantic version of the localizable strings ([sec](#localizable-strings)) that are present in this component.
+If a `toolComponent` object represents a translation ([sec](#translations)), it **SHOULD** contain a property named `localizedDataSemanticVersion` whose value is a string that specifies the semantic version [cite](#SEMVER) of the translated strings. Otherwise, `localizedDataSemanticVersion` **MAY** be present, in which case it represents the semantic version of the localizable strings ([sec](#localizable-strings)) that are present in this component.
 
 If `localizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([sec](#semanticversion-property)).
 
@@ -631,7 +631,7 @@ If `localizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject
 
 ### minimumRequiredLocalizedDataSemanticVersion property
 
-If a `toolComponent` object does not represent a translation ([sec](#translations)), it **SHOULD** contain a property named `minimumRequiredLocalizedDataSemanticVersion` whose value is a string that specifies the minumum semantic version \[[cite](#SEMVER)\] of the translated strings that it requires. Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
+If a `toolComponent` object does not represent a translation ([sec](#translations)), it **SHOULD** contain a property named `minimumRequiredLocalizedDataSemanticVersion` whose value is a string that specifies the minumum semantic version [cite](#SEMVER) of the translated strings that it requires. Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
 
 If `minimumRequiredLocalizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([sec](#semanticversion-property)).
 

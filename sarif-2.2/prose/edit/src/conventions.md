@@ -6,7 +6,7 @@ The following conventions are used within this document.
 
 ## Format examples
 
-This document contains several partial examples of the JSON serialization of the SARIF format. The examples are formatted for clarity, as permitted by JSON \[[cite](#RFC8259)\], which allows "insignificant whitespace" before or after any token; implementations do not need to follow the whitespace convention used in these examples. The examples also employ typographical conventions that are not part of the JSON or SARIF formats:
+This document contains several partial examples of the JSON serialization of the SARIF format. The examples are formatted for clarity, as permitted by JSON [cite](#RFC8259), which allows "insignificant whitespace" before or after any token; implementations do not need to follow the whitespace convention used in these examples. The examples also employ typographical conventions that are not part of the JSON or SARIF formats:
 
 - An ellipsis (…) is used to indicate that portions of the log file text required by this document have been omitted for brevity.
 
@@ -22,7 +22,7 @@ A SARIF object consists of a set of properties. The value of a property can itse
 
 ## Syntax notation
 
-Where this document describes a syntactic construct, it uses the extended Backus-Naur form (EBNF) \[[cite](#ISO14977;1996)\].
+Where this document describes a syntactic construct, it uses the extended Backus-Naur form (EBNF) [cite](#ISO14977;1996).
 
 In all EBNF definitions in this spec:
 
@@ -37,7 +37,7 @@ In all EBNF definitions in this spec:
   | decimal digit – '0', { decimal digit };
   ```
 
-- The following "special sequence" (see EBNF \[[cite](#ISO14977;1996)\], §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON \[[cite](#ECMA404)\]:
+- The following "special sequence" (see EBNF [cite](#ISO14977;1996), §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON [cite](#ECMA404):
 
     ```
     ? JSON string character ?

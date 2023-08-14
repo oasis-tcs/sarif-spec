@@ -779,7 +779,7 @@ A `result` object **MAY** contain a property named `attachments` whose value is 
 
 ### workItemUris property
 
-A `result` object **MAY** contain a property named `workItemUris` whose value is either `null` or an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings each of which contains the absolute URI \[[cite](#RFC3986)\] of a work item associated with this result.
+A `result` object **MAY** contain a property named `workItemUris` whose value is either `null` or an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings each of which contains the absolute URI [cite](#RFC3986) of a work item associated with this result.
 
 If `workItemUris` is absent, it **SHALL** default to `null`.
 
@@ -793,7 +793,7 @@ The `workItemUris` values for all `result` objects in `theRun` **SHALL** be eith
 
 ### hostedViewerUri property
 
-A `result` object **MAY** contain a property named `hostedViewerUri` whose value is a string containing an absolute URI \[[cite](#RFC3986)\] at which the result can be viewed. The URI **SHALL** be valid as of the time the tool generated this result. It is not guaranteed to be valid at later times (for example, the hosting environment might not keep results older than a specified age).
+A `result` object **MAY** contain a property named `hostedViewerUri` whose value is a string containing an absolute URI [cite](#RFC3986) at which the result can be viewed. The URI **SHALL** be valid as of the time the tool generated this result. It is not guaranteed to be valid at later times (for example, the hosting environment might not keep results older than a specified age).
 
 > NOTE: This property can be used by tools that provide an online viewing experience for the results they generate. This experience might be specifically designed to display the results from that tool, as opposed to a generic SARIF viewer that displays results from any tool that produces SARIF.
 

@@ -2,7 +2,7 @@
 
 ### General{#webrequest-object--general}
 
-A `webRequest` object describes an HTTP request \[[cite](#RFC7230)\]. The response to the request is described by a `webResponse` object ([sec](#webresponse-object)).
+A `webRequest` object describes an HTTP request [cite](#RFC7230). The response to the request is described by a `webResponse` object ([sec](#webresponse-object)).
 
 > NOTE 1: This object is primarily useful to web analysis tools.
 
@@ -40,7 +40,7 @@ A `webRequest` object **SHOULD** contain a property named `version` whose value 
 
 ### target property{#webrequest-object--target-property}
 
-A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [§5.3](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard \[[cite](#RFC7230)\].
+A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [§5.3](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard [cite](#RFC7230).
 
 ### method property
 
@@ -66,6 +66,6 @@ If the request body is entirely textual, `body.text` ([sec](#artifactcontent-obj
 
 > NOTE 2: If necessary, the character encoding actually used in the request can be deduced from the value of the `Content-Type` header (see [sec](#webrequest-object--headers-property)), for example, `"text/plain; charset=ascii"`.
 
-If the request body is entirely textual, `body.binary` ([sec](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding \[[cite](#RFC2045)\] of the body as it was actually transmitted.
+If the request body is entirely textual, `body.binary` ([sec](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding [cite](#RFC2045) of the body as it was actually transmitted.
 
 If the request body consists partially or entirely of binary data, `body.binary` **SHALL** be present and **SHALL** contain the MIME Base64 encoding of the body. In this situation, `body.text` **SHALL** be absent.

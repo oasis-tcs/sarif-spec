@@ -31,7 +31,7 @@ Although the order in which properties appear in a JSON object value is not sema
 
 ### \$schema property{#sariflog-object--schema-property}
 
-A `sarifLog` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document \[[cite](#JSCHEMA01)\] describing the version of the SARIF format to which this log file conforms can be obtained.
+A `sarifLog` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document [cite](#JSCHEMA01) describing the version of the SARIF format to which this log file conforms can be obtained.
 
 If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([sec](#sariflog-object--version-property)).
 

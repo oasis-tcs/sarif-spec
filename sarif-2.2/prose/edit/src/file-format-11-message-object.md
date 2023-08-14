@@ -6,7 +6,7 @@ Certain objects in this document define messages intended to be viewed by a user
 
 - Message strings in plain text ("plain text messages") ([sec](#plain-text-messages)).
 
-- Message strings that incorporate formatting information ("formatted messages") in GitHub Flavored Markdown \[[cite](#GFM)\] ([sec](#formatted-messages)).
+- Message strings that incorporate formatting information ("formatted messages") in GitHub Flavored Markdown [cite](#GFM) ([sec](#formatted-messages)).
 
 - Message strings with placeholders for variable information ([sec](#messages-with-placeholders)).
 
@@ -40,7 +40,7 @@ A SARIF post-processor **SHOULD NOT** modify line break sequences (except perhap
 
 Formatted messages **MAY** be of arbitrary length and **MAY** contain formatting information. The message string **MAY** also contain placeholders ([sec](#messages-with-placeholders)) and embedded links ([sec](#messages-with-embedded-links)).
 
-Formatted messages **SHALL** be expressed in GitHub-Flavored Markdown \[[cite](#GFM)\]. Since GFM is a superset of CommonMark \[[cite](#CMARK)\], any CommonMark Markdown syntax is acceptable.
+Formatted messages **SHALL** be expressed in GitHub-Flavored Markdown [cite](#GFM). Since GFM is a superset of CommonMark [cite](#CMARK), any CommonMark Markdown syntax is acceptable.
 
 #### Security implications
 
@@ -48,9 +48,9 @@ For security reasons, SARIF producers and consumers **SHALL** adhere to the foll
 
 - SARIF producers **SHALL NOT** emit messages that contain HTML, even though all variants of Markdown permit it.
 
-- Deeply nested markup can cause a stack overflow in the Markdown processor \[[cite](#GFMENG)\]. To reduce this risk, SARIF consumers **SHALL** use a Markdown processor that is hardened against such attacks.
+- Deeply nested markup can cause a stack overflow in the Markdown processor [cite](#GFMENG). To reduce this risk, SARIF consumers **SHALL** use a Markdown processor that is hardened against such attacks.
 
-    NOTE: One example is the GitHub fork of the cmark Markdown processor \[[cite](#GFMCMARK)\].
+    NOTE: One example is the GitHub fork of the cmark Markdown processor [cite](#GFMCMARK).
 
 - To reduce the risk posed by possibly malicious SARIF files that do contain arbitrary HTML (including, for example, `javascript:` links), SARIF consumers **SHALL** either disable HTML processing (for example, by using an option such as the `--safe` option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 
@@ -100,7 +100,7 @@ Within a given `message` object:
 
 A message string **MAY** include one or more links to locations within artifacts mentioned in the enclosing `result` object ([sec](#result-object)). We refer to these links as "embedded links".
 
-Within a formatted message ([sec](#formatted-messages)), an embedded link **SHALL** conform to the syntax of a GitHub Flavored Markdown link (see \[[cite](#GFM)\], §6.6, "Links").
+Within a formatted message ([sec](#formatted-messages)), an embedded link **SHALL** conform to the syntax of a GitHub Flavored Markdown link (see [cite](#GFM), §6.6, "Links").
 
 > NOTE 1: The GFM link syntax is very flexible. Since a SARIF viewer that renders formatted messages will presumably rely on a full-featured GFM processor, there is no need to restrict the embedded link syntax in SARIF formatted messages.
 
@@ -184,7 +184,7 @@ The `link destination` in embedded links in both plain text messages and formatt
 >
 > A SARIF viewer executing in an IDE might respond to a click on such a link by selecting the target result in an error list window and navigating the editor to that result’s location.
 
-Because the `"sarif"` URI scheme uses JSON pointer \[[cite](#RFC6901)\], which locates array elements by their array index, these URIs are potentially fragile if the SARIF log file is transformed by a post-processor.
+Because the `"sarif"` URI scheme uses JSON pointer [cite](#RFC6901), which locates array elements by their array index, these URIs are potentially fragile if the SARIF log file is transformed by a post-processor.
 
 > EXAMPLE 2: If a post-processor concatenates two runs into a single log file, the links within the run at index 1 will be incorrect, and will need to be updated from `"sarif:/runs/0/…"` to `"sarif:/runs/1/…"`.
 
@@ -256,7 +256,7 @@ A `message` object **MAY** contain a property named `text` whose value is a non-
 
 ### markdown property{#message-object--markdown-property}
 
-A `message` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([sec](#formatted-messages)) expressed in GitHub-Flavored Markdown \[[cite](#GFM)\].
+A `message` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([sec](#formatted-messages)) expressed in GitHub-Flavored Markdown [cite](#GFM).
 
 If the `markdown` property is present, the `text` property ([sec](#message-object--text-property)) **SHALL** also be present.
 

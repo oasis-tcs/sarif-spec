@@ -53,7 +53,7 @@ A `run` object **SHALL** contain a property named `tool` whose value is a `tool`
 
 ### language
 
-A `run` object **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([sec](#localizable-strings)) in `theRun` (except for localizable strings that occur within `theRun.translations` ([sec](#translations-property))), in the format specified by the language tags standard \[[cite](#RFC5646)\]. If this property is absent, it **SHALL** default to `"en-US"`.
+A `run` object **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([sec](#localizable-strings)) in `theRun` (except for localizable strings that occur within `theRun.translations` ([sec](#translations-property))), in the format specified by the language tags standard [cite](#RFC5646). If this property is absent, it **SHALL** default to `"en-US"`.
 
 > EXAMPLE 1: The language is region-neutral English:
 >
@@ -119,7 +119,7 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 
 ### originalUriBaseIds property
 
-A `run` object **MAY** contain a property named `originalUriBaseIds` whose value is an object ([sec](#object-properties)) each of whose property names designates a URI base id ([sec](#uribaseid-property)) and each of whose property values is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies (in the manner described below) the absolute URI \[[cite](#RFC3986)\] of that URI base id on the machine where the SARIF producer ran.
+A `run` object **MAY** contain a property named `originalUriBaseIds` whose value is an object ([sec](#object-properties)) each of whose property names designates a URI base id ([sec](#uribaseid-property)) and each of whose property values is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies (in the manner described below) the absolute URI [cite](#RFC3986) of that URI base id on the machine where the SARIF producer ran.
 
 If the `artifactLocation` object’s `uri` property ([sec](#uri-property)) is a relative reference, its `uriBaseId` property ([sec](#uribaseid-property)) **SHALL** be present. Otherwise (that is, if `uri` is an absolute URI, or if it is absent), `uriBaseId` **SHALL** be absent.
 
@@ -176,7 +176,7 @@ The values of the `uri` properties in the `artifactLocation` objects in `origina
 
 - **SHALL** end with a single forward slash .
 
-- **SHALL NOT** include a query or fragment component as defined in URI Generic Syntax \[[cite](#RFC3986)\].
+- **SHALL NOT** include a query or fragment component as defined in URI Generic Syntax [cite](#RFC3986).
 
 - **SHALL NOT** include `".."` path segments.
 
@@ -357,7 +357,7 @@ If `results` is absent, it **SHALL** default to `null`.
 
 ### defaultEncoding property
 
-A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([sec](#encoding-property)) of any `artifact` object ([sec](#artifact-object)) in `theRun.artifacts` ([sec](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA \[[cite](#IANA-ENC)\].
+A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([sec](#encoding-property)) of any `artifact` object ([sec](#artifact-object)) in `theRun.artifacts` ([sec](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA [cite](#IANA-ENC).
 
 If this property is absent, it **SHALL** be interpreted as meaning that there is no default file encoding. In that case, the encoding of any `artifact` object that does not contain an `encoding` property **SHALL** be taken to be unknown.
 

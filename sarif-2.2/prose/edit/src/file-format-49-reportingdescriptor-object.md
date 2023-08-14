@@ -222,7 +222,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 
 ### helpUri property
 
-A `reportingDescriptor` object **MAY** contain a property named `helpUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI \[[cite](#RFC3986)\] of the primary documentation for the reporting item.
+A `reportingDescriptor` object **MAY** contain a property named `helpUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI [cite](#RFC3986) of the primary documentation for the reporting item.
 
 > NOTE 1: The documentation might include examples, contact information for the authors, and links to additional information.
 

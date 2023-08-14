@@ -14,9 +14,9 @@ In addition to those properties that are explicitly documented, every object def
 
 #### General{#tags--general}
 
-If a property bag contains a property named `tags`, the property value **SHALL** be an array of zero or more unique ([sec](#array-properties-with-unique-values)), hierarchical ([sec](#hierarchical-strings)) strings. Two strings **SHALL** be considered the same if they consist of the same sequence of Unicode \[[cite](#UNICODE12)\] code points.
+If a property bag contains a property named `tags`, the property value **SHALL** be an array of zero or more unique ([sec](#array-properties-with-unique-values)), hierarchical ([sec](#hierarchical-strings)) strings. Two strings **SHALL** be considered the same if they consist of the same sequence of Unicode [cite](#UNICODE12) code points.
 
-Tags **SHOULD NOT** be used to label a result or a rule as belonging to a category in a classification system such as the Common Weakness Enumeration \[[cite](#CWE)\] (for example, by adding a tag `"CWE/622"`). Instead, taxonomies ([sec](#taxonomies)) **SHOULD** be used for this purpose.
+Tags **SHOULD NOT** be used to label a result or a rule as belonging to a category in a classification system such as the Common Weakness Enumeration [cite](#CWE) (for example, by adding a tag `"CWE/622"`). Instead, taxonomies ([sec](#taxonomies)) **SHOULD** be used for this purpose.
 
 Even when defining a custom classification system used within an engineering team, taxonomies **SHOULD** be used rather than tags when labeling a result or a rule.
 

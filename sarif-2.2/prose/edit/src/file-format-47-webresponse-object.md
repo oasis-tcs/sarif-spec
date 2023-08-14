@@ -2,7 +2,7 @@
 
 ### General{#webresponse-object--general}
 
-A `webResponse` object describes the response to an HTTP request \[[cite](#RFC7230)\]. The request itself is described by a `webRequest` object ([sec](#webrequest-object)).
+A `webResponse` object describes the response to an HTTP request [cite](#RFC7230). The request itself is described by a `webRequest` object ([sec](#webrequest-object)).
 
 > NOTE: This object is primarily useful to web analysis tools.
 
@@ -66,7 +66,7 @@ If the response body is entirely textual, `body.text` ([sec](#artifactcontent-ob
 
 > NOTE 2: If necessary, the character encoding actually used in the response can be deduced from the value of the `Content-Type` header (see [sec](#webresponse-object--headers-property)), for example, `"text/plain; charset=ascii"`.
 
-If the response body is entirely textual, `body.binary` ([sec](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding \[[cite](#RFC2045)\] of the body as it was actually transmitted.
+If the response body is entirely textual, `body.binary` ([sec](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding [cite](#RFC2045) of the body as it was actually transmitted.
 
 If the response body consists partially or entirely of binary data, `body.binary` **SHALL** be present and **SHALL** contain the MIME Base64 encoding of the body. In this situation, `body.text` **SHALL** be absent.
 

@@ -12,11 +12,11 @@ If a SARIF producer or a SARIF post-processor chooses to redact sensitive inform
 
 ### GUID-valued strings
 
-Certain string-valued properties in this document provide unique stable identifiers in the form of a GUID or UUID \[[cite](#RFC4122)\]. This document uses the term "GUID".
+Certain string-valued properties in this document provide unique stable identifiers in the form of a GUID or UUID [cite](#RFC4122). This document uses the term "GUID".
 
 > EXAMPLE 1: `"f81d4fae-7dec-11d0-a765-00a0c91e6bf6"`
 
-> NOTE 1: The UUID standard \[[cite](#RFC4122)\] allows hex digits in either upper or lower case. It does not permit delimiters such as curly braces (`"{"`, `"}"`) around the value.
+> NOTE 1: The UUID standard [cite](#RFC4122) allows hex digits in either upper or lower case. It does not permit delimiters such as curly braces (`"{"`, `"}"`) around the value.
 
 The description of every GUID-valued property will state that it is GUID-valued.
 

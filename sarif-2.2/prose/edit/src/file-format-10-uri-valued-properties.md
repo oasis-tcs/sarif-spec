@@ -2,7 +2,7 @@
 
 ### General{#uri-valued-properties--general}
 
-Certain properties in this document specify either an absolute URI or a URI reference (the term used in the URI standard \[[cite](#RFC3986)\] to describe either an absolute URI or a relative reference). The value of every such property, if present, **SHALL** be a string in the format specified by the standard \[[cite](#RFC3986)\].
+Certain properties in this document specify either an absolute URI or a URI reference (the term used in the URI standard [cite](#RFC3986) to describe either an absolute URI or a relative reference). The value of every such property, if present, **SHALL** be a string in the format specified by the standard [cite](#RFC3986).
 
 If a URI reference refers to a file stored in a version control system (VCS), its value **SHALL** include sufficient information (for example, a commit id) to enable the correct version of the target file to be retrieved from the VCS. If a URI reference refers to a file stored on a physical file system, it **MAY** be specified as a relative reference that omits root information details (such as hard drive letter and an arbitrarily named root directory associated with a source code enlistment).
 
@@ -10,9 +10,9 @@ If a URI reference refers to a file stored in a version control system (VCS), it
 
 The URI **SHALL** specify the location of the artifact at the time the analysis was performed.
 
-Two URI references **SHALL** be considered equivalent if their normalized forms are the same, as described in the standard \[[cite](#RFC3986)\].
+Two URI references **SHALL** be considered equivalent if their normalized forms are the same, as described in the standard [cite](#RFC3986).
 
-> NOTE 2: Features of this normalized form include using upper-case hexadecimal digits for percent-encoded characters and expressing the scheme component in lower-case. For the full specification of the normalized URI form, see the standard \[[cite](#RFC3986)\].
+> NOTE 2: Features of this normalized form include using upper-case hexadecimal digits for percent-encoded characters and expressing the scheme component in lower-case. For the full specification of the normalized URI form, see the standard [cite](#RFC3986).
 
 For additional normalization requirements for URIs that use the `"file"` scheme, see [sec](#normalizing-file-scheme-uris).
 
@@ -24,7 +24,7 @@ Aside from normalization, SARIF producers **SHALL NOT** make any other changes t
 
 ### Normalizing file scheme URIs
 
-If a URI uses the `"file"` scheme \[[cite](#RFC8089)\] and the specified path is network-accessible, the SARIF producer **SHALL** include the host name.
+If a URI uses the `"file"` scheme [cite](#RFC8089) and the specified path is network-accessible, the SARIF producer **SHALL** include the host name.
 
 > EXAMPLE 1: A file-based URI that references a network share.
 >
@@ -36,7 +36,7 @@ If a URI uses the `"file"` scheme and the specified path is *not* network-access
 >
 >       file:///C:/src
 
-A SARIF producer **MAY** choose to omit the hostname (authority) from a file URI, for example, for security reasons. If it does so, then to maximize interoperability with previous versions of the URI specification, the URI **SHOULD** start with `"file:///"`, as in EXAMPLE 2. See the standard \[[cite](#RFC8089)\] for more information on this point.
+A SARIF producer **MAY** choose to omit the hostname (authority) from a file URI, for example, for security reasons. If it does so, then to maximize interoperability with previous versions of the URI specification, the URI **SHOULD** start with `"file:///"`, as in EXAMPLE 2. See the standard [cite](#RFC8089) for more information on this point.
 
 SARIF producers **SHALL** create `"file"` scheme URIs by means of the following procedure or any procedure with the same result:
 
@@ -48,7 +48,7 @@ SARIF producers **SHALL** create `"file"` scheme URIs by means of the following 
 
 4.  If the path contains `".."` path segments, then in the case of a direct producer, resolve the path to a canonical absolute path, using an appropriate algorithm for the operating system on which the tool ran.
 
-    NOTE 1: This is necessary because, for example, the path `/d1/../f` naively converted to a URI is `file:///d1/../f`, which resolves to `file:///f` according to the URI standard \[[cite](#RFC3986)\]. But if `/d1` is a symbolic link to the directory `d2/d3`, then the correct URI is `file:///d2/f`.
+    NOTE 1: This is necessary because, for example, the path `/d1/../f` naively converted to a URI is `file:///d1/../f`, which resolves to `file:///f` according to the URI standard [cite](#RFC3986). But if `/d1` is a symbolic link to the directory `d2/d3`, then the correct URI is `file:///d2/f`.
 
     NOTE 2: ".." path segments are dangerous because the semantics of the file system on which the SARIF log file was produced might not match the semantics of the file system on which it is consumed. For example, the presence of a symbolic link in the path might redirect the consumer to an unpredictable location.
 
@@ -74,7 +74,7 @@ SARIF producers **SHALL** create `"file"` scheme URIs by means of the following 
 > string uriString = uri.AbsoluteUri;
 > ```
 
-SARIF consumers SHALL NOT normalize ".." segments out of a path. A consumer SHOULD reject paths that contain ".." segments, otherwise a consumer SHALL treat distinct portions of paths up to and including the rightmost ".." segment as unique directories on the file system, even if \[[cite](#RFC3986)\] normalization would produce identical paths.
+SARIF consumers SHALL NOT normalize ".." segments out of a path. A consumer SHOULD reject paths that contain ".." segments, otherwise a consumer SHALL treat distinct portions of paths up to and including the rightmost ".." segment as unique directories on the file system, even if [cite](#RFC3986) normalization would produce identical paths.
 
 > EXAMPLE 3: Consider the following three URIs:
 >
@@ -88,12 +88,12 @@ A consumer would treat `f1` and `f2` as residing in the same directory. So, for 
 
 ### URIs that use the sarif scheme
 
-In certain circumstances, a URI can refer to an element of the current SARIF log file (for example, see [sec](#externalpropertyfilereference-object--location-property)). Such a URI uses the `sarif` scheme. The `sarif` URI scheme consists of only a scheme (with the value `sarif`) and a path component. The path component is interpreted as a JSON pointer \[[cite](#RFC6901)\] into the SARIF document containing the URI. The authority, query and fragment URI components **SHALL NOT** be present.
+In certain circumstances, a URI can refer to an element of the current SARIF log file (for example, see [sec](#externalpropertyfilereference-object--location-property)). Such a URI uses the `sarif` scheme. The `sarif` URI scheme consists of only a scheme (with the value `sarif`) and a path component. The path component is interpreted as a JSON pointer [cite](#RFC6901) into the SARIF document containing the URI. The authority, query and fragment URI components **SHALL NOT** be present.
 
 > EXAMPLE 1: The URI `"sarif:/inlineExternalProperties/0"` refers to the 0<sup>th</sup> element of the array contained in the `inlineExternalProperties` property ([sec](#inlineexternalproperties-property)) at the root of the log file.
 
 ### Internationalized Resource Identifiers (IRIs)
 
-If a URI-valued property refers to a resource identified by an Internationalized Resource Identifier (IRI) \[[cite](#RFC3987)\], the SARIF producer **SHALL** first transform the IRI into a URI, using the mapping mechanism specified in [sec](#file-format--general) of the standard \[[cite](#RFC3987)\], and then assign the transformed value to the property. The string value of a URI-valued property **SHALL NOT** include Unicode characters such as `"é"`; such characters are permitted in IRIs but are not permitted in URIs. [sec](#file-format--general) of the standard \[[cite](#RFC3987)\] describes how to replace such characters with "percent-encoded" equivalents to produce a valid URI.
+If a URI-valued property refers to a resource identified by an Internationalized Resource Identifier (IRI) [cite](#RFC3987), the SARIF producer **SHALL** first transform the IRI into a URI, using the mapping mechanism specified in [sec](#file-format--general) of the standard [cite](#RFC3987), and then assign the transformed value to the property. The string value of a URI-valued property **SHALL NOT** include Unicode characters such as `"é"`; such characters are permitted in IRIs but are not permitted in URIs. [sec](#file-format--general) of the standard [cite](#RFC3987) describes how to replace such characters with "percent-encoded" equivalents to produce a valid URI.
 
-> EXAMPLE 1: Suppose a URI-valued property needs to refer to a resource identified by the string `"http://www.example.com/hu/sör.txt"`. This string contains the character `"ö"`, so it is a valid IRI but not a valid URI. Following the procedure in [sec](#file-format--general) of the standard \[[cite](#RFC3987)\], a SARIF producer would transform this string to the valid URI `"http://www.example.com/hu/s%C3%B6r.txt"` before assigning it to the property.
+> EXAMPLE 1: Suppose a URI-valued property needs to refer to a resource identified by the string `"http://www.example.com/hu/sör.txt"`. This string contains the character `"ö"`, so it is a valid IRI but not a valid URI. Following the procedure in [sec](#file-format--general) of the standard [cite](#RFC3987), a SARIF producer would transform this string to the valid URI `"http://www.example.com/hu/s%C3%B6r.txt"` before assigning it to the property.

@@ -8,7 +8,7 @@ toc:
 -->
 # (Informative) MIME Types and File Name Extensions{#non-normative-mime-types-and-file-name-extensions}
 
-The following is a list of MIME types and file extensions for files that conform to this specification, registered according to \[[cite](#RFC2048)\].
+The following is a list of MIME types and file extensions for files that conform to this specification, registered according to [cite](#RFC2048).
 
 | MIME type                                  | Extension                                                      | Description                                                           |
 |:-------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------------------|
