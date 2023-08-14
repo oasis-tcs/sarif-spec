@@ -11,11 +11,11 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 >   "version": "2.1.0", # See (#sariflog-object--version-property).
 >   "runs": [           # See (#runs-property).
 >     {
->       ...             # A run object (§3.14)
+>       ...             # A run object ((#run-object)).
 >     },
 >     ...
 >     {
->       ...             # Another run object
+>       ...             # Another run object.
 >     }
 >   ]
 > }

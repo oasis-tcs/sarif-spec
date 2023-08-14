@@ -209,7 +209,7 @@ Although the values suggested here are useful in the specified categories (for e
 > Suppose that an analysis tool detects errors on line 3 (the order number is blank) and line 4 (the total is negative). It might represent the logical locations of these errors as XML Paths (although this is not required), as follows:
 >
 > ```json
-> {                                 # A run object (§3.14)
+> {                                 # A run object ((#run-object)).
 >   "results": [                    # See (#results-property).
 >     {                             # A result object ((#result-object)).
 >       "locations": [              # See (#result-object--locations-property).
@@ -293,7 +293,7 @@ Although the values suggested here are useful in the specified categories (for e
 > Suppose that an analysis tool detects errors on line 4 (one of the product ids blank) and line 5 (the total is negative). It might represent the logical locations of these errors as JSON Pointers (although this is not required), as follows:
 >
 > ```json
-> {                                 # A run object (§3.14)
+> {                                 # A run object ((#run-object)).
 >   "results": [                    # See (#results-property).
 >     {                             # A result object ((#result-object)).
 >       "locations": [              # See (#result-object--locations-property).

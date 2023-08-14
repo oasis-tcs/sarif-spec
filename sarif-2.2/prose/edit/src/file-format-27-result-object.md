@@ -361,7 +361,7 @@ IF rule ([sec](#rule-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;# There is no configuration override for `level`. Is there a default configuration for it?
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `theDescriptor.defaultConfiguration.level` ([sec](#defaultconfiguration-property), §, [sec](#reportingconfiguration-object--level-property)) is present THEN
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `theDescriptor.defaultConfiguration.level` ([sec](#defaultconfiguration-property), [sec](#reportingconfiguration-object--level-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SET level to `theDescriptor.defaultConfiguration.level`.
 

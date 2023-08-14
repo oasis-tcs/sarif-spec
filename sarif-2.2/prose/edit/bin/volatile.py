@@ -45,9 +45,11 @@ MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref
 
 # Detecting code block references with label values
 # e.g. ' #  ((#run-object)).'
-SEC_LABEL_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<label>\(#(?P<value>[0-9a-z-]+)\))\)\.')
+SEC_LABEL_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]*\((?P<label>\(#(?P<value>[0-9a-z-]+)\))\)')
+# e.g. ' # The language of the translation (see (#language-property)).'
+SEC_LABEL_SEE_STUFF_CP_DETECT = re.compile(r'\ +#\ +[^(]*\((see\ )(?P<label>\(#(?P<value>[0-9a-z-]+)\))\)')
 # e.g. ' #  (#run-object).'
-SEC_LABEL_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))\.')
+SEC_LABEL_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))')
 
 # Reverse detection patterns for documentation purposes
 # e.g. ' # A run object (§3.14).' or ' #  (§3.1.2).'
@@ -398,6 +400,19 @@ def main(argv: list[str]) -> int:
             for ref in SEC_LABEL_BRACKET_CB_DETECT.finditer(line):
                 if ref:
                     # Found bracketed label ref to section in code block
+                    found = ref.groupdict()
+                    value = found['value']
+                    if not value or value not in display_from:
+                        continue
+                    label = found['label']
+                    display = display_from[value]
+                    sem_ref = label
+                    disp_ref = display
+                    line = line.replace(sem_ref, disp_ref)
+                    lines[slot] = line
+            for ref in SEC_LABEL_SEE_STUFF_CP_DETECT.finditer(line):
+                if ref:
+                    # Found special (see ...) label ref to section in code block
                     found = ref.groupdict()
                     value = found['value']
                     if not value or value not in display_from:

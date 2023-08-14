@@ -145,7 +145,7 @@ In both plain text and formatted messages, if `link destination` is a non-negati
 > EXAMPLE 2: In this example, a plain text message contains an embedded link to a location with a file. The `result` object contains exactly one `location` object whose `id` property matches the `link destination`.
 >
 > ```json
-> {                                  # A result object (§3.27)
+> {                                  # A result object ((#result-object)).
 >   "ruleId": "TNT0001",
 >   "message": {
 >     "text": "Tainted data was used. The data came from [here](3)."

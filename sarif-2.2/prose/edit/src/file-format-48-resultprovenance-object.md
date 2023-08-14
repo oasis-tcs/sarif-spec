@@ -92,7 +92,7 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([se
 >           "name": "CodeScanner"
 >         }
 >       },
->       "conversion": {  # A conversion object (see §3.22).
+>       "conversion": {  # A conversion object (see (#conversion-object)).
 >         ...
 >       },
 >       "results": [
@@ -104,7 +104,7 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([se
 >           ...
 >           "provenance": {              # See (#provenance-property).
 >             "conversionSources": [     # An array of physicalLocation objects 
->               {                        # (§3.29).
+>               {                        # ((#physicallocation-object)).
 >                 "artifactLocation": {  # See (#physicallocation-object--artifactlocation-property).
 >                   "uri": "CodeScanner.log",
 >                   "uriBaseId": "$LOGSROOT"

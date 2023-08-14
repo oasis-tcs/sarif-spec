@@ -547,7 +547,7 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 > EXAMPLE 1: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE](#CWE)\], and also supports a custom taxonomy.
 >
 > ```json
-> {                                 # A run object (§3.14)
+> {                                 # A run object ((#run-object)).
 >   "tool": {                       # See (#run-object--tool-property).
 >     "driver": {                   # See (#driver-property).
 >       "name": "CodeScanner",

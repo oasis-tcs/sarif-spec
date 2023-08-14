@@ -10,7 +10,7 @@ Because they occur only in `toolComponent` objects that represent translations, 
 >
 > ```json
 > {                           # A toolComponent object ((#toolcomponent-object)).
->   "language": "fr-FR",      # The language of the translation (see (§3.19.21).
+>   "language": "fr-FR",      # The language of the translation (see (#language-property)).
 > 
 >   "translationMetadata": {  # A translation metadata object.
 >     "name": "CodeScanner translation for fr-FR ",

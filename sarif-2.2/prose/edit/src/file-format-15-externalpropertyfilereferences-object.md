@@ -105,7 +105,7 @@ With one exception described below, if a property appears inline in the root fil
 >     }
 >   },
 >   "externalPropertyFileReferences": {
->     "conversion": {     # An externalPropertyFileReference object (see §3.16).
+>     "conversion": {     # An externalPropertyFileReference object (see (#externalpropertyfilereference-object)).
 >       "location": {          # See (#externalpropertyfilereference-object--location-property).
 >         "uri": "scantool.sarif-external-properties",
 >         "uriBaseId": "LOGSDIR",
@@ -137,7 +137,7 @@ With one exception described below, if a property appears inline in the root fil
 >   },
 >   "externalPropertyFileReferences": {
 >     "results": [
->       {                 # An externalPropertyFileReference object (see §3.16).
+>       {                 # An externalPropertyFileReference object (see (#externalpropertyfilereference-object)).
 >         "location": {
 >           "uri": "scantool.results.sarif-external-properties",
 >           "uriBaseId": "LOGSDIR",

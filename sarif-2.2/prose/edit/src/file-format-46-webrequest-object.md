@@ -40,7 +40,7 @@ A `webRequest` object **SHOULD** contain a property named `version` whose value 
 
 ### target property{#webrequest-object--target-property}
 
-A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [§5.3](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard [cite](#RFC7230).
+A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [sec](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard [cite](#RFC7230).
 
 ### method property
 

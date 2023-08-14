@@ -160,7 +160,7 @@ If the `artifact` object represents a binary artifact, `encoding` **SHALL** be a
 > EXAMPLE 1: In this example, the encoding of output.txt is UTF-16BE (obtained from the default), but the encoding of data.txt is UTF-16LE:
 >
 > ```json
-> {                                      # A run object (§3.14)
+> {                                      # A run object ((#run-object)).
 >   "defaultEncoding": "UTF-16BE",       # See (#defaultencoding-property).
 > 
 >   "artifacts": [                       # See (#artifacts-property).

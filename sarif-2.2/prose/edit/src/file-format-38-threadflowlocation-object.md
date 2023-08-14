@@ -396,7 +396,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 >         },
 >         ...
 >       ],
->       "taxa": [                  # Custom taxonomy (§3.19.3) for helper rules.
+>       "taxa": [                  # Custom taxonomy ((#taxonomies)) for helper rules.
 >         {                        # A reportingDescriptor object ((#reportingdescriptor-object)).
 >           "id": "HR0001",
 >           "name": "SubstrPropogatesTaint",

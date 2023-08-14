@@ -37,7 +37,7 @@ In all EBNF definitions in this spec:
   | decimal digit – '0', { decimal digit };
   ```
 
-- The following "special sequence" (see EBNF [cite](#ISO14977;1996), §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON [cite](#ECMA404):
+- The following "special sequence" (see EBNF [cite](#ISO14977;1996), §4.19 and §5.11) refers to any character that can appear in a JSON string according to JSON [cite](#ECMA404):
 
     ```
     ? JSON string character ?
