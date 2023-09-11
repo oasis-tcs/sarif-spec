@@ -14,6 +14,20 @@ The SARIF project started with a relatively simple mission, define a standard fo
 
 Ultimately, the SARIF standard would enable the automatic exchange of results from all types of software analysis tools. This page details some of the efforts and investigations that the SARIF team is planning in order to achieve that goal.
 
+## SARIF Field Compatibility
+
+The following table shows mapping between current SARIF terminology as used for static analysis and that of other possible use cases.
+
+| Process | Context | Run | Test | Location | Issue |
+|---------|---------|-----|------|----------|-------|
+| Static Analysis | Common | Common | Checker | File / Line | Violation |
+| Threat Modeling | Common | Common | Rule | Graph Edge | Violation
+| Fuzz Testing | Common | Common | Checker | File / Line | Fault
+| Dynamic Analysis | Common | Common | Checker | (variable resolution location) | Failure |
+| Penetration Testing | Common | Common | Test | Test Step | Failure
+
+**Note:** Both **contest** and **run** have direct mapping into all of the above domains.
+
 ## Add Support for Dynamic (DAST) and Interactive (IAST) Tools
 
 Modern software analysis often involves observation of running software. This can occur from the outside (dynamic) where the inputs and outputs of the software are manipulated and observed to identify issues with the software works. Or it can occur from within the software (interactive) where techniques like profiling and instrumentation are used to directly observe the software as it runs. Supporting these ways of analyzing software will require SARIF to support findings that include:
