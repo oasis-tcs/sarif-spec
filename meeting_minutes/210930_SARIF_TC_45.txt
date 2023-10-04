@@ -38,7 +38,7 @@
 3.1 Review recruitment effort to complete the technical committee
  Snyk has not shown for several attempts at contact, we will halt outreach.
  Teleconference with StackHawk, who haved expressed an interest in DAST. Will follow-up.
- Reengaged with GitHub, Aditya Sharad will join the technical committe.
+ Reengaged with GitHub, Aditya Sharad will join the technical committee.
  Teleconference with ForAllSecure, a fuzzing company, willing to engage. Will follow-up.
  WhiteSource, NTT, sent mail, haven't heard back.
 3.2 Review status of draft Wikipedia page
