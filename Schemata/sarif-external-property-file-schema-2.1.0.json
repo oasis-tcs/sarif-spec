@@ -153,7 +153,7 @@
     },
 
     "addresses": {
-      "description": "Addresses that will be merged with with an external run.",
+      "description": "Addresses that will be merged with an external run.",
       "type": "array",
       "minItems": 0,
       "uniqueItems": false,
