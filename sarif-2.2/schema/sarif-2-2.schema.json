@@ -1149,6 +1149,12 @@
         "executionSuccessful"
       ]
     },
+    "language": {
+      "description": "The language of the messages emitted into the log file during this run (expressed as an ISO 639-1 two-letter lowercase culture code) and an optional region (expressed as an ISO 3166-1 two-letter uppercase subculture code associated with a country or region). The casing is recommended but not required (in order for this data to conform to RFC5646).",
+      "type": "string",
+      "default": "en-US",
+      "pattern": "^[a-zA-Z]{2}(-[a-zA-Z]{2})?$"
+    },
     "location": {
       "description": "A location within a programming artifact.",
       "additionalProperties": false,
@@ -2146,9 +2152,7 @@
         },
         "language": {
           "description": "The language of the messages emitted into the log file during this run (expressed as an ISO 639-1 two-letter lowercase culture code) and an optional region (expressed as an ISO 3166-1 two-letter uppercase subculture code associated with a country or region). The casing is recommended but not required (in order for this data to conform to RFC5646).",
-          "type": "string",
-          "default": "en-US",
-          "pattern": "^[a-zA-Z]{2}(-[a-zA-Z]{2})?$"
+          "$ref": "#/$defs/language"
         },
         "versionControlProvenance": {
           "description": "Specifies the revision in version control of the artifacts that were scanned.",
@@ -2775,9 +2779,7 @@
         },
         "language": {
           "description": "The language of the messages emitted into the log file during this run (expressed as an ISO 639-1 two-letter lowercase language code) and an optional region (expressed as an ISO 3166-1 two-letter uppercase subculture code associated with a country or region). The casing is recommended but not required (in order for this data to conform to RFC5646).",
-          "type": "string",
-          "default": "en-US",
-          "pattern": "^[a-zA-Z]{2}(-[a-zA-Z]{2})?$"
+          "$ref": "#/$defs/language"
         },
         "contents": {
           "description": "The kinds of data contained in this object.",
