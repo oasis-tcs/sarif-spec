@@ -525,8 +525,7 @@
         },
         "guid": {
           "description": "A stable, unique identifier for this external properties object, in the form of a GUID.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "runGuid": {
           "description": "A stable, unique identifier for the run associated with this external properties object, in the form of a GUID.",
@@ -691,8 +690,7 @@
         },
         "guid": {
           "description": "A stable, unique identifier for the external property file in the form of a GUID.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "itemCount": {
           "description": "A non-negative integer specifying the number of items contained in the external property file.",
@@ -995,6 +993,11 @@
           ]
         }
       ]
+    },
+    "guid": {
+      "description": "A stable, unique identifier for many entities in the form of a GUID.",
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
     },
     "invocation": {
       "description": "The runtime environment of the analysis tool run.",
@@ -1657,8 +1660,7 @@
         },
         "guid": {
           "description": "A unique identifier for the reporting descriptor in the form of a GUID.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "deprecatedGuids": {
           "description": "An array of unique identifies in the form of a GUID by which this report was known in some previous version of the analysis tool.",
@@ -1785,8 +1787,7 @@
         },
         "guid": {
           "description": "A guid that uniquely identifies the descriptor.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "toolComponent": {
           "description": "A reference used to locate the toolComponent associated with the descriptor.",
@@ -1911,8 +1912,7 @@
         },
         "guid": {
           "description": "A stable, unique identifier for the result in the form of a GUID.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "correlationGuid": {
           "description": "A stable, unique identifier for the equivalence class of logically identical results to which this result belongs, in the form of a GUID.",
@@ -2369,8 +2369,7 @@
         },
         "guid": {
           "description": "A stable, unique identifier for this object's containing run object in the form of a GUID.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "correlationGuid": {
           "description": "A stable, unique identifier for the equivalence class of runs to which this object's containing run object belongs in the form of a GUID.",
@@ -2466,8 +2465,7 @@
       "properties": {
         "guid": {
           "description": "A stable, unique identifier for the suprression in the form of a GUID.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "kind": {
           "description": "A string that indicates where the suppression is persisted.",
@@ -2673,8 +2671,7 @@
       "properties": {
         "guid": {
           "description": "A unique identifier for the tool component in the form of a GUID.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "name": {
           "description": "The name of the tool component.",
@@ -2854,8 +2851,7 @@
         },
         "guid": {
           "description": "The 'guid' property of the referenced toolComponent.",
-          "type": "string",
-          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+          "$ref": "#/$defs/guid"
         },
         "properties": {
           "description": "Key/value pairs that provide additional information about the toolComponentReference.",
