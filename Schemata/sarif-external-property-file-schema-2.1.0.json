@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "SARIF External Property File Schema Version 2.1.0 JSON Schema",
-  "$id": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-external-property-file-schema-2.1.0.json",
+  "$id": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-external-property-file-schema-2.1.0.json",
   "type": "object",
   "properties": {
 
