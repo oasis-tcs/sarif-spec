@@ -1,26 +1,28 @@
-<img src="media/OASISLogo-v3.0.png" style="width:3.01036in;height:0.61978in" />
+![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
-Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01 (redlined)
+-------
 
-OASIS Standard incorporating Draft 01 of Errata 01
+Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01
 
-22 June 2023
+OASIS Standard incorporating Approved Errata
+
+28 August 2023
 
 This stage:
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-redlined.docx> (Authoritative)
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.docx> (Authoritative)
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-redlined.html>
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html>
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-redlined.pdf>
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.pdf>
 
 Previous stage:
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.docx> (Authoritative)
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.docx> (Authoritative)
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html>
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.html>
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.pdf>
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.pdf>
 
 Latest stage:
 
@@ -50,17 +52,18 @@ Additional artifacts:
 
 This prose specification is one component of a Work Product that also includes:
 
-- Errata listing. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Errata 01*. Edited by Michael C. Fanning. 22 June 2023. OASIS Committee Specification Draft 01. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01.html>.
+- Errata listing. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Errata 01*. Edited by Michael C. Fanning. 28 August 2023. OASIS Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os.html>.
 
-- OASIS Standard with embedded Errata. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata01*. Edited by Michael C. Fanning and Laurence J. Golding. 22 June 2023. OASIS Standard incorporating Draft 01 of Errata 01. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.html>.
+- Change-marked (redlined) OASIS Standard document. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata01 (redlined)*. Edited by Michael C. Fanning and Laurence J. Golding. 28 August 2023. OASIS Standard incorporating Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-redlined.html>.
 
 - The SARIF schema:
 
-  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json>
+  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json>.
 
 - The SARIF External Property File schema:
 
-  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json>
+  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-external-property-file-schema-2.1.0.json>.
+
 
 Abstract:
 
@@ -82,7 +85,7 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.1.0-Errata01\]**
 
-*Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01 (redlined)*. Edited by Michael C. Fanning and Laurence J. Golding. 22 June 2023. OASIS Standard incorporating Draft 01 of Errata 01. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-redlined.html>. Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html>.
+*Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01*. Edited by Michael C. Fanning and Laurence J. Golding. 12 July 2023. OASIS Standard incorporating Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html>. Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html>.
 
 Notices
 
