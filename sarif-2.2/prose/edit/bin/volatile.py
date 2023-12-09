@@ -20,6 +20,7 @@ NL = '\n'
 CB_END = '}'
 COLON = ':'
 DASH = '-'
+DOT = '.'
 FULL_STOP = '.'
 HASH = '#'
 PARA = '§'
@@ -281,6 +282,7 @@ def main(argv: list[str]) -> int:
     meta_hook = {}
     # TODO: ToC builder -> class
     tic_toc = [TOC_HEADER]
+    mint = []
     did_appendix_sep = False
     logo_patched = False
     for slot, line in enumerate(lines):
@@ -357,6 +359,12 @@ def main(argv: list[str]) -> int:
                     .replace('$text$', text)
                     .replace('$label$', label)
                 )
+                extended = False
+                if sec_cnt_disp.upper().isupper():
+                    extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
+                    if extended == 2:
+                        extended = sec_cnt_disp.count(DOT) + 1
+                mint.append([list(sec_cnt.values()), extended, sec_cnt_disp, text, label])
 
     # Process the text display of citation refs
     for slot, line in enumerate(lines):
@@ -457,6 +465,9 @@ def main(argv: list[str]) -> int:
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'tmp.md')
+
+    with open(BUILD_AT / 'toc-mint.json', 'wt', encoding=ENCODING) as handle:
+        json.dump(mint, handle, indent=2)
 
     if DUMP_LUT:
         with SECTION_DISPLAY_TO_LABEL_AT.open('wt', encoding=ENCODING) as handle:
