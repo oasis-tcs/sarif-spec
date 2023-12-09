@@ -60,10 +60,10 @@ code span.co { color: #60a0b0; font-style: italic; } /* Comment */
 code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+/*xxx code span.dv { color: #40a070; } xxx*//* DecVal */
+/*xxx code span.er { color: #ff0000; font-weight: bold; } xxx*//* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
+/*xxx code span.fl { color: #40a070; }  xxx*//* Float */
 code span.fu { color: #06287e; } /* Function */
 code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
@@ -77,6 +77,10 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+code span.dv { color: #000000; } /* DecVal */
+code span.er { color: #000000; } /* Error */
+code span.fl { color: #000000; } /* Float */
 
 p {
   margin-top:4.0pt;
@@ -120,4 +124,54 @@ p.titlepage-info, li.titlepage-info, div.titlepage-info {
   font-family:"Liberation Sans",sans-serif;
   color:#446CAA;
   font-weight:bold;
+}
+
+p.dense {
+  line-height: 0.9;
+}
+
+a {
+  text-decoration: none;
+}
+
+dt {
+  font-weight: bold;
+}
+
+@counter-style offset-1 {
+  system: numeric;
+  prefix: "1.";
+}
+
+@counter-style offset-2 {
+  system: numeric;
+  prefix: "2.";
+}
+
+ol.toc-1 {
+  list-style-type: none;
+  list-style-position: outside;
+  margin-left: -2.5em;
+  font-size: 1rem;
+}
+
+ol.toc-2 {
+  list-style-type: none;
+  list-style-position: outside;
+  margin-left: -1.8em;
+  font-size: 0.9rem;
+}
+
+ol.toc-3 {
+  list-style-type: none;
+  list-style-position: outside;
+  margin-left: -1.2em;
+  font-size: 0.8rem;
+}
+
+ol.toc-4 {
+  list-style-type: none;
+  list-style-position: outside;
+  margin-left: -0.6em;
+  font-size: 0.7rem;
 }
