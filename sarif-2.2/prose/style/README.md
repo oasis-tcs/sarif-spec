@@ -4,6 +4,9 @@ We define the styles for HTML construction per a base stylesheet derived from
 the OASIS initial provisioned stylesheet (cf. below "Changes") and name the
 file containing these base CSS style definitions `base-style.css`.
 
+We add the style layer that provides most of the look of published OASIS workproducts
+per the local stylesheet `skin-style.css`.
+
 ## Changes
 
 We started from <https://docs.oasis-open.org/templates/css/markdown-styles-v1.7.3a.css>
