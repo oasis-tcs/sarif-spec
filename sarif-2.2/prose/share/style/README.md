@@ -2,10 +2,10 @@
 
 We define the styles for HTML construction per a base stylesheet derived from
 the OASIS initial provisioned stylesheet (cf. below "Changes") and name the
-file containing these base CSS style definitions `base-style.css`.
+file containing these base CSS style definitions `base.css`.
 
 We add the style layer that provides most of the look of published OASIS workproducts
-per the local stylesheet `skin-style.css`.
+per the local stylesheet `skin.css`.
 
 ## Changes
 
