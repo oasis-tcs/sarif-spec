@@ -1,26 +1,28 @@
-<img src="media/OASISLogo-v3.0.png" style="width:3.01036in;height:0.61978in" />
+![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
-Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01 (redlined)
+-------
 
-OASIS Standard incorporating Draft 01 of Errata 01
+Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01
 
-22 June 2023
+OASIS Standard incorporating Approved Errata
+
+28 August 2023
 
 This stage:
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-redlined.docx> (Authoritative)
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.docx> (Authoritative)
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-redlined.html>
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html>
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-redlined.pdf>
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.pdf>
 
 Previous stage:
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.docx> (Authoritative)
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.docx> (Authoritative)
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html>
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.html>
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.pdf>
+<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.pdf>
 
 Latest stage:
 
@@ -50,17 +52,18 @@ Additional artifacts:
 
 This prose specification is one component of a Work Product that also includes:
 
-- Errata listing. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Errata 01*. Edited by Michael C. Fanning. 22 June 2023. OASIS Committee Specification Draft 01. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01.html>.
+- Errata listing. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Errata 01*. Edited by Michael C. Fanning. 28 August 2023. OASIS Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os.html>.
 
-- OASIS Standard with embedded Errata. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata01*. Edited by Michael C. Fanning and Laurence J. Golding. 22 June 2023. OASIS Standard incorporating Draft 01 of Errata 01. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.html>.
+- Change-marked (redlined) OASIS Standard document. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata01 (redlined)*. Edited by Michael C. Fanning and Laurence J. Golding. 28 August 2023. OASIS Standard incorporating Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-redlined.html>.
 
 - The SARIF schema:
 
-  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json>
+  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json>.
 
 - The SARIF External Property File schema:
 
-  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json>
+  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-external-property-file-schema-2.1.0.json>.
+
 
 Abstract:
 
@@ -82,7 +85,7 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.1.0-Errata01\]**
 
-*Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01 (redlined)*. Edited by Michael C. Fanning and Laurence J. Golding. 22 June 2023. OASIS Standard incorporating Draft 01 of Errata 01. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-redlined.html>. Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html>.
+*Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01*. Edited by Michael C. Fanning and Laurence J. Golding. 12 July 2023. OASIS Standard incorporating Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html>. Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html>.
 
 Notices
 
@@ -104,7 +107,9 @@ OASIS takes no position regarding the validity or scope of any intellectual prop
 
 The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see <https://www.oasis-open.org/policies-guidelines/trademark/> for above guidance.
 
-Table of Contents
+-------
+
+# Table of Contents
 
 1. [Introduction](#introduction)  
 	1.1 [IPR Policy](#ipr-policy)  
@@ -655,6 +660,7 @@ Appendix K. [(Informative) Examples](#informative-examples)
 	K.4 [Comprehensive SARIF file](#comprehensive-sarif-file)  
 Appendix L. [(Informative) Revision History](#informative-revision-history)  
 Appendix M. [(Informative) MIME Types and File Name Extensions](#non-normative-mime-types-and-file-name-extensions)  
+-------
 
 # 1. Introduction <a id='introduction'></a>
 
@@ -1024,7 +1030,7 @@ In all EBNF definitions in this spec:
   | decimal digit – '0', { decimal digit };
   ```
 
-- The following "special sequence" (see EBNF \[[ISO14977:1996](#ISO14977;1996)\], §4.19 and §5.11 and ) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
+- The following "special sequence" (see EBNF \[[ISO14977:1996](#ISO14977;1996)\], §4.19 and §5.11) refers to any character that can appear in a JSON string according to JSON \[[ECMA404](#ECMA404)\]:
 
     ```
     ? JSON string character ?
@@ -1034,14 +1040,14 @@ In all EBNF definitions in this spec:
 
 This document uses the following notation for certain commonly used objects:
 
-| Notation        | Commonly used object                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `theSarifLog`   | The root object of the SARIF log file.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `theRun`        | The `run` object ([§3.14](#run-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                                                                            |
+| Notation        | Commonly used object                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `theSarifLog`   | The root object of the SARIF log file.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `theRun`        | The `run` object ([§3.14](#run-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                                                                          |
 | `theTool`       | The value of `theRun.tool` ([§3.14.6](#run-object--tool-property))                                                                                                                                                                                                                                                                                                                                                                         |
 | `theDescriptor` | The `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) identified by the `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) under discussion.                                                                                                                                                                                                                                          |
 | `theComponent`  | The `toolComponent` object ([§3.19](#toolcomponent-object)) identified by the `toolComponentReference` object ([§3.54](#toolcomponentreference-object)) under discussion.                                                                                                                                                                                                                                                                  |
-| `theResult`     | The `result` object ([§3.27](#result-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                                                                      |
+| `theResult`     | The `result` object ([§3.27](#result-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                                                                    |
 | `thisObject`    | The object containing the property under discussion.<br>NOTE: Usually when the description of a property refers to another property of the same object, the other property is referred to by its unqualified name. When necessary to avoid confusion, the name of the other property is qualified with \"`thisObject.`\" to emphasize that it is a property of the object under discussion. For an example, see [§3.27.7](#rule-property). |
 
 # 3. File format <a id='file-format'></a>
@@ -1805,7 +1811,7 @@ In both plain text and formatted messages, if `link destination` is a non-negati
 > EXAMPLE 2: In this example, a plain text message contains an embedded link to a location with a file. The `result` object contains exactly one `location` object whose `id` property matches the `link destination`.
 >
 > ```json
-> {                                  # A result object (§3.27)
+> {                                  # A result object (§3.27).
 >   "ruleId": "TNT0001",
 >   "message": {
 >     "text": "Tainted data was used. The data came from [here](3)."
@@ -1973,11 +1979,11 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 >   "version": "2.1.0", # See §3.13.2.
 >   "runs": [           # See §3.13.4.
 >     {
->       ...             # A run object (§3.14)
+>       ...             # A run object (§3.14).
 >     },
 >     ...
 >     {
->       ...             # Another run object
+>       ...             # Another run object.
 >     }
 >   ]
 > }
@@ -3407,7 +3413,7 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 > EXAMPLE 1: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE™](#CWE)\], and also supports a custom taxonomy.
 >
 > ```json
-> {                                 # A run object (§3.14)
+> {                                 # A run object (§3.14).
 >   "tool": {                       # See §3.14.6.
 >     "driver": {                   # See §3.18.2.
 >       "name": "CodeScanner",
@@ -4235,7 +4241,7 @@ If the `artifact` object represents a binary artifact, `encoding` **SHALL** be a
 > EXAMPLE 1: In this example, the encoding of output.txt is UTF-16BE (obtained from the default), but the encoding of data.txt is UTF-16LE:
 >
 > ```json
-> {                                      # A run object (§3.14)
+> {                                      # A run object (§3.14).
 >   "defaultEncoding": "UTF-16BE",       # See §3.14.24.
 > 
 >   "artifacts": [                       # See §3.14.15.
@@ -4472,7 +4478,7 @@ Because they occur only in `toolComponent` objects that represent translations, 
 >
 > ```json
 > {                           # A toolComponent object (§3.19).
->   "language": "fr-FR",      # The language of the translation (see (§3.19.21).
+>   "language": "fr-FR",      # The language of the translation (see §3.19.21).
 > 
 >   "translationMetadata": {  # A translation metadata object.
 >     "name": "CodeScanner translation for fr-FR ",
@@ -4878,7 +4884,7 @@ IF rule ([§3.27.7](#rule-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;# There is no configuration override for `level`. Is there a default configuration for it?
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `theDescriptor.defaultConfiguration.level` ([§3.49.14](#defaultconfiguration-property), §, [§3.50.3](#reportingconfiguration-object--level-property)) is present THEN
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `theDescriptor.defaultConfiguration.level` ([§3.49.14](#defaultconfiguration-property), [§3.50.3](#reportingconfiguration-object--level-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SET level to `theDescriptor.defaultConfiguration.level`.
 
@@ -6191,7 +6197,7 @@ Although the values suggested here are useful in the specified categories (for e
 > Suppose that an analysis tool detects errors on line 3 (the order number is blank) and line 4 (the total is negative). It might represent the logical locations of these errors as XML Paths (although this is not required), as follows:
 >
 > ```json
-> {                                 # A run object (§3.14)
+> {                                 # A run object (§3.14).
 >   "results": [                    # See §3.14.23.
 >     {                             # A result object (§3.27).
 >       "locations": [              # See §3.27.12.
@@ -6275,7 +6281,7 @@ Although the values suggested here are useful in the specified categories (for e
 > Suppose that an analysis tool detects errors on line 4 (one of the product ids blank) and line 5 (the total is negative). It might represent the logical locations of these errors as JSON Pointers (although this is not required), as follows:
 >
 > ```json
-> {                                 # A run object (§3.14)
+> {                                 # A run object (§3.14).
 >   "results": [                    # See §3.14.23.
 >     {                             # A result object (§3.27).
 >       "locations": [              # See §3.27.12.
@@ -8211,8 +8217,8 @@ If metadata is present, at least one of `index` ([§3.52.5](#reportingdescriptor
 
 `theDescriptor` **SHALL** be located either within `theComponent.rules` ([§3.19.23](#rules-property)) or `theComponent.notifications` ([§3.19.24](#notifications-property)), according to this table:
 
-| If the `reportingDescriptorReference` occurs in:                                                          | ... then `theDescriptor` is an element of: |
-|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------|
+| If the `reportingDescriptorReference` occurs in:                                                      | ... then `theDescriptor` is an element of: |
+|:------------------------------------------------------------------------------------------------------|:-------------------------------------------|
 | `invocation.ruleConfigurationOverrides` ([§3.20.5](#ruleconfigurationoverrides-property))                 | `rules`                                    |
 | `invocation.notificationConfigurationOverrides` ([§3.20.6](#notificationconfigurationoverrides-property)) | `notifications`                            |
 | `result.rule` ([§3.27.7](#rule-property))                                                                 | `rules`                                    |
@@ -10744,8 +10750,8 @@ Because the purpose is to present as many elements as possible, the file as a wh
 
 The following is a list of MIME types and file extensions for files that conform to this specification, registered according to \[[RFC2048](#RFC2048)\].
 
-| MIME type                                  | Extension                                                      | Description                                                          |
-|:-------------------------------------------|:---------------------------------------------------------------|:---------------------------------------------------------------------|
+| MIME type                                  | Extension                                                      | Description                                                           |
+|:-------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------------------|
 | application/sarif+json                     | .sarif,<br>.sarif.json                                         | SARIF log files ([§3](#file-format))                                 |
 | application/sarif-external-properties+json | .sarif-external-properties,<br>.sarif-external-properties.json | SARIF external property files ([§4](#external-property-file-format)) |
 

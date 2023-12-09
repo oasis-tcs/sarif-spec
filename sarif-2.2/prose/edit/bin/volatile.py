@@ -1,10 +1,10 @@
 #! /usr/bin/env python
 """Volatile script file for prototyping that may take on different behaviors in time.
 
-This one off script is a constant place to document the early stages of tools for processing the editable
+This one-off script is a constant place to document the early stages of tools for processing the editable
 sources and build the delivery items.
 
-Currently impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
+Currently, impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
 """
 import json
 import pathlib
@@ -19,6 +19,7 @@ ENCODING = 'utf-8'
 NL = '\n'
 CB_END = '}'
 COLON = ':'
+DASH = '-'
 FULL_STOP = '.'
 HASH = '#'
 PARA = '§'
@@ -40,7 +41,7 @@ SECTION_LABEL_TO_DISPLAY_AT = pathlib.Path('etc') / 'section-label-to-display.js
 IS_CITE_REF = 'cite'
 CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')  # \[[cite](#label)\] pattern
 IS_SEC_REF = 'sec'
-SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)')  # [sec](#label) pattern
+SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)')  # [sec](#label) pattern
 MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
 
 # Detecting code block references with label values
@@ -59,12 +60,15 @@ SEC_DISP_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<disp>§[0-9.]+)\.')  # e.
 # Specific tokens:
 HC_BEG = '<!--'
 HC_END = '-->'
-YAML_SEP = '---'
+YAML_SEP = DASH * 3
 TOK_TOC = '(#$thing$)'  # Transform phase ToC label string template replacing $thing$ with the old value
 TOK_SEC = "<a id='$thing$'></a>"  # Transform phase section title label string template ($thing$ -> old value)
 TOK_LAB = '{#'
 H = '#'
-TOC_HEADER = """Table of Contents
+YAML_X_SEP = DASH * 7
+TOC_HEADER = f"""{YAML_X_SEP}
+
+# Table of Contents
 """
 LOCAL_LOGO = '<img src="media/OASISLogo-v3.0.png" style="width:3.01036in;height:0.61978in" />'
 OASIS_LOGO = '![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)'
@@ -227,6 +231,8 @@ def main(argv: list[str]) -> int:
         if resource.name in GLOSSARY_SOURCES:  # TODO: glossary management -> class
             patched = ['<dl>' + NL]
             in_definition = False
+            definition = ''
+            term = ''
             for line in part_lines:
                 if not in_definition and line.strip() and not line.startswith(COLON):
                     # the term -> glossary term, the visible text in the square brackets for refs
@@ -280,7 +286,7 @@ def main(argv: list[str]) -> int:
     for slot, line in enumerate(lines):
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
-        is_plain = True  # No special meta data needed
+        is_plain = True  # No special metadata needed
         if not logo_patched:
             if line.startswith(LOCAL_LOGO):
                 line = line.replace(LOCAL_LOGO, OASIS_LOGO)
@@ -380,7 +386,7 @@ def main(argv: list[str]) -> int:
         if label_in(line):
             for ref in SEC_REF_DETECT.finditer(line):
                 if ref:
-                    # Found section label in markdown format
+                    # Found section label in Markdown format
                     found = ref.groupdict()
                     trigger_text = found['text']
                     if trigger_text != IS_SEC_REF:
@@ -437,6 +443,7 @@ def main(argv: list[str]) -> int:
                     line = line.replace(sem_ref, disp_ref)
                     lines[slot] = line
 
+    tic_toc.append(YAML_X_SEP)
     tic_toc.append(NL)
     # Inject the table of contents:
     for slot, line in enumerate(lines):
