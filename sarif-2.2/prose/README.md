@@ -40,7 +40,8 @@ Rewrites the `build/tmp.html` pandoc auto-generated HTML file into a more OASIS 
 
 The third step uses tidy-html5 to cleanse the file from non-conforming content and formats.
 ```console
-tidy -config edit/etc/tidy-config.txt build/injected.html -o ../share/sarif-v2.2-draft.html
+% tidy -config etc/tidy-config.txt build/injected.html -ashtml | \
+  sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > ../share/sarif-v2.2-draft.html
 ```
 
-Note: Currently the third step fails the build, as the HTML contains some non-conformity the tool does require to clean up before use.
+Note: Currently we still have 17 warnings in the third step, as the generated HTML is not conforming.
