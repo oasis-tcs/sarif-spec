@@ -1,0 +1,25 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "rules": [
+        {
+          "id": "CA1711",
+          "...member-inject": "..."
+        },
+        {
+          "id": "CA1711",
+          "...member-inject": "..."
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "ruleId": "CA1711",
+      "rule": {
+        "index": 1
+      }
+    }
+  ]
+}

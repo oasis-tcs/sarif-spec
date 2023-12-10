@@ -1,0 +1,15 @@
+{
+  "fixes": [
+    {
+      "description": {
+        "text": "Private member names begin with '_'"
+      },
+      "artifactChanges": [
+        {
+          "...member-inject": "..."
+        }
+      ]
+    }
+  ],
+  "...member-inject": "..."
+}

@@ -1,0 +1,55 @@
+{
+  "originalUriBaseIds": {
+    "GENERATED": {
+      "uri": "file:///dev-1.example.com/code/browser/obj/"
+    }
+  },
+  "results": [
+    {
+      "ruleId": "CS6789",
+      "message": {
+        "text": "Division by 0"
+      },
+      "locations": [
+        {
+          "physicalLocation": {
+            "artifactLocation": {
+              "uri": "ui/window.g.cs",
+              "uriBaseId": "GENERATED",
+              "index": 0
+            },
+            "region": {
+              "startLine": 42
+            },
+            "contextRegion": {
+              "startLine": 40,
+              "endLine": 42
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "location": {
+        "uri": "ui/window.g.cs",
+        "uriBaseId": "GENERATED"
+      },
+      "lastModifiedTimeUtc": "2019-04-13T11:45:23.477",
+      "contents": {
+        "text": "..."
+      }
+    },
+    {
+      "location": {
+        "uri": "ui/window.g.cs",
+        "uriBaseId": "GENERATED"
+      },
+      "lastModifiedTimeUtc": "2019-04-13T11:46:27.013",
+      "contents": {
+        "text": "..."
+      }
+    }
+  ]
+}

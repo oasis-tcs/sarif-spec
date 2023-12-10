@@ -1,0 +1,16 @@
+{
+  "toolExecutionNotifications": [
+    {
+      "descriptor": {
+        "id": "CTN9999"
+      },
+      "associatedRule": {
+        "id": "C2001"
+      },
+      "level": "error",
+      "message": {
+        "text": "Exception evaluating rule 'C2001'. Rule disabled; run continues."
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "toolConfigurationNotifications": [
+    {
+      "descriptor": {
+        "id": "UnknownCommandLineArgument"
+      },
+      "level": "error",
+      "message": {
+        "text": "Command line argument \"/X\" is unknown."
+      }
+    }
+  ]
+}

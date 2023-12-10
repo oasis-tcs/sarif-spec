@@ -1,0 +1,23 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json",
+  "guid": "00001111-2222-1111-8888-555566667777",
+  "runGuid": "88889999-AAAA-1111-8888-DDDDEEEEFFFF",
+  "artifacts": [
+    {
+      "location": {
+        "uri": "apple.png"
+      },
+      "mimeType": "image/png"
+    },
+    {
+      "location": {
+        "uri": "banana.png"
+      },
+      "mimeType": "image/png"
+    }
+  ],
+  "externalizedProperties": {
+    "team": "Security Assurance Team"
+  }
+}

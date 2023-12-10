@@ -1,0 +1,27 @@
+{
+  "nodes": [
+    {
+      "id": "n1",
+      "children": [
+        {
+          "id": "n3"
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "children": [
+        {
+          "id": "n4"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "sourceNodeId": "n3",
+      "targetNodeId": "n4"
+    }
+  ],
+  "...member-inject": "..."
+}

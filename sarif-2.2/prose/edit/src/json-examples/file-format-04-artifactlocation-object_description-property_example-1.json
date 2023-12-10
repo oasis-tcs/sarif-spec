@@ -1,0 +1,22 @@
+{
+  "originalUriBaseIds": {
+    "PROJROOT": {
+      "uri": "file:///C:/browser/",
+      "description": {
+        "text": "The project root directory."
+      }
+    },
+    "SRCROOT": {
+      "uri": "file:///C:/browser/src/",
+      "description": {
+        "text": "The root of the source code tree."
+      }
+    },
+    "BINROOT": {
+      "uri": "file:///C:/browser/bin/",
+      "description": {
+        "text": "The build output directory."
+      }
+    }
+  }
+}

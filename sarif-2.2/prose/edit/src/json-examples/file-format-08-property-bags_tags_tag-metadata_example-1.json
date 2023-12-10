@@ -1,0 +1,13 @@
+{
+  "location": {
+    "uri": "http://www.example.com/libraries/jsonParser.js"
+  },
+  "properties": {
+    "tags": [
+      "openSource"
+    ],
+    "openSource": {
+      "informationUri": "http://www.example.com/procedures/usingOpenSource.html"
+    }
+  }
+}

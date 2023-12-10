@@ -1,0 +1,69 @@
+{
+  "locations": [
+    {
+      "id": 0,
+      "physicalLocation": {
+        "artifactLocation": {
+          "uri": "f.h"
+        },
+        "region": {
+          "startLine": 42
+        }
+      },
+      "relationships": [
+        {
+          "target": 1,
+          "kinds": [
+            "isIncludedBy"
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedLocations": [
+    {
+      "id": 1,
+      "physicalLocation": {
+        "artifactLocation": {
+          "uri": "g.h"
+        },
+        "region": {
+          "startLine": 17
+        }
+      },
+      "relationships": [
+        {
+          "target": 0,
+          "kinds": [
+            "includes"
+          ]
+        },
+        {
+          "target": 2,
+          "kinds": [
+            "isIncludedBy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "physicalLocation": {
+        "artifactLocation": {
+          "uri": "g.c"
+        },
+        "region": {
+          "startLine": 8
+        }
+      },
+      "relationships": [
+        {
+          "target": 1,
+          "kinds": [
+            "includes"
+          ]
+        }
+      ]
+    }
+  ]
+}

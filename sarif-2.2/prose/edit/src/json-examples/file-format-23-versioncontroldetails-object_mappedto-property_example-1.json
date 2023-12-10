@@ -1,0 +1,51 @@
+{
+  "originalUriBaseIds": {
+    "HOME": {
+      "uri": "file:///home/user/"
+    },
+    "PACKAGE_ROOT": {
+      "uri": "package/",
+      "uriBaseId": "HOME"
+    }
+  },
+  "versionControlProvenance": [
+    {
+      "repositoryUri": "https://github.com/example-corp/package",
+      "revisionId": "b87c4e9",
+      "mappedTo": {
+        "uriBaseId": "PACKAGE_ROOT"
+      }
+    },
+    {
+      "repositoryUri": "https://github.com/example-corp/plugin1",
+      "revisionId": "cafdac7",
+      "mappedTo": {
+        "uriBaseId": "PACKAGE_ROOT",
+        "uri": "plugin1"
+      }
+    },
+    {
+      "repositoryUri": "https://github.com/example-corp/plugin2",
+      "revisionId": "d0dc2c0",
+      "mappedTo": {
+        "uriBaseId": "PACKAGE_ROOT",
+        "uri": "plugin2"
+      }
+    }
+  ],
+  "results": [
+    {
+      "ruleId": "CA1000",
+      "locations": [
+        {
+          "physicalLocation": {
+            "artifactLocation": {
+              "uri": "plugin1/x.c",
+              "uriBaseId": "PACKAGE_ROOT"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

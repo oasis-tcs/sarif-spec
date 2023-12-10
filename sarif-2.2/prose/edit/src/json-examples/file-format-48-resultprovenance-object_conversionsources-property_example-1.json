@@ -1,0 +1,44 @@
+{
+  "...member-inject": "...",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CodeScanner"
+        }
+      },
+      "conversion": {
+        "...member-inject": "..."
+      },
+      "results": [
+        {
+          "ruleId": "Assertions",
+          "message": {
+            "text": "Assertions are unreliable. ..."
+          },
+          "...member-inject": "...",
+          "provenance": {
+            "conversionSources": [
+              {
+                "artifactLocation": {
+                  "uri": "CodeScanner.log",
+                  "uriBaseId": "$LOGSROOT"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 3,
+                  "endLine": 12,
+                  "endColumn": 13,
+                  "snippet": {
+                    "text": "<problem>\n ... \n  </problem>"
+                  }
+                }
+              }
+            ],
+            "...member-inject": "..."
+          }
+        }
+      ]
+    }
+  ]
+}

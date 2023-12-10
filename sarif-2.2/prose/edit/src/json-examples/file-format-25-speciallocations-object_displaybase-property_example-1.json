@@ -1,0 +1,28 @@
+{
+  "originalUriBaseIds": {
+    "WEBHOST": {
+      "uri": "http://www.example.com/"
+    },
+    "ROOT": {
+      "uri": "file:///"
+    },
+    "HOME": {
+      "uri": "/home/user/",
+      "uriBaseId": "ROOT"
+    },
+    "PACKAGE": {
+      "uri": "mySoftware/",
+      "uriBaseId": "HOME"
+    },
+    "SRC": {
+      "uri": "src/",
+      "uriBaseId": "PACKAGE"
+    }
+  },
+  "specialLocations": {
+    "displayBase": {
+      "uri": "",
+      "uriBaseId": "PACKAGE"
+    }
+  }
+}

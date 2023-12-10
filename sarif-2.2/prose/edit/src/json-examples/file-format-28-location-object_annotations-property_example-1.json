@@ -1,0 +1,12 @@
+{
+  "annotations": [
+    {
+      "startLine": 12,
+      "startColumn": 9,
+      "endColumn": 16,
+      "message": {
+        "text": "(y + z) = 42"
+      }
+    }
+  ]
+}

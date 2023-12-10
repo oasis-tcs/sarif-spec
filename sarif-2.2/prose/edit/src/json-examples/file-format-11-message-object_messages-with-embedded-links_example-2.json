@@ -1,0 +1,29 @@
+{
+  "ruleId": "TNT0001",
+  "message": {
+    "text": "Tainted data was used. The data came from [here](3)."
+  },
+  "locations": [
+    {
+      "physicalLocation": {
+        "uri": "file:///C:/code/main.c",
+        "region": {
+          "startLine": 15,
+          "startColumn": 9
+        }
+      }
+    }
+  ],
+  "relatedLocations": [
+    {
+      "id": 3,
+      "physicalLocation": {
+        "uri": "file:///C:/code/input.c",
+        "region": {
+          "startLine": 25,
+          "startColumn": 19
+        }
+      }
+    }
+  ]
+}

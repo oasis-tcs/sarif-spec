@@ -1,0 +1,14 @@
+{
+  "address": {
+    "baseAddress": 4202880,
+    "offset": 64
+  },
+  "region": {
+    "snippet": {
+      "rendered": {
+        "text": "00 00 01 00 00 00 00 00",
+        "markdown": "00 00 **01** 00 00 00 00 00"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "...member-inject": "...",
+  "newlineSequences": [
+    "\r\n",
+    "\n",
+    "",
+    " "
+  ],
+  "...member-inject-2": "..."
+}

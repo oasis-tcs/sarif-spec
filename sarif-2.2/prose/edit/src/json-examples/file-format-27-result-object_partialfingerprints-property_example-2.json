@@ -1,0 +1,16 @@
+{
+  "results": [
+    {
+      "partialFingerprints": {
+        "prohibitedWordHash/v1": "1234567900abc",
+        "prohibitedWordHash/v2": "234567900abcd"
+      }
+    },
+    {
+      "partialFingerprints": {
+        "prohibitedWordHash/v2": "234567900abcd",
+        "prohibitedWordHash/v3": "34567900abcde"
+      }
+    }
+  ]
+}

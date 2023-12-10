@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "ruleId": "JS3056",
+      "level": "error",
+      "message": {
+        "text": "Name 'index' cannot be used in this scope because it would give a different meaning to 'index' ([declared here](0))."
+      },
+      "locations": [
+        {
+          "physicalLocation": {
+            "uri": "file:///C:/Code/a.js",
+            "region": {
+              "startLine": "6",
+              "startColumn": "10"
+            }
+          }
+        }
+      ],
+      "relatedLocations": [
+        {
+          "id": 0,
+          "message": {
+            "text": "The previous declaration of 'index' was here."
+          },
+          "physicalLocation": {
+            "uri": "file:///C:/Code/a.js",
+            "region": {
+              "startLine": "2",
+              "startColumn": "6"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "...object-inject": "..."
+    }
+  ]
+}

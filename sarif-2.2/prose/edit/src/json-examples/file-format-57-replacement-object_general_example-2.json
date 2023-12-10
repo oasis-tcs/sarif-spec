@@ -1,0 +1,14 @@
+{
+  "replacements": [
+    {
+      "deletedRegion": {
+        "startLine": 12,
+        "startColumn": 5,
+        "endColumn": 9
+      },
+      "insertedContent": {
+        "text": "example"
+      }
+    }
+  ]
+}

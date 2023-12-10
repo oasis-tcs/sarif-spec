@@ -1,0 +1,27 @@
+{
+  "...member-inject": "...",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "AndroidStudio"
+        }
+      },
+      "conversion": {
+        "tool": {
+          "driver": {
+            "name": "SARIF SDK Multitool"
+          }
+        },
+        "invocation": "Sarif.Multitool.exe convert -t AndroidStudio northwind.log",
+        "analysisToolLogFileLocation": {
+          "uri": "northwind.log",
+          "uriBaseId": "$LOG_DIR$"
+        }
+      },
+      "results": [
+        "...item-inject"
+      ]
+    }
+  ]
+}

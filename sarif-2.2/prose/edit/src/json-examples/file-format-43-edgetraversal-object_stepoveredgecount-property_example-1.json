@@ -1,0 +1,103 @@
+{
+  "graphs": [
+    {
+      "nodes": [
+        {
+          "id": "functionA",
+          "children": [
+            {
+              "id": "na1"
+            },
+            {
+              "id": "na2",
+              "label": "Call functionB"
+            },
+            {
+              "id": "na3"
+            },
+            {
+              "id": "na4"
+            }
+          ]
+        },
+        {
+          "id": "functionB",
+          "nodes": [
+            {
+              "id": "nb1"
+            },
+            {
+              "id": "nb2"
+            },
+            {
+              "id": "nb3"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "ea1",
+          "sourceNodeId": "na1",
+          "targetNodeId": "na2"
+        },
+        {
+          "id": "ea2",
+          "sourceNodeId": "na2",
+          "targetNodeId": "na3"
+        },
+        {
+          "id": "eab",
+          "sourceNodeId": "na2",
+          "targetNodeId": "nb1"
+        },
+        {
+          "id": "ea3",
+          "sourceNodeId": "na3",
+          "targetNodeId": "na4"
+        },
+        {
+          "id": "eb1",
+          "sourceNodeId": "nb1",
+          "targetNodeId": "nb2"
+        },
+        {
+          "id": "eb2",
+          "sourceNodeId": "nb2",
+          "targetNodeId": "nb3"
+        },
+        {
+          "id": "eba",
+          "sourceNodeId": "nb3",
+          "targetNodeId": "na3"
+        }
+      ]
+    }
+  ],
+  "graphTraversals": [
+    {
+      "resultGraphIndex": 0,
+      "edgeTraversals": [
+        {
+          "edgeId": "ea1"
+        },
+        {
+          "edgeId": "eab",
+          "stepOverEdgeCount": 4
+        },
+        {
+          "edgeId": "eb1"
+        },
+        {
+          "edgeId": "eb2"
+        },
+        {
+          "edgeId": "eba"
+        },
+        {
+          "edgeId": "ea3"
+        }
+      ]
+    }
+  ]
+}

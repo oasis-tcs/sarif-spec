@@ -1,0 +1,5 @@
+{
+  "shortDescription": {
+    "text": "Specify marshaling for P/Invoke string arguments."
+  }
+}

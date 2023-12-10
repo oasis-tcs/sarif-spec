@@ -1,0 +1,64 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+
+  "inlineExternalProperties": [
+    {                                           
+      "guid": "00001111-2222-1111-8888-555566667777", 
+
+      "artifacts": [                                  
+        {
+          "location": {
+            "uri": "apple.png"
+          },
+          "mimeType": "image/png"
+        },
+        {
+          "location": {
+            "uri": "banana.png"
+          },
+          "mimeType": "image/png"
+        }
+      ]
+    }
+  ],
+
+  "runs": [                                           
+    {                                                 
+      "tool": {                                       
+        "driver": {
+          "name": "ImageAccessibilityScanner"
+        }
+      },
+      "externalPropertyFileReferences": {             
+        "artifacts": [
+          {
+            "location": {
+              "uri": "sarif:/inlineExternalPropertyFiles/0"
+            }
+          }
+        ]
+      },
+      "results": [
+        {"message": {"id": "..."}}
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "ImageSuitabilityScanner"
+        }
+      },
+      "externalPropertyFileReferences": {
+        "artifacts": [
+          {
+            "guid": "00001111-2222-1111-8888-555566667777"
+          }
+        ]
+      },
+      "results": [
+        {"message": {"id": "..."}}
+      ]
+    }
+  ]
+}

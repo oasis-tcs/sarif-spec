@@ -1,0 +1,49 @@
+{
+  "threadFlows": [
+    {
+      "message": {
+        "text": "An external program."
+      },
+      "locations": [
+        {
+          "executionOrder": 1,
+          "location": {
+            "message": {
+              "text": "File is now locked."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "message": {
+        "text": "The program being analyzed."
+      },
+      "locations": [
+        {
+          "...object-inject": "..."
+        },
+        {
+          "executionOrder": 2,
+          "location": {
+            "message": {
+              "text": "Attempt to write to the file."
+            },
+            "physicalLocation": {
+              "artifactLocation": {
+                "uri": "io/logger.c",
+                "uriBaseId": "SRCROOT"
+              },
+              "region": {
+                "startLine": 42,
+                "snippet": {
+                  "text": "    fprintf(fd, \"test\\n\");"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

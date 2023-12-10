@@ -1,0 +1,16 @@
+{
+  "results": [
+    {
+      "fingerprints": {
+        "stableResultHash/v1": "1234567900abc",
+        "stableResultHash/v2": "234567900abcd"
+      }
+    },
+    {
+      "fingerprints": {
+        "stableResultHash/v2": "234567900abcd",
+        "stableResultHash/v3": "34567900abcde"
+      }
+    }
+  ]
+}

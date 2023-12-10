@@ -1,0 +1,34 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "rules": [
+        {
+          "id": "CA2101",
+          "messageStrings": {
+            "default": {
+              "text": "The default message for this rule.",
+              "markdown": "The default message for *this* rule."
+            },
+            "special": {
+              "text": "Another message, for special cases.",
+              "markdown": "Another message, for *special*   cases."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "ruleId": "CA2101",
+      "rule": {
+        "index": 0
+      },
+      "message": {
+        "id": "default"
+      },
+      "...member-inject": "..."
+    }
+  ]
+}

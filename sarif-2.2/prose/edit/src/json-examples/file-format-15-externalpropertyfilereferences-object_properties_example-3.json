@@ -1,0 +1,28 @@
+{
+  "originalUriBaseIds": {
+    "LOGSDIR": {
+      "uri": "file:///C:/logs/"
+    }
+  },
+  "externalPropertyFileReferences": {
+    "results": [
+      {
+        "location": {
+          "uri": "scantool.results.sarif-external-properties",
+          "uriBaseId": "LOGSDIR",
+          "index": 0
+        },
+        "guid": "22222222-2222-1111-8888-222222222222"
+      },
+      {
+        "location": {
+          "uri": "scantool.results.sarif-external-properties",
+          "uriBaseId": "LOGSDIR",
+          "index": 0
+        },
+        "guid": "22222222-2222-1111-8888-222222222222"
+      }
+    ]
+  },
+  "...member-inject": "..."
+}

@@ -1,0 +1,18 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "semanticVersion": "3.3",
+      "minimumRequiredLocalizedDataSemanticVersion": "3.1",
+      "...member-inject": "..."
+    }
+  },
+  "translations": [
+    {
+      "language": "fr-FR",
+      "localizedDataSemanticVersion": "3.1.2",
+      "...member-inject": "..."
+    }
+  ],
+  "...member-inject": "..."
+}

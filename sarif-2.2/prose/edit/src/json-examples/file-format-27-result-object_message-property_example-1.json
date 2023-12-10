@@ -1,0 +1,9 @@
+{
+  "results": [
+    {
+      "message": {
+        "text": "Deleting member 'x' of variable 'y' may compromise performance on subsequent accesses of 'y'. Consider setting object member 'x' to null instead, unless this object is a dictionary or if runtime semantics otherwise dictate that the existence of a null member is distinct from one that is not present at all. This violation can also be ignored for infrequently called code paths."
+      }
+    }
+  ]
+}
