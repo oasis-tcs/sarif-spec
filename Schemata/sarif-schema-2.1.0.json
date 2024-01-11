@@ -1,7 +1,7 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Static Analysis Results Format (SARIF) Version 2.1.0 JSON Schema",
-  "$id": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "id": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
   "description": "Static Analysis Results Format (SARIF) Version 2.1.0 JSON Schema: a standard format for the output of static analysis tools.",
   "additionalProperties": false,
   "type": "object",
@@ -1778,14 +1778,14 @@
         "properties": {
           "description": "Key/value pairs that provide additional information about the region.",
           "$ref": "#/definitions/propertyBag"
-        },
+        }
+      },
 
-        "anyOf": [
-          { "required": [ "startLine" ] },
-          { "required": [ "charOffset" ] },
-          { "required": [ "byteOffset" ] }
-        ]
-      }
+      "anyOf": [
+        { "required": [ "startLine" ] },
+        { "required": [ "charOffset" ] },
+        { "required": [ "byteOffset" ] }
+      ]
     },
 
     "replacement": {
@@ -2368,7 +2368,7 @@
           "description": "The language of the messages emitted into the log file during this run (expressed as an ISO 639-1 two-letter lowercase culture code) and an optional region (expressed as an ISO 3166-1 two-letter uppercase subculture code associated with a country or region). The casing is recommended but not required (in order for this data to conform to RFC5646).",
           "type": "string",
           "default": "en-US",
-          "pattern": "^(?i)[a-zA]{2}(-[a-z]{2})?$"
+          "pattern": "^[a-zA-Z]{2}(-[a-zA-Z]{2})?$"
         },
 
         "versionControlProvenance": {
@@ -3078,7 +3078,7 @@
           "description": "The language of the messages emitted into the log file during this run (expressed as an ISO 639-1 two-letter lowercase language code) and an optional region (expressed as an ISO 3166-1 two-letter uppercase subculture code associated with a country or region). The casing is recommended but not required (in order for this data to conform to RFC5646).",
           "type": "string",
           "default": "en-US",
-          "pattern": "^(?i)[a-zA]{2}(-[a-z]{2})?$"
+          "pattern": "^[a-zA-Z]{2}(-[a-zA-Z]{2})?$"
         },
 
         "contents": {
