@@ -9,7 +9,7 @@
 <div>
 <h3>Description</h3>
 
-<p>The purpose of the SARIF TC is to define a standard output format for static analysis tools, which will be called the Static Analysis Results Interchange Format (SARIF).  <a href="https://github.com/oasis-tcs/sarif-spec">This GitHub repository</a> supports development of the draft SARIF standard. Requests for modification should be made via <a href="https://github.com/oasis-tcs/sarif-spec/issues">Github Issues</a>.</p>
+<p>The purpose of the SARIF TC is to define a standard output format for static analysis tools, which will be called the Static Analysis Results Interchange Format (SARIF).  <a href="https://github.com/oasis-tcs/sarif-spec">This GitHub repository</a> supports development of the draft SARIF standard. Requests for modification should be made via <a href="https://github.com/oasis-tcs/sarif-spec/issues">GitHub Issues</a>.</p>
 
 <p>A static analysis tool is a program that examines programming artifacts in order to detect problems, without executing the program. Software developers use a variety of static analysis tools to assess the quality of their programs. To form an overall picture of program quality, developers must often aggregate the results produced by all of these tools. This aggregation is more difficult if each tool produces output in a different format. A standard output format would make it feasible for developers and teams to view, understand, interact with, and manage the results produced by all the tools that they use.</p>
 
@@ -38,5 +38,5 @@
 <div>
 
 <h3>Contact</h3>
-<p>Please send questions or comments about <a href="https://www.oasis-open.org/resources/tcadmin/github-repositories-for-oasis-tc-members-chartered-work">OASIS TC GitHub repositories</a> to <a href="mailto:robin@oasis-open.org">Robin Cover</a> and <a href="mailto:chet.ensign@oasis-open.org">Chet Ensign</a>.  For questions about content in this repository, please contact the TC Chair or Co-Chairs as listed on the the SARIF TC's <a href="https://www.oasis-open.org/committees/sarif/">home page</a>.</p>
+<p>Please send questions or comments about <a href="https://www.oasis-open.org/resources/tcadmin/github-repositories-for-oasis-tc-members-chartered-work">OASIS TC GitHub repositories</a> to <a href="mailto:robin@oasis-open.org">Robin Cover</a> and <a href="mailto:chet.ensign@oasis-open.org">Chet Ensign</a>.  For questions about content in this repository, please contact the TC Chair or Co-Chairs as listed on the SARIF TC's <a href="https://www.oasis-open.org/committees/sarif/">home page</a>.</p>
 </div>
