@@ -27,8 +27,7 @@ The following table shows mapping between current SARIF terminology as used for 
 | Fuzz Testing | Common | Common | Checker | File / Line | Fault
 | Dynamic Analysis | Common | Common | Checker | (variable resolution location) | Failure |
 | Penetration Testing | Common | Common | Test | Test Step | Failure
-
-**Note:** Both **contest** and **run** have direct mapping into all of the above domains.
+| Observability | [Common](https://opentelemetry.io/docs/concepts/context-propagation/#context) | Product Execution | [Signal](https://opentelemetry.io/docs/concepts/signals/) | [File / Line](https://opentelemetry.io/docs/specs/semconv/general/attributes/#source-code-attributes) | Alert
 
 ## Add Support for Dynamic (DAST) and Interactive (IAST) Tools
 
