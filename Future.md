@@ -1,6 +1,10 @@
 # The Future of SARIF
 
+## Purpose
+
 The purpose of this document is to list potential new areas for standardization. These are not guarantees. They are areas we are strongly considering for a future edition of the SARIF standard.
+
+## Objectives
 
 The SARIF project started with a relatively simple mission, define a standard format to enable the interchange of static analysis results. However, the ecosystem of software analysis tools has grown dramatically and there are now a broad variety of ways to analyse software. For example:
 
