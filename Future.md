@@ -1,57 +1,72 @@
 # The Future of SARIF
- 
-The SARIF project started with a relatively simple mission... define a standard format to enable the interchange of static analysis results.  However, the ecosystem of software analysis tools has grown dramatically and there are now a broad variety of ways to analyse software.  For example:
+
+## Purpose
+
+The purpose of this document is to list potential new areas for standardization. These are not guarantees. They are areas we are strongly considering for a future edition of the SARIF standard.
+
+## Objectives
+
+The SARIF project started with a relatively simple mission, define a standard format to enable the interchange of static analysis results. However, the ecosystem of software analysis tools has grown dramatically and there are now a broad variety of ways to analyse software. For example:
+
 * Static Analysis
 * Dynamic Analysis
 * Interactive Analysis
 * Runtime Protection
 * Observability
-* Fuzzing
+* Fuzz Testing
 * Manual Penetration Testing
 * Manual Code Review
 * Bug Bounty Programs
- 
-Ultimately, the SARIF standard would enable the automatic exchange of results from all types of software analysis tools.  This page details some of the efforts and investigations that the SARIF team is planning in order to achieve that goal.
 
+Ultimately, the SARIF standard would enable the automatic exchange of results from all types of software analysis tools. This page details some of the efforts and investigations that the SARIF team is planning in order to achieve that goal.
 
-# Add Support for Dynamic (DAST) and Interactive (IAST) Tools
- 
-Modern software analysis often involves observation of running software. This can occur from the outside (dynamic) where the inputs and outputs of the softare are manipulated and observed to identify issues with the software works.  Or it can occur from within the software (interactive) where techniques like profiling and instrumentation are used to directly observe the software as it runs. Supporting these ways of analyzing software will require SARIF to support findings that include:
+## SARIF Field Compatibility
+
+The following table shows mapping between current SARIF terminology as used for static analysis and that of other possible use cases.
+
+| Process | Context | Run | Test | Location | Issue |
+|---------|---------|-----|------|----------|-------|
+| Static Analysis | Common | Common | Checker | File / Line | Violation |
+| Threat Modeling | Common | Common | Rule | Graph Edge | Violation
+| Fuzz Testing | Common | Common | Checker | File / Line | Fault
+| Dynamic Analysis | Common | Common | Checker | (variable resolution location) | Failure |
+| Penetration Testing | Common | Common | Test | Test Step | Failure
+| Observability | [Common](https://opentelemetry.io/docs/concepts/context-propagation/#context) | Product Execution | [Signal](https://opentelemetry.io/docs/concepts/signals/) | [File / Line](https://opentelemetry.io/docs/specs/semconv/general/attributes/#source-code-attributes) | Alert
+
+## Add Support for Dynamic (DAST) and Interactive (IAST) Tools
+
+Modern software analysis often involves observation of running software. This can occur from the outside (dynamic) where the inputs and outputs of the software are manipulated and observed to identify issues with the software works. Or it can occur from within the software (interactive) where techniques like profiling and instrumentation are used to directly observe the software as it runs. Supporting these ways of analyzing software will require SARIF to support findings that include:
+
 * various types of input (such as HTTP requests and URL schemes)
 * various types of output (such as HTTP responses and JSON payloads)
 * stack traces
 * data flow and other application state (with real data captured at runtime)
 * information about interaction with backend systems
- 
- 
-# Coverage Reporting
 
-For software analysis to be trusted, we need to understand the scope of and confidence in the testing performed. SARIF could do a better job at reporting exactly what coverage was achieved.  For example, SARIF could include details of:
+## Coverage Reporting
+
+For software analysis to be trusted, we need to understand the scope of and confidence in the testing performed. SARIF could do a better job at reporting exactly what coverage was achieved. For example, SARIF could include details of:
+
 * the exact tests that are performed on the software
-* the confidence that these tests have thorougly and correctly achieved their goal
-* details of software that was not covered in the test for any reason (stack depth, library, plugin, dynamic, etc...)
+* the confidence that these tests have thoroughly and correctly achieved their goal
+* details of software that was not covered in the test for any reason <br/>(stack depth, library, plugin, dynamic, ...)
 
+## Add Support for "Positive" and "Architecture" Findings
 
-# Add Support for "Positive" and "Architecture" Findings
+Rather than only reporting vulnerabilities, some software analysis tools identify other attributes of software that need to be specified in a machine readable format so that they can be interchanged with other tools. Some examples include:
 
-Rather than only reporting vulnerabilities, some software analysis tools identify other attributes of software that need to be specified in a machine readable format so that they can be interchanged with other tools.  Some examples include:
 * positive findings that capture evidence that a particular secure coding practice has been correctly followed
-* findings about the software architecture, such as upstream technolology, exposed routes, attack surface, backend connections, frameworks, etc...
-* metrics about the software, such as number of database queries, queues supported, socket connections, etc...
+* findings about the software architecture, such as upstream technology, exposed routes, attack surface, backend connections, frameworks, ...
+* metrics about the software, such as number of database queries, queues supported, socket connections, ...
 
+## Integrate with SBOM (CycloneDX and SPDX)
 
-# Integrate with SBOM (CycloneDX and SPDX)
+SARIF has primarily focused on tools that look at code problems and SBOM standards have focused on issues related to dependencies, both components and services. Together, they provide a much more complete picture of software security. In fact, in most cases, understanding both code and dependencies is required for fully understanding the context and risk associated with an issue. So this work stream is to investigate how SARIF and SBOM standards can be generated, linked, and used together. The goal is to achieve that elusive **1 + 1 = 3** result.
 
-SARIF has primarily focused on tools that look at code problems and SBOM standards have focused on issues related to dependencies, both components and services.  Together, they provide a much more complete picture of software security.  In fact, in most cases, understanding both code and dependencies is required for fully understanding the context and risk associated with an issue.  So this work stream is to investigate how SARIF and SBOM standards can be generated, linked, and used together.  The goal is to achieve that elusive 1+1=3 result.
+## Integrate with OpenTelemetry
 
+Software doesn't exist in a vacuum. Modern software often runs in a complex ecosystem of systems that have a wide range of security attributes. As software trends towards being deployed in smaller chunks (web app -> web api -> serverless function), the need to understand the context becomes increasingly critical.
 
-# Integrate with OpenTelemetry
- 
-Software doesn't exist in a vacuum. Modern software often runs in a complex ecosystem of systems that have a wide range of security attributes.  As software trends towards being deployed in smaller chunks (web app -> web api -> serverless function), the need to understand the context becomes increasingly critical.
+One way to tackle this problem is to identify a way to link SARIF into a model of that ecosystem, such as what is generated by "observability" tools that leverage OpenTelemetry. Linking of this nature has benefits in both directions. People looking at the entire ecosystem can drill into SARIF details from the global picture. People more focused on individual software components can enrich SARIF results with an understanding of context.
 
-One way to tackle this problem is to identify a way to link SARIF into a model of that ecosystem, such as what is generated by "observability" tools that leverage OpenTelemetry.  Linking of this nature has benefits in both directions.  People looking at the entire ecosystem can drill into SARIF details from the global picture.  People more focused on individual software components can enrich SARIF results with an understanding of context.
-
-For example, imagine that SARIF identifies a "critical" SQL injection problem in an application.  Adding global context would enable adding risk factors that temper that result. The application might only contain read-only, public data. Or it might only be accessible by administrators.  Or it might be protected by a runtime protection module.  The contextual risk calculation may be only "low".
-
-
-
+For example, imagine that SARIF identifies a "critical" SQL injection problem in an application. Adding global context would enable adding risk factors that temper that result. The application might only contain read-only, public data. Or it might only be accessible by administrators. Or it might be protected by a runtime protection module. The contextual risk calculation may be only "low".
