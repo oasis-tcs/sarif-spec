@@ -1,0 +1,24 @@
+{
+  "logicalLocations": [
+    {
+      "name": "B",
+      "fullyQualifiedName": "A::B",
+      "kind": "namespace",
+      "parentIndex": 1
+    },
+    {
+      "name": "A",
+      "kind": "namespace"
+    },
+    {
+      "name": "B",
+      "fullyQualifiedName": "A::B",
+      "kind": "type",
+      "parentIndex": 3
+    },
+    {
+      "name": "A",
+      "kind": "namespace"
+    }
+  ]
+}

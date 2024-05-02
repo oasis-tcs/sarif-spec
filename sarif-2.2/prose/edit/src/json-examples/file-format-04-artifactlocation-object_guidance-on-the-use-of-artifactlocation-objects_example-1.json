@@ -1,0 +1,21 @@
+{
+  "originalUriBaseIds": {
+    "SRCROOT": {
+      "uri": "file:///C:/browser/src/"
+    }
+  },
+  "results": [
+    {
+      "locations": [
+        {
+          "physicalLocation": {
+            "artifactLocation": {
+              "uri": "ui/window.cpp",
+              "uriBaseId": "SRCROOT"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

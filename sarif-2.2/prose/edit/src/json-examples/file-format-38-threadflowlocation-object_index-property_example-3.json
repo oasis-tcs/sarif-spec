@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "codeFlows": [
+        {
+          "threadFlows": [
+            {
+              "locations": [
+                {
+                  "index": 0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "...member-inject": "..."
+    }
+  ],
+  "...member-inject": "...",
+  "threadFlowLocations": [
+    {
+      "location": {
+        "...member-inject": "..."
+      }
+    },
+    {
+      "...object-inject": "..."
+    }
+  ]
+}

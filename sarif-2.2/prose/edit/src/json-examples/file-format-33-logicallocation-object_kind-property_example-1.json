@@ -1,0 +1,55 @@
+{
+  "results": [
+    {
+      "locations": [
+        {
+          "logicalLocations": [
+            {
+              "fullyQualifiedName": "/orders/order[1]/@number",
+              "index": 2
+            }
+          ]
+        }
+      ],
+      "...member-inject": "..."
+    },
+    {
+      "locations": [
+        {
+          "logicalLocations": [
+            {
+              "fullyQualifiedName": "/orders/order[1]/total/text()",
+              "index": 3
+            }
+          ]
+        }
+      ],
+      "...member-inject": "..."
+    }
+  ],
+  "logicalLocations": [
+    {
+      "name": "orders",
+      "fullyQualifiedName": "/orders",
+      "kind": "element"
+    },
+    {
+      "name": "order[1]",
+      "fullyQualifiedName": "/orders/order[1]",
+      "kind": "element",
+      "parentIndex": 0
+    },
+    {
+      "name": "number",
+      "fullyQualifiedName": "/orders/order[1]/@number",
+      "kind": "attribute",
+      "parentIndex": 1
+    },
+    {
+      "name": "text",
+      "fullyQualifiedName": "/orders/order[1]/text()",
+      "kind": "text",
+      "parentIndex": 1
+    }
+  ]
+}

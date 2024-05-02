@@ -1,0 +1,23 @@
+{
+  "artifacts": [
+    {
+      "location": {
+        "uri": "file:///C:/Code/app.zip"
+      },
+      "mimeType": "application/zip"
+    },
+    {
+      "location": {
+        "uri": "/docs/intro.docx"
+      },
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "parentIndex": 0
+    },
+    {
+      "offset": 17522,
+      "length": 4050,
+      "mimeType": "application/x-contoso-animation",
+      "parentIndex": 1
+    }
+  ]
+}

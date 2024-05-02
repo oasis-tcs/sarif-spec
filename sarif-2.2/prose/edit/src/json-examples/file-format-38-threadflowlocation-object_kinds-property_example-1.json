@@ -1,0 +1,6 @@
+{
+  "kinds": [
+    "acquire",
+    "taint"
+  ]
+}

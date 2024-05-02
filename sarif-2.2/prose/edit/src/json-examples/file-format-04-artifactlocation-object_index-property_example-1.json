@@ -1,0 +1,30 @@
+{
+  "artifacts": [
+    {
+      "location": {
+        "uri": "file:///C:/Code/main.c"
+      },
+      "sourceLanguage": "c"
+    }
+  ],
+  "results": [
+    {
+      "ruleId": "CA2101",
+      "level": "error",
+      "locations": [
+        {
+          "physicalLocation": {
+            "artifactLocation": {
+              "uri": "file:///C:/Code/main.c",
+              "index": 0
+            },
+            "region": {
+              "startLine": 24,
+              "startColumn": 9
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

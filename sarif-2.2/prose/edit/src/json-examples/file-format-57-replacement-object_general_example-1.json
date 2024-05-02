@@ -1,0 +1,28 @@
+{
+  "artifactChanges": [
+    {
+      "deletedRegion": {
+        "byteOffset": 12,
+        "byteLength": 5
+      },
+      "insertedContent": {
+        "binary": "ZXhhbXBsZQ=="
+      }
+    },
+    {
+      "deletedRegion": {
+        "byteOffset": 20,
+        "byteLength": 3
+      }
+    },
+    {
+      "deletedRegion": {
+        "byteOffset": 312,
+        "byteLength": 0
+      },
+      "insertedContent": {
+        "binary": "ZXhhbXBsZQ=="
+      }
+    }
+  ]
+}

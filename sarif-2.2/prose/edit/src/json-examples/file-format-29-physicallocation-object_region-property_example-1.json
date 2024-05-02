@@ -1,0 +1,15 @@
+{
+  "locations": [
+    {
+      "physicalLocation": {
+        "artifactLocation": {
+          "uri": "ui/window.c",
+          "uriBaseId": "SRCROOT"
+        },
+        "region": {
+          "startLine": 42
+        }
+      }
+    }
+  ]
+}

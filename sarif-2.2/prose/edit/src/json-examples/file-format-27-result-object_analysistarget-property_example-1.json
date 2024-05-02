@@ -1,0 +1,19 @@
+{
+  "analysisTarget": {
+    "uri": "input/mouse.c",
+    "uriBaseId": "SRCROOT"
+  },
+  "locations": [
+    {
+      "physicalLocation": {
+        "artifactLocation": {
+          "uri": "input/mouse.h",
+          "uriBaseId": "SRCROOT"
+        },
+        "region": {
+          "startLine": 42
+        }
+      }
+    }
+  ]
+}

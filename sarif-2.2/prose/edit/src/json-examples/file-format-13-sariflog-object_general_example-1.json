@@ -1,0 +1,14 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "...member-inject": "..."
+    },
+    {
+      "...object-inject": "..."
+    },
+    {
+      "...member-inject": "..."
+    }
+  ]
+}
