@@ -1,0 +1,21 @@
+{
+  "nodes": [
+    {
+      "id": "n1",
+      "children": [
+        {
+          "id": "n3"
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "children": [
+        {
+          "id": "n3"
+        }
+      ]
+    }
+  ],
+  "...member-inject": "..."
+}

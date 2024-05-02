@@ -1,0 +1,13 @@
+{
+  "artifacts": [
+    {
+      "location": {
+        "uri": "file:///C:/Code/main.c"
+      },
+      "sourceLanguage": "c",
+      "hashes": {
+        "sha-256": "b13ce2678a8807ba0765ab94a0ecd394f869bc81"
+      }
+    }
+  ]
+}

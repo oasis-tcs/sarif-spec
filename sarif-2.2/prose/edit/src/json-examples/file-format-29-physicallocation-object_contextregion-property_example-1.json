@@ -1,0 +1,25 @@
+{
+  "locations": [
+    {
+      "physicalLocation": {
+        "artifactLocation": {
+          "uri": "ui/window.c",
+          "uriBaseId": "SRCROOT"
+        },
+        "region": {
+          "startLine": 42,
+          "snippet": {
+            "text": "int n = m + 1;"
+          }
+        },
+        "contextRegion": {
+          "startLine": 41,
+          "endLine": 43,
+          "snippet": {
+            "text": "int m;\nint n = m + 1\n\n"
+          }
+        }
+      }
+    }
+  ]
+}

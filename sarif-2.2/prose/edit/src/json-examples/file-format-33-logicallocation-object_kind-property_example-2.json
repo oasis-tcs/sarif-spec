@@ -1,0 +1,55 @@
+{
+  "results": [
+    {
+      "locations": [
+        {
+          "logicalLocation": {
+            "fullyQualifiedName": "/orders/0/productIds/1",
+            "index": 3
+          }
+        }
+      ]
+    },
+    {
+      "locations": [
+        {
+          "logicalLocation": {
+            "fullyQualifiedName": "/orders/0/total",
+            "index": 4
+          }
+        }
+      ]
+    }
+  ],
+  "logicalLocations": [
+    {
+      "name": "orders",
+      "fullyQualifiedName": "/orders",
+      "kind": "array"
+    },
+    {
+      "name": "0",
+      "fullyQualifiedName": "/orders/0",
+      "kind": "object",
+      "parentIndex": 0
+    },
+    {
+      "name": "productIds",
+      "fullyQualifiedName": "/orders/0/productIds",
+      "kind": "array",
+      "parentIndex": 1
+    },
+    {
+      "name": "1",
+      "fullyQualifiedName": "/orders/0/productIds/1",
+      "kind": "value",
+      "parentIndex": 2
+    },
+    {
+      "name": "total",
+      "fullyQualifiedName": "/orders/0/total",
+      "kind": "property",
+      "parentIndex": 1
+    }
+  ]
+}

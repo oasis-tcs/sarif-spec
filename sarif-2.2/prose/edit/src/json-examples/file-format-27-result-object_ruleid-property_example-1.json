@@ -1,0 +1,41 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "rules": [
+        {
+          "id": "CA2101",
+          "shortDescription": {
+            "text": "Specify marshaling for P/Invoke string arguments."
+          }
+        },
+        {
+          "id": "CA5350",
+          "shortDescription": {
+            "text": "Do not use weak cryptographic algorithms."
+          }
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "ruleId": "CA2101",
+      "rule": {
+        "index": 0
+      }
+    },
+    {
+      "ruleId": "CA5350/md5",
+      "rule": {
+        "index": 1
+      }
+    },
+    {
+      "ruleId": "CA5350/sha-1",
+      "rule": {
+        "index": 1
+      }
+    }
+  ]
+}

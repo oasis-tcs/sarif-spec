@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "ruleId": "ABC0003",
+      "kind": "fail",
+      "level": "note",
+      "message": {
+        "text": "Consider using 'nameof(start)' instead of hard-coding the parameter name 'start'."
+      },
+      "locations": [
+        {
+          "physicalLocation": {
+            "uri": "file:///C:/code/a.cs",
+            "region": {
+              "startLine": 6
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

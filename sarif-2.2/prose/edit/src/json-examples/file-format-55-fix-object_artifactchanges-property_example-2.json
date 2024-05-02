@@ -1,0 +1,38 @@
+{
+  "artifactChanges": [
+    {
+      "artifactLocation": {
+        "uri": "src/a.c"
+      },
+      "replacements": [
+        {
+          "deletedRegion": {
+            "startLine": 1,
+            "startColumn": 1,
+            "endColumn": 1
+          },
+          "insertedContent": {
+            "text": "// "
+          }
+        }
+      ]
+    },
+    {
+      "artifactLocation": {
+        "uri": "src/a.c"
+      },
+      "replacements": [
+        {
+          "deletedRegion": {
+            "startLine": 2,
+            "startColumn": 1,
+            "endColumn": 1
+          },
+          "insertedContent": {
+            "text": "// "
+          }
+        }
+      ]
+    }
+  ]
+}

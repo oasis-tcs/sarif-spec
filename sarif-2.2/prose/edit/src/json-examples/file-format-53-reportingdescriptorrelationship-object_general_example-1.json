@@ -1,0 +1,46 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "rules": [
+        {
+          "id": "CA1000",
+          "relationships": [
+            {
+              "target": {
+                "id": "327",
+                "guid": "33333333-0000-1111-8888-111111111111",
+                "toolComponent": {
+                  "name": "CWE",
+                  "guid": "33333333-0000-1111-8888-000000000000"
+                }
+              },
+              "kinds": [
+                "superset"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "taxonomies": [
+    {
+      "name": "CWE",
+      "guid": "33333333-0000-1111-8888-000000000000",
+      "...member-inject": "...",
+      "taxa": [
+        {
+          "id": "327",
+          "guid": "33333333-0000-1111-8888-111111111111",
+          "name": "BrokenOrRiskyCryptographicAlgorithm",
+          "...member-inject": "..."
+        },
+        {
+          "...object-inject": "..."
+        }
+      ]
+    }
+  ],
+  "...member-inject": "..."
+}

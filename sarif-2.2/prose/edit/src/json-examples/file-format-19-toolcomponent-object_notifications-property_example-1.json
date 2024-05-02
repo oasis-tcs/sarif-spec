@@ -1,0 +1,26 @@
+{
+  "driver": {
+    "notifications": [
+      {
+        "id": "ERR0001",
+        "level": "error",
+        "shortDescription": {
+          "text": "A plugin could not be loaded because it does not exist."
+        },
+        "messageStrings": {
+          "default": "Cannot load plugin '{0}' because it was not found."
+        }
+      },
+      {
+        "id": "ERR0001",
+        "level": "error",
+        "shortDescription": {
+          "text": "A plugin could not be loaded because it is not signed."
+        },
+        "messageStrings": {
+          "default": "Cannot load plugin '{0}' because it is not signed."
+        }
+      }
+    ]
+  }
+}

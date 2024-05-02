@@ -1,0 +1,26 @@
+{
+  "addresses": [
+    {
+      "name": "Multitool.exe",
+      "kind": "module",
+      "absoluteAddress": 1024
+    },
+    {
+      "name": "Sections",
+      "kind": "header",
+      "parentIndex": 0,
+      "offsetFromParent": 376,
+      "absoluteAddress": 1400,
+      "relativeAddress": 376
+    },
+    {
+      "name": ".text",
+      "kind": "section",
+      "parentIndex": 1,
+      "offsetFromParent": 136,
+      "absoluteAddress": 1536,
+      "relativeAddress": 512
+    }
+  ],
+  "...member-inject": "..."
+}

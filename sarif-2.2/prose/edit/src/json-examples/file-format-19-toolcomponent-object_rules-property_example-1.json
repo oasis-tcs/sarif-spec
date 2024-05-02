@@ -1,0 +1,29 @@
+{
+  "driver": {
+    "name": "CodeScaner",
+    "rules": [
+      {
+        "id": "CA1711",
+        "shortDescription": {
+          "text": "Certain type name suffixes should not be used."
+        },
+        "messageStrings": {
+          "default": {
+            "text": "Rename type name {0} so that it does not end in '{1}'."
+          }
+        }
+      },
+      {
+        "id": "CA1711",
+        "shortDescription": {
+          "text": "Certain type name suffixes have preferred alternatives."
+        },
+        "messageStrings": {
+          "default": {
+            "text": "Either replace the suffix '{0}' in member name '{1}' with the suggested numeric alternate or provide a more meaningful suffix."
+          }
+        }
+      }
+    ]
+  }
+}
