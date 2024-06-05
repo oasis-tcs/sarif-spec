@@ -1956,7 +1956,7 @@ Certain `multiformatMessageString`-valued properties in this document, for examp
 
 ### 3.12.3 text property <a id='multiformatmessagestring-object--text-property'></a>
 
-A `multiformatMessageString` object **SHALL** contain a property named `text` whose value is a non-empty string containing a plain text representation of the message.
+A `multiformatMessageString` object **SHALL** contain a property named `text` whose value is a non-empty string containing a plain text representation of the message including any links.
 
 > NOTE: This property is required to ensure that the message is viewable even in contexts that do not support the rendering of formatted text.
 
