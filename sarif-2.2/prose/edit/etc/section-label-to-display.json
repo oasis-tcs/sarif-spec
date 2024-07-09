@@ -412,6 +412,7 @@
   "sarif-file-naming-convention": "§3.2",
   "sariflog-object": "§3.13",
   "sariflog-object--general": "§3.13.1",
+  "sariflog-object--guid-property": "§3.13.6",
   "sariflog-object--schema-property": "§3.13.3",
   "sariflog-object--version-property": "§3.13.2",
   "security-implications": "§3.11.4.2",

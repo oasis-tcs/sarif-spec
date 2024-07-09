@@ -76,6 +76,7 @@
   "§3.13.3": "sariflog-object--schema-property",
   "§3.13.4": "runs-property",
   "§3.13.5": "inlineexternalproperties-property",
+  "§3.13.6": "sariflog-object--guid-property",
   "§3.14": "run-object",
   "§3.14.1": "run-object--general",
   "§3.14.2": "externalpropertyfilereferences-property",
