@@ -59,7 +59,9 @@ If the condition described by the `notification` object is relevant to a particu
 
 ### locations property{#notification-object--locations-property}
 
-If the condition described by the `notification` object is relevant to one or more locations, the `notification` object **MAY** contain a property named `locations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `location` objects ([sec](#location-object)) that identify those locations.
+If the condition described by the `notification` object is relevant to one or more locations, the `notification` object **MAY** contain
+a property named `locations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `location` objects ([sec](#location-object))
+that identify those locations to which the condition described by the notification applies.
 
 ### message property{#notification-object--message-property}
 
@@ -98,3 +100,12 @@ A `notification` object **MAY** contain a property named `timeUtc` whose value i
 If the notification is a result of a runtime exception, the `notification` object **MAY** contain a property named `exception` whose value is an `exception` object ([sec](#exception-object)).
 
 If the notification is not the result of a runtime exception, the `exception` property **SHALL** be absent.
+
+### relatedLocations property{#notification-object--relatedlocations-property}
+
+A `notification` object **SHOULD** contain a property named `relatedLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `location` objects ([sec](#location-object)) that identify those locations to which the condition described by the notification applies.
+
+The `relatedLocations` property **SHOULD** allow `notification` objects to distinguish between the following types of locations:
+
+- Locations to which the condition described by the `notification` object **SHALL** apply.
+- Other locations to which the condition described by the `notification` object **SHALL NOT** apply but are relevant to understanding the result.
