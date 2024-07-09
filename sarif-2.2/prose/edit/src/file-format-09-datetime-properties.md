@@ -33,6 +33,14 @@ Certain properties in this document specify a date and time. The value of every 
 
 &emsp;&emsp;`2016-02-08T16:08:25.943Z`
 
+&emsp;&emsp;`2016-02-08T00:00:00Z`
+
+&emsp;&emsp;`2016-02-08T16:08:00Z`
+
+&emsp;&emsp;`2016-02-08T16:08:25Z`
+
+&emsp;&emsp;`2016-02-08T16:08:25.943Z`
+
 The time component of every date/time-valued property **SHALL** be expressed in Coordinated Universal Time (UTC).
 
 > NOTE 1: The name of every date/time-valued property ends in "Utc" to emphasize that requirement.
