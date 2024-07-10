@@ -130,6 +130,6 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 
 ### guid property{#sariflog-object--guid-property}
 
-A `sarifLog` object **SHALL** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that provides a unique,
+A `sarifLog` object **SHOULD** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that provides a unique,
 stable identifier for the `sarifLog` designating that the log itself has a conceptual identity as a bundle of tool runs for
 tracking a SARIF log through a distributed results processing pipeline.
