@@ -496,6 +496,7 @@
   "§3.58.7": "notification-object--threadid-property",
   "§3.58.8": "timeutc-property",
   "§3.58.9": "exception-property",
+  "§3.58.10": "notification-object--relatedlocations-property",
   "§3.59": "exception-object",
   "§3.59.1": "exception-object--general",
   "§3.59.2": "exception-object--kind-property",

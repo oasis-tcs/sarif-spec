@@ -1433,6 +1433,16 @@
           "description": "The runtime exception, if any, relevant to this notification.",
           "$ref": "#/$defs/exception"
         },
+        "relatedLocations": {
+          "description": "A set of locations relevant to this notification.",
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/location"
+          }
+        },
         "descriptor": {
           "description": "A reference used to locate the descriptor relevant to this notification.",
           "$ref": "#/$defs/reportingDescriptorReference"

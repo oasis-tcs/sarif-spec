@@ -289,6 +289,7 @@
   "notification-object--level-property": "§3.58.6",
   "notification-object--locations-property": "§3.58.4",
   "notification-object--message-property": "§3.58.5",
+  "notification-object--relatedlocations-property": "§3.58.10",
   "notification-object--threadid-property": "§3.58.7",
   "notificationconfigurationoverrides-property": "§3.20.6",
   "notifications-property": "§3.19.24",
