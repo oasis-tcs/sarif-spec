@@ -109,6 +109,8 @@ Each array element **SHALL** have one of the following values, with the specifie
 
 - `"resultFile"`: A result was detected in this artifact (which the analysis tool was not explicitly instructed to scan).
 
+- `"scannedFile"`: An "indirect" artifact (not directly requested for scanning, but scanned as a result of analyzing another "linked" artifact) in which no result was found.
+
     NOTE 3: For example, a scanner might be configured to analyze a C source file and find a result in a header file that it includes. The header file may be marked with the `"resultFile"` role. The C file should be marked with the `"analysisTarget"` role, however, as it was explicitly configured as a scan target.
 
 - `"standardStream"`: The artifact contains the contents of one of the standard input or output streams, as specified in `invocation.stdin`, `invocation.stdout`, `invocation.stderr`, or `invocation.stdoutStderr` ([sec](#stdin-stdout-stderr-and-stdoutstderr-properties)).
