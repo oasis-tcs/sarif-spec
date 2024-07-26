@@ -139,7 +139,7 @@ Each array element **SHALL** have one of the following values, with the specifie
 
 - `"unmodified"`: The artifact has not been modified since the baseline time.
 
-    NOTE 3: The information conveyed by these values could be extracted from a VCS. These properties exist so SARIF consumers can have this information without needing access to the VCS.
+    NOTE 4: The information conveyed by these values could be extracted from a VCS. These properties exist so SARIF consumers can have this information without needing access to the VCS.
 
 ### mimeType property
 
