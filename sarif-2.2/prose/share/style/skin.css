@@ -189,3 +189,7 @@ ol.toc-4 {
   margin-left: -0.6em;
   font-size: 0.7rem;
 }
+ul > li {
+  font-size:10.0pt;
+  font-family:"Liberation Sans",sans-serif;
+}
