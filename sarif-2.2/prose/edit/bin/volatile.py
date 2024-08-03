@@ -1,10 +1,10 @@
 #! /usr/bin/env python
 """Volatile script file for prototyping that may take on different behaviors in time.
 
-This one-off script is a constant place to document the early stages of tools for processing the editable
+This one off script is a constant place to document the early stages of tools for processing the editable
 sources and build the delivery items.
 
-Currently, impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
+Currently impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
 """
 import json
 import pathlib
@@ -37,21 +37,23 @@ SOURCE_AT = pathlib.Path('src')
 BUILD_AT = pathlib.Path('build')
 SECTION_DISPLAY_TO_LABEL_AT = pathlib.Path('etc') / 'section-display-to-label.json'
 SECTION_LABEL_TO_DISPLAY_AT = pathlib.Path('etc') / 'section-label-to-display.json'
+EG_GLOBAL_TO_LABEL_AT = pathlib.Path('etc') / 'example-global-to-local.json'
+EG_LABEL_TO_GLOBAL_AT = pathlib.Path('etc') / 'example-local-to-global.json'
 
 # Parsers and magical literals:
 IS_CITE_REF = 'cite'
-CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')  # \[[cite](#label)\] pattern
+CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')  # [cite](#label) pattern
+IS_EG_REF = 'eg'
+EG_REF_DETECT = re.compile(r'\[(?P<text>eg)\]\(#(?P<label>[^)]+)\)')  # [eg](#label) pattern
 IS_SEC_REF = 'sec'
-SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)')  # [sec](#label) pattern
+SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)')  # [sec](#label) pattern
 MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
 
 # Detecting code block references with label values
 # e.g. ' #  ((#run-object)).'
-SEC_LABEL_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]*\((?P<label>\(#(?P<value>[0-9a-z-]+)\))\)')
-# e.g. ' # The language of the translation (see (#language-property)).'
-SEC_LABEL_SEE_STUFF_CP_DETECT = re.compile(r'\ +#\ +[^(]*\((see\ )(?P<label>\(#(?P<value>[0-9a-z-]+)\))\)')
+SEC_LABEL_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<label>\(#(?P<value>[0-9a-z-]+)\))\)\.')
 # e.g. ' #  (#run-object).'
-SEC_LABEL_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))')
+SEC_LABEL_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))\.')
 
 # Reverse detection patterns for documentation purposes
 # e.g. ' # A run object (§3.14).' or ' #  (§3.1.2).'
@@ -61,7 +63,7 @@ SEC_DISP_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<disp>§[0-9.]+)\.')  # e.
 # Specific tokens:
 HC_BEG = '<!--'
 HC_END = '-->'
-YAML_SEP = DASH * 3
+YAML_SEP = '---'
 TOK_TOC = '(#$thing$)'  # Transform phase ToC label string template replacing $thing$ with the old value
 TOK_SEC = "<a id='$thing$'></a>"  # Transform phase section title label string template ($thing$ -> old value)
 TOK_LAB = '{#'
@@ -71,10 +73,10 @@ TOC_HEADER = f"""{YAML_X_SEP}
 
 # Table of Contents
 """
-LOCAL_LOGO = '<img src="media/OASISLogo-v3.0.png" style="width:3.01036in;height:0.61978in" />'
-OASIS_LOGO = '![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)'
+CLEAN_MD_START = '# Introduction'
 
 SECTION_DISPLAY_TO_LABEL = {}
+SECTION_LABEL_TO_DISPLAY: dict[str, str] = {}
 SEC_LABEL_TEXT = {}  # Mapping section labels to the display text
 
 TOC_TEMPLATE = {
@@ -82,7 +84,11 @@ TOC_TEMPLATE = {
     2: '\t$sec_cnt_disp$ [$text$](#$label$)  ',
     3: '\t\t$sec_cnt_disp$ [$text$](#$label$)  ',
     4: '\t\t\t$sec_cnt_disp$ [$text$](#$label$)  ',
+    5: '\t\t\t\t$sec_cnt_disp$ [$text$](#$label$)  ',
 }
+
+TOK_EG = "<a id='$thing$'></a>"  # Transform phase example title label string template ($thing$ -> old value)
+EG_LABEL_TEXT: dict[str, str] = {}  # Mapping example labels to the display text
 
 # This value leads to empty line needed on GitHub to respect the new line for non-numerically starting lines
 TOC_VERTICAL_SPACER = ''
@@ -92,6 +98,8 @@ CHILDREN = 'children'
 ENUMERATE = 'enumerate'
 LABEL = 'label'
 TOC = 'toc'
+
+CS_OF_SLOT: list[Union[str, None]] = []
 
 CITE_COSMETICS_TEMPLATE = '**\\[**<span id="$label$" class="anchor"></span>**$code$\\]** $text$'
 CITATION_SOURCES = ('introduction-03-normative-references.md', 'introduction-04-informative-references.md')
@@ -156,6 +164,25 @@ def label_in(text: str) -> bool:
     return '](#' in text
 
 
+def example_local_number(text: str) -> int:
+    """Harvest integer local number of example or zero (0) if failed."""
+    ls_text = text.lstrip()
+    if ls_text.startswith('*Example ') or ls_text.startswith('*Examples '):
+        rest = ls_text.split(SPACE, 1)[1]
+        de_colon = rest.split(COLON, 1)[0]
+        number = de_colon.split(SPACE, 1)[0] if SPACE in de_colon else de_colon
+        try:
+            return int(number)
+        except ValueError:
+            pass
+    return 0
+
+
+def example_in(text: str) -> bool:
+    """Detect if the text line contains a magic example token."""
+    return example_local_number(text) > 0
+
+
 def code_block_label_in(text: str) -> bool:
     """Detect if the text line contains a code block section label."""
     return '(#' in text and ' # ' in text
@@ -163,6 +190,24 @@ def code_block_label_in(text: str) -> bool:
 
 def load_label_to_display_lut(path: Union[str, pathlib.Path] = SECTION_LABEL_TO_DISPLAY_AT) -> dict[str, str]:
     """Load the LUT for section labels -> display."""
+    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+        return json.load(handle)
+
+
+def load_display_to_label_lut(path: Union[str, pathlib.Path] = SECTION_DISPLAY_TO_LABEL_AT) -> dict[str, str]:
+    """Load the LUT for section display -> labels."""
+    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+        return json.load(handle)
+
+
+def load_eg_label_to_global_lut(path: Union[str, pathlib.Path] = EG_LABEL_TO_GLOBAL_AT) -> dict[str, str]:
+    """Load the LUT for example labels -> global."""
+    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+        return json.load(handle)
+
+
+def load_eg_global_to_label_lut(path: Union[str, pathlib.Path] = EG_GLOBAL_TO_LABEL_AT) -> dict[str, str]:
+    """Load the LUT for example global -> labels."""
     with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
         return json.load(handle)
 
@@ -178,6 +223,7 @@ def main(argv: list[str]) -> int:
             return 1
 
     display_from = load_label_to_display_lut()
+    eg_global_from = load_eg_label_to_global_lut()
 
     lines: list[str] = []
     meta_hooks = {}
@@ -232,8 +278,6 @@ def main(argv: list[str]) -> int:
         if resource.name in GLOSSARY_SOURCES:  # TODO: glossary management -> class
             patched = ['<dl>' + NL]
             in_definition = False
-            definition = ''
-            term = ''
             for line in part_lines:
                 if not in_definition and line.strip() and not line.startswith(COLON):
                     # the term -> glossary term, the visible text in the square brackets for refs
@@ -246,9 +290,23 @@ def main(argv: list[str]) -> int:
                 if in_definition:
                     if line.startswith(COLON):
                         definition += line.lstrip(COLON).strip()
+                        # HACK A DID ACK
+                        definition = (
+                            definition.replace('_Examples_', '<em>Examples</em>')
+                            .replace('_Example_', '<em>Example</em>')
+                            .replace('**Notes**', '<strong>Notes</strong>')
+                            .replace('**Note**', '<strong>Note</strong>')
+                        )
                         continue
                     if line.strip():
-                        definition += '<br><br>' + NL + ' ' * 6 + line.strip()
+                        definition += NL + ' ' * 6 + line.strip()
+                        # HACK A DID ACK
+                        definition = (
+                            definition.replace('_Examples_', '<em>Examples</em>')
+                            .replace('_Example_', '<em>Example</em>')
+                            .replace('**Notes**', '<strong>Notes</strong>')
+                            .replace('**Note**', '<strong>Note</strong>')
+                        )
                         continue
                     if not line.strip():
                         for ref in MD_REF_DETECT.finditer(definition):
@@ -284,18 +342,18 @@ def main(argv: list[str]) -> int:
     tic_toc = [TOC_HEADER]
     mint = []
     did_appendix_sep = False
-    logo_patched = False
+    clean_headings = False
+    current_cs = None
+    CS_OF_SLOT = [None for _ in lines]
     for slot, line in enumerate(lines):
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
-        is_plain = True  # No special metadata needed
-        if not logo_patched:
-            if line.startswith(LOCAL_LOGO):
-                line = line.replace(LOCAL_LOGO, OASIS_LOGO)
-                lines[slot] = line
-                logo_patched = True
+        is_plain = True  # No special meta data needed
+        if line.startswith(CLEAN_MD_START):
+            clean_headings = True
+        CS_OF_SLOT[slot] = current_cs
         for tag in sec_cnt:
-            if line.startswith(tag):
+            if line.startswith(tag) and clean_headings:
                 # manage counter
                 if not meta_hook:
                     # auto counters
@@ -342,7 +400,7 @@ def main(argv: list[str]) -> int:
                     text = text.split(TOK_LAB, 1)[0]
                 else:
                     label = label_derive_from(text)
-                clean_sec_cnt_disp = (f'{PARA}{sec_cnt_disp}' if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
+                clean_sec_cnt_disp = (f'{sec_cnt_disp}' if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
                 SEC_LABEL_TEXT[label] = clean_sec_cnt_disp
                 SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
                 line = tag + text + ' ' + TOK_SEC.replace('$thing$', label)
@@ -365,6 +423,9 @@ def main(argv: list[str]) -> int:
                     if extended == 2:
                         extended = sec_cnt_disp.count(DOT) + 1
                 mint.append([list(sec_cnt.values()), extended, sec_cnt_disp, text, label])
+                current_cs = label  # Update state for label in non tag lines
+                # correct the default state assignment
+                CS_OF_SLOT[slot] = current_cs  # type: ignore
 
     # Process the text display of citation refs
     for slot, line in enumerate(lines):
@@ -382,19 +443,61 @@ def main(argv: list[str]) -> int:
                     evil_ref = f'\\[[{text}](#{label})\\]'  # \[[GFMCMARK](#GFMCMARK)\]
                     line = line.replace(sem_ref, evil_ref)
                     lines[slot] = line
-            if '[CWE](#CWE)' in line:
-                lines[slot] = line.replace('[CWE](#CWE)', f'[CWE{TM}](#CWE)')  # Do not ask. Thanks.
-            if '[F.2](#' in line:
-                lines[slot] = line.replace('[F.2](#', '[Appendix F.2](#')  # Do not ask. Thanks.
-            if '[F.4](#' in line:
-                lines[slot] = line.replace('[F.4](#', '[Appendix F.4](#')  # Do not ask. Thanks.
 
-    # Process the text display of section refs TODO
+    # Process the text display of example refs
+    for slot, line in enumerate(lines):
+        if example_in(line):
+            num = example_local_number(line)
+            section = CS_OF_SLOT[slot]
+            magic_label = f'{section}-eg-{num}'
+            pl_anchor = TOK_EG.replace('$thing$', magic_label)
+            line = line.rstrip(NL) + pl_anchor + NL
+            # now the UX bonus:
+            sec_disp = 'sec-' + display_from[section].replace(FULL_STOP, '-')  # type: ignore
+            sec_disp_num_label = f'{sec_disp}-eg-{num}'
+            sec_disp_num_anchor = TOK_EG.replace('$thing$', sec_disp_num_label)
+            line = line.rstrip(NL) + sec_disp_num_anchor + NL
+            # now the global counter extra:
+            global_example_num = eg_global_from[magic_label]
+            global_example_num_label = f'example-{global_example_num}'
+            global_example_num_anchor = TOK_EG.replace('$thing$', global_example_num_label)
+            line = line.rstrip(NL) + global_example_num_anchor + NL
+            # Update the list of lines
+            lines[slot] = line
+
+        if label_in(line):
+            for ref in EG_REF_DETECT.finditer(line):
+                if ref:
+                    # Found example label in markdown format
+                    found = ref.groupdict()
+                    trigger_text = found['text']
+                    if trigger_text != IS_EG_REF:
+                        raise RuntimeError(f'false positive example ref in ({line.rstrip(NL)})')
+                    label = found['label']
+                    text = label.replace(';', ':')
+                    sem_ref = f'[eg](#{label})'
+                    if '-eg-' not in label:  # TODO - refactor and clean up
+                        raise RuntimeError(f'bad label for example in ({line.rstrip(NL)})')
+                    section, number = label.split('-eg-', 1)
+                    if section == CS_OF_SLOT[slot]:
+                        print(f'detected local reference for {label} in ({line.rstrip(NL)})')
+                        evil_ref = f'\\[[{number}](#{label})\\]'  # [1](#a-sec-eg-1)
+                    else:
+                        print(f'detected remote reference for {label} in ({line.rstrip(NL)})')
+                        sec_disp = display_from[section]
+                        evil_ref = (
+                            f'\\[[{number} (of section {sec_disp})](#{label})\\]'  # [1 (of section 1.2.3)](#a-sec-eg-1)
+                        )
+                    line = line.replace(sem_ref, evil_ref)
+                    print(line.rstrip(NL))
+                    lines[slot] = line
+
+    # Process the text display of section refs
     for slot, line in enumerate(lines):
         if label_in(line):
             for ref in SEC_REF_DETECT.finditer(line):
                 if ref:
-                    # Found section label in Markdown format
+                    # Found section label in markdown format
                     found = ref.groupdict()
                     trigger_text = found['text']
                     if trigger_text != IS_SEC_REF:
@@ -414,19 +517,6 @@ def main(argv: list[str]) -> int:
             for ref in SEC_LABEL_BRACKET_CB_DETECT.finditer(line):
                 if ref:
                     # Found bracketed label ref to section in code block
-                    found = ref.groupdict()
-                    value = found['value']
-                    if not value or value not in display_from:
-                        continue
-                    label = found['label']
-                    display = display_from[value]
-                    sem_ref = label
-                    disp_ref = display
-                    line = line.replace(sem_ref, disp_ref)
-                    lines[slot] = line
-            for ref in SEC_LABEL_SEE_STUFF_CP_DETECT.finditer(line):
-                if ref:
-                    # Found special (see ...) label ref to section in code block
                     found = ref.groupdict()
                     value = found['value']
                     if not value or value not in display_from:

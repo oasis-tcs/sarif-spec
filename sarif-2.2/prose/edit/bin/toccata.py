@@ -49,26 +49,30 @@ POST_HEADER_END_REMOVE_LOGO_LINE = (
 
 HTML_BODY_HEADER_END_INSERT_AFTER = '<hr />'
 POST_HEADER_TITLE_CLASS_TITLE_LINE = (
-    '<p>Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01</p>'  # TODO: Make more robust
+    '<h1 id="static-analysis-results-interchange-format-sarif-version-22">Static Analysis Results Interchange Format (SARIF) Version 2.2</h1>'  # TODO: Make more robust
 )
-POST_TITLE_SUBTITLE_CLASS_TYPE_LINE = '<p>OASIS Standard incorporating Approved Errata</p>'  # TODO: Make more robust
-POST_TYPE_SUBTITLE_CLASS_DATE_LINE = '<p>28 August 2023</p>'  # TODO: Make more robust
-POST_DATE_TITLEPAGE_INFO_CLASS_THIS_STAGE_LINE = '<p>This stage:</p>'
+POST_TITLE_SUBTITLE_CLASS_TYPE_LINE = '<h2 id="oasis-standard">OASIS Standard</h2>'  # TODO: Make more robust
+POST_TYPE_SUBTITLE_CLASS_DATE_LINE = '<h2 id="08-aug-2024">08 August 2024</h2>'  # TODO: Make more robust
+POST_DATE_TITLEPAGE_INFO_CLASS_THIS_STAGE_LINE = '<h4 id="this-stage">This stage:</h4>'
 IN_THIS_STAGE_ANY_P_HREF_CLASS_DENSE = '<p><a href="https://docs.oasis-open.org/'
-POST_THIS_STAGE_TITLEPAGE_INFO_CLASS_PREVIOUS_STAGE_LINE = '<p>Previous stage:</p>'
+POST_THIS_STAGE_TITLEPAGE_INFO_CLASS_PREVIOUS_STAGE_LINE = '<h4 id="previous-stage">Previous stage:</h4>'
 IN_PREVIOUS_STAGE_ANY_P_HREF_CLASS_DENSE = '<p><a href="https://docs.oasis-open.org/'
-POST_PREVIOUS_STAGE_TITLEPAGE_INFO_CLASS_LATEST_STAGE_LINE = '<p>Latest stage:</p>'
+POST_PREVIOUS_STAGE_TITLEPAGE_INFO_CLASS_LATEST_STAGE_LINE = '<h4 id="latest-stage">Latest stage:</h4>'
 IN_LATEST_STAGE_ANY_P_HREF_CLASS_DENSE = '<p><a href="https://docs.oasis-open.org/'
-POST_LATEST_STAGE_TITLEPAGE_INFO_CLASS_TECHNICAL_COMMITTEE_LINE = '<p>Technical Committee:</p>'
-POST_TECHNICAL_COMMITTEE_TITLEPAGE_INFO_CLASS_CHAIRS_LINE = '<p>Chairs:</p>'  # TODO: Make more robust
+POST_LATEST_STAGE_TITLEPAGE_INFO_CLASS_TECHNICAL_COMMITTEE_LINE = '<h4 id="technical-committee">Technical Committee:</h4>'
+POST_TECHNICAL_COMMITTEE_TITLEPAGE_INFO_CLASS_CHAIRS_LINE = '<h4 id="chairs">Chairs:</h4>'  # TODO: Make more robust
 IN_CHAIRS_P_CLASS_DENSE = '<p>'
-POST_CHAIRS_TITLEPAGE_INFO_CLASS_EDITORS_LINE = '<p>Editors:</p>'  # TODO: Make more robust
+POST_CHAIRS_TITLEPAGE_INFO_CLASS_EDITORS_LINE = '<h4 id="editors">Editors:</h4>'  # TODO: Make more robust
 IN_EDITORS_P_CLASS_DENSE = '<p>'
-POST_EDITORS_TITLEPAGE_INFO_CLASS_ADDITIONAL_ARTIFACTS_LINE = '<p>Additional artifacts:</p>'
-POST_ADDITIONAL_ARTIFACTS_TITLEPAGE_INFO_CLASS_ABSTRACT_LINE = '<p>Abstract:</p>'
-POST_ABSTRACT_TITLEPAGE_INFO_CLASS_STATUS_LINE = '<p>Status:</p>'
-POST_STATUS_TITLEPAGE_INFO_CLASS_CITATION_FORMAT_LINE = '<p>Citation format:</p>'
-POST_CITATION_FORMAT_TITLEPAGE_INFO_CLASS_NOTICES_LINE = '<p>Notices'
+POST_EDITORS_TITLEPAGE_INFO_CLASS_ADDITIONAL_ARTIFACTS_LINE = '<h4 id="additional-artifacts">Additional artifacts:</h4>'
+
+# <h4 id="related-work">Related work:</h4>
+# <h4 id="declared-json-namespaces">Declared JSON namespaces:</h4>
+
+POST_ADDITIONAL_ARTIFACTS_TITLEPAGE_INFO_CLASS_ABSTRACT_LINE = '<h4 id="abstract">Abstract:</h4>'
+POST_ABSTRACT_TITLEPAGE_INFO_CLASS_STATUS_LINE = '<h4 id="status">Status:</h4>'
+POST_STATUS_TITLEPAGE_INFO_CLASS_CITATION_FORMAT_LINE = '<h4 id="citation-format">Citation format:</h4>'
+POST_CITATION_FORMAT_TITLEPAGE_INFO_CLASS_NOTICES_LINE = '<h2 id="notices">Notices</h2>'
 
 TOC_START_INCL = '<h1 id="table-of-contents">Table of Contents</h1>'
 TOC_END_EXCL = '<h1 id="1-introduction-">1. Introduction <a id=\'introduction\'></a></h1>'
@@ -344,21 +348,21 @@ def main(argv: list[str]) -> int:
 
         if logo_replaced and not title_seen:
             if is_document_title_line(cand):
-                cand = cand.replace('<p>', '<p class="title">')
+                # cand = cand.replace('<p>', '<p class="title">')
                 title_seen = True
                 lines.append(cand)
                 continue
 
         if title_seen and not type_seen:
             if is_document_type_line(cand):
-                cand = cand.replace('<p>', '<p class="sub-title">')
+                # cand = cand.replace('<p>', '<p class="sub-title">')
                 type_seen = True
                 lines.append(cand)
                 continue
 
         if type_seen and not date_seen:
             if is_document_date_line(cand):
-                cand = cand.replace('<p>', '<p class="sub-title">')
+                # cand = cand.replace('<p>', '<p class="sub-title">')
                 date_seen = True
                 lines.append(cand)
                 continue
@@ -366,14 +370,14 @@ def main(argv: list[str]) -> int:
         if date_seen and not this_stage_seen:
             if is_document_this_stage_line(cand):
                 this_stage_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
 
         if this_stage_seen and not previous_stage_seen:
             if is_document_previous_stage_line(cand):
                 previous_stage_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
             cand = cand.replace('<p>', '<p class="dense">')
@@ -381,7 +385,7 @@ def main(argv: list[str]) -> int:
         if previous_stage_seen and not latest_stage_seen:
             if is_document_latest_stage_line(cand):
                 latest_stage_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
             cand = cand.replace('<p>', '<p class="dense">')
@@ -389,7 +393,7 @@ def main(argv: list[str]) -> int:
         if latest_stage_seen and not technical_committee_seen:
             if is_document_technical_committee_line(cand):
                 technical_committee_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
             cand = cand.replace('<p>', '<p class="dense">')
@@ -397,62 +401,69 @@ def main(argv: list[str]) -> int:
         if technical_committee_seen and not chairs_seen:
             if is_document_chairs_line(cand):
                 chairs_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
 
         if chairs_seen and not editors_seen:
             if is_document_editors_line(cand):
                 editors_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
             cand = cand.replace('<p>', '<p class="dense">')
 
         if editors_seen and not additional_artifacts_seen:
             if is_document_additional_artifacts_line(cand):
+                print('additional_artifacts_seen')
                 additional_artifacts_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
             cand = cand.replace('<p>', '<p class="dense">')
 
         if additional_artifacts_seen and not abstract_seen:
             if is_document_abstract_line(cand):
+                print('abstract_seen')
                 abstract_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
 
         if abstract_seen and not status_seen:
             if is_document_status_line(cand):
+                print('status_seen')
                 status_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
 
         if status_seen and not citation_format_seen:
             if is_document_citation_format_line(cand):
+                print('citation_format_seen')
                 citation_format_seen = True
-                cand = cand.replace('<p>', '<p class="titlepage-info">')
+                # cand = cand.replace('<p>', '<p class="titlepage-info">')
                 lines.append(cand)
                 continue
 
         if citation_format_seen and not notices_seen:
             if is_document_notices_line(cand):
+                print('notices_seen')
                 notices_seen = True
-                cand = cand.replace('<p>', '<p class="notices">')
+                # cand = cand.replace('<p>', '<p class="notices">')
                 lines.append(cand)
                 continue
 
         if notices_seen and not toc_start_seen:
             if start_of_toc_in(cand):
+                print('toc_start_seen')
                 toc_start_seen = True
                 lines.append(cand)
                 continue
 
         if toc_start_seen and not toc_end_seen:
             if end_of_toc_in(cand):
+                print('toc_end_seen')
                 toc_end_seen = True
                 cand = generate_toc(toc_db) + NL + cand
                 lines.append(cand)
