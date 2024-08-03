@@ -2,35 +2,35 @@
 
 -------
 
-Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01
+Static Analysis Results Interchange Format (SARIF) Version 2.2.0 CSD 01
 
-OASIS Standard incorporating Approved Errata
+Committee Specification Draft
 
-28 August 2023
+08 August 2024
 
 This stage:
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.docx> (Authoritative)
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/sarif-v2.2.0-csd01.md> (Authoritative)
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html>
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/sarif-v2.2.0-csd01.html>
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.pdf>
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/sarif-v2.2.0-csd01.pdf>
 
 Previous stage:
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.docx> (Authoritative)
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/sarif-v2.2.0-csd01.md> (Authoritative)
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.html>
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/sarif-v2.2.0-csd01.html>
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/sarif-v2.1.0-errata01-csd01-complete.pdf>
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/sarif-v2.2.0-csd01.pdf>
 
 Latest stage:
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.docx> (Authoritative)
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/sarif-v2.2.0.md> (Authoritative)
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html>
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/sarif-v2.2.0.html>
 
-<https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.pdf>
+<https://docs.oasis-open.org/sarif/sarif/v2.2.0/sarif-v2.2.0.pdf>
 
 Technical Committee:
 
@@ -38,32 +38,35 @@ Technical Committee:
 
 Chairs:
 
-David Keaton (<dmk@dmk.com>), Individual Member
+David Keaton (<dmk@dmk.com>), Individual
 
-Luke Cartey (<luke@semmle.com>), [Microsoft](http://www.microsoft.com/)
+Luke Cartey (<lcartey@github.com>), [Microsoft Corporation](http://www.microsoft.com/)
 
 Editors:
 
-Michael C. Fanning (<mikefan@microsoft.com>), [Microsoft](http://www.microsoft.com/)
+Michael Fanning (<michael.fanning@microsoft.com>), [Microsoft Corporation](https://www.microsoft.com/)
 
-Laurence J. Golding (<v-lgold@microsoft.com>), [Microsoft](http://www.microsoft.com)
+Stacy Wray (<v-wraystacy@microsoft.com>), [Microsoft Corporation](https://www.microsoft.com/)
+
+Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
 Additional artifacts:
 
 This prose specification is one component of a Work Product that also includes:
 
-- Errata listing. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Errata 01*. Edited by Michael C. Fanning. 28 August 2023. OASIS Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os.html>.
-
-- Change-marked (redlined) OASIS Standard document. *Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata01 (redlined)*. Edited by Michael C. Fanning and Laurence J. Golding. 28 August 2023. OASIS Standard incorporating Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-redlined.html>.
-
 - The SARIF schema:
 
-  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json>.
+  <https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/schemas/sarif-schema-2.2.0.json>.
 
 - The SARIF External Property File schema:
 
-  <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-external-property-file-schema-2.1.0.json>.
+  <https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/schemas/sarif-external-property-file-schema-2.2.0.json>.
 
+Related work:
+
+This specification replaces or supersedes:
+
+*Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01*. Edited by Michael C. Fanning and Laurence J. Golding. 12 July 2023. OASIS Standard incorporating Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html>. Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html>.
 
 Abstract:
 
@@ -83,13 +86,13 @@ Citation format:
 
 When referencing this specification, the following citation format should be used:
 
-**\[SARIF-v2.1.0-Errata01\]**
+**\[SARIF-v2.2.0\]**
 
-*Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01*. Edited by Michael C. Fanning and Laurence J. Golding. 12 July 2023. OASIS Standard incorporating Approved Errata. <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html>. Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html>.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2.0_. Edited by Michael C. Fanning and Stefan Hagen. 08 August 2024. Committees Specification Draft. <https://docs.oasis-open.org/sarif/sarif/v2.2.0/csd01/sarif-v2.2.0-csd01.html> Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.2.0/sarif-v2.2.0.html>.
 
 Notices
 
-Copyright © OASIS Open 2023. All Rights Reserved.
+Copyright © OASIS Open 2024. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 
@@ -188,6 +191,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		3.13.3 [\$schema property](#sariflog-object--schema-property)  
 		3.13.4 [runs property](#runs-property)  
 		3.13.5 [inlineExternalProperties property](#inlineexternalproperties-property)  
+		3.13.6 [guid property](#sariflog-object--guid-property)  
 	3.14 [run object](#run-object)  
 		3.14.1 [General](#run-object--general)  
 		3.14.2 [externalPropertyFileReferences property](#externalpropertyfilereferences-property)  
@@ -608,6 +612,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		3.58.7 [threadId property](#notification-object--threadid-property)  
 		3.58.8 [timeUtc property](#timeutc-property)  
 		3.58.9 [exception property](#exception-property)  
+		3.58.10 [relatedLocations property](#notification-object--relatedlocations-property)  
 	3.59 [exception object](#exception-object)  
 		3.59.1 [General](#exception-object--general)  
 		3.59.2 [kind property](#exception-object--kind-property)  
@@ -1552,6 +1557,14 @@ Certain properties in this document specify a date and time. The value of every 
 
 &emsp;&emsp;`2016-02-08T16:08:25.943Z`
 
+&emsp;&emsp;`2016-02-08T00:00:00Z`
+
+&emsp;&emsp;`2016-02-08T16:08:00Z`
+
+&emsp;&emsp;`2016-02-08T16:08:25Z`
+
+&emsp;&emsp;`2016-02-08T16:08:25.943Z`
+
 The time component of every date/time-valued property **SHALL** be expressed in Coordinated Universal Time (UTC).
 
 > NOTE 1: The name of every date/time-valued property ends in "Utc" to emphasize that requirement.
@@ -2095,6 +2108,12 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 >   ]
 > }
 > ```
+
+### 3.13.6 guid property <a id='sariflog-object--guid-property'></a>
+
+A `sarifLog` object **SHOULD** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that provides a unique,
+stable identifier for the `sarifLog` designating that the log itself has a conceptual identity as a bundle of tool runs for
+tracking a SARIF log through a distributed results processing pipeline.
 
 ## 3.14 run object <a id='run-object'></a>
 
@@ -4190,6 +4209,8 @@ Each array element **SHALL** have one of the following values, with the specifie
 
 - `"resultFile"`: A result was detected in this artifact (which the analysis tool was not explicitly instructed to scan).
 
+- `"scannedFile"`: An "indirect" artifact (not directly requested for scanning, but scanned as a result of analyzing another "linked" artifact) in which no result was found.
+
     NOTE 3: For example, a scanner might be configured to analyze a C source file and find a result in a header file that it includes. The header file may be marked with the `"resultFile"` role. The C file should be marked with the `"analysisTarget"` role, however, as it was explicitly configured as a scan target.
 
 - `"standardStream"`: The artifact contains the contents of one of the standard input or output streams, as specified in `invocation.stdin`, `invocation.stdout`, `invocation.stderr`, or `invocation.stdoutStderr` ([§3.20.23](#stdin-stdout-stderr-and-stdoutstderr-properties)).
@@ -4220,7 +4241,7 @@ Each array element **SHALL** have one of the following values, with the specifie
 
 - `"unmodified"`: The artifact has not been modified since the baseline time.
 
-    NOTE 3: The information conveyed by these values could be extracted from a VCS. These properties exist so SARIF consumers can have this information without needing access to the VCS.
+    NOTE 4: The information conveyed by these values could be extracted from a VCS. These properties exist so SARIF consumers can have this information without needing access to the VCS.
 
 ### 3.24.7 mimeType property <a id='mimetype-property'></a>
 
@@ -8822,7 +8843,9 @@ If the condition described by the `notification` object is relevant to a particu
 
 ### 3.58.4 locations property <a id='notification-object--locations-property'></a>
 
-If the condition described by the `notification` object is relevant to one or more locations, the `notification` object **MAY** contain a property named `locations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `location` objects ([§3.28](#location-object)) that identify those locations.
+If the condition described by the `notification` object is relevant to one or more locations, the `notification` object **MAY** contain
+a property named `locations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `location` objects ([§3.28](#location-object))
+that identify those locations to which the condition described by the notification applies.
 
 ### 3.58.5 message property <a id='notification-object--message-property'></a>
 
@@ -8861,6 +8884,15 @@ A `notification` object **MAY** contain a property named `timeUtc` whose value i
 If the notification is a result of a runtime exception, the `notification` object **MAY** contain a property named `exception` whose value is an `exception` object ([§3.59](#exception-object)).
 
 If the notification is not the result of a runtime exception, the `exception` property **SHALL** be absent.
+
+### 3.58.10 relatedLocations property <a id='notification-object--relatedlocations-property'></a>
+
+A `notification` object **MAY** contain a property named `relatedLocations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `location` objects ([§3.28](#location-object)) that identify those locations to which the condition described by the notification applies.
+
+The `relatedLocations` property **SHOULD** allow `notification` objects to distinguish between the following types of locations:
+
+- Locations to which the condition described by the `notification` object **SHALL** apply.
+- Other locations to which the condition described by the `notification` object **SHALL NOT** apply but are relevant to understanding the result.
 
 ## 3.59 exception object <a id='exception-object'></a>
 
@@ -9106,42 +9138,7 @@ The following individuals have participated in the creation of this document and
 
 **Participants:**
 
-Andrew Pardoe, Microsoft  
-Chris Meyer, Microsoft  
-Chris Wysopal, CA Technologies  
-David Keaton, Individual  
-Douglas Smith, Kestrel Technology  
-Duncan Sparrell, sFractal Consulting LLC  
-Everett Maus, Microsoft (participated on behalf of Microsoft; now at Google)  
-Harleen Kaur Kohli, Microsoft  
-Hendrik Buchwald, RIPS Technologies  
-Henny Sipma, Kestrel Technology  
-James A. Kupsch, SWAMP Project, University of Wisconsin  
-Jordyn Puryear, Microsoft  
-Joseph Feiman, CA Technologies  
-Ken Prole, Code Dx, Inc.  
-Kevin Greene, Mitre Corporation  
-Larry Hines, Micro Focus  
-Laurence J. Golding, Individual  
-Luke Cartey, Semmle  
-Mel Llaguno, Synopsys  
-Michael Fanning, Microsoft  
-Nikolai Mansourov, Object Management Group  
-Paul Anderson, GrammaTech, Inc.  
-Paul Brookes, Microsoft  
-Paul Patrick, FireEye, Inc.  
-Philip Royer, Splunk Inc.  
-Pooya Mehregan, Security Compass  
-Ram Jeyaraman, Microsoft  
-Ryley Taketa, Microsoft  
-Scott Louvau, Microsoft  
-Sean Barnum, FireEye, Inc.  
-Stefan Hagen, Individual  
-Sunny Chatterjee, Microsoft  
-Tim Hudson, Cryptsoft Pty Ltd.  
-Trey Darley, New Context Services, Inc.  
-Vamshi Basupalli, SWAMP Project, University of Wisconsin  
-Yekaterina O'Neil, Micro Focus
+TBD
 
 # Appendix B. (Normative) Use of fingerprints by result management systems <a id='normative-use-of-fingerprints-by-result-management-systems'></a>
 
@@ -10712,7 +10709,8 @@ Because the purpose is to present as many elements as possible, the file as a wh
 | Revision                  | Date       | Editors                                      | Description                                                                      |
 |:--------------------------|:-----------|:---------------------------------------------|:---------------------------------------------------------------------------------|
 | sarif-v2.2-wd20240502-dev | 2024-05-02 | Craig Schlaman, Stacy Wray, and Stefan Hagen | Initial version 2.2.0, transcribed from v2.1.0 Errata 01 with minor corrections. |
-| sarif-v2.2-wd20240605-dev | 2024-06-05 | Stacy Wray and Stefan Hagen.                 | Monthly editor revision including issues 471 and 637.                            |
+| sarif-v2.2-wd20240605-dev | 2024-06-05 | Stacy Wray and Stefan Hagen                  | Editor revision implementing proposals 471 and 637.                              |
+| sarif-v2.2-wd20240808-dev | 2024-08-08 | Stacy Wray and Stefan Hagen                  | Editor revision implementing proposals 459, 483, 491, 492, and 634.              |
 
 # Appendix M. (Informative) MIME Types and File Name Extensions <a id='non-normative-mime-types-and-file-name-extensions'></a>
 
