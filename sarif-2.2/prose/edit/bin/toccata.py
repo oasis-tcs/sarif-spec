@@ -101,15 +101,22 @@ def load_toc(toc_at: Union[str, pathlib.Path]) -> list[TOC_ENTRY_TYPE]:
 
 def generate_toc(toc_db: list[TOC_ENTRY_TYPE]) -> str:
     """Generate the table of contents from the database."""
+    entries_prefix = ['<div id="toc_container">', '<ul class="toc_list">']
+    entries_postfix = ['</ul>', '</div>']
     entries = []
     past = 0
+    in_appendix = False
     for slot, toc_entry in enumerate(toc_db):
-        levels, _, num_disp, text, slug = toc_entry  # Ignoring appendix_level / is appendix info
-        pres = num_disp.rstrip('.').count(DOT) + 1
+        levels, is_appendix_level, num_disp, text, slug = toc_entry
+        pres = num_disp.rstrip('.').count(DOT) + 1 if not is_appendix_level else is_appendix_level
+        if is_appendix_level and not in_appendix:
+            in_appendix = True
+            past = 2
         if past == 0:
             if pres != 1:
                 raise RuntimeError(f'error in first toc db entry: ({toc_entry})')
-            entries.append(f'<ol class="toc-{pres}"><li>{num_disp} <a href="#{slug}">{text}</a></li>')
+            hack_a_did_ack = '<ul>' if slot else ''
+            entries.append(f'{hack_a_did_ack}<li>{num_disp} <a href="#{slug}">{text}</a></li>')
             past = pres
             continue
         if pres == past:
@@ -119,7 +126,7 @@ def generate_toc(toc_db: list[TOC_ENTRY_TYPE]) -> str:
         if pres > past:
             patch_me = entries[slot - 1]
             there = len('</li>')
-            entries[slot - 1] = patch_me[:-there] + f'<ol class="toc-{pres}">'
+            entries[slot - 1] = patch_me[:-there] + f'<ul>'
             entries.append(f'<li>{num_disp} <a href="#{slug}">{text}</a></li>')
             past = pres
             continue
@@ -127,13 +134,13 @@ def generate_toc(toc_db: list[TOC_ENTRY_TYPE]) -> str:
             stack = past
             closing = ''
             while stack > pres:
-                closing += '</ol></li>'
+                closing += '</ul></li>'
                 stack -= 1
             entries.append(f'{closing}<li>{num_disp} <a href="#{slug}">{text}</a></li>')
             past = pres
             continue
 
-    return NL.join(entries)
+    return NL.join(entries_prefix + entries + entries_postfix)
 
 
 def cleansed_startswith(text: str, token: str) -> bool:
