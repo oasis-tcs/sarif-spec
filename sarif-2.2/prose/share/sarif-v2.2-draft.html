@@ -9,7 +9,7 @@
       Static Analysis Results Interchange Format (SARIF) Version 2.2 CSD01
     </title>
     <style>
-    
+
     /* OASIS specification styles for HTML generated from Markdown or similar sources */
     /* usually used after basic w3.css */
     /* Paul Knight 2018-09-27 */
@@ -46,7 +46,7 @@
         /* not needed - can just use brackets in the label itself */
         /* h6::before {content: "["} */
         /* h6::after {content: "]"} */
-        
+
                 /* style for hr to insert a page break before each ruled line (generated in markdown by 3 or more hyphens alone on a line) */
     hr{page-break-before: always;}
 
@@ -298,7 +298,26 @@
     font-family:"Liberation Sans",sans-serif;
     }
 
-    
+    #toc_container {
+    display: table;
+    font-size: 12pt;
+    margin-bottom: 1em;
+    padding: 10px;
+    width: auto;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: left;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+    margin-left: 0;
+    padding-left: 0.5em;
+    font-size: 12pt;
+}
+
     </style>
   </head>
   <body>
@@ -468,571 +487,561 @@
     <h1 id="table-of-contents">
       Table of Contents
     </h1>
-    <ol type="1">
-      <li>
-        <a href="#introduction">Introduction</a><br />
-        1.1 <a href="#ipr-policy">IPR Policy</a><br />
-        1.2 <a href="#terminology">Terminology</a><br />
-        1.3 <a href="#normative-references">Normative References</a><br />
-        1.4 <a href="#non-normative-references">Non-Normative References</a><br />
-        1.5 <a href="#trademarks">Trademarks</a>
-      </li>
-      <li>
-        <a href="#conventions">Conventions</a><br />
-        2.1 <a href="#conventions--general">General</a><br />
-        2.2 <a href="#format-examples">Format examples</a><br />
-        2.3 <a href="#property-notation">Property notation</a><br />
-        2.4 <a href="#syntax-notation">Syntax notation</a><br />
-        2.5 <a href="#commonly-used-objects">Commonly used objects</a>
-      </li>
-      <li>
-        <a href="#file-format">File format</a><br />
-        3.1 <a href="#file-format--general">General</a><br />
-        3.2 <a href="#sarif-file-naming-convention">SARIF file naming convention</a><br />
-        3.3 <a href="#artifactcontent-object">artifactContent object</a><br />
-        3.3.1 <a href="#artifactcontent-object--general">General</a><br />
-        3.3.2 <a href="#artifactcontent-object--text-property">text property</a><br />
-        3.3.3 <a href="#binary-property">binary property</a><br />
-        3.3.4 <a href="#rendered-property">rendered property</a><br />
-        3.4 <a href="#artifactlocation-object">artifactLocation object</a><br />
-        3.4.1 <a href="#artifactlocation--general">General</a><br />
-        3.4.2 <a href="#artifactlocation-object--constraints">Constraints</a><br />
-        3.4.3 <a href="#uri-property">uri property</a><br />
-        3.4.4 <a href="#uribaseid-property">uriBaseId property</a><br />
-        3.4.5 <a href="#artifactlocation-object--index-property">index property</a><br />
-        3.4.6 <a href="#artifactlocation-object--description-property">description property</a><br />
-        3.4.7 <a href="#guidance-on-the-use-of-artifactlocation-objects">Guidance on the use of artifactLocation objects</a><br />
-        3.5 <a href="#string-properties">String properties</a><br />
-        3.5.1 <a href="#localizable-strings">Localizable strings</a><br />
-        3.5.2 <a href="#redactable-strings">Redactable strings</a><br />
-        3.5.3 <a href="#guid-valued-strings">GUID-valued strings</a><br />
-        3.5.4 <a href="#hierarchical-strings">Hierarchical strings</a><br />
-        3.5.4.1 <a href="#hierarchical-strings--general">General</a><br />
-        3.5.4.2 <a href="#versioned-hierarchical-strings">Versioned hierarchical strings</a><br />
-        3.6 <a href="#object-properties">Object properties</a><br />
-        3.7 <a href="#array-properties">Array properties</a><br />
-        3.7.1 <a href="#array-properties--general">General</a><br />
-        3.7.2 <a href="#default-value">Default value</a><br />
-        3.7.3 <a href="#array-properties-with-unique-values">Array properties with unique values</a><br />
-        3.7.4 <a href="#array-indices">Array indices</a><br />
-        3.8 <a href="#property-bags">Property bags</a><br />
-        3.8.1 <a href="#property-bags--general">General</a><br />
-        3.8.2 <a href="#tags">Tags</a><br />
-        3.8.2.1 <a href="#tags--general">General</a><br />
-        3.8.2.2 <a href="#tag-metadata">Tag metadata</a><br />
-        3.9 <a href="#datetime-properties">Date/time properties</a><br />
-        3.10 <a href="#uri-valued-properties">URI-valued properties</a><br />
-        3.10.1 <a href="#uri-valued-properties--general">General</a><br />
-        3.10.2 <a href="#normalizing-file-scheme-uris">Normalizing file scheme URIs</a><br />
-        3.10.3 <a href="#uris-that-use-the-sarif-scheme">URIs that use the sarif scheme</a><br />
-        3.10.4 <a href="#internationalized-resource-identifiers-iris">Internationalized Resource Identifiers (IRIs)</a><br />
-        3.11 <a href="#message-object">message object</a><br />
-        3.11.1 <a href="#message-object--general">General</a><br />
-        3.11.2 <a href="#message-object--constraints">Constraints</a><br />
-        3.11.3 <a href="#plain-text-messages">Plain text messages</a><br />
-        3.11.4 <a href="#formatted-messages">Formatted messages</a><br />
-        3.11.4.1 <a href="#formatted-messages--general">General</a><br />
-        3.11.4.2 <a href="#security-implications">Security implications</a><br />
-        3.11.5 <a href="#messages-with-placeholders">Messages with placeholders</a><br />
-        3.11.6 <a href="#messages-with-embedded-links">Messages with embedded links</a><br />
-        3.11.7 <a href="#message-string-lookup">Message string lookup</a><br />
-        3.11.8 <a href="#message-object--text-property">text property</a><br />
-        3.11.9 <a href="#message-object--markdown-property">markdown property</a><br />
-        3.11.10 <a href="#message-object--id-property">id property</a><br />
-        3.11.11 <a href="#message-object--arguments-property">arguments property</a><br />
-        3.12 <a href="#multiformatmessagestring-object">multiformatMessageString object</a><br />
-        3.12.1 <a href="#multiformatmessagestring-object--general">General</a><br />
-        3.12.2 <a href="#localizable-multiformatmessagestrings">Localizable multiformatMessageStrings</a><br />
-        3.12.3 <a href="#multiformatmessagestring-object--text-property">text property</a><br />
-        3.12.4 <a href="#multiformatmessagestring-object--markdown-property">markdown property</a><br />
-        3.13 <a href="#sariflog-object">sarifLog object</a><br />
-        3.13.1 <a href="#sariflog-object--general">General</a><br />
-        3.13.2 <a href="#sariflog-object--version-property">version property</a><br />
-        3.13.3 <a href="#sariflog-object--schema-property">$schema property</a><br />
-        3.13.4 <a href="#runs-property">runs property</a><br />
-        3.13.5 <a href="#inlineexternalproperties-property">inlineExternalProperties property</a><br />
-        3.13.6 <a href="#sariflog-object--guid-property">guid property</a><br />
-        3.14 <a href="#run-object">run object</a><br />
-        3.14.1 <a href="#run-object--general">General</a><br />
-        3.14.2 <a href="#externalpropertyfilereferences-property">externalPropertyFileReferences property</a><br />
-        3.14.3 <a href="#automationdetails-property">automationDetails property</a><br />
-        3.14.4 <a href="#runaggregates-property">runAggregates property</a><br />
-        3.14.5 <a href="#baselineguid-property">baselineGuid property</a><br />
-        3.14.6 <a href="#run-object--tool-property">tool property</a><br />
-        3.14.7 <a href="#language">language</a><br />
-        3.14.8 <a href="#taxonomies-property">taxonomies property</a><br />
-        3.14.9 <a href="#translations-property">translations property</a><br />
-        3.14.10 <a href="#policies-property">policies property</a><br />
-        3.14.11 <a href="#invocations-property">invocations property</a><br />
-        3.14.12 <a href="#conversion-property">conversion property</a><br />
-        3.14.13 <a href="#versioncontrolprovenance-property">versionControlProvenance property</a><br />
-        3.14.14 <a href="#originaluribaseids-property">originalUriBaseIds property</a><br />
-        3.14.15 <a href="#artifacts-property">artifacts property</a><br />
-        3.14.16 <a href="#speciallocations-property">specialLocations property</a><br />
-        3.14.17 <a href="#run-object--logicallocations-property">logicalLocations property</a><br />
-        3.14.18 <a href="#addresses-property">addresses property</a><br />
-        3.14.19 <a href="#threadflowlocations-property">threadFlowLocations property</a><br />
-        3.14.20 <a href="#run-object--graphs-property">graphs property</a><br />
-        3.14.21 <a href="#webrequests-property">webRequests property</a><br />
-        3.14.22 <a href="#webresponses-property">webResponses property</a><br />
-        3.14.23 <a href="#results-property">results property</a><br />
-        3.14.24 <a href="#defaultencoding-property">defaultEncoding property</a><br />
-        3.14.25 <a href="#defaultsourcelanguage-property">defaultSourceLanguage property</a><br />
-        3.14.26 <a href="#newlinesequences-property">newlineSequences property</a><br />
-        3.14.27 <a href="#columnkind-property">columnKind property</a><br />
-        3.14.28 <a href="#redactiontokens-property">redactionTokens property</a><br />
-        3.15 <a href="#externalpropertyfilereferences-object">externalPropertyFileReferences object</a><br />
-        3.15.1 <a href="#externalpropertyfilereferences-object--general">General</a><br />
-        3.15.2 <a href="#rationale">Rationale</a><br />
-        3.15.3 <a href="#properties">Properties</a><br />
-        3.16 <a href="#externalpropertyfilereference-object">externalPropertyFileReference object</a><br />
-        3.16.1 <a href="#externalpropertyfilereference-object--general">General</a><br />
-        3.16.2 <a href="#externalpropertyfilereference-object--constraints">Constraints</a><br />
-        3.16.3 <a href="#externalpropertyfilereference-object--location-property">location property</a><br />
-        3.16.4 <a href="#externalpropertyfilereference-object--guid-property">guid property</a><br />
-        3.16.5 <a href="#itemcount-property">itemCount property</a><br />
-        3.17 <a href="#runautomationdetails-object">runAutomationDetails object</a><br />
-        3.17.1 <a href="#runautomationdetails-object--general">General</a><br />
-        3.17.2 <a href="#runautomationdetails-object--description-property">description property</a><br />
-        3.17.3 <a href="#runautomationdetails-object--id-property">id property</a><br />
-        3.17.4 <a href="#runautomationdetails-object--guid-property">guid property</a><br />
-        3.17.5 <a href="#runautomationdetails-object--correlationguid-property">correlationGuid property</a><br />
-        3.18 <a href="#tool-object">tool object</a><br />
-        3.18.1 <a href="#tool-object--general">General</a><br />
-        3.18.2 <a href="#driver-property">driver property</a><br />
-        3.18.3 <a href="#extensions-property">extensions property</a><br />
-        3.19 <a href="#toolcomponent-object">toolComponent object</a><br />
-        3.19.1 <a href="#toolcomponent-object--general">General</a><br />
-        3.19.2 <a href="#toolcomponent-object--constraints">Constraints</a><br />
-        3.19.3 <a href="#taxonomies">Taxonomies</a><br />
-        3.19.4 <a href="#translations">Translations</a><br />
-        3.19.5 <a href="#policies">Policies</a><br />
-        3.19.6 <a href="#toolcomponent-object--guid-property">guid property</a><br />
-        3.19.7 <a href="#product-hierarchy-properties">Product hierarchy properties</a><br />
-        3.19.8 <a href="#toolcomponent-object--name-property">name property</a><br />
-        3.19.9 <a href="#toolcomponent-object--fullname-property">fullName property</a><br />
-        3.19.10 <a href="#product-property">product property</a><br />
-        3.19.11 <a href="#productsuite-property">productSuite property</a><br />
-        3.19.12 <a href="#semanticversion-property">semanticVersion property</a><br />
-        3.19.13 <a href="#toolcomponent-object--version-property">version property</a><br />
-        3.19.14 <a href="#dottedquadfileversion-property">dottedQuadFileVersion property</a><br />
-        3.19.15 <a href="#releasedateutc-property">releaseDateUtc property</a><br />
-        3.19.16 <a href="#toolcomponent-object--downloaduri-property">downloadUri property</a><br />
-        3.19.17 <a href="#toolcomponent-object--informationuri-property">informationUri property</a><br />
-        3.19.18 <a href="#organization-property">organization property</a><br />
-        3.19.19 <a href="#toolcomponent-object--shortdescription-property">shortDescription property</a><br />
-        3.19.20 <a href="#toolcomponent-object--fulldescription-property">fullDescription property</a><br />
-        3.19.21 <a href="#language-property">language property</a><br />
-        3.19.22 <a href="#globalmessagestrings-property">globalMessageStrings property</a><br />
-        3.19.23 <a href="#rules-property">rules property</a><br />
-        3.19.24 <a href="#notifications-property">notifications property</a><br />
-        3.19.25 <a href="#toolcomponent-object--taxa-property">taxa property</a><br />
-        3.19.26 <a href="#supportedtaxonomies-property">supportedTaxonomies property</a><br />
-        3.19.27 <a href="#translationmetadata-property">translationMetadata property</a><br />
-        3.19.28 <a href="#toolcomponent-object--locations-property">locations property</a><br />
-        3.19.29 <a href="#toolcomponent-object--contents-property">contents property</a><br />
-        3.19.30 <a href="#iscomprehensive-property">isComprehensive property</a><br />
-        3.19.31 <a href="#localizeddatasemanticversion-property">localizedDataSemanticVersion property</a><br />
-        3.19.32 <a href="#minimumrequiredlocalizeddatasemanticversion-property">minimumRequiredLocalizedDataSemanticVersion property</a><br />
-        3.19.33 <a href="#associatedcomponent-property">associatedComponent property</a><br />
-        3.20 <a href="#invocation-object">invocation object</a><br />
-        3.20.1 <a href="#invocation-object--general">General</a><br />
-        3.20.2 <a href="#commandline-property">commandLine property</a><br />
-        3.20.3 <a href="#invocation-object--arguments-property">arguments property</a><br />
-        3.20.4 <a href="#responsefiles-property">responseFiles property</a><br />
-        3.20.5 <a href="#ruleconfigurationoverrides-property">ruleConfigurationOverrides property</a><br />
-        3.20.6 <a href="#notificationconfigurationoverrides-property">notificationConfigurationOverrides property</a><br />
-        3.20.7 <a href="#starttimeutc-property">startTimeUtc property</a><br />
-        3.20.8 <a href="#endtimeutc-property">endTimeUtc property</a><br />
-        3.20.9 <a href="#exitcode-property">exitCode property</a><br />
-        3.20.10 <a href="#exitcodedescription-property">exitCodeDescription property</a><br />
-        3.20.11 <a href="#exitsignalname-property">exitSignalName property</a><br />
-        3.20.12 <a href="#exitsignalnumber-property">exitSignalNumber property</a><br />
-        3.20.13 <a href="#processstartfailuremessage-property">processStartFailureMessage property</a><br />
-        3.20.14 <a href="#executionsuccessful-property">executionSuccessful property</a><br />
-        3.20.15 <a href="#machine-property">machine property</a><br />
-        3.20.16 <a href="#account-property">account property</a><br />
-        3.20.17 <a href="#processid-property">processId property</a><br />
-        3.20.18 <a href="#executablelocation-property">executableLocation property</a><br />
-        3.20.19 <a href="#workingdirectory-property">workingDirectory property</a><br />
-        3.20.20 <a href="#environmentvariables-property">environmentVariables property</a><br />
-        3.20.21 <a href="#toolexecutionnotifications-property">toolExecutionNotifications property</a><br />
-        3.20.22 <a href="#toolconfigurationnotifications-property">toolConfigurationNotifications property</a><br />
-        3.20.23 <a href="#stdin-stdout-stderr-and-stdoutstderr-properties">stdin, stdout, stderr, and stdoutStderr properties</a><br />
-        3.21 <a href="#attachment-object">attachment object</a><br />
-        3.21.1 <a href="#attachment-object--general">General</a><br />
-        3.21.2 <a href="#attachment-object--description-property">description property</a><br />
-        3.21.3 <a href="#attachment-object--location-property">location property</a><br />
-        3.21.4 <a href="#regions-property">regions property</a><br />
-        3.21.5 <a href="#rectangles-property">rectangles property</a><br />
-        3.22 <a href="#conversion-object">conversion object</a><br />
-        3.22.1 <a href="#conversion-object--general">General</a><br />
-        3.22.2 <a href="#conversion-object--tool-property">tool property</a><br />
-        3.22.3 <a href="#invocation-property">invocation property</a><br />
-        3.22.4 <a href="#analysistoollogfiles-property">analysisToolLogFiles property</a><br />
-        3.23 <a href="#versioncontroldetails-object">versionControlDetails object</a><br />
-        3.23.1 <a href="#versioncontroldetails-object--general">General</a><br />
-        3.23.2 <a href="#versioncontroldetails-object--constraints">Constraints</a><br />
-        3.23.3 <a href="#repositoryuri-property">repositoryUri property</a><br />
-        3.23.4 <a href="#revisionid-property">revisionId property</a><br />
-        3.23.5 <a href="#branch-property">branch property</a><br />
-        3.23.6 <a href="#revisiontag-property">revisionTag property</a><br />
-        3.23.7 <a href="#asoftimeutc-property">asOfTimeUtc property</a><br />
-        3.23.8 <a href="#mappedto-property">mappedTo property</a><br />
-        3.24 <a href="#artifact-object">artifact object</a><br />
-        3.24.1 <a href="#artifact-object--general">General</a><br />
-        3.24.2 <a href="#artifact-object--location-property">location property</a><br />
-        3.24.3 <a href="#artifact-object--parentindex-property">parentIndex property</a><br />
-        3.24.4 <a href="#offset-property">offset property</a><br />
-        3.24.5 <a href="#artifact-object--length-property">length property</a><br />
-        3.24.6 <a href="#roles-property">roles property</a><br />
-        3.24.7 <a href="#mimetype-property">mimeType property</a><br />
-        3.24.8 <a href="#artifact-object--contents-property">contents property</a><br />
-        3.24.9 <a href="#encoding-property">encoding property</a><br />
-        3.24.10 <a href="#artifact-object--sourcelanguage-property">sourceLanguage property</a><br />
-        3.24.10.1 <a href="#sourcelanguage-property--general">General</a><br />
-        3.24.10.2 <a href="#source-language-identifier-conventions-and-practices">Source language identifier conventions and practices</a><br />
-        3.24.11 <a href="#hashes-property">hashes property</a><br />
-        3.24.12 <a href="#lastmodifiedtimeutc-property">lastModifiedTimeUtc property</a><br />
-        3.24.13 <a href="#artifact-object--description-property">description property</a><br />
-        3.25 <a href="#speciallocations-object">specialLocations object</a><br />
-        3.25.1 <a href="#speciallocations-object--general">General</a><br />
-        3.25.2 <a href="#displaybase-property">displayBase property</a><br />
-        3.26 <a href="#translationmetadata-object">translationMetadata object</a><br />
-        3.26.1 <a href="#translationmetadata-object--general">General</a><br />
-        3.26.2 <a href="#translationmetadata-object--name-property">name property</a><br />
-        3.26.3 <a href="#translationmetadata-object--fullname-property">fullName property</a><br />
-        3.26.4 <a href="#translationmetadata-object--shortdescription-property">shortDescription property</a><br />
-        3.26.5 <a href="#translationmetadata-object--fulldescription-property">fullDescription property</a><br />
-        3.26.6 <a href="#translationmetadata-object--downloaduri-property">downloadUri property</a><br />
-        3.26.7 <a href="#translationmetadata-object--informationuri-property">informationUri property</a><br />
-        3.27 <a href="#result-object">result object</a><br />
-        3.27.1 <a href="#result-object--general">General</a><br />
-        3.27.2 <a href="#distinguishing-logically-identical-from-logically-distinct-results">Distinguishing logically identical from logically distinct results</a><br />
-        3.27.3 <a href="#result-object--guid-property">guid property</a><br />
-        3.27.4 <a href="#result-object--correlationguid-property">correlationGuid property</a><br />
-        3.27.5 <a href="#ruleid-property">ruleId property</a><br />
-        3.27.6 <a href="#ruleindex-property">ruleIndex property</a><br />
-        3.27.7 <a href="#rule-property">rule property</a><br />
-        3.27.8 <a href="#result-object--taxa-property">taxa property</a><br />
-        3.27.9 <a href="#result-object--kind-property">kind property</a><br />
-        3.27.10 <a href="#result-object--level-property">level property</a><br />
-        3.27.11 <a href="#result-object--message-property">message property</a><br />
-        3.27.12 <a href="#result-object--locations-property">locations property</a><br />
-        3.27.13 <a href="#analysistarget-property">analysisTarget property</a><br />
-        3.27.14 <a href="#result-object--webrequest-property">webRequest property</a><br />
-        3.27.15 <a href="#result-object--webresponse-property">webResponse property</a><br />
-        3.27.16 <a href="#fingerprints-property">fingerprints property</a><br />
-        3.27.17 <a href="#partialfingerprints-property">partialFingerprints property</a><br />
-        3.27.18 <a href="#codeflows-property">codeFlows property</a><br />
-        3.27.19 <a href="#result-object--graphs-property">graphs property</a><br />
-        3.27.20 <a href="#graphtraversals-property">graphTraversals property</a><br />
-        3.27.21 <a href="#stacks-property">stacks property</a><br />
-        3.27.22 <a href="#relatedlocations-property">relatedLocations property</a><br />
-        3.27.23 <a href="#suppressions-property">suppressions property</a><br />
-        3.27.24 <a href="#baselinestate-property">baselineState property</a><br />
-        3.27.25 <a href="#result-object--rank-property">rank property</a><br />
-        3.27.26 <a href="#attachments-property">attachments property</a><br />
-        3.27.27 <a href="#workitemuris-property">workItemUris property</a><br />
-        3.27.28 <a href="#hostedvieweruri-property">hostedViewerUri property</a><br />
-        3.27.29 <a href="#provenance-property">provenance property</a><br />
-        3.27.30 <a href="#fixes-property">fixes property</a><br />
-        3.27.31 <a href="#occurrencecount-property">occurrenceCount property</a><br />
-        3.28 <a href="#location-object">location object</a><br />
-        3.28.1 <a href="#location-object--general">General</a><br />
-        3.28.2 <a href="#location-object--id-property">id property</a><br />
-        3.28.3 <a href="#physicallocation-property">physicalLocation property</a><br />
-        3.28.4 <a href="#location-object--logicallocations-property">logicalLocations property</a><br />
-        3.28.5 <a href="#location-object--message-property">message property</a><br />
-        3.28.6 <a href="#annotations-property">annotations property</a><br />
-        3.28.7 <a href="#location-object--relationships-property">relationships property</a><br />
-        3.29 <a href="#physicallocation-object">physicalLocation object</a><br />
-        3.29.1 <a href="#physicallocation-object--general">General</a><br />
-        3.29.2 <a href="#physicallocation-object--constraints">Constraints</a><br />
-        3.29.3 <a href="#physicallocation-object--artifactlocation-property">artifactLocation property</a><br />
-        3.29.4 <a href="#region-property">region property</a><br />
-        3.29.5 <a href="#contextregion-property">contextRegion property</a><br />
-        3.29.6 <a href="#address-property">address property</a><br />
-        3.30 <a href="#region-object">region object</a><br />
-        3.30.1 <a href="#region-object--general">General</a><br />
-        3.30.2 <a href="#text-regions">Text regions</a><br />
-        3.30.3 <a href="#binary-regions">Binary regions</a><br />
-        3.30.4 <a href="#independence-of-text-and-binary-regions">Independence of text and binary regions</a><br />
-        3.30.5 <a href="#startline-property">startLine property</a><br />
-        3.30.6 <a href="#startcolumn-property">startColumn property</a><br />
-        3.30.7 <a href="#endline-property">endLine property</a><br />
-        3.30.8 <a href="#endcolumn-property">endColumn property</a><br />
-        3.30.9 <a href="#charoffset-property">charOffset property</a><br />
-        3.30.10 <a href="#charlength-property">charLength property</a><br />
-        3.30.11 <a href="#byteoffset-property">byteOffset property</a><br />
-        3.30.12 <a href="#bytelength-property">byteLength property</a><br />
-        3.30.13 <a href="#snippet-property">snippet property</a><br />
-        3.30.14 <a href="#region-object--message-property">message property</a><br />
-        3.30.15 <a href="#region-object--sourcelanguage-property">sourceLanguage property</a><br />
-        3.31 <a href="#rectangle-object">rectangle object</a><br />
-        3.31.1 <a href="#rectangle-object--general">General</a><br />
-        3.31.2 <a href="#top-left-bottom-and-right-properties">top, left, bottom, and right properties</a><br />
-        3.31.3 <a href="#rectangle-object--message-property">message property</a><br />
-        3.32 <a href="#address-object">address object</a><br />
-        3.32.1 <a href="#address-object--general">General</a><br />
-        3.32.2 <a href="#parent-child-relationships">Parent-child relationships</a><br />
-        3.32.3 <a href="#absolute-address-calculation">Absolute address calculation</a><br />
-        3.32.4 <a href="#relative-address-calculation">Relative address calculation</a><br />
-        3.32.5 <a href="#address-object--index-property">index property</a><br />
-        3.32.6 <a href="#absoluteaddress-property">absoluteAddress property</a><br />
-        3.32.7 <a href="#relativeaddress-property">relativeAddress property</a><br />
-        3.32.8 <a href="#offsetfromparent-property">offsetFromParent property</a><br />
-        3.32.9 <a href="#address-object--length-property">length property</a><br />
-        3.32.10 <a href="#address-object--name-property">name property</a><br />
-        3.32.11 <a href="#address-object--fullyqualifiedname-property">fullyQualifiedName property</a><br />
-        3.32.12 <a href="#address-object--kind-property">kind property</a><br />
-        3.32.13 <a href="#address-object--parentindex-property">parentIndex property</a><br />
-        3.33 <a href="#logicallocation-object">logicalLocation object</a><br />
-        3.33.1 <a href="#logicallocation-object--general">General</a><br />
-        3.33.2 <a href="#logical-location-naming-rules">Logical location naming rules</a><br />
-        3.33.3 <a href="#logicallocation-object--index-property">index property</a><br />
-        3.33.4 <a href="#logicallocation-object--name-property">name property</a><br />
-        3.33.5 <a href="#logicallocation-object--fullyqualifiedname-property">fullyQualifiedName property</a><br />
-        3.33.6 <a href="#decoratedname-property">decoratedName property</a><br />
-        3.33.7 <a href="#logicallocation-object--kind-property">kind property</a><br />
-        3.33.8 <a href="#logicallocation-object--parentindex-property">parentIndex property</a><br />
-        3.34 <a href="#locationrelationship-object">locationRelationship object</a><br />
-        3.34.1 <a href="#locationrelationship-object--general">General</a><br />
-        3.34.2 <a href="#locationrelationship-object--target-property">target property</a><br />
-        3.34.3 <a href="#locationrelationship-object--kinds-property">kinds property</a><br />
-        3.34.4 <a href="#locationrelationship-object--description-property">description property</a><br />
-        3.35 <a href="#suppression-object">suppression object</a><br />
-        3.35.1 <a href="#suppression-object--general">General</a><br />
-        3.35.2 <a href="#suppression-object--kind-property">kind property</a><br />
-        3.35.3 <a href="#status-property">status property</a><br />
-        3.35.4 <a href="#suppression-object--location-property">location property</a><br />
-        3.35.5 <a href="#suppression-object--guid-property">guid property</a><br />
-        3.35.6 <a href="#justification-property">justification property</a><br />
-        3.36 <a href="#codeflow-object">codeFlow object</a><br />
-        3.36.1 <a href="#codeflow-object--general">General</a><br />
-        3.36.2 <a href="#codeflow-object--message-property">message property</a><br />
-        3.36.3 <a href="#threadflows-property">threadFlows property</a><br />
-        3.37 <a href="#threadflow-object">threadFlow object</a><br />
-        3.37.1 <a href="#threadflow-object--general">General</a><br />
-        3.37.2 <a href="#threadflow-object--id-property">id property</a><br />
-        3.37.3 <a href="#threadflow-object--message-property">message property</a><br />
-        3.37.4 <a href="#threadflow-object--initialstate-property">initialState property</a><br />
-        3.37.5 <a href="#threadflow-object--immutablestate-property">immutableState property</a><br />
-        3.37.6 <a href="#threadflow-object--locations-property">locations property</a><br />
-        3.38 <a href="#threadflowlocation-object">threadFlowLocation object</a><br />
-        3.38.1 <a href="#threadflowlocation-object--general">General</a><br />
-        3.38.2 <a href="#threadflowlocation-object--index-property">index property</a><br />
-        3.38.3 <a href="#threadflowlocation-object--location-property">location property</a><br />
-        3.38.4 <a href="#threadflowlocation-object--module-property">module property</a><br />
-        3.38.5 <a href="#threadflowlocation-object--stack-property">stack property</a><br />
-        3.38.6 <a href="#threadflowlocation-object--webrequest-property">webRequest property</a><br />
-        3.38.7 <a href="#threadflowlocation-object--webresponse-property">webResponse property</a><br />
-        3.38.8 <a href="#threadflowlocation-object--kinds-property">kinds property</a><br />
-        3.38.9 <a href="#state-property">state property</a><br />
-        3.38.10 <a href="#nestinglevel-property">nestingLevel property</a><br />
-        3.38.11 <a href="#executionorder-property">executionOrder property</a><br />
-        3.38.12 <a href="#executiontimeutc-property">executionTimeUtc property</a><br />
-        3.38.13 <a href="#importance-property">importance property</a><br />
-        3.38.14 <a href="#threadflowlocation-object--taxa-property">taxa property</a><br />
-        3.39 <a href="#graph-object">graph object</a><br />
-        3.39.1 <a href="#graph-object--general">General</a><br />
-        3.39.2 <a href="#graph-object--description-property">description property</a><br />
-        3.39.3 <a href="#nodes-property">nodes property</a><br />
-        3.39.4 <a href="#edges-property">edges property</a><br />
-        3.40 <a href="#node-object">node object</a><br />
-        3.40.1 <a href="#node-object--general">General</a><br />
-        3.40.2 <a href="#node-object--id-property">id property</a><br />
-        3.40.3 <a href="#node-object--label-property">label property</a><br />
-        3.40.4 <a href="#node-object--location-property">location property</a><br />
-        3.40.5 <a href="#children-property">children property</a><br />
-        3.41 <a href="#edge-object">edge object</a><br />
-        3.41.1 <a href="#edge-object--general">General</a><br />
-        3.41.2 <a href="#edge-object--id-property">id property</a><br />
-        3.41.3 <a href="#edge-object--label-property">label property</a><br />
-        3.41.4 <a href="#sourcenodeid-property">sourceNodeId property</a><br />
-        3.41.5 <a href="#targetnodeid-property">targetNodeId property</a><br />
-        3.42 <a href="#graphtraversal-object">graphTraversal object</a><br />
-        3.42.1 <a href="#graphtraversal-object--general">General</a><br />
-        3.42.2 <a href="#graphtraversal-object--constraints">Constraints</a><br />
-        3.42.3 <a href="#resultgraphindex-property">resultGraphIndex property</a><br />
-        3.42.4 <a href="#rungraphindex-property">runGraphIndex property</a><br />
-        3.42.5 <a href="#graphtraversal-object--description-property">description property</a><br />
-        3.42.6 <a href="#graphtraversal-object--initialstate-property">initialState property</a><br />
-        3.42.7 <a href="#graphtraversal-object--immutablestate-property">immutableState property</a><br />
-        3.42.8 <a href="#edgetraversals-property">edgeTraversals property</a><br />
-        3.43 <a href="#edgetraversal-object">edgeTraversal object</a><br />
-        3.43.1 <a href="#edgetraversal-object--general">General</a><br />
-        3.43.2 <a href="#edgeid-property">edgeId property</a><br />
-        3.43.3 <a href="#edgetraversal-object--message-property">message property</a><br />
-        3.43.4 <a href="#finalstate-property">finalState property</a><br />
-        3.43.5 <a href="#stepoveredgecount-property">stepOverEdgeCount property</a><br />
-        3.44 <a href="#stack-object">stack object</a><br />
-        3.44.1 <a href="#stack-object--general">General</a><br />
-        3.44.2 <a href="#stack-object--message-property">message property</a><br />
-        3.44.3 <a href="#frames-property">frames property</a><br />
-        3.45 <a href="#stackframe-object">stackFrame object</a><br />
-        3.45.1 <a href="#stackframe-object--general">General</a><br />
-        3.45.2 <a href="#stackframe-object--location-property">location property</a><br />
-        3.45.3 <a href="#stackframe-object--module-property">module property</a><br />
-        3.45.4 <a href="#stackframe-object--threadid-property">threadId property</a><br />
-        3.45.5 <a href="#stackframe-object--parameters-property">parameters property</a><br />
-        3.46 <a href="#webrequest-object">webRequest object</a><br />
-        3.46.1 <a href="#webrequest-object--general">General</a><br />
-        3.46.2 <a href="#webrequest-object--index-property">index property</a><br />
-        3.46.3 <a href="#webrequest-object--protocol-property">protocol property</a><br />
-        3.46.4 <a href="#webrequest-object--version-property">version property</a><br />
-        3.46.5 <a href="#webrequest-object--target-property">target property</a><br />
-        3.46.6 <a href="#method-property">method property</a><br />
-        3.46.7 <a href="#webrequest-object--headers-property">headers property</a><br />
-        3.46.8 <a href="#webrequest-object--parameters-property">parameters property</a><br />
-        3.46.9 <a href="#webrequest-object--body-property">body property</a><br />
-        3.47 <a href="#webresponse-object">webResponse object</a><br />
-        3.47.1 <a href="#webresponse-object--general">General</a><br />
-        3.47.2 <a href="#webresponse-object--index-property">index property</a><br />
-        3.47.3 <a href="#webresponse-object--protocol-property">protocol property</a><br />
-        3.47.4 <a href="#webresponse-object--version-property">version property</a><br />
-        3.47.5 <a href="#statuscode-property">statusCode property</a><br />
-        3.47.6 <a href="#reasonphrase-property">reasonPhrase property</a><br />
-        3.47.7 <a href="#webresponse-object--headers-property">headers property</a><br />
-        3.47.8 <a href="#webresponse-object--body-property">body property</a><br />
-        3.47.9 <a href="#noresponsereceived-property">noResponseReceived property</a><br />
-        3.48 <a href="#resultprovenance-object">resultProvenance object</a><br />
-        3.48.1 <a href="#resultprovenance-object--general">General</a><br />
-        3.48.2 <a href="#firstdetectiontimeutc-property">firstDetectionTimeUtc property</a><br />
-        3.48.3 <a href="#lastdetectiontimeutc-property">lastDetectionTimeUtc property</a><br />
-        3.48.4 <a href="#firstdetectionrunguid-property">firstDetectionRunGuid property</a><br />
-        3.48.5 <a href="#lastdetectionrunguid-property">lastDetectionRunGuid property</a><br />
-        3.48.6 <a href="#invocationindex-property">invocationIndex property</a><br />
-        3.48.7 <a href="#conversionsources-property">conversionSources property</a><br />
-        3.49 <a href="#reportingdescriptor-object">reportingDescriptor object</a><br />
-        3.49.1 <a href="#reportingdescriptor-object--general">General</a><br />
-        3.49.2 <a href="#reportingdescriptor-object--constraints">Constraints</a><br />
-        3.49.3 <a href="#reportingdescriptor-object--id-property">id property</a><br />
-        3.49.4 <a href="#deprecatedids-property">deprecatedIds property</a><br />
-        3.49.5 <a href="#reportingdescriptor-object--guid-property">guid property</a><br />
-        3.49.6 <a href="#deprecatedguids-property">deprecatedGuids property</a><br />
-        3.49.7 <a href="#reportingdescriptor-object--name-property">name property</a><br />
-        3.49.8 <a href="#deprecatednames-property">deprecatedNames property</a><br />
-        3.49.9 <a href="#reportingdescriptor-object--shortdescription-property">shortDescription property</a><br />
-        3.49.10 <a href="#reportingdescriptor-object--fulldescription-property">fullDescription property</a><br />
-        3.49.11 <a href="#messagestrings-property">messageStrings property</a><br />
-        3.49.12 <a href="#helpuri-property">helpUri property</a><br />
-        3.49.13 <a href="#help-property">help property</a><br />
-        3.49.14 <a href="#defaultconfiguration-property">defaultConfiguration property</a><br />
-        3.49.15 <a href="#reportingdescriptor-object--relationships-property">relationships property</a><br />
-        3.50 <a href="#reportingconfiguration-object">reportingConfiguration object</a><br />
-        3.50.1 <a href="#reportingconfiguration-object--general">General</a><br />
-        3.50.2 <a href="#enabled-property">enabled property</a><br />
-        3.50.3 <a href="#reportingconfiguration-object--level-property">level property</a><br />
-        3.50.4 <a href="#reportingconfiguration-object--rank-property">rank property</a><br />
-        3.50.5 <a href="#reportingconfiguration-object--parameters-property">parameters property</a><br />
-        3.51 <a href="#configurationoverride-object">configurationOverride object</a><br />
-        3.51.1 <a href="#configurationoverride-object--general">General</a><br />
-        3.51.2 <a href="#configurationoverride-object--descriptor-property">descriptor property</a><br />
-        3.51.3 <a href="#configuration-property">configuration property</a><br />
-        3.52 <a href="#reportingdescriptorreference-object">reportingDescriptorReference object</a><br />
-        3.52.1 <a href="#reportingdescriptorreference-object--general">General</a><br />
-        3.52.2 <a href="#reportingdescriptorreference-object--constraints">Constraints</a><br />
-        3.52.3 <a href="#reportingdescriptor-lookup">reportingDescriptor lookup</a><br />
-        3.52.4 <a href="#reportingdescriptorreference-object--id-property">id property</a><br />
-        3.52.5 <a href="#reportingdescriptorreference-object--index-property">index property</a><br />
-        3.52.6 <a href="#reportingdescriptorreference-object--guid-property">guid property</a><br />
-        3.52.7 <a href="#toolcomponent-property">toolComponent property</a><br />
-        3.53 <a href="#reportingdescriptorrelationship-object">reportingDescriptorRelationship object</a><br />
-        3.53.1 <a href="#reportingdescriptorrelationship-object--general">General</a><br />
-        3.53.2 <a href="#reportingdescriptorrelationship-object--target-property">target property</a><br />
-        3.53.3 <a href="#reportingdescriptorrelationship-object--kinds-property">kinds property</a><br />
-        3.53.4 <a href="#reportingdescriptorrelationship-object--description-property">description property</a><br />
-        3.54 <a href="#toolcomponentreference-object">toolComponentReference object</a><br />
-        3.54.1 <a href="#toolcomponentreference-object--general">General</a><br />
-        3.54.2 <a href="#toolcomponent-lookup">toolComponent lookup</a><br />
-        3.54.3 <a href="#toolcomponentreference-object--name-property">name property</a><br />
-        3.54.4 <a href="#toolcomponentreference-object--index-property">index property</a><br />
-        3.54.5 <a href="#toolcomponentreference-object--guid-property">guid property</a><br />
-        3.55 <a href="#fix-object">fix object</a><br />
-        3.55.1 <a href="#fix-object--general">General</a><br />
-        3.55.2 <a href="#fix-object--description-property">description property</a><br />
-        3.55.3 <a href="#artifactchanges-property">artifactChanges property</a><br />
-        3.56 <a href="#artifactchange-object">artifactChange object</a><br />
-        3.56.1 <a href="#artifactchange-object--general">General</a><br />
-        3.56.2 <a href="#artifactchange-object--artifactlocation-property">artifactLocation property</a><br />
-        3.56.3 <a href="#replacements-property">replacements property</a><br />
-        3.57 <a href="#replacement-object">replacement object</a><br />
-        3.57.1 <a href="#replacement-object--general">General</a><br />
-        3.57.2 <a href="#replacement-object--constraints">Constraints</a><br />
-        3.57.3 <a href="#deletedregion-property">deletedRegion property</a><br />
-        3.57.4 <a href="#insertedcontent-property">insertedContent property</a><br />
-        3.58 <a href="#notification-object">notification object</a><br />
-        3.58.1 <a href="#notification-object--general">General</a><br />
-        3.58.2 <a href="#notification-object--descriptor-property">descriptor property</a><br />
-        3.58.3 <a href="#associatedrule-property">associatedRule property</a><br />
-        3.58.4 <a href="#notification-object--locations-property">locations property</a><br />
-        3.58.5 <a href="#notification-object--message-property">message property</a><br />
-        3.58.6 <a href="#notification-object--level-property">level property</a><br />
-        3.58.7 <a href="#notification-object--threadid-property">threadId property</a><br />
-        3.58.8 <a href="#timeutc-property">timeUtc property</a><br />
-        3.58.9 <a href="#exception-property">exception property</a><br />
-        3.58.10 <a href="#notification-object--relatedlocations-property">relatedLocations property</a><br />
-        3.59 <a href="#exception-object">exception object</a><br />
-        3.59.1 <a href="#exception-object--general">General</a><br />
-        3.59.2 <a href="#exception-object--kind-property">kind property</a><br />
-        3.59.3 <a href="#exception-object--message-property">message property</a><br />
-        3.59.4 <a href="#exception-object--stack-property">stack property</a><br />
-        3.59.5 <a href="#innerexceptions-property">innerExceptions property</a>
-      </li>
-      <li>
-        <a href="#external-property-file-format">External property file format</a><br />
-        4.1 <a href="#external-property-file-format--general">General</a><br />
-        4.2 <a href="#external-property-file-naming-convention">External property file naming convention</a><br />
-        4.3 <a href="#externalproperties-object">externalProperties object</a><br />
-        4.3.1 <a href="#externalproperties-object--general">General</a><br />
-        4.3.2 <a href="#externalproperties-object--schema-property">$schema property</a><br />
-        4.3.3 <a href="#externalproperties-object--version-property">version property</a><br />
-        4.3.4 <a href="#externalproperties-object--guid-property">guid property</a><br />
-        4.3.5 <a href="#runguid-property">runGuid property</a><br />
-        4.3.6 <a href="#the-property-value-properties">The property value properties</a>
-      </li>
-      <li>
-        <a href="#conformance">Conformance</a><br />
-        5.1 <a href="#conformance-targets">Conformance targets</a><br />
-        5.2 <a href="#conformance-clause-1-sarif-log-file">Conformance Clause 1: SARIF log file</a><br />
-        5.3 <a href="#conformance-clause-2-sarif-producer">Conformance Clause 2: SARIF producer</a><br />
-        5.4 <a href="#conformance-clause-3-direct-producer">Conformance Clause 3: Direct producer</a><br />
-        5.5 <a href="#conformance-clause-4-converter">Conformance Clause 4: Converter</a><br />
-        5.6 <a href="#conformance-clause-5-sarif-post-processor">Conformance Clause 5: SARIF post-processor</a><br />
-        5.7 <a href="#conformance-clause-6-sarif-consumer">Conformance Clause 6: SARIF consumer</a><br />
-        5.8 <a href="#conformance-clause-7-viewer">Conformance Clause 7: Viewer</a><br />
-        5.9 <a href="#conformance-clause-8-result-management-system">Conformance Clause 8: Result management system</a><br />
-        5.10 <a href="#conformance-clause-9-engineering-system">Conformance Clause 9: Engineering system</a>
-      </li>
-    </ol>
-    <h2 id=
-    "appendix-a-informative-acknowledgments-appendix-b-normative-use-of-fingerprints-by-result-management-systems-appendix-c-informative-use-of-sarif-by-log-file-viewers-appendix-d-normative-production-of-sarif-by-converters-appendix-e-informative-locating-rule-and-notification-metadata-appendix-f-informative-producing-deterministic-sarif-log-files-f1-general-f2-non-deterministic-file-format-elements-f3-array-and-dictionary-element-ordering-f4-absolute-paths-f5-inherently-non-deterministic-tools-f6-compensating-for-non-deterministic-output-f7-interaction-between-determinism-and-baselining-appendix-g-informative-guidance-on-fixes-appendix-h-informative-diagnosing-results-in-generated-files-appendix-i-informative-detecting-incomplete-result-sets-appendix-j-informative-sample-sourcelanguage-values-appendix-k-informative-examples-k1-minimal-valid-sarif-log-file-k2-minimal-recommended-sarif-log-file-with-source-information-k3-minimal-recommended-sarif-log-file-without-source-information-k4-comprehensive-sarif-file-appendix-l-informative-revision-history-appendix-m-informative-mime-types-and-file-name-extensions">
-      Appendix A. <a href="#informative-acknowledgments">(Informative) Acknowledgments</a><br />
-      Appendix B. <a href="#normative-use-of-fingerprints-by-result-management-systems">(Normative) Use of fingerprints by result management systems</a><br />
-      Appendix C. <a href="#informative-use-of-sarif-by-log-file-viewers">(Informative) Use of SARIF by log file viewers</a><br />
-      Appendix D. <a href="#normative-production-of-sarif-by-converters">(Normative) Production of SARIF by converters</a><br />
-      Appendix E. <a href="#informative-locating-rule-and-notification-metadata">(Informative) Locating rule and notification metadata</a><br />
-      Appendix F. <a href="#informative-producing-deterministic-sarif-log-files">(Informative) Producing deterministic SARIF log files</a><br />
-      F.1 <a href="#informative-producing-deterministic-sarif-log-files--general">General</a><br />
-      F.2 <a href="#non-deterministic-file-format-elements">Non-deterministic file format elements</a><br />
-      F.3 <a href="#array-and-dictionary-element-ordering">Array and dictionary element ordering</a><br />
-      F.4 <a href="#absolute-paths">Absolute paths</a><br />
-      F.5 <a href="#inherently-non-deterministic-tools">Inherently non-deterministic tools</a><br />
-      F.6 <a href="#compensating-for-non-deterministic-output">Compensating for non-deterministic output</a><br />
-      F.7 <a href="#interaction-between-determinism-and-baselining">Interaction between determinism and baselining</a><br />
-      Appendix G. <a href="#informative-guidance-on-fixes">(Informative) Guidance on fixes</a><br />
-      Appendix H. <a href="#informative-diagnosing-results-in-generated-files">(Informative) Diagnosing results in generated files</a><br />
-      Appendix I. <a href="#informative-detecting-incomplete-result-sets">(Informative) Detecting incomplete result sets</a><br />
-      Appendix J. <a href="#informative-sample-sourcelanguage-values">(Informative) Sample sourceLanguage values</a><br />
-      Appendix K. <a href="#informative-examples">(Informative) Examples</a><br />
-      K.1 <a href="#minimal-valid-sarif-log-file">Minimal valid SARIF log file</a><br />
-      K.2 <a href="#minimal-recommended-sarif-log-file-with-source-information">Minimal recommended SARIF log file with source information</a><br />
-      K.3 <a href="#minimal-recommended-sarif-log-file-without-source-information">Minimal recommended SARIF log file without source information</a><br />
-      K.4 <a href="#comprehensive-sarif-file">Comprehensive SARIF file</a><br />
-      Appendix L. <a href="#informative-revision-history">(Informative) Revision History</a><br />
-      Appendix M. <a href="#non-normative-mime-types-and-file-name-extensions">(Informative) MIME Types and File Name Extensions</a>
-    </h2>
+<div id="toc_container">
+<ul class="toc_list">
+<li>1. <a href="#introduction">Introduction</a><ul>
+<li>1.1 <a href="#ipr-policy">IPR Policy</a></li>
+<li>1.2 <a href="#terminology">Terminology</a></li>
+<li>1.3 <a href="#normative-references">Normative References</a></li>
+<li>1.4 <a href="#non-normative-references">Non-Normative References</a></li>
+<li>1.5 <a href="#trademarks">Trademarks</a></li>
+</ul></li><li>2. <a href="#conventions">Conventions</a><ul>
+<li>2.1 <a href="#conventions--general">General</a></li>
+<li>2.2 <a href="#format-examples">Format examples</a></li>
+<li>2.3 <a href="#property-notation">Property notation</a></li>
+<li>2.4 <a href="#syntax-notation">Syntax notation</a></li>
+<li>2.5 <a href="#commonly-used-objects">Commonly used objects</a></li>
+</ul></li><li>3. <a href="#file-format">File format</a><ul>
+<li>3.1 <a href="#file-format--general">General</a></li>
+<li>3.2 <a href="#sarif-file-naming-convention">SARIF file naming convention</a></li>
+<li>3.3 <a href="#artifactcontent-object">artifactContent object</a><ul>
+<li>3.3.1 <a href="#artifactcontent-object--general">General</a></li>
+<li>3.3.2 <a href="#artifactcontent-object--text-property">text property</a></li>
+<li>3.3.3 <a href="#binary-property">binary property</a></li>
+<li>3.3.4 <a href="#rendered-property">rendered property</a></li>
+</ul></li><li>3.4 <a href="#artifactlocation-object">artifactLocation object</a><ul>
+<li>3.4.1 <a href="#artifactlocation--general">General</a></li>
+<li>3.4.2 <a href="#artifactlocation-object--constraints">Constraints</a></li>
+<li>3.4.3 <a href="#uri-property">uri property</a></li>
+<li>3.4.4 <a href="#uribaseid-property">uriBaseId property</a></li>
+<li>3.4.5 <a href="#artifactlocation-object--index-property">index property</a></li>
+<li>3.4.6 <a href="#artifactlocation-object--description-property">description property</a></li>
+<li>3.4.7 <a href="#guidance-on-the-use-of-artifactlocation-objects">Guidance on the use of artifactLocation objects</a></li>
+</ul></li><li>3.5 <a href="#string-properties">String properties</a><ul>
+<li>3.5.1 <a href="#localizable-strings">Localizable strings</a></li>
+<li>3.5.2 <a href="#redactable-strings">Redactable strings</a></li>
+<li>3.5.3 <a href="#guid-valued-strings">GUID-valued strings</a></li>
+<li>3.5.4 <a href="#hierarchical-strings">Hierarchical strings</a><ul>
+<li>3.5.4.1 <a href="#hierarchical-strings--general">General</a></li>
+<li>3.5.4.2 <a href="#versioned-hierarchical-strings">Versioned hierarchical strings</a></li>
+</ul></li></ul></li><li>3.6 <a href="#object-properties">Object properties</a></li>
+<li>3.7 <a href="#array-properties">Array properties</a><ul>
+<li>3.7.1 <a href="#array-properties--general">General</a></li>
+<li>3.7.2 <a href="#default-value">Default value</a></li>
+<li>3.7.3 <a href="#array-properties-with-unique-values">Array properties with unique values</a></li>
+<li>3.7.4 <a href="#array-indices">Array indices</a></li>
+</ul></li><li>3.8 <a href="#property-bags">Property bags</a><ul>
+<li>3.8.1 <a href="#property-bags--general">General</a></li>
+<li>3.8.2 <a href="#tags">Tags</a><ul>
+<li>3.8.2.1 <a href="#tags--general">General</a></li>
+<li>3.8.2.2 <a href="#tag-metadata">Tag metadata</a></li>
+</ul></li></ul></li><li>3.9 <a href="#datetime-properties">Date/time properties</a></li>
+<li>3.10 <a href="#uri-valued-properties">URI-valued properties</a><ul>
+<li>3.10.1 <a href="#uri-valued-properties--general">General</a></li>
+<li>3.10.2 <a href="#normalizing-file-scheme-uris">Normalizing file scheme URIs</a></li>
+<li>3.10.3 <a href="#uris-that-use-the-sarif-scheme">URIs that use the sarif scheme</a></li>
+<li>3.10.4 <a href="#internationalized-resource-identifiers-iris">Internationalized Resource Identifiers (IRIs)</a></li>
+</ul></li><li>3.11 <a href="#message-object">message object</a><ul>
+<li>3.11.1 <a href="#message-object--general">General</a></li>
+<li>3.11.2 <a href="#message-object--constraints">Constraints</a></li>
+<li>3.11.3 <a href="#plain-text-messages">Plain text messages</a></li>
+<li>3.11.4 <a href="#formatted-messages">Formatted messages</a><ul>
+<li>3.11.4.1 <a href="#formatted-messages--general">General</a></li>
+<li>3.11.4.2 <a href="#security-implications">Security implications</a></li>
+</ul></li><li>3.11.5 <a href="#messages-with-placeholders">Messages with placeholders</a></li>
+<li>3.11.6 <a href="#messages-with-embedded-links">Messages with embedded links</a></li>
+<li>3.11.7 <a href="#message-string-lookup">Message string lookup</a></li>
+<li>3.11.8 <a href="#message-object--text-property">text property</a></li>
+<li>3.11.9 <a href="#message-object--markdown-property">markdown property</a></li>
+<li>3.11.10 <a href="#message-object--id-property">id property</a></li>
+<li>3.11.11 <a href="#message-object--arguments-property">arguments property</a></li>
+</ul></li><li>3.12 <a href="#multiformatmessagestring-object">multiformatMessageString object</a><ul>
+<li>3.12.1 <a href="#multiformatmessagestring-object--general">General</a></li>
+<li>3.12.2 <a href="#localizable-multiformatmessagestrings">Localizable multiformatMessageStrings</a></li>
+<li>3.12.3 <a href="#multiformatmessagestring-object--text-property">text property</a></li>
+<li>3.12.4 <a href="#multiformatmessagestring-object--markdown-property">markdown property</a></li>
+</ul></li><li>3.13 <a href="#sariflog-object">sarifLog object</a><ul>
+<li>3.13.1 <a href="#sariflog-object--general">General</a></li>
+<li>3.13.2 <a href="#sariflog-object--version-property">version property</a></li>
+<li>3.13.3 <a href="#sariflog-object--schema-property">\$schema property</a></li>
+<li>3.13.4 <a href="#runs-property">runs property</a></li>
+<li>3.13.5 <a href="#inlineexternalproperties-property">inlineExternalProperties property</a></li>
+<li>3.13.6 <a href="#sariflog-object--guid-property">guid property</a></li>
+</ul></li><li>3.14 <a href="#run-object">run object</a><ul>
+<li>3.14.1 <a href="#run-object--general">General</a></li>
+<li>3.14.2 <a href="#externalpropertyfilereferences-property">externalPropertyFileReferences property</a></li>
+<li>3.14.3 <a href="#automationdetails-property">automationDetails property</a></li>
+<li>3.14.4 <a href="#runaggregates-property">runAggregates property</a></li>
+<li>3.14.5 <a href="#baselineguid-property">baselineGuid property</a></li>
+<li>3.14.6 <a href="#run-object--tool-property">tool property</a></li>
+<li>3.14.7 <a href="#language">language</a></li>
+<li>3.14.8 <a href="#taxonomies-property">taxonomies property</a></li>
+<li>3.14.9 <a href="#translations-property">translations property</a></li>
+<li>3.14.10 <a href="#policies-property">policies property</a></li>
+<li>3.14.11 <a href="#invocations-property">invocations property</a></li>
+<li>3.14.12 <a href="#conversion-property">conversion property</a></li>
+<li>3.14.13 <a href="#versioncontrolprovenance-property">versionControlProvenance property</a></li>
+<li>3.14.14 <a href="#originaluribaseids-property">originalUriBaseIds property</a></li>
+<li>3.14.15 <a href="#artifacts-property">artifacts property</a></li>
+<li>3.14.16 <a href="#speciallocations-property">specialLocations property</a></li>
+<li>3.14.17 <a href="#run-object--logicallocations-property">logicalLocations property</a></li>
+<li>3.14.18 <a href="#addresses-property">addresses property</a></li>
+<li>3.14.19 <a href="#threadflowlocations-property">threadFlowLocations property</a></li>
+<li>3.14.20 <a href="#run-object--graphs-property">graphs property</a></li>
+<li>3.14.21 <a href="#webrequests-property">webRequests property</a></li>
+<li>3.14.22 <a href="#webresponses-property">webResponses property</a></li>
+<li>3.14.23 <a href="#results-property">results property</a></li>
+<li>3.14.24 <a href="#defaultencoding-property">defaultEncoding property</a></li>
+<li>3.14.25 <a href="#defaultsourcelanguage-property">defaultSourceLanguage property</a></li>
+<li>3.14.26 <a href="#newlinesequences-property">newlineSequences property</a></li>
+<li>3.14.27 <a href="#columnkind-property">columnKind property</a></li>
+<li>3.14.28 <a href="#redactiontokens-property">redactionTokens property</a></li>
+</ul></li><li>3.15 <a href="#externalpropertyfilereferences-object">externalPropertyFileReferences object</a><ul>
+<li>3.15.1 <a href="#externalpropertyfilereferences-object--general">General</a></li>
+<li>3.15.2 <a href="#rationale">Rationale</a></li>
+<li>3.15.3 <a href="#properties">Properties</a></li>
+</ul></li><li>3.16 <a href="#externalpropertyfilereference-object">externalPropertyFileReference object</a><ul>
+<li>3.16.1 <a href="#externalpropertyfilereference-object--general">General</a></li>
+<li>3.16.2 <a href="#externalpropertyfilereference-object--constraints">Constraints</a></li>
+<li>3.16.3 <a href="#externalpropertyfilereference-object--location-property">location property</a></li>
+<li>3.16.4 <a href="#externalpropertyfilereference-object--guid-property">guid property</a></li>
+<li>3.16.5 <a href="#itemcount-property">itemCount property</a></li>
+</ul></li><li>3.17 <a href="#runautomationdetails-object">runAutomationDetails object</a><ul>
+<li>3.17.1 <a href="#runautomationdetails-object--general">General</a></li>
+<li>3.17.2 <a href="#runautomationdetails-object--description-property">description property</a></li>
+<li>3.17.3 <a href="#runautomationdetails-object--id-property">id property</a></li>
+<li>3.17.4 <a href="#runautomationdetails-object--guid-property">guid property</a></li>
+<li>3.17.5 <a href="#runautomationdetails-object--correlationguid-property">correlationGuid property</a></li>
+</ul></li><li>3.18 <a href="#tool-object">tool object</a><ul>
+<li>3.18.1 <a href="#tool-object--general">General</a></li>
+<li>3.18.2 <a href="#driver-property">driver property</a></li>
+<li>3.18.3 <a href="#extensions-property">extensions property</a></li>
+</ul></li><li>3.19 <a href="#toolcomponent-object">toolComponent object</a><ul>
+<li>3.19.1 <a href="#toolcomponent-object--general">General</a></li>
+<li>3.19.2 <a href="#toolcomponent-object--constraints">Constraints</a></li>
+<li>3.19.3 <a href="#taxonomies">Taxonomies</a></li>
+<li>3.19.4 <a href="#translations">Translations</a></li>
+<li>3.19.5 <a href="#policies">Policies</a></li>
+<li>3.19.6 <a href="#toolcomponent-object--guid-property">guid property</a></li>
+<li>3.19.7 <a href="#product-hierarchy-properties">Product hierarchy properties</a></li>
+<li>3.19.8 <a href="#toolcomponent-object--name-property">name property</a></li>
+<li>3.19.9 <a href="#toolcomponent-object--fullname-property">fullName property</a></li>
+<li>3.19.10 <a href="#product-property">product property</a></li>
+<li>3.19.11 <a href="#productsuite-property">productSuite property</a></li>
+<li>3.19.12 <a href="#semanticversion-property">semanticVersion property</a></li>
+<li>3.19.13 <a href="#toolcomponent-object--version-property">version property</a></li>
+<li>3.19.14 <a href="#dottedquadfileversion-property">dottedQuadFileVersion property</a></li>
+<li>3.19.15 <a href="#releasedateutc-property">releaseDateUtc property</a></li>
+<li>3.19.16 <a href="#toolcomponent-object--downloaduri-property">downloadUri property</a></li>
+<li>3.19.17 <a href="#toolcomponent-object--informationuri-property">informationUri property</a></li>
+<li>3.19.18 <a href="#organization-property">organization property</a></li>
+<li>3.19.19 <a href="#toolcomponent-object--shortdescription-property">shortDescription property</a></li>
+<li>3.19.20 <a href="#toolcomponent-object--fulldescription-property">fullDescription property</a></li>
+<li>3.19.21 <a href="#language-property">language property</a></li>
+<li>3.19.22 <a href="#globalmessagestrings-property">globalMessageStrings property</a></li>
+<li>3.19.23 <a href="#rules-property">rules property</a></li>
+<li>3.19.24 <a href="#notifications-property">notifications property</a></li>
+<li>3.19.25 <a href="#toolcomponent-object--taxa-property">taxa property</a></li>
+<li>3.19.26 <a href="#supportedtaxonomies-property">supportedTaxonomies property</a></li>
+<li>3.19.27 <a href="#translationmetadata-property">translationMetadata property</a></li>
+<li>3.19.28 <a href="#toolcomponent-object--locations-property">locations property</a></li>
+<li>3.19.29 <a href="#toolcomponent-object--contents-property">contents property</a></li>
+<li>3.19.30 <a href="#iscomprehensive-property">isComprehensive property</a></li>
+<li>3.19.31 <a href="#localizeddatasemanticversion-property">localizedDataSemanticVersion property</a></li>
+<li>3.19.32 <a href="#minimumrequiredlocalizeddatasemanticversion-property">minimumRequiredLocalizedDataSemanticVersion property</a></li>
+<li>3.19.33 <a href="#associatedcomponent-property">associatedComponent property</a></li>
+</ul></li><li>3.20 <a href="#invocation-object">invocation object</a><ul>
+<li>3.20.1 <a href="#invocation-object--general">General</a></li>
+<li>3.20.2 <a href="#commandline-property">commandLine property</a></li>
+<li>3.20.3 <a href="#invocation-object--arguments-property">arguments property</a></li>
+<li>3.20.4 <a href="#responsefiles-property">responseFiles property</a></li>
+<li>3.20.5 <a href="#ruleconfigurationoverrides-property">ruleConfigurationOverrides property</a></li>
+<li>3.20.6 <a href="#notificationconfigurationoverrides-property">notificationConfigurationOverrides property</a></li>
+<li>3.20.7 <a href="#starttimeutc-property">startTimeUtc property</a></li>
+<li>3.20.8 <a href="#endtimeutc-property">endTimeUtc property</a></li>
+<li>3.20.9 <a href="#exitcode-property">exitCode property</a></li>
+<li>3.20.10 <a href="#exitcodedescription-property">exitCodeDescription property</a></li>
+<li>3.20.11 <a href="#exitsignalname-property">exitSignalName property</a></li>
+<li>3.20.12 <a href="#exitsignalnumber-property">exitSignalNumber property</a></li>
+<li>3.20.13 <a href="#processstartfailuremessage-property">processStartFailureMessage property</a></li>
+<li>3.20.14 <a href="#executionsuccessful-property">executionSuccessful property</a></li>
+<li>3.20.15 <a href="#machine-property">machine property</a></li>
+<li>3.20.16 <a href="#account-property">account property</a></li>
+<li>3.20.17 <a href="#processid-property">processId property</a></li>
+<li>3.20.18 <a href="#executablelocation-property">executableLocation property</a></li>
+<li>3.20.19 <a href="#workingdirectory-property">workingDirectory property</a></li>
+<li>3.20.20 <a href="#environmentvariables-property">environmentVariables property</a></li>
+<li>3.20.21 <a href="#toolexecutionnotifications-property">toolExecutionNotifications property</a></li>
+<li>3.20.22 <a href="#toolconfigurationnotifications-property">toolConfigurationNotifications property</a></li>
+<li>3.20.23 <a href="#stdin-stdout-stderr-and-stdoutstderr-properties">stdin, stdout, stderr, and stdoutStderr properties</a></li>
+</ul></li><li>3.21 <a href="#attachment-object">attachment object</a><ul>
+<li>3.21.1 <a href="#attachment-object--general">General</a></li>
+<li>3.21.2 <a href="#attachment-object--description-property">description property</a></li>
+<li>3.21.3 <a href="#attachment-object--location-property">location property</a></li>
+<li>3.21.4 <a href="#regions-property">regions property</a></li>
+<li>3.21.5 <a href="#rectangles-property">rectangles property</a></li>
+</ul></li><li>3.22 <a href="#conversion-object">conversion object</a><ul>
+<li>3.22.1 <a href="#conversion-object--general">General</a></li>
+<li>3.22.2 <a href="#conversion-object--tool-property">tool property</a></li>
+<li>3.22.3 <a href="#invocation-property">invocation property</a></li>
+<li>3.22.4 <a href="#analysistoollogfiles-property">analysisToolLogFiles property</a></li>
+</ul></li><li>3.23 <a href="#versioncontroldetails-object">versionControlDetails object</a><ul>
+<li>3.23.1 <a href="#versioncontroldetails-object--general">General</a></li>
+<li>3.23.2 <a href="#versioncontroldetails-object--constraints">Constraints</a></li>
+<li>3.23.3 <a href="#repositoryuri-property">repositoryUri property</a></li>
+<li>3.23.4 <a href="#revisionid-property">revisionId property</a></li>
+<li>3.23.5 <a href="#branch-property">branch property</a></li>
+<li>3.23.6 <a href="#revisiontag-property">revisionTag property</a></li>
+<li>3.23.7 <a href="#asoftimeutc-property">asOfTimeUtc property</a></li>
+<li>3.23.8 <a href="#mappedto-property">mappedTo property</a></li>
+</ul></li><li>3.24 <a href="#artifact-object">artifact object</a><ul>
+<li>3.24.1 <a href="#artifact-object--general">General</a></li>
+<li>3.24.2 <a href="#artifact-object--location-property">location property</a></li>
+<li>3.24.3 <a href="#artifact-object--parentindex-property">parentIndex property</a></li>
+<li>3.24.4 <a href="#offset-property">offset property</a></li>
+<li>3.24.5 <a href="#artifact-object--length-property">length property</a></li>
+<li>3.24.6 <a href="#roles-property">roles property</a></li>
+<li>3.24.7 <a href="#mimetype-property">mimeType property</a></li>
+<li>3.24.8 <a href="#artifact-object--contents-property">contents property</a></li>
+<li>3.24.9 <a href="#encoding-property">encoding property</a></li>
+<li>3.24.10 <a href="#artifact-object--sourcelanguage-property">sourceLanguage property</a><ul>
+<li>3.24.10.1 <a href="#sourcelanguage-property--general">General</a></li>
+<li>3.24.10.2 <a href="#source-language-identifier-conventions-and-practices">Source language identifier conventions and practices</a></li>
+</ul></li><li>3.24.11 <a href="#hashes-property">hashes property</a></li>
+<li>3.24.12 <a href="#lastmodifiedtimeutc-property">lastModifiedTimeUtc property</a></li>
+<li>3.24.13 <a href="#artifact-object--description-property">description property</a></li>
+</ul></li><li>3.25 <a href="#speciallocations-object">specialLocations object</a><ul>
+<li>3.25.1 <a href="#speciallocations-object--general">General</a></li>
+<li>3.25.2 <a href="#displaybase-property">displayBase property</a></li>
+</ul></li><li>3.26 <a href="#translationmetadata-object">translationMetadata object</a><ul>
+<li>3.26.1 <a href="#translationmetadata-object--general">General</a></li>
+<li>3.26.2 <a href="#translationmetadata-object--name-property">name property</a></li>
+<li>3.26.3 <a href="#translationmetadata-object--fullname-property">fullName property</a></li>
+<li>3.26.4 <a href="#translationmetadata-object--shortdescription-property">shortDescription property</a></li>
+<li>3.26.5 <a href="#translationmetadata-object--fulldescription-property">fullDescription property</a></li>
+<li>3.26.6 <a href="#translationmetadata-object--downloaduri-property">downloadUri property</a></li>
+<li>3.26.7 <a href="#translationmetadata-object--informationuri-property">informationUri property</a></li>
+</ul></li><li>3.27 <a href="#result-object">result object</a><ul>
+<li>3.27.1 <a href="#result-object--general">General</a></li>
+<li>3.27.2 <a href="#distinguishing-logically-identical-from-logically-distinct-results">Distinguishing logically identical from logically distinct results</a></li>
+<li>3.27.3 <a href="#result-object--guid-property">guid property</a></li>
+<li>3.27.4 <a href="#result-object--correlationguid-property">correlationGuid property</a></li>
+<li>3.27.5 <a href="#ruleid-property">ruleId property</a></li>
+<li>3.27.6 <a href="#ruleindex-property">ruleIndex property</a></li>
+<li>3.27.7 <a href="#rule-property">rule property</a></li>
+<li>3.27.8 <a href="#result-object--taxa-property">taxa property</a></li>
+<li>3.27.9 <a href="#result-object--kind-property">kind property</a></li>
+<li>3.27.10 <a href="#result-object--level-property">level property</a></li>
+<li>3.27.11 <a href="#result-object--message-property">message property</a></li>
+<li>3.27.12 <a href="#result-object--locations-property">locations property</a></li>
+<li>3.27.13 <a href="#analysistarget-property">analysisTarget property</a></li>
+<li>3.27.14 <a href="#result-object--webrequest-property">webRequest property</a></li>
+<li>3.27.15 <a href="#result-object--webresponse-property">webResponse property</a></li>
+<li>3.27.16 <a href="#fingerprints-property">fingerprints property</a></li>
+<li>3.27.17 <a href="#partialfingerprints-property">partialFingerprints property</a></li>
+<li>3.27.18 <a href="#codeflows-property">codeFlows property</a></li>
+<li>3.27.19 <a href="#result-object--graphs-property">graphs property</a></li>
+<li>3.27.20 <a href="#graphtraversals-property">graphTraversals property</a></li>
+<li>3.27.21 <a href="#stacks-property">stacks property</a></li>
+<li>3.27.22 <a href="#relatedlocations-property">relatedLocations property</a></li>
+<li>3.27.23 <a href="#suppressions-property">suppressions property</a></li>
+<li>3.27.24 <a href="#baselinestate-property">baselineState property</a></li>
+<li>3.27.25 <a href="#result-object--rank-property">rank property</a></li>
+<li>3.27.26 <a href="#attachments-property">attachments property</a></li>
+<li>3.27.27 <a href="#workitemuris-property">workItemUris property</a></li>
+<li>3.27.28 <a href="#hostedvieweruri-property">hostedViewerUri property</a></li>
+<li>3.27.29 <a href="#provenance-property">provenance property</a></li>
+<li>3.27.30 <a href="#fixes-property">fixes property</a></li>
+<li>3.27.31 <a href="#occurrencecount-property">occurrenceCount property</a></li>
+</ul></li><li>3.28 <a href="#location-object">location object</a><ul>
+<li>3.28.1 <a href="#location-object--general">General</a></li>
+<li>3.28.2 <a href="#location-object--id-property">id property</a></li>
+<li>3.28.3 <a href="#physicallocation-property">physicalLocation property</a></li>
+<li>3.28.4 <a href="#location-object--logicallocations-property">logicalLocations property</a></li>
+<li>3.28.5 <a href="#location-object--message-property">message property</a></li>
+<li>3.28.6 <a href="#annotations-property">annotations property</a></li>
+<li>3.28.7 <a href="#location-object--relationships-property">relationships property</a></li>
+</ul></li><li>3.29 <a href="#physicallocation-object">physicalLocation object</a><ul>
+<li>3.29.1 <a href="#physicallocation-object--general">General</a></li>
+<li>3.29.2 <a href="#physicallocation-object--constraints">Constraints</a></li>
+<li>3.29.3 <a href="#physicallocation-object--artifactlocation-property">artifactLocation property</a></li>
+<li>3.29.4 <a href="#region-property">region property</a></li>
+<li>3.29.5 <a href="#contextregion-property">contextRegion property</a></li>
+<li>3.29.6 <a href="#address-property">address property</a></li>
+</ul></li><li>3.30 <a href="#region-object">region object</a><ul>
+<li>3.30.1 <a href="#region-object--general">General</a></li>
+<li>3.30.2 <a href="#text-regions">Text regions</a></li>
+<li>3.30.3 <a href="#binary-regions">Binary regions</a></li>
+<li>3.30.4 <a href="#independence-of-text-and-binary-regions">Independence of text and binary regions</a></li>
+<li>3.30.5 <a href="#startline-property">startLine property</a></li>
+<li>3.30.6 <a href="#startcolumn-property">startColumn property</a></li>
+<li>3.30.7 <a href="#endline-property">endLine property</a></li>
+<li>3.30.8 <a href="#endcolumn-property">endColumn property</a></li>
+<li>3.30.9 <a href="#charoffset-property">charOffset property</a></li>
+<li>3.30.10 <a href="#charlength-property">charLength property</a></li>
+<li>3.30.11 <a href="#byteoffset-property">byteOffset property</a></li>
+<li>3.30.12 <a href="#bytelength-property">byteLength property</a></li>
+<li>3.30.13 <a href="#snippet-property">snippet property</a></li>
+<li>3.30.14 <a href="#region-object--message-property">message property</a></li>
+<li>3.30.15 <a href="#region-object--sourcelanguage-property">sourceLanguage property</a></li>
+</ul></li><li>3.31 <a href="#rectangle-object">rectangle object</a><ul>
+<li>3.31.1 <a href="#rectangle-object--general">General</a></li>
+<li>3.31.2 <a href="#top-left-bottom-and-right-properties">top, left, bottom, and right properties</a></li>
+<li>3.31.3 <a href="#rectangle-object--message-property">message property</a></li>
+</ul></li><li>3.32 <a href="#address-object">address object</a><ul>
+<li>3.32.1 <a href="#address-object--general">General</a></li>
+<li>3.32.2 <a href="#parent-child-relationships">Parent-child relationships</a></li>
+<li>3.32.3 <a href="#absolute-address-calculation">Absolute address calculation</a></li>
+<li>3.32.4 <a href="#relative-address-calculation">Relative address calculation</a></li>
+<li>3.32.5 <a href="#address-object--index-property">index property</a></li>
+<li>3.32.6 <a href="#absoluteaddress-property">absoluteAddress property</a></li>
+<li>3.32.7 <a href="#relativeaddress-property">relativeAddress property</a></li>
+<li>3.32.8 <a href="#offsetfromparent-property">offsetFromParent property</a></li>
+<li>3.32.9 <a href="#address-object--length-property">length property</a></li>
+<li>3.32.10 <a href="#address-object--name-property">name property</a></li>
+<li>3.32.11 <a href="#address-object--fullyqualifiedname-property">fullyQualifiedName property</a></li>
+<li>3.32.12 <a href="#address-object--kind-property">kind property</a></li>
+<li>3.32.13 <a href="#address-object--parentindex-property">parentIndex property</a></li>
+</ul></li><li>3.33 <a href="#logicallocation-object">logicalLocation object</a><ul>
+<li>3.33.1 <a href="#logicallocation-object--general">General</a></li>
+<li>3.33.2 <a href="#logical-location-naming-rules">Logical location naming rules</a></li>
+<li>3.33.3 <a href="#logicallocation-object--index-property">index property</a></li>
+<li>3.33.4 <a href="#logicallocation-object--name-property">name property</a></li>
+<li>3.33.5 <a href="#logicallocation-object--fullyqualifiedname-property">fullyQualifiedName property</a></li>
+<li>3.33.6 <a href="#decoratedname-property">decoratedName property</a></li>
+<li>3.33.7 <a href="#logicallocation-object--kind-property">kind property</a></li>
+<li>3.33.8 <a href="#logicallocation-object--parentindex-property">parentIndex property</a></li>
+</ul></li><li>3.34 <a href="#locationrelationship-object">locationRelationship object</a><ul>
+<li>3.34.1 <a href="#locationrelationship-object--general">General</a></li>
+<li>3.34.2 <a href="#locationrelationship-object--target-property">target property</a></li>
+<li>3.34.3 <a href="#locationrelationship-object--kinds-property">kinds property</a></li>
+<li>3.34.4 <a href="#locationrelationship-object--description-property">description property</a></li>
+</ul></li><li>3.35 <a href="#suppression-object">suppression object</a><ul>
+<li>3.35.1 <a href="#suppression-object--general">General</a></li>
+<li>3.35.2 <a href="#suppression-object--kind-property">kind property</a></li>
+<li>3.35.3 <a href="#status-property">status property</a></li>
+<li>3.35.4 <a href="#suppression-object--location-property">location property</a></li>
+<li>3.35.5 <a href="#suppression-object--guid-property">guid property</a></li>
+<li>3.35.6 <a href="#justification-property">justification property</a></li>
+</ul></li><li>3.36 <a href="#codeflow-object">codeFlow object</a><ul>
+<li>3.36.1 <a href="#codeflow-object--general">General</a></li>
+<li>3.36.2 <a href="#codeflow-object--message-property">message property</a></li>
+<li>3.36.3 <a href="#threadflows-property">threadFlows property</a></li>
+</ul></li><li>3.37 <a href="#threadflow-object">threadFlow object</a><ul>
+<li>3.37.1 <a href="#threadflow-object--general">General</a></li>
+<li>3.37.2 <a href="#threadflow-object--id-property">id property</a></li>
+<li>3.37.3 <a href="#threadflow-object--message-property">message property</a></li>
+<li>3.37.4 <a href="#threadflow-object--initialstate-property">initialState property</a></li>
+<li>3.37.5 <a href="#threadflow-object--immutablestate-property">immutableState property</a></li>
+<li>3.37.6 <a href="#threadflow-object--locations-property">locations property</a></li>
+</ul></li><li>3.38 <a href="#threadflowlocation-object">threadFlowLocation object</a><ul>
+<li>3.38.1 <a href="#threadflowlocation-object--general">General</a></li>
+<li>3.38.2 <a href="#threadflowlocation-object--index-property">index property</a></li>
+<li>3.38.3 <a href="#threadflowlocation-object--location-property">location property</a></li>
+<li>3.38.4 <a href="#threadflowlocation-object--module-property">module property</a></li>
+<li>3.38.5 <a href="#threadflowlocation-object--stack-property">stack property</a></li>
+<li>3.38.6 <a href="#threadflowlocation-object--webrequest-property">webRequest property</a></li>
+<li>3.38.7 <a href="#threadflowlocation-object--webresponse-property">webResponse property</a></li>
+<li>3.38.8 <a href="#threadflowlocation-object--kinds-property">kinds property</a></li>
+<li>3.38.9 <a href="#state-property">state property</a></li>
+<li>3.38.10 <a href="#nestinglevel-property">nestingLevel property</a></li>
+<li>3.38.11 <a href="#executionorder-property">executionOrder property</a></li>
+<li>3.38.12 <a href="#executiontimeutc-property">executionTimeUtc property</a></li>
+<li>3.38.13 <a href="#importance-property">importance property</a></li>
+<li>3.38.14 <a href="#threadflowlocation-object--taxa-property">taxa property</a></li>
+</ul></li><li>3.39 <a href="#graph-object">graph object</a><ul>
+<li>3.39.1 <a href="#graph-object--general">General</a></li>
+<li>3.39.2 <a href="#graph-object--description-property">description property</a></li>
+<li>3.39.3 <a href="#nodes-property">nodes property</a></li>
+<li>3.39.4 <a href="#edges-property">edges property</a></li>
+</ul></li><li>3.40 <a href="#node-object">node object</a><ul>
+<li>3.40.1 <a href="#node-object--general">General</a></li>
+<li>3.40.2 <a href="#node-object--id-property">id property</a></li>
+<li>3.40.3 <a href="#node-object--label-property">label property</a></li>
+<li>3.40.4 <a href="#node-object--location-property">location property</a></li>
+<li>3.40.5 <a href="#children-property">children property</a></li>
+</ul></li><li>3.41 <a href="#edge-object">edge object</a><ul>
+<li>3.41.1 <a href="#edge-object--general">General</a></li>
+<li>3.41.2 <a href="#edge-object--id-property">id property</a></li>
+<li>3.41.3 <a href="#edge-object--label-property">label property</a></li>
+<li>3.41.4 <a href="#sourcenodeid-property">sourceNodeId property</a></li>
+<li>3.41.5 <a href="#targetnodeid-property">targetNodeId property</a></li>
+</ul></li><li>3.42 <a href="#graphtraversal-object">graphTraversal object</a><ul>
+<li>3.42.1 <a href="#graphtraversal-object--general">General</a></li>
+<li>3.42.2 <a href="#graphtraversal-object--constraints">Constraints</a></li>
+<li>3.42.3 <a href="#resultgraphindex-property">resultGraphIndex property</a></li>
+<li>3.42.4 <a href="#rungraphindex-property">runGraphIndex property</a></li>
+<li>3.42.5 <a href="#graphtraversal-object--description-property">description property</a></li>
+<li>3.42.6 <a href="#graphtraversal-object--initialstate-property">initialState property</a></li>
+<li>3.42.7 <a href="#graphtraversal-object--immutablestate-property">immutableState property</a></li>
+<li>3.42.8 <a href="#edgetraversals-property">edgeTraversals property</a></li>
+</ul></li><li>3.43 <a href="#edgetraversal-object">edgeTraversal object</a><ul>
+<li>3.43.1 <a href="#edgetraversal-object--general">General</a></li>
+<li>3.43.2 <a href="#edgeid-property">edgeId property</a></li>
+<li>3.43.3 <a href="#edgetraversal-object--message-property">message property</a></li>
+<li>3.43.4 <a href="#finalstate-property">finalState property</a></li>
+<li>3.43.5 <a href="#stepoveredgecount-property">stepOverEdgeCount property</a></li>
+</ul></li><li>3.44 <a href="#stack-object">stack object</a><ul>
+<li>3.44.1 <a href="#stack-object--general">General</a></li>
+<li>3.44.2 <a href="#stack-object--message-property">message property</a></li>
+<li>3.44.3 <a href="#frames-property">frames property</a></li>
+</ul></li><li>3.45 <a href="#stackframe-object">stackFrame object</a><ul>
+<li>3.45.1 <a href="#stackframe-object--general">General</a></li>
+<li>3.45.2 <a href="#stackframe-object--location-property">location property</a></li>
+<li>3.45.3 <a href="#stackframe-object--module-property">module property</a></li>
+<li>3.45.4 <a href="#stackframe-object--threadid-property">threadId property</a></li>
+<li>3.45.5 <a href="#stackframe-object--parameters-property">parameters property</a></li>
+</ul></li><li>3.46 <a href="#webrequest-object">webRequest object</a><ul>
+<li>3.46.1 <a href="#webrequest-object--general">General</a></li>
+<li>3.46.2 <a href="#webrequest-object--index-property">index property</a></li>
+<li>3.46.3 <a href="#webrequest-object--protocol-property">protocol property</a></li>
+<li>3.46.4 <a href="#webrequest-object--version-property">version property</a></li>
+<li>3.46.5 <a href="#webrequest-object--target-property">target property</a></li>
+<li>3.46.6 <a href="#method-property">method property</a></li>
+<li>3.46.7 <a href="#webrequest-object--headers-property">headers property</a></li>
+<li>3.46.8 <a href="#webrequest-object--parameters-property">parameters property</a></li>
+<li>3.46.9 <a href="#webrequest-object--body-property">body property</a></li>
+</ul></li><li>3.47 <a href="#webresponse-object">webResponse object</a><ul>
+<li>3.47.1 <a href="#webresponse-object--general">General</a></li>
+<li>3.47.2 <a href="#webresponse-object--index-property">index property</a></li>
+<li>3.47.3 <a href="#webresponse-object--protocol-property">protocol property</a></li>
+<li>3.47.4 <a href="#webresponse-object--version-property">version property</a></li>
+<li>3.47.5 <a href="#statuscode-property">statusCode property</a></li>
+<li>3.47.6 <a href="#reasonphrase-property">reasonPhrase property</a></li>
+<li>3.47.7 <a href="#webresponse-object--headers-property">headers property</a></li>
+<li>3.47.8 <a href="#webresponse-object--body-property">body property</a></li>
+<li>3.47.9 <a href="#noresponsereceived-property">noResponseReceived property</a></li>
+</ul></li><li>3.48 <a href="#resultprovenance-object">resultProvenance object</a><ul>
+<li>3.48.1 <a href="#resultprovenance-object--general">General</a></li>
+<li>3.48.2 <a href="#firstdetectiontimeutc-property">firstDetectionTimeUtc property</a></li>
+<li>3.48.3 <a href="#lastdetectiontimeutc-property">lastDetectionTimeUtc property</a></li>
+<li>3.48.4 <a href="#firstdetectionrunguid-property">firstDetectionRunGuid property</a></li>
+<li>3.48.5 <a href="#lastdetectionrunguid-property">lastDetectionRunGuid property</a></li>
+<li>3.48.6 <a href="#invocationindex-property">invocationIndex property</a></li>
+<li>3.48.7 <a href="#conversionsources-property">conversionSources property</a></li>
+</ul></li><li>3.49 <a href="#reportingdescriptor-object">reportingDescriptor object</a><ul>
+<li>3.49.1 <a href="#reportingdescriptor-object--general">General</a></li>
+<li>3.49.2 <a href="#reportingdescriptor-object--constraints">Constraints</a></li>
+<li>3.49.3 <a href="#reportingdescriptor-object--id-property">id property</a></li>
+<li>3.49.4 <a href="#deprecatedids-property">deprecatedIds property</a></li>
+<li>3.49.5 <a href="#reportingdescriptor-object--guid-property">guid property</a></li>
+<li>3.49.6 <a href="#deprecatedguids-property">deprecatedGuids property</a></li>
+<li>3.49.7 <a href="#reportingdescriptor-object--name-property">name property</a></li>
+<li>3.49.8 <a href="#deprecatednames-property">deprecatedNames property</a></li>
+<li>3.49.9 <a href="#reportingdescriptor-object--shortdescription-property">shortDescription property</a></li>
+<li>3.49.10 <a href="#reportingdescriptor-object--fulldescription-property">fullDescription property</a></li>
+<li>3.49.11 <a href="#messagestrings-property">messageStrings property</a></li>
+<li>3.49.12 <a href="#helpuri-property">helpUri property</a></li>
+<li>3.49.13 <a href="#help-property">help property</a></li>
+<li>3.49.14 <a href="#defaultconfiguration-property">defaultConfiguration property</a></li>
+<li>3.49.15 <a href="#reportingdescriptor-object--relationships-property">relationships property</a></li>
+</ul></li><li>3.50 <a href="#reportingconfiguration-object">reportingConfiguration object</a><ul>
+<li>3.50.1 <a href="#reportingconfiguration-object--general">General</a></li>
+<li>3.50.2 <a href="#enabled-property">enabled property</a></li>
+<li>3.50.3 <a href="#reportingconfiguration-object--level-property">level property</a></li>
+<li>3.50.4 <a href="#reportingconfiguration-object--rank-property">rank property</a></li>
+<li>3.50.5 <a href="#reportingconfiguration-object--parameters-property">parameters property</a></li>
+</ul></li><li>3.51 <a href="#configurationoverride-object">configurationOverride object</a><ul>
+<li>3.51.1 <a href="#configurationoverride-object--general">General</a></li>
+<li>3.51.2 <a href="#configurationoverride-object--descriptor-property">descriptor property</a></li>
+<li>3.51.3 <a href="#configuration-property">configuration property</a></li>
+</ul></li><li>3.52 <a href="#reportingdescriptorreference-object">reportingDescriptorReference object</a><ul>
+<li>3.52.1 <a href="#reportingdescriptorreference-object--general">General</a></li>
+<li>3.52.2 <a href="#reportingdescriptorreference-object--constraints">Constraints</a></li>
+<li>3.52.3 <a href="#reportingdescriptor-lookup">reportingDescriptor lookup</a></li>
+<li>3.52.4 <a href="#reportingdescriptorreference-object--id-property">id property</a></li>
+<li>3.52.5 <a href="#reportingdescriptorreference-object--index-property">index property</a></li>
+<li>3.52.6 <a href="#reportingdescriptorreference-object--guid-property">guid property</a></li>
+<li>3.52.7 <a href="#toolcomponent-property">toolComponent property</a></li>
+</ul></li><li>3.53 <a href="#reportingdescriptorrelationship-object">reportingDescriptorRelationship object</a><ul>
+<li>3.53.1 <a href="#reportingdescriptorrelationship-object--general">General</a></li>
+<li>3.53.2 <a href="#reportingdescriptorrelationship-object--target-property">target property</a></li>
+<li>3.53.3 <a href="#reportingdescriptorrelationship-object--kinds-property">kinds property</a></li>
+<li>3.53.4 <a href="#reportingdescriptorrelationship-object--description-property">description property</a></li>
+</ul></li><li>3.54 <a href="#toolcomponentreference-object">toolComponentReference object</a><ul>
+<li>3.54.1 <a href="#toolcomponentreference-object--general">General</a></li>
+<li>3.54.2 <a href="#toolcomponent-lookup">toolComponent lookup</a></li>
+<li>3.54.3 <a href="#toolcomponentreference-object--name-property">name property</a></li>
+<li>3.54.4 <a href="#toolcomponentreference-object--index-property">index property</a></li>
+<li>3.54.5 <a href="#toolcomponentreference-object--guid-property">guid property</a></li>
+</ul></li><li>3.55 <a href="#fix-object">fix object</a><ul>
+<li>3.55.1 <a href="#fix-object--general">General</a></li>
+<li>3.55.2 <a href="#fix-object--description-property">description property</a></li>
+<li>3.55.3 <a href="#artifactchanges-property">artifactChanges property</a></li>
+</ul></li><li>3.56 <a href="#artifactchange-object">artifactChange object</a><ul>
+<li>3.56.1 <a href="#artifactchange-object--general">General</a></li>
+<li>3.56.2 <a href="#artifactchange-object--artifactlocation-property">artifactLocation property</a></li>
+<li>3.56.3 <a href="#replacements-property">replacements property</a></li>
+</ul></li><li>3.57 <a href="#replacement-object">replacement object</a><ul>
+<li>3.57.1 <a href="#replacement-object--general">General</a></li>
+<li>3.57.2 <a href="#replacement-object--constraints">Constraints</a></li>
+<li>3.57.3 <a href="#deletedregion-property">deletedRegion property</a></li>
+<li>3.57.4 <a href="#insertedcontent-property">insertedContent property</a></li>
+</ul></li><li>3.58 <a href="#notification-object">notification object</a><ul>
+<li>3.58.1 <a href="#notification-object--general">General</a></li>
+<li>3.58.2 <a href="#notification-object--descriptor-property">descriptor property</a></li>
+<li>3.58.3 <a href="#associatedrule-property">associatedRule property</a></li>
+<li>3.58.4 <a href="#notification-object--locations-property">locations property</a></li>
+<li>3.58.5 <a href="#notification-object--message-property">message property</a></li>
+<li>3.58.6 <a href="#notification-object--level-property">level property</a></li>
+<li>3.58.7 <a href="#notification-object--threadid-property">threadId property</a></li>
+<li>3.58.8 <a href="#timeutc-property">timeUtc property</a></li>
+<li>3.58.9 <a href="#exception-property">exception property</a></li>
+<li>3.58.10 <a href="#notification-object--relatedlocations-property">relatedLocations property</a></li>
+</ul></li><li>3.59 <a href="#exception-object">exception object</a><ul>
+<li>3.59.1 <a href="#exception-object--general">General</a></li>
+<li>3.59.2 <a href="#exception-object--kind-property">kind property</a></li>
+<li>3.59.3 <a href="#exception-object--message-property">message property</a></li>
+<li>3.59.4 <a href="#exception-object--stack-property">stack property</a></li>
+<li>3.59.5 <a href="#innerexceptions-property">innerExceptions property</a></li>
+</ul></li></ul></li><li>4. <a href="#external-property-file-format">External property file format</a><ul>
+<li>4.1 <a href="#external-property-file-format--general">General</a></li>
+<li>4.2 <a href="#external-property-file-naming-convention">External property file naming convention</a></li>
+<li>4.3 <a href="#externalproperties-object">externalProperties object</a><ul>
+<li>4.3.1 <a href="#externalproperties-object--general">General</a></li>
+<li>4.3.2 <a href="#externalproperties-object--schema-property">\$schema property</a></li>
+<li>4.3.3 <a href="#externalproperties-object--version-property">version property</a></li>
+<li>4.3.4 <a href="#externalproperties-object--guid-property">guid property</a></li>
+<li>4.3.5 <a href="#runguid-property">runGuid property</a></li>
+<li>4.3.6 <a href="#the-property-value-properties">The property value properties</a></li>
+</ul></li></ul></li><li>5. <a href="#conformance">Conformance</a><ul>
+<li>5.1 <a href="#conformance-targets">Conformance targets</a></li>
+<li>5.2 <a href="#conformance-clause-1-sarif-log-file">Conformance Clause 1: SARIF log file</a></li>
+<li>5.3 <a href="#conformance-clause-2-sarif-producer">Conformance Clause 2: SARIF producer</a></li>
+<li>5.4 <a href="#conformance-clause-3-direct-producer">Conformance Clause 3: Direct producer</a></li>
+<li>5.5 <a href="#conformance-clause-4-converter">Conformance Clause 4: Converter</a></li>
+<li>5.6 <a href="#conformance-clause-5-sarif-post-processor">Conformance Clause 5: SARIF post-processor</a></li>
+<li>5.7 <a href="#conformance-clause-6-sarif-consumer">Conformance Clause 6: SARIF consumer</a></li>
+<li>5.8 <a href="#conformance-clause-7-viewer">Conformance Clause 7: Viewer</a></li>
+<li>5.9 <a href="#conformance-clause-8-result-management-system">Conformance Clause 8: Result management system</a></li>
+<li>5.10 <a href="#conformance-clause-9-engineering-system">Conformance Clause 9: Engineering system</a></li>
+</ul></li><li>Appendix A. <a href="#informative-acknowledgments">(Informative) Acknowledgments</a></li>
+<li>Appendix B. <a href="#normative-use-of-fingerprints-by-result-management-systems">(Normative) Use of fingerprints by result management systems</a></li>
+<li>Appendix C. <a href="#informative-use-of-sarif-by-log-file-viewers">(Informative) Use of SARIF by log file viewers</a></li>
+<li>Appendix D. <a href="#normative-production-of-sarif-by-converters">(Normative) Production of SARIF by converters</a></li>
+<li>Appendix E. <a href="#informative-locating-rule-and-notification-metadata">(Informative) Locating rule and notification metadata</a></li>
+<li>Appendix F. <a href="#informative-producing-deterministic-sarif-log-files">(Informative) Producing deterministic SARIF log files</a><ul>
+<li>F.1 <a href="#informative-producing-deterministic-sarif-log-files--general">General</a></li>
+<li>F.2 <a href="#non-deterministic-file-format-elements">Non-deterministic file format elements</a></li>
+<li>F.3 <a href="#array-and-dictionary-element-ordering">Array and dictionary element ordering</a></li>
+<li>F.4 <a href="#absolute-paths">Absolute paths</a></li>
+<li>F.5 <a href="#inherently-non-deterministic-tools">Inherently non-deterministic tools</a></li>
+<li>F.6 <a href="#compensating-for-non-deterministic-output">Compensating for non-deterministic output</a></li>
+<li>F.7 <a href="#interaction-between-determinism-and-baselining">Interaction between determinism and baselining</a></li>
+</ul></li><li>Appendix G. <a href="#informative-guidance-on-fixes">(Informative) Guidance on fixes</a></li>
+<li>Appendix H. <a href="#informative-diagnosing-results-in-generated-files">(Informative) Diagnosing results in generated files</a></li>
+<li>Appendix I. <a href="#informative-detecting-incomplete-result-sets">(Informative) Detecting incomplete result sets</a></li>
+<li>Appendix J. <a href="#informative-sample-sourcelanguage-values">(Informative) Sample sourceLanguage values</a></li>
+<li>Appendix K. <a href="#informative-examples">(Informative) Examples</a><ul>
+<li>K.1 <a href="#minimal-valid-sarif-log-file">Minimal valid SARIF log file</a></li>
+<li>K.2 <a href="#minimal-recommended-sarif-log-file-with-source-information">Minimal recommended SARIF log file with source information</a></li>
+<li>K.3 <a href="#minimal-recommended-sarif-log-file-without-source-information">Minimal recommended SARIF log file without source information</a></li>
+<li>K.4 <a href="#comprehensive-sarif-file">Comprehensive SARIF file</a></li>
+</ul></li><li>Appendix L. <a href="#informative-revision-history">(Informative) Revision History</a></li>
+<li>Appendix M. <a href="#non-normative-mime-types-and-file-name-extensions">(Informative) MIME Types and File Name Extensions</a></li>
+</ul>
+</div>
+
     <h1 id="1-introduction-">
       1. Introduction <a id='introduction'></a>
     </h1>
@@ -5953,8 +5962,8 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
       <p>
         EXAMPLE 1: Suppose a tool is invoked with the command line
       </p>
-      <pre><code>C:\Users\mary\Tools\DbScanner.exe /ConnectionString  
-"Server=Corp;Db=Accounting;User=Admin;Password=S3cr#t"  
+      <pre><code>C:\Users\mary\Tools\DbScanner.exe /ConnectionString
+"Server=Corp;Db=Accounting;User=Admin;Password=S3cr#t"
 /input *.sql</code></pre>
       <p>
         Then <code>commandLine</code> might contain the redacted string
@@ -14559,41 +14568,41 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       <strong>The following individuals have participated in the creation of the SARIF v2.1.0 specification this document was started from and are gratefully acknowledged:</strong>
     </p>
-    <pre><code>Andrew Pardoe, Microsoft  
-Chris Meyer, Microsoft  
-Chris Wysopal, CA Technologies  
-David Keaton, Individual  
-Douglas Smith, Kestrel Technology  
-Duncan Sparrell, sFractal Consulting LLC  
+    <pre><code>Andrew Pardoe, Microsoft
+Chris Meyer, Microsoft
+Chris Wysopal, CA Technologies
+David Keaton, Individual
+Douglas Smith, Kestrel Technology
+Duncan Sparrell, sFractal Consulting LLC
 Everett Maus, Microsoft
-Harleen Kaur Kohli, Microsoft  
-Hendrik Buchwald, RIPS Technologies  
-Henny Sipma, Kestrel Technology  
-James A. Kupsch, SWAMP Project, University of Wisconsin  
-Jordyn Puryear, Microsoft  
-Joseph Feiman, CA Technologies  
-Ken Prole, Code Dx, Inc.  
-Kevin Greene, Mitre Corporation  
-Larry Hines, Micro Focus  
-Laurence J. Golding, Individual  
-Luke Cartey, Semmle  
-Mel Llaguno, Synopsys  
-Michael Fanning, Microsoft  
-Nikolai Mansourov, Object Management Group  
-Paul Anderson, GrammaTech, Inc.  
-Paul Brookes, Microsoft  
-Paul Patrick, FireEye, Inc.  
-Philip Royer, Splunk Inc.  
-Pooya Mehregan, Security Compass  
-Ram Jeyaraman, Microsoft  
-Ryley Taketa, Microsoft  
-Scott Louvau, Microsoft  
-Sean Barnum, FireEye, Inc.  
-Stefan Hagen, Individual  
-Sunny Chatterjee, Microsoft  
-Tim Hudson, Cryptsoft Pty Ltd.  
-Trey Darley, New Context Services, Inc.  
-Vamshi Basupalli, SWAMP Project, University of Wisconsin  
+Harleen Kaur Kohli, Microsoft
+Hendrik Buchwald, RIPS Technologies
+Henny Sipma, Kestrel Technology
+James A. Kupsch, SWAMP Project, University of Wisconsin
+Jordyn Puryear, Microsoft
+Joseph Feiman, CA Technologies
+Ken Prole, Code Dx, Inc.
+Kevin Greene, Mitre Corporation
+Larry Hines, Micro Focus
+Laurence J. Golding, Individual
+Luke Cartey, Semmle
+Mel Llaguno, Synopsys
+Michael Fanning, Microsoft
+Nikolai Mansourov, Object Management Group
+Paul Anderson, GrammaTech, Inc.
+Paul Brookes, Microsoft
+Paul Patrick, FireEye, Inc.
+Philip Royer, Splunk Inc.
+Pooya Mehregan, Security Compass
+Ram Jeyaraman, Microsoft
+Ryley Taketa, Microsoft
+Scott Louvau, Microsoft
+Sean Barnum, FireEye, Inc.
+Stefan Hagen, Individual
+Sunny Chatterjee, Microsoft
+Tim Hudson, Cryptsoft Pty Ltd.
+Trey Darley, New Context Services, Inc.
+Vamshi Basupalli, SWAMP Project, University of Wisconsin
 Yekaterina O'Neil, Micro Focus</code></pre>
     <h1 id="appendix-b-normative-use-of-fingerprints-by-result-management-systems-">
       Appendix B. (Normative) Use of fingerprints by result management systems <a id='normative-use-of-fingerprints-by-result-management-systems'></a>
