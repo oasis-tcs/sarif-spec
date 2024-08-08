@@ -2,6 +2,8 @@
 
 This place offers access to the editable sources of the v2.2 SARIF specification (to be).
 
+TL;DR: Call `make` in the `edit` folder and this will build the user facing dleiver items in the `share` folder.
+
 In the `share` folder there are the user facing delivery items that offer layout and navigation
 optimized for online viewing per 
 
@@ -26,7 +28,7 @@ First calling pandoc (inside the `edit` folder) as:
 ```console
 % pandoc -f gfm+definition_lists -t html build/tmp.md --columns=345  --css style/base.css --css style/skin.css  \
   --standalone -o build/tmp.html \
-  --metadata title="Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01"
+  --metadata title="Static Analysis Results Interchange Format (SARIF) Version 2.2 CSD01"
 ```
 
 Second, swapping the hacked-up table of contents (for Markdown web-rendered views) with a real HTML one,
