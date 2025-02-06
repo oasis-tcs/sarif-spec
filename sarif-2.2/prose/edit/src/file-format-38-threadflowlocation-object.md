@@ -197,6 +197,8 @@ Verbs:
 
 - `"exit"`: Exit point from a section of the program such as a function.
 
+- `expose`: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
+
 - `"call"`: Point of call into a section of the program such as a function.
 
 - `"return"`: Point of return from a section of the program such as a function.
@@ -219,7 +221,11 @@ Nouns:
 
 - `"resource"`: Anything that can be acquired and released.
 
+- `sensitive`: a value that is known to be secret e.g. a password or a private key.
+
 - `"scope"`: Section of a program that limits the visibility of variables defined within it.
+
+- `uninitialized`: uninitialized memory.
 
 - `"value"`: The value of a variable.
 
@@ -275,6 +281,44 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 > "kinds": [
 >   "exit",
 >   "function"
+> ]
+> ```
+
+> EXAMPLE 4: In this example, an uninitialized memory region is created at this location,
+> such as at the point where a local variable is created on the stack, at an `alloca` call, or at a `malloc` call:
+>
+> ```
+> "kinds": [
+>   "acquire",
+>   "uninitialized"
+> ]
+> ```
+
+> EXAMPLE 5: In this example, uninitialized data is copied across a security boundary at this location,
+> such as a copy from kernel-space to user-space within an OS kernel, or transmitting the data across a network:
+>
+> ```
+> "kinds": [
+>   "expose",
+>   "uninitialized"
+> ]
+> ```
+
+> EXAMPLE 6: In this example, a password or private key is read into memory at this location:
+>
+> ```
+> "kinds": [
+>   "acquire",
+>   "sensitive"
+> ]
+> ```
+
+> EXAMPLE 7: In this example, a password or private key is written to a log file at this location:
+>
+> ```
+> "kinds": [
+>   "expose",
+>   "sensitive"
 > ]
 > ```
 
