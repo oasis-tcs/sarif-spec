@@ -63,3 +63,14 @@ A `suppression` object **MAY** contain a property named `justification` whose va
 This is one of the few properties that contain textual content supplied by a user rather than by a tool or taxonomy (see [sec](#taxonomies)) vendor. As such, it might contain undesirable content. Therefore, SARIF consumers **SHOULD** exercise appropriate caution when displaying, sharing, or publishing this information.
 
 > NOTE: This property exists because the information it contains is commonly made available by existing suppression mechanisms such as the `SuppressMessage` attribute in the .NET Framework.
+
+### justificationType property
+
+The `justificationType` property is an enumeration with the following values:
+
+- `ToolNoise`
+- `VulnerabilityNotFeasible`
+- `NotForRelease`
+- `FixDeferred`
+- `RiskAccepted`
+  
