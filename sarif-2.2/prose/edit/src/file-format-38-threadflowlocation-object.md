@@ -221,7 +221,7 @@ Nouns:
 
 - `"resource"`: Anything that can be acquired and released.
 
-- `sensitive`: a value that is known to be secret e.g. a password or a private key
+- `sensitive`: a value that is known to be secret e.g. a password or a private key.
 
 - `"scope"`: Section of a program that limits the visibility of variables defined within it.
 
