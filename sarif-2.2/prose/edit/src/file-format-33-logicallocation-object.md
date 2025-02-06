@@ -298,20 +298,24 @@ Although the values suggested here are useful in the specified categories (for e
 >     {                             # A result object ((#result-object)).
 >       "locations": [              # See (#result-object--locations-property).
 >         {                         # A location object ((#location-object)).
->           "logicalLocation": {    # See (#location-object--logicallocations-property).
->             "fullyQualifiedName": "/orders/0/productIds/1",
->             "index": 3
->           }
+>           "logicalLocations": [   # See (#location-object--logicallocations-property).
+>             {                     # A logicallocation object ((#logicallocation-object)).
+>               "fullyQualifiedName": "/orders/0/productIds/1",
+>               "index": 3
+>             }
+>           ]
 >         }
 >       ]
 >     },
 >     {
 >       "locations": [
 >         {
->           "logicalLocation": {
->             "fullyQualifiedName": "/orders/0/total",
->             "index": 4
->           }
+>           "logicalLocations": [
+>             {
+>               "fullyQualifiedName": "/orders/0/total",
+>               "index": 4
+>             }
+>           ]
 >         }
 >       ]
 >     }
