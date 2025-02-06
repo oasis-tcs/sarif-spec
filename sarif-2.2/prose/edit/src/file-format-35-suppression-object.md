@@ -66,11 +66,39 @@ This is one of the few properties that contain textual content supplied by a use
 
 ### justificationType property
 
-The `justificationType` property is an enumeration with the following values:
+A suppression is a filter on an existing result. The free-form `justification` field for arbitrary textual descriptions of a suppression is not easy to parse or to map to finite states. The `justificationType` property is an enumeration providing a useful set of tags to help sort and differentiate suppressions. As with other areas of SARIF design, such buckets assist in routing information to specific actors in end-to-end result management systems.
 
-- `ToolNoise`
-- `VulnerabilityNotFeasible`
-- `NotForRelease`
-- `FixDeferred`
-- `RiskAccepted`
-  
+The `justificationType` property is an enumeration with the following five values:
+
+```
+FixDeferred
+NotForRelease
+RiskAccepted
+ToolNoise
+VulnerabilityNotFeasible
+```
+
+> The suggested situations represented by these five enumeration values are the following:
+>
+> `ToolNoise` for example filters a result because it comprises a false positive.
+> The primary responder to this class of suppression is a tool vendor
+> (with other actual code owners in a secondary role to guarantee the finding is,
+> in fact, incorrect).
+>
+> `VulnerabilityNotFeasible` designates a vulnerability that looks accurate on surface which
+> cannot be realized or exploited in production due to factors or contexts that are not (or cannot be) considered by the quality tool.
+> The appropriate responders are other code owners to confirm a vulnerability does not impact production
+> (with tool vendors in a secondary review role to look for opportunities to improve or refine analysis).
+>
+> `NotForRelease` filters a result because it fired against code that does not ship (and therefore affords no quality or security risk).
+> The appropriate responder/reviewer for this class of suppression might be an automation owner who can adjust tool configuration to not scan non-shipping code.
+>
+> `FixDeferred` acknowledges a result as a true positive but simply requests time to resolve.
+> The appropriate responders are security reviewers and leads accountable for prioritizing or scheduling work items.
+>
+> `RiskAccepted` acknowledges a result as a true positive but definitively proposes not to act on it.
+> Appropriate responders include security reviewers and leads accountable for signing off on quality and risk.
+>
+> The buckets represented through the enumeration values aim to be a clear, minimal set that together handle prominent routing and response use cases.
+> It is possible, for example, that `ToolNoise` and `VulnerabilityNotFeasible` could be collapsed into a single `FalsePositive` designation.
+> The rationale for preserving both is the distinction between the primary responder for the two cases (tool vendor and code owner).
