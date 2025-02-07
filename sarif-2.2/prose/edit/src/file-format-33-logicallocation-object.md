@@ -259,7 +259,7 @@ Although the values suggested here are useful in the specified categories (for e
 >     },
 >     {
 >       "name": "text",
->       "fullyQualifiedName": "/orders/order[1]/text()",
+>       "fullyQualifiedName": "/orders/order[1]/total/text()",
 >       "kind": "text",
 >       "parentIndex": 1
 >     }
