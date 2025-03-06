@@ -20,6 +20,10 @@ The SARIF project started with a relatively simple mission, define a standard fo
 
 Ultimately, the SARIF standard would enable the automatic exchange of results from all types of software analysis tools. This page details some of the efforts and investigations that the SARIF team is planning in order to achieve that goal.
 
+## Acronym Change
+
+With an expanded scope the **SARIF** acronym's underlying expansion would change from **S**tatic **A**nalysis **R**esults **I**nterchange **F**ormat to **S**ystematic **A**nalysis **R**esults **I**nterchange **F**ormat.
+
 ## SARIF Field Compatibility
 
 The following table shows mapping between current SARIF terminology as used for static analysis and that of other possible use cases.
