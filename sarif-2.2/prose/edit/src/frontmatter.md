@@ -26,7 +26,7 @@ https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf
 
 #### Chairs:
 David Keaton (<dmk@dmk.com>), Individual \
-Luke Cartey (<lcartey@github.com>), [Microsoft Corporation](http://www.microsoft.com/)
+Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
 #### Editors:
 Michael Fanning (<michael.fanning@microsoft.com>), [Microsoft Corporation](https://www.microsoft.com/) \
