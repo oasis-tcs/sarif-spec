@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 08 August 2024
+## 12 June 2025
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -62,14 +62,14 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 08 August 2024. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 12 June 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
 
 
 -------
 
 ## Notices
 
-Copyright © OASIS Open 2024. All Rights Reserved.
+Copyright © OASIS Open 2025. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 
@@ -10842,10 +10842,11 @@ Because the purpose is to present as many elements as possible, the file as a wh
 
 # Appendix L. (Informative) Revision History <a id='informative-revision-history'></a>
 
-| Revision                  | Date       | Editors                                      | Description                                                                      |
-|:--------------------------|:-----------|:---------------------------------------------|:---------------------------------------------------------------------------------|
-| sarif-v2.2-wd20240605-dev | 2024-06-05 | Stacy Wray and Stefan Hagen                  | Editor revision implementing proposals [471](https://github.com/oasis-tcs/sarif-spec/issues/471) and [637](https://github.com/oasis-tcs/sarif-spec/issues/637).                              |
-| sarif-v2.2-wd20240808-dev | 2024-08-08 | Stacy Wray and Stefan Hagen                  | Editor revision implementing proposals [459](https://github.com/oasis-tcs/sarif-spec/issues/459), [483](https://github.com/oasis-tcs/sarif-spec/issues/483), [491](https://github.com/oasis-tcs/sarif-spec/issues/491), [492](https://github.com/oasis-tcs/sarif-spec/issues/492), and [634](https://github.com/oasis-tcs/sarif-spec/issues/634).              |
+| Revision                  | Date       | Editors                     | Description                                                              |
+|:--------------------------|:-----------|:----------------------------|:-------------------------------------------------------------------------|
+| sarif-v2.2-wd20240605-dev | 2024-06-05 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #471 and #637.                    |
+| sarif-v2.2-wd20240808-dev | 2024-08-08 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #459, #483, #491, #492, and #634. |
+| sarif-v2.2-wd20250612-dev | 2025-06-12 | Stefan Hagen                | Editor revision for meeting 2025-06-12.                                  |
 
 # Appendix M. (Informative) MIME Types and File Name Extensions <a id='non-normative-mime-types-and-file-name-extensions'></a>
 
