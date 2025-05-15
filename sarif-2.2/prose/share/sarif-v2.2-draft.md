@@ -26,7 +26,7 @@ https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf
 
 #### Chairs:
 David Keaton (<dmk@dmk.com>), Individual \
-Luke Cartey (<lcartey@github.com>), [Microsoft Corporation](http://www.microsoft.com/)
+Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
 #### Editors:
 Michael Fanning (<michael.fanning@microsoft.com>), [Microsoft Corporation](https://www.microsoft.com/) \
@@ -425,6 +425,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		3.35.4 [location property](#suppression-object--location-property)  
 		3.35.5 [guid property](#suppression-object--guid-property)  
 		3.35.6 [justification property](#justification-property)  
+		3.35.7 [justificationType property](#justificationtype-property)  
 	3.36 [codeFlow object](#codeflow-object)  
 		3.36.1 [General](#codeflow-object--general)  
 		3.36.2 [message property](#codeflow-object--message-property)  
@@ -6245,7 +6246,7 @@ Although the values suggested here are useful in the specified categories (for e
 >     },
 >     {
 >       "name": "text",
->       "fullyQualifiedName": "/orders/order[1]/text()",
+>       "fullyQualifiedName": "/orders/order[1]/total/text()",
 >       "kind": "text",
 >       "parentIndex": 1
 >     }
@@ -6284,20 +6285,24 @@ Although the values suggested here are useful in the specified categories (for e
 >     {                             # A result object (§3.27).
 >       "locations": [              # See §3.27.12.
 >         {                         # A location object (§3.28).
->           "logicalLocation": {    # See §3.28.4.
->             "fullyQualifiedName": "/orders/0/productIds/1",
->             "index": 3
->           }
+>           "logicalLocations": [   # See §3.28.4.
+>             {                     # A logicallocation object (§3.33).
+>               "fullyQualifiedName": "/orders/0/productIds/1",
+>               "index": 3
+>             }
+>           ]
 >         }
 >       ]
 >     },
 >     {
 >       "locations": [
 >         {
->           "logicalLocation": {
->             "fullyQualifiedName": "/orders/0/total",
->             "index": 4
->           }
+>           "logicalLocations": [
+>             {
+>               "fullyQualifiedName": "/orders/0/total",
+>               "index": 4
+>             }
+>           ]
 >         }
 >       ]
 >     }
@@ -6538,6 +6543,45 @@ A `suppression` object **MAY** contain a property named `justification` whose va
 This is one of the few properties that contain textual content supplied by a user rather than by a tool or taxonomy (see [3.19.3](#taxonomies)) vendor. As such, it might contain undesirable content. Therefore, SARIF consumers **SHOULD** exercise appropriate caution when displaying, sharing, or publishing this information.
 
 > NOTE: This property exists because the information it contains is commonly made available by existing suppression mechanisms such as the `SuppressMessage` attribute in the .NET Framework.
+
+### 3.35.7 justificationType property <a id='justificationtype-property'></a>
+
+A suppression is a filter on an existing result. The free-form `justification` field for arbitrary textual descriptions of a suppression is not easy to parse or to map to finite states. The `justificationType` property is an enumeration providing a useful set of tags to help sort and differentiate suppressions. As with other areas of SARIF design, such buckets assist in routing information to specific actors in end-to-end result management systems.
+
+The `justificationType` property is an enumeration with the following five values:
+
+```
+FixDeferred
+NotForRelease
+RiskAccepted
+ToolNoise
+VulnerabilityNotFeasible
+```
+
+> The suggested situations represented by these five enumeration values are the following:
+>
+> `ToolNoise` for example filters a result because it comprises a false positive.
+> The primary responder to this class of suppression is a tool vendor
+> (with other actual code owners in a secondary role to guarantee the finding is,
+> in fact, incorrect).
+>
+> `VulnerabilityNotFeasible` designates a vulnerability that looks accurate on surface which
+> cannot be realized or exploited in production due to factors or contexts that are not (or cannot be) considered by the quality tool.
+> The appropriate responders are other code owners to confirm a vulnerability does not impact production
+> (with tool vendors in a secondary review role to look for opportunities to improve or refine analysis).
+>
+> `NotForRelease` filters a result because it fired against code that does not ship (and therefore affords no quality or security risk).
+> The appropriate responder/reviewer for this class of suppression might be an automation owner who can adjust tool configuration to not scan non-shipping code.
+>
+> `FixDeferred` acknowledges a result as a true positive but simply requests time to resolve.
+> The appropriate responders are security reviewers and leads accountable for prioritizing or scheduling work items.
+>
+> `RiskAccepted` acknowledges a result as a true positive but definitively proposes not to act on it.
+> Appropriate responders include security reviewers and leads accountable for signing off on quality and risk.
+>
+> The buckets represented through the enumeration values aim to be a clear, minimal set that together handle prominent routing and response use cases.
+> It is possible, for example, that `ToolNoise` and `VulnerabilityNotFeasible` could be collapsed into a single `FalsePositive` designation.
+> The rationale for preserving both is the distinction between the primary responder for the two cases (tool vendor and code owner).
 
 ## 3.36 codeFlow object <a id='codeflow-object'></a>
 
@@ -6855,6 +6899,8 @@ Verbs:
 
 - `"exit"`: Exit point from a section of the program such as a function.
 
+- `expose`: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
+
 - `"call"`: Point of call into a section of the program such as a function.
 
 - `"return"`: Point of return from a section of the program such as a function.
@@ -6877,7 +6923,11 @@ Nouns:
 
 - `"resource"`: Anything that can be acquired and released.
 
+- `sensitive`: a value that is known to be secret e.g. a password or a private key.
+
 - `"scope"`: Section of a program that limits the visibility of variables defined within it.
+
+- `uninitialized`: uninitialized memory.
 
 - `"value"`: The value of a variable.
 
@@ -6933,6 +6983,44 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 > "kinds": [
 >   "exit",
 >   "function"
+> ]
+> ```
+
+> EXAMPLE 4: In this example, an uninitialized memory region is created at this location,
+> such as at the point where a local variable is created on the stack, at an `alloca` call, or at a `malloc` call:
+>
+> ```
+> "kinds": [
+>   "acquire",
+>   "uninitialized"
+> ]
+> ```
+
+> EXAMPLE 5: In this example, uninitialized data is copied across a security boundary at this location,
+> such as a copy from kernel-space to user-space within an OS kernel, or transmitting the data across a network:
+>
+> ```
+> "kinds": [
+>   "expose",
+>   "uninitialized"
+> ]
+> ```
+
+> EXAMPLE 6: In this example, a password or private key is read into memory at this location:
+>
+> ```
+> "kinds": [
+>   "acquire",
+>   "sensitive"
+> ]
+> ```
+
+> EXAMPLE 7: In this example, a password or private key is written to a log file at this location:
+>
+> ```
+> "kinds": [
+>   "expose",
+>   "sensitive"
 > ]
 > ```
 
@@ -9760,6 +9848,8 @@ The names of some of the languages in this list are the trademarks of their resp
 - `sql` (variants: `sql/tsql`, `sql/psql`).
 
 - `swift`
+
+- `systemverilog`
 
 - `typescript`
 
