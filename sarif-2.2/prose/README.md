@@ -21,7 +21,10 @@ In general, we try to keep this file identical to the `share/sarif-v2.2-draft.md
 The latter is generated from the source files below `edit/src/` as collected per `edit/etc/bind.txt` through
 the `edit/bin/volatile.py` script (for now).
 
-The way to the HTML is a three-step process:
+The preferred way to the user facing delivery items in markdown and html is to simply call
+make in the `sarif_2.2/prose/edit` folder.
+
+The more manual prior way to the HTML is a three-step process:
 
 First calling pandoc (inside the `edit` folder) as:
 
