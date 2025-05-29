@@ -1,4 +1,5 @@
 {
+  "Please do not edit manually!": "Instead, call 'make invert-sections' inside the clone-root/sarif_2.2/prose/edit folder.",
   "absolute-address-calculation": "\u00a73.32.3",
   "absolute-paths": "F.4",
   "absoluteaddress-property": "\u00a73.32.6",
