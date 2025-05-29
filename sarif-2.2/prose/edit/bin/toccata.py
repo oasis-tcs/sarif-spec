@@ -64,7 +64,7 @@ def generate_toc(toc_db: list[TOC_ENTRY_TYPE]) -> str:
         if pres > past:
             patch_me = entries[slot - 1]
             there = len('</li>')
-            entries[slot - 1] = patch_me[:-there] + f'<ul>'
+            entries[slot - 1] = patch_me[:-there] + '<ul>'
             entries.append(f'<li>{num_disp} <a href="#{slug}">{text}</a></li>')
             past = pres
             continue
