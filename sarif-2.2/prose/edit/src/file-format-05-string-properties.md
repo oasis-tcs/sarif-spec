@@ -22,6 +22,16 @@ The description of every GUID-valued property will state that it is GUID-valued.
 
 > NOTE 2: In the examples, the values shown for GUID-valued properties are valid GUIDs. In some cases, they are illustrative values such as `"11111111-1111-1111-8888-111111111111"` which are intended to make it easy to identify situations where two GUIDs in the same example are required to be the same. In these illustrative values, the third and fourth component are always `"1111-8888"`, a sample value that conforms to the restrictions on the values of those components.
 
+The same `guid` value on the root elements of two or more SARIF files indicates that the information content MUST be the same.
+
+> NOTE 3: Hashing of text based formats is ambiguous for duplicate detection as the line ending conventions differ and impact the hash.
+
+> Examples of possible duplication sources are: File copies, stored byte streams.
+
+Differing `guid` values on the root elements of two or more SARIF files indicate that the files are different.
+
+> Examples are reports from different nodes on the same system under test using identical tools or a retest run.
+
 ### Hierarchical strings
 
 #### General{#hierarchical-strings--general}
