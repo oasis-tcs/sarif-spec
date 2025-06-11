@@ -41,13 +41,14 @@ Currently SARIF's prefered embodiment is **JSON**. This format is widely support
 
 As SARIF is considered in domains beyond static analysis, additional capabilities provided by the file format are desired.
 
-For instance, there is a need to provide the capability of eliding portions of the report while still being able to ensure its authenticity. This allows for reports to disclose only portions of the report relevant to the recpient.
+For instance, there is a need to provide the capability of eliding portions of the report while still being able to ensure its authenticity.
+This allows for reports to disclose only portions of the report relevant to the recipient.
 
 One such file format is **dCBOR** (Deterministic Concise Binary Object Representation). This is a [proposed extension](https://datatracker.ietf.org/doc/draft-mcnally-deterministic-cbor/) to **CBOR** [(RFC8949)](https://www.rfc-editor.org/rfc/rfc8949.html).
 
 This primary use case of **dCBOR** is blockchain. This addresses the need of being able to ensure the authenticity and integrity of the SARIF data.
 
-Additionally, since **CBOR** is allows for binary data encoding, SARIF file size would be greatly reduced when images are included.
+Additionally, since **CBOR** offers binary data encoding, SARIF file size may be reduced when images are included.
 
 ### Desired Attributes
 
