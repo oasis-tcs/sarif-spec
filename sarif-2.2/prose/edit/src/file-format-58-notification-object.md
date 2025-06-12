@@ -128,7 +128,7 @@ If the notification is not the result of a runtime exception, the `exception` pr
 
 A `notification` object **MAY** contain a property named `relatedLocations` whose value is
 an array of zero or more unique ([sec](#array-properties-with-unique-values)) `location` objects ([sec](#location-object)) that
-identify those locations relevant to understanding the result.
+identify those locations relevant to understanding the `notification`.
 
 The `relatedLocations` property **SHOULD** allow `notification` objects to distinguish between the following types of locations:
 
