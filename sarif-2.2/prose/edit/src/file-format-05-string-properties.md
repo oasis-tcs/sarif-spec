@@ -31,7 +31,7 @@ The description of every GUID-valued property will state that it is GUID-valued.
 > In these illustrative values, the third and fourth component are always `"1111-8888"`,
 > a sample value that conforms to the restrictions on the values of those components.
 
-The same `guid` value on the root elements of two or more SARIF files indicates that the information content MUST be the same.
+The same `guid` value on the root elements of two or more SARIF files indicates that the information content is the same.
 
 > NOTE 3: Hashing of text based formats is ambiguous for duplicate detection as the line ending conventions differ and impact the hash.
 
