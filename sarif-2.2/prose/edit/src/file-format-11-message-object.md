@@ -198,6 +198,18 @@ When a tool displays on the console a result message containing an embedded link
 >
 > Note that in addition to providing a string representation of the location, the tool removed the `[…](…)` link syntax and separated the link text from the location with a colon. Finally, the tool recognized that the location’s URI used the `file` scheme and chose to display it as a file system path rather than a URI.
 
+URLs MAY contain unescaped closing parentheses ')' and thus any parsing applied to such content (link destination) is responsbible for preserving the semantics of a link expression.
+
+> EXAMPLE 5: The following text if parsed should result in the following token sequence:
+> ```
+> 'Foo [unbalanced](https://example.org/aFgH)x_) quux.' (incoming text)
+>
+> 1. 'Foo '                                             (as text)
+> 3. 'unbalanced'                                       (as link-text)
+> 4. 'https://example.org/aFgH)x_'                      (as link-destination)
+> 5. ' quux.'                                           (as text)
+> ```
+
 ### Message string lookup
 
 A `message` object can directly contain message strings in its `text` ([sec](#message-object--text-property)) and `markdown` ([sec](#message-object--markdown-property)) properties. It can also indirectly refer to message strings through its `id` ([sec](#message-object--id-property)) property.
