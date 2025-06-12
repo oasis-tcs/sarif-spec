@@ -344,7 +344,7 @@ def main(argv: list[str]) -> int:
     did_appendix_sep = False
     clean_headings = False
     current_cs = None
-    CS_OF_SLOT = [None for _ in lines]
+    CS_OF_SLOT: list[Union[None, str]] = [None for _ in lines]
     for slot, line in enumerate(lines):
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
@@ -417,7 +417,7 @@ def main(argv: list[str]) -> int:
                     .replace('$text$', text)
                     .replace('$label$', label)
                 )
-                extended = False
+                extended = 0
                 if sec_cnt_disp.upper().isupper():
                     extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
                     if extended == 2:

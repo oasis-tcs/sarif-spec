@@ -129,7 +129,7 @@ Literal square brackets ("`[`" and "`]`") in the link text of a plain text messa
 > EXAMPLE 1: Consider this embedded link whose link text contains square brackets and backslashes:
 >
 >       "message": {
->         "text": "Prohibited term used in [para\\[0\\]\\\\spans\\[2\\](1)."
+>         "text": "Prohibited term used in [para\\[0\\]\\\\spans\\[2\\]](1)."
 >       }
 >
 > A SARIF viewer would render it as follows:
