@@ -198,7 +198,7 @@ When a tool displays on the console a result message containing an embedded link
 >
 > Note that in addition to providing a string representation of the location, the tool removed the `[…](…)` link syntax and separated the link text from the location with a colon. Finally, the tool recognized that the location’s URI used the `file` scheme and chose to display it as a file system path rather than a URI.
 
-URLs MAY contain unescaped closing parentheses ')' and thus any parsing applied to such content (link destination) is responsbible for preserving the semantics of a link expression.
+URLs MAY contain unescaped closing parentheses ')' and thus any parser applied to such content (link destination) is responsible for preserving the semantics of a link expression.
 
 > EXAMPLE 5: The following text if parsed should result in the following token sequence:
 > ```
