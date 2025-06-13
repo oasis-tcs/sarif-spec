@@ -33,6 +33,29 @@ The following table shows mapping between current SARIF terminology as used for 
 | Penetration Testing | Common | Common | Test | Test Step | Failure
 | Observability | [Common](https://opentelemetry.io/docs/concepts/context-propagation/#context) | Product Execution | [Signal](https://opentelemetry.io/docs/concepts/signals/) | [File / Line](https://opentelemetry.io/docs/specs/semconv/general/attributes/#source-code-attributes) | Alert
 
+## SARIF File Format
+
+Originally SARIF was embodied in **XML**. This format, although expressive, lacked ease of use.
+
+Currently SARIF's prefered embodiment is **JSON**. This format is widely supported by multiple programming languages. Additionally, schema validation is much more light weight when compared to **XML**.
+
+As SARIF is considered in domains beyond static analysis, additional capabilities provided by the file format are desired.
+
+For instance, there is a need to provide the capability of eliding portions of the report while still being able to ensure its authenticity.
+This allows for reports to disclose only portions of the report relevant to the recipient.
+
+One such file format is **dCBOR** (Deterministic Concise Binary Object Representation). This is a [proposed extension](https://datatracker.ietf.org/doc/draft-mcnally-deterministic-cbor/) to **CBOR** [(RFC8949)](https://www.rfc-editor.org/rfc/rfc8949.html).
+
+This primary use case of **dCBOR** is blockchain. This addresses the need of being able to ensure the authenticity and integrity of the SARIF data.
+
+Additionally, since **CBOR** offers binary data encoding, SARIF file size may be reduced when images are included.
+
+### Desired Attributes
+
+* file authentication
+* section elision
+* compact representation
+
 ## Add Support for Dynamic (DAST) and Interactive (IAST) Tools
 
 Modern software analysis often involves observation of running software. This can occur from the outside (dynamic) where the inputs and outputs of the software are manipulated and observed to identify issues with the software works. Or it can occur from within the software (interactive) where techniques like profiling and instrumentation are used to directly observe the software as it runs. Supporting these ways of analyzing software will require SARIF to support findings that include:
