@@ -47,7 +47,7 @@ invert-sections: ; bin/invert_sec_labels.py
 render: render-html
 
 .PHONY: render-markdown
-render-markdown: inversions
+render-markdown: # inversions
 	bin/volatile.py && \
 	  cp -a build/tmp.md ../share/sarif-v2.2-draft.md && \
 	  printf "Rendered user facing delivery item in markdown format:\n" && \
