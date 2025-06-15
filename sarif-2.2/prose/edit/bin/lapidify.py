@@ -559,7 +559,7 @@ def main(argv: list[str]) -> int:
                         raise RuntimeError(f'missing register label for sec ref in ({line.rstrip(NL)})')
                     text = SEC_LABEL_TEXT[label]
                     sem_ref = f'[sec](#{label})'
-                    evil_ref = f'[{text}](#{label})'  # [GFMCMARK](#GFMCMARK)
+                    evil_ref = f'[{PARA + text}](#{label})'  # [GFMCMARK](#GFMCMARK)
                     line = line.replace(sem_ref, evil_ref)
                     lines[slot] = line
 
