@@ -1,11 +1,5 @@
 #! /usr/bin/env python
-"""Volatile script file for prototyping that may take on different behaviors in time.
-
-This one off script is a constant place to document the early stages of tools for processing the editable
-sources and build the delivery items.
-
-Currently impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
-"""
+"""Lapidify - turning markdown to stone (PDF)."""
 import json
 import pathlib
 import re
@@ -74,6 +68,11 @@ TOC_HEADER = f"""{YAML_X_SEP}
 # Table of Contents
 """
 CLEAN_MD_START = '# Introduction'
+LOGO_URL = 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
+LOGO_LOCAL_PATH = 'images/OASISLogo-v3.0.png'
+TOP_LOGO_LINE = f'![OASIS Logo]({LOGO_URL})'
+
+SEC_NO_TOC_POSTFIX = '{.unnumbered .unlisted}'
 
 SECTION_DISPLAY_TO_LABEL = {}
 SECTION_LABEL_TO_DISPLAY: dict[str, str] = {}
@@ -112,7 +111,11 @@ META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 def load_binder(binder_at: Union[str, pathlib.Path]) -> list[pathlib.Path]:
     """Load the linear binder text file into a list of file paths."""
     with open(binder_at, 'rt', encoding=ENCODING) as resource:
-        return [pathlib.Path(entry.strip()) for entry in resource.readlines() if entry.strip()]
+        return [
+            pathlib.Path(entry.strip())
+            for entry in resource.readlines()
+            if entry.strip() and entry.strip() != 'frontmatter.md'
+        ]
 
 
 def end_of_toc_in(text: str) -> bool:
@@ -275,7 +278,8 @@ def main(argv: list[str]) -> int:
                     patched.append(line)
             part_lines = [a for a in patched]
 
-        if resource.name in GLOSSARY_SOURCES:  # TODO: glossary management -> class
+        # MAYBE_KEEP_BEAUTY_IN_DEFINITION_LIST_IMPLEMENTQATION_FOR_GLOSSARY
+        if resource.name in GLOSSARY_SOURCES and False:  # TODO: glossary management -> class
             patched = ['<dl>' + NL]
             in_definition = False
             for line in part_lines:
@@ -344,8 +348,12 @@ def main(argv: list[str]) -> int:
     did_appendix_sep = False
     clean_headings = False
     current_cs = None
-    CS_OF_SLOT: list[Union[None, str]] = [None for _ in lines]
+    CS_OF_SLOT = [None for _ in lines]
     for slot, line in enumerate(lines):
+        # MAYBE_MAKE_TOP_LOGO_LOCAL # NEW
+        if line.rstrip() == TOP_LOGO_LINE:
+            lines[slot] = line.replace(LOGO_URL, LOGO_LOCAL_PATH, 1)
+
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
         is_plain = True  # No special meta data needed
@@ -394,38 +402,82 @@ def main(argv: list[str]) -> int:
 
                 # manage label
                 text = line.split(tag, 1)[1].rstrip()
+                link_attributes = ''
+                if '{' in line:
+                    link_attributes = '{' + line.split('{', 1)[1]
                 if TOK_LAB in text:
                     # special label
                     label = text.split(TOK_LAB, 1)[1].rstrip(CB_END)
-                    text = text.split(TOK_LAB, 1)[0]
+                    # reduced_text = text.split(TOK_LAB, 1)[0]
                 else:
                     label = label_derive_from(text)
                 clean_sec_cnt_disp = (f'{sec_cnt_disp}' if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
                 SEC_LABEL_TEXT[label] = clean_sec_cnt_disp
                 SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
-                line = tag + text + ' ' + TOK_SEC.replace('$thing$', label)
+                #                    MAYBE_NO_HTML_A_FOR_HEADING #
+                line = tag + text + link_attributes  # + ' ' + TOK_SEC.replace('$thing$', label)
+                # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WIOLL_YOU_?
 
-                line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
-                lines[slot] = line
+                if line.rstrip() == '# Acknowledgments':
+                    line = line.rstrip().replace('# ', '# Appendix A. ', 1) + '{.unnumbered #acknowledgments}' + NL
+                elif line.rstrip() == '# Revision History':
+                    line = line.rstrip().replace('# ', '# Appendix B. ', 1) + '{.unnumbered #revision-history}' + NL
+                elif line.rstrip() == '# Guidance on the Size of CSAF Documents':
+                    line = (
+                        line.rstrip().replace('# ', '# Appendix C. ', 1)
+                        + '{.unnumbered #guidance-on-the-size-of-csaf-documents}'
+                        + NL
+                    )
+                elif line.rstrip() == '## File Size':
+                    line = line.rstrip().replace('## ', '## C.1 ', 1) + '{.unnumbered #file-size}' + NL
+                elif line.rstrip() == '## Array Length':
+                    line = line.rstrip().replace('## ', '## C.2 ', 1) + '{.unnumbered #array-length}' + NL
+                elif line.rstrip() == '## String Length':
+                    line = line.rstrip().replace('## ', '## C.3 ', 1) + '{.unnumbered #string-length}' + NL
+                elif line.rstrip() == '## Date':
+                    line = line.rstrip().replace('## ', '## C.4 ', 1) + '{.unnumbered #date}' + NL
+                elif line.rstrip() == '## Enum':
+                    line = line.rstrip().replace('## ', '## C.5 ', 1) + '{.unnumbered #enum}' + NL
+                elif line.rstrip() == '## URI Length':
+                    line = line.rstrip().replace('## ', '## C.6 ', 1) + '{.unnumbered #uri-length}' + NL
+                elif line.rstrip() == '## UUID Length':
+                    line = line.rstrip().replace('## ', '## C.7 ', 1) + '{.unnumbered #uuid-length}' + NL
+
+                # MAYBE_NO_SECTION_NUMBERS_AS_PART_OF_HEADING # line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
                 cur_lvl = nxt_lvl
                 if not did_appendix_sep and meta_hook and slot < first_meta_slot:  # type: ignore
                     tic_toc.append(TOC_VERTICAL_SPACER)
                     did_appendix_sep = True
                 toc_template = TOC_TEMPLATE[cur_lvl if not meta_hook else app_lvl]
+                extended = False
+                if sec_cnt_disp.upper().isupper():
+                    extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
+                    if extended == 2:
+                        extended = sec_cnt_disp.count(DOT) + 1
+                if '{#' in text and label in text:
+                    print(f'{slot=}: Fixed ToC for {line=}')
+                    print(f'{slot=}: --> {list(sec_cnt.values())},{extended=},{sec_cnt_disp=},{text=},{label=}')
+                    text = text.replace('{#' + label + '}', '')
                 tic_toc.append(
                     toc_template.replace('$sec_cnt_disp$', sec_cnt_disp)
                     .replace('$text$', text)
                     .replace('$label$', label)
                 )
-                extended = 0
-                if sec_cnt_disp.upper().isupper():
-                    extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
-                    if extended == 2:
-                        extended = sec_cnt_disp.count(DOT) + 1
+                if line.startswith('#') and '{#' in line:
+                    hack = '{#' + label + '}'
+                    hackhack = f'{hack}{hack}'
+                    if hackhack in line:
+                        line = line.replace(hackhack, hack)
+                        print(f'{slot=}: Fixed {line=} in collector')
+                lines[slot] = line
                 mint.append([list(sec_cnt.values()), extended, sec_cnt_disp, text, label])
                 current_cs = label  # Update state for label in non tag lines
                 # correct the default state assignment
                 CS_OF_SLOT[slot] = current_cs  # type: ignore
+
+            # MAYBE_SEC_NO_TOC_BEFORE_INTRODUCTION # NEW
+            if line.startswith(tag) and not clean_headings:
+                lines[slot] = line.rstrip() + SEC_NO_TOC_POSTFIX + NL
 
     # Process the text display of citation refs
     for slot, line in enumerate(lines):
@@ -546,7 +598,7 @@ def main(argv: list[str]) -> int:
     # Inject the table of contents:
     for slot, line in enumerate(lines):
         if end_of_toc_in(line):
-            lines[slot] = NL.join(tic_toc) + line
+            # MAYBE_NO_TOC # lines[slot] = NL.join(tic_toc) + line
             break
 
     # remove any trailing blank line
@@ -554,7 +606,7 @@ def main(argv: list[str]) -> int:
         del lines[-1]
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
-    dump_assembly(lines, BUILD_AT / 'tmp.md')
+    dump_assembly(lines, BUILD_AT / 'pdf.md')
 
     with open(BUILD_AT / 'toc-mint.json', 'wt', encoding=ENCODING) as handle:
         json.dump(mint, handle, indent=2)

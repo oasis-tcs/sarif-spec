@@ -134,7 +134,7 @@ Literal square brackets ("`[`" and "`]`") in the link text of a plain text messa
 >
 > A SARIF viewer would render it as follows:
 >
-> Prohibited term used in para\[0\]\spans\[2\].
+> Prohibited term used in para\[0\]\\spans\[2\].
 
 Literal square brackets and (doubled) backslashes **MAY** appear anywhere else in a plain text message without being escaped.
 
