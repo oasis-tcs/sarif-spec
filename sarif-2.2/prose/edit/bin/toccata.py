@@ -115,6 +115,7 @@ def main(argv: list[str]) -> int:
 
     with open('build/injected.html', 'wt', encoding=ENCODING) as handle:
         handle.write(''.join(outgoing))
+    return 0
 
 
 if __name__ == '__main__':

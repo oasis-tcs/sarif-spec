@@ -12,7 +12,7 @@ ENC_ERRS = 'ignore'
 NL = '\n'
 
 if not ETC_PATH.is_dir():
-    raise RuntimeError('Please execute me inside csaf_2.1/prose/edit/ because I am a simple tool')
+    raise RuntimeError('Please execute me inside sarif_2.2/prose/edit/ because I am a simple tool')
 
 with open(G2L_PATH, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
     data = json.load(handle)
@@ -37,7 +37,7 @@ with open(G2L_PATH, 'wt', encoding=ENCODING, errors=ENC_ERRS) as handle:
 inverted = {v: k for k, v in cleansed.items()}
 ordered = {
     'Please do not edit manually!': (
-        "Instead, call 'make invert-examples' inside the clone-root/csaf_2.1/prose/edit folder."
+        "Instead, call 'make invert-examples' inside the clone-root/sarif_2.2/prose/edit folder."
     )
 }
 for k in sorted(inverted):
