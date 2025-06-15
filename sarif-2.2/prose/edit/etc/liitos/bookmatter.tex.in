@@ -60,7 +60,7 @@ includes:
   Latest stage:
   \href{https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json}.
 \item
-  ARIF External Property File schema:
+  SARIF External Property File schema:
   \href{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json}.\\
   Latest stage:
   \href{https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json}.
