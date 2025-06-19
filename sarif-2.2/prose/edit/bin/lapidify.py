@@ -107,6 +107,33 @@ GLOSSARY_SOURCES = ('introduction-02-terminology-glossary.md',)
 # Type declarations:
 META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 
+APPENDIX_HEAD_REMAP = {
+    '# (Informative) Acknowledgments': {'replace': ['# ', '# Appendix A. '], 'attrs': '{.unnumbered #informative-acknowledgments}'},
+    '# (Normative) Use of fingerprints by result management systems': {'replace': ['# ', '# Appendix B. '], 'attrs': '{.unnumbered #normative-use-of-fingerprints-by-result-management-systems}'},
+    '# (Informative) Use of SARIF by log file viewers': {'replace': ['# ', '# Appendix C. '], 'attrs': '{.unnumbered #informative-use-of-sarif-by-log-file-viewers}'},
+    '# (Normative) Production of SARIF by converters': {'replace': ['# ', '# Appendix D. '], 'attrs': '{.unnumbered #normative-production-of-sarif-by-converters}'},
+    '# (Informative) Locating rule and notification metadata': {'replace': ['# ', '# Appendix E. '], 'attrs': '{.unnumbered #informative-locating-rule-and-notification-metadata}'},
+    '# (Informative) Producing deterministic SARIF log files': {'replace': ['# ', '# Appendix F. '], 'attrs': '{.unnumbered #informative-producing-deterministic-sarif-log-files}'},
+    '## General': {'replace': ['## ', '## F.1 '], 'attrs': '{.unnumbered #informative-producing-deterministic-sarif-log-files--general}'},
+    '## Non-deterministic file format elements': {'replace': ['## ', '## F.2 '], 'attrs': '{.unnumbered #non-deterministic-file-format-elements}'},
+    '## Array and dictionary element ordering': {'replace': ['## ', '## F.3 '], 'attrs': '{.unnumbered #array-and-dictionary-element-ordering}'},
+    '## Absolute paths': {'replace': ['## ', '## F.4 '], 'attrs': '{.unnumbered #absolute-paths}'},
+    '## Inherently non-deterministic tools': {'replace': ['## ', '## F.5 '], 'attrs': '{.unnumbered #inherently-non-deterministic-tools}'},
+    '## Compensating for non-deterministic output': {'replace': ['## ', '## F.6 '], 'attrs': '{.unnumbered #compensating-for-non-deterministic-output}'},
+    '## Interaction between determinism and baselining': {'replace': ['## ', '## F.7 '], 'attrs': '{.unnumbered #interaction-between-determinism-and-baselining}'},
+    '# (Informative) Guidance on fixes': {'replace': ['# ', '# Appendix G. '], 'attrs': '{.unnumbered #informative-guidance-on-fixes}'},
+    '# (Informative) Diagnosing results in generated files': {'replace': ['# ', '# Appendix H. '], 'attrs': '{.unnumbered #informative-diagnosing-results-in-generated-files}'},
+    '# (Informative) Detecting incomplete result sets': {'replace': ['# ', '# Appendix I. '], 'attrs': '{.unnumbered #informative-detecting-incomplete-result-sets}'},
+    '# (Informative) Sample sourceLanguage values': {'replace': ['# ', '# Appendix J. '], 'attrs': '{.unnumbered #informative-sample-sourcelanguage-values}'},
+    '# (Informative) Examples': {'replace': ['# ', '# Appendix K. '], 'attrs': '{.unnumbered #informative-examples}'},
+    '## Minimal valid SARIF log file': {'replace': ['## ', '## K.1 '], 'attrs': '{.unnumbered #minimal-valid-sarif-log-file}'},
+    '## Minimal recommended SARIF log file with source information': {'replace': ['## ', '## K.2 '], 'attrs': '{.unnumbered #minimal-recommended-sarif-log-file-with-source-information}'},
+    '## Minimal recommended SARIF log file without source information': {'replace': ['## ', '## K.3 '], 'attrs': '{.unnumbered #minimal-recommended-sarif-log-file-without-source-information}'},
+    '## Comprehensive SARIF file': {'replace': ['## ', '## K.4 '], 'attrs': '{.unnumbered #comprehensive-sarif-file}'},
+    '# (Informative) Revision History': {'replace': ['# ', '# Appendix L. '], 'attrs': '{.unnumbered #informative-revision-history}'},
+    '# (Informative) MIME Types and File Name Extensions': {'replace': ['# ', '# Appendix M. '], 'attrs': '{.unnumbered #informative-mime-types-and-file-name-extensions}'},
+}
+
 
 def load_binder(binder_at: Union[str, pathlib.Path]) -> list[pathlib.Path]:
     """Load the linear binder text file into a list of file paths."""
@@ -418,30 +445,12 @@ def main(argv: list[str]) -> int:
                 line = tag + text + link_attributes  # + ' ' + TOK_SEC.replace('$thing$', label)
                 # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WIOLL_YOU_?
 
-                if line.rstrip() == '# Acknowledgments':
-                    line = line.rstrip().replace('# ', '# Appendix A. ', 1) + '{.unnumbered #acknowledgments}' + NL
-                elif line.rstrip() == '# Revision History':
-                    line = line.rstrip().replace('# ', '# Appendix B. ', 1) + '{.unnumbered #revision-history}' + NL
-                elif line.rstrip() == '# Guidance on the Size of CSAF Documents':
-                    line = (
-                        line.rstrip().replace('# ', '# Appendix C. ', 1)
-                        + '{.unnumbered #guidance-on-the-size-of-csaf-documents}'
-                        + NL
-                    )
-                elif line.rstrip() == '## File Size':
-                    line = line.rstrip().replace('## ', '## C.1 ', 1) + '{.unnumbered #file-size}' + NL
-                elif line.rstrip() == '## Array Length':
-                    line = line.rstrip().replace('## ', '## C.2 ', 1) + '{.unnumbered #array-length}' + NL
-                elif line.rstrip() == '## String Length':
-                    line = line.rstrip().replace('## ', '## C.3 ', 1) + '{.unnumbered #string-length}' + NL
-                elif line.rstrip() == '## Date':
-                    line = line.rstrip().replace('## ', '## C.4 ', 1) + '{.unnumbered #date}' + NL
-                elif line.rstrip() == '## Enum':
-                    line = line.rstrip().replace('## ', '## C.5 ', 1) + '{.unnumbered #enum}' + NL
-                elif line.rstrip() == '## URI Length':
-                    line = line.rstrip().replace('## ', '## C.6 ', 1) + '{.unnumbered #uri-length}' + NL
-                elif line.rstrip() == '## UUID Length':
-                    line = line.rstrip().replace('## ', '## C.7 ', 1) + '{.unnumbered #uuid-length}' + NL
+                if slot >= first_meta_slot:  # type: ignore
+                    terse_line = line.rstrip()
+                    if terse_line in APPENDIX_HEAD_REMAP:
+                        transform = APPENDIX_HEAD_REMAP[terse_line]
+                        this, that = transform['replace']
+                        line = terse_line.replace(this, that) + transform['attrs'] + NL  # type: ignore
 
                 # MAYBE_NO_SECTION_NUMBERS_AS_PART_OF_HEADING # line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
                 cur_lvl = nxt_lvl
@@ -451,9 +460,9 @@ def main(argv: list[str]) -> int:
                 toc_template = TOC_TEMPLATE[cur_lvl if not meta_hook else app_lvl]
                 extended = False
                 if sec_cnt_disp.upper().isupper():
-                    extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
+                    extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1  # type: ignore
                     if extended == 2:
-                        extended = sec_cnt_disp.count(DOT) + 1
+                        extended = sec_cnt_disp.count(DOT) + 1  # type: ignore
                 if '{#' in text and label in text:
                     print(f'{slot=}: Fixed ToC for {line=}')
                     print(f'{slot=}: --> {list(sec_cnt.values())},{extended=},{sec_cnt_disp=},{text=},{label=}')
