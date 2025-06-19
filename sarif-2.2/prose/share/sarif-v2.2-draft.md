@@ -642,7 +642,7 @@ Appendix K. [(Informative) Examples](#informative-examples)
 	K.3 [Minimal recommended SARIF log file without source information](#minimal-recommended-sarif-log-file-without-source-information)  
 	K.4 [Comprehensive SARIF file](#comprehensive-sarif-file)  
 Appendix L. [(Informative) Revision History](#informative-revision-history)  
-Appendix M. [(Informative) MIME Types and File Name Extensions](#non-normative-mime-types-and-file-name-extensions)  
+Appendix M. [(Informative) MIME Types and File Name Extensions](#informative-mime-types-and-file-name-extensions)  
 -------
 
 # 1. Introduction <a id='introduction'></a>
@@ -7664,7 +7664,7 @@ A `webRequest` object **SHOULD** contain a property named `version` whose value 
 
 ### 3.46.5 target property <a id='webrequest-object--target-property'></a>
 
-A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [sec](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard \[[RFC7230](#RFC7230)\].
+A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [§5.3](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard \[[RFC7230](#RFC7230)\].
 
 ### 3.46.6 method property <a id='method-property'></a>
 
@@ -10892,7 +10892,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
 | sarif-v2.2-wd20240808-dev | 2024-08-08 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #459, #483, #491, #492, and #634. |
 | sarif-v2.2-wd20250612-dev | 2025-06-12 | Stefan Hagen                | Editor revision for meeting 2025-06-12.                                  |
 
-# Appendix M. (Informative) MIME Types and File Name Extensions <a id='non-normative-mime-types-and-file-name-extensions'></a>
+# Appendix M. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
 
 The following is a list of MIME types and file extensions for files that conform to this specification, registered according to \[[RFC2048](#RFC2048)\].
 
