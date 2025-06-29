@@ -710,7 +710,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 >
 > The tool might write messages to the console like this:
 >
-> ```
+> ```console
 > C:\Code\a.js(6,10-10): error : JS3056: Name 'index' cannot be used in this scope because it would give a different meaning to 'index'.
 > C:\Code\a.js(2,6-6): info : JS3056: The previous declaration of 'index' was here.
 > ```
