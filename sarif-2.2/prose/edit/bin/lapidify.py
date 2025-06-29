@@ -64,37 +64,23 @@ EG_LABEL_TO_GLOBAL_AT = pathlib.Path("etc") / "example-local-to-global.json"
 
 # Parsers and magical literals:
 IS_CITE_REF = "cite"
-CITE_REF_DETECT = re.compile(
-    r"\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)"
-)  # [cite](#label) pattern
+CITE_REF_DETECT = re.compile(r"\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)")  # [cite](#label) pattern
 IS_EG_REF = "eg"
-EG_REF_DETECT = re.compile(
-    r"\[(?P<text>eg)\]\(#(?P<label>[^)]+)\)"
-)  # [eg](#label) pattern
+EG_REF_DETECT = re.compile(r"\[(?P<text>eg)\]\(#(?P<label>[^)]+)\)")  # [eg](#label) pattern
 IS_SEC_REF = "sec"
-SEC_REF_DETECT = re.compile(
-    r"\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)"
-)  # [sec](#label) pattern
-MD_REF_DETECT = re.compile(
-    r"\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)"
-)  # [ref](#anylabel) pattern
+SEC_REF_DETECT = re.compile(r"\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)")  # [sec](#label) pattern
+MD_REF_DETECT = re.compile(r"\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)")  # [ref](#anylabel) pattern
 
 # Detecting code block references with label values
 # e.g. ' #  ((#run-object)).'
-SEC_LABEL_BRACKET_CB_DETECT = re.compile(
-    r"\ +#\ +[^(]+\((?P<label>\(#(?P<value>[0-9a-z-]+)\))\)\."
-)
+SEC_LABEL_BRACKET_CB_DETECT = re.compile(r"\ +#\ +[^(]+\((?P<label>\(#(?P<value>[0-9a-z-]+)\))\)\.")
 # e.g. ' #  (#run-object).'
-SEC_LABEL_FREE_CB_DETECT = re.compile(
-    r"\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))\."
-)
+SEC_LABEL_FREE_CB_DETECT = re.compile(r"\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))\.")
 
 # Reverse detection patterns for documentation purposes
 # e.g. ' # A run object (3.14).' or ' #  (3.1.2).'
 SEC_DISP_BRACKET_CB_DETECT = re.compile(r"\ +#\ +[^(]+\((?P<disp>[0-9.]+)\)\.")
-SEC_DISP_FREE_CB_DETECT = re.compile(
-    r"\ +#\ +[^(]+(?P<disp>[0-9.]+)\."
-)  # e.g. ' # See 3.14.14.'
+SEC_DISP_FREE_CB_DETECT = re.compile(r"\ +#\ +[^(]+(?P<disp>[0-9.]+)\.")  # e.g. ' # See 3.14.14.'
 
 SEC_OVER = "[sec]("
 CIT_OVER = "[cite]("
@@ -143,9 +129,7 @@ ENUMERATE = "enumerate"
 LABEL = "label"
 TOC = "toc"
 
-CITE_COSMETICS_TEMPLATE = (
-    '**\\[**<span id="$label$" class="anchor"></span>**$code$\\]** $text$'
-)
+CITE_COSMETICS_TEMPLATE = '**\\[**<span id="$label$" class="anchor"></span>**$code$\\]** $text$'
 CITATION_SOURCES = (
     "introduction-03-normative-references.md",
     "introduction-04-informative-references.md",
@@ -261,21 +245,11 @@ APPENDIX_HEAD_REMAP = {
 }
 
 
-def load_binder(
-    binder_at: Union[str, pathlib.Path], ignores: Union[list[str], None] = None
-) -> list[pathlib.Path]:
+def load_binder(binder_at: Union[str, pathlib.Path], ignores: Union[list[str], None] = None) -> list[pathlib.Path]:
     """Load the linear binder text file into a list of file paths."""
     with open(binder_at, "rt", encoding=ENCODING) as resource:
-        collation = (
-            pathlib.Path(entry.strip())
-            for entry in resource.readlines()
-            if entry.strip()
-        )
-    return (
-        [path for path in collation if str(path) not in ignores]
-        if ignores
-        else list(collation)
-    )
+        collation = (pathlib.Path(entry.strip()) for entry in resource.readlines() if entry.strip())
+    return [path for path in collation if str(path) not in ignores] if ignores else list(collation)
 
 
 def end_of_toc_in(text: str) -> bool:
@@ -382,21 +356,15 @@ def load_eg_global_to_label_lut(
         return json.load(handle)
 
 
-def detect_leftovers(
-    records: list[str], marker: str = "Found"
-) -> list[tuple[int, str]]:
+def detect_leftovers(records: list[str], marker: str = "Found") -> list[tuple[int, str]]:
     """Detect left over citation and section references."""
-    ref_defects = [
-        (n, r) for n, r in enumerate(records) if CIT_OVER in r or SEC_OVER in r
-    ]
+    ref_defects = [(n, r) for n, r in enumerate(records) if CIT_OVER in r or SEC_OVER in r]
     if ref_defects:
         print(f"{marker} {len(ref_defects)} citation or section reference defects:")
         for slot, record in ref_defects:
             print(f'- "{record.strip()}" (slot {slot})')
             if CIT_TOO_DIRECT in record:
-                print(
-                    "  ! citation references should use indirect targets (reference section entries) not URLs"
-                )
+                print("  ! citation references should use indirect targets (reference section entries) not URLs")
     return ref_defects
 
 
@@ -409,9 +377,7 @@ def insert_any_citation(record: str) -> str:
                 found = ref.groupdict()
                 trigger_text = found["text"]
                 if trigger_text != IS_CITE_REF:
-                    raise RuntimeError(
-                        f"false positive cite ref in ({record.rstrip(NL)})"
-                    )
+                    raise RuntimeError(f"false positive cite ref in ({record.rstrip(NL)})")
                 label = found["label"]
                 text = label.replace(";", ":")
                 sem_ref = f"[cite](#{label})"
@@ -429,14 +395,10 @@ def insert_any_section_reference(record: str) -> str:
                 found = ref.groupdict()
                 trigger_text = found["text"]
                 if trigger_text != IS_SEC_REF:
-                    raise RuntimeError(
-                        f"false positive sec ref in ({record.rstrip(NL)})"
-                    )
+                    raise RuntimeError(f"false positive sec ref in ({record.rstrip(NL)})")
                 label = found["label"]
                 if label not in SEC_LABEL_TEXT:
-                    raise RuntimeError(
-                        f"missing register label for sec ref in ({record.rstrip(NL)})"
-                    )
+                    raise RuntimeError(f"missing register label for sec ref in ({record.rstrip(NL)})")
                 text = SEC_LABEL_TEXT[label]
                 sem_ref = f"[sec](#{label})"
                 evil_ref = f"[{PARA + text}](#{label})"  # [GFMCMARK](#GFMCMARK)
@@ -451,12 +413,8 @@ def main(args: list[str]) -> int:
     target = TARGETS[0]
     for slot, arg in enumerate(args):
         if arg.lower() in ("-h", "--help", "/h", "-?"):
-            print(
-                "USAGE: bin/lapidify.py [-d|--debug] [-b path|--binder path] [-t format|--target format]"
-            )
-            print(
-                f'       with known targets being: [{", ".join(TARGETS)}] and default is {TARGETS[0]}'
-            )
+            print("USAGE: bin/lapidify.py [-d|--debug] [-b path|--binder path] [-t format|--target format]")
+            print(f'       with known targets being: [{", ".join(TARGETS)}] and default is {TARGETS[0]}')
             return 0
     for slot, arg in enumerate(args):
         if arg in ("-d", "--debug"):
@@ -479,9 +437,7 @@ def main(args: list[str]) -> int:
                 return 2
             break
     if args:
-        print(
-            "USAGE: bin/lapidify.py [-d|--debug] [-b path|--binder path] [-t format|--target format]"
-        )
+        print("USAGE: bin/lapidify.py [-d|--debug] [-b path|--binder path] [-t format|--target format]")
         print(f"WARNING: Unprocessed {args=}")
 
     binder = load_binder(bind_seq_path, ["frontmatter.md"])
@@ -543,9 +499,7 @@ def main(args: list[str]) -> int:
                     patched.append(line)
             part_lines = list(patched)
 
-        if (
-            target == GFM_PLUS and resource.name in GLOSSARY_SOURCES
-        ):  # TODO: glossary management -> class
+        if target == GFM_PLUS and resource.name in GLOSSARY_SOURCES:  # TODO: glossary management -> class
             patched = ["<dl>" + NL]
             in_definition = False
             for line in part_lines:
@@ -640,9 +594,7 @@ def main(args: list[str]) -> int:
                     sec_cnt_disp_vec = []
                     for s_tag, cnt in sec_cnt.items():
                         if cnt == 0:
-                            raise RuntimeError(
-                                f"counting is hard: {sec_cnt} at {tag} for {slot}:{line.rstrip(NL)}"
-                            )
+                            raise RuntimeError(f"counting is hard: {sec_cnt} at {tag} for {slot}:{line.rstrip(NL)}")
                         sec_cnt_disp_vec.append(str(cnt))
                         if s_tag == tag:
                             break
@@ -679,15 +631,11 @@ def main(args: list[str]) -> int:
                     # reduced_text = text.split(TOK_LAB, 1)[0]
                 else:
                     label = label_derive_from(text)
-                clean_sec_cnt_disp = (
-                    f"{sec_cnt_disp}" if is_plain else sec_cnt_disp
-                ).rstrip(FULL_STOP)
+                clean_sec_cnt_disp = (f"{sec_cnt_disp}" if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
                 SEC_LABEL_TEXT[label] = clean_sec_cnt_disp
                 SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
                 #                    MAYBE_NO_HTML_A_FOR_HEADING #
-                line = (
-                    tag + text + link_attributes
-                )  # + ' ' + TOK_SEC.replace('$thing$', label)
+                line = tag + text + link_attributes  # + ' ' + TOK_SEC.replace('$thing$', label)
                 # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WILL_YOU_?
 
                 # Slightly enhanced document content specific hack
@@ -736,9 +684,7 @@ def main(args: list[str]) -> int:
                         line = line.replace(hackhack, hack)
                         debug and print(f"{slot=}: Fixed {line=} in collector")
                 lines[slot] = line
-                mint.append(
-                    [list(sec_cnt.values()), extended, sec_cnt_disp, text, label]
-                )
+                mint.append([list(sec_cnt.values()), extended, sec_cnt_disp, text, label])
                 current_cs = label  # Update state for label in non tag lines
                 # correct the default state assignment
                 cs_of_slot[slot] = current_cs  # type: ignore
@@ -769,9 +715,7 @@ def main(args: list[str]) -> int:
             # now the global counter extra:
             global_example_num = eg_global_from[magic_label]
             global_example_num_label = f"example-{global_example_num}"
-            global_example_num_anchor = TOK_EG.replace(
-                "$thing$", global_example_num_label
-            )
+            global_example_num_anchor = TOK_EG.replace("$thing$", global_example_num_label)
             line = line.rstrip(NL) + global_example_num_anchor + NL
             # Update the list of lines
             lines[slot] = line
@@ -783,28 +727,22 @@ def main(args: list[str]) -> int:
                     found = ref.groupdict()
                     trigger_text = found["text"]
                     if trigger_text != IS_EG_REF:
-                        raise RuntimeError(
-                            f"false positive example ref in ({line.rstrip(NL)})"
-                        )
+                        raise RuntimeError(f"false positive example ref in ({line.rstrip(NL)})")
                     label = found["label"]
                     text = label.replace(";", ":")
                     sem_ref = f"[eg](#{label})"
                     if "-eg-" not in label:  # TODO - refactor and clean up
-                        raise RuntimeError(
-                            f"bad label for example in ({line.rstrip(NL)})"
-                        )
+                        raise RuntimeError(f"bad label for example in ({line.rstrip(NL)})")
                     section, number = label.split("-eg-", 1)
                     if section == cs_of_slot[slot]:
-                        debug and print(
-                            f"detected local reference for {label} in ({line.rstrip(NL)})"
-                        )
+                        debug and print(f"detected local reference for {label} in ({line.rstrip(NL)})")
                         evil_ref = f"\\[[{number}](#{label})\\]"  # [1](#a-sec-eg-1)
                     else:
-                        debug and print(
-                            f"detected remote reference for {label} in ({line.rstrip(NL)})"
-                        )
+                        debug and print(f"detected remote reference for {label} in ({line.rstrip(NL)})")
                         sec_disp = display_from[section]
-                        evil_ref = f"\\[[{number} (of section {sec_disp})](#{label})\\]"  # [1 (of section 1.2.3)](#a-sec-eg-1)
+                        evil_ref = (
+                            f"\\[[{number} (of section {sec_disp})](#{label})\\]"  # [1 (of section 1.2.3)](#a-sec-eg-1)
+                        )
                     line = line.replace(sem_ref, evil_ref)
                     debug and print(line.rstrip(NL))
                     lines[slot] = line
@@ -860,9 +798,7 @@ def main(args: list[str]) -> int:
     # detect left over citation and section references
     ref_defects = detect_leftovers(lines, marker="Found")
     if ref_defects:
-        print(
-            f"+ processing {len(ref_defects)} text lines for citation or section reference insertions ..."
-        )
+        print(f"+ processing {len(ref_defects)} text lines for citation or section reference insertions ...")
 
         # Process the text display of citation refs left over in first pass
         rem_defects = []
@@ -894,10 +830,7 @@ def main(args: list[str]) -> int:
         with SECTION_DISPLAY_TO_LABEL_AT.open("wt", encoding=ENCODING) as handle:
             json.dump(SECTION_DISPLAY_TO_LABEL, handle, indent=2)
         section_label_to_display = {
-            label: disp
-            for label, disp in sorted(
-                (label, disp) for disp, label in SECTION_DISPLAY_TO_LABEL.items()
-            )
+            label: disp for label, disp in sorted((label, disp) for disp, label in SECTION_DISPLAY_TO_LABEL.items())
         }
         with SECTION_LABEL_TO_DISPLAY_AT.open("wt", encoding=ENCODING) as handle:
             json.dump(section_label_to_display, handle, indent=2)
