@@ -180,7 +180,10 @@ APPENDIX_HEAD_REMAP = {
         "replace": ["# ", "# Appendix F. "],
         "attrs": "{.unnumbered #informative-producing-deterministic-sarif-log-files}",
     },
-    "## General{#informative-producing-deterministic-sarif-log-files--general}{#informative-producing-deterministic-sarif-log-files--general}": {
+    (
+        "## General{#informative-producing-deterministic-sarif-log-files--general}"
+        "{#informative-producing-deterministic-sarif-log-files--general}"
+    ): {
         "replace": ["## ", "## F.1 "],
         "attrs": "{.unnumbered #informative-producing-deterministic-sarif-log-files--general}",
     },
@@ -248,7 +251,10 @@ APPENDIX_HEAD_REMAP = {
         "replace": ["# ", "# Appendix L. "],
         "attrs": "{.unnumbered #informative-revision-history}",
     },
-    "# (Informative) MIME Types and File Name Extensions": {
+    (
+        "# (Informative) MIME Types and File Name Extensions{#informative-mime-types-and-file-name-extensions}"
+        "{#informative-mime-types-and-file-name-extensions}"
+    ): {
         "replace": ["# ", "# Appendix M. "],
         "attrs": "{.unnumbered #informative-mime-types-and-file-name-extensions}",
     },
