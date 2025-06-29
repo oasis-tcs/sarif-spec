@@ -21,6 +21,10 @@ LOGO_AT = pathlib.Path('..') / 'media' / 'logo-data-url.txt'
 BASE_CSS_AT = pathlib.Path('..') / 'share' / 'style' / 'base.css'
 SKIN_CSS_AT = pathlib.Path('..') / 'share' / 'style' / 'skin.css'
 
+IN_TITLE_TRIGGER_IS = '<title>'
+TITLE_INNER_HTML_MARKER_IS = 'tmp'
+PATCH_TITLE_INNER_HTML = 'Static Analysis Results Interchange Format (SARIF) Version 2.2'
+
 # Type declarations:
 META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 SEC_LVL_CNT_TYPE = tuple[int, int, int, int, int, int]
@@ -97,6 +101,8 @@ def main(argv: list[str]) -> int:
     outgoing = []
     in_toc = False
     for line in incoming:
+        if TITLE_INNER_HTML_MARKER_IS in line:
+            line = line.replace(TITLE_INNER_HTML_MARKER_IS, PATCH_TITLE_INNER_HTML)
         if in_toc:
             if line.startswith(INTRO_STARTSWITH_TRIGGER):
                 in_toc = False
