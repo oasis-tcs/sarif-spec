@@ -1,5 +1,8 @@
 analysis target
-:    [artifact](#def;artifact) which an [analysis tool](#def;static-analysis-tool) is instructed to analyze
+:    [artifact](#def;artifact) which an [analysis tool](#def;analysis-tool) is instructed to analyze
+
+analysis tool
+:    tool that models and analyzes an [artifact](#def;artifact) or the interaction between processes (cf. [web analysis tool](#def;web-analysis-tool) for an example)
 
 artifact
 :    sequence of bytes addressable *via* a URI
@@ -291,4 +294,4 @@ viewer
 :  see [log file viewer](#def;log-file-viewer).
 
 web analysis tool
-:  [analysis tool](#def;static-analysis-tool) that models and analyzes the interaction between a web client and a server.
+:  [analysis tool](#def;web-analysis-tool) that models and analyzes the interaction between a web client and a server.
