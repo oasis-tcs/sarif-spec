@@ -88,7 +88,8 @@ render-pdf:
 		cp -a $(liitos_templates)setup.tex.in $(build_pdf) && \
 		cp -a $(liitos_templates)structure.yml $(build_root) && \
 		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
-		cd $(build_pdf) && liitos render ../../ -t sarif -f pdf -p -l "etiketti --config etiketti.yml --enforce"  && \
+		cd $(build_pdf) && \
+		max_print_line=10000 liitos render ../../ -t sarif -f pdf -p -l "etiketti --config etiketti.yml --enforce"  && \
 		$(optimize_pdf) -- this.pdf && \
 		cp -a this.pdf ../../../../share/sarif-v2.2-draft.pdf && \
 		open ../../../../share/sarif-v2.2-draft.pdf && cd -
