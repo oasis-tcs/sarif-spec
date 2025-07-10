@@ -93,13 +93,9 @@ def main(argv: list[str]) -> int:
     """Drive the injections."""
 
     toc_db = load_toc(TOC_AT)
-    # print(toc_db[0])
-    # print(toc_db[1])
-    # print("...")
-    # print(toc_db[-1])
     the_toc = generate_toc(toc_db)
-    # print(the_toc)
 
+    # Load the CSS and logo file data to inject later into the single-file HTML delivery item
     with open('../share/style/base.css', 'rt', encoding=ENCODING) as handle:
         base_css = handle.read()
     with open('../share/style/skin.css', 'rt', encoding=ENCODING) as handle:
@@ -107,14 +103,19 @@ def main(argv: list[str]) -> int:
     with open(LOGO_AT, 'rt', encoding=ENCODING) as handle:
         logo_data = handle.read().strip()
 
+    # Pick up the previous stage HTML delivery item for processing
     with open('build/tmp.html', 'rt', encoding=ENCODING) as handle:
         incoming = handle.readlines()
 
     outgoing = []
     in_toc = False
     for line in incoming:
+        # HTML head/title inner HTML processing needed?
         if TITLE_INNER_HTML_MARKER_IS in line:
+            # Patch the title to match the spec
             line = line.replace(TITLE_INNER_HTML_MARKER_IS, PATCH_TITLE_INNER_HTML)
+
+        # Table of content processing needed?
         if in_toc:
             if line.startswith(INTRO_STARTSWITH_TRIGGER):
                 in_toc = False
@@ -125,26 +126,32 @@ def main(argv: list[str]) -> int:
         if not in_toc and line.startswith(TOC_STARTSWITH_TRIGGER):
             in_toc = True
             outgoing.append(line)
-            outgoing.append(the_toc)
+            outgoing.append(the_toc)  # Here we inject the gerenated table of content
             continue
-        if '<component>' in line:
-            line = line.replace('<component>', '&lt;conponent>')
 
+        # Patch an unescaped opening angle bracket to pacify the markdown parser
+        if '<component>' in line:
+            line = line.replace('<component>', '&lt;component>')
+
+        # Various patches
         if line.startswith('<html xmlns'):
-            line = LANG_PATCH
+            line = LANG_PATCH  # Add a matching english language value
         elif '</style>' in line:
-            line = NL + base_css + NL + skin_css + NL + line
+            line = NL + base_css + NL + skin_css + NL + line  # Inject inline styles
         elif 'style/base.css' in line:
             continue
         elif 'style/skin.css' in line:
             continue
         elif LOGO_TARGET in line:
-            line = line.replace(LOGO_TARGET, logo_data)
+            line = line.replace(LOGO_TARGET, logo_data)  # inject logo as data URL
 
         outgoing.append(line)
 
+    # Write the HTML delivery item of this stage
     with open('build/injected.html', 'wt', encoding=ENCODING) as handle:
         handle.write(''.join(outgoing))
+
+    return 0
 
 
 if __name__ == '__main__':
