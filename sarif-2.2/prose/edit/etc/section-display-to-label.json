@@ -548,5 +548,5 @@
   "K.3": "minimal-recommended-sarif-log-file-without-source-information",
   "K.4": "comprehensive-sarif-file",
   "Appendix L": "informative-revision-history",
-  "Appendix M": "non-normative-mime-types-and-file-name-extensions"
+  "Appendix M": "informative-mime-types-and-file-name-extensions"
 }

@@ -137,9 +137,10 @@ class Table:
             if column_count_guard is None:
                 column_count_guard = detected_col_count
             elif column_count_guard != detected_col_count:
+                off_tmp = self.offset if self.offset is not None else 0
                 message = (
                     f'expected cols({column_count_guard}) but found cols({detected_col_count})'
-                    f' in location({self.resource.name}:{self.offset + where + 1}@table[{where}]) ->'
+                    f' in location({self.resource.name}:{off_tmp + where + 1}@table[{where}]) ->'
                     f' ({self.lines[where].rstrip(NL)})'
                 )
                 log.error(message)
