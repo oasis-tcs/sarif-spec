@@ -15,7 +15,7 @@ The editors ensure consistency of the prose with:
 - the examples
 - other required terms and statements within the prose text
 
-## Target formats (WIP)
+## Target formats
 
 The user facing delivery items of the build process are:
 

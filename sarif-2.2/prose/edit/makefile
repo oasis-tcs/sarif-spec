@@ -38,10 +38,14 @@ types:
 inversions: invert-sections invert-examples
 
 .PHONY: invert-examples
-invert-examples: ; bin/invert_eg_labels.py
+invert-examples:
+	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-examples requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
+	inverso -agm 4321 etc/example-global-to-local.json etc/example-local-to-global.json
 
 .PHONY: invert-sections
-invert-sections: ; bin/invert_sec_labels.py
+invert-sections:
+	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-sections requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
+	inverso -g etc/section-display-to-label.json etc/section-label-to-display.json
 
 .PHONY: render
 render: render-html
@@ -49,9 +53,9 @@ render: render-html
 .PHONY: render-markdown
 render-markdown: # inversions
 	bin/volatile.py && \
-	  cp -a build/tmp.md ../share/sarif-v2.2-draft.md && \
-	  printf "Rendered user facing delivery item in markdown format:\n" && \
-	  ls -l ../share/sarif-v2.2-draft.md
+		cp -a build/tmp.md ../share/sarif-v2.2-draft.md && \
+		printf "Rendered user facing delivery item in markdown format:\n" && \
+		ls -l ../share/sarif-v2.2-draft.md
 
 .PHONY: render-html
 render-html: render-markdown
@@ -59,11 +63,11 @@ render-html: render-markdown
 	command -v tidy >/dev/null 2>&1 || { echo >&2 "make render-html requires tidy but it's not installed - you can get help on installing by searching for it on the wild internets.  Aborting."; exit 1; }
 	pandoc -f gfm+definition_lists -t html build/tmp.md --columns=345  \
 		--css style/base.css --css style/skin.css --standalone -o build/tmp.html && \
-	  bin/toccata.py && \
-	  timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml 2>/dev/null | \
+		bin/toccata.py && \
+		timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml 2>/dev/null | \
 		sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > ../share/sarif-v2.2-draft.html && \
-	  printf "Rendered user facing delivery item in html format:\n" && \
-	  ls -l ../share/sarif-v2.2-draft.html
+		printf "Rendered user facing delivery item in html format:\n" && \
+		ls -l ../share/sarif-v2.2-draft.html
 
 .PHONY: render-pdf
 render-pdf:
@@ -105,14 +109,14 @@ status:
 .PHONY: clean
 clean:
 	rm -f $(build_root)approvals.yml \
-	  $(build_root)bind.txt \
-	  $(build_root)bookmatter.tex.in \
-	  $(build_root)changes.yml \
-	  $(build_root)driver.tex.in \
-	  $(build_root)meta.yml \
-	  $(build_root)metadata.tex.in \
-	  $(build_root)patch.yml \
-	  $(build_root)publisher.tex.in \
-	  $(build_root)setup.tex.in \
-	  $(build_root)structure.yml
+		$(build_root)bind.txt \
+		$(build_root)bookmatter.tex.in \
+		$(build_root)changes.yml \
+		$(build_root)driver.tex.in \
+		$(build_root)meta.yml \
+		$(build_root)metadata.tex.in \
+		$(build_root)patch.yml \
+		$(build_root)publisher.tex.in \
+		$(build_root)setup.tex.in \
+		$(build_root)structure.yml
 	rm -fr $(build_root)src/ $(build_pdf)
