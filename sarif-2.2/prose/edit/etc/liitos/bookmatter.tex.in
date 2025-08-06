@@ -10,7 +10,7 @@
 \subsection*{Committee Specification Draft
 01}\label{committee-specification-draft-01}
 
-\subsection*{10 July 2025}\label{july-2025}
+\subsection*{07 August 2025}\label{august-2025}
 
 \paragraph*{This stage:}\label{this-stage}
 
@@ -137,14 +137,14 @@ be used:
 \textbf{{[}sarif-v2.2{]}}
 
 \emph{Static Analysis Results Interchange Format (SARIF) Version 2.2}. Edited by Michael Fanning and Stefan
-Hagen. 10 July 2025. OASIS Committee Specification
+Hagen. 07 August 2025. OASIS Committee Specification
 Draft 01.
 \href{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html}{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html}.
 Latest stage: \href{https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html}{https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html}.
 
 \paragraph*{Notices}\label{notices-bookmatter}
 
-Copyright 2024. All Rights Reserved.
+Copyright 2025. All Rights Reserved.
 
 Distributed under the terms of the OASIS \href{https://www.oasis-open.org/policies-guidelines/ipr/}{IPR Policy}.
 
