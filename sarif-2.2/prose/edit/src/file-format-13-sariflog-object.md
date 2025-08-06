@@ -63,8 +63,8 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 >
 > ```json
 > {
->   "version": "2.1.0",
->   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json",
+>   "version": "2.2",
+>   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",
 > 
 >   "inlineExternalProperties": [
 >     {                                            
