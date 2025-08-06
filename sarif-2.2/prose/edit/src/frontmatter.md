@@ -35,10 +35,10 @@ Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* SARIF schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-schema-2.2.json. \
-  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json
-* SARIF External Property File schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json. \
-  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json
+* SARIF schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json. \
+  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json
+* SARIF External Property File schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json. \
+  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json
 
 #### Related work:
 This specification replaces or supersedes:

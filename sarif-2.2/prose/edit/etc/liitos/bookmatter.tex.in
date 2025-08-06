@@ -56,14 +56,14 @@ includes:
 \tightlist
 \item
   SARIF schema:
-  \href{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-schema-2.2.json}.\\
+  \href{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json}.\\
   Latest stage:
-  \href{https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json}.
+  \href{https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json}.
 \item
   SARIF External Property File schema:
-  \href{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json}.\\
+  \href{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json}.\\
   Latest stage:
-  \href{https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json}.
+  \href{https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json}{https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json}.
 \end{itemize}
 
 \paragraph*{Related work:}\label{related-work}
