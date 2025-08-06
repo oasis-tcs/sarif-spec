@@ -190,7 +190,7 @@
               },
               "associatedRule": {
                 "id": "C2001",
-                "index": 0,
+                "index": 0
               },
               "level": "error",
               "message": {
@@ -335,7 +335,7 @@
           "location": {
             "uri": "app.zip",
             "uriBaseId": "BINROOT"
-          }, 
+          },
           "mimeType": "application/zip",
           "length": 310450,
           "hashes": {
@@ -550,7 +550,7 @@
                               "markdown": "`(y + z) = 42`"
                             }
                           }
-                        ],
+                        ]
                       },
                       "module": "platform"
                     },
@@ -618,7 +618,7 @@
                         "fullyQualifiedName": "collections::list::add_core",
                         "index": 0
                       }
-                    ],
+                    ]
                   },
                   "module": "platform",
                   "threadId": 52,
