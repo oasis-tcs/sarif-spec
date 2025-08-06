@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 12 June 2025
+## 10 July 2025
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -62,7 +62,7 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 12 June 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 10 July 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
 
 
 -------
@@ -679,7 +679,9 @@ For purposes of this document, the following terms and definitions apply:
 
 <dl>
   <dt id="def;analysis-target">analysis target</dt>
-  <dd><a href="#def;artifact">artifact</a> which an <a href="#def;static-analysis-tool">analysis tool</a> is instructed to analyze</dd>
+  <dd><a href="#def;artifact">artifact</a> which an <a href="#def;analysis-tool">analysis tool</a> is instructed to analyze</dd>
+  <dt id="def;analysis-tool">analysis tool</dt>
+  <dd>tool that models and analyzes an <a href="#def;artifact">artifact</a> or the interaction between entities (cf. <a href="#def;web-analysis-tool">web analysis tool</a> for an example)</dd>
   <dt id="def;artifact">artifact</dt>
   <dd>sequence of bytes addressable *via* a URI
       Examples: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed *via* an HTTP request; an arbitrary stream of bytes returned from an HTTP request.</dd>
@@ -881,7 +883,7 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;viewer">viewer</dt>
   <dd>see <a href="#def;log-file-viewer">log file viewer</a>.</dd>
   <dt id="def;web-analysis-tool">web analysis tool</dt>
-  <dd><a href="#def;static-analysis-tool">analysis tool</a> that models and analyzes the interaction between a web client and a server.</dd>
+  <dd><a href="#def;web-analysis-tool">analysis tool</a> that models and analyzes the interaction between a web client and a server.</dd>
 </dl>
 
 ## 1.3 Normative References <a id='normative-references'></a>
@@ -1327,27 +1329,49 @@ Certain string-valued properties in this document, for example, `toolComponent.n
 
 ### 3.5.2 Redactable strings <a id='redactable-strings'></a>
 
-Certain string-valued properties in this document (for example, `invocation.commandLine` ([§3.20.2](#commandline-property))) might contain sensitive information that a SARIF producer or a SARIF post-processor might choose to redact. We describe these properties as "redactable." The description of every redactable property will state that it is redactable.
+Certain string-valued properties in this document (for example, `invocation.commandLine` ([§3.20.2](#commandline-property))) might contain
+sensitive information that a SARIF producer or a SARIF post-processor might choose to redact.
+We describe these properties as "redactable." The description of every redactable property will state that it is redactable.
 
-If a SARIF producer or a SARIF post-processor chooses to redact sensitive information in a redactable property, it **SHALL** replace the sensitive information with a string whose value is an element of `theRun.redactionTokens` ([§3.14.28](#redactiontokens-property)).
+If a SARIF producer or a SARIF post-processor chooses to redact sensitive information in a redactable property,
+it **SHALL** replace the sensitive information with a string whose value is an element of `theRun.redactionTokens` ([§3.14.28](#redactiontokens-property)).
 
 ### 3.5.3 GUID-valued strings <a id='guid-valued-strings'></a>
 
-Certain string-valued properties in this document provide unique stable identifiers in the form of a GUID or UUID \[[RFC4122](#RFC4122)\]. This document uses the term "GUID".
+Certain string-valued properties in this document provide unique stable identifiers in the form of a GUID or UUID \[[RFC4122](#RFC4122)\].
+This document uses the term "GUID".
 
 > EXAMPLE 1: `"f81d4fae-7dec-11d0-a765-00a0c91e6bf6"`
 
-> NOTE 1: The UUID standard \[[RFC4122](#RFC4122)\] allows hex digits in either upper or lower case. It does not permit delimiters such as curly braces (`"{"`, `"}"`) around the value.
+> NOTE 1: The UUID standard \[[RFC4122](#RFC4122)\] allows hex digits in either upper or lower case.
+> It does not permit delimiters such as curly braces (`"{"`, `"}"`) around the value.
 
 The description of every GUID-valued property will state that it is GUID-valued.
 
-> NOTE 2: In the examples, the values shown for GUID-valued properties are valid GUIDs. In some cases, they are illustrative values such as `"11111111-1111-1111-8888-111111111111"` which are intended to make it easy to identify situations where two GUIDs in the same example are required to be the same. In these illustrative values, the third and fourth component are always `"1111-8888"`, a sample value that conforms to the restrictions on the values of those components.
+> NOTE 2: In the examples, the values shown for GUID-valued properties are valid GUIDs.
+> In some cases, they are illustrative values such as `"11111111-1111-1111-8888-111111111111"`
+> which are intended to make it easy to identify situations where two GUIDs in the same example are required to be the same.
+> In these illustrative values, the third and fourth component are always `"1111-8888"`,
+> a sample value that conforms to the restrictions on the values of those components.
+
+The same `guid` value on the root elements of two or more SARIF files indicates that the information content is the same.
+
+> NOTE 3: Hashing of text based formats is ambiguous for duplicate detection as the line ending conventions differ and impact the hash.
+
+> Examples of possible duplication sources are: File copies, stored byte streams.
+
+Differing `guid` values on the root elements of two or more SARIF files indicate that the files are different.
+
+> Examples are reports from different nodes on the same system under test using identical tools or a retest run.
 
 ### 3.5.4 Hierarchical strings <a id='hierarchical-strings'></a>
 
 #### 3.5.4.1 General <a id='hierarchical-strings--general'></a>
 
-Certain string-valued properties and certain property names in this document (for example, the value of the `runAutomationDetails.id` property ([§3.17.3](#runautomationdetails-object--id-property)), and the property names in a property bag ([§3.8](#property-bags))) are said to be "hierarchical." This means that the string consists of a sequence of forward-slash-separated components, with this syntax:
+Certain string-valued properties and certain property names in this document
+(for example, the value of the `runAutomationDetails.id` property ([§3.17.3](#runautomationdetails-object--id-property)),
+and the property names in a property bag ([§3.8](#property-bags))) are said to be "hierarchical."
+This means that the string consists of a sequence of forward-slash-separated components, with this syntax:
 
 ```
 hierarchical string = component, { "/", component };
@@ -1357,21 +1381,29 @@ component = { component character };
 component character = ? JSON string character ? - "/";
 ```
 
-> NOTE 1: The grammar prohibits a `component` from containing a forward slash. There is no escape mechanism to allow a `component` to include a forward slash.
+> NOTE 1: The grammar prohibits a `component` from containing a forward slash.
+> There is no escape mechanism to allow a `component` to include a forward slash.
 
 For examples, see [§3.8.2](#tags) and [§3.17.3](#runautomationdetails-object--id-property).
 
 The description of every hierarchical string will state that it is hierarchical.
 
-A SARIF consumer **SHALL** interpret the values of a hierarchical string as forming a logical hierarchy. The first component represents the top level of the hierarchy, the second component represents the second level, and so on.
+A SARIF consumer **SHALL** interpret the values of a hierarchical string as forming a logical hierarchy.
+The first component represents the top level of the hierarchy, the second component represents the second level, and so on.
 
-> NOTE 2: A hierarchical string does not need to include any forward slashes. The syntax permits a single string of non-forward-slash characters. The purpose of this section is to define the semantics of the forward slash character in those properties that respect it.
+> NOTE 2: A hierarchical string does not need to include any forward slashes.
+> The syntax permits a single string of non-forward-slash characters.
+> The purpose of this section is to define the semantics of the forward slash character in those properties that respect it.
 
-In string-valued properties and property names that are *not* described as hierarchical, the forward slash character has no special meaning, and a SARIF consumer **SHALL NOT** interpret it as dividing the value into hierarchical components.
+In string-valued properties and property names that are *not* described as hierarchical,
+the forward slash character has no special meaning,
+and a SARIF consumer **SHALL NOT** interpret it as dividing the value into hierarchical components.
 
 #### 3.5.4.2 Versioned hierarchical strings <a id='versioned-hierarchical-strings'></a>
 
-Certain hierarchical strings in this document (for example, the property names in `result.fingerprints` ([§3.27.16](#fingerprints-property)) and `result.partialFingerprints` ([§3.27.17](#partialfingerprints-property))) are said to be "versioned." This means that if the last `component` of the string is of the form
+Certain hierarchical strings in this document
+(for example, the property names in `result.fingerprints` ([§3.27.16](#fingerprints-property)) and `result.partialFingerprints` ([§3.27.17](#partialfingerprints-property)))
+are said to be "versioned." This means that if the last `component` of the string is of the form
 
     version component = "v", non negative integer;
 
@@ -1379,13 +1411,18 @@ then a SARIF consumer **SHALL** consider that component to represent the version
 
 The description of every versioned hierarchical string will state that it is versioned.
 
-In string-valued properties and property names that are described as hierarchical but *not* as versioned, a final `component` matching the syntax of `version component` has no special meaning, and a SARIF consumer **SHALL NOT** interpret it as a version number.
+In string-valued properties and property names that are described as hierarchical but *not* as versioned,
+a final `component` matching the syntax of `version component` has no special meaning,
+and a SARIF consumer **SHALL NOT** interpret it as a version number.
 
-> NOTE 1: A versioned hierarchical string does not need to include a version component. The syntax permits but does not require it.
+> NOTE 1: A versioned hierarchical string does not need to include a version component.
+> The syntax permits but does not require it.
 
 A hierarchical string without a version component **SHALL** be considered older than any corresponding string with a version component.
 
-> EXAMPLE 1: In this example, the partial fingerprint whose property name is `"prohibitedWordHash"` is considered to have been computed with an older version of the "prohibited word hash" algorithm than the partial fingerprint whose property name is `"prohibitedWordHash/v1"`.
+> EXAMPLE 1: In this example, the partial fingerprint whose property name is `"prohibitedWordHash"` is considered to
+> have been computed with an older version of the "prohibited word hash" algorithm than the partial fingerprint whose
+> property name is `"prohibitedWordHash/v1"`.
 >
 > ```json
 > {                                 # A result object (§3.27).
@@ -1396,7 +1433,8 @@ A hierarchical string without a version component **SHALL** be considered older 
 > }
 > ```
 
-> NOTE 2: When a previously unversioned string is later versioned, as in the example above, it might be clearer to specify `"v2"` for the first explicitly versioned string.
+> NOTE 2: When a previously unversioned string is later versioned, as in the example above,
+> it might be clearer to specify `"v2"` for the first explicitly versioned string.
 
 ## 3.6 Object properties <a id='object-properties'></a>
 
@@ -1870,6 +1908,18 @@ When a tool displays on the console a result message containing an embedded link
 > `Tainted data was used. The data came from here: C:\code\input.c(25, 19).`  
 >
 > Note that in addition to providing a string representation of the location, the tool removed the `[…](…)` link syntax and separated the link text from the location with a colon. Finally, the tool recognized that the location’s URI used the `file` scheme and chose to display it as a file system path rather than a URI.
+
+URLs MAY contain unescaped closing parentheses ')' and thus any parser applied to such content (link destination) is responsible for preserving the semantics of a link expression.
+
+> EXAMPLE 5: The following text if parsed should result in the following token sequence:
+> ```
+> 'Foo [unbalanced](https://example.org/aFgH)x_) quux.' (incoming text)
+>
+> 1. 'Foo '                                             (as text)
+> 3. 'unbalanced'                                       (as link-text)
+> 4. 'https://example.org/aFgH)x_'                      (as link-destination)
+> 5. ' quux.'                                           (as text)
+> ```
 
 ### 3.11.7 Message string lookup <a id='message-string-lookup'></a>
 
@@ -5248,7 +5298,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 >
 > The tool might write messages to the console like this:
 >
-> ```
+> ```console
 > C:\Code\a.js(6,10-10): error : JS3056: Name 'index' cannot be used in this scope because it would give a different meaning to 'index'.
 > C:\Code\a.js(2,6-6): info : JS3056: The previous declaration of 'index' was here.
 > ```
@@ -10891,6 +10941,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
 | sarif-v2.2-wd20240605-dev | 2024-06-05 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #471 and #637.                    |
 | sarif-v2.2-wd20240808-dev | 2024-08-08 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #459, #483, #491, #492, and #634. |
 | sarif-v2.2-wd20250612-dev | 2025-06-12 | Stefan Hagen                | Editor revision for meeting 2025-06-12.                                  |
+| sarif-v2.2-wd20250710-dev | 2025-07-10 | Stefan Hagen                | Editor revision for meeting 2025-07-10.                                  |
 
 # Appendix M. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
 
