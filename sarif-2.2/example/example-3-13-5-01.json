@@ -1,12 +1,10 @@
 {
-  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json",
-  "version": "2.1.0",
-
+  "version": "2.2",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",
   "inlineExternalProperties": [
-    {                                           
-      "guid": "00001111-2222-1111-8888-555566667777", 
-
-      "artifacts": [                                  
+    {
+      "guid": "00001111-2222-1111-8888-555566667777",
+      "artifacts": [
         {
           "location": {
             "uri": "apple.png"
@@ -22,15 +20,14 @@
       ]
     }
   ],
-
-  "runs": [                                           
-    {                                                 
-      "tool": {                                       
+  "runs": [
+    {
+      "tool": {
         "driver": {
           "name": "ImageAccessibilityScanner"
         }
       },
-      "externalPropertyFileReferences": {             
+      "externalPropertyFileReferences": {
         "artifacts": [
           {
             "location": {
@@ -40,7 +37,11 @@
         ]
       },
       "results": [
-        {"message": {"id": "..."}}
+        {
+          "message": {
+            "id": "..."
+          }
+        }
       ]
     },
     {
@@ -57,7 +58,11 @@
         ]
       },
       "results": [
-        {"message": {"id": "..."}}
+        {
+          "message": {
+            "id": "..."
+          }
+        }
       ]
     }
   ]
