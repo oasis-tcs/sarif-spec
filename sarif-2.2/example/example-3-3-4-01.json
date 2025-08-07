@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "2.2",
   "runs": [
     {
       "tool": {
@@ -9,17 +9,18 @@
       },
       "results": [
         {
-          "message": {"id": "..."},
-          "locations": [               
-            {                          
-              "physicalLocation": {    
-                "artifactLocation": {  
+          "message": {
+            "id": "..."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
                   "uri": "ui/window.c",
                   "uriBaseId": "SRCROOT"
                 },
-         
-                "region": {            
-                  "startLine": 42      
+                "region": {
+                  "startLine": 42
                 }
               }
             }

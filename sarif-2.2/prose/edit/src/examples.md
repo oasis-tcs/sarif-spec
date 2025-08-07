@@ -27,7 +27,7 @@ The file contains a single `run` object ([sec](#run-object)) with an empty `resu
 
 ```json
 {
-  "version": "2.1.0",
+  "version": "2.2",
   "runs": [
     {
       "tool": {
@@ -58,7 +58,7 @@ This example also includes a `toolComponent.rules` property ([sec](#rules-proper
 
 ```json
 {
-  "version": "2.1.0",
+  "version": "2.2",
   "runs": [
     {
       "tool": {
@@ -139,7 +139,7 @@ It contains a `run.logicalLocations` property ([sec](#run-object--logicallocatio
 
 ```json
 {
-  "version": "2.1.0",
+  "version": "2.2",
   "runs": [
     {
       "tool": {
@@ -205,8 +205,8 @@ Because the purpose is to present as many elements as possible, the file as a wh
 
 ```json
 {
-  "version": "2.1.0",
-  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json",
+  "version": "2.2",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",
   "runs": [
     {
       "automationDetails": {

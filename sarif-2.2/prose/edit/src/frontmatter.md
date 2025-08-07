@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 10 July 2025
+## 07 August 2025
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -35,10 +35,10 @@ Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* SARIF schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-schema-2.2.json. \
-  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json
-* SARIF External Property File schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json. \
-  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json
+* SARIF schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json. \
+  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json
+* SARIF External Property File schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json. \
+  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json
 
 #### Related work:
 This specification replaces or supersedes:
@@ -62,7 +62,7 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 10 July 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 07 August 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
 
 
 -------
