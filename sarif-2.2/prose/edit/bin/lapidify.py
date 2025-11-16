@@ -242,6 +242,10 @@ APPENDIX_HEAD_REMAP = {
         "replace": ["# ", "# Appendix M. "],
         "attrs": "{.unnumbered #informative-mime-types-and-file-name-extensions}",
     },
+    "# Safety, Security and Data Protection": {
+        "replace": ["# ", "# Appendix N. "],
+        "attrs": "{.unnumbered #safety-security-and-data-protection}",
+    },
 }
 
 
