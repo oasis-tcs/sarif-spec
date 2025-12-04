@@ -16,7 +16,7 @@ For regions in binary artifacts, a region object **SHALL** define a binary regio
 
 If any text properties are present, enough text properties **SHALL** be present to fully specify a text region (see [sec](#text-regions)). If any binary properties are present, then enough binary properties **SHALL** be present to fully specify a binary region (see [sec](#binary-regions)).
 
-### Text regions
+### Text regions{#text-regions}
 
 > NOTE 1: The examples in this section assume a text file with the following contents:
 >
@@ -163,7 +163,7 @@ To specify an insertion point after the last character in an artifact, set `endL
 >     { "startLine": 4, "startColumn": 6, "endColumn": 6 }
 >     { "charOffset": 22, "charLength": 0 }
 
-### Binary regions
+### Binary regions{#binary-regions}
 
 The byte offset of the first byte in an artifact **SHALL** be 0.
 
