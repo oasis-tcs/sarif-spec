@@ -1,4 +1,4 @@
-## resultProvenance object
+## `resultProvenance` Object
 
 ### General{#resultprovenance-object--general}
 
@@ -12,13 +12,13 @@ A `resultProvenance` object contains information about the how and when `theResu
 >
 > - A result management system might be responsible for associating logically identical results from one run to the next, making it possible for the developer to determine how long the result has existed. Such a result management system might populate this information.
 
-### firstDetectionTimeUtc property
+### `firstDetectionTimeUtc` Property
 
 A `resultProvenance` object **MAY** contain a property named `firstDetectionTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the result was first detected. It **SHOULD** specify the start time of the run in which the result was first detected, as opposed to, for example, the time within the run at which the result was actually generated.
 
 > NOTE: Using the run’s start time makes it possible to group together results that were first detected in the same run.
 
-### lastDetectionTimeUtc property
+### `lastDetectionTimeUtc` Property
 
 A `resultProvenance` object **MAY** contain a property named `lastDetectionTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the result was most recently detected. It **SHOULD** specify the start time of the run in which the result was most recently detected, as opposed to, for example, the time within the run at which the result was actually generated.
 
@@ -30,15 +30,15 @@ If `lastDetectionTimeUtc` is absent, its default value **SHALL** be determined a
 
 2.  Otherwise, there is no default.
 
-### firstDetectionRunGuid property
+### `firstDetectionRunGuid` Property
 
 A `resultProvenance` object **MAY** contain a property named `firstDetectionRunGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([sec](#automationdetails-property), [sec](#runautomationdetails-object--guid-property)) of the run in which `theResult` was first detected (either the current run or some previous run).
 
-### lastDetectionRunGuid property
+### `lastDetectionRunGuid` Property
 
 A `resultProvenance` object **MAY** contain a property named `lastDetectionRunGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([sec](#automationdetails-property), [sec](#runautomationdetails-object--guid-property)) of the run in which `theResult` was most recently detected (either the current run or some previous run).
 
-### invocationIndex property
+### `invocationIndex` Property
 
 If `theRun.invocations` ([sec](#invocations-property)) is present, a `resultProvenance` object **MAY** contain a property named `invocationIndex` whose value is the array index ([sec](#array-indices)) within the `invocations` property of the `invocation` object ([sec](#invocation-object)) that describes the tool invocation as a result of which `theResult` was detected.
 
@@ -50,7 +50,7 @@ If `invocationIndex` is absent and `theRun.invocations` is present and contains 
 
 > NOTE 2: This provides a sensible default in the common case where there is only a single tool invocation in the run.
 
-### conversionSources property
+### `conversionSources` Property
 
 Some analysis tools produce output files that describe the analysis run as a whole; we refer to these as "per-run" files. Some tools produce one or more output files for each result; we refer to these as "per-result" files. Some tools produce both per-run and per-result files.
 

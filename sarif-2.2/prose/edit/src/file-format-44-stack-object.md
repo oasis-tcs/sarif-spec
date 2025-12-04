@@ -1,14 +1,14 @@
-## stack object
+## `stack` Object
 
 ### General{#stack-object--general}
 
 A `stack` object describes a single call stack. A call stack is a sequence of nested function calls, each of which is referred to as a stack frame.
 
-### message property{#stack-object--message-property}
+### `message` Property{#stack-object--message-property}
 
 A `stack` object **MAY** contain a property named `message` whose value is `message` object ([sec](#message-object)) relevant to this call stack.
 
-### frames property
+### `frames` Property
 
 A stack object **SHALL** contain a property named `frames` whose value is an array of zero or more `stackFrame` objects ([sec](#stackframe-object)). This array **SHALL** include every function call in the stack for which the tool has information, and the entries that are present **SHALL** occur in chronological order with the most recent (innermost) call first and the least recent (outermost) call last. The entries in this array do not need to be unique within the array.
 

@@ -1,18 +1,18 @@
-## edge object
+## `edge` Object
 
 ### General{#edge-object--general}
 
 An `edge` object represents a directed edge in the graph represented by `theGraph`.
 
-### id property{#edge-object--id-property}
+### `id` Property{#edge-object--id-property}
 
 An `edge` object **SHALL** contain a property named `id` whose value is a string that uniquely identifies the edge within `theGraph`.
 
-### label property{#edge-object--label-property}
+### `label` Property{#edge-object--label-property}
 
 An `edge` object **MAY** contain a property named `label` whose value is a `message` object ([sec](#message-object)) that provides a short description of the edge.
 
-### sourceNodeId property
+### `sourceNodeId` Property
 
 An `edge` object **SHALL** contain a property named `sourceNodeId` whose value is a string that identifies the source node (the node at which the edge starts). It **SHALL** equal the `id` property ([sec](#node-object--id-property)) of one of the `node` objects ([sec](#node-object)) in `theGraph`. It **MAY** equal the id of any node within `theGraph`, regardless of nesting (see [sec](#children-property)).
 
@@ -48,6 +48,6 @@ An `edge` object **SHALL** contain a property named `sourceNodeId` whose value i
 > }
 > ```
 
-### targetNodeId property
+### `targetNodeId` Property
 
 An `edge` object **SHALL** contain a property named `targetNodeId` whose value is a string that identifies the target node (the node at which the edge ends). It **SHALL** equal the `id` property ([sec](#node-object--id-property)) of one of the `node` objects ([sec](#node-object)) in `theGraph`. It **MAY** equal `sourceNodeId` ([sec](#sourcenodeid-property)).
