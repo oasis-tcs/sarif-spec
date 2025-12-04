@@ -18,7 +18,7 @@ In rare circumstances, there might be neither physical nor logical location info
 
 ### id property{#location-object--id-property}
 
-A `location` object **MAY** contain a property named `id` whose value is a non-negative integer that is unique among all `location` objects belonging to `theResult`. The value does not need to be unique across all `result` objects ([sec](#result-object)) in `theRun`.
+A `location` object **MAY** contain a property named `id` whose value is a non-negative integer that is unique among all `location` objects belonging to `theLocationOwner`. The value does not need to be unique across all `result` ([sec](#result-object)) or `notification` ([sec](#notification-object)) objects in `theRun`.
 
 If `id` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
@@ -30,7 +30,7 @@ If `id` is absent, it **SHALL** default to -1, which indicates that the value is
 >     result.codeFlows[0].threadFlows[0].locations[0].location
 >     result.stacks[0].frames[0].location
 
-The `id` property has two purposes: to enable an embedded link ([sec](#messages-with-embedded-links)) within a `message` object ([sec](#message-object)) to refer to `thisObject`, and to identify `thisObject` as the target of a `locationRelationship` ([sec](#locationrelationship-object)). If no `message` object within `theResult` refers to `thisObject` *via* an embedded link and no `locationRelationship` object within `theResult` specifies `thisObject` as its target, the `id` property does not need to appear.
+The `id` property has two purposes: to enable an embedded link ([sec](#messages-with-embedded-links)) within a `message` object ([sec](#message-object)) to refer to `thisObject`, and to identify `thisObject` as the target of a `locationRelationship` ([sec](#locationrelationship-object)). If no `message` object within `theLocationOwner` refers to `thisObject` *via* an embedded link and no `locationRelationship` object within `theLocationOwner` specifies `thisObject` as its target, the `id` property does not need to appear.
 
 ### physicalLocation property
 
