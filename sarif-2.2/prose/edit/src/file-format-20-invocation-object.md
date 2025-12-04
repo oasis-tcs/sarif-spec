@@ -1,10 +1,10 @@
-## invocation object
+## `invocation` Object
 
 ### General{#invocation-object--general}
 
 An `invocation` object describes the invocation of the analysis tool that was run.
 
-### commandLine property
+### `commandLine` Property
 
 An `invocation` object **MAY** contain a property named `commandLine` whose value is a string containing the completely specified command line used to invoke the tool, starting with the name of the tool's executable or script file, optionally qualified by the relative or absolute path to the file.
 
@@ -46,7 +46,7 @@ An empty array **SHALL** mean that the tool was invoked with no command line arg
 
 > NOTE: Although the `commandLine` property ([sec](#commandline-property)) contains the same information, parsing it is error prone even if one understands the command shell’s quoting and escaping conventions. SARIF consumers might find the pre-parsed `arguments` property easier to use.
 
-### responseFiles property
+### `responseFiles` Property
 
 An `invocation` object **MAY** contain a property named `responseFiles` whose value is either `null` or an array of zero or more unique ([sec](#array-properties-with-unique-values)) `artifactLocation` objects ([sec](#artifactlocation-object)) each of which represents a response file specified on the tool's command line.
 
@@ -80,23 +80,23 @@ A SARIF producer **MAY** embed the contents of a response file in the SARIF log 
 > }
 > ```
 
-### ruleConfigurationOverrides property
+### `ruleConfigurationOverrides` Property
 
 An `invocation` object **MAY** contain a property named `ruleConfigurationOverrides` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `configurationOverride` objects ([sec](#configurationoverride-object)) each of which overrides the `defaultConfiguration` property ([sec](#defaultconfiguration-property)) of a `reportingDescriptor` object ([sec](#conversionsources-property)) that describes a rule (that is, a `reportingDescriptor` object that is an array element of the `rules` property ([sec](#rules-property)) of some `toolComponent` object ([sec](#toolcomponent-object))).
 
-### notificationConfigurationOverrides property
+### `notificationConfigurationOverrides` Property
 
 An `invocation` object **MAY** contain a property named `notificationConfigurationOverrides` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `configurationOverride` objects ([sec](#configurationoverride-object)) each of which overrides the `defaultConfiguration` property ([sec](#defaultconfiguration-property)) of a `reportingDescriptor` object ([sec](#reportingdescriptor-object)) that describes a notification (that is, a `reportingDescriptor` object that is an array element of the `notifications` property ([sec](#notifications-property)) of some `toolComponent` object ([sec](#toolcomponent-object))).
 
-### startTimeUtc property
+### `startTimeUtc` Property
 
 An `invocation` object **MAY** contain a property named `startTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the invocation started.
 
-### endTimeUtc property
+### `endTimeUtc` Property
 
 An `invocation` object **MAY** contain a property named `endTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the invocation ended.
 
-### exitCode property
+### `exitCode` Property
 
 If the SARIF producer process did not exit due to a signal, an `invocation` object **SHOULD** contain a property named `exitCode` whose value is an integer specifying the process exit code.
 
@@ -104,7 +104,7 @@ If the SARIF producer process exited due to a signal, the `exitCode` property **
 
 For examples, see [sec](#exitcodedescription-property).
 
-### exitCodeDescription property
+### `exitCodeDescription` Property
 
 If the SARIF producer process did not exit due to a signal, an `invocation` object **MAY** contain a property named `exitCodeDescription` whose value is a string describing the reason for the process exit.
 
@@ -126,7 +126,7 @@ If the SARIF producer process did not exit due to a signal, an `invocation` obje
 > }
 > ```
 
-### exitSignalName property
+### `exitSignalName` Property
 
 If the SARIF producer process exited due to a signal, an `invocation` object **SHOULD** contain a property named `exitSignalName` whose value is a string containing the name of the signal that caused the process to exit.
 
@@ -134,7 +134,7 @@ If the SARIF producer process did not exit due to a signal, the `exitSignalName`
 
 For an example, see [sec](#exitsignalnumber-property).
 
-### exitSignalNumber property
+### `exitSignalNumber` Property
 
 If the SARIF producer process exited due to a signal, an `invocation` object **MAY** contain a property named `exitSignalNumber` whose value is an integer specifying the numeric value of the signal that caused the process to exit.
 
@@ -149,7 +149,7 @@ If the SARIF producer process did not exit due to a signal, the `exitSignalNumbe
 > }
 > ```
 
-### processStartFailureMessage property
+### `processStartFailureMessage` Property
 
 If the analysis tool process failed to start, an `invocation` object **MAY** contain a property named `processStartFailureMessage` whose value is a string containing the operating system’s message describing the failure.
 
@@ -165,7 +165,7 @@ If the analysis tool process started successfully (regardless of whether or how 
 > }
 > ```
 
-### executionSuccessful property
+### `executionSuccessful` Property
 
 An `invocation` object **SHALL** contain a property named `executionSuccessful` whose value is a Boolean that is `true` if the engineering system that started the process knows that the analysis tool succeeded, and `false` if the engineering system knows that the tool failed.
 
@@ -181,19 +181,19 @@ An `invocation` object **SHALL** contain a property named `executionSuccessful` 
 > }
 > ```
 
-### machine property
+### `machine` Property
 
 An `invocation` object **MAY** contain a property named `machine` whose value is a redactable ([sec](#redactable-strings)) string containing the name of the machine on which the invocation occurred.
 
-### account property
+### `account` Property
 
 An `invocation` object **MAY** contain a property named `account` whose value is a redactable ([sec](#redactable-strings)) string containing the name of the account under which the invocation occurred.
 
-### processId property
+### `processId` Property
 
 An `invocation` object **MAY** contain a property named `processId` whose value is an integer containing the id of the process in which the invocation occurred.
 
-### executableLocation property
+### `executableLocation` Property
 
 An `invocation` object **MAY** contain a property named `executableLocation` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) specifying the location of the primary executable file for the program or script that was invoked.
 
@@ -203,13 +203,13 @@ An `invocation` object **MAY** contain a property named `executableLocation` who
 
 > NOTE 3: Absolute path names can reveal information that might be sensitive.
 
-### workingDirectory property
+### `workingDirectory` Property
 
 An `invocation` object **MAY** contain a property named `workingDirectory` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) specifying the fully qualified path name of the process’s working directory (a directory that the operating system associates with the process, with respect to which the operating system interprets relative file paths).
 
 > NOTE: Absolute path names can reveal information that might be sensitive.
 
-### environmentVariables property
+### `environmentVariables` Property
 
 An `invocation` object **MAY** contain a property named `environmentVariables` whose value is an object. The property names in this object **SHALL** contain the names of all the environment variables in the tool's execution environment. The value of each property **SHALL** be a string containing the value of the specified environment variable. If the value of the environment variable is an empty string, the corresponding property value **SHALL** be an empty string.
 
@@ -221,7 +221,7 @@ Both the property names and their values are redactable ([sec](#redactable-strin
 
 > NOTE 3: This is necessary to prevent the creation of an object with identical property names, which is invalid in the JSON serialization.
 
-### toolExecutionNotifications property
+### `toolExecutionNotifications` Property
 
 An `invocation` object **MAY** contain a property named `toolExecutionNotifications` whose value is an array of zero or more `notification` objects ([sec](#notification-object)). Each element of the array represents a runtime condition detected by the invoked process, either by the tool’s driver or by one of its extensions. The presence within this array of any `notification` object whose level property ([sec](#notification-object--level-property)) is `"error"` **SHALL** mean that the run failed. A SARIF consumer **SHALL NOT** assume that a failed run contains a complete set of analysis results.
 
@@ -235,7 +235,7 @@ The information in `toolExecutionNotifications` is primarily intended for the de
 >
 > If the error occurs outside of the evaluation of a rule, the tool might report the error in `toolExecutionNotifications` and then halt. If the tool exits abnormally, it might not have the opportunity to report the error. But if the tool is running under the control of an orchestration process that can detect the error, that process might add a notification for the error to the log file, or even synthesize a log file to hold the error, if the tool did not have the opportunity to create one.
 
-### toolConfigurationNotifications property
+### `toolConfigurationNotifications` Property
 
 An `invocation` object **MAY** contain a property named `toolConfigurationNotifications` whose value is an array of zero or more `notification` objects ([sec](#notification-object)). Each element of the array represents a condition relevant to the configuration of the tool's driver or one of its extensions. The presence within this array of any `notification` object whose `level` property ([sec](#notification-object--level-property)) is `"error"` **SHALL** mean that the run failed.
 
@@ -295,7 +295,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 > ]
 > ```
 
-### stdin, stdout, stderr, and stdoutStderr properties
+### `stdin`, `stdout`, `stderr`, and `stdoutStderr` Properties
 
 An `invocation` object **MAY** contain any or all of the properties `stdin`, `stdout`, `stderr`, and `stdoutStderr`, whose values are `artifactLocation` objects ([sec](#artifactlocation-object)) referring to files that contain the input to and output from the SARIF producer process. `stdin`, `stdout`, and `stderr` refer, respectively, to files containing the contents of the standard input, standard output, and standard error streams. `stdoutStderr` refers to a file containing the interleaved contents of the standard output and standard error streams. This is useful when the output of those two streams was written to the same file by means of command shell redirection syntax such as `"> output.txt 2>&1"`.
 

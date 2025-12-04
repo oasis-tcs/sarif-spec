@@ -1,4 +1,4 @@
-## region object
+## `region` Object
 
 ### General{#region-object--general}
 
@@ -16,7 +16,7 @@ For regions in binary artifacts, a region object **SHALL** define a binary regio
 
 If any text properties are present, enough text properties **SHALL** be present to fully specify a text region (see [sec](#text-regions)). If any binary properties are present, then enough binary properties **SHALL** be present to fully specify a binary region (see [sec](#binary-regions)).
 
-### Text regions
+### Text Regions
 
 > NOTE 1: The examples in this section assume a text file with the following contents:
 >
@@ -163,13 +163,13 @@ To specify an insertion point after the last character in an artifact, set `endL
 >     { "startLine": 4, "startColumn": 6, "endColumn": 6 }
 >     { "charOffset": 22, "charLength": 0 }
 
-### Binary regions
+### Binary Regions
 
 The byte offset of the first byte in an artifact **SHALL** be 0.
 
 To specify a byte region, at least `byteOffset` ([sec](#byteoffset-property)) **SHALL** be present. `byteLength` ([sec](#bytelength-property)) **MAY** also be present. `byteOffset` specifies the start of the region. `byteLength` specifies the region’s length and thereby, indirectly, its end. A `byteLength` value of 0 represents an insertion point before the byte specified by `byteOffset`.
 
-### Independence of text and binary regions
+### Independence of Text and Binary Regions
 
 The text-related and binary-related properties in a `region` object **SHALL** be treated independently. That is, the value of a text-related property **SHALL NOT** be inferred from the value of any set of binary-related properties, and *vice versa*.
 
@@ -193,33 +193,33 @@ The text-related and binary-related properties in a `region` object **SHALL** be
 
 This makes it clear that the text-related and binary-related properties represent different ranges of bytes, and therefore the region is invalid.
 
-### startLine property
+### `startLine` Property
 
 When a `region` object represents a text region specified by line/column properties, it **SHALL** contain a property named `startLine` whose value is a positive integer equal to the line number of the line containing the first character in the region.
 
-### startColumn property
+### `startColumn` Property
 
 When a `region` object represents a text region specified by line/column properties, it **MAY** contain a property named `startColumn` whose value is a positive integer equal to the column number of the first character in the region.
 
 If `startColumn` is absent, it **SHALL** default to 1.
 
-### endLine property
+### `endLine` Property
 
 When a `region` object represents a text region specified by line/column properties, it **MAY** contain a property named `endLine` whose value is a positive integer equal to the line number of the line containing the last character in the region.
 
 If `endLine` is absent, its value **SHALL** default to `startLine`.
 
-### endColumn property
+### `endColumn` Property
 
 When a `region` object represents a text region specified by line/column properties, it **MAY** contain a property named `endColumn` whose value is an integer whose value is one greater than the column number of the last character in the region.
 
 If `endColumn` is absent, it **SHALL** default to a value one greater than the column number of the last character on the line, excluding any newline sequence.
 
-### charOffset property
+### `charOffset` Property
 
 When a `region` object represents a text region specified by offset/length properties, it **SHALL** contain a property named `charOffset` whose value is an integer equal to the zero-based character offset of the first character in the region from the beginning of the artifact. If `charOffset` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
-### charLength property
+### `charLength` Property
 
 When a `region` object represents a text region specified by offset/length properties, it **MAY** contain a property named `charLength` whose value is a non-negative integer equal to the number of characters in the region.
 
@@ -229,11 +229,11 @@ The sum of `charOffset` and `charLength` **SHALL** be greater than or equal to 0
 
 A region whose `charOffset` is equal to the number of characters in the artifact and whose `charLength` is 0 is permitted and **SHALL** represent an insertion point at the end of the artifact.
 
-### byteOffset property
+### `byteOffset` Property
 
 When a `region` object represents a binary region, it **SHALL** contain a property named `byteOffset` whose value is an integer equal to the zero-based byte offset of the first byte in the region from the beginning of the artifact. If `byteOffset` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
-### byteLength property
+### `byteLength` Property
 
 When a `region` object represents a binary region, it **MAY** contain a property named `byteLength` whose value is an integer equal to the number of bytes in the region. If `byteLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at the position specified by `byteOffset` ([sec](#byteoffset-property)).
 
@@ -241,7 +241,7 @@ The sum of `byteOffset` and `byteLength` **SHALL** be greater than or equal to 0
 
 A `region` object whose `byteOffset` equals the number of bytes in the artifact and whose `byteLength` is 0 is permitted, and **SHALL** represent an insertion point at the end of the artifact.
 
-### snippet property
+### `snippet` Property
 
 A `region` object **MAY** contain a property named `snippet` whose value is an `artifactContent` object ([sec](#artifactcontent-object)) representing the portion of the artifact specified by the `region` object.
 
@@ -253,13 +253,13 @@ A `region` object **MAY** contain a property named `snippet` whose value is an `
 >
 > - It can be used to improve result matching.
 
-### message property{#region-object--message-property}
+### `message` Property{#region-object--message-property}
 
 A `region` object **MAY** contain a property named `message` whose value is a `message` object ([sec](#message-object)) containing a message relevant to the region.
 
 A SARIF viewer **MAY** display this message when the user interacts with the region. (For example, if the user hovers over the region with the mouse, the viewer might present the message as hover text.)
 
-### sourceLanguage property{#region-object--sourcelanguage-property}
+### `sourceLanguage` Property{#region-object--sourcelanguage-property}
 
 If the `region` object represents a portion of a text artifact that contains source code, it **MAY** contain a property named `sourceLanguage` whose value is a hierarchical string ([sec](#hierarchical-strings)) that specifies the programming language in which this portion of the source code is written. If the `region` object does not represent a portion of a text artifact containing source code, then `sourceLanguage` **SHALL** be absent.
 

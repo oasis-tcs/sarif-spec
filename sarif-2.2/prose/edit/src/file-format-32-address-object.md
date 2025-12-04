@@ -1,10 +1,10 @@
-## address object
+## `address` Object
 
 ### General{#address-object--general}
 
 An `address` object describes a physical or virtual address, or a range of addresses, in an "addressable region" (memory or a binary file).
 
-### Parent-child relationships
+### Parent-child Relationships
 
 `address` objects can be linked by their `parentIndex` properties ([sec](#address-object--parentindex-property)) to form a chain in which each address is specified as an offset from a "parent" object which we refer to as `theParent`.
 
@@ -39,7 +39,7 @@ An `address` object describes a physical or virtual address, or a range of addre
 > }
 > ```
 
-### Absolute address calculation
+### Absolute Address Calculation
 
 Each `address` object has an associated value called its "absolute address" which is the offset of the address from the start of the addressable region. The absolute address is calculated by executing the function `CalculateAbsoluteAddress` defined below on `thisObject` or by any procedure with the same result.
 
@@ -65,7 +65,7 @@ If `CalculateAbsoluteAddress`(`thisObject`) or any of its recursive invocations 
 
 If both `absoluteAddress` and `offsetFromParent` exist, then `absoluteAddress` **SHALL** equal the value that `CalculateAbsoluteAddress` would have returned if `absoluteAddress` were absent, if `CalculateAbsoluteAddress` would have returned successfully in that circumstance.
 
-### Relative address calculation
+### Relative Address Calculation
 
 Each `address` object has an associated value called its "relative address" which is the offset of the address from the address of the top-most object in its parent chain. The relative address is calculated by executing the function `CalculateRelativeAddress` defined below on `thisObject` or by any procedure with the same result.
 
@@ -91,7 +91,7 @@ If `CalculateRelativeAddress`(`thisObject`) or any of its recursive invocations 
 
 If both `relativeAddress` and `offsetFromParent` exist, then `relativeAddress` **SHALL** equal the value that `CalculateRelativeAddress` would have returned if `relativeAddress` were absent, if `CalculateRelativeAddress` would have returned successfully in that circumstance.
 
-### index property{#address-object--index-property}
+### `index` Property{#address-object--index-property}
 
 Depending on the circumstances, an `address` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.addresses` ([sec](#addresses-property)) of an `address` object that provides the properties for `thisObject`. We refer to the object in `theRun.addresses` as the "cached object."
 
@@ -107,13 +107,13 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 2: For examples of the use of an `index` property to locate a cached object, see [sec](#threadflowlocation-object--index-property).
 
-### absoluteAddress property
+### `absoluteAddress` Property
 
 An `address` object **MAY** contain a property named `absoluteAddress` whose value is a non-negative integer containing the absolute address (see [sec](#absolute-address-calculation)) of `thisObject`.
 
 If `absoluteAddress` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
-### relativeAddress property
+### `relativeAddress` Property
 
 If `parentIndex` ([sec](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `relativeAddress` whose value, if present, is an integer containing the relative address (see [sec](#relative-address-calculation)) of `thisObject`.
 
@@ -121,7 +121,7 @@ If `parentIndex` is absent, `relativeAddress` **SHALL** be absent.
 
 If `relativeAddress` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not set).
 
-### offsetFromParent property
+### `offsetFromParent` Property
 
 If `parentIndex` ([sec](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `offsetFromParent` whose value, if present, is an integer containing the offset of this address from the absolute address of `theParent` (see [sec](#parent-child-relationships)). This is the case even if the absolute address of the parent cannot be determined by the procedure in [sec](#absolute-address-calculation).
 
@@ -131,7 +131,7 @@ If `parentIndex` is absent, `offsetFromParent` **SHALL** be absent.
 
 If `offsetFromParent` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not set).
 
-### length property{#address-object--length-property}
+### `length` Property{#address-object--length-property}
 
 An `address` object **MAY** contain a property named `length` whose value, if present, is an integer whose absolute value specifies the number of bytes in the range of addresses specified by this object.
 
@@ -139,11 +139,11 @@ A negative value for `length` **SHALL** mean that the data structure being descr
 
 If `length` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not set).
 
-### name property{#address-object--name-property}
+### `name` Property{#address-object--name-property}
 
 An `address` object **MAY** contain a property named `name` whose value is a string containing the name of this address.
 
-### fullyQualifiedName property{#address-object--fullyqualifiedname-property}
+### `fullyQualifiedName` Property{#address-object--fullyqualifiedname-property}
 
 An `address` object **MAY** contain a property named `fullyQualifiedName` whose value is a string containing the fully qualified name of this address.
 
@@ -151,7 +151,7 @@ An `address` object **MAY** contain a property named `fullyQualifiedName` whose 
 >
 > This name consists of two components. The first component is the name of the address at which the module was loaded into memory. The second component represents an offset from that address.
 
-### kind property{#address-object--kind-property}
+### `kind` Property{#address-object--kind-property}
 
 An `address` object **MAY** contain a property named `kind` whose value is a string that specifies the kind of addressable region in which this address is located.
 
@@ -185,7 +185,7 @@ Although a function does contain executable code, the value `"function"` **SHOUL
 
 &emsp;&emsp;If none of these values are appropriate, a SARIF producer **MAY** use any value.
 
-### parentIndex property{#address-object--parentindex-property}
+### `parentIndex` Property{#address-object--parentindex-property}
 
 If `theParent` exists (that is, if `thisObject` is expressed as an offset from some other address), then an `address` object **SHALL** contain a property named `parentIndex` whose value is the array index ([sec](#array-indices)) of `theParent` within `theRun.addresses` ([sec](#addresses-property)).
 

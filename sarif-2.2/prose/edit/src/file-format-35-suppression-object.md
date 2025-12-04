@@ -1,4 +1,4 @@
-## suppression object
+## `suppression` Object
 
 ### General{#suppression-object--general}
 
@@ -8,7 +8,7 @@ A `suppression` object describes a request to suppress a result.
 
 > NOTE 2: The treatment of suppressed results depends on the development environment within which the log file is used, for example, a build system, an integrated development environment (IDE), or a result management system. Typically, development environments do not expose suppressed results to the user. For example, they do not include them in build log files, display them in error lists, or include them in bug counts.
 
-### kind property{#suppression-object--kind-property}
+### `kind` Property{#suppression-object--kind-property}
 
 A `suppression` object **SHALL** contain a property named `kind` whose value is a string with one of the following values, with the specified meanings:
 
@@ -20,7 +20,7 @@ A `suppression` object **SHALL** contain a property named `kind` whose value is 
 
     EXAMPLE 1: A database containing historical information about the results from analysis tools. Such a store might offer the ability to mark a result as "suppressed," meaning that if the result is encountered again, it is to be ignored.
 
-### status property
+### `status` Property
 
 A `suppression` object **MAY** contain a property named `status` whose value is a string with one of the following values, with the specified meanings:
 
@@ -30,7 +30,7 @@ A `suppression` object **MAY** contain a property named `status` whose value is 
 
 - `"rejected"`: The engineering team decided not to suppress the result.
 
-### location property{#suppression-object--location-property}
+### `location` Property{#suppression-object--location-property}
 
 A `suppression` object **MAY** contain a property named `location` whose value is a `location` object ([sec](#location-object)) that specifies the location where the suppression is persisted.
 
@@ -50,13 +50,13 @@ A `suppression` object **MAY** contain a property named `location` whose value i
 >
 > If a suppression is stored in a database, `kind` is again `"external"`, and `location.physicalLocation` might specify the URI of a query that returns the database information that describes the suppression.
 
-### guid property{#suppression-object--guid-property}
+### `guid` Property{#suppression-object--guid-property}
 
 A `suppression` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)).
 
 > NOTE: This can be used, for example, to link a `suppression` object in a SARIF file to suppression information in a result management system’s database.
 
-### justification property
+### `justification` Property
 
 A `suppression` object **MAY** contain a property named `justification` whose value is a user-supplied string that explains why the result was suppressed.
 
@@ -64,7 +64,7 @@ This is one of the few properties that contain textual content supplied by a use
 
 > NOTE: This property exists because the information it contains is commonly made available by existing suppression mechanisms such as the `SuppressMessage` attribute in the .NET Framework.
 
-### justificationType property
+### `justificationType` Property
 
 A suppression is a filter on an existing result. The free-form `justification` field for arbitrary textual descriptions of a suppression is not easy to parse or to map to finite states. The `justificationType` property is an enumeration providing a useful set of tags to help sort and differentiate suppressions. As with other areas of SARIF design, such buckets assist in routing information to specific actors in end-to-end result management systems.
 

@@ -1,4 +1,4 @@
-## result object
+## `result` Object
 
 ### General{#result-object--general}
 
@@ -28,7 +28,7 @@ Direct SARIF producers and SARIF converters **MAY** but do not need to set this 
 
 A result management system **MAY** store multiple results with identical fingerprints (see [sec](#fingerprints-property) and [sec](#normative-use-of-fingerprints-by-result-management-systems)), but the `guid` properties for those results **SHALL** be distinct.
 
-### correlationGuid property{#result-object--correlationguid-property}
+### `correlationGuid` Property{#result-object--correlationguid-property}
 
 A `result` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that is shared by all results that are considered logically identical, and that is different between any two results that are considered logically distinct.
 
@@ -36,7 +36,7 @@ Direct SARIF producers and SARIF converters **SHOULD NOT** set this property. A 
 
 > NOTE: `correlationGuid` and `fingerprints` ([sec](#fingerprints-property)) provide two different ways for result management systems to associate results that are logically identical. See [sec](#distinguishing-logically-identical-from-logically-distinct-results) for more information.
 
-### ruleId property
+### `ruleId` Property
 
 Depending on the circumstances, a `result` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `ruleId` whose value is a hierarchical string ([sec](#hierarchical-strings)) whose leading components specify the stable identifier of the rule that was evaluated to produce the result. In addition to being stable, `ruleId` **SHOULD** be opaque.
 
@@ -100,7 +100,7 @@ Not all existing analysis tools emit the equivalent of a `ruleId` in their outpu
 
 Each SARIF converter might synthesize `ruleId` in a different way. Therefore, a SARIF consumer **SHOULD NOT** attempt to compare or combine the output from different converters for the same analysis tool. See Appendix D for more information about production of SARIF by converters.
 
-### ruleIndex property
+### `ruleIndex` Property
 
 If `theDescriptor` exists (that is, if `theTool` contains a `reportingDescriptor` object ([sec](#reportingdescriptor-object)) that describes the rule that was violated), a `result` object **MAY** contain a property named `ruleIndex` whose value is the array index ([sec](#array-indices)) of `theDescriptor` within `theComponent.ruleDescriptors` ([sec](#rules-property)). Otherwise, `ruleIndex` **SHALL** be absent.
 
@@ -108,7 +108,7 @@ The semantics of `ruleIndex` are identical to the semantics of `reportingDescrip
 
 If `ruleIndex` and `rule.index` ([sec](#rule-property), [sec](#reportingdescriptorreference-object--index-property)) are both present, they **SHALL** be equal.
 
-### rule property
+### `rule` Property
 
 Depending on the circumstances, a `result` object either **SHALL NOT**, **SHOULD**, or **MAY** contain a property named `rule` whose value is a `reportingDescriptorReference` object ([sec](#reportingdescriptorreference-object)) that identifies `theDescriptor`. The procedure for looking up a `reportingDescriptor` from a `reportingDescriptorReference` is described in [sec](#reportingdescriptor-lookup).
 
@@ -134,7 +134,7 @@ If `rule` is absent, it **SHALL** default to a `reportingDescriptorReference` ob
 
 > NOTE: If the relevant rule is defined by the driver (see [sec](#tool-object--general)), which is likely to be the most common case, then `ruleId` and/or `ruleIndex` suffice to identify the rule, and take up less space in the log file than `rule`.
 
-### taxa property{#result-object--taxa-property}
+### `taxa` Property{#result-object--taxa-property}
 
 A `result` object **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptorReference` objects ([sec](#reportingdescriptorreference-object)) each of which refers to a taxon (see [sec](#taxonomies)) into which this result falls.
 
@@ -228,7 +228,7 @@ In either case, if there is no `toolComponent` that defines the taxonomy to whic
 > }
 > ```
 
-### kind property{#result-object--kind-property}
+### `kind` Property{#result-object--kind-property}
 
 A `result` object **MAY** contain a property named `kind` whose value is one of a fixed set of strings that specify the nature of the result.
 
@@ -291,7 +291,7 @@ If `kind` is absent, it **SHALL** default to `"fail"`.
 
 If `level` has any value other than `"none"` and `kind` is present, then `kind` **SHALL** have the value `"fail"`.
 
-### level property{#result-object--level-property}
+### `level` Property{#result-object--level-property}
 
 A `result` object **MAY** contain a property named `level` whose value is one of a fixed set of strings that specify the severity level of the result.
 
@@ -369,7 +369,7 @@ IF `level` has not yet been set THEN
 
 &emsp;&emsp;SET `level` to `"warning"`.
 
-### message property{#result-object--message-property}
+### `message` Property{#result-object--message-property}
 
 A `result` object **SHALL** contain a property named `message` whose value is a `message` object ([sec](#message-object)) that describes the result.
 
@@ -442,7 +442,7 @@ See [sec](#message-string-lookup) for the procedure for looking up a message str
 > }
 > ```
 
-### locations property{#result-object--locations-property}
+### `locations` Property{#result-object--locations-property}
 
 A `result` object **SHOULD** contain a property named `locations` whose value is an array of zero or more `location` objects ([sec](#location-object)) each of which specifies a location where the result occurred.
 
@@ -462,7 +462,7 @@ The `locations` array **SHALL NOT** be used to specify distinct occurrences of t
   
 > EXAMPLE 4: In contrast, consider a tool which locates misspelled words in variable names. If the tool detects a misspelled variable name, it might produce a single `result` object whose `locations` array contains the location of every reference to the variable, since fixing some but not all of the references would cause a compilation error.
 
-### analysisTarget property
+### `analysisTarget` Property
 
 If the analysis target differs from the result file, a `result` object **SHOULD** contain a property named `analysisTarget` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies the analysis target.
 
@@ -494,19 +494,19 @@ If the analysis target and the result file are the same, the `analysisTarget` pr
 > }
 > ```
 
-### webRequest property{#result-object--webrequest-property}
+### `webRequest` Property{#result-object--webrequest-property}
 
 A `result` object **MAY** contain a property named `webRequest` whose value is a `webRequest` object ([sec](#webrequest-object)) that describes the HTTP request which led to this result.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
-### webResponse property{#result-object--webresponse-property}
+### `webResponse` Property{#result-object--webresponse-property}
 
 A `result` object **MAY** contain a property named `webResponse` whose value is a `webResponse` object ([sec](#webresponse-object)) that describes the response to the HTTP request which led to this result.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
-### fingerprints property
+### `fingerprints` Property
 
 A `result` object **MAY** contain a property named `fingerprints` whose value is an object ([sec](#object-properties)).
 
@@ -559,7 +559,7 @@ A direct SARIF producer **SHOULD NOT** populate this property. A SARIF converter
 
 > NOTE: `fingerprints` and `correlationGuid` ([sec](#result-object--correlationguid-property)) provide two different ways for result management systems to associate results that are logically identical. See [sec](#distinguishing-logically-identical-from-logically-distinct-results) for more information.
 
-### partialFingerprints property
+### `partialFingerprints` Property
 
 A `result` object **MAY** contain a property named `partialFingerprints` whose value is an object ([sec](#object-properties)).
 
@@ -637,29 +637,29 @@ Because result management systems might come to depend on the choice of property
 > }
 > ```
 
-### codeFlows property
+### `codeFlows` Property
 
 A `result` object **MAY** contain a property named `codeFlows` whose value is an array of zero or more `codeFlow` objects ([sec](#codeflow-object)). The `codeFlows` property is intended for use by analysis tools that provide execution path details that illustrate a possible problem in the code.
 
 > NOTE: The SARIF file format allows multiple `codeFlow` objects within a single `result` object to allow for the possibility that more than one code flow might be relevant to a single result.
 
-### graphs property{#result-object--graphs-property}
+### `graphs` Property{#result-object--graphs-property}
 
 A `result` object **MAY** contain a property named `graphs` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `graph` objects ([sec](#graph-object)). A `graph` object represents a directed graph: a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph).
 
 A `graph` object defined at the `result` level **SHALL** be referenced only by `graphTraversal` objects ([sec](#graphtraversal-object)) defined in the `graphTraversals` property ([sec](#graphtraversals-property)) of the `result` object in which it is defined. This contrasts with `graph` objects defined at the `run` level ([sec](#run-object--graphs-property)), which **MAY** be referenced by `graphTraversal` objects defined in the `graphTraversals` property of any `result` object in `theRun`.
 
-### graphTraversals property
+### `graphTraversals` Property
 
 If a `result` object contains a `graphs` property ([sec](#result-object--graphs-property)), or if `theRun` contains a `graphs` property ([sec](#run-object--graphs-property)), then the `result` object **MAY** contain a property named `graphTraversals` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `graphTraversal` objects ([sec](#graphtraversal-object)). If neither the `result` object nor `theRun` contains a `graphs` property, the `graphTraversals` property **SHALL** be absent. A graph traversal is a path through the code that visits one or more nodes in a specified graph.
 
-### stacks property
+### `stacks` Property
 
 A `result` object **MAY** contain a property named `stacks` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `stack` objects ([sec](#stack-object)). The `stacks` property is intended for use by analysis tools that compute or collect call stack information in the process of producing results.
 
 > NOTE: The SARIF file format allows multiple `stack` objects within a single `result` object to allow for the possibility that more than one call stack might be relevant to a single result.
 
-### relatedLocations property
+### `relatedLocations` Property
 
 A `result` object **MAY** contain a property named `relatedLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `location` objects ([sec](#location-object)) each of which represents a location relevant to understanding the result.
 
@@ -715,7 +715,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 > C:\Code\a.js(2,6-6): info : JS3056: The previous declaration of 'index' was here.
 > ```
 
-### suppressions property
+### `suppressions` Property
 
 A `result` object **MAY** contain a property named `suppressions` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `suppression` objects ([sec](#suppression-object)) each of which describes a request to "suppress" a result (that is, to exclude it from result lists, bug counts, *etc.*).
 
@@ -729,7 +729,7 @@ The `suppressions` values for all `result` objects in `theRun` **SHALL** be eith
 
 > NOTE: The rationale is that an engineering system will generally evaluate all results for suppression, or none of them. Requiring that the `suppressions` values be either all `null` or all non-`null` enables a consumer to determine whether suppression information is available for the run by examining a single `result` object.
 
-### baselineState property
+### `baselineState` Property
 
 A `result` object **MAY** contain a property named `baselineState` whose value is a string that specifies the state of this result with respect to some previous run, which we refer to as the "baseline run."
 
@@ -759,7 +759,7 @@ If `baselineState` is present on any `result` object in `theRun`, it **SHALL** b
 >
 > This is conceptually similar to a tool that compares two text files, and for every line, concludes that it exists in the left-hand file, the right-hand file, or both. The tool must provide this information for every line in both files; it cannot leave some lines "undetermined."
 
-### rank property{#result-object--rank-property}
+### `rank` Property{#result-object--rank-property}
 
 A `result` object **MAY** contain a property named `rank` whose value is a number between `0.0` and `100.0` inclusive, representing the priority or importance of the result. `0.0` is the lowest priority and `100.0` is the highest.
 
@@ -773,11 +773,11 @@ If `rank` is absent, it **SHALL** default to `-1.0`, which indicates that the va
 
 > NOTE: `rank` values produced by different tools are in general not commensurable. If Tool A produces one result with rank `0.65` and a second result with rank `0.70`, the consumer is entitled to assume that the second result is of higher priority than the first. But if Tool A produces a result with rank `0.65` and Tool B produces a result with rank `0.70`, the result produced by Tool B might or might not be of higher priority than the result produced by Tool A. In an engineering system that aggregates results from multiple tools, rank values might need to be adjusted, either automatically or by end users, so that rank values from different tools can be interleaved in a meaningful way.
 
-### attachments property
+### `attachments` Property
 
 A `result` object **MAY** contain a property named `attachments` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `attachment` objects ([sec](#attachment-object)) each of which describes an artifact relevant to the detection of the result.
 
-### workItemUris property
+### `workItemUris` Property
 
 A `result` object **MAY** contain a property named `workItemUris` whose value is either `null` or an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings each of which contains the absolute URI [cite](#RFC3986) of a work item associated with this result.
 
@@ -791,21 +791,21 @@ The `workItemUris` values for all `result` objects in `theRun` **SHALL** be eith
 
 > NOTE 2: Result management systems are likely to generate work items from at least some of the results in a SARIF log file. Depending on the engineering system, these work items might take the form of Git issues, Jira tickets, TFS work items, or the equivalent in other work item tracking systems.
 
-### hostedViewerUri property
+### `hostedViewerUri` Property
 
 A `result` object **MAY** contain a property named `hostedViewerUri` whose value is a string containing an absolute URI [cite](#RFC3986) at which the result can be viewed. The URI **SHALL** be valid as of the time the tool generated this result. It is not guaranteed to be valid at later times (for example, the hosting environment might not keep results older than a specified age).
 
 > NOTE: This property can be used by tools that provide an online viewing experience for the results they generate. This experience might be specifically designed to display the results from that tool, as opposed to a generic SARIF viewer that displays results from any tool that produces SARIF.
 
-### provenance property
+### `provenance` Property
 
 A `result` object **MAY** contain a property named `provenance` whose value is a `resultProvenance` object ([sec](#resultprovenance-object)) that contains information about how and when the result was detected.
 
-### fixes property
+### `fixes` Property
 
 A `result` object **MAY** contain a property named `fixes` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `fix` objects ([sec](#fix-object)).
 
-### occurrenceCount property
+### `occurrenceCount` Property
 
 A `result` object **MAY** contain a property named `occurrenceCount` whose value is a positive integer specifying the number of times a result with `theResult.correlationGuid` ([sec](#result-object--correlationguid-property)) has been observed.
 
