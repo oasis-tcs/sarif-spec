@@ -403,6 +403,9 @@ If a SARIF producer processes text artifacts and `theRun.results` ([sec](#result
 
 - `"unicodeCodePoints"`: Each Unicode code point (abstract character) is considered to occupy one column. This means that even a character that is represented in UTF-16 by a surrogate pair is considered to occupy one column.
 
+- `"bytes"`: column numbers refer to byte offsets from the start of the line, where the first byte in a line has value 1.
+  Note: this is for consistency with column numbering in text regions ([sec](#text-regions)), and is different from binary regions ([sec](#binary-regions)), where the first byte offset in an **artifact** is 0.
+
 If the SARIF producer does not process text artifacts, `columnKind` **SHALL** be absent.
 
 If a SARIF consumer uses a column measurement unit other than that specified by `columnKind`, and if the consumer is required to interact with the artifact’s contents (for example, by displaying the artifact in an editor and highlighting a region), the consumer **SHALL** recompute column numbers in its (the consumer’s) native measurement unit.
