@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 07 August 2025
+## 04 December 2025
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -62,7 +62,7 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 07 August 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 04 December 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
 
 
 -------
