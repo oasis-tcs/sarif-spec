@@ -3,6 +3,31 @@
   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",
   "runs": [
     {
+      "addresses": [
+        {
+          "properties": {
+            "baseAddress": 4194304,
+            "section": ".text"
+          },
+          "fullyQualifiedName": "collections.dll",
+          "kind": "module"
+        },
+        {
+          "properties": {
+            "offset": 100
+          },
+          "fullyQualifiedName": "collections.dll!collections::list::add",
+          "kind": "function",
+          "parentIndex": 0
+        },
+        {
+          "properties": {
+            "offset": 22
+          },
+          "fullyQualifiedName": "collections.dll!collections::list::add+0x16",
+          "parentIndex": 1
+        }
+      ],
       "automationDetails": {
         "guid": "BC650830-A9FE-44CB-8818-AD6C387279A0",
         "id": "Nightly code scan/2018-10-08"
@@ -165,9 +190,6 @@
               "descriptor": {
                 "id": "UnknownRule"
               },
-              "associatedRule": {
-                "ruleId": "ABC0001"
-              },
               "level": "warning",
               "message": {
                 "text": "Could not disable rule \"ABC0001\" because there is no rule with that id."
@@ -221,8 +243,7 @@
                         },
                         "logicalLocations": [
                           {
-                            "fullyQualifiedName":
-                              "Rules.SecureHashAlgorithmRule.Evaluate"
+                            "fullyQualifiedName": "Rules.SecureHashAlgorithmRule.Evaluate"
                           }
                         ],
                         "physicalLocation": {
@@ -238,8 +259,7 @@
                       "location": {
                         "logicalLocations": [
                           {
-                            "fullyQualifiedName":
-                              "ExecutionEngine.Engine.EvaluateRule"
+                            "fullyQualifiedName": "ExecutionEngine.Engine.EvaluateRule"
                           }
                         ],
                         "physicalLocation": {
@@ -346,8 +366,7 @@
           "location": {
             "uri": "docs/intro.docx"
           },
-          "mimeType":
-             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "parentIndex": 5,
           "offset": 17522,
           "length": 4050
@@ -470,7 +489,6 @@
               "message": {
                 "text": "Path from declaration to usage"
               },
-
               "threadFlows": [
                 {
                   "id": "thread-52",
@@ -484,7 +502,7 @@
                         },
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
@@ -523,14 +541,14 @@
                       "location": {
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
                           "region": {
                             "startLine": 15,
                             "snippet": {
-                             "text": "offset = (y + z) * q + 1;"
+                              "text": "offset = (y + z) * q + 1;"
                             }
                           }
                         },
@@ -563,7 +581,7 @@
                         },
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
@@ -622,7 +640,11 @@
                   },
                   "module": "platform",
                   "threadId": 52,
-                  "parameters": [ "null", "0", "14" ]
+                  "parameters": [
+                    "null",
+                    "0",
+                    "14"
+                  ]
                 },
                 {
                   "location": {
@@ -649,7 +671,9 @@
                   },
                   "module": "platform",
                   "threadId": 52,
-                  "parameters": [ "14" ]
+                  "parameters": [
+                    "14"
+                  ]
                 },
                 {
                   "location": {
@@ -678,25 +702,6 @@
                   "threadId": 52
                 }
               ]
-            } 
-          ],
-          "addresses": [
-            {
-              "baseAddress": 4194304,
-              "fullyQualifiedName": "collections.dll",
-              "kind": "module",
-              "section": ".text"
-            },
-            {
-              "offset": 100,
-              "fullyQualifiedName": "collections.dll!collections::list::add",
-              "kind": "function",
-              "parentIndex": 0
-            },
-            {
-              "offset": 22,
-              "fullyQualifiedName": "collections.dll!collections::list::add+0x16",
-              "parentIndex": 1
             }
           ],
           "fixes": [
@@ -725,8 +730,7 @@
               ]
             }
           ],
-          "hostedViewerUri":
-            "https://www.example.com/viewer/3918d370-c636-40d8-bf23-8c176043a2df",
+          "hostedViewerUri": "https://www.example.com/viewer/3918d370-c636-40d8-bf23-8c176043a2df",
           "workItemUris": [
             "https://github.com/example/project/issues/42",
             "https://github.com/example/project/issues/54"
