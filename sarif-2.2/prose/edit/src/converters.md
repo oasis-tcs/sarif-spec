@@ -6,7 +6,7 @@ toc:
   enumerate: Appendix D.
 ---
 -->
-# (Normative) Production of SARIF by converters
+# (Normative) Production of SARIF by Converters
 
 There are two broad categories of tools that can produce output in the SARIF format. Analysis tools produce SARIF as a result of performing a scan on a set of analysis targets. Converters translate existing data from a non-SARIF format into the SARIF format. That data might come from an analysis tool that produces output in a non-SARIF format, from a bug database, or from any other source.
 

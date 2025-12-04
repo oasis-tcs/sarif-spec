@@ -1,4 +1,4 @@
-## sarifLog object
+## `sarifLog` Object
 
 ### General{#sariflog-object--general}
 
@@ -21,7 +21,7 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 > }
 > ```
 
-### version property{#sariflog-object--version-property}
+### `version` Property{#sariflog-object--version-property}
 
 A `sarifLog` object **SHALL** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this log file conforms. This string **SHALL** have the value `"2.1.0"`.
 
@@ -29,7 +29,7 @@ Although the order in which properties appear in a JSON object value is not sema
 
 > NOTE: This will make it easier for parsers to handle multiple versions of the SARIF format if new versions are defined in the future.
 
-### \$schema property{#sariflog-object--schema-property}
+### `$schema` Property{#sariflog-object--schema-property}
 
 A `sarifLog` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document [cite](#JSCHEMA01) describing the version of the SARIF format to which this log file conforms can be obtained.
 
@@ -39,7 +39,7 @@ If the `\$schema` property is present, the JSON schema obtained from the specifi
 
 > NOTE 2: The SARIF schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json>.
 
-### runs property
+### `runs` Property
 
 A `sarifLog` object **SHALL** contain a property named `runs` whose value is either `null` or an array of zero or more `run` objects ([sec](#run-object)).
 
@@ -53,7 +53,7 @@ The value of `runs` **SHALL** be an array with at least one element except in th
 
     NOTE 2: This would happen if, for example, the log file were the output of a query on a result management system, and the query was malformed.
 
-### inlineExternalProperties property
+### `inlineExternalProperties` Property
 
 A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `externalProperties` objects ([sec](#externalproperties-object)).
 
@@ -128,7 +128,7 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 > }
 > ```
 
-### guid property{#sariflog-object--guid-property}
+### `guid` Property{#sariflog-object--guid-property}
 
 A `sarifLog` object **SHOULD** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that provides a unique,
 stable identifier for the `sarifLog` designating that the log itself has a conceptual identity as a bundle of tool runs for

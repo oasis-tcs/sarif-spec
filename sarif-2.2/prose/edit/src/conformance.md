@@ -1,6 +1,6 @@
 # Conformance
 
-## Conformance targets
+## Conformance Targets
 
 This document defines requirements for the SARIF file format and for certain software components that interact with it. The entities ("conformance targets") for which this document defines requirements are:
 
@@ -24,13 +24,13 @@ This document defines requirements for the SARIF file format and for certain sof
 
 The normative content in this document defines requirements for SARIF log files, except for those normative requirements that are explicitly designated as defining the behavior of another conformance target.
 
-## Conformance Clause 1: SARIF log file
+## Conformance Clause 1: SARIF Log File
 
 A text file satisfies the "SARIF log file" conformance profile if:
 
 - It conforms to the syntax and semantics defined in [sec](#file-format)
 
-## Conformance Clause 2: SARIF producer
+## Conformance Clause 2: SARIF Producer
 
 A program satisfies the "SARIF producer" conformance profile if:
 
@@ -38,7 +38,7 @@ A program satisfies the "SARIF producer" conformance profile if:
 
 - It satisfies those normative requirements in [sec](#file-format) that are designated as applying to SARIF producers.
 
-## Conformance Clause 3: Direct producer
+## Conformance Clause 3: Direct Producer
 
 An analysis tool satisfies the "Direct producer" conformance profile if:
 
@@ -58,7 +58,7 @@ A converter satisfies the "Converter" conformance profile if:
 
 - It does not emit any objects, properties, or values which, according to [sec](#file-format), are intended to be produced only by direct producers.
 
-## Conformance Clause 5: SARIF post-processor
+## Conformance Clause 5: SARIF Post-Processor
 
 A SARIF post-processor satisfies the "SARIF post-processor" conformance profile if:
 
@@ -68,7 +68,7 @@ A SARIF post-processor satisfies the "SARIF post-processor" conformance profile 
 
 - It additionally satisfies those normative requirements in [sec](#file-format) that are designated as applying to post-processors.
 
-## Conformance Clause 6: SARIF consumer
+## Conformance Clause 6: SARIF Consumer
 
 A consumer satisfies the "SARIF consumer" conformance profile if:
 
@@ -84,7 +84,7 @@ A viewer satisfies the "viewer" conformance profile if:
 
 - It additionally satisfies the normative requirements in [sec](#file-format) that are designated as applying to viewers.
 
-## Conformance Clause 8: Result management system
+## Conformance Clause 8: Result Management System
 
 A result management system satisfies the "result management system" conformance profile if:
 
@@ -92,7 +92,7 @@ A result management system satisfies the "result management system" conformance 
 
 - It additionally satisfies the normative requirements in [sec](#file-format) and [sec](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
 
-## Conformance Clause 9: Engineering system
+## Conformance Clause 9: Engineering System
 
 An engineering system satisfies the "engineering system" conformance profile if:
 

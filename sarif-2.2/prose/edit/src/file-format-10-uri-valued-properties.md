@@ -1,4 +1,4 @@
-## URI-valued properties
+## URI-valued Properties
 
 ### General{#uri-valued-properties--general}
 
@@ -22,7 +22,7 @@ Aside from normalization, SARIF producers **SHALL NOT** make any other changes t
 
 > NOTE 3: This is especially important when the same SARIF file might be consumed on multiple platforms, for example, a platform such as Microsoft Windows®, whose NTFS file system is case-insensitive but case-preserving, and a platform such as Linux®, whose file system is case-sensitive. Consider a scenario where a tool runs on a Windows® system using NTFS, and the tool decides to lower-case the file names in the log. If the source files and the SARIF log were transferred to a Linux® system, the URI references in the log file would not match the path names on the destination system.
 
-### Normalizing file scheme URIs
+### Normalizing File Scheme URIs
 
 If a URI uses the `"file"` scheme [cite](#RFC8089) and the specified path is network-accessible, the SARIF producer **SHALL** include the host name.
 
@@ -86,7 +86,7 @@ SARIF consumers SHALL NOT normalize ".." segments out of a path. A consumer SHOU
 
 A consumer would treat `f1` and `f2` as residing in the same directory. So, for example, if a viewer prompted the user to supply the directory where `f1` resides, it could search for `f2` in the same directory, without prompting again. On the other hand, even though `f3` appears to reside in the same directory as `f1` and `f2`, the viewer would not assume that, and would prompt the user to supply the directory where `f3` resides.
 
-### URIs that use the sarif scheme
+### URIs That use the SARIF Scheme
 
 In certain circumstances, a URI can refer to an element of the current SARIF log file (for example, see [sec](#externalpropertyfilereference-object--location-property)). Such a URI uses the `sarif` scheme. The `sarif` URI scheme consists of only a scheme (with the value `sarif`) and a path component. The path component is interpreted as a JSON pointer [cite](#RFC6901) into the SARIF document containing the URI. The authority, query and fragment URI components **SHALL NOT** be present.
 

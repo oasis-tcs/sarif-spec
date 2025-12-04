@@ -1,4 +1,4 @@
-## runAutomationDetails object
+## `runAutomationDetails` Object
 
 ### General{#runautomationdetails-object--general}
 
@@ -38,11 +38,11 @@ A `runAutomationDetails` object contains information that specifies `theRun`’s
 > }
 > ```
 
-### description property{#runautomationdetails-object--description-property}
+### `description` Property{#runautomationdetails-object--description-property}
 
 A `runAutomationDetails` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the role played within the engineering system by `theRun`.
 
-### id property{#runautomationdetails-object--id-property}
+### `id` Property{#runautomationdetails-object--id-property}
 
 A `runAutomationDetails` object **MAY** contain a property named `id` whose value is a hierarchical string ([sec](#hierarchical-strings)) that uniquely identifies `theRun` within the engineering system.
 
@@ -62,13 +62,13 @@ The trailing component of `id` **MAY** be empty; note that the grammar for a hie
 
 > EXAMPLE 3: A run whose `id` is `"My Nightly Run Debug x64 2018-10-10"` has a unique identifier but cannot be inferred to belong to any category.
 
-### guid property{#runautomationdetails-object--guid-property}
+### `guid` Property{#runautomationdetails-object--guid-property}
 
 A `runAutomationDetails` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that provides a unique, stable identifier for `theRun`.
 
 A result management system or other components of the engineering system **MAY** use `run.automationDetails.guid` to associate the information in the log with additional information not provided by the analysis tool that produced it.
 
-### correlationGuid property{#runautomationdetails-object--correlationguid-property}
+### `correlationGuid` Property{#runautomationdetails-object--correlationguid-property}
 
 A `runAutomationDetails` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which is shared by all such runs of the same type, and differs between any two runs of different types.
 

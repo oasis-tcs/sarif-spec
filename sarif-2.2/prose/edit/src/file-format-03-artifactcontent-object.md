@@ -1,10 +1,10 @@
-## artifactContent object
+## `artifactContent` Object
 
 ### General{#artifactcontent-object--general}
 
 Certain properties in this document represent the contents of portions of artifacts external to the log file, for example, artifacts that were scanned by an analysis tool. SARIF represents such content with an `artifactContent` object. Depending on the circumstances, the SARIF log file might need to represent this content as readable text, raw bytes, or both.
 
-### text property{#artifactcontent-object--text-property}
+### `text` Property{#artifactcontent-object--text-property}
 
 If the external artifact is a text artifact, an `artifactContent` object **SHOULD** contain a property named `text` whose value is a string containing the relevant text. Since SARIF log files are encoded in UTF-8 ([cite](#RFC3629); see [sec](#file-format--general)), this means that if the external artifact is a text artifact in any encoding other than UTF-8, the SARIF producer **SHALL** transcode the text to UTF-8 before assigning it to the `text` property. The SARIF producer **SHALL** escape any characters that JSON [cite](#RFC8259) requires to be escaped.
 
@@ -12,7 +12,7 @@ Notwithstanding any necessary transcoding and escaping, the SARIF producer **SHA
 
 If the external artifact is a binary artifact, the `text` property **SHALL** be absent.
 
-### binary property
+### `binary` Property
 
 If the external artifact is a binary artifact, or if the SARIF producer cannot determine whether the external artifact is a text artifact or a binary artifact, an `artifactContent` object **SHALL** contain a property named `binary` whose value is a string containing the MIME Base64 encoding [cite](#RFC2045) of the bytes in the relevant portion of the artifact.
 
@@ -20,7 +20,7 @@ If the external artifact is a text artifact in an encoding other than UTF-8, the
 
 If the external artifact is a UTF-8 text artifact, the `binary` property **SHOULD** be absent. If it is present, it **SHALL** contain the MIME Base64 encoding of the UTF-8 bytes representing the relevant text.
 
-### rendered property
+### `rendered` Property
 
 An `artifactContent` object **MAY** contain a property named `rendered` whose value is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that provides a rendered view of the contents.
 
