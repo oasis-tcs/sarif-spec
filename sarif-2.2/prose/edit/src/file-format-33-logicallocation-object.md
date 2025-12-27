@@ -1,4 +1,4 @@
-## logicalLocation object
+## `logicalLocation` Object
 
 ### General{#logicallocation-object--general}
 
@@ -6,7 +6,7 @@ A `logicalLocation` object describes a logical location. A logical location is a
 
 `logicalLocation` objects occur in two places: as array elements of `run.logicalLocations` ([sec](#run-object--logicallocations-property)) and as array elements of `location.logicalLocations` ([sec](#location-object--logicallocations-property)).
 
-### Logical location naming rules
+### Logical Location Naming Rules
 
 Every logical location has a "fully qualified logical name" (more briefly, a "fully qualified name") that fully specifies the programmatic construct to which it refers. When programmatic constructs are nested (such as a method within a class within a namespace), the fully qualified name is typically a hierarchical identifier such as `"N.C.F(void)"` or `"N::C::F(void)"`. We refer to the rightmost component of this hierarchical identifier as the "logical name" (more briefly, the "name") of the logical location.
 
@@ -34,7 +34,7 @@ This is not always possible, for two reasons:
 >
 > `logicalLocation.kind` is `"function"`, for which it is sometimes possible to specify a fully qualified name. But there is no language syntax to express the name of an anonymous callback. The SARIF producer might choose a fully qualified name such as `"click_it?anon-1"`.
 
-### index property{#logicallocation-object--index-property}
+### `index` Property{#logicallocation-object--index-property}
 
 Depending on the circumstances, a `logicalLocation` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.logicalLocations` ([sec](#run-object--logicallocations-property)) of a `logicalLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.logicalLocations` as the "cached object."
 
@@ -50,7 +50,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 2: For examples of the use of an `index` property to locate a cached object, see [sec](#threadflowlocation-object--index-property).
 
-### name property{#logicallocation-object--name-property}
+### `name` Property{#logicallocation-object--name-property}
 
 A `logicalLocation` object **SHOULD** contain a property named `name` whose value is the logical name of the programmatic construct specified by this object. For example, this property might contain the name of a class or a method.
 
@@ -68,7 +68,7 @@ The `name` property **SHALL** be suitable for display and **SHALL** follow the n
 > }
 > ```
 
-### fullyQualifiedName property{#logicallocation-object--fullyqualifiedname-property}
+### `fullyQualifiedName` Property{#logicallocation-object--fullyqualifiedname-property}
 
 Depending on the circumstances, a `logicalLocation` object either **SHOULD** or **MAY** contain a property named `fullyQualifiedName` whose value is the fully qualified name of the logical location. This name **SHALL** follow the naming rules for fully qualified names described in [sec](#logical-location-naming-rules).
 
@@ -137,7 +137,7 @@ It is possible for two or more distinct logical locations to have the same fully
 >
 > - It is useful for producing readable in-source suppressions (for example, "suppress all instance of rule `CA2101` in the class `NamespaceA.NamespaceB.ClassC`").
 
-### decoratedName property
+### `decoratedName` Property
 
 A `logicalLocation` object **MAY** contain a property named `decoratedName` whose value is a string containing the compiler's internal representation of the logical location associated with this `location` object.
 
@@ -153,7 +153,7 @@ A `logicalLocation` object **MAY** contain a property named `decoratedName` whos
 > }
 > ```
 
-### kind property{#logicallocation-object--kind-property}
+### `kind` Property{#logicallocation-object--kind-property}
 
 A `logicalLocation` object **SHOULD** contain a property named `kind` whose value is one of the following strings, if any of those strings accurately describes the construct identified by this object.
 
@@ -361,7 +361,7 @@ If a logical location is both a member and a type (for example, a nested class i
 
 > NOTE: The purpose of this property is to help result management systems group results that occur in the same logical location. If one result specifies the logical location "namespace A", and another result specifies the logical location "class A", the difference in the `kind` property between the two results tells the result management system to sort them into different groups.
 
-### parentIndex property{#logicallocation-object--parentindex-property}
+### `parentIndex` Property{#logicallocation-object--parentindex-property}
 
 If this `logicalLocation` object represents a nested logical location, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([sec](#array-indices)) of the parent `logicalLocation` object within `theRun.logicalLocations` ([sec](#run-object--logicallocations-property)).
 

@@ -1,4 +1,4 @@
-## fix object
+## `fix` Object
 
 ### General{#fix-object--general}
 
@@ -24,7 +24,7 @@ A `fix` object represents a proposed fix for the problem indicated by `theResult
 > }
 > ```
 
-### description property{#fix-object--description-property}
+### `description` Property{#fix-object--description-property}
 
 A `fix` object **SHOULD** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the proposed fix.
 
@@ -41,7 +41,7 @@ A `fix` object **SHOULD** contain a property named `description` whose value is 
 > }
 > ```
 
-### artifactChanges property
+### `artifactChanges` Property
 
 A `fix` object **SHALL** contain a property named `artifactChanges` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) `artifactChange` objects ([sec](#artifactchange-object)) each of which describes the changes to a single artifact that are necessary to effect the fix.
 

@@ -1,4 +1,4 @@
-## replacement object
+## `replacement` Object
 
 ### General{#replacement-object--general}
 
@@ -74,13 +74,13 @@ If the `deletedRegion` property specifies a binary region ([sec](#binary-regions
 
 Although it is possible to construct a `replacement` object that neither removes nor adds any content, a `replacement` object **SHOULD** have a material effect on the target artifact, either because `deletedRegion` denotes a non-empty region to delete, or because `insertedContent` specifies non-empty content to insert, or both.
 
-### deletedRegion property
+### `deletedRegion` Property
 
 A `replacement` object **SHALL** contain a property named `deletedRegion` whose value is a `region` object ([sec](#region-object)) specifying the region to delete.
 
 If the length of the region specified by `deletedRegion` is zero, then `deletedRegion` specifies an insertion point, and the SARIF consumer performing the replacement **SHALL NOT** remove any content.
 
-### insertedContent property
+### `insertedContent` Property
 
 A `replacement` object **MAY** contain a property named `insertedContent` whose value is an `artifactContent` object ([sec](#artifactcontent-object)) that specifies the content to insert in place of the region specified by the `deletedRegion` property (or at the point specified by `deletedRegion`, if `deletedRegion` has a length of zero and therefore specifies an insertion point).
 

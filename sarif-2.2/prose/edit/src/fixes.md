@@ -6,7 +6,7 @@ toc:
   enumerate: Appendix G.
 ---
 -->
-# (Informative) Guidance on fixes
+# (Informative) Guidance on Fixes
 
 Tools that produce SARIF files which include `fix` objects should take care to structure those fixes in such a way as to affect a minimal range of content. This maximizes the likelihood that an automated tool can safely apply multiple fixes to the same artifact.
 

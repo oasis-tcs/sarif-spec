@@ -6,7 +6,7 @@ External property files (see [sec](#rationale)) conform to a schema distinct fro
 
 An external property file **SHALL** contain one or more externalized properties. A SARIF consumer **SHALL** treat the value of an externalized property exactly as if it had appeared inline in the root file as the value of the corresponding property.
 
-## External property file naming convention
+## External Property File Naming Convention
 
 The file name of an external property file **SHOULD** end with the extension `".sarif-external-properties"`.
 
@@ -16,7 +16,7 @@ The file name **MAY** end with the additional extension `".json"`.
 
 > EXAMPLE 2: `scan-results.sarif-external-properties.json`
 
-## externalProperties object
+## `externalProperties` Object
 
 ### General{#externalproperties-object--general}
 
@@ -58,7 +58,7 @@ The top-level element of an external property file **SHALL** be an object which 
 > }
 > ```
 
-### \$schema property{#externalproperties-object--schema-property}
+### `$schema` Property{#externalproperties-object--schema-property}
 
 An `externalProperties` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to which this external property file conforms can be obtained.
 
@@ -68,7 +68,7 @@ If the `\$schema` property is present, the JSON schema obtained from the specifi
 
 > NOTE 2: The SARIF external property file schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json>.
 
-### version property{#externalproperties-object--version-property}
+### `version` Property{#externalproperties-object--version-property}
 
 Depending on the circumstances, an `externalProperties` object either **SHALL** or **MAY** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this external property file conforms. If present, this string **SHALL** have the value `"2.1.0"`.
 
@@ -80,15 +80,15 @@ Although the order in which properties appear in a JSON object value is not sema
 
 > NOTE: This will make it easier for parsers to handle multiple versions of the external property file format if new versions are defined in the future.
 
-### guid property{#externalproperties-object--guid-property}
+### `guid` Property{#externalproperties-object--guid-property}
 
 An `externalProperties` object **SHOULD** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that equals the `guid` property ([sec](#externalpropertyfilereference-object--guid-property)) of the corresponding `externalPropertyFileReference` object ([sec](#externalpropertyfilereference-object)) in the `run.externalPropertyFiles` property ([sec](#externalpropertyfilereferences-property)) in the root file.
 
-### runGuid property
+### `runGuid` Property
 
 If the externalized properties contained in this `externalProperties` object are associated with a single `run` object ([sec](#run-object)) `theRun`, and if `theRun` contains an `automationDetails.guid` property ([sec](#automationdetails-property), [sec](#runautomationdetails-object--guid-property)), the `externalProperties` object **MAY** contain a property named `runGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that equals `theRun.automationDetails.guid`. Otherwise (that is, if this `externalProperties` object is associated with more than one `run` object, or if `theRun` does not define `automationDetails.guid`), then `runGuid` **SHALL** be absent.
 
-### The property value properties
+### The Property Value Properties
 
 An `externalProperties` object **SHALL** contain zero or more externalized properties. The property names in this object, and the names of the corresponding externalized properties, are given in the table in [sec](#properties).
 

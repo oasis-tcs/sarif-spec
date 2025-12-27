@@ -1,4 +1,4 @@
-## SARIF file naming convention
+## SARIF File Naming Convention
 
 The file name of a SARIF log file **SHOULD** end with the extension `".sarif"`.
 

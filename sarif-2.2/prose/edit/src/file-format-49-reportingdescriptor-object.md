@@ -1,4 +1,4 @@
-## reportingDescriptor object
+## `reportingDescriptor` Object
 
 ### General{#reportingdescriptor-object--general}
 
@@ -10,7 +10,7 @@ Some of the properties of the `reportingDescriptor` object are interpreted diffe
 
 Either the `shortDescription` property ([sec](#reportingdescriptor-object--shortdescription-property)) or the `fullDescription` property ([sec](#reportingdescriptor-object--fulldescription-property)) or both **SHOULD** be present.
 
-### id property{#reportingdescriptor-object--id-property}
+### `id` Property{#reportingdescriptor-object--id-property}
 
 A `reportingDescriptor` object **SHALL** contain a property named `id` whose value is a string. In the case of a rule, `id` **SHALL** contain a stable identifier for the rule and **SHOULD** be opaque. In the case of a notification, `id` does not need be a stable, opaque identifier; it **MAY** be a user-readable identifier.
 
@@ -26,7 +26,7 @@ A `reportingDescriptor` object **SHALL** contain a property named `id` whose val
 
 > NOTE 2: Despite the fact that the `result.ruleId` property ([sec](#ruleid-property)) is permitted to be a hierarchical string ([sec](#hierarchical-strings)) whose trailing components denote a subset of the specified rule, SARIF does not support separate metadata for such "sub-rules". The `id` property of a `reportingDescriptor` object always specifies an entire rule (or notification), not a subset of one.
 
-### deprecatedIds property
+### `deprecatedIds` Property
 
 A `reportingDescriptor` object **MAY** contain a property named `deprecatedIds` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings each of which contains an id (see [sec](#reportingdescriptor-object--id-property)) by which this reporting item was known in some previous version of the analysis tool.
 
@@ -142,15 +142,15 @@ Now the result management system has the problem of matching results between the
 >
 > - Furthermore, the result management system can determine that these are the same results it saw in the previous run, so it correctly marks them with `"baselineState": "unchanged"` or `"updated"` as appropriate (see [sec](#baselinestate-property)).
 
-### guid property{#reportingdescriptor-object--guid-property}
+### `guid` Property{#reportingdescriptor-object--guid-property}
 
 A `reportingDescriptor` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that uniquely identifies the descriptor.
 
-### deprecatedGuids property
+### `deprecatedGuids` Property
 
 A `reportingDescriptor` object **MAY** contain a property named `deprecatedGuids` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) GUID-valued strings ([sec](#guid-valued-strings)) each of which was used by a previous version of the tool as the value of the `guid` property ([sec](#reportingdescriptor-object--guid-property)) for this object.
 
-### name property{#reportingdescriptor-object--name-property}
+### `name` Property{#reportingdescriptor-object--name-property}
 
 A `reportingDescriptor` object **MAY** contain a property named `name` whose value is a localizable string ([sec](#localizable-strings)) containing an identifier that is understandable to an end user. If the `name` of a rule contains implementation details that change over time, a tool author might alter a rule's name (while leaving the stable `id` property ([sec](#reportingdescriptor-object--id-property)) unchanged).
 
@@ -158,13 +158,13 @@ A `reportingDescriptor` object **MAY** contain a property named `name` whose val
 
 > EXAMPLE 1: `"name": "``SpecifyMarshalingForPInvokeStringArguments"`
 
-### deprecatedNames property
+### `deprecatedNames` Property
 
 A `reportingDescriptor` object **MAY** contain a property named `deprecatedNames` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) localizable ([sec](#localizable-strings)) strings each of which was used by a previous version of the tool as the value of the `name` property ([sec](#reportingdescriptor-object--name-property)) for this object.
 
 The array elements **SHALL** occur in the same order in every translation ([sec](#taxonomies)).
 
-### shortDescription property{#reportingdescriptor-object--shortdescription-property}
+### `shortDescription` Property{#reportingdescriptor-object--shortdescription-property}
 
 A `reportingDescriptor` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) that provides a concise description of the reporting item. The `shortDescription` property **SHOULD** be a single sentence that is understandable when visible space is limited to a single line of text.
 
@@ -178,7 +178,7 @@ A `reportingDescriptor` object **MAY** contain a property named `shortDescriptio
 > }
 > ```
 
-### fullDescription property{#reportingdescriptor-object--fulldescription-property}
+### `fullDescription` Property{#reportingdescriptor-object--fulldescription-property}
 
 A `reportingDescriptor` object **SHOULD** contain a property named `fullDescription` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) that comprehensively describes the reporting item.
 
@@ -188,7 +188,7 @@ The beginning of `fullDescription` (for example, its first sentence) **SHOULD** 
 
 > NOTE:The rationale for this guidance is that in the absence of `shortDescription`, a viewer with limited display space might display a truncated version of `fullDescription`, for example, the first sentence (if a sentence is identifiable), the first paragraph, or the first 100 characters. If this guidance is not followed, that truncated version might not be understandable.
 
-### messageStrings property
+### `messageStrings` Property
 
 A `reportingDescriptor` object **MAY** contain a property named `messageStrings` whose value is an object ([sec](#object-properties)) consisting of a set of properties with arbitrary names, each of whose values is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)).
 
@@ -220,7 +220,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 > }
 > ```
 
-### helpUri property
+### `helpUri` Property
 
 A `reportingDescriptor` object **MAY** contain a property named `helpUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI [cite](#RFC3986) of the primary documentation for the reporting item.
 
@@ -228,13 +228,13 @@ A `reportingDescriptor` object **MAY** contain a property named `helpUri` whose 
 
 > NOTE 2: This property is localizable so that help information in different languages can be viewed at different URIs.
 
-### help property
+### `help` Property
 
 A `reportingDescriptor` object **MAY** contain a property named `help` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) which provides the primary documentation for the reporting item.
 
 > NOTE: This property is useful when help information is not available at a URI, for example, in the case of a custom rule written by a developer, as opposed to one supplied by the tool vendor.
 
-### defaultConfiguration property
+### `defaultConfiguration` Property
 
 A `reportingDescriptor` object **MAY** contain a property named `defaultConfiguration` whose value is a `reportingConfiguration` object ([sec](#reportingconfiguration-object)).
 
@@ -242,6 +242,6 @@ If this property is absent, it **SHALL** be taken to be present, and its propert
 
 The rule- or notification-specific configuration parameters for a `reportingDescriptor`, if any, **SHALL NOT** be stored in its property bag ([sec](#property-bags)) Rather, they **SHALL** be stored in `defaultConfiguration.parameters` ([sec](#reportingconfiguration-object--parameters-property)).
 
-### relationships property{#reportingdescriptor-object--relationships-property}
+### `relationships` Property{#reportingdescriptor-object--relationships-property}
 
 A `reportingDescriptor` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptorRelationship` objects ([sec](#reportingdescriptorrelationship-object)) each of which declares one or more directed relationships from `thisObject` to another `reportingDescriptor` object, which we refer to as `theTarget`, specified by `reportingDescriptorRelationship`.`target` ([sec](#reportingdescriptorrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `reportingDescriptorRelationship.kinds` ([sec](#reportingdescriptorrelationship-object--kinds-property)).

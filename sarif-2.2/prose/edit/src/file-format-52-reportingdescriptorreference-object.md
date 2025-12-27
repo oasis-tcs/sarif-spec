@@ -1,4 +1,4 @@
-## reportingDescriptorReference object
+## `reportingDescriptorReference` Object
 
 ### General{#reportingdescriptorreference-object--general}
 
@@ -32,7 +32,7 @@ In some cases, there is no `reportingDescriptor` object associated with a `repor
 
 If metadata is present, at least one of `index` ([sec](#reportingdescriptorreference-object--index-property)) and `guid` ([sec](#reportingdescriptorreference-object--guid-property)) **SHALL** be present. If both are present, they **SHALL** identify the same `reportingDescriptor` object ([sec](#reportingdescriptor-object)).
 
-### reportingDescriptor lookup
+### Reportingdescriptor Lookup{#reportingdescriptor-lookup}
 
 `theDescriptor` **SHALL** be located within the `toolComponent` object ([sec](#toolcomponent-object)) identified by the `toolComponent` property ([sec](#toolcomponent-property)), which we refer to as `theComponent`. The procedure for looking up a `toolComponent` from a `toolComponentReference` is described in [sec](#toolcomponent-lookup).
 
@@ -46,7 +46,7 @@ If metadata is present, at least one of `index` ([sec](#reportingdescriptorrefer
 | `notification.descriptor` ([sec](#notification-object--descriptor-property))                          | `notifications`                            |
 | `notification.associatedRule` ([sec](#associatedrule-property))                                       | `rules`                                    |
 
-### id property{#reportingdescriptorreference-object--id-property}
+### `id` Property{#reportingdescriptorreference-object--id-property}
 
 A `reportingDescriptorReference` object **MAY** contain a property named `id` whose value is a hierarchical string ([sec](#hierarchical-strings)) that either equals `theDescriptor.id` ([sec](#reportingdescriptor-object--id-property)) or equals `theDescriptor.id` plus one additional hierarchical component.
 
@@ -102,7 +102,7 @@ For more information about the semantics of `id` when `theDescriptor` is a rule,
 > }
 > ```
 
-### index property{#reportingdescriptorreference-object--index-property}
+### `index` Property{#reportingdescriptorreference-object--index-property}
 
 A `reportingDescriptorReference` object **MAY** contain a property named `index` whose value is the array index ([sec](#array-indices)) into `theComponent.rules` ([sec](#rules-property)) or `theComponent.notifications` ([sec](#notifications-property)), according to the table in [sec](#reportingdescriptor-lookup).
 
@@ -140,11 +140,11 @@ A `reportingDescriptorReference` object **MAY** contain a property named `index`
 
 If `index` is absent and `theResult.ruleIndex` ([sec](#ruleindex-property)) is present, `index` **SHALL** default to `theResult.ruleIndex`. If both are present, they **SHALL** be equal.
 
-### guid property{#reportingdescriptorreference-object--guid-property}
+### `guid` Property{#reportingdescriptorreference-object--guid-property}
 
 A `reportingDescriptorReference` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) equal to `theDescriptor.guid` ([sec](#reportingdescriptor-object--guid-property)).
 
-### toolComponent property
+### `toolComponent` Property
 
 A `reportingDescriptorReference` object **MAY** contain a property named `toolComponent` whose value is a `toolComponentReference` object ([sec](#toolcomponentreference-object)) that identifies `theComponent`.
 

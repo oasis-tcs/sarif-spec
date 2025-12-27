@@ -1,4 +1,4 @@
-## graph object
+## `graph` Object
 
 ### General{#graph-object--general}
 
@@ -6,14 +6,14 @@ A `graph` object represents a directed graph, a network of nodes and directed ed
 
 A path through a graph, called a "graph traversal," is represented by a `graphTraversal` object ([sec](#graphtraversal-object)).
 
-### description property{#graph-object--description-property}
+### `description` Property{#graph-object--description-property}
 
 A `graph` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the graph.
 
-### nodes property
+### `nodes` Property
 
 A `graph` object **MAY** contain a property named `nodes` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `node` objects ([sec](#node-object)) which represent the nodes of the graph.
 
-### edges property
+### `edges` Property
 
 A `graph` object **MAY** contain a property named `edges` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `edge` objects ([sec](#edge-object)) which represent the edges of the graph.

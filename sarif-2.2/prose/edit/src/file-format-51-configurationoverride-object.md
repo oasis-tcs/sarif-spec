@@ -1,4 +1,4 @@
-## configurationOverride object
+## `configurationOverride` Object
 
 ### General{#configurationoverride-object--general}
 
@@ -45,10 +45,10 @@ The `configurationOverride` object’s `descriptor` property ([sec](#configurati
 > }
 > ```
 
-### descriptor property{#configurationoverride-object--descriptor-property}
+### `descriptor` Property{#configurationoverride-object--descriptor-property}
 
 A `configurationOverride` object **SHALL** contain a property named `descriptor` whose value is a `reportingDescriptorReference` object ([sec](#reportingdescriptorreference-object)) that identifies the `reportingDescriptor` ([sec](#reportingdescriptor-object)) whose runtime configuration is to be modified, which we refer to as `theDescriptor`.
 
-### configuration property
+### `configuration` Property
 
 A `configurationOverride` object **SHALL** contain a property named `configuration` whose value is a `reportingConfiguration` object ([sec](#reportingconfiguration-object)) each of whose properties overrides the corresponding property in `theDescriptor.defaultConfiguration` ([sec](#defaultconfiguration-property)). If any property of `configuration` is absent, the corresponding property of `theDescriptor.defaultConfiguration` is respected.

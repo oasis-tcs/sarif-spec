@@ -6,7 +6,7 @@ toc:
   enumerate: Appendix I.
 ---
 -->
-# (Informative) Detecting incomplete result sets
+# (Informative) Detecting Incomplete Result Sets
 
 This document describes three conditions that inform the SARIF consumer that the tool has failed to produce a comprehensive set of results. For convenience, this Appendix gathers those conditions together in one place:
 

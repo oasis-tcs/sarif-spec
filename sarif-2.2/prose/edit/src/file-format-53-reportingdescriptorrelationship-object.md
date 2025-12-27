@@ -1,4 +1,4 @@
-## reportingDescriptorRelationship object
+## `reportingDescriptorRelationship` Object
 
 ### General{#reportingdescriptorrelationship-object--general}
 
@@ -97,11 +97,11 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 >   ...
 > ```
 
-### target property{#reportingdescriptorrelationship-object--target-property}
+### `target` Property{#reportingdescriptorrelationship-object--target-property}
 
 A `reportingDescriptorRelationship` object **SHALL** contain a property named `target` whose value is a `reportingDescriptorReference` object which identifies `theTarget` (see [sec](#reportingdescriptorrelationship-object--general)).
 
-### kinds property{#reportingdescriptorrelationship-object--kinds-property}
+### `kinds` Property{#reportingdescriptorrelationship-object--kinds-property}
 
 A `reportingDescriptorRelationship` object **MAY** contain a property named `kinds` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) strings each of which specifies a relationship between `theSource` and `theTarget` (see [sec](#reportingdescriptorrelationship-object--general)). If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`).
 
@@ -133,6 +133,6 @@ If none of these values are appropriate, a SARIF producer **MAY** use any value.
 
 > NOTE 2: The values `"equal"` and `"superset"` are special in that they allow certain elements of `result.taxa` ([sec](#result-object--taxa-property)) to be elided. See [sec](#result-object--taxa-property), paragraph 2, for more information on this point.
 
-### description property{#reportingdescriptorrelationship-object--description-property}
+### `description` Property{#reportingdescriptorrelationship-object--description-property}
 
 A `reportingDescriptorRelationship` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the relationship.

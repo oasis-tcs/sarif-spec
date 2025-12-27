@@ -1,4 +1,4 @@
-## versionControlDetails object
+## `versionControlDetails` Object
 
 ### General{#versioncontroldetails-object--general}
 
@@ -12,19 +12,19 @@ A `versionControlDetails` object **SHOULD** contain sufficient information to un
 
 > NOTE: The required set of properties depends on the VCS and on the engineering system within which it is used. Consider Git as an example. The `revisionId` property (containing a commit id) would suffice. The `branch` property ([sec](#branch-property)) might not suffice because a Git branch is a pointer to the latest commit along a line of development; however, `branch` together with `asOfTimeUtc` ([sec](#asoftimeutc-property)) might suffice (although that is not an idiomatic use of Git). Similarly, `revisionTag` ([sec](#revisiontag-property)) might not suffice because a Git tag can be removed, but if the engineering system guaranteed that certain tags (such as those specifying public releases) were stable, then `revisionTag` might suffice.
 
-### repositoryUri property
+### `repositoryUri` Property
 
 A `versionControlDetails` object **SHALL** contain a property named `repositoryUri` whose value is a string containing an absolute URI [cite](#RFC3986) that specifies the location of the repository containing the scanned files.
 
-### revisionId property
+### revisionId` Property
 
 A `versionControlDetails` object **SHOULD** contain a property named `revisionId` whose value is a redactable ([sec](#redactable-strings)) string that uniquely and permanently identifies the appropriate revision of the scanned files.
 
-### branch property
+### `branch` Property
 
 A `versionControlDetails` object **MAY** contain a property named `branch` whose value is a redactable ([sec](#redactable-strings)) string containing the name of a branch containing the correct revision of the scanned files.
 
-### revisionTag property
+### `revisionTag` Property
 
 A `versionControlDetails` object **MAY** contain a property named `revisionTag` whose value is a redactable ([sec](#redactable-strings)) string containing a tag that has been applied to the revision in the VCS.
 
@@ -32,13 +32,13 @@ A `versionControlDetails` object **MAY** contain a property named `revisionTag` 
 
 > NOTE 2: Although VCSs generally allow a revision to have more than one tag, the `revisionTag` property is not an array. The purpose of `revisionTag` is to aid in identifying a revision so that a scan can be reproduced, not to exhaustively describe the revision.
 
-### asOfTimeUtc property
+### `asOfTimeUtc` Property
 
 A `versionControlDetails` object **MAY** contain a property named `asOfTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying a UTC date and time that can be used to synchronize an enlistment to the state of the repository as of that time.
 
 > NOTE: In some VCSs, the "synchronize by date" feature requires the time to be expressed in the server’s time zone. In such a case, the SARIF producer would need to know the server’s time zone to correctly populate `asOfTimeUtc`.
 
-### mappedTo property
+### `mappedTo` Property
 
 A `versionControlDetails` object **MAY** contain a property named `mappedTo` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies the location in the local file system to which the root of the repository was mapped at the time of the analysis.
 

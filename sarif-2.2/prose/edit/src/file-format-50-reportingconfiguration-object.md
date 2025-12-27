@@ -1,4 +1,4 @@
-## reportingConfiguration object
+## `reportingConfiguration` Object
 
 ### General{#reportingconfiguration-object--general}
 
@@ -8,7 +8,7 @@ When a `reportingConfiguration` object appears as the value of `theDescriptor.de
 
 For an example, see [sec](#reportingconfiguration-object--parameters-property).
 
-### enabled property
+### `enabled` Property
 
 A `reportingConfiguration` object **MAY** contain a property named `enabled` whose value is a Boolean that specifies whether the condition described by `theDescriptor` was checked for during the scan.
 
@@ -18,7 +18,7 @@ If this property is absent, it **SHALL** default to `true`.
 >
 >     SecurityScanner --disable "SEC4002,SEC4003" --enable SEC6012
 
-### level property{#reportingconfiguration-object--level-property}
+### `level` Property{#reportingconfiguration-object--level-property}
 
 A `reportingConfiguration` object **MAY** contain a property named `level` whose value is one of the strings `"warning"`, `"error"`, `"note"`, or `"none"`, with the same meanings as when those strings appear as the value of `result.level` ([sec](#result-object--level-property)) or `notification.level` ([sec](#notification-object--level-property)).
 
@@ -32,7 +32,7 @@ If `theDescriptor` describes a notification, then if `level` is present, it **SH
 >
 >     WebScanner --level "WEB1002:error,WEB1005:warning"
 
-### rank property{#reportingconfiguration-object--rank-property}
+### `rank` Property{#reportingconfiguration-object--rank-property}
 
 A `reportingConfiguration` object **MAY** contain a property named `rank` whose value is a number between `0.0` and `100.0` inclusive, with the same interpretation as the value of the `result.rank` ([sec](#result-object--rank-property)).
 
@@ -42,7 +42,7 @@ If `theDescriptor` describes a rule, then if `rank` is present, it **SHALL** pro
 
 `rank` is not applicable to notifications.
 
-### parameters property{#reportingconfiguration-object--parameters-property}
+### `parameters` Property{#reportingconfiguration-object--parameters-property}
 
 A `reportingConfiguration` object **MAY** contain a property named `parameters` whose value is a property bag ([sec](#property-bags)). This allows a `reportingDescriptor` object ([sec](#reportingdescriptor-object)) to define configuration information that is specific to that descriptor.
 
