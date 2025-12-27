@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 10 July 2025
+## 07 August 2025
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -35,10 +35,10 @@ Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* SARIF schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-schema-2.2.json. \
-  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json
-* SARIF External Property File schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json. \
-  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json
+* SARIF schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json. \
+  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json
+* SARIF External Property File schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json. \
+  Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json
 
 #### Related work:
 This specification replaces or supersedes:
@@ -62,7 +62,7 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 10 July 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 07 August 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
 
 
 -------
@@ -643,6 +643,7 @@ Appendix K. [(Informative) Examples](#informative-examples)
 	K.4 [Comprehensive SARIF file](#comprehensive-sarif-file)  
 Appendix L. [(Informative) Revision History](#informative-revision-history)  
 Appendix M. [(Informative) MIME Types and File Name Extensions](#informative-mime-types-and-file-name-extensions)  
+Appendix N. [Safety, Security and Data Protection](#safety-security-and-data-protection)  
 -------
 
 # 1. Introduction <a id='introduction'></a>
@@ -2088,8 +2089,8 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 >
 > ```json
 > {
->   "version": "2.1.0",
->   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json",
+>   "version": "2.2",
+>   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",
 > 
 >   "inlineExternalProperties": [
 >     {                                            
@@ -10003,7 +10004,7 @@ The file contains a single `run` object ([§3.14](#run-object)) with an empty `r
 
 ```json
 {
-  "version": "2.1.0",
+  "version": "2.2",
   "runs": [
     {
       "tool": {
@@ -10034,7 +10035,7 @@ This example also includes a `toolComponent.rules` property ([§3.19.23](#rules-
 
 ```json
 {
-  "version": "2.1.0",
+  "version": "2.2",
   "runs": [
     {
       "tool": {
@@ -10115,7 +10116,7 @@ It contains a `run.logicalLocations` property ([§3.14.17](#run-object--logicall
 
 ```json
 {
-  "version": "2.1.0",
+  "version": "2.2",
   "runs": [
     {
       "tool": {
@@ -10181,8 +10182,8 @@ Because the purpose is to present as many elements as possible, the file as a wh
 
 ```json
 {
-  "version": "2.1.0",
-  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json",
+  "version": "2.2",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",
   "runs": [
     {
       "automationDetails": {
@@ -10942,6 +10943,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
 | sarif-v2.2-wd20240808-dev | 2024-08-08 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #459, #483, #491, #492, and #634. |
 | sarif-v2.2-wd20250612-dev | 2025-06-12 | Stefan Hagen                | Editor revision for meeting 2025-06-12.                                  |
 | sarif-v2.2-wd20250710-dev | 2025-07-10 | Stefan Hagen                | Editor revision for meeting 2025-07-10.                                  |
+| sarif-v2.2-wd20250807-dev | 2025-08-07 | Stefan Hagen                | Editor revision for meeting 2025-08-07.                                  |
 
 # Appendix M. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
 
@@ -10951,5 +10953,60 @@ The following is a list of MIME types and file extensions for files that conform
 |:-------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------------------|
 | application/sarif+json                     | .sarif,<br>.sarif.json                                         | SARIF log files ([§3](#file-format))                                 |
 | application/sarif-external-properties+json | .sarif-external-properties,<br>.sarif-external-properties.json | SARIF external property files ([§4](#external-property-file-format)) |
+
+# Appendix N. Safety, Security and Data Protection <a id='safety-security-and-data-protection'></a>
+
+All safety, security, and data protection requirements relevant to the context in which SARIF documents are used MUST be translated into,
+and consistently enforced through, SARIF implementations and processes.
+
+SARIF documents are based on JSON, thus the security considerations of \[[RFC8259](#RFC8259)\] apply and are repeated here as service for the reader:
+
+> Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
+>
+> Since JSON's syntax is borrowed from JavaScript, it is possible to use that language's `eval()` function to parse most JSON texts
+> (but not all; certain characters such as `U+2028 LINE SEPARATOR` and `U+2029 PARAGRAPH SEPARATOR` are legal in JSON but not JavaScript).
+> This generally constitutes an unacceptable security risk, since the text could contain executable code along with data declarations.
+> The same consideration applies to the use of eval()-like functions in any other programming language in which JSON texts conform to
+> that language's syntax.
+
+In addition, SARIF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
+Thus, for security reasons, SARIF producers and consumers SHALL adhere to the following:
+
+- SARIF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted.
+  To include HTML, source code, or any other content that may be interpreted or executed by a SARIF consumer,
+  e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
+- Deeply nested markup can cause a stack overflow in the Markdown processor \[[GFMENG](#GFMENG)\].
+  To reduce this risk, SARIF consumers SHALL use a Markdown processor that is hardened against such attacks.
+  **Note**: One example is the GitHub fork of the `cmark` Markdown processor \[[GFMCMARK](#GFMCMARK)\].
+- To reduce the risk posed by possibly malicious SARIF files that do contain arbitrary HTML (including, for example, `data:image/svg+xml`),
+  SARIF consumers SHALL either disable HTML processing (for example, by using the `--safe` option in the `cmark` Markdown processor)
+  or run the resulting HTML through an HTML sanitizer.
+- To reduce the risk posed by possibly malicious links within a SARIF document (including, for example, `javascript:` links),
+  SARIF consumers SHALL either remove all actions from links (for example, by displaying them as standard text)
+  or render only those actionable that are known to be safe (for example, determining that via the media type).
+- `externalPropertyFileReferences` MAY allow confidential data to be read from JSON files to which the SARIF producer does not have access.
+- In an `artifactLocation` object, the `uri` property MAY point to a file outside the expected directory tree,
+  e.g. "file:///etc/passwd" when the actually analysed files are in a disjoint directory tree.
+  In this case, `fix` objects MAY propose edits to such an out-of-tree artifact.
+
+SARIF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to
+render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can
+be contained within a SARIF document, SARIF consumers SHALL ensure that none of the values of a SARIF document is run as code.
+Moreover, it SHALL be treated as unsafe (user) input.
+
+> Additional, supporting mitigation measures like retrieving only SARIF documents from trusted sources and check their integrity
+> before parsing the document SHOULD be in place to reduce the risk further.
+
+The distribution requirements of SARIF data allow to specify domains as the value of the HTTP header `Access-Control-Allow-Origin`.
+While a wildcard (`*`) as header value usually prevents implementing browsers from sending credentials during the CORS request,
+the restriction to specified domains often enables sending credentials.
+Allowing several specified domains results in using dynamics on the server, which can widen the attack surface by using more code and configuration.
+Furthermore, this might reveal information about internal structures, e.g. which domains are allowed to send credentials, or which tools are used.
+Given that credentials from a browser are a potent tool in the event of an attack, restricting the origins seems to imply a higher risk and
+therefore less secure than allowing all domains without credentials.
+
+As setting the `Access-Control-Allow-Origin` header potentially allows for cross site request forgery,
+it SHOULD only be served on files and directories containing SARIF data.
+For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.
 
 [^1]: Pronounced 'sæ-rɪf ("a" as in "cat", "i" as in "if", emphasis on the first syllable).

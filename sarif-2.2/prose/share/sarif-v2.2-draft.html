@@ -10,6 +10,9 @@
     </title>
     <style>
     
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -416,8 +419,8 @@
     <h2 id="committee-specification-draft-01">
       Committee Specification Draft 01
     </h2>
-    <h2 id="10-july-2025">
-      10 July 2025
+    <h2 id="07-august-2025">
+      07 August 2025
     </h2>
     <h3 id="this-stage">
       This stage:
@@ -468,11 +471,11 @@
       This prose specification is one component of a Work Product that also includes:
     </p>
     <ul>
-      <li>SARIF schema: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-schema-2.2.json">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-schema-2.2.json</a>.<br />
-        Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json">https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-schema-2.2.json</a>
+      <li>SARIF schema: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json</a>.<br />
+        Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json">https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json</a>
       </li>
-      <li>SARIF External Property File schema: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schemas/sarif-external-property-file-schema-2.2.json</a>.<br />
-        Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json">https://docs.oasis-open.org/sarif/sarif/v2.2/schemas/sarif-external-property-file-schema-2.2.json</a>
+      <li>SARIF External Property File schema: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json</a>.<br />
+        Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json">https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json</a>
       </li>
     </ul>
     <h4 id="related-work">
@@ -521,8 +524,8 @@
       <strong>[SARIF-v2.2]</strong>
     </p>
     <p>
-      <em>Static Analysis Results Interchange Format (SARIF) Version 2.2</em>. Edited by Michael Fanning and Stefan Hagen. 10 July 2025. Committees Specification Draft. <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html</a>. Latest stage:
-      <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html">https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html</a>.
+      <em>Static Analysis Results Interchange Format (SARIF) Version 2.2</em>. Edited by Michael Fanning and Stefan Hagen. 07 August 2025. Committees Specification Draft. <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html</a>. Latest
+      stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html">https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html</a>.
     </p>
     <hr />
     <h2 id="notices">
@@ -1806,6 +1809,8 @@
         </li>
         <li>Appendix M. <a href="#informative-mime-types-and-file-name-extensions">(Informative) MIME Types and File Name Extensions</a>
         </li>
+        <li>Appendix N. <a href="#safety-security-and-data-protection">Safety, Security and Data Protection</a>
+        </li>
       </ul>
     </div>
     <h1 id="1-introduction-">
@@ -2975,7 +2980,7 @@ non negative integer =
         agreed upon a convention whereby this indicates that the relative reference is expressed relative to the root of the source tree in which the file appears.
       </p>
       <div class="sourceCode" id="cb5">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">"artifactLocation":</span> <span class="fu">{</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">"artifactLocation"</span><span class="er">:</span> <span class="fu">{</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"drivers/video/hidef/driver.c"</span><span class="fu">,</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"uriBaseId"</span><span class="fu">:</span> <span class="st">"%srcroot%"</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre>
@@ -4349,8 +4354,8 @@ index = non negative integer;</code></pre>
       </p>
       <div class="sourceCode" id="cb26">
         <pre class="sourceCode json"><code class="sourceCode json"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.1.0"</span><span class="fu">,</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"$schema"</span><span class="fu">:</span> <span class="st">"https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json"</span><span class="fu">,</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.2"</span><span class="fu">,</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"$schema"</span><span class="fu">:</span> <span class="st">"https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json"</span><span class="fu">,</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"inlineExternalProperties"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span>                                            </span>
@@ -4650,7 +4655,7 @@ index = non negative integer;</code></pre>
         EXAMPLE 1: In this example, the "top-level" property <code>PROJECTROOT</code> specifies a URI containing a username:
       </p>
       <div class="sourceCode" id="cb31">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="er">"originalUriBaseIds":</span> <span class="fu">{</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="st">"originalUriBaseIds"</span><span class="er">:</span> <span class="fu">{</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"PROJECTROOT"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"file:///C:/Users/Mary/code/TheProject/"</span><span class="fu">,</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"description"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -4670,7 +4675,7 @@ index = non negative integer;</code></pre>
         A post-processor might remove <code>uri</code> to avoid revealing a username. The advantage of this approach over removing the entire <code>PROJECTROOT</code> property is that it retains the <code>description</code> property:
       </p>
       <div class="sourceCode" id="cb32">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="er">"originalUriBaseIds":</span> <span class="fu">{</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="st">"originalUriBaseIds"</span><span class="er">:</span> <span class="fu">{</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"PROJECTROOT"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"description"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"The root directory for all project files."</span></span>
@@ -4832,7 +4837,7 @@ index = non negative integer;</code></pre>
         EXAMPLE 1:
       </p>
       <div class="sourceCode" id="cb34">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="er">"artifacts":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="st">"artifacts"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"location"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"file:///C:/Code/main.c"</span></span>
@@ -4877,7 +4882,7 @@ index = non negative integer;</code></pre>
         EXAMPLE 1: In this example, a result was detected in the C++ class <code>namespaceA::namespaceB::classC</code>. The <code>logicalLocations</code> array contains not only an element describing the class, but also elements describing its containing namespaces.
       </p>
       <div class="sourceCode" id="cb35">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="er">"logicalLocations":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="st">"logicalLocations"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"classC"</span><span class="fu">,</span></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"fullyQualifiedName"</span><span class="fu">:</span> <span class="st">"namespaceA::namespaceB::classC"</span><span class="fu">,</span></span>
@@ -6371,8 +6376,8 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         EXAMPLE 1:
       </p>
       <div class="sourceCode" id="cb50">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="er">"driver":</span> <span class="fu">{</span>                       <span class="er">#</span> <span class="er">A</span> <span class="er">toolComponent</span> <span class=
-        "er">object</span> <span class="er">(§3.19).</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="st">"driver"</span><span class="er">:</span> <span class="fu">{</span>                       <span class="er">#</span> <span class="er">A</span> <span class=
+        "er">toolComponent</span> <span class="er">object</span> <span class="er">(§3.19).</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"globalMessageStrings"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"call"</span><span class="fu">:</span> <span class="fu">{</span>                     <span class="er">#</span> <span class="er">A</span> <span class="er">multiformatMessageString</span> <span class="er">object</span> <span class=
 "er">(§3.12).</span></span>
@@ -6407,8 +6412,8 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         EXAMPLE 1: In this example, two distinct but related rules have the same rule id. They are distinguished by their message strings.
       </p>
       <div class="sourceCode" id="cb51">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="er">"driver":</span> <span class="fu">{</span>                       <span class="er">#</span> <span class="er">A</span> <span class="er">toolComponent</span> <span class=
-        "er">object</span> <span class="er">(§3.19).</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="st">"driver"</span><span class="er">:</span> <span class="fu">{</span>                       <span class="er">#</span> <span class="er">A</span> <span class=
+        "er">toolComponent</span> <span class="er">object</span> <span class="er">(§3.19).</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"CodeScaner"</span><span class="fu">,</span></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"rules"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span>                             <span class="er">#</span> <span class="er">A</span> <span class="er">reportingDescriptor</span> <span class="er">object</span> <span class="er">(§3.49).</span></span>
@@ -6454,8 +6459,8 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         EXAMPLE 1: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
       </p>
       <div class="sourceCode" id="cb52">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="er">"driver":</span> <span class="fu">{</span>                      <span class="er">#</span> <span class="er">A</span> <span class="er">toolComponent</span> <span class=
-        "er">object</span> <span class="er">(§3.19).</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="st">"driver"</span><span class="er">:</span> <span class="fu">{</span>                      <span class="er">#</span> <span class="er">A</span> <span class=
+        "er">toolComponent</span> <span class="er">object</span> <span class="er">(§3.19).</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"notifications"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span>                            <span class="er">#</span> <span class="er">A</span> <span class="er">reportingDescriptor</span> <span class="er">object</span> <span class="er">(§3.49).</span></span>
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"ERR0001"</span><span class="fu">,</span></span>
@@ -7140,7 +7145,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         correctly configured.
       </p>
       <div class="sourceCode" id="cb65">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="er">"toolConfigurationNotifications":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="st">"toolConfigurationNotifications"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span>                                 <span class="er">#</span> <span class="er">A</span> <span class="er">notification</span> <span class="er">object</span> <span class="er">(§3.58).</span></span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"descriptor"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"UnknownRule"</span></span>
@@ -7162,7 +7167,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         EXAMPLE 2: A tool is invoked with an unknown command-line argument. The tool reports the problem in <code>toolConfigurationNotifications</code>. The tool might report the problem as a warning and continue to run, or it might report the problem as an error and terminate.
       </p>
       <div class="sourceCode" id="cb66">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="er">"toolConfigurationNotifications":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="st">"toolConfigurationNotifications"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span>                                 <span class="er">#</span> <span class="er">A</span> <span class="er">notification</span> <span class="er">object</span> <span class="er">(§3.58).</span></span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"descriptor"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"UnknownCommandLineArgument"</span></span>
@@ -7180,7 +7185,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         EXAMPLE 3: A tool is invoked with a command-line argument that specifies the name of a directory containing files to analyze, but the user who invoked the tool does not have read access to that directory. The tool reports the problem as an error in <code>toolConfigurationNotifications</code> and then terminates.
       </p>
       <div class="sourceCode" id="cb67">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="er">"toolConfigurationNotifications":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="st">"toolConfigurationNotifications"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span>                                 <span class="er">#</span> <span class="er">A</span> <span class="er">notification</span> <span class="er">object</span> <span class="er">(§3.58).</span></span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"descriptor"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"AccessDenied"</span></span>
@@ -7618,7 +7623,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         document’s <code>parentIndex</code> property refers to its parent ZIP archive, and the ZIP archive does not have a <code>parentIndex</code> property.
       </p>
       <div class="sourceCode" id="cb71">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="er">"artifacts":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="st">"artifacts"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"location"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"file:///C:/Code/app.zip"</span></span>
@@ -8203,7 +8208,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         If <code>displayBase</code> were changed to
       </p>
       <div class="sourceCode" id="cb78">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="er">"displayBase":</span> <span class="fu">{</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="st">"displayBase"</span><span class="er">:</span> <span class="fu">{</span></span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">""</span><span class="fu">,</span></span>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"uriBaseId"</span><span class="fu">:</span> <span class="st">"HOME"</span></span>
 <span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre>
@@ -8654,7 +8659,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         EXAMPLE 1: In this example, a binary checker has a rule that applies to 32-bit binaries only. It produces a <code>"notApplicable"</code> result if it is run on a 64-bit binary. It also has a rule that checks the compiler version and produces an informational result:
       </p>
       <div class="sourceCode" id="cb82">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="er">"results":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="st">"results"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ruleId"</span><span class="fu">:</span> <span class="st">"ABC0001"</span><span class="fu">,</span></span>
 <span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"kind"</span><span class="fu">:</span> <span class="st">"notApplicable"</span><span class="fu">,</span></span>
@@ -8746,7 +8751,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         EXAMPLE 1: In this example, the tool reports an opportunity to improve the code.
       </p>
       <div class="sourceCode" id="cb83">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="er">"results":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="st">"results"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ruleId"</span><span class="fu">:</span> <span class="st">"ABC0003"</span><span class="fu">,</span></span>
 <span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"kind"</span><span class="fu">:</span> <span class="st">"fail"</span><span class="fu">,</span></span>
@@ -8862,7 +8867,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         EXAMPLE 1: This is an example of a <code>message</code>:
       </p>
       <div class="sourceCode" id="cb84">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="er">"results":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="st">"results"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"message"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Deleting member 'x' of variable 'y' may compromise</span></span>
@@ -9284,7 +9289,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
         The result might appear in the log file like this:
       </p>
       <div class="sourceCode" id="cb93">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="er">"results":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="st">"results"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ruleId"</span><span class="fu">:</span> <span class="st">"JS3056"</span><span class="fu">,</span></span>
 <span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"level"</span><span class="fu">:</span> <span class="st">"error"</span><span class="fu">,</span></span>
@@ -9633,8 +9638,8 @@ result.stacks[0].frames[0].location</code></pre>
         If the analysis tool wanted to emphasize the expression <code>(y + z)</code>, it might set the <code>annotations</code> property to:
       </p>
       <div class="sourceCode" id="cb97">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="er">"annotations":</span> <span class="ot">[</span>                  <span class="er">#</span> <span class="er">An</span> <span class="er">array</span> <span class="er">of</span> <span class=
-        "er">region</span> <span class="er">objects.</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="st">"annotations"</span><span class="er">:</span> <span class="ot">[</span>                  <span class="er">#</span> <span class="er">An</span> <span class="er">array</span> <span class=
+        "er">of</span> <span class="er">region</span> <span class="er">objects.</span></span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span>                               <span class="er">#</span> <span class="er">A</span> <span class="er">region</span> <span class="er">object</span> <span class="er">(§3.30).</span></span>
 <span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"startLine"</span><span class="fu">:</span> <span class="dv">12</span><span class="fu">,</span></span>
 <span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"startColumn"</span><span class="fu">:</span> <span class="dv">9</span><span class="fu">,</span></span>
@@ -10067,7 +10072,7 @@ lmn\r\n</code></pre>
 <span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"endLine"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span>      <span class="er">//</span> <span class="er">Missing</span> <span class="er">endLine</span> <span class="er">defaults</span> <span class=
 "er">to</span> <span class="er">startLine.</span></span>
 <span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"endColumn"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span>    <span class="er">//</span> <span class="er">Missing</span> <span class="er">endColumn</span> <span class="er">defaults</span> <span class=
-"er">to</span> <span class="er">(length</span> <span class="er">of</span> <span class="er">endLine</span> <span class="er">+</span> <span class="er">1)</span><span class="fu">,</span></span>
+"er">to</span> <span class="er">(length</span> <span class="er">of</span> <span class="er">endLine</span> <span class="er">+</span> <span class="er">1),</span></span>
 <span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a>                     <span class="er">//</span> <span class="er">exclusive</span> <span class="er">of</span> <span class="er">newline</span> <span class="er">sequence.</span></span>
 <span id="cb112-7"><a href="#cb112-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"byteOffset"</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
 <span id="cb112-8"><a href="#cb112-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"byteLength"</span><span class="fu">:</span> <span class="dv">6</span></span>
@@ -10727,7 +10732,7 @@ lmn\r\n</code></pre>
         If the tool detected one result in <code>class B</code> in <em>file1.cpp</em>, and another result in <code>namespace B</code> in <em>file2.cpp</em>, the <code>fullyQualifiedName</code> for both would be <code>A::B</code>. However, they would be distinguished by their <code>parentIndex</code> properties:
       </p>
       <div class="sourceCode" id="cb117">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="er">"logicalLocations":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="st">"logicalLocations"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"B"</span><span class="fu">,</span></span>
 <span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"fullyQualifiedName"</span><span class="fu">:</span> <span class="st">"A::B"</span><span class="fu">,</span> </span>
@@ -10916,9 +10921,9 @@ lmn\r\n</code></pre>
         EXAMPLE 1: Consider the following XML document:
       </p>
       <div class="sourceCode" id="cb119">
-        <pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>1.  <span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
+        <pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>1.  <span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span><span class="fu">?&gt;</span></span>
 <span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>2.  &lt;<span class="kw">orders</span>&gt;</span>
-<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>3.    &lt;<span class="kw">order</span><span class="ot"> number=</span><span class="st">""</span>&gt;</span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>3.    &lt;<span class="kw">order</span> <span class="ot">number=</span><span class="st">""</span>&gt;</span>
 <span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a>4.      &lt;<span class="kw">total</span>&gt;-$3.25&lt;/<span class="kw">total</span>&gt;</span>
 <span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a>5.    &lt;/<span class="kw">order</span>&gt;</span>
 <span id="cb119-6"><a href="#cb119-6" aria-hidden="true" tabindex="-1"></a>6.  &lt;/<span class="kw">order</span>&gt;</span></code></pre>
@@ -11024,7 +11029,7 @@ lmn\r\n</code></pre>
         EXAMPLE 2: Consider the following JSON document:
       </p>
       <div class="sourceCode" id="cb121">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="er">1.</span>  <span class="fu">{</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="er">.</span>  <span class="fu">{</span></span>
 <span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="er">2.</span>    <span class="dt">"orders"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="er">.</span>      <span class="fu">{</span></span>
 <span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a><span class="er">4.</span>        <span class="dt">"productIds"</span><span class="fu">:</span> <span class="ot">[</span> <span class="st">"A-101"</span><span class="ot">,</span> <span class="st">""</span><span class="ot">,</span> <span class=
@@ -12059,7 +12064,7 @@ VulnerabilityNotFeasible</code></pre>
         EXAMPLE 1: In this example, tainted data enters the system at this location.
       </p>
       <div class="sourceCode" id="cb132">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="er">"kinds":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="st">"kinds"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"acquire"</span><span class="ot">,</span></span>
 <span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"taint"</span></span>
 <span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre>
@@ -12070,7 +12075,7 @@ VulnerabilityNotFeasible</code></pre>
         EXAMPLE 2: In this example, the "taint" state of a data item at this location is unknown:
       </p>
       <div class="sourceCode" id="cb133">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="er">"kinds":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="st">"kinds"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"taint"</span><span class="ot">,</span></span>
 <span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"unknown"</span></span>
 <span id="cb133-4"><a href="#cb133-4" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre>
@@ -13372,7 +13377,7 @@ VulnerabilityNotFeasible</code></pre>
         EXAMPLE 1: Given this analysis tool’s output file:
       </p>
       <div class="sourceCode" id="cb146">
-        <pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+        <pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">problems</span>&gt;</span>
 <span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">problem</span>&gt;</span>
 <span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">file</span>&gt;&lt;/<span class="kw">file</span>&gt;</span>
@@ -14536,7 +14541,7 @@ VulnerabilityNotFeasible</code></pre>
         EXAMPLE 1:
       </p>
       <div class="sourceCode" id="cb164">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="er">"fix":</span> <span class="fu">{</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="st">"fix"</span><span class="er">:</span> <span class="fu">{</span></span>
 <span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"description"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Combine declaration and initialization of variable 'x'."</span></span>
 <span id="cb164-4"><a href="#cb164-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
@@ -14724,7 +14729,7 @@ VulnerabilityNotFeasible</code></pre>
         EXAMPLE 1: Suppose an <code>artifactChange</code> object contains a <code>replacements</code> property whose value is the following array of <code>replacement</code> objects:
       </p>
       <div class="sourceCode" id="cb168">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="er">"artifactChanges":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="st">"artifactChanges"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb168-3"><a href="#cb168-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"deletedRegion"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb168-4"><a href="#cb168-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"byteOffset"</span><span class="fu">:</span> <span class="dv">12</span><span class="fu">,</span></span>
@@ -14770,7 +14775,7 @@ VulnerabilityNotFeasible</code></pre>
         EXAMPLE 2: In this example, the <code>replacements</code> property specifies a replacement in a text file.
       </p>
       <div class="sourceCode" id="cb169">
-        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="er">"replacements":</span> <span class="ot">[</span></span>
+        <pre class="sourceCode json"><code class="sourceCode json"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="st">"replacements"</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"deletedRegion"</span><span class="fu">:</span> <span class="fu">{</span> <span class="er">#</span> <span class="er">The</span> <span class="er">region</span> <span class="er">object</span> <span class="er">represents</span> <span class=
 "er">a</span> <span class="er">text</span> <span class="er">region</span> <span class="er">(§3.30.2).</span></span>
@@ -16720,7 +16725,7 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     </p>
     <div class="sourceCode" id="cb183">
       <pre class="sourceCode json"><code class="sourceCode json"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.1.0"</span><span class="fu">,</span></span>
+<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.2"</span><span class="fu">,</span></span>
 <span id="cb183-3"><a href="#cb183-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"runs"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb183-4"><a href="#cb183-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
 <span id="cb183-5"><a href="#cb183-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"tool"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -16757,7 +16762,7 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     </p>
     <div class="sourceCode" id="cb184">
       <pre class="sourceCode json"><code class="sourceCode json"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.1.0"</span><span class="fu">,</span></span>
+<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.2"</span><span class="fu">,</span></span>
 <span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"runs"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
 <span id="cb184-5"><a href="#cb184-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"tool"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -16843,7 +16848,7 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     </p>
     <div class="sourceCode" id="cb185">
       <pre class="sourceCode json"><code class="sourceCode json"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb185-2"><a href="#cb185-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.1.0"</span><span class="fu">,</span></span>
+<span id="cb185-2"><a href="#cb185-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.2"</span><span class="fu">,</span></span>
 <span id="cb185-3"><a href="#cb185-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"runs"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb185-4"><a href="#cb185-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
 <span id="cb185-5"><a href="#cb185-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"tool"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -16912,8 +16917,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     </p>
     <div class="sourceCode" id="cb186">
       <pre class="sourceCode json"><code class="sourceCode json"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.1.0"</span><span class="fu">,</span></span>
-<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"$schema"</span><span class="fu">:</span> <span class="st">"https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json"</span><span class="fu">,</span></span>
+<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"2.2"</span><span class="fu">,</span></span>
+<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"$schema"</span><span class="fu">:</span> <span class="st">"https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json"</span><span class="fu">,</span></span>
 <span id="cb186-4"><a href="#cb186-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"runs"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb186-5"><a href="#cb186-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
 <span id="cb186-6"><a href="#cb186-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"automationDetails"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -17742,6 +17747,20 @@ Yekaterina O'Neil, Micro Focus</code></pre>
             Editor revision for meeting 2025-07-10.
           </td>
         </tr>
+        <tr>
+          <td style="text-align: left;">
+            sarif-v2.2-wd20250807-dev
+          </td>
+          <td style="text-align: left;">
+            2025-08-07
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen
+          </td>
+          <td style="text-align: left;">
+            Editor revision for meeting 2025-08-07.
+          </td>
+        </tr>
       </tbody>
     </table>
     <h1 id="appendix-m-informative-mime-types-and-file-name-extensions-">
@@ -17791,6 +17810,63 @@ Yekaterina O'Neil, Micro Focus</code></pre>
         </tr>
       </tbody>
     </table>
+    <h1 id="appendix-n-safety-security-and-data-protection-">
+      Appendix N. Safety, Security and Data Protection <a id='safety-security-and-data-protection'></a>
+    </h1>
+    <p>
+      All safety, security, and data protection requirements relevant to the context in which SARIF documents are used MUST be translated into, and consistently enforced through, SARIF implementations and processes.
+    </p>
+    <p>
+      SARIF documents are based on JSON, thus the security considerations of [<a href="#RFC8259">RFC8259</a>] apply and are repeated here as service for the reader:
+    </p>
+    <blockquote>
+      <p>
+        Generally, there are security issues with scripting languages. JSON is a subset of JavaScript but excludes assignment and invocation.
+      </p>
+      <p>
+        Since JSON's syntax is borrowed from JavaScript, it is possible to use that language's <code>eval()</code> function to parse most JSON texts (but not all; certain characters such as <code>U+2028 LINE SEPARATOR</code> and <code>U+2029 PARAGRAPH SEPARATOR</code> are legal in JSON but not JavaScript). This generally constitutes an
+        unacceptable security risk, since the text could contain executable code along with data declarations. The same consideration applies to the use of eval()-like functions in any other programming language in which JSON texts conform to that language's syntax.
+      </p>
+    </blockquote>
+    <p>
+      In addition, SARIF documents may be rendered by consumers in various human-readable formats like HTML or PDF. Thus, for security reasons, SARIF producers and consumers SHALL adhere to the following:
+    </p>
+    <ul>
+      <li>SARIF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted. To include HTML, source code, or any other content that may be interpreted or executed by a SARIF consumer, e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code
+      option.
+      </li>
+      <li>Deeply nested markup can cause a stack overflow in the Markdown processor [<a href="#GFMENG">GFMENG</a>]. To reduce this risk, SARIF consumers SHALL use a Markdown processor that is hardened against such attacks. <strong>Note</strong>: One example is the GitHub fork of the <code>cmark</code> Markdown processor [<a href=
+      "#GFMCMARK">GFMCMARK</a>].
+      </li>
+      <li>To reduce the risk posed by possibly malicious SARIF files that do contain arbitrary HTML (including, for example, <code>data:image/svg+xml</code>), SARIF consumers SHALL either disable HTML processing (for example, by using the <code>--safe</code> option in the <code>cmark</code> Markdown processor) or run the resulting HTML
+      through an HTML sanitizer.
+      </li>
+      <li>To reduce the risk posed by possibly malicious links within a SARIF document (including, for example, <code>javascript:</code> links), SARIF consumers SHALL either remove all actions from links (for example, by displaying them as standard text) or render only those actionable that are known to be safe (for example, determining that
+      via the media type).
+      </li>
+      <li>
+        <code>externalPropertyFileReferences</code> MAY allow confidential data to be read from JSON files to which the SARIF producer does not have access.
+      </li>
+      <li>In an <code>artifactLocation</code> object, the <code>uri</code> property MAY point to a file outside the expected directory tree, e.g. "file:///etc/passwd" when the actually analysed files are in a disjoint directory tree. In this case, <code>fix</code> objects MAY propose edits to such an out-of-tree artifact.
+      </li>
+    </ul>
+    <p>
+      SARIF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can be contained within a SARIF document, SARIF consumers SHALL ensure that none of the values of a
+      SARIF document is run as code. Moreover, it SHALL be treated as unsafe (user) input.
+    </p>
+    <blockquote>
+      <p>
+        Additional, supporting mitigation measures like retrieving only SARIF documents from trusted sources and check their integrity before parsing the document SHOULD be in place to reduce the risk further.
+      </p>
+    </blockquote>
+    <p>
+      The distribution requirements of SARIF data allow to specify domains as the value of the HTTP header <code>Access-Control-Allow-Origin</code>. While a wildcard (<code>*</code>) as header value usually prevents implementing browsers from sending credentials during the CORS request, the restriction to specified domains often enables
+      sending credentials. Allowing several specified domains results in using dynamics on the server, which can widen the attack surface by using more code and configuration. Furthermore, this might reveal information about internal structures, e.g. which domains are allowed to send credentials, or which tools are used. Given that
+      credentials from a browser are a potent tool in the event of an attack, restricting the origins seems to imply a higher risk and therefore less secure than allowing all domains without credentials.
+    </p>
+    <p>
+      As setting the <code>Access-Control-Allow-Origin</code> header potentially allows for cross site request forgery, it SHOULD only be served on files and directories containing SARIF data. For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.
+    </p>
     <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
       <hr />
       <ol>
