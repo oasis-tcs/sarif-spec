@@ -6,7 +6,7 @@ toc:
   enumerate: Appendix E.
 ---
 -->
-# (Informative) Locating rule and notification metadata
+# (Informative) Locating Rule and Notification Metadata
 
 The SARIF format allows rule and notification metadata to be included in a SARIF log file (see [sec](#rules-property) and [sec](#notifications-property)). A SARIF log file does not need to include any metadata. This raises the questions of when metadata should be included in a log file, and how to locate the metadata if it is not included in the log file.
 

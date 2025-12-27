@@ -1,4 +1,4 @@
-## translationMetadata object
+## `translationMetadata` Object
 
 ### General{#translationmetadata-object--general}
 
@@ -29,26 +29,26 @@ Because they occur only in `toolComponent` objects that represent translations, 
 > }
 > ```
 
-### name property{#translationmetadata-object--name-property}
+### `name` Property{#translationmetadata-object--name-property}
 
 A `translationMetadata` object **SHALL** contain a property named `name` whose value is a string containing a name for the translation.
 
-### fullName property{#translationmetadata-object--fullname-property}
+### `fullName` Property{#translationmetadata-object--fullname-property}
 
 A `translationMetadata` object **MAY** contain a property named `fullName` whose value is a string containing the name of the translation along with any other useful identifying information.
 
-### shortDescription property{#translationmetadata-object--shortdescription-property}
+### `shortDescription` Property{#translationmetadata-object--shortdescription-property}
 
 A `translationMetadata` object **MAY** contain a property named `shortDescription` whose value is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) containing a brief description of the translation.
 
-### fullDescription property{#translationmetadata-object--fulldescription-property}
+### `fullDescription` Property{#translationmetadata-object--fulldescription-property}
 
 A `translationMetadata` object **MAY** contain a property named `fullDescription` whose value is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) containing a comprehensive description of the translation.
 
-### downloadUri property{#translationmetadata-object--downloaduri-property}
+### `downloadUri` Property{#translationmetadata-object--downloaduri-property}
 
 A `translationMetadata` object **MAY** contain a property named `downloadUri` whose value is a string containing the absolute URI [cite](#RFC3986) from which the translation can be downloaded.
 
-### informationUri property{#translationmetadata-object--informationuri-property}
+### `informationUri` Property{#translationmetadata-object--informationuri-property}
 
 A `translationMetadata` object **MAY** contain a property named `informationUri` whose value is a string containing the absolute URI [cite](#RFC3986) at which information about the translation can be found.

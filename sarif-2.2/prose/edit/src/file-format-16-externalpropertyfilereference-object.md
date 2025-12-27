@@ -1,4 +1,4 @@
-## externalPropertyFileReference object
+## `externalPropertyFileReference` Object
 
 ### General{#externalpropertyfilereference-object--general}
 
@@ -10,7 +10,7 @@ At least one of the `location` property ([sec](#externalpropertyfilereference-ob
 
 > NOTE: This constraint ensures that it is possible to locate the externalized properties.
 
-### location property{#externalpropertyfilereference-object--location-property}
+### `location` Property{#externalpropertyfilereference-object--location-property}
 
 Depending on the circumstances, an `externalPropertyFileReference` object either **SHALL** or **MAY** contain a property named `location` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies the location of the external property file.
 
@@ -18,7 +18,7 @@ If the externalized properties are persisted in a separate file, `location` **SH
 
 Otherwise (that is, if the externalized properties are persisted as an element of `theSarifLog.inlineExternalProperties` ([sec](#inlineexternalproperties-property))), then `location` **MAY** be present. If `location` is present, its `uri` property **SHALL** resolve to an absolute URI using the `sarif` scheme ([sec](#uris-that-use-the-sarif-scheme)). If `location` is absent, then a SARIF consumer that needs to locate the externalized properties **SHALL** do so using the `guid` property ([sec](#externalpropertyfilereference-object--guid-property)).
 
-### guid property{#externalpropertyfilereference-object--guid-property}
+### `guid` Property{#externalpropertyfilereference-object--guid-property}
 
 Depending on the circumstances, an `externalPropertyFileReference` object either **SHALL** or **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which provides a unique, stable identifier for the external property file.
 
@@ -30,7 +30,7 @@ Otherwise (that is, if the externalized properties are persisted in a separate f
 
 If `guid` is present, it **SHALL** equal the `guid` property ([sec](#externalproperties-object--guid-property)) of the `externalProperties` object ([sec](#externalproperties-object)) identified by `guid` and/or `location`.
 
-### itemCount property
+### `itemCount` Property
 
 If an `externalPropertyFileReference` object specifies an external property file that contains all or a portion of an array-valued property, it **MAY** contain a property named `itemCount` whose value is a non-negative integer that specifies the number of items in the externalized property array in that file. If the `externalPropertyFileReference` object specifies an external property file that contains an object-valued property, `itemCount` **SHALL** be absent.
 

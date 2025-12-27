@@ -1,4 +1,4 @@
-## externalPropertyFileReferences object
+## `externalPropertyFileReferences` Object
 
 ### General{#externalpropertyfilereferences-object--general}
 

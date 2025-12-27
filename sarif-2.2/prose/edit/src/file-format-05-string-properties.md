@@ -1,10 +1,10 @@
-## String properties
+## String Properties
 
-### Localizable strings
+### Localizable Strings
 
 Certain string-valued properties in this document, for example, `toolComponent.name` ([sec](#toolcomponent-object--name-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
 
-### Redactable strings
+### Redactable Strings
 
 Certain string-valued properties in this document (for example, `invocation.commandLine` ([sec](#commandline-property))) might contain
 sensitive information that a SARIF producer or a SARIF post-processor might choose to redact.
@@ -13,7 +13,7 @@ We describe these properties as "redactable." The description of every redactabl
 If a SARIF producer or a SARIF post-processor chooses to redact sensitive information in a redactable property,
 it **SHALL** replace the sensitive information with a string whose value is an element of `theRun.redactionTokens` ([sec](#redactiontokens-property)).
 
-### GUID-valued strings
+### GUID-valued Strings
 
 Certain string-valued properties in this document provide unique stable identifiers in the form of a GUID or UUID [cite](#RFC4122).
 This document uses the term "GUID".
@@ -41,7 +41,7 @@ Differing `guid` values on the root elements of two or more SARIF files indicate
 
 > Examples are reports from different nodes on the same system under test using identical tools or a retest run.
 
-### Hierarchical strings
+### Hierarchical Strings
 
 #### General{#hierarchical-strings--general}
 
@@ -76,7 +76,7 @@ In string-valued properties and property names that are *not* described as hiera
 the forward slash character has no special meaning,
 and a SARIF consumer **SHALL NOT** interpret it as dividing the value into hierarchical components.
 
-#### Versioned hierarchical strings
+#### Versioned Hierarchical Strings
 
 Certain hierarchical strings in this document
 (for example, the property names in `result.fingerprints` ([sec](#fingerprints-property)) and `result.partialFingerprints` ([sec](#partialfingerprints-property)))

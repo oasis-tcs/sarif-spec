@@ -19,7 +19,7 @@ toc:
 
 This Appendix contains examples of complete, valid SARIF files, to complement the fragments shown in examples throughout this document.
 
-## Minimal valid SARIF log file
+## Minimal Valid SARIF Log File
 
 This is a minimal valid SARIF log file. It contains only those elements required by this document (elements which the document states **SHALL** be present).
 
@@ -42,7 +42,7 @@ The file contains a single `run` object ([sec](#run-object)) with an empty `resu
 }
 ```
 
-## Minimal recommended SARIF log file with source information
+## Minimal Recommended SARIF Log File with Source Information
 
 This is a minimal recommended SARIF log file for the case where an analysis tool produced results and source location information is available.
 
@@ -125,7 +125,7 @@ This example also includes a `toolComponent.rules` property ([sec](#rules-proper
 }
 ```
 
-## Minimal recommended SARIF log file without source information
+## Minimal Recommended SARIF Log File without Source Information
 
 This is a minimal recommended SARIF file for the case where an analysis tool produced results and source location information is not available.
 
@@ -197,7 +197,7 @@ It contains a `run.logicalLocations` property ([sec](#run-object--logicallocatio
 }
 ```
 
-## Comprehensive SARIF file
+## Comprehensive SARIF File
 
 The purpose of this example is to demonstrate the usage of as many SARIF elements as possible. Not all elements are shown, because some are mutually exclusive.
 

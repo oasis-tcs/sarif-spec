@@ -1,4 +1,4 @@
-## conversion object
+## `conversion` Object
 
 ### General{#conversion-object--general}
 
@@ -40,15 +40,15 @@ A `conversion` object describes how a converter transformed the output of an ana
 > ```
 >
 
-### tool property{#conversion-object--tool-property}
+### `tool` Property{#conversion-object--tool-property}
 
 A `conversion` object **SHALL** contain a property named `tool` whose value is a `tool` object ([sec](#tool-object)) that describes the converter.
 
-### invocation property
+### `invocation` Property
 
 A `conversion` object **MAY** contain a property named `invocation` whose value is an `invocation` object ([sec](#invocation-object)) that describes the invocation of the converter.
 
-### analysisToolLogFiles property
+### `analysisToolLogFiles` Property
 
 Some analysis tools produce one or more output files that describe the analysis run as a whole; we refer to these as "per-run" files. Some tools produce one or more output files for each result; we refer to these as "per-result" files. Some tools produce both per-run and per-result files.
 

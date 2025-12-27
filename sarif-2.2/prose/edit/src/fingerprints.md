@@ -6,7 +6,7 @@ toc:
   enumerate: Appendix B.
 ---
 -->
-# (Normative) Use of fingerprints by result management systems
+# (Normative) Use of Fingerprints by Result Management Systems
 
 On large software projects, a single run of a set of analysis tools can produce hundreds of thousands of results or more. To deal with so many results, some engineering teams adopt a strategy whereby they first prevent the introduction of new problems into their code, and then work to address the existing problems.
 

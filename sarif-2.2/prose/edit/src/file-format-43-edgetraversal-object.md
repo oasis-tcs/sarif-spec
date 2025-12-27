@@ -1,18 +1,18 @@
-## edgeTraversal object
+## `edgeTraversal` Object
 
 ### General{#edgetraversal-object--general}
 
 An `edgeTraversal` object represents the traversal of a single edge during a graph traversal.
 
-### edgeId property
+### `edgeId` Property
 
 An `edgeTraversal` object **SHALL** contain a property named `edgeId` whose value is a string which equals the `id` property ([sec](#edge-object--id-property)) of one of the `edge` objects ([sec](#edge-object)) in the graph identified by the `resultGraphIndex` property ([sec](#resultgraphindex-property)) or the `runGraphIndex` property ([sec](#rungraphindex-property)) of the containing `graphTraversal` object ([sec](#graphtraversal-object)).
 
-### message property{#edgetraversal-object--message-property}
+### `message` Property{#edgetraversal-object--message-property}
 
 An `edgeTraversal` object **MAY** contain a property named `message` whose value is a `message` object ([sec](#message-object)) that contains a message to display to the user as the edge is traversed.
 
-### finalState property
+### `finalState` Property
 
 An `edgeTraversal` object **MAY** contain a property named `finalState` whose value is an object ([sec](#object-properties)) each of whose properties is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that represents the value of a relevant item after the edge has been traversed.
 
@@ -22,7 +22,7 @@ A SARIF viewer **SHALL** display only those properties that are explicitly prese
 
 For details of how properties within a "state" object are represented, see [sec](#state-property).
 
-### stepOverEdgeCount property
+### `stepOverEdgeCount` Property
 
 An `edgeTraversal` object **MAY** contain a property named `stepOverEdgeCount` whose value is a non-negative integer specifying the number of edges a user can step over.
 

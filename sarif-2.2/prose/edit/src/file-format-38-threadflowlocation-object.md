@@ -1,10 +1,10 @@
-## threadFlowLocation object
+## `threadFlowLocation` Object
 
 ### General{#threadflowlocation-object--general}
 
 A `threadFlowLocation` object represents a location visited by an analysis tool in the course of simulating or monitoring the execution of a program.
 
-### index property{#threadflowlocation-object--index-property}
+### `index` Property{#threadflowlocation-object--index-property}
 
 Depending on the circumstances, a `threadFlowLocation` object either **MAY**, **SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.threadFlowLocations` ([sec](#threadflowlocations-property)) of a `threadFlowLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.threadFlowLocations` as the "cached object."
 
@@ -101,7 +101,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > }
 > ```
 
-### location property{#threadflowlocation-object--location-property}
+### `location` Propertyy{#threadflowlocation-object--location-property}
 
 If location information is available, a `threadFlowLocation` object **SHALL** contain a property named `location` whose value is a `location` object ([sec](#location-object)) that specifies the location to which the `threadFlowLocation` object refers. If location information is not available, `location` **SHALL** be absent.
 
@@ -161,27 +161,27 @@ There are analysis tools whose native output format includes the equivalent of a
 > }
 > ```
 
-### module property{#threadflowlocation-object--module-property}
+### `module` Property{#threadflowlocation-object--module-property}
 
 A `threadFlowLocation` object **MAY** contain a property named `module` whose value is a string containing the name of the module that contains the code location specified by this object.
 
-### stack property{#threadflowlocation-object--stack-property}
+### `stack` Property{#threadflowlocation-object--stack-property}
 
 A `threadFlowLocation` object **MAY** contain a property named `stack` whose value is a `stack` object ([sec](#stack-object)) that represents the call stack leading to this location.
 
-### webRequest property{#threadflowlocation-object--webrequest-property}
+### `webRequest` Property{#threadflowlocation-object--webrequest-property}
 
 A `threadFlowLocation` object **MAY** contain a property named `webRequest` whose value is a `webRequest` object ([sec](#webrequest-object)) that describes an HTTP request sent from this location.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
-### webResponse property{#threadflowlocation-object--webresponse-property}
+### `webResponse` Property{#threadflowlocation-object--webresponse-property}
 
 A `threadFlowLocation` object **MAY** contain a property named `webResponse` whose value is a `webResponse` object ([sec](#webresponse-object)) that describes the response to the HTTP request sent from this location.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
-### kinds property{#threadflowlocation-object--kinds-property}
+### `kinds` Property{#threadflowlocation-object--kinds-property}
 
 A `threadFlowLocation` object **MAY** contain a property named `kinds` whose value is an array of unique ([sec](#array-properties-with-unique-values)) strings that describe the meaning of this location. The strings **SHOULD** be human-readable (as opposed to, for example, GUIDs or hash values).
 
@@ -322,7 +322,7 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 > ]
 > ```
 
-### state property
+### `state` Property
 
 A `threadFlowLocation` object **MAY** contain a property named `state` whose value is an object ([sec](#object-properties)) in which each property name represents an item relevant to the location in the context of the code flow, and the corresponding property value is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that specifies either the value of or a constraint on that item.
 
@@ -375,13 +375,13 @@ A constraint which expresses the equality of `"{expr}"` with a literal value **S
 
 > EXAMPLE 4: In a language where `==` denotes value equality, the property value `"{expr} == 42"`, which represents a constraint, is identical in meaning to the property value `"42"`, which represents a value.
 
-### nestingLevel property
+### `nestingLevel` Property
 
 A `threadFlowLocation` object **MAY** contain a property named `nestingLevel` whose value is a non-negative integer that represents any type of logical containment hierarchy among the `threadFlowLocation` objects in the `threadFlow`. Typically, it represents function call depth.
 
 A viewer that renders a `threadFlow` **SHOULD** provide a visual representation of the value of `nestingLevel`. Typically, this would be an indentation indicating the depth of each location in the call tree.
 
-### executionOrder property
+### `executionOrder` Property
 
 A `threadFlowLocation` object **MAY** contain a property named `executionOrder` whose value is a non-negative integer that represents the temporal order in which execution reached this location, across all `threadFlowLocation` objects within all `threadFlow` objects belonging to a single `codeFlow` ([sec](#codeflow-object)). `executionOrder` values are assigned in increasing order of time; for example, execution reaches a `threadFlowLocation` whose `executionOrder` is 2 occurs before it reaches a `threadFlowLocation` whose `executionOrder` is 3. If two `threadFlowLocation`s in different `threadFlow` objects within the same `codeFlow` have the same value for `executionOrder`, it means that execution reached both of those locations simultaneously. For that reason, values of `executionOrder` within a single `threadFlow` **SHALL** be unique.
 
@@ -391,11 +391,11 @@ If `executionOrder` is absent, it **SHALL** default to -1, which indicates that 
 
 > NOTE: Negative values are forbidden because their use would suggest some non-obvious semantic difference between positive and negative values.
 
-### executionTimeUtc property
+### `executionTimeUtc` Property
 
 A `threadFlowLocation` object **MAY** contain a property named `executionTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the thread of execution through the code reached this location.
 
-### importance property
+### `importance` Property
 
 A `threadFlowLocation` **MAY** contain a property named `importance` whose value is a string that specifies the importance of this `threadFlowLocation` in understanding the code flow.
 
@@ -417,7 +417,7 @@ If this property is absent, it **SHALL** be considered to have the value `"impor
 >
 > - A "verbose view," which displays all the locations in the code flow.
 
-### taxa property{#threadflowlocation-object--taxa-property}
+### `taxa` Property{#threadflowlocation-object--taxa-property}
 
 A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptorReference` objects each of which specifies a category into which this `threadFlowLocation` falls.
 

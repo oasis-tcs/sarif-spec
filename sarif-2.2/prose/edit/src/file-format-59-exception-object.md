@@ -1,10 +1,10 @@
-## exception object
+## `exception` Object
 
 ### General{#exception-object--general}
 
 An `exception` object describes a runtime exception encountered during the execution of an analysis tool. This includes signals in POSIX-conforming operating systems
 
-### kind property{#exception-object--kind-property}
+### `kind` Property{#exception-object--kind-property}
 
 An `exception` object **SHOULD** contain a property named `kind` whose value is a string describing the exception.
 
@@ -18,7 +18,7 @@ If the exception represents a POSIX signal, `kind` **SHALL** be the symbolic nam
 
 If the tool does not have access to information about the object that was thrown, the `kind` property **SHALL** be absent.
 
-### message property{#exception-object--message-property}
+### `message` Property{#exception-object--message-property}
 
 An `exception` object **SHOULD** contain a property named `message` whose value is a string that describes the exception.
 
@@ -28,11 +28,11 @@ If the tool does not have access to an appropriate property of the thrown object
 
 > EXAMPLE 2: C#: The tool might populate `message` with the value returned from the `ToString()` method of the `System.Exception` object, or (less informatively) from that object’s `Message` property.
 
-### stack property{#exception-object--stack-property}
+### `stack` Property{#exception-object--stack-property}
 
 An `exception` object **MAY** contain a property named `stack` whose value is a `stack` object ([sec](#stack-object)) that describes the sequence of function calls leading to the exception.
 
-### innerExceptions property
+### `innerExceptions` Property
 
 An `exception` object **MAY** contain a property named `innerExceptions` whose value is an array of zero or more `exception` objects each of which is considered a cause of the containing exception.
 

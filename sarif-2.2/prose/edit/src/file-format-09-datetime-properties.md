@@ -1,4 +1,4 @@
-## Date/time properties{#datetime-properties}
+## Date/time Properties{#datetime-properties}
 
 Certain properties in this document specify a date and time. The value of every such property, if present, **SHALL** be a string in the following format, which is compatible with the ISO standard for date and time formats [cite](#ISO8601;2004):
 

@@ -1,4 +1,4 @@
-## graphTraversal object
+## `graphTraversal` Object
 
 ### General{#graphtraversal-object--general}
 
@@ -8,19 +8,19 @@ A `graphTraversal` object represents a "graph traversal," that is, a path throug
 
 Exactly one of the `resultGraphIndex` property ([sec](#resultgraphindex-property)) and the `runGraphIndex` property ([sec](#rungraphindex-property)) **SHALL** be present.
 
-### resultGraphIndex property
+### `resultGraphIndex` Property
 
 If a `graphTraversal` object represents the traversal of a `graph` object ([sec](#graph-object)) that resides in `theResult.graphs` ([sec](#result-object--graphs-property)), the `graphTraversal` object **SHALL** contain a property named `resultGraphIndex` whose value is the array index ([sec](#array-indices)) within `theResult.graphs` of that `graph` object.
 
-### runGraphIndex property
+### `runGraphIndex` Property
 
 If a `graphTraversal` object represents the traversal of a `graph` object ([sec](#graph-object)) that resides in `theRun.graphs` ([sec](#run-object--graphs-property)), the `graphTraversal` object **SHALL** contain a property named `runGraphIndex` whose value is the array index ([sec](#array-indices)) within `theRun.graphs` of that `graph` object.
 
-### description property{#graphtraversal-object--description-property}
+### `description` Property{#graphtraversal-object--description-property}
 
 A `graphTraversal` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the graph traversal.
 
-### initialState property{#graphtraversal-object--initialstate-property}
+### `initialState` Property{#graphtraversal-object--initialstate-property}
 
 A `graphTraversal` object **MAY** contain a property named `initialState` whose value is an object ([sec](#object-properties)) each of whose properties is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that represents the value of a relevant item at the point of entry to the graph. This property, together with `edgeTraversal.finalState` ([sec](#finalstate-property)), enables a SARIF viewer to present a debugger-like "watch window" experience as the user traverses a graph.
 
@@ -28,7 +28,7 @@ This property **SHOULD NOT** include items whose value remains constant througho
 
 For details of how properties within a "state" object are represented, see EXAMPLE 1 in [sec](#state-property).
 
-### immutableState property{#graphtraversal-object--immutablestate-property}
+### `immutableState` Property{#graphtraversal-object--immutablestate-property}
 
 A `graphTraversal` object **MAY** contain a property named `immutableState` whose value is an object ([sec](#object-properties)) each of whose properties is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that represents the value of a relevant item that remains constant throughout the traversal.
 
@@ -44,7 +44,7 @@ A `graphTraversal` object **MAY** contain a property named `immutableState` whos
 > }
 > ```
 
-### edgeTraversals property
+### `edgeTraversals` Property
 
 A `graphTraversal` object **MAY** contain a property named `edgeTraversals` whose value is an array of zero or more `edgeTraversal` objects ([sec](#edgetraversal-object)) which together represent the sequence of edges traversed during this graph traversal.
 
