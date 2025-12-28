@@ -21,6 +21,8 @@
   openlevel=1,
   numbered,
 }
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
 \IfFileExists{microtype.sty}{% use microtype if available
   \usepackage[]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
@@ -85,6 +87,7 @@
   urlcolor=oasis-links,
 }
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -190,7 +193,8 @@
 \DeclareTOCStyleEntry[beforeskip=.1cm]{default}{subsection}
 \DeclareTOCStyleEntry[numwidth=1.5em,indent=0em]{section}{section}
 \DeclareTOCStyleEntry[numwidth=2.5em,indent=1em]{section}{subsection}
-\DeclareTOCStyleEntry[numwidth=3.9em,indent=3em]{section}{subsubsection}
+%%%%%%%%%%%%%%%NAYBE%%%%%%%%\DeclareTOCStyleEntry[numwidth=3.9em,indent=3em]{section}{subsubsection}
+\DeclareTOCStyleEntry[numwidth=3.5em,indent=3em]{section}{subsubsection}
 \DeclareTOCStyleEntry[numwidth=4.7em,indent=5em]{section}{paragraph}
 \DeclareTOCStyleEntry[numwidth=5.5em,indent=7em]{section}{subparagraph}
 
