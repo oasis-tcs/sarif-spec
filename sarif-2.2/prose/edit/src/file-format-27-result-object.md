@@ -371,7 +371,7 @@ IF `level` has not yet been set and `result.level` is absent THEN
 
 ELSE IF `result.level` is present then
 
-&emsp;&emsp;USE that value.
+&emsp;&emsp;USE that value regardless of what the rule metadata states.
 
 ### message property{#result-object--message-property}
 
