@@ -113,6 +113,10 @@ Each array element **SHALL** have one of the following values, with the specifie
 
     NOTE 3: For example, a scanner might be configured to analyze a C source file and find a result in a header file that it includes. The header file may be marked with the `"resultFile"` role. The C file should be marked with the `"analysisTarget"` role, however, as it was explicitly configured as a scan target.
 
+- `"skippedDirectory"`: The analysis tool was instructed not to scan this directory.
+
+- `"skippedFile"`: The analysis tool was instructed not to scan this file.
+
 - `"standardStream"`: The artifact contains the contents of one of the standard input or output streams, as specified in `invocation.stdin`, `invocation.stdout`, `invocation.stderr`, or `invocation.stdoutStderr` ([sec](#stdin-stdout-stderr-and-stdoutstderr-properties)).
 
 - `"taxonomy"`: The file belongs to a taxonomy ([sec](#taxonomies)).
