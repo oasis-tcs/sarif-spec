@@ -25,7 +25,7 @@ https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf
 [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/sarif/)
 
 #### Chairs:
-David Keaton (<dmk@dmk.com>), Individual \
+Aditya Sharad (<adityasharad@github.com>), Microsoft Corporation \
 Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
 #### Editors:

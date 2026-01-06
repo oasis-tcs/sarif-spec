@@ -37,6 +37,7 @@ Thanassis Avgerinos, ForAllSecure Inc
 Yekaterina O'Neil, Micro Focus
 ```
 
+Special thanks to David Keaton who supported the OASIS SARIF TC as Co-Chair until September 2025.
 
 Special thanks to Craig Schlaman and Stacy Wray for supporting the derivation of the initial version 2.2 in markdown from the v2.1.0 Errata 01 OfficeXML format document with minor corrections.
 
