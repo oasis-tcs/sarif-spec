@@ -8838,10 +8838,16 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
               SET level to <code>theDescriptor.defaultConfiguration.level</code>.
     </p>
     <p>
-      IF <code>level</code> has not yet been set THEN
+            IF <code>level</code> has not yet been set and <code>result.level</code> is absent THEN
     </p>
     <p>
-        SET <code>level</code> to <code>"warning"</code>.
+              SET <code>level</code> to <code>"warning"</code>.
+    </p>
+    <p>
+            ELSE IF <code>result.level</code> is present then
+    </p>
+    <p>
+              USE that value regardless of what the rule metadata states.
     </p>
     <h3 id="32711-message-property-">
       3.27.11 <code>message</code> Property <a id='result-object--message-property'></a>
