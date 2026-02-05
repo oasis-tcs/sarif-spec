@@ -1,4 +1,4 @@
-## artifactLocation object
+## `artifactLocation` Object
 
 ### General{#artifactlocation--general}
 
@@ -12,7 +12,7 @@ At least one of the `uri` property ([sec](#uri-property)) or the `index` propert
 
 If both `uri` and `index` are present, they **SHALL** both denote the same artifact. That is, let URI<sub>1</sub> be the fully resolved URI of the artifact specified by an `artifactLocation` object as determined by the `uriBaseId` resolution procedure described in [sec](#uribaseid-property). Let URI<sub>2</sub> be the fully resolved URI of the artifact specified by the `artifact` object indicated by `index`, determined in the same way. Then URI<sub>1</sub> and URI<sub>2</sub> **SHALL** be equivalent in the sense described in [sec](#uri-valued-properties--general).
 
-### uri property
+### `uri` Property
 
 Depending on the circumstances, an `artifactLocation` object either **SHALL**, **SHALL NOT**, or **MAY** contain a property named `uri` whose value is a string containing a URI [cite](#RFC3986) that specifies the location of the artifact.
 
@@ -36,7 +36,7 @@ If `thisObject` represents a nested artifact whose location within its parent co
 
 Otherwise, `uri` **MAY** be present.
 
-### uriBaseId property
+### `uriBaseId` Property
 
 If this `artifactLocation` object describes a top-level artifact and the value of its `uri` property ([sec](#uri-property)) is a relative reference, the `artifactLocation` object **SHOULD** contain a property named `uriBaseId` whose value is a string which indirectly specifies the absolute URI with respect to which that relative reference is interpreted. If the `uri` property contains an absolute URI, the `uriBaseId` property **SHALL** be absent. If this `artifactLocation` object describes a nested artifact, `uriBaseId` **SHALL** be absent.
 
@@ -77,7 +77,7 @@ The `uriBaseId` property can be any string; it does not need to have any particu
 >
 For more guidance on the intended use of the `uriBaseId` property, see [sec](#guidance-on-the-use-of-artifactlocation-objects).
 
-### index property{#artifactlocation-object--index-property}
+### `index` Property{#artifactlocation-object--index-property}
 
 Depending on the circumstances, an `artifactLocation` object either **MAY**, **SHALL NOT**, **SHALL**, or **SHOULD** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.artifacts` ([sec](#artifacts-property)) of the `artifact` object ([sec](#artifact-object)), if any, that describes the artifact specified by this `artifactLocation` object.
 
@@ -130,7 +130,7 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 > }
 > ```
 
-### description property{#artifactlocation-object--description-property}
+### `description` Property{#artifactlocation-object--description-property}
 
 An `artifactLocation` object **MAY** have a property named `description` whose value is a `message` object ([sec](#message-object)) that describes this location.
 
@@ -161,7 +161,7 @@ An `artifactLocation` object **MAY** have a property named `description` whose v
 > }
 > ```
 
-### Guidance on the use of artifactLocation objects
+### Guidance on the Use of `artifactLocation` Objects
 
 Some URIs are "deterministic" in the sense that they will be the same from one run to the next and are independent of machine-specific information such as volume names or drive letters. Internet addresses are typically deterministic.
 

@@ -24,6 +24,7 @@ DOT = '.'
 FULL_STOP = '.'
 HASH = '#'
 PARA = '§'
+RS = chr(30)
 SEMI = ';'
 SPACE = ' '
 TM = '™'
@@ -154,15 +155,34 @@ def dump_assembly(text_lines: list[str], to_path: Union[str, pathlib.Path]) -> N
         resource.write(''.join(text_lines))
 
 
-def label_derive_from(text: str) -> str:
-    """Transform text to kebab style conventional label assuming no newlines present."""
-    good_nuff = (' ', '.', ',', ';', '?', '!', '_', '(', ')', '[', ']', '{', '}', '<', '>', '\\', '/', '$', ':')
-    slug = text.strip()
-    for bad in good_nuff:
-        slug = slug.replace(bad, '-')
-    parts = slug.split('-')
-    slug = '-'.join(s for s in parts if s and s != '-')
-    return slug.lower()
+def label_derive_from(
+    text: str,
+    connector: str = DASH,
+    marker: str = RS,
+    gremlins: str = ' .,;?!_()[]{}<>\\/$:"\'`´',
+    policy: str = 'lower',
+) -> str:
+    """Derive kebab style slug from text.
+
+    Implementer notes:
+
+    - Every character not in gremlins is kept.
+    - Incoming connector chars (default dashes) are preserved by
+      sandwich transform to and from marker char (default ASCII RS).
+      If the marker char occurs in the text, it will be replaced
+      with the connector char during the back transform.
+    """
+    ds = connector
+    rs = marker
+
+    sl = text.strip().replace(ds, rs)
+    for gremlin in gremlins:
+        sl = sl.replace(gremlin, ds)
+
+    return getattr(
+        ds.join(s.replace(rs, ds) for s in sl.split(ds) if s and s != ds),
+        policy
+    )()
 
 
 def label_in(text: str) -> bool:

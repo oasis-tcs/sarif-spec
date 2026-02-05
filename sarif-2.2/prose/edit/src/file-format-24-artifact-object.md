@@ -1,10 +1,10 @@
-## artifact object
+## `artifact` Object
 
 ### General{#artifact-object--general}
 
 An `artifact` object represents a single artifact.
 
-### location property{#artifact-object--location-property}
+### `location property{#artifact-object--location-property}
 
 Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `location` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)).
 
@@ -18,7 +18,7 @@ If the `artifact` object represents a nested artifact whose location within its 
 
 For an example, see [sec](#artifact-object--parentindex-property).
 
-### parentIndex property{#artifact-object--parentindex-property}
+### `parentIndex` Property{#artifact-object--parentindex-property}
 
 If this `artifact` object represents a nested artifact, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([sec](#array-indices)) of the parent artifact's `artifact` object within `theRun.artifacts` ([sec](#artifacts-property)).
 
@@ -53,7 +53,7 @@ If this `artifact` object represents a top-level artifact, then `parentIndex` **
 > ]
 > ```
 
-### offset property
+### `offset` Property
 
 Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `offset` whose value is a non-negative integer.
 
@@ -65,13 +65,13 @@ If the `artifact` object represents a nested artifact whose location within its 
 
 If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `offset` **MAY** be present; if it is absent, then `location` ([sec](#artifact-object--location-property)) **SHALL** be present. If `offset` is present, its value **SHALL** be that byte offset.
 
-### length property{#artifact-object--length-property}
+### `length` Property{#artifact-object--length-property}
 
 An `artifact` object **MAY** contain a property named `length` whose value is a non-negative integer specifying the length of the artifact in bytes.
 
 If `length` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
-### roles property
+### `roles` Property
 
 An `artifact` object **MAY** contain a property named `roles` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings each of which specifies a role that this artifact played in the analysis.
 
@@ -143,15 +143,15 @@ Each array element **SHALL** have one of the following values, with the specifie
 
     NOTE 4: The information conveyed by these values could be extracted from a VCS. These properties exist so SARIF consumers can have this information without needing access to the VCS.
 
-### mimeType property
+### `mimeType` Property
 
 An `artifact` object **MAY** contain a property named `mimeType` whose value is a string that specifies the artifact’s MIME type [cite](#RFC2045). For information about the use of mimeType by SARIF viewers, see Appendix C.
 
-### contents property{#artifact-object--contents-property}
+### `contents` Property{#artifact-object--contents-property}
 
 An `artifact` object **MAY** contain a property named contents whose value is an `artifactContent` object ([sec](#artifactcontent-object)) representing the entire contents of the artifact.
 
-### encoding property
+### `encoding` Property
 
 If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value is a case-sensitive string that specifies the artifact’s text encoding. The string **SHALL** be one of the character set names defined by IANA [cite](#IANA-ENC).
 
@@ -183,7 +183,7 @@ If the `artifact` object represents a binary artifact, `encoding` **SHALL** be a
 > }
 > ```
 
-### sourceLanguage property{#artifact-object--sourcelanguage-property}
+### `sourceLanguage` Property{#artifact-object--sourcelanguage-property}
 
 #### General{#sourcelanguage-property--general}
 
@@ -229,7 +229,7 @@ To maximize interoperability, SARIF producers and consumers **SHOULD** conform t
 
 [sec](#informative-sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
 
-### hashes property
+### `hashes` Property
 
 An `artifact` object **MAY** contain a property named `hashes` whose value is a non-empty object ([sec](#object-properties)) each of whose property names specifies the name of a hash function, and each of whose property values represents the value produced by that hash function.
 
@@ -266,12 +266,12 @@ Each property value **SHALL** be a string representation of the hash digest of t
 >
 > To make the best use of such an analysis tool, a user (such as a build engineer) would determine what systems in their build environment will consume the log file. The user would then configure the tool to produce hashes using the hash functions required by those systems. Analysis tools that are configurable to produce hashes with a variety of commonly used hash functions will interoperate most easily with such systems.
 
-### lastModifiedTimeUtc property
+### `lastModifiedTimeUtc` Property
 
 An `artifact` object **MAY** contain a property named `lastModifiedTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the artifact was most recently modified.
 
 > NOTE: In scenarios where a tool has analyzed files on a network file share or on a local disk, an engineering system might use this property, rather than `hashes` ([sec](#hashes-property)), as the most lightweight mechanism to determine whether the analysis needs to be repeated.
 
-### description property{#artifact-object--description-property}
+### `description` Property{#artifact-object--description-property}
 
 An `artifact` object **MAY** have a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the artifact.

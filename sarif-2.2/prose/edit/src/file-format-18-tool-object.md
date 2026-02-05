@@ -1,4 +1,4 @@
-## tool object
+## `tool` Object
 
 ### General{#tool-object--general}
 
@@ -37,10 +37,10 @@ If another tool post-processes the log file (for example, by removing certain re
 > }
 > ```
 
-### driver property
+### `driver` Property
 
 A `tool` object **SHALL** contain a property named `driver` whose value is a `toolComponent` object ([sec](#toolcomponent-object)) that describes the component containing the tool’s primary executable file.
 
-### extensions property
+### `extensions` Property
 
 If the tool used any extensions during the run, the `tool` object **SHOULD** contain a property named `extensions` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) `toolComponent` objects ([sec](#toolcomponent-object)) that describe those extensions. If the tool did not use any extensions during the run, then `extensions` **SHALL** either be absent or an empty array.

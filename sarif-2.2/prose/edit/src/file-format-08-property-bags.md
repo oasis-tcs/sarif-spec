@@ -1,4 +1,4 @@
-## Property bags
+## Property Bags
 
 ### General{#property-bags--general}
 
@@ -44,7 +44,7 @@ Even when defining a custom classification system used within an engineering tea
 
 > NOTE: Anything a tag expresses can also be expressed with a named property bag entry, for example `"openSource": true`, but a tag is more concise.
 
-#### Tag metadata
+#### Tag Metadata
 
 A SARIF log file **MAY** provide additional information about any tag value by including a property whose name is the same as that tag value and whose value is any JSON value. If present, this property **SHALL** be located by searching first in the property bag that contains the tag, and then in the property bag of the containing `run` object ([sec](#run-object)) `theRun`, if any.
 

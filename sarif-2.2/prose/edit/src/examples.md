@@ -19,7 +19,7 @@ toc:
 
 This Appendix contains examples of complete, valid SARIF files, to complement the fragments shown in examples throughout this document.
 
-## Minimal valid SARIF log file
+## Minimal Valid SARIF Log File
 
 This is a minimal valid SARIF log file. It contains only those elements required by this document (elements which the document states **SHALL** be present).
 
@@ -42,7 +42,7 @@ The file contains a single `run` object ([sec](#run-object)) with an empty `resu
 }
 ```
 
-## Minimal recommended SARIF log file with source information
+## Minimal Recommended SARIF Log File with Source Information
 
 This is a minimal recommended SARIF log file for the case where an analysis tool produced results and source location information is available.
 
@@ -125,7 +125,7 @@ This example also includes a `toolComponent.rules` property ([sec](#rules-proper
 }
 ```
 
-## Minimal recommended SARIF log file without source information
+## Minimal Recommended SARIF Log File without Source Information
 
 This is a minimal recommended SARIF file for the case where an analysis tool produced results and source location information is not available.
 
@@ -197,7 +197,7 @@ It contains a `run.logicalLocations` property ([sec](#run-object--logicallocatio
 }
 ```
 
-## Comprehensive SARIF file
+## Comprehensive SARIF File
 
 The purpose of this example is to demonstrate the usage of as many SARIF elements as possible. Not all elements are shown, because some are mutually exclusive.
 
@@ -209,6 +209,31 @@ Because the purpose is to present as many elements as possible, the file as a wh
   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",
   "runs": [
     {
+      "addresses": [
+        {
+          "properties": {
+            "baseAddress": 4194304,
+            "section": ".text"
+          },
+          "fullyQualifiedName": "collections.dll",
+          "kind": "module"
+        },
+        {
+          "properties": {
+            "offset": 100
+          },
+          "fullyQualifiedName": "collections.dll!collections::list::add",
+          "kind": "function",
+          "parentIndex": 0
+        },
+        {
+          "properties": {
+            "offset": 22
+          },
+          "fullyQualifiedName": "collections.dll!collections::list::add+0x16",
+          "parentIndex": 1
+        }
+      ],
       "automationDetails": {
         "guid": "BC650830-A9FE-44CB-8818-AD6C387279A0",
         "id": "Nightly code scan/2018-10-08"
@@ -261,15 +286,12 @@ Because the purpose is to present as many elements as possible, the file as a wh
                 "text": "A variable was used without being initialized."
               },
               "fullDescription": {
-                "text": "A variable was used without being initialized. This can result
-                         in runtime errors such as null reference exceptions."
+                "text": "A variable was used without being initialized. This can result in runtime errors such as null reference exceptions."
               },
               "messageStrings": {
                 "default": {
-                  "text": "Variable \"{0}\" was used without being initialized.
-                           It was declared [here]({1}).",
-                  "markdown": "Variable `{0}` was used without being initialized.
-                           It was declared [here]({1})."
+                  "text": "Variable \"{0}\" was used without being initialized. It was declared [here]({1}).",
+                  "markdown": "Variable `{0}` was used without being initialized. It was declared [here]({1})."
                 }
               }
             }
@@ -374,13 +396,9 @@ Because the purpose is to present as many elements as possible, the file as a wh
               "descriptor": {
                 "id": "UnknownRule"
               },
-              "associatedRule": {
-                "ruleId": "ABC0001"
-              },
               "level": "warning",
               "message": {
-                "text": "Could not disable rule \"ABC0001\" because
-                         there is no rule with that id."
+                "text": "Could not disable rule \"ABC0001\" because there is no rule with that id."
               }
             }
           ],
@@ -404,8 +422,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
               },
               "level": "error",
               "message": {
-                "text": "Exception evaluating rule \"C2001\". Rule disabled;
-                         run continues."
+                "text": "Exception evaluating rule \"C2001\". Rule disabled; run continues."
               },
               "locations": [
                 {
@@ -432,8 +449,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                         },
                         "logicalLocations": [
                           {
-                            "fullyQualifiedName":
-                              "Rules.SecureHashAlgorithmRule.Evaluate"
+                            "fullyQualifiedName": "Rules.SecureHashAlgorithmRule.Evaluate"
                           }
                         ],
                         "physicalLocation": {
@@ -449,8 +465,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                       "location": {
                         "logicalLocations": [
                           {
-                            "fullyQualifiedName":
-                              "ExecutionEngine.Engine.EvaluateRule"
+                            "fullyQualifiedName": "ExecutionEngine.Engine.EvaluateRule"
                           }
                         ],
                         "physicalLocation": {
@@ -546,7 +561,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
           "location": {
             "uri": "app.zip",
             "uriBaseId": "BINROOT"
-          }, 
+          },
           "mimeType": "application/zip",
           "length": 310450,
           "hashes": {
@@ -557,8 +572,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
           "location": {
             "uri": "docs/intro.docx"
           },
-          "mimeType":
-             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "parentIndex": 5,
           "offset": 17522,
           "length": 4050
@@ -681,7 +695,6 @@ Because the purpose is to present as many elements as possible, the file as a wh
               "message": {
                 "text": "Path from declaration to usage"
               },
-
               "threadFlows": [
                 {
                   "id": "thread-52",
@@ -695,7 +708,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
                         },
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
@@ -734,14 +747,14 @@ Because the purpose is to present as many elements as possible, the file as a wh
                       "location": {
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
                           "region": {
                             "startLine": 15,
                             "snippet": {
-                             "text": "offset = (y + z) * q + 1;"
+                              "text": "offset = (y + z) * q + 1;"
                             }
                           }
                         },
@@ -769,14 +782,12 @@ Because the purpose is to present as many elements as possible, the file as a wh
                       "importance": "essential",
                       "location": {
                         "message": {
-                          "text": "Uninitialized variable \"ptr\" passed to
-                                   method \"add_core\".",
-                          "markdown": "Uninitialized variable `ptr` passed to
-                                       method `add_core`."
+                          "text": "Uninitialized variable \"ptr\" passed to method \"add_core\".",
+                          "markdown": "Uninitialized variable `ptr` passed to method `add_core`."
                         },
                         "physicalLocation": {
                           "artifactLocation": {
-                            "uri":"collections/list.h",
+                            "uri": "collections/list.h",
                             "uriBaseId": "SRCROOT",
                             "index": 3
                           },
@@ -835,7 +846,11 @@ Because the purpose is to present as many elements as possible, the file as a wh
                   },
                   "module": "platform",
                   "threadId": 52,
-                  "parameters": [ "null", "0", "14" ]
+                  "parameters": [
+                    "null",
+                    "0",
+                    "14"
+                  ]
                 },
                 {
                   "location": {
@@ -862,7 +877,9 @@ Because the purpose is to present as many elements as possible, the file as a wh
                   },
                   "module": "platform",
                   "threadId": 52,
-                  "parameters": [ "14" ]
+                  "parameters": [
+                    "14"
+                  ]
                 },
                 {
                   "location": {
@@ -891,25 +908,6 @@ Because the purpose is to present as many elements as possible, the file as a wh
                   "threadId": 52
                 }
               ]
-            } 
-          ],
-          "addresses": [
-            {
-              "baseAddress": 4194304,
-              "fullyQualifiedName": "collections.dll",
-              "kind": "module",
-              "section": ".text"
-            },
-            {
-              "offset": 100,
-              "fullyQualifiedName": "collections.dll!collections::list::add",
-              "kind": "function",
-              "parentIndex": 0
-            },
-            {
-              "offset": 22,
-              "fullyQualifiedName": "collections.dll!collections::list::add+0x16",
-              "parentIndex": 1
             }
           ],
           "fixes": [
@@ -938,8 +936,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
               ]
             }
           ],
-          "hostedViewerUri":
-            "https://www.example.com/viewer/3918d370-c636-40d8-bf23-8c176043a2df",
+          "hostedViewerUri": "https://www.example.com/viewer/3918d370-c636-40d8-bf23-8c176043a2df",
           "workItemUris": [
             "https://github.com/example/project/issues/42",
             "https://github.com/example/project/issues/54"

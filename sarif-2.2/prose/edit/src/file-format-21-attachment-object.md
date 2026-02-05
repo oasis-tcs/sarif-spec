@@ -1,4 +1,4 @@
-## attachment object
+## `attachment` Object
 
 ### General{#attachment-object--general}
 
@@ -24,19 +24,19 @@ A SARIF producer **MAY** embed the contents of an attachment in the log file by 
 > }
 > ```
 
-### description property{#attachment-object--description-property}
+### `description` Property{#attachment-object--description-property}
 
 An `attachment` object **SHOULD** contain a property named `description` whose value is a `message` object ([sec](#message-object)) describing the role played by the attachment.
 
-### location property{#attachment-object--location-property}
+### `location` Property{#attachment-object--location-property}
 
 An `attachment` object **SHALL** contain a property named `location` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies the location of the attachment.
 
-### regions property
+### `regions` Property
 
 An `attachment` object **MAY** contain a property named `regions` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `region` objects ([sec](#region-object)) each of which **SHALL** specify a region of interest within the attachment, and **SHOULD** contain a `message` property ([sec](#region-object--message-property)) so a user can understand its relevance.
 
-### rectangles property
+### `rectangles` Property
 
 An `attachment` object **MAY** contain a property named `rectangles` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `rectangle` objects ([sec](#rectangle-object)). If the attachment is an image (for example `.png` or `.svg`), each `rectangle` object **SHALL** specify an area of interest within the image, and **SHOULD** contain a `message` property ([sec](#rectangle-object--message-property)) so a user can understand its relevance.
 

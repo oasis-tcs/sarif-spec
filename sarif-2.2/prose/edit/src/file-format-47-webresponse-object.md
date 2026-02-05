@@ -1,4 +1,4 @@
-## webResponse object
+## `webResponse` Object
 
 ### General{#webresponse-object--general}
 
@@ -10,7 +10,7 @@ A `webResponse` object does not need to represent a valid HTTP response.
 
 > NOTE 2: This allows an analysis tool to describe a situation where a server produces an invalid response.
 
-### index property{#webresponse-object--index-property}
+### `index` Property{#webresponse-object--index-property}
 
 Depending on the circumstances, a `webResponse` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.webResponses` ([sec](#webresponses-property)) of a `webResponse` object that provides additional properties for `thisObject`. We refer to the object in `theRun.webResponses` as the "cached object."
 
@@ -26,25 +26,25 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 2: For examples of the use of an `index` property to locate a cached object, see [sec](#threadflowlocation-object--index-property).
 
-### protocol property{#webresponse-object--protocol-property}
+### `protocol` Property{#webresponse-object--protocol-property}
 
 A `webResponse` object **SHOULD** contain a property named `protocol` whose value is a string containing the name of the web protocol used in the response, found on the HTTP status line.
 
 > EXAMPLE 1: `"protocol": "HTTP"`
 
-### version property{#webresponse-object--version-property}
+### `version` Property{#webresponse-object--version-property}
 
 A `webResponse` object **SHOULD** contain a property named `version` whose value is a string containing the version of the web protocol used in the response, found on the HTTP status line.
 
 > EXAMPLE 1: `"version": "1.1"`
 
-### statusCode property
+### `statusCode` Property
 
 A `webResponse` object **SHOULD** contain a property named `statusCode` whose value is an integer containing the status code that describes the result of the request, found on the HTTP status line.
 
 > EXAMPLE 1: `"statusCode": 200`
 
-### reasonPhrase property
+### `reasonPhrase` Property
 
 A `webResponse` object **SHOULD** contain a property named `reasonPhrase` whose value is a string containing the textual description of the `statusCode` ([sec](#statuscode-property)) found on the HTTP status line.
 
@@ -52,11 +52,11 @@ A `webResponse` object **SHOULD** contain a property named `reasonPhrase` whose 
 
 If `noResponseReceived` ([sec](#noresponsereceived-property)) is `true`, then `reasonPhrase` **SHOULD** instead contain a string describing the reason that no response was received.
 
-### headers property{#webresponse-object--headers-property}
+### `headers` Property{#webresponse-object--headers-property}
 
 A `webResponse` object **SHOULD** contain a property named `headers` whose value is an object ([sec](#object-properties)) whose property names are the names of the HTTP headers in the response (for example, `"Content-Type"`) and whose corresponding values are the header values (for example, `"text/plain; charset=ascii"`).
 
-### body property{#webresponse-object--body-property}
+### `body` Property{#webresponse-object--body-property}
 
 A `webResponse` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([sec](#artifactcontent-object)) containing the body of the response.
 
@@ -70,7 +70,7 @@ If the response body is entirely textual, `body.binary` ([sec](#binary-property)
 
 If the response body consists partially or entirely of binary data, `body.binary` **SHALL** be present and **SHALL** contain the MIME Base64 encoding of the body. In this situation, `body.text` **SHALL** be absent.
 
-### noResponseReceived property
+### `noResponseReceived` Property
 
 If no response to the HTTP request was received (for example, because of a network failure), the `webResponse` object **SHALL** contain a property named `noResponseReceived` whose value is a Boolean `true`. If a response was received, `noResponseReceived` **SHALL** either be present with the value `false`, or absent, in which case it defaults to `false`.
 

@@ -1,4 +1,4 @@
-## webRequest object
+## `webRequest` Object
 
 ### General{#webrequest-object--general}
 
@@ -10,7 +10,7 @@ A `webRequest` object does not need to represent a valid HTTP request.
 
 > NOTE 2: This allows an analysis tool that intentionally sends invalid HTTP requests to use the `webRequest` object.
 
-### index property{#webrequest-object--index-property}
+### `index` Property{#webrequest-object--index-property}
 
 Depending on the circumstances, a `webRequest` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.webRequests` ([sec](#webrequests-property)) of a `webRequest` object that provides the properties for `thisObject`. We refer to the object in `theRun.webRequests` as the "cached object."
 
@@ -26,37 +26,37 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 2: For examples of the use of an `index` property to locate a cached object, see [sec](#threadflowlocation-object--index-property).
 
-### protocol property{#webrequest-object--protocol-property}
+### `protocol` Property{#webrequest-object--protocol-property}
 
 A `webRequest` object **SHOULD** contain a property named `protocol` whose value is a string containing the name of the web protocol used in the request, found on the HTTP request line.
 
 > EXAMPLE 1: `"protocol": "HTTP"`
 
-### version property{#webrequest-object--version-property}
+### `version` Property{#webrequest-object--version-property}
 
 A `webRequest` object **SHOULD** contain a property named `version` whose value is a string containing the version of the web protocol used in the request, found on the HTTP request line.
 
 > EXAMPLE 1: `"version": "1.1"`
 
-### target property{#webrequest-object--target-property}
+### `target` Property{#webrequest-object--target-property}
 
 A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [sec](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard [cite](#RFC7230).
 
-### method property
+### `method` Property
 
 A `webRequest` object **SHOULD** contain a property named `method` whose value is a string containing the HTTP method used in the request, found on the HTTP request line. The string **SHOULD** be one of the values `"GET"`, `"PUT"`, `"POST"`, `"DELETE"`, `"PATCH"`, `"HEAD"`, `"OPTIONS"`, `"TRACE"`, or `"CONNECT"`.
 
-### headers property{#webrequest-object--headers-property}
+### `headers` Property{#webrequest-object--headers-property}
 
 A `webRequest` object **SHOULD** contain a property named `headers` whose value is an object ([sec](#object-properties)) whose property names are the names of the HTTP headers in the request (for example, `"Content-Type"`) and whose corresponding values are the header values (for example, `"text/plain; charset=ascii"`).
 
-### parameters property{#webrequest-object--parameters-property}
+### `parameters` Property{#webrequest-object--parameters-property}
 
 A `webRequest` object **MAY** contain a property named `parameters` whose value is an object ([sec](#object-properties)) whose property names are the names of the parameters in the request and whose corresponding values are the values of those parameters.
 
 > NOTE: The `parameters` property exists as a convenience for the log file consumer. If it is absent, the consumer can parse the parameters from `body` ([sec](#webrequest-object--body-property)), in the case of a forms post, or from the query portion of `uri` ([sec](#webrequest-object--target-property)).
 
-### body property{#webrequest-object--body-property}
+### `body` Property{#webrequest-object--body-property}
 
 A `webRequest` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([sec](#artifactcontent-object)) containing the body of the request.
 

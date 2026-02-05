@@ -1,4 +1,4 @@
-## physicalLocation object
+## `physicalLocation` Object
 
 ### General{#physicallocation-object--general}
 
@@ -10,11 +10,11 @@ Either the `artifactLocation` property ([sec](#physicallocation-object--artifact
 
 If `region.byteLength` ([sec](#region-property), [sec](#bytelength-property)) and `address.length` ([sec](#address-property), [sec](#address-object--length-property)) are both present, then `region.byteLength` **SHALL** equal the absolute value of `address.length`.
 
-### artifactLocation property{#physicallocation-object--artifactlocation-property}
+### `artifactLocation` Property{#physicallocation-object--artifactlocation-property}
 
 A `physicalLocation` object **MAY** contain a property named `artifactLocation` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that represents the location of the artifact. If `artifactLocation` is absent, then `address` ([sec](#address-property)) **SHALL** be present.
 
-### region property
+### `region` Property
 
 A `physicalLocation` object **MAY** contain a property named `region` whose value is a `region` object ([sec](#region-object)) that represents a relevant portion of the artifact. In particular, if the `physicalLocation` object occurs within the `locations` property ([sec](#result-object--locations-property)) of a `result` object ([sec](#result-object)), the region property **SHALL** specify the region within the artifact where the result was detected.
 
@@ -45,7 +45,7 @@ If the `physicalLocation` object specifies a location in a nested artifact, then
 
 If the `region` property is absent, the `physicalLocation` object refers to the entire artifact.
 
-### contextRegion property
+### `contextRegion` Property
 
 If a `physicalLocation` object contains a `region` property ([sec](#region-property)), it **MAY** also contain a property named `contextRegion` whose value is a `region` object ([sec](#region-object)) which specifies a region that is a proper superset of the region specified by the `region` property. If `region` is absent, `contextRegion` **SHALL** be absent.
 
@@ -83,6 +83,6 @@ If a `physicalLocation` object contains a `region` property ([sec](#region-prope
 > }
 > ```
 
-### address property
+### `address` Property
 
 A `physicalLocation` object **MAY** contain a property named address whose value is an `address` object ([sec](#address-object)) that represents the physical or virtual address of this location. If `address` is absent, then `artifactLocation` ([sec](#physicallocation-object--artifactlocation-property)) **SHALL** be present.

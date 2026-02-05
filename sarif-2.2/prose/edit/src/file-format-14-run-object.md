@@ -1,4 +1,4 @@
-## run object
+## `run` Object{#run-object}
 
 ### General{#run-object--general}
 
@@ -23,23 +23,23 @@ A `run` object describes a single run of an analysis tool and contains the outpu
 > }
 > ```
 
-### externalPropertyFileReferences property
+### `externalPropertyFileReferences` Property
 
 A `run` object **MAY** contain a property named `externalPropertyFileReferences` whose value is an `externalPropertyFileReferences` object ([sec](#externalpropertyfilereferences-object)) that specifies the locations of the external property files (see [sec](#rationale)) associated with this log file.
 
-### automationDetails property
+### `automationDetails` Property
 
 A `run` object **MAY** contain a property named `automationDetails` whose value is a `runAutomationDetails` object ([sec](#runautomationdetails-object)) that describes this run.
 
 For an example, see [sec](#runautomationdetails-object--general).
 
-### runAggregates property
+### `runAggregates` Property
 
 A `run` object **MAY** contain a property named `runAggregates` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `runAutomationDetails` objects ([sec](#runautomationdetails-object)) each of which describes an aggregate of runs to which this run belongs.
 
 For an example, see [sec](#runautomationdetails-object--general).
 
-### baselineGuid property
+### `baselineGuid` Property
 
 A `run` object **MAY** contain a property named `baselineGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([sec](#automationdetails-property), [sec](#runautomationdetails-object--guid-property)) of some previous run.
 
@@ -47,11 +47,11 @@ A `run` object **MAY** contain a property named `baselineGuid` whose value is a 
 
 If `baselineGuid` is present, the `result.baselineState` property ([sec](#baselinestate-property)) of every `result` object ([sec](#result-object)) in `theRun` **SHALL** be computed with respect to the run specified by `baselineGuid`.
 
-### tool property{#run-object--tool-property}
+### `tool` Property{#run-object--tool-property}
 
 A `run` object **SHALL** contain a property named `tool` whose value is a `tool` object ([sec](#tool-object)) that describes the analysis tool that was run.
 
-### language
+### `language` Property{#language}
 
 A `run` object **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([sec](#localizable-strings)) in `theRun` (except for localizable strings that occur within `theRun.translations` ([sec](#translations-property))), in the format specified by the language tags standard [cite](#RFC5646). If this property is absent, it **SHALL** default to `"en-US"`.
 
@@ -63,21 +63,21 @@ A `run` object **MAY** contain a property named `language` whose value is a stri
 >
 >     "language": "fr-FR"
 
-### taxonomies property
+### `taxonomies` Property
 
 A `run` object **MAY** contain a property named `taxonomies` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `toolComponent` objects ([sec](#toolcomponent-object)) each of which represents a standard taxonomy ([sec](#taxonomies)).
 
 > NOTE: Analysis tools can define their own custom taxonomies; see [sec](#taxonomies) and [sec](#toolcomponent-object--taxa-property).
 
-### translations property
+### `translations` Property
 
 A `run` object **MAY** contain a property named `translations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `toolComponent` objects ([sec](#toolcomponent-object)) each of which represents a translation ([sec](#translations)).
 
-### policies property
+### `policies` Property
 
 A `run` object **MAY** contain a property named `policies` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `toolComponent` objects ([sec](#toolcomponent-object)) each of which represents a policy ([sec](#policies)).
 
-### invocations property
+### `invocations` Property
 
 A `run` object **MAY** contain a property named `invocations` whose value is an array of zero or more `invocation` objects ([sec](#invocation-object)) that together describe a single run of a single analysis tool.
 
@@ -85,13 +85,13 @@ A `run` object **MAY** contain a property named `invocations` whose value is an 
 
 The elements of the `invocations` array **SHOULD**, as far as possible, be arranged in chronological order according to the start time of each process. If some of the processes run in parallel, this might not be possible.
 
-### conversion property
+### `conversion` Property
 
 If a `run` object was produced by a converter, it **MAY** contain a property named `conversion` whose value is a `conversion` object ([sec](#conversion-object)) that describes how the converter transformed the analysis tool’s native output format into the SARIF format.
 
 A direct producer **SHALL NOT** emit the `conversion` property.
 
-### versionControlProvenance property
+### `versionControlProvenance` Property
 
 A `run` object **MAY** contain a property named `versionControlProvenance` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `versionControlDetails` objects ([sec](#versioncontroldetails-object)). Each array entry specifies a revision in a repository containing files that were scanned during the run.
 
@@ -117,7 +117,7 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 >   }
 > ```
 
-### originalUriBaseIds property
+### `originalUriBaseIds` Property
 
 A `run` object **MAY** contain a property named `originalUriBaseIds` whose value is an object ([sec](#object-properties)) each of whose property names designates a URI base id ([sec](#uribaseid-property)) and each of whose property values is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies (in the manner described below) the absolute URI [cite](#RFC3986) of that URI base id on the machine where the SARIF producer ran.
 
@@ -242,7 +242,7 @@ A SARIF consumer **SHALL** use the following procedure to resolve a URI base id 
 > }
 > ```
 
-### artifacts property
+### `artifacts` Property
 
 A `run` object **MAY** contain a property named `artifacts` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `artifact` objects ([sec](#artifact-object)) each of which represents an artifact relevant to the run.
 
@@ -270,11 +270,11 @@ In some cases, an artifact might be nested within another artifact (for example,
 
 If a nested artifact appears in the `artifacts` array, then the `artifacts` array **SHALL** also contain elements describing each of its parents, up to and including the top-level artifact.
 
-### specialLocations property
+### `specialLocations` Property
 
 A `run` object **MAY** contain a property named `specialLocations` whose value is a `specialLocations` object ([sec](#speciallocations-object)) that defines locations of special significance to SARIF consumers.
 
-### logicalLocations property{#run-object--logicallocations-property}
+### `logicalLocations` Property{#run-object--logicallocations-property}
 
 A `run` object **MAY** contain a property named `logicalLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `logicalLocation` objects ([sec](#logicallocation-object)) each of which represents a logical location relevant to one or more results detected during the run.
 
@@ -307,7 +307,7 @@ If a nested logical location appears in the `logicalLocations` array, then the `
 
 > NOTE: The detailed information in `logicalLocations` is useful, even though much of it is captured in `logicalLocation.fullyQualifiedName` ([sec](#logicallocation-object--fullyqualifiedname-property)), because it allows results management systems and other SARIF consumers to organize analysis results, for example, by asking questions such as "How many results were found in the namespace `namespaceA::namespaceB`?". Programs can ask these questions without having to know how to parse the `fullyQualifiedName` string.
 
-### addresses property
+### `addresses` Property
 
 A `run` object **MAY** contain a property named `addresses` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `address` objects ([sec](#address-object)) representing addresses that appear in `physicalLocation` objects ([sec](#physicallocation-object)) within `theRun`.
 
@@ -315,7 +315,7 @@ In some cases, an address might be nested within another address (for example, a
 
 If a nested address appears in the `addresses` array, then `addresses` **SHALL** also contain elements describing each of its parents, up to and including the top-level address.
 
-### threadFlowLocations property
+### `threadFlowLocations` Property
 
 A `run` object **MAY** contain a property named `threadFlowLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `threadFlowLocation` objects ([sec](#threadflowlocation-object)) representing locations that appear in `threadFlow` objects ([sec](#threadflow-object)) within `theRun`.
 
@@ -323,25 +323,25 @@ The `threadFlowLocations` array may contain all or any subset of the `threadFlow
 
 > NOTE: Defining `threadFlowLocation` objects within `run.threadFlowLocations` can reduce the size of the log file if certain locations occur frequently, either within a single thread flow (for example, if the thread flow represents a loop) or across thread flows (for example, if all thread flows start at the program entry point and share their first few locations).
 
-### graphs property{#run-object--graphs-property}
+### `graphs` Property{#run-object--graphs-property}
 
 A `run` object **MAY** contain a property named `graphs` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `graph` objects ([sec](#graph-object)). A `graph` object represents a directed graph: a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph).
 
 A `graph` object defined at the `run` level **MAY** be referenced by a `graphTraversal` object ([sec](#graphtraversal-object)) defined in the `graphTraversals` property ([sec](#graphtraversals-property)) of any `result` object ([sec](#result-object)) in `theRun`.
 
-### webRequests property
+### `webRequests` Property
 
 A `run` object **MAY** contain a property named `webRequests` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `webRequest` objects ([sec](#webrequest-object)) representing HTTP requests that appear in `result` objects ([sec](#result-object)) within `theRun`.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
-### webResponses property
+### `webResponses` Property
 
 A `run` object **MAY** contain a property named `webResponses` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `webResponse` objects ([sec](#webresponse-object)) representing HTTP responses that appear in `result` objects ([sec](#result-object)) within `theRun`.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
-### results property
+### `results` Property
 
 Depending on the circumstances, a `run` object either **SHALL** or **MAY** contain a property named `results` whose value, again depending on circumstances, is either `null` or an array of zero or more `result` objects ([sec](#result-object)) each of which represents a single result detected in the course of the run.
 
@@ -355,7 +355,7 @@ In all other circumstances, `results` **SHALL** be present and **SHALL** contain
 
 If `results` is absent, it **SHALL** default to `null`.
 
-### defaultEncoding property
+### `defaultEncoding` Property
 
 A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([sec](#encoding-property)) of any `artifact` object ([sec](#artifact-object)) in `theRun.artifacts` ([sec](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA [cite](#IANA-ENC).
 
@@ -363,7 +363,7 @@ If this property is absent, it **SHALL** be interpreted as meaning that there is
 
 For an example, see [sec](#encoding-property).
 
-### defaultSourceLanguage property
+### `defaultSourceLanguage` Property
 
 A `run` object **MAY** contain a property named `defaultSourceLanguage` whose value is a hierarchical string ([sec](#hierarchical-strings)) that provides a default value for the `sourceLanguage` property ([sec](#artifact-object--sourcelanguage-property)) of any `artifact` object ([sec](#artifact-object)) in `theRun.artifacts` ([sec](#artifacts-property)) which refers to a text artifact that contains source code.
 
@@ -371,7 +371,7 @@ If `defaultSourceLanguage` is present, its value **SHOULD** conform to the conve
 
 If `defaultSourceLanguage` is absent, it **SHALL** be taken to mean that there is no default source language. In that case, the source language of any `artifact` object that does not contain a `sourceLanguage` property **SHALL** be taken to be unknown. In that case, a SARIF viewer **MAY** use any method or heuristic to determine the source language of each file, for example by examining the file’s file name extension or MIME type, or by prompting the user.
 
-### newlineSequences property
+### `newlineSequences` Property
 
 A `run` object **MAY** contain a property named `newlineSequences` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) strings each of which specifies a character sequence that the tool treated as a line break during this run.
 
@@ -393,7 +393,7 @@ The order of the elements in the array is significant. It **SHALL** mean that at
 > }
 > ```
 
-### columnKind property
+### `columnKind` Property
 
 If a SARIF producer processes text artifacts and `theRun.results` ([sec](#results-property)) is non-empty, the `run` object **SHALL** contain a property named `columnKind` whose value is a string that specifies the unit in which the analysis tool measures columns. If a SARIF producer processes text artifacts and `theRun.results` is empty, `columnKind` **MAY** be present.
 
@@ -403,11 +403,14 @@ If a SARIF producer processes text artifacts and `theRun.results` ([sec](#result
 
 - `"unicodeCodePoints"`: Each Unicode code point (abstract character) is considered to occupy one column. This means that even a character that is represented in UTF-16 by a surrogate pair is considered to occupy one column.
 
+- `"bytes"`: column numbers refer to byte offsets from the start of the line, where the first byte in a line has value 1.
+  Note: this is for consistency with column numbering in text regions ([sec](#text-regions)), and is different from binary regions ([sec](#binary-regions)), where the first byte offset in an **artifact** is 0.
+
 If the SARIF producer does not process text artifacts, `columnKind` **SHALL** be absent.
 
 If a SARIF consumer uses a column measurement unit other than that specified by `columnKind`, and if the consumer is required to interact with the artifact’s contents (for example, by displaying the artifact in an editor and highlighting a region), the consumer **SHALL** recompute column numbers in its (the consumer’s) native measurement unit.
 
-### redactionTokens property
+### `redactionTokens` Property
 
 If the value of any redactable property ([sec](#redactable-strings)) in `theRun` has been redacted, `theRun` **SHALL** contain a property named `redactionTokens` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings any of which can be used to replace redacted text. If no text in `theRun` has been redacted, `redactionTokens` **SHALL** be absent.
 

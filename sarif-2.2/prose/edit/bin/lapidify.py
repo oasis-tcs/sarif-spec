@@ -18,32 +18,11 @@ DOT = "."
 FULL_STOP = "."
 HASH = "#"
 PARA = "§"
+RS = chr(30)
 SEMI = ";"
 SPACE = " "
 TM = "™"
 
-SLUG_NOT = (
-    " ",
-    ".",
-    ",",
-    ";",
-    "?",
-    "!",
-    "_",
-    "(",
-    ")",
-    "[",
-    "]",
-    "{",
-    "}",
-    "<",
-    ">",
-    "\\",
-    "/",
-    "$",
-    ":",
-    "+",
-)
 DEBUG = bool(os.getenv("LAPIDIFY_DEBUG", ""))
 TARGETS = (
     PDF := "pdf",
@@ -144,23 +123,23 @@ APPENDIX_HEAD_REMAP = {
         "replace": ["# ", "# Appendix A. "],
         "attrs": "{.unnumbered #informative-acknowledgments}",
     },
-    "# (Normative) Use of fingerprints by result management systems": {
+    "# (Normative) Use of Fingerprints by Result Management Systems": {
         "replace": ["# ", "# Appendix B. "],
         "attrs": "{.unnumbered #normative-use-of-fingerprints-by-result-management-systems}",
     },
-    "# (Informative) Use of SARIF by log file viewers": {
+    "# (Informative) Use of SARIF by Log File Viewers": {
         "replace": ["# ", "# Appendix C. "],
         "attrs": "{.unnumbered #informative-use-of-sarif-by-log-file-viewers}",
     },
-    "# (Normative) Production of SARIF by converters": {
+    "# (Normative) Production of SARIF by Converters": {
         "replace": ["# ", "# Appendix D. "],
         "attrs": "{.unnumbered #normative-production-of-sarif-by-converters}",
     },
-    "# (Informative) Locating rule and notification metadata": {
+    "# (Informative) Locating Rule and Notification Metadata": {
         "replace": ["# ", "# Appendix E. "],
         "attrs": "{.unnumbered #informative-locating-rule-and-notification-metadata}",
     },
-    "# (Informative) Producing deterministic SARIF log files": {
+    "# (Informative) Producing Deterministic SARIF Log Files": {
         "replace": ["# ", "# Appendix F. "],
         "attrs": "{.unnumbered #informative-producing-deterministic-sarif-log-files}",
     },
@@ -171,43 +150,43 @@ APPENDIX_HEAD_REMAP = {
         "replace": ["## ", "## F.1 "],
         "attrs": "{.unnumbered #informative-producing-deterministic-sarif-log-files--general}",
     },
-    "## Non-deterministic file format elements": {
+    "## Non-Deterministic File Format Elements": {
         "replace": ["## ", "## F.2 "],
         "attrs": "{.unnumbered #non-deterministic-file-format-elements}",
     },
-    "## Array and dictionary element ordering": {
+    "## Array and Dictionary Element Ordering": {
         "replace": ["## ", "## F.3 "],
         "attrs": "{.unnumbered #array-and-dictionary-element-ordering}",
     },
-    "## Absolute paths": {
+    "## Absolute Paths": {
         "replace": ["## ", "## F.4 "],
         "attrs": "{.unnumbered #absolute-paths}",
     },
-    "## Inherently non-deterministic tools": {
+    "## Inherently Non-Deterministic Tools": {
         "replace": ["## ", "## F.5 "],
         "attrs": "{.unnumbered #inherently-non-deterministic-tools}",
     },
-    "## Compensating for non-deterministic output": {
+    "## Compensating for Non-Deterministic Output": {
         "replace": ["## ", "## F.6 "],
         "attrs": "{.unnumbered #compensating-for-non-deterministic-output}",
     },
-    "## Interaction between determinism and baselining": {
+    "## Interaction Between Determinism and Baselining": {
         "replace": ["## ", "## F.7 "],
         "attrs": "{.unnumbered #interaction-between-determinism-and-baselining}",
     },
-    "# (Informative) Guidance on fixes": {
+    "# (Informative) Guidance on Fixes": {
         "replace": ["# ", "# Appendix G. "],
         "attrs": "{.unnumbered #informative-guidance-on-fixes}",
     },
-    "# (Informative) Diagnosing results in generated files": {
+    "# (Informative) Diagnosing Results in Generated Files": {
         "replace": ["# ", "# Appendix H. "],
         "attrs": "{.unnumbered #informative-diagnosing-results-in-generated-files}",
     },
-    "# (Informative) Detecting incomplete result sets": {
+    "# (Informative) Detecting Incomplete Result Sets": {
         "replace": ["# ", "# Appendix I. "],
         "attrs": "{.unnumbered #informative-detecting-incomplete-result-sets}",
     },
-    "# (Informative) Sample sourceLanguage values": {
+    "# (Informative) Sample `sourceLanguage` Values": {
         "replace": ["# ", "# Appendix J. "],
         "attrs": "{.unnumbered #informative-sample-sourcelanguage-values}",
     },
@@ -215,19 +194,19 @@ APPENDIX_HEAD_REMAP = {
         "replace": ["# ", "# Appendix K. "],
         "attrs": "{.unnumbered #informative-examples}",
     },
-    "## Minimal valid SARIF log file": {
+    "## Minimal Valid SARIF Log File": {
         "replace": ["## ", "## K.1 "],
         "attrs": "{.unnumbered #minimal-valid-sarif-log-file}",
     },
-    "## Minimal recommended SARIF log file with source information": {
+    "## Minimal Recommended SARIF Log File with Source Information": {
         "replace": ["## ", "## K.2 "],
         "attrs": "{.unnumbered #minimal-recommended-sarif-log-file-with-source-information}",
     },
-    "## Minimal recommended SARIF log file without source information": {
+    "## Minimal Recommended SARIF Log File without Source Information": {
         "replace": ["## ", "## K.3 "],
         "attrs": "{.unnumbered #minimal-recommended-sarif-log-file-without-source-information}",
     },
-    "## Comprehensive SARIF file": {
+    "## Comprehensive SARIF File": {
         "replace": ["## ", "## K.4 "],
         "attrs": "{.unnumbered #comprehensive-sarif-file}",
     },
@@ -241,6 +220,10 @@ APPENDIX_HEAD_REMAP = {
     ): {
         "replace": ["# ", "# Appendix M. "],
         "attrs": "{.unnumbered #informative-mime-types-and-file-name-extensions}",
+    },
+    "# Safety, Security and Data Protection": {
+        "replace": ["# ", "# Appendix N. "],
+        "attrs": "{.unnumbered #safety-security-and-data-protection}",
     },
 }
 
@@ -285,14 +268,34 @@ def dump_assembly(text_lines: list[str], to_path: Union[str, pathlib.Path]) -> N
         resource.write("".join(text_lines))
 
 
-def label_derive_from(text: str) -> str:
-    """Transform text to kebab style conventional label assuming no newlines present."""
-    slug = text.strip()
-    for bad in SLUG_NOT:
-        slug = slug.replace(bad, DASH)
-    parts = slug.split(DASH)
-    slug = DASH.join(s for s in parts if s and s != DASH)
-    return slug.lower()
+def label_derive_from(
+    text: str,
+    connector: str = DASH,
+    marker: str = RS,
+    gremlins: str = ' .,;?!_()[]{}<>\\/$:"\'`´',
+    policy: str = 'lower',
+) -> str:
+    """Derive kebab style slug from text.
+
+    Implementer notes:
+
+    - Every character not in gremlins is kept.
+    - Incoming connector chars (default dashes) are preserved by
+      sandwich transform to and from marker char (default ASCII RS).
+      If the marker char occurs in the text, it will be replaced
+      with the connector char during the back transform.
+    """
+    ds = connector
+    rs = marker
+
+    sl = text.strip().replace(ds, rs)
+    for gremlin in gremlins:
+        sl = sl.replace(gremlin, ds)
+
+    return getattr(
+        ds.join(s.replace(rs, ds) for s in sl.split(ds) if s and s != ds),
+        policy
+    )()
 
 
 def label_in(text: str) -> bool:
@@ -654,6 +657,9 @@ def main(args: list[str]) -> int:
                                 parts_kept.append(part)
                         line = "{".join(parts_kept)
                         print("OBSCURE_FIX_DONE::::>outgoing", line)
+                else:
+                    if terse_line.startswith(HASH):
+                        print(f'NO_HIT({terse_line})')
 
                 # MAYBE_NO_SECTION_NUMBERS_AS_PART_OF_HEADING # line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
                 cur_lvl = nxt_lvl

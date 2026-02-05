@@ -1,4 +1,4 @@
-## toolComponent object
+## `toolComponent` Object
 
 ### General{#toolcomponent-object--general}
 
@@ -273,7 +273,7 @@ A SARIF consumer **MAY** offer the user the option of treating results according
 }
 ```
 
-### guid property{#toolcomponent-object--guid-property}
+### `guid` Property{#toolcomponent-object--guid-property}
 
 A `toolComponent` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that provides a unique, stable identifier for the component. `guid` **SHALL NOT** vary between versions of a given component.
 
@@ -281,7 +281,7 @@ A `toolComponent` object **MAY** contain a property named `guid` whose value is 
 
 The `name` ([sec](#toolcomponent-object--name-property)) or `fullName` ([sec](#toolcomponent-object--fullname-property)), `product` ([sec](#product-property)), and `productSuite` ([sec](#productsuite-property)) properties establish a hierarchy of related software: the tool component identified by `name` and/or `fullName` is part of the product named by `product`, which in turn is part of the product suite identified by `productSuite`.
 
-### name property{#toolcomponent-object--name-property}
+### `name` Property{#toolcomponent-object--name-property}
 
 A `toolComponent` object **SHALL** contain a property named `name` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the tool component.
 
@@ -291,25 +291,25 @@ A `toolComponent` object **SHALL** contain a property named `name` whose value i
 
 > EXAMPLE 3: `"CodeScanner configuration file"`
 
-### fullName property{#toolcomponent-object--fullname-property}
+### `fullName` Property{#toolcomponent-object--fullname-property}
 
 A `toolComponent` object **MAY** contain a property named `fullName` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the tool component along with its version and any other useful identifying information, such as its locale.
 
 > EXAMPLE 1: `"CodeScanner 1.1, Developer Preview (en-US)"`
 
-### product property
+### `product` Property
 
 A `toolComponent` object **MAY** contain a property named `product` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the product to which the tool component belongs.
 
 > EXAMPLE 1: `"product": "Example Software Corp. Security Scanner"`
 
-### productSuite property
+### `productSuite` Property
 
 A `toolComponent` object **MAY** contain a property named `productSuite` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the suite of products to which the tool component belongs.
 
 > EXAMPLE 1: `"productSuite": "Example Software Corp. Quality Tools"`
 
-### semanticVersion property
+### `semanticVersion` Property
 
 A `toolComponent` object **MAY** contain a property named `semanticVersion` whose value is a string containing the tool component’s version in a format that conforms to the syntax and semantics specified by Semantic Versioning [cite](#SEMVER).
 
@@ -319,13 +319,13 @@ A `toolComponent` object **MAY** contain a property named `semanticVersion` whos
 
 Unless the author of the converter knows that the version number of the tool from which it converts is intended to be interpreted according to Semantic Versioning [cite](#SEMVER), the converter **SHALL NOT** emit the `semanticVersion` property in `run.tool` ([sec](#run-object--tool-property)), although of course it may emit its own `semanticVersion` property (the one in `run.conversion.tool` ([sec](#conversion-object--tool-property))).
 
-### version property{#toolcomponent-object--version-property}
+### `version` Property{#toolcomponent-object--version-property}
 
 A `toolComponent` object **MAY** contain a property named `version` whose value is a string containing the tool component’s version in whatever format the component natively provides.
 
 > NOTE: Plugins are often binary files whose version can be determined; configuration files are typically text files with no embedded version information.
 
-### dottedQuadFileVersion property
+### `dottedQuadFileVersion` Property
 
 If the operating system on which the tool runs provides a value for the file version of the tool component's primary executable file, and if that value logically consists of an ordered set of four non-negative integers, then the `toolComponent` object **MAY** contain a property named `dottedQuadFileVersion` whose value is a string representation of that file version in this syntax:
 
@@ -337,35 +337,35 @@ If the operating system does not provide such a value, the `dottedQuadFileVersio
 
 > EXAMPLE 1: On the Microsoft Windows® platform, this information is available in the `FILEVERSION` member of the `VERSIONINFO` structure.
 
-### releaseDateUtc property
+### `releaseDateUtc` Property
 
 A `toolComponent` object **MAY** contain a property named `releaseDateUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date (and optionally, the time) of the component’s release.
 
-### downloadUri property{#toolcomponent-object--downloaduri-property}
+### `downloadUri` Property{#toolcomponent-object--downloaduri-property}
 
 A `toolComponent` object **MAY** contain a property named `downloadUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI [cite](#RFC3986) from which this version of the tool component can be downloaded.
 
 > NOTE: This property is localizable to allow different language versions of a tool to be downloaded from their own URIs.
 
-### informationUri property{#toolcomponent-object--informationuri-property}
+### `informationUri` Property{#toolcomponent-object--informationuri-property}
 
 A `toolComponent` object **MAY** contain a property named `informationUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI [cite](#RFC3986) at which information about this version of the tool component can be found.
 
 > NOTE: This property is localizable to allow tool information in different languages to be found at different URIs.
 
-### organization property
+### `organization` Property
 
 A `toolComponent` object **MAY** contain a property named `organization` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the company or organization that produced the tool component.
 
 > EXAMPLE 1: `"organization": "Example Software Corp."`
 
-### shortDescription property{#toolcomponent-object--shortdescription-property}
+### `shortDescription` Property{#toolcomponent-object--shortdescription-property}
 
 A `toolComponent` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) containing a brief description of the tool component.
 
 The `shortDescription` property **SHOULD** be a single sentence that is understandable when visible space is limited to a single line of text.
 
-### fullDescription property{#toolcomponent-object--fulldescription-property}
+### `fullDescription` Property{#toolcomponent-object--fulldescription-property}
 
 A `toolComponent` object **MAY** contain a property named `fullDescription` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) containing a comprehensive description of the tool component.
 
@@ -373,7 +373,7 @@ The beginning of `fullDescription` (for example, its first sentence) **SHOULD** 
 
 > NOTE: The rationale for this guidance is that in the absence of `shortDescription`, a viewer with limited display space might display a truncated version of `fullDescription`, for example, the first sentence (if a sentence is identifiable), the first paragraph, or the first 100 characters. If this guidance is not followed, that truncated description might not be understandable.
 
-### language property
+### `language` Property
 
 Depending on the circumstances, a `toolComponent` object either **SHALL** or **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([sec](#localizable-strings)) contained in the component (except for those in the `translationMetadata` property ([sec](#translationmetadata-property))), in a subset of the format specified by the language tags standard [cite](#RFC5646). The subset consists of strings conforming to the syntax
 
@@ -395,7 +395,7 @@ If this property is absent, it **SHALL** default to `"en-US"`.
 >
 >     "language": "fr-FR"
 
-### globalMessageStrings property
+### `globalMessageStrings` Property
 
 A `toolComponent` object **MAY** contain a property named `globalMessageStrings` whose value is an object ([sec](#object-properties)) each of whose property values is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)). The property names correspond to `id` properties ([sec](#message-object--id-property)) within `message` objects ([sec](#message-object)).
 
@@ -418,7 +418,7 @@ A `toolComponent` object **MAY** contain a property named `globalMessageStrings`
 
 > NOTE: The message strings in this property are not associated with a single rule (hence the "global" in the property name.
 
-### rules property
+### `rules` Property
 
 A `toolComponent` object **MAY** contain a property named `rules` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptor` objects ([sec](#reportingdescriptor-object)) each of which provides information about an analysis rule supported by the tool component.
 
@@ -458,7 +458,7 @@ Some tools use the same identifier to refer to multiple distinct (although logic
 > }
 > ```
 
-### notifications property
+### `notifications` Property
 
 A `toolComponent` object **MAY** contain a property named `notifications` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptor` objects ([sec](#reportingdescriptor-object)) each of which provides information about a notification provided by the tool component.
 
@@ -494,7 +494,7 @@ A tool might use the same identifier to refer to multiple distinct (although log
 > ```
 >
 
-### taxa property{#toolcomponent-object--taxa-property}
+### `taxa` Property{#toolcomponent-object--taxa-property}
 
 A `toolComponent` object **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptor` objects ([sec](#reportingdescriptor-object)) each of which provides information about a taxon defined by the component.
 
@@ -534,7 +534,7 @@ If the `toolComponent` describes a tool driver or plugin that defines its own cu
 > }
 > ```
 
-### supportedTaxonomies property
+### `supportedTaxonomies` Property
 
 A `toolComponent` object **MAY** contain a property named `supportedTaxonomies` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `toolComponentReference` objects ([sec](#toolcomponentreference-object)) each of which refers to a taxonomy ([sec](#taxonomies)) that the component uses to classify results.
 
@@ -587,15 +587,15 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 > ```
 >
 
-### translationMetadata property
+### `translationMetadata` Property
 
 If a `toolComponent` object represents a translation ([sec](#translations)), it **SHALL** contain a property named `translationMetadata` whose value is a `translationMetadata` object ([sec](#translationmetadata-object)) that contains descriptive information about the translation itself, as opposed to describing the component whose localizable strings ([sec](#localizable-strings)) it translates. Otherwise, `translationMetadata` **SHALL** be absent.
 
-### locations property{#toolcomponent-object--locations-property}
+### `locations` Property{#toolcomponent-object--locations-property}
 
 A `toolComponent` object **MAY** contain a property named `locations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `artifactLocation` objects ([sec](#artifactlocation-object)) each of which specifies the location of one of the files comprising this tool component.
 
-### contents property{#toolcomponent-object--contents-property}
+### `contents` Property{#toolcomponent-object--contents-property}
 
 A `toolComponent` object **SHOULD** contain a property named `contents` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings each of which is one of the following values with the specified meanings:
 
@@ -609,7 +609,7 @@ If `contents` is absent, it **SHALL** default to `[ "localizedData", "nonLocaliz
 >
 > For example, a user might specify the path to a policy file on a tool’s command line. If the specified file does not claim to contain `"nonLocalizedData"`, the tool could conclude that the file does not contain a policy and warn the user.
 
-### isComprehensive property
+### `isComprehensive` Property
 
 A `toolComponent` object **SHOULD** contain a property named `isComprehensive` whose value is a Boolean that is `true` if the component contains complete information for the content types specified by `contents` ([sec](#toolcomponent-object--contents-property)) and `false` otherwise.
 
@@ -619,7 +619,7 @@ If `isComprehensive` is absent, it **SHALL** default to `false`.
 >
 > So, for example, the author of a translation ([sec](#translations)) would want to work from a log file whose `contents` array includes `"localizedData"` and whose `isComprehensive` property is set to `true`. Similarly, the author of a policy ([sec](#policies)) would want to work from a log file whose `contents` array contains `"nonLocalizedData"` and whose `isComprehensive` property is set to `true`.
 
-### localizedDataSemanticVersion property
+### `localizedDataSemanticVersion` Property
 
 If a `toolComponent` object represents a translation ([sec](#translations)), it **SHOULD** contain a property named `localizedDataSemanticVersion` whose value is a string that specifies the semantic version [cite](#SEMVER) of the translated strings. Otherwise, `localizedDataSemanticVersion` **MAY** be present, in which case it represents the semantic version of the localizable strings ([sec](#localizable-strings)) that are present in this component.
 
@@ -629,7 +629,7 @@ If `localizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject
 
 > NOTE 2: In a translation, `localizedDataSemanticVersion` will usually be the same as `semanticVersion`. They will differ only if it is necessary to revise the translation component to correct an error unrelated to the translated strings, for example, an error in its `translationMetadata` ([sec](#translationmetadata-property)). In that case, `semanticVersion` would be incremented but `localizedDataSemanticVersion` would not.
 
-### minimumRequiredLocalizedDataSemanticVersion property
+### `minimumRequiredLocalizedDataSemanticVersion` Property
 
 If a `toolComponent` object does not represent a translation ([sec](#translations)), it **SHOULD** contain a property named `minimumRequiredLocalizedDataSemanticVersion` whose value is a string that specifies the minumum semantic version [cite](#SEMVER) of the translated strings that it requires. Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
 
@@ -663,7 +663,7 @@ When a SARIF consumer is seeking a translation for this object, it **SHALL** onl
 > ```
 >
 
-### associatedComponent property
+### `associatedComponent` Property
 
 If this `toolComponent` object represents a plugin (see [sec](#tool-object--general)), a taxonomy ([sec](#taxonomies)), a translation ([sec](#translations)), or a policy ([sec](#policies)), it **MAY** contain a property named `associatedComponent` whose value is a `toolComponentReference` object ([sec](#toolcomponentreference-object)) which identifies the component (either `theTool.driver` ([sec](#driver-property)) or an element of `theTool.extensions` ([sec](#extensions-property))) to which this plugin, translation, or policy applies. If `associatedComponent` is absent, it **SHALL** default to a reference to `theTool.driver`.
 

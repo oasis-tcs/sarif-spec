@@ -1,4 +1,4 @@
-## specialLocations object
+## `specialLocations` Object
 
 ### General{#speciallocations-object--general}
 
@@ -6,7 +6,7 @@ A `specialLocations` object defines locations of special significance to SARIF c
 
 > NOTE: This version of SARIF defines only one such location, `displayBase` ([sec](#displaybase-property)). In the future, other specially treated locations might be defined.
 
-### displayBase property
+### `displayBase` Property
 
 A `specialLocations` object **MAY** contain a property named `displayBase` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) which provides a suggestion to consumers to display file paths relative to the specified location.
 

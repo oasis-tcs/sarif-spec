@@ -1,4 +1,4 @@
-## message object
+## `message` Object
 
 ### General{#message-object--general}
 
@@ -18,7 +18,7 @@ At least one of the `text` ([sec](#message-object--text-property)) or `id` ([sec
 
 > NOTE: This ensures that a SARIF consumer can locate the text of the message.
 
-### Plain text messages
+### Plain Text Messages
 
 A plain text message **SHALL NOT** contain formatting information, for example, HTML tags or white space whose purpose is to provide indentation or suggest some structure to the message.
 
@@ -34,7 +34,7 @@ If the message consists of more than one sentence, its first sentence **SHOULD**
 
 A SARIF post-processor **SHOULD NOT** modify line break sequences (except perhaps to adapt them to a particular viewing environment).
 
-### Formatted messages
+### Formatted Messages
 
 #### General{#formatted-messages--general}
 
@@ -42,7 +42,7 @@ Formatted messages **MAY** be of arbitrary length and **MAY** contain formatting
 
 Formatted messages **SHALL** be expressed in GitHub-Flavored Markdown [cite](#GFM). Since GFM is a superset of CommonMark [cite](#CMARK), any CommonMark Markdown syntax is acceptable.
 
-#### Security implications
+#### Security Implications
 
 For security reasons, SARIF producers and consumers **SHALL** adhere to the following:
 
@@ -56,7 +56,7 @@ For security reasons, SARIF producers and consumers **SHALL** adhere to the foll
 
 SARIF consumers that are not prepared to deal with the security implications of formatted messages **SHALL NOT** attempt to render them and **SHALL** instead fall back to the corresponding plain text messages.
 
-### Messages with placeholders
+### Messages with Placeholders
 
 A message string **MAY** include one or more "placeholders." The syntax of a placeholder is:
 
@@ -96,7 +96,7 @@ Within a given `message` object:
 > }
 > ```
 
-### Messages with embedded links
+### Messages with Embedded Links
 
 A message string **MAY** include one or more links to locations within artifacts mentioned in the enclosing `result` object ([sec](#result-object)). We refer to these links as "embedded links".
 
@@ -210,7 +210,7 @@ URLs MAY contain unescaped closing parentheses ')' and thus any parser applied t
 > 5. ' quux.'                                           (as text)
 > ```
 
-### Message string lookup
+### Message String Lookup
 
 A `message` object can directly contain message strings in its `text` ([sec](#message-object--text-property)) and `markdown` ([sec](#message-object--markdown-property)) properties. It can also indirectly refer to message strings through its `id` ([sec](#message-object--id-property)) property.
 
@@ -262,11 +262,11 @@ IF the string has not yet been found THEN
 
 &emsp;&emsp;The lookup procedure fails (which means the SARIF log file is invalid).
 
-### text property{#message-object--text-property}
+### `text` Property{#message-object--text-property}
 
 A `message` object **MAY** contain a property named `text` whose value is a non-empty string containing a plain text message ([sec](#plain-text-messages)).
 
-### markdown property{#message-object--markdown-property}
+### `markdown` Property{#message-object--markdown-property}
 
 A `message` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([sec](#formatted-messages)) expressed in GitHub-Flavored Markdown [cite](#GFM).
 
@@ -276,11 +276,11 @@ If the `markdown` property is present, the `text` property ([sec](#message-objec
 
 SARIF consumers that cannot (or choose not to) render formatted text **SHALL** ignore the `markdown` property and use the `text` property instead.
 
-### id property{#message-object--id-property}
+### `id` Property{#message-object--id-property}
 
 A `message` object **MAY** contain a property named `id` whose value is a non-empty string containing the identifier for the desired message. See [sec](#message-string-lookup) for details of the message string lookup procedure.
 
-### arguments property{#message-object--arguments-property}
+### `arguments` Property{#message-object--arguments-property}
 
 If the message string specified by any of the properties `text` ([sec](#message-object--text-property)), `markdown` ([sec](#message-object--markdown-property)), or `id` ([sec](#message-object--id-property)) contains any placeholders ([sec](#messages-with-placeholders)), the `message` object **SHALL** contain a property named `arguments` whose value is an array of strings. [sec](#messages-with-placeholders) specifies how a SARIF consumer combines the contents of the `arguments` array with the message string to construct the message that it presents to the end user, and provides an example.
 

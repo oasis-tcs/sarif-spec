@@ -1,4 +1,4 @@
-## locationRelationship object
+## `locationRelationship` Object
 
 ### General{#locationrelationship-object--general}
 
@@ -73,13 +73,13 @@ A `locationRelationship` object specifies one or more directed relationships fro
 > }
 > ```
 
-### target property{#locationrelationship-object--target-property}
+### `target` Property{#locationrelationship-object--target-property}
 
 A `locationRelationship` object **SHALL** contain a property named `target` whose value is a non-negative integer which identifies `theTarget` (see [sec](#locationrelationship-object--general)) among all `location` objects ([sec](#location-object)) in `theResult` by virtue of being equal to `theTarget.id` ([sec](#location-object--id-property)).
 
 > NOTE: Negative values are forbidden because their use might suggest some non-obvious semantic difference between positive and negative values.
 
-### kinds property{#locationrelationship-object--kinds-property}
+### `kinds` Property{#locationrelationship-object--kinds-property}
 
 A `locationRelationship` object **MAY** contain a property named `kinds` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) strings each of which specifies a relationship between `theSource` and `theTarget` (see [sec](#locationrelationship-object--general)). If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`).
 
@@ -97,6 +97,6 @@ If none of these values are appropriate, a SARIF producer **MAY** use any value.
 
 In particular, the values defined for `logicalLocation.kind` ([sec](#logicallocation-object--kind-property)) and `threadFlowLocation.kinds` ([sec](#threadflowlocation-object--kinds-property)) might prove useful.
 
-### description property{#locationrelationship-object--description-property}
+### `description` Property{#locationrelationship-object--description-property}
 
 A `locationRelationship` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the relationship.

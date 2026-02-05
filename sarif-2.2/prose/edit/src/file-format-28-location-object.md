@@ -1,4 +1,4 @@
-## location object
+## `location` Object
 
 ### General{#location-object--general}
 
@@ -16,9 +16,9 @@ A logical location specifies a programmatic construct, for example, a class name
 
 In rare circumstances, there might be neither physical nor logical location information available for a `location` object. See [sec](#threadflowlocation-object) for an example. In that case, the location object **SHOULD** contain a message property ([sec](#location-object--message-property)) explaining the significance of this "location."
 
-### id property{#location-object--id-property}
+### `id` Property{#location-object--id-property}
 
-A `location` object **MAY** contain a property named `id` whose value is a non-negative integer that is unique among all `location` objects belonging to `theResult`. The value does not need to be unique across all `result` objects ([sec](#result-object)) in `theRun`.
+A `location` object **MAY** contain a property named `id` whose value is a non-negative integer that is unique among all `location` objects belonging to `theLocationOwner`. The value does not need to be unique across all `result` ([sec](#result-object)) or `notification` ([sec](#notification-object)) objects in `theRun`.
 
 If `id` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
@@ -30,23 +30,23 @@ If `id` is absent, it **SHALL** default to -1, which indicates that the value is
 >     result.codeFlows[0].threadFlows[0].locations[0].location
 >     result.stacks[0].frames[0].location
 
-The `id` property has two purposes: to enable an embedded link ([sec](#messages-with-embedded-links)) within a `message` object ([sec](#message-object)) to refer to `thisObject`, and to identify `thisObject` as the target of a `locationRelationship` ([sec](#locationrelationship-object)). If no `message` object within `theResult` refers to `thisObject` *via* an embedded link and no `locationRelationship` object within `theResult` specifies `thisObject` as its target, the `id` property does not need to appear.
+The `id` property has two purposes: to enable an embedded link ([sec](#messages-with-embedded-links)) within a `message` object ([sec](#message-object)) to refer to `thisObject`, and to identify `thisObject` as the target of a `locationRelationship` ([sec](#locationrelationship-object)). If no `message` object within `theLocationOwner` refers to `thisObject` *via* an embedded link and no `locationRelationship` object within `theLocationOwner` specifies `thisObject` as its target, the `id` property does not need to appear.
 
-### physicalLocation property
+### `physicalLocation` Property
 
 Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `physicalLocation` whose value is a `physicalLocation` object ([sec](#physicallocation-object)) that identifies the file within which the location lies. If physical location information is available and the `logicalLocations` property ([sec](#location-object--logicallocations-property)) is absent or empty, `physicalLocation` **SHALL** be present. If physical location is available and `logicalLocations` is present and non-empty, `physicalLocation` **MAY** be present. If physical location information is not available, `physicalLocation` **SHALL NOT** be present.
 
-### logicalLocations property{#location-object--logicallocations-property}
+### `logicalLocations` Property{#location-object--logicallocations-property}
 
 Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `logicalLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `logicalLocation` objects ([sec](#logicallocation-object)) that identify the programmatic construct within which the location lies. If logical location information is available and the `physicalLocation` property ([sec](#physicallocation-property)) is absent, `logicalLocations` **SHALL** be present and non-empty. If logical location information is available and `physicalLocation` is present, `logicalLocations` **MAY** be present. If logical location information is not available, `logicalLocations` **SHALL NOT** be present.
 
 > NOTE: `logicalLocations` is an array because some logical locations can be expressed in more than one way. For example, the logical location of an element in an HTML document might be expressed by an XML Path expression such as `/html/body/img[1]` or by a CSS selector such as `#logo`.
 
-### message property{#location-object--message-property}
+### `message` Property{#location-object--message-property}
 
 A `location` object **MAY** contain a property named `message` whose value is a `message` object ([sec](#message-object)) relevant to the location.
 
-### annotations property
+### `annotations` Property
 
 A `location` object **MAY** contain a property named `annotations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `region` objects ([sec](#region-object)) each of which describes a region within the artifact specified by the `location` object that is relevant to the location. Each of these `region` objects **SHOULD** contain a `message` property ([sec](#region-object--message-property)) that explains the relevance of the region to the location.
 
@@ -71,6 +71,6 @@ A `location` object **MAY** contain a property named `annotations` whose value i
 > ]
 > ```
 
-### relationships property{#location-object--relationships-property}
+### `relationships` Property{#location-object--relationships-property}
 
 A `location` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `locationRelationship` objects ([sec](#locationrelationship-object)) each of which declares one or more directed relationship from `thisObject` to another `location` object, which we refer to as `theTarget`, specified by `locationRelationship.target` ([sec](#locationrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `locationRelationship.kinds` ([sec](#locationrelationship-object--kinds-property)).
