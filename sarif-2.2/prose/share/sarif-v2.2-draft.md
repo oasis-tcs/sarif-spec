@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 04 December 2025
+## 05 February 2026
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -62,14 +62,14 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 04 December 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 05 February 2026. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
 
 
 -------
 
 ## Notices
 
-Copyright © OASIS Open 2025. All Rights Reserved.
+Copyright © OASIS Open 2026. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 
@@ -10950,6 +10950,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
 | sarif-v2.2-wd20250710-dev | 2025-07-10 | Stefan Hagen                | Editor revision for meeting 2025-07-10.                                  |
 | sarif-v2.2-wd20250807-dev | 2025-08-07 | Stefan Hagen                | Editor revision for meeting 2025-08-07.                                  |
 | sarif-v2.2-wd20251204-dev | 2025-12-04 | Stefan Hagen                | Editor revision for meeting 2025-12-04.                                  |
+| sarif-v2.2-wd20260205-dev | 2026-02-05 | Stefan Hagen                | Editor revision for meeting 2026-02-05.                                  |
 
 # Appendix M. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
 
