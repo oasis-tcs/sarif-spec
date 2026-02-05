@@ -10,7 +10,7 @@
 \subsection*{Committee Specification Draft
 01}\label{committee-specification-draft-01}
 
-\subsection*{04 December 2025}\label{december-2025}
+\subsection*{05 February 2026}\label{current-date}
 
 \paragraph*{This stage:}\label{this-stage}
 
@@ -102,7 +102,7 @@ Comment'' button on the TC's web page at
 https://www.oasis-open.org/committees/sarif/.
 
 This specification is provided under the
-\href{ttps://www.oasis-open.org/policies-guidelines/ipr/#RF-on-RAND-Mode}{RF on RAND Terms}
+\href{https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-RAND-Mode}{RF on RAND Terms}
 Mode of the
 \href{https://www.oasis-open.org/policies-guidelines/ipr/}{OASIS IPR
 Policy}, the mode chosen when the Technical Committee was established.
@@ -136,15 +136,14 @@ be used:
 
 \textbf{{[}sarif-v2.2{]}}
 
-\emph{Static Analysis Results Interchange Format (SARIF) Version 2.2}. Edited by Michael Fanning and Stefan
-Hagen. 04 December 2025. OASIS Committee Specification
-Draft 01.
+\emph{Static Analysis Results Interchange Format (SARIF) Version 2.2}. Edited by Michael Fanning and Stefan Hagen.
+05 February 2026. OASIS Committee Specification Draft 01.
 \href{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html}{https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html}.
 Latest stage: \href{https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html}{https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html}.
 
 \paragraph*{Notices}\label{notices-bookmatter}
 
-Copyright 2025. All Rights Reserved.
+Copyright 2026. All Rights Reserved.
 
 Distributed under the terms of the OASIS \href{https://www.oasis-open.org/policies-guidelines/ipr/}{IPR Policy}.
 
