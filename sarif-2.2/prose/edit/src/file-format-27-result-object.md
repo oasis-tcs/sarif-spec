@@ -365,9 +365,13 @@ IF rule ([sec](#rule-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SET level to `theDescriptor.defaultConfiguration.level`.
 
-IF `level` has not yet been set THEN
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `level` has not yet been set and `result.level` is absent THEN
 
-&emsp;&emsp;SET `level` to `"warning"`.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SET `level` to `"warning"`.
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ELSE IF `result.level` is present then
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;USE that value regardless of what the rule metadata states.
 
 ### `message` Property{#result-object--message-property}
 

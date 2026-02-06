@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 04 December 2025
+## 05 February 2026
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -25,7 +25,7 @@ https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf
 [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/sarif/)
 
 #### Chairs:
-David Keaton (<dmk@dmk.com>), Individual \
+Aditya Sharad (<adityasharad@github.com>), Microsoft Corporation \
 Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
 #### Editors:
@@ -62,14 +62,14 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 04 December 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 05 February 2026. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
 
 
 -------
 
 ## Notices
 
-Copyright © OASIS Open 2025. All Rights Reserved.
+Copyright © OASIS Open 2026. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 
