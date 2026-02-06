@@ -11,6 +11,8 @@ toc:
 All safety, security, and data protection requirements relevant to the context in which SARIF documents are used MUST be translated into,
 and consistently enforced through, SARIF implementations and processes.
 
+Maintainers of SARIF-producing tools determine which data in the SARIF output should be treated as sensitive.
+
 > Example: Data protection requirements (together with best practices) rule and guide the handling of sensitive data in SARIF reports.
 
 SARIF documents are based on JSON, thus the security considerations of [cite](#RFC8259) apply and are repeated here as service for the reader:
