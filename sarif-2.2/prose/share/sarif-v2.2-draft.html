@@ -454,7 +454,7 @@
       Chairs:
     </h4>
     <p>
-      David Keaton (<a href="mailto:dmk@dmk.com">dmk@dmk.com</a>), Individual<br />
+      Aditya Sharad (<a href="mailto:adityasharad@github.com">adityasharad@github.com</a>), Microsoft Corporation<br />
       Stefan Hagen (<a href="mailto:stefan@hagen.link">stefan@hagen.link</a>), <a href="https://stefan-hagen.website">Individual</a>
     </p>
     <h4 id="editors">
@@ -11924,7 +11924,17 @@ VulnerabilityNotFeasible</code></pre>
       </li>
       <li>
         <p>
-          <code>"release"</code>: Relinquish ownership of something.
+          <code>"branch"</code>: Conditional transfer of control.
+        </p>
+      </li>
+      <li>
+        <p>
+          <code>"call"</code>: Point of call into a section of the program such as a function.
+        </p>
+      </li>
+      <li>
+        <p>
+          <code>"catch"</code>: Catch an exception.
         </p>
       </li>
       <li>
@@ -11939,12 +11949,17 @@ VulnerabilityNotFeasible</code></pre>
       </li>
       <li>
         <p>
-          <code>expose</code>: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
+          <code>"expose"</code>: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
         </p>
       </li>
       <li>
         <p>
-          <code>"call"</code>: Point of call into a section of the program such as a function.
+          <code>"longjmp"</code>: Call to <code>longjmp</code> that rewinds the program counter/stack to the location of a previous <code>setjmp</code> call.
+        </p>
+      </li>
+      <li>
+        <p>
+          <code>"release"</code>: Relinquish ownership of something.
         </p>
       </li>
       <li>
@@ -11954,7 +11969,17 @@ VulnerabilityNotFeasible</code></pre>
       </li>
       <li>
         <p>
-          <code>"branch"</code>: Conditional transfer of control.
+          <code>"setjmp"</code>: Call to <code>setjmp</code>.
+        </p>
+      </li>
+      <li>
+        <p>
+          <code>"throw"</code>: Throw an exception.
+        </p>
+      </li>
+      <li>
+        <p>
+          <code>"unwind"</code>: Unwind stack frame(s) during exception-handling.
         </p>
         <p>
           NOTE 1: These values are typically combined with nouns from the list below, as in the examples below.
@@ -15498,6 +15523,9 @@ Sunny Chatterjee, Microsoft Corporation
 Thanassis Avgerinos, ForAllSecure Inc
 Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
+      Special thanks to David Keaton who supported the OASIS SARIF TC as Co-Chair until September 2025.
+    </p>
+    <p>
       Special thanks to Craig Schlaman and Stacy Wray for supporting the derivation of the initial version 2.2 in markdown from the v2.1.0 Errata 01 OfficeXML format document with minor corrections.
     </p>
     <p>
@@ -16400,6 +16428,11 @@ Yekaterina O'Neil, Micro Focus</code></pre>
       <li>
         <p>
           <code>ada</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          <code>algol68</code>
         </p>
       </li>
       <li>
@@ -17872,6 +17905,14 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       All safety, security, and data protection requirements relevant to the context in which SARIF documents are used MUST be translated into, and consistently enforced through, SARIF implementations and processes.
     </p>
+    <p>
+      Maintainers of SARIF-producing tools determine which data in the SARIF output should be treated as sensitive.
+    </p>
+    <blockquote>
+      <p>
+        Example: Data protection requirements (together with best practices) rule and guide the handling of sensitive data in SARIF reports.
+      </p>
+    </blockquote>
     <p>
       SARIF documents are based on JSON, thus the security considerations of [<a href="#RFC8259">RFC8259</a>] apply and are repeated here as service for the reader:
     </p>

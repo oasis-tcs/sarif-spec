@@ -25,7 +25,7 @@ https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf
 [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/sarif/)
 
 #### Chairs:
-David Keaton (<dmk@dmk.com>), Individual \
+Aditya Sharad (<adityasharad@github.com>), Microsoft Corporation \
 Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
 #### Editors:
@@ -6968,19 +6968,29 @@ Verbs:
 
 - `"acquire"`: Gain ownership of something.
 
-- `"release"`: Relinquish ownership of something.
+- `"branch"`: Conditional transfer of control.
+
+- `"call"`: Point of call into a section of the program such as a function.
+
+- `"catch"`: Catch an exception.
 
 - `"enter"`: Entry point to a section of the program such as a function.
 
 - `"exit"`: Exit point from a section of the program such as a function.
 
-- `expose`: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
+- `"expose"`: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
 
-- `"call"`: Point of call into a section of the program such as a function.
+- `"longjmp"`: Call to `longjmp` that rewinds the program counter/stack to the location of a previous `setjmp` call.
+
+- `"release"`: Relinquish ownership of something.
 
 - `"return"`: Point of return from a section of the program such as a function.
 
-- `"branch"`: Conditional transfer of control.
+- `"setjmp"`: Call to `setjmp`.
+
+- `"throw"`: Throw an exception.
+
+- `"unwind"`: Unwind stack frame(s) during exception-handling.
 
     NOTE 1: These values are typically combined with nouns from the list below, as in the examples below.
 
@@ -9329,6 +9339,7 @@ Thanassis Avgerinos, ForAllSecure Inc
 Yekaterina O'Neil, Micro Focus
 ```
 
+Special thanks to David Keaton who supported the OASIS SARIF TC as Co-Chair until September 2025.
 
 Special thanks to Craig Schlaman and Stacy Wray for supporting the derivation of the initial version 2.2 in markdown from the v2.1.0 Errata 01 OfficeXML format document with minor corrections.
 
@@ -9873,6 +9884,8 @@ The names of some of the languages in this list are the trademarks of their resp
 - `actionscript`
 
 - `ada`
+
+- `algol68`
 
 - `apex`
 
@@ -10969,6 +10982,10 @@ The following is a list of MIME types and file extensions for files that conform
 
 All safety, security, and data protection requirements relevant to the context in which SARIF documents are used MUST be translated into,
 and consistently enforced through, SARIF implementations and processes.
+
+Maintainers of SARIF-producing tools determine which data in the SARIF output should be treated as sensitive.
+
+> Example: Data protection requirements (together with best practices) rule and guide the handling of sensitive data in SARIF reports.
 
 SARIF documents are based on JSON, thus the security considerations of \[[RFC8259](#RFC8259)\] apply and are repeated here as service for the reader:
 
