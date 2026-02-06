@@ -18,6 +18,8 @@ The names of some of the languages in this list are the trademarks of their resp
 
 - `ada`
 
+- `algol68`
+
 - `apex`
 
 - `assembler`
