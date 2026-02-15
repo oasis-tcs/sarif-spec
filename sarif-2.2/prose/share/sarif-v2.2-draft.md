@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 04 December 2025
+## 05 February 2026
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -25,7 +25,7 @@ https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf
 [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/sarif/)
 
 #### Chairs:
-David Keaton (<dmk@dmk.com>), Individual \
+Aditya Sharad (<adityasharad@github.com>), Microsoft Corporation \
 Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
 #### Editors:
@@ -62,14 +62,14 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 04 December 2025. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 05 February 2026. Committees Specification Draft. https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
 
 
 -------
 
 ## Notices
 
-Copyright © OASIS Open 2025. All Rights Reserved.
+Copyright © OASIS Open 2026. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 
@@ -4958,9 +4958,13 @@ IF rule ([§3.27.7](#rule-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SET level to `theDescriptor.defaultConfiguration.level`.
 
-IF `level` has not yet been set THEN
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `level` has not yet been set and `result.level` is absent THEN
 
-&emsp;&emsp;SET `level` to `"warning"`.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SET `level` to `"warning"`.
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ELSE IF `result.level` is present then
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;USE that value regardless of what the rule metadata states.
 
 ### 3.27.11 `message` Property <a id='result-object--message-property'></a>
 
@@ -6964,19 +6968,29 @@ Verbs:
 
 - `"acquire"`: Gain ownership of something.
 
-- `"release"`: Relinquish ownership of something.
+- `"branch"`: Conditional transfer of control.
+
+- `"call"`: Point of call into a section of the program such as a function.
+
+- `"catch"`: Catch an exception.
 
 - `"enter"`: Entry point to a section of the program such as a function.
 
 - `"exit"`: Exit point from a section of the program such as a function.
 
-- `expose`: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
+- `"expose"`: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
 
-- `"call"`: Point of call into a section of the program such as a function.
+- `"longjmp"`: Call to `longjmp` that rewinds the program counter/stack to the location of a previous `setjmp` call.
+
+- `"release"`: Relinquish ownership of something.
 
 - `"return"`: Point of return from a section of the program such as a function.
 
-- `"branch"`: Conditional transfer of control.
+- `"setjmp"`: Call to `setjmp`.
+
+- `"throw"`: Throw an exception.
+
+- `"unwind"`: Unwind stack frame(s) during exception-handling.
 
     NOTE 1: These values are typically combined with nouns from the list below, as in the examples below.
 
@@ -9325,6 +9339,7 @@ Thanassis Avgerinos, ForAllSecure Inc
 Yekaterina O'Neil, Micro Focus
 ```
 
+Special thanks to David Keaton who supported the OASIS SARIF TC as Co-Chair until September 2025.
 
 Special thanks to Craig Schlaman and Stacy Wray for supporting the derivation of the initial version 2.2 in markdown from the v2.1.0 Errata 01 OfficeXML format document with minor corrections.
 
@@ -9869,6 +9884,8 @@ The names of some of the languages in this list are the trademarks of their resp
 - `actionscript`
 
 - `ada`
+
+- `algol68`
 
 - `apex`
 
@@ -10950,6 +10967,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
 | sarif-v2.2-wd20250710-dev | 2025-07-10 | Stefan Hagen                | Editor revision for meeting 2025-07-10.                                  |
 | sarif-v2.2-wd20250807-dev | 2025-08-07 | Stefan Hagen                | Editor revision for meeting 2025-08-07.                                  |
 | sarif-v2.2-wd20251204-dev | 2025-12-04 | Stefan Hagen                | Editor revision for meeting 2025-12-04.                                  |
+| sarif-v2.2-wd20260205-dev | 2026-02-05 | Stefan Hagen                | Editor revision for meeting 2026-02-05.                                  |
 
 # Appendix M. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
 
@@ -10964,6 +10982,10 @@ The following is a list of MIME types and file extensions for files that conform
 
 All safety, security, and data protection requirements relevant to the context in which SARIF documents are used MUST be translated into,
 and consistently enforced through, SARIF implementations and processes.
+
+Maintainers of SARIF-producing tools determine which data in the SARIF output should be treated as sensitive.
+
+> Example: Data protection requirements (together with best practices) rule and guide the handling of sensitive data in SARIF reports.
 
 SARIF documents are based on JSON, thus the security considerations of \[[RFC8259](#RFC8259)\] apply and are repeated here as service for the reader:
 

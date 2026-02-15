@@ -191,19 +191,29 @@ Verbs:
 
 - `"acquire"`: Gain ownership of something.
 
-- `"release"`: Relinquish ownership of something.
+- `"branch"`: Conditional transfer of control.
+
+- `"call"`: Point of call into a section of the program such as a function.
+
+- `"catch"`: Catch an exception.
 
 - `"enter"`: Entry point to a section of the program such as a function.
 
 - `"exit"`: Exit point from a section of the program such as a function.
 
-- `expose`: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
+- `"expose"`: Exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space).
 
-- `"call"`: Point of call into a section of the program such as a function.
+- `"longjmp"`: Call to `longjmp` that rewinds the program counter/stack to the location of a previous `setjmp` call.
+
+- `"release"`: Relinquish ownership of something.
 
 - `"return"`: Point of return from a section of the program such as a function.
 
-- `"branch"`: Conditional transfer of control.
+- `"setjmp"`: Call to `setjmp`.
+
+- `"throw"`: Throw an exception.
+
+- `"unwind"`: Unwind stack frame(s) during exception-handling.
 
     NOTE 1: These values are typically combined with nouns from the list below, as in the examples below.
 
