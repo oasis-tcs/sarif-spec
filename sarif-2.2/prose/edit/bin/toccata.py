@@ -1,12 +1,15 @@
 #! /usr/bin/env python
+"""Patch the table of contents and other portions of the HTML delivery item."""
 import json
 import pathlib
+import re
 import sys
 from typing import Union
 
 ENCODING = 'utf-8'
 NL = '\n'
 SP = ' '
+BACK_TICK = '`'
 COLON = ':'
 DASH = '-'
 DOT = '.'
@@ -28,24 +31,38 @@ SKIN_CSS_AT = pathlib.Path('..') / 'share' / 'style' / 'skin.css'
 IN_TITLE_TRIGGER_IS = '<title>'
 TITLE_INNER_HTML_MARKER_IS = 'tmp'
 PATCH_TITLE_INNER_HTML = 'Static Analysis Results Interchange Format (SARIF) Version 2.2'
+CODE_TERM_DETECT = re.compile(r'(?P<intro>[^`]*)`(?P<code>[^`]+)`(?P<rest>.*)')  # intro*`code-term`rest* pattern
 
 # Type declarations:
-META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
-SEC_LVL_CNT_TYPE = tuple[int, int, int, int, int, int]
-APX_LVL_UNION_TYPE = Union[bool, int]
-SEC_NUM_DISP_TYPE = str
-SEC_TOC_TEXT = str
-SEC_TOC_TARGET_SLUG = str
-TOC_ENTRY_TYPE = tuple[SEC_LVL_CNT_TYPE, APX_LVL_UNION_TYPE, SEC_NUM_DISP_TYPE, SEC_TOC_TEXT, SEC_TOC_TARGET_SLUG]
+MetaTocType = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
+SecLvlCntType = tuple[int, int, int, int, int, int]
+ApxLvlUnionType = Union[bool, int]
+SecNumDispType = str
+SecTocText = str
+SecTocTargetSlug = str
+TocEntryType = tuple[SecLvlCntType, ApxLvlUnionType, SecNumDispType, SecTocText, SecTocTargetSlug]
 
 
-def load_toc(toc_at: Union[str, pathlib.Path]) -> list[TOC_ENTRY_TYPE]:
+def load_toc(toc_at: Union[str, pathlib.Path]) -> list[TocEntryType]:
     """Load the TOC JSON file into a list of toc entries."""
     with open(toc_at, 'rt', encoding=ENCODING) as resource:
         return [(tuple(e[0]), *e[1:]) for e in json.load(resource) if e]  # type: ignore # noqa
 
 
-def generate_toc(toc_db: list[TOC_ENTRY_TYPE]) -> str:
+def patch_code_term_in_html_toc_entry(text: str) -> str:
+    """Best effort patching of our toc entry use case with code rest."""
+    term = CODE_TERM_DETECT.match(text)
+    if term:
+        # Found inline code term in text
+        found = term.groupdict()
+        intro = found['intro']
+        code = found['code']
+        rest = found['rest']
+        return f'{intro}<code>{code}</code>{rest}' if code and rest else text
+    return text
+
+
+def generate_toc(toc_db: list[TocEntryType]) -> str:
     """Generate the table of contents from the database."""
     entries_prefix = ['<div id="toc_container">', '<ul class="toc_list">']
     entries_postfix = ['</ul>', '</div>']
@@ -53,7 +70,9 @@ def generate_toc(toc_db: list[TOC_ENTRY_TYPE]) -> str:
     past = 0
     in_appendix = False
     for slot, toc_entry in enumerate(toc_db):
-        levels, is_appendix_level, num_disp, text, slug = toc_entry
+        _levels, is_appendix_level, num_disp, text, slug = toc_entry
+        if BACK_TICK in text:
+            text = patch_code_term_in_html_toc_entry(text)
         pres = num_disp.rstrip('.').count(DOT) + 1 if not is_appendix_level else is_appendix_level
         if is_appendix_level and not in_appendix:
             in_appendix = True
@@ -89,8 +108,11 @@ def generate_toc(toc_db: list[TOC_ENTRY_TYPE]) -> str:
     return NL.join(entries_prefix + entries + entries_postfix)
 
 
-def main(argv: list[str]) -> int:
+def main(args: list[str]) -> int:
     """Drive the injections."""
+    if args:
+        print('ERROR: No parameters expected.')
+        return 2
 
     toc_db = load_toc(TOC_AT)
     the_toc = generate_toc(toc_db)
@@ -150,8 +172,6 @@ def main(argv: list[str]) -> int:
     # Write the HTML delivery item of this stage
     with open('build/injected.html', 'wt', encoding=ENCODING) as handle:
         handle.write(''.join(outgoing))
-    return 0
-
     return 0
 
 
