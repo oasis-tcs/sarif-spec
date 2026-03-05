@@ -785,6 +785,17 @@ If `precision` is absent on a `result` object, and `theDescriptor` exists and sp
 
 > NOTE: `precision` values are in general only commensurable when they refer to results of the same rule from the same tool, or equivalent rules from different tools. In an engineering system that aggregates results from multiple tools, precision values might need to be adjusted, either automatically or by end users, so that precision values from different tools can be interleaved in a meaningful way.
 
+### `securitySeverity` Property{#result-object--securityseverity-property}
+
+A `result` object **MAY** contain a property named `securitySeverity` whose value is a number between `0.0` and `100.0` inclusive, representing a numerical estimate of the impact or exploitability of this result on the security of the analyzed system. `0.0` is the lowest severity and `100.0` is the highest severity.
+
+If `securitySeverity` is absent on a `result` object, and `theDescriptor` exists and specifies a `securitySeverity` property ([sec](#reportingdescriptor-object--securityseverity-property)), the `securitySeverity` of the result is inherited from `theDescriptor`.
+
+> NOTE: `securitySeverity` values are in general only commensurable when they refer to results of the same rule from the same tool, or equivalent rules from different tools. In an engineering system that aggregates results from multiple tools, securitySeverity values might need to be adjusted, either automatically or by end users, so that securitySeverity values from different tools can be interleaved in a meaningful way.
+
+> NOTE: To make `securitySeverity` values easier to compare between different results and rules, a tool may set the value by aggregating external metrics for security severity, such as Exploit Prediction Scoring System (EPSS) scores, for security vulnerabilities identified by similar results and rules.
+
+
 ### `attachments` Property
 
 A `result` object **MAY** contain a property named `attachments` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `attachment` objects ([sec](#attachment-object)) each of which describes an artifact relevant to the detection of the result.
