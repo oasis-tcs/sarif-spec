@@ -252,6 +252,18 @@ If `precision` is present, it acts as the value of `result.precision` ([sec](#re
 
 > NOTE: `precision` values are in general only commensurable when they refer to results of the same rule from the same tool, or equivalent rules from different tools. In an engineering system that aggregates results from multiple tools, precision values might need to be adjusted, either automatically or by end users, so that precision values from different tools can be interleaved in a meaningful way.
 
+### `securitySeverity` Property{#reportingdescriptor-object--securityseverity-property}
+
+A `reportingDescriptor` object that describes a rule **MAY** contain a property named `securitySeverity` whose value is a number between `0.0` and `100.0` inclusive, representing a numerical estimate of the impact or exploitability of results produced by the rule on the security of the analyzed system. `0.0` is the lowest severity and `100.0` is the highest severity.
+
+If `securitySeverity` is present, it acts as the value of `result.securitySeverity` ([sec](#result-object--securityseverity-property)) for any `result` object ([sec](#result-object)) whose `ruleIndex` ([sec](#ruleindex-property)) or `rule` property ([sec](#rule-property)), either explicitly supplied or inferred from its default, references this `reportingDescriptor`, and which does not itself specify a `securitySeverity` property.
+
+`securitySeverity` is not applicable to notifications.
+
+> NOTE: `securitySeverity` values are in general only commensurable when they refer to results of the same rule from the same tool, or equivalent rules from different tools. In an engineering system that aggregates results from multiple tools, securitySeverity values might need to be adjusted, either automatically or by end users, so that securitySeverity values from different tools can be interleaved in a meaningful way.
+
+> NOTE: To make `securitySeverity` values easier to compare between different results and rules, a tool may set the value by aggregating external metrics for security severity, such as Exploit Prediction Scoring System (EPSS) scores, for security vulnerabilities identified by similar results and rules.
+
 ### `relationships` Property{#reportingdescriptor-object--relationships-property}
 
 A `reportingDescriptor` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptorRelationship` objects ([sec](#reportingdescriptorrelationship-object)) each of which declares one or more directed relationships from `thisObject` to another `reportingDescriptor` object, which we refer to as `theTarget`, specified by `reportingDescriptorRelationship`.`target` ([sec](#reportingdescriptorrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `reportingDescriptorRelationship.kinds` ([sec](#reportingdescriptorrelationship-object--kinds-property)).
