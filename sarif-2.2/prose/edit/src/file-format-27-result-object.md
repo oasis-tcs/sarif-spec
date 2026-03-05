@@ -777,6 +777,14 @@ If `rank` is absent, it **SHALL** default to `-1.0`, which indicates that the va
 
 > NOTE: `rank` values produced by different tools are in general not commensurable. If Tool A produces one result with rank `0.65` and a second result with rank `0.70`, the consumer is entitled to assume that the second result is of higher priority than the first. But if Tool A produces a result with rank `0.65` and Tool B produces a result with rank `0.70`, the result produced by Tool B might or might not be of higher priority than the result produced by Tool A. In an engineering system that aggregates results from multiple tools, rank values might need to be adjusted, either automatically or by end users, so that rank values from different tools can be interleaved in a meaningful way.
 
+### `precision` Property{#result-object--precision-property}
+
+A `result` object **MAY** contain a property named `precision` whose value is a number between `0.0` and `100.0` inclusive, representing the tool or tool maintainer's confidence that this result is a true positive. `0.0` is the lowest confidence, indicating that the result is likely to be a false positive, and `100.0` is the highest confidence, indicating that the result is likely to be a true positive.
+
+If `precision` is absent on a `result` object, and `theDescriptor` exists and specifies a `precision` property ([sec](#reportingdescriptor-object--precision-property)), the `precision` of the result is inherited from `theDescriptor`.
+
+> NOTE: `precision` values are in general only commensurable when they refer to results of the same rule from the same tool, or equivalent rules from different tools. In an engineering system that aggregates results from multiple tools, precision values might need to be adjusted, either automatically or by end users, so that precision values from different tools can be interleaved in a meaningful way.
+
 ### `attachments` Property
 
 A `result` object **MAY** contain a property named `attachments` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `attachment` objects ([sec](#attachment-object)) each of which describes an artifact relevant to the detection of the result.

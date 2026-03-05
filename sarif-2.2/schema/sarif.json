@@ -1738,6 +1738,12 @@
             "$ref": "#/$defs/reportingDescriptorRelationship"
           }
         },
+        "precision": {
+          "description": "A number between 0.0 and 100.0 inclusive, representing the tool or tool maintainer's confidence that results produced by the rule are true positives.",
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 100.0
+        },
         "properties": {
           "description": "Key/value pairs that provide additional information about the report.",
           "$ref": "#/$defs/propertyBag"
@@ -2027,6 +2033,12 @@
           "type": "number",
           "default": -1.0,
           "minimum": -1.0,
+          "maximum": 100.0
+        },
+        "precision": {
+          "description": "A number between 0.0 and 100.0 inclusive, representing the tool or tool maintainer's confidence that this result is a true positive.",
+          "type": "number",
+          "minimum": 0.0,
           "maximum": 100.0
         },
         "attachments": {
