@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 05 February 2026
+## 05 March 2026
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \

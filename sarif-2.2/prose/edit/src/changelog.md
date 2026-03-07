@@ -17,5 +17,6 @@ toc:
 | sarif-v2.2-wd20250807-dev | 2025-08-07 | Stefan Hagen                | Editor revision for TC meeting.                                          |
 | sarif-v2.2-wd20251204-dev | 2025-12-04 | Stefan Hagen                | Editor revision for TC meeting.                                          |
 | sarif-v2.2-wd20260205-dev | 2026-02-05 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20260305-dev | 2026-03-05 | Stefan Hagen                | Editor revision for TC meeting.                                          |
 
 -------
