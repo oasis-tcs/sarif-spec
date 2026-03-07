@@ -242,6 +242,16 @@ If this property is absent, it **SHALL** be taken to be present, and its propert
 
 The rule- or notification-specific configuration parameters for a `reportingDescriptor`, if any, **SHALL NOT** be stored in its property bag ([sec](#property-bags)) Rather, they **SHALL** be stored in `defaultConfiguration.parameters` ([sec](#reportingconfiguration-object--parameters-property)).
 
+### `precision` Property{#reportingdescriptor-object--precision-property}
+
+A `reportingDescriptor` object that describes a rule **MAY** contain a property named `precision` whose value is a number between `0.0` and `100.0` inclusive, representing the tool or tool maintainer's confidence that results produced by the rule are true positives. `0.0` is the lowest confidence, indicating that results are likely to be false positives, and `100.0` is the highest confidence, indicating that results are likely to be true positives.
+
+If `precision` is present, it acts as the value of `result.precision` ([sec](#result-object--precision-property)) for any `result` object ([sec](#result-object)) whose `ruleIndex` ([sec](#ruleindex-property)) or `rule` property ([sec](#rule-property)), either explicitly supplied or inferred from its default, references this `reportingDescriptor`, and which does not itself specify a `precision` property.
+
+`precision` is not applicable to notifications.
+
+> NOTE: `precision` values are in general only commensurable when they refer to results of the same rule from the same tool, or equivalent rules from different tools. In an engineering system that aggregates results from multiple tools, precision values might need to be adjusted, either automatically or by end users, so that precision values from different tools can be interleaved in a meaningful way.
+
 ### `relationships` Property{#reportingdescriptor-object--relationships-property}
 
 A `reportingDescriptor` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptorRelationship` objects ([sec](#reportingdescriptorrelationship-object)) each of which declares one or more directed relationships from `thisObject` to another `reportingDescriptor` object, which we refer to as `theTarget`, specified by `reportingDescriptorRelationship`.`target` ([sec](#reportingdescriptorrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `reportingDescriptorRelationship.kinds` ([sec](#reportingdescriptorrelationship-object--kinds-property)).
