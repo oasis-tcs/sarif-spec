@@ -6,14 +6,13 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>
-      Static Analysis Results Interchange Format (SARIF) Version 2.2
+      Static Analysis Results Interchange Format (SARIF) Version 2.2 – Static Analysis Results Interchange Format (SARIF) Version 2.2
     </title>
     <style>
     
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
@@ -275,7 +274,7 @@
     margin-right:0in;
     margin-bottom:4.0pt;
     margin-left:0in;
-    font-size:10.0pt;
+    font-size:12.0pt;
     font-family:"Liberation Sans",sans-serif;
     }
     p.title, li.title, div.title {
@@ -308,7 +307,7 @@
     margin-bottom:0in;
     margin-left:0in;
     page-break-after:avoid;
-    font-size:10.0pt;
+    font-size:12.0pt;
     font-family:"Liberation Sans",sans-serif;
     color:#446CAA;
     font-weight:bold;
@@ -329,7 +328,7 @@
     }
 
     p.dense {
-    line-height: 0.9;
+    line-height: 1.2;
     }
 
     a {
@@ -377,8 +376,23 @@
     margin-left: -0.6em;
     font-size: 0.7rem;
     }
+
+    ol.toc-5 {
+    list-style-type: none;
+    list-style-position: outside;
+    margin-left: -0.2em;
+    font-size: 0.7rem;
+    }
+
+    ol.toc-6 {
+    list-style-type: none;
+    list-style-position: outside;
+    margin-left: 0.1em;
+    font-size: 0.7rem;
+    }
+
     ul > li {
-    font-size:10.0pt;
+    font-size:12.0pt;
     font-family:"Liberation Sans",sans-serif;
     }
 
@@ -413,59 +427,59 @@
       alt="OASIS Logo" />
     </p>
     <hr />
-    <h1 id="static-analysis-results-interchange-format-sarif-version-22">
-      Static Analysis Results Interchange Format (SARIF) Version 2.2
+    <h1 id="static-analysis-results-interchange-format-sarif-version-22unnumbered-unlisted">
+      Static Analysis Results Interchange Format (SARIF) Version 2.2{.unnumbered .unlisted}
     </h1>
-    <h2 id="committee-specification-draft-01">
-      Committee Specification Draft 01
+    <h2 id="committee-specification-draft-01unnumbered-unlisted">
+      Committee Specification Draft 01{.unnumbered .unlisted}
     </h2>
-    <h2 id="05-february-2026">
-      05 February 2026
+    <h2 id="05-march-2026unnumbered-unlisted">
+      05 March 2026{.unnumbered .unlisted}
     </h2>
-    <h3 id="this-stage">
-      This stage:
+    <h3 id="this-stageunnumbered-unlisted">
+      This stage:{.unnumbered .unlisted}
     </h3>
     <p>
       <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md</a> (Authoritative)<br />
       <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html</a><br />
       <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.pdf">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.pdf</a>
     </p>
-    <h4 id="previous-stage">
-      Previous stage:
+    <h4 id="previous-stageunnumbered-unlisted">
+      Previous stage:{.unnumbered .unlisted}
     </h4>
     <p>
       N/A
     </p>
-    <h4 id="latest-stage">
-      Latest stage:
+    <h4 id="latest-stageunnumbered-unlisted">
+      Latest stage:{.unnumbered .unlisted}
     </h4>
     <p>
       <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.md">https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.md</a> (Authoritative)<br />
       <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html">https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html</a><br />
       <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf">https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf</a>
     </p>
-    <h4 id="technical-committee">
-      Technical Committee:
+    <h4 id="technical-committeeunnumbered-unlisted">
+      Technical Committee:{.unnumbered .unlisted}
     </h4>
     <p>
       <a href="https://www.oasis-open.org/committees/sarif/">OASIS Static Analysis Results Interchange Format (SARIF) TC</a>
     </p>
-    <h4 id="chairs">
-      Chairs:
+    <h4 id="chairsunnumbered-unlisted">
+      Chairs:{.unnumbered .unlisted}
     </h4>
     <p>
       Aditya Sharad (<a href="mailto:adityasharad@github.com">adityasharad@github.com</a>), Microsoft Corporation<br />
       Stefan Hagen (<a href="mailto:stefan@hagen.link">stefan@hagen.link</a>), <a href="https://stefan-hagen.website">Individual</a>
     </p>
-    <h4 id="editors">
-      Editors:
+    <h4 id="editorsunnumbered-unlisted">
+      Editors:{.unnumbered .unlisted}
     </h4>
     <p>
       Michael Fanning (<a href="mailto:michael.fanning@microsoft.com">michael.fanning@microsoft.com</a>), <a href="https://www.microsoft.com/">Microsoft Corporation</a><br />
       Stefan Hagen (<a href="mailto:stefan@hagen.link">stefan@hagen.link</a>), <a href="https://stefan-hagen.website">Individual</a>
     </p>
-    <h4 id="additional-artifacts">
-      Additional artifacts:
+    <h4 id="additional-artifactsunnumbered-unlisted">
+      Additional artifacts:{.unnumbered .unlisted}
     </h4>
     <p>
       This prose specification is one component of a Work Product that also includes:
@@ -478,8 +492,8 @@
         Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json">https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json</a>
       </li>
     </ul>
-    <h4 id="related-work">
-      Related work:
+    <h4 id="related-workunnumbered-unlisted">
+      Related work:{.unnumbered .unlisted}
     </h4>
     <p>
       This specification replaces or supersedes:
@@ -489,14 +503,14 @@
       "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html">https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html</a>.
     </p>
-    <h4 id="abstract">
-      Abstract:
+    <h4 id="abstractunnumbered-unlisted">
+      Abstract:{.unnumbered .unlisted}
     </h4>
     <p>
       This document defines a standard format for the output of static analysis tools. The format is referred to as the "Static Analysis Results Interchange Format" and is abbreviated as SARIF.
     </p>
-    <h4 id="status">
-      Status:
+    <h4 id="statusunnumbered-unlisted">
+      Status:{.unnumbered .unlisted}
     </h4>
     <p>
       This document was last revised or approved by the OASIS Static Analysis Results Interchange Format (SARIF) TC on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the
@@ -514,8 +528,8 @@
       Note that any machine-readable content (<a href="https://www.oasis-open.org/policies-guidelines/tc-process/#wpComponentsCompLang">Computer Language Definitions</a>) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the
       Work Product's prose narrative document(s), the content in the separate plain text file prevails.
     </p>
-    <h4 id="citation-format">
-      Citation format:
+    <h4 id="citation-formatunnumbered-unlisted">
+      Citation format:{.unnumbered .unlisted}
     </h4>
     <p>
       When referencing this specification, the following citation format should be used:
@@ -528,8 +542,8 @@
       stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html">https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html</a>.
     </p>
     <hr />
-    <h2 id="notices">
-      Notices
+    <h2 id="noticesunnumbered-unlisted">
+      Notices{.unnumbered .unlisted}
     </h2>
     <p>
       Copyright © OASIS Open 2026. All Rights Reserved.
@@ -607,33 +621,33 @@
             </li>
             <li>3.2 <a href="#sarif-file-naming-convention">SARIF File Naming Convention</a>
             </li>
-            <li>3.3 <a href="#artifactcontent-object">`artifactContent` Object</a>
+            <li>3.3 <a href="#artifactcontent-object"><code>artifactContent</code> Object</a>
               <ul>
                 <li>3.3.1 <a href="#artifactcontent-object--general">General</a>
                 </li>
-                <li>3.3.2 <a href="#artifactcontent-object--text-property">`text` Property</a>
+                <li>3.3.2 <a href="#artifactcontent-object--text-property"><code>text</code> Property</a>
                 </li>
-                <li>3.3.3 <a href="#binary-property">`binary` Property</a>
+                <li>3.3.3 <a href="#binary-property"><code>binary</code> Property</a>
                 </li>
-                <li>3.3.4 <a href="#rendered-property">`rendered` Property</a>
+                <li>3.3.4 <a href="#rendered-property"><code>rendered</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.4 <a href="#artifactlocation-object">`artifactLocation` Object</a>
+            <li>3.4 <a href="#artifactlocation-object"><code>artifactLocation</code> Object</a>
               <ul>
                 <li>3.4.1 <a href="#artifactlocation--general">General</a>
                 </li>
                 <li>3.4.2 <a href="#artifactlocation-object--constraints">Constraints</a>
                 </li>
-                <li>3.4.3 <a href="#uri-property">`uri` Property</a>
+                <li>3.4.3 <a href="#uri-property"><code>uri</code> Property</a>
                 </li>
-                <li>3.4.4 <a href="#uribaseid-property">`uriBaseId` Property</a>
+                <li>3.4.4 <a href="#uribaseid-property"><code>uriBaseId</code> Property</a>
                 </li>
-                <li>3.4.5 <a href="#artifactlocation-object--index-property">`index` Property</a>
+                <li>3.4.5 <a href="#artifactlocation-object--index-property"><code>index</code> Property</a>
                 </li>
-                <li>3.4.6 <a href="#artifactlocation-object--description-property">`description` Property</a>
+                <li>3.4.6 <a href="#artifactlocation-object--description-property"><code>description</code> Property</a>
                 </li>
-                <li>3.4.7 <a href="#guidance-on-the-use-of-artifactlocation-objects">Guidance on the Use of `artifactLocation` Objects</a>
+                <li>3.4.7 <a href="#guidance-on-the-use-of-artifactlocation-objects">Guidance on the Use of <code>artifactLocation</code> Objects</a>
                 </li>
               </ul>
             </li>
@@ -697,7 +711,7 @@
                 </li>
               </ul>
             </li>
-            <li>3.11 <a href="#message-object">`message` Object</a>
+            <li>3.11 <a href="#message-object"><code>message</code> Object</a>
               <ul>
                 <li>3.11.1 <a href="#message-object--general">General</a>
                 </li>
@@ -719,105 +733,105 @@
                 </li>
                 <li>3.11.7 <a href="#message-string-lookup">Message String Lookup</a>
                 </li>
-                <li>3.11.8 <a href="#message-object--text-property">`text` Property</a>
+                <li>3.11.8 <a href="#message-object--text-property"><code>text</code> Property</a>
                 </li>
-                <li>3.11.9 <a href="#message-object--markdown-property">`markdown` Property</a>
+                <li>3.11.9 <a href="#message-object--markdown-property"><code>markdown</code> Property</a>
                 </li>
-                <li>3.11.10 <a href="#message-object--id-property">`id` Property</a>
+                <li>3.11.10 <a href="#message-object--id-property"><code>id</code> Property</a>
                 </li>
-                <li>3.11.11 <a href="#message-object--arguments-property">`arguments` Property</a>
+                <li>3.11.11 <a href="#message-object--arguments-property"><code>arguments</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.12 <a href="#multiformatmessagestring-object">`multiformatMessageString` Object</a>
+            <li>3.12 <a href="#multiformatmessagestring-object"><code>multiformatMessageString</code> Object</a>
               <ul>
                 <li>3.12.1 <a href="#multiformatmessagestring-object--general">General</a>
                 </li>
                 <li>3.12.2 <a href="#localizable-multiformatmessagestrings">Localizable `multiformatMessageStrings`</a>
                 </li>
-                <li>3.12.3 <a href="#multiformatmessagestring-object--text-property">`text` Property</a>
+                <li>3.12.3 <a href="#multiformatmessagestring-object--text-property"><code>text</code> Property</a>
                 </li>
-                <li>3.12.4 <a href="#multiformatmessagestring-object--markdown-property">`markdown` Property</a>
+                <li>3.12.4 <a href="#multiformatmessagestring-object--markdown-property"><code>markdown</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.13 <a href="#sariflog-object">`sarifLog` Object</a>
+            <li>3.13 <a href="#sariflog-object"><code>sarifLog</code> Object</a>
               <ul>
                 <li>3.13.1 <a href="#sariflog-object--general">General</a>
                 </li>
-                <li>3.13.2 <a href="#sariflog-object--version-property">`version` Property</a>
+                <li>3.13.2 <a href="#sariflog-object--version-property"><code>version</code> Property</a>
                 </li>
-                <li>3.13.3 <a href="#sariflog-object--schema-property">`$schema` Property</a>
+                <li>3.13.3 <a href="#sariflog-object--schema-property"><code>$schema</code> Property</a>
                 </li>
-                <li>3.13.4 <a href="#runs-property">`runs` Property</a>
+                <li>3.13.4 <a href="#runs-property"><code>runs</code> Property</a>
                 </li>
-                <li>3.13.5 <a href="#inlineexternalproperties-property">`inlineExternalProperties` Property</a>
+                <li>3.13.5 <a href="#inlineexternalproperties-property"><code>inlineExternalProperties</code> Property</a>
                 </li>
-                <li>3.13.6 <a href="#sariflog-object--guid-property">`guid` Property</a>
+                <li>3.13.6 <a href="#sariflog-object--guid-property"><code>guid</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.14 <a href="#run-object">`run` Object</a>
+            <li>3.14 <a href="#run-object"><code>run</code> Object</a>
               <ul>
                 <li>3.14.1 <a href="#run-object--general">General</a>
                 </li>
-                <li>3.14.2 <a href="#externalpropertyfilereferences-property">`externalPropertyFileReferences` Property</a>
+                <li>3.14.2 <a href="#externalpropertyfilereferences-property"><code>externalPropertyFileReferences</code> Property</a>
                 </li>
-                <li>3.14.3 <a href="#automationdetails-property">`automationDetails` Property</a>
+                <li>3.14.3 <a href="#automationdetails-property"><code>automationDetails</code> Property</a>
                 </li>
-                <li>3.14.4 <a href="#runaggregates-property">`runAggregates` Property</a>
+                <li>3.14.4 <a href="#runaggregates-property"><code>runAggregates</code> Property</a>
                 </li>
-                <li>3.14.5 <a href="#baselineguid-property">`baselineGuid` Property</a>
+                <li>3.14.5 <a href="#baselineguid-property"><code>baselineGuid</code> Property</a>
                 </li>
-                <li>3.14.6 <a href="#run-object--tool-property">`tool` Property</a>
+                <li>3.14.6 <a href="#run-object--tool-property"><code>tool</code> Property</a>
                 </li>
-                <li>3.14.7 <a href="#language">`language` Property</a>
+                <li>3.14.7 <a href="#language"><code>language</code> Property</a>
                 </li>
-                <li>3.14.8 <a href="#taxonomies-property">`taxonomies` Property</a>
+                <li>3.14.8 <a href="#taxonomies-property"><code>taxonomies</code> Property</a>
                 </li>
-                <li>3.14.9 <a href="#translations-property">`translations` Property</a>
+                <li>3.14.9 <a href="#translations-property"><code>translations</code> Property</a>
                 </li>
-                <li>3.14.10 <a href="#policies-property">`policies` Property</a>
+                <li>3.14.10 <a href="#policies-property"><code>policies</code> Property</a>
                 </li>
-                <li>3.14.11 <a href="#invocations-property">`invocations` Property</a>
+                <li>3.14.11 <a href="#invocations-property"><code>invocations</code> Property</a>
                 </li>
-                <li>3.14.12 <a href="#conversion-property">`conversion` Property</a>
+                <li>3.14.12 <a href="#conversion-property"><code>conversion</code> Property</a>
                 </li>
-                <li>3.14.13 <a href="#versioncontrolprovenance-property">`versionControlProvenance` Property</a>
+                <li>3.14.13 <a href="#versioncontrolprovenance-property"><code>versionControlProvenance</code> Property</a>
                 </li>
-                <li>3.14.14 <a href="#originaluribaseids-property">`originalUriBaseIds` Property</a>
+                <li>3.14.14 <a href="#originaluribaseids-property"><code>originalUriBaseIds</code> Property</a>
                 </li>
-                <li>3.14.15 <a href="#artifacts-property">`artifacts` Property</a>
+                <li>3.14.15 <a href="#artifacts-property"><code>artifacts</code> Property</a>
                 </li>
-                <li>3.14.16 <a href="#speciallocations-property">`specialLocations` Property</a>
+                <li>3.14.16 <a href="#speciallocations-property"><code>specialLocations</code> Property</a>
                 </li>
-                <li>3.14.17 <a href="#run-object--logicallocations-property">`logicalLocations` Property</a>
+                <li>3.14.17 <a href="#run-object--logicallocations-property"><code>logicalLocations</code> Property</a>
                 </li>
-                <li>3.14.18 <a href="#addresses-property">`addresses` Property</a>
+                <li>3.14.18 <a href="#addresses-property"><code>addresses</code> Property</a>
                 </li>
-                <li>3.14.19 <a href="#threadflowlocations-property">`threadFlowLocations` Property</a>
+                <li>3.14.19 <a href="#threadflowlocations-property"><code>threadFlowLocations</code> Property</a>
                 </li>
-                <li>3.14.20 <a href="#run-object--graphs-property">`graphs` Property</a>
+                <li>3.14.20 <a href="#run-object--graphs-property"><code>graphs</code> Property</a>
                 </li>
-                <li>3.14.21 <a href="#webrequests-property">`webRequests` Property</a>
+                <li>3.14.21 <a href="#webrequests-property"><code>webRequests</code> Property</a>
                 </li>
-                <li>3.14.22 <a href="#webresponses-property">`webResponses` Property</a>
+                <li>3.14.22 <a href="#webresponses-property"><code>webResponses</code> Property</a>
                 </li>
-                <li>3.14.23 <a href="#results-property">`results` Property</a>
+                <li>3.14.23 <a href="#results-property"><code>results</code> Property</a>
                 </li>
-                <li>3.14.24 <a href="#defaultencoding-property">`defaultEncoding` Property</a>
+                <li>3.14.24 <a href="#defaultencoding-property"><code>defaultEncoding</code> Property</a>
                 </li>
-                <li>3.14.25 <a href="#defaultsourcelanguage-property">`defaultSourceLanguage` Property</a>
+                <li>3.14.25 <a href="#defaultsourcelanguage-property"><code>defaultSourceLanguage</code> Property</a>
                 </li>
-                <li>3.14.26 <a href="#newlinesequences-property">`newlineSequences` Property</a>
+                <li>3.14.26 <a href="#newlinesequences-property"><code>newlineSequences</code> Property</a>
                 </li>
-                <li>3.14.27 <a href="#columnkind-property">`columnKind` Property</a>
+                <li>3.14.27 <a href="#columnkind-property"><code>columnKind</code> Property</a>
                 </li>
-                <li>3.14.28 <a href="#redactiontokens-property">`redactionTokens` Property</a>
+                <li>3.14.28 <a href="#redactiontokens-property"><code>redactionTokens</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.15 <a href="#externalpropertyfilereferences-object">`externalPropertyFileReferences` Object</a>
+            <li>3.15 <a href="#externalpropertyfilereferences-object"><code>externalPropertyFileReferences</code> Object</a>
               <ul>
                 <li>3.15.1 <a href="#externalpropertyfilereferences-object--general">General</a>
                 </li>
@@ -827,45 +841,45 @@
                 </li>
               </ul>
             </li>
-            <li>3.16 <a href="#externalpropertyfilereference-object">`externalPropertyFileReference` Object</a>
+            <li>3.16 <a href="#externalpropertyfilereference-object"><code>externalPropertyFileReference</code> Object</a>
               <ul>
                 <li>3.16.1 <a href="#externalpropertyfilereference-object--general">General</a>
                 </li>
                 <li>3.16.2 <a href="#externalpropertyfilereference-object--constraints">Constraints</a>
                 </li>
-                <li>3.16.3 <a href="#externalpropertyfilereference-object--location-property">`location` Property</a>
+                <li>3.16.3 <a href="#externalpropertyfilereference-object--location-property"><code>location</code> Property</a>
                 </li>
-                <li>3.16.4 <a href="#externalpropertyfilereference-object--guid-property">`guid` Property</a>
+                <li>3.16.4 <a href="#externalpropertyfilereference-object--guid-property"><code>guid</code> Property</a>
                 </li>
-                <li>3.16.5 <a href="#itemcount-property">`itemCount` Property</a>
+                <li>3.16.5 <a href="#itemcount-property"><code>itemCount</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.17 <a href="#runautomationdetails-object">`runAutomationDetails` Object</a>
+            <li>3.17 <a href="#runautomationdetails-object"><code>runAutomationDetails</code> Object</a>
               <ul>
                 <li>3.17.1 <a href="#runautomationdetails-object--general">General</a>
                 </li>
-                <li>3.17.2 <a href="#runautomationdetails-object--description-property">`description` Property</a>
+                <li>3.17.2 <a href="#runautomationdetails-object--description-property"><code>description</code> Property</a>
                 </li>
-                <li>3.17.3 <a href="#runautomationdetails-object--id-property">`id` Property</a>
+                <li>3.17.3 <a href="#runautomationdetails-object--id-property"><code>id</code> Property</a>
                 </li>
-                <li>3.17.4 <a href="#runautomationdetails-object--guid-property">`guid` Property</a>
+                <li>3.17.4 <a href="#runautomationdetails-object--guid-property"><code>guid</code> Property</a>
                 </li>
-                <li>3.17.5 <a href="#runautomationdetails-object--correlationguid-property">`correlationGuid` Property</a>
+                <li>3.17.5 <a href="#runautomationdetails-object--correlationguid-property"><code>correlationGuid</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.18 <a href="#tool-object">`tool` Object</a>
+            <li>3.18 <a href="#tool-object"><code>tool</code> Object</a>
               <ul>
                 <li>3.18.1 <a href="#tool-object--general">General</a>
                 </li>
-                <li>3.18.2 <a href="#driver-property">`driver` Property</a>
+                <li>3.18.2 <a href="#driver-property"><code>driver</code> Property</a>
                 </li>
-                <li>3.18.3 <a href="#extensions-property">`extensions` Property</a>
+                <li>3.18.3 <a href="#extensions-property"><code>extensions</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.19 <a href="#toolcomponent-object">`toolComponent` Object</a>
+            <li>3.19 <a href="#toolcomponent-object"><code>toolComponent</code> Object</a>
               <ul>
                 <li>3.19.1 <a href="#toolcomponent-object--general">General</a>
                 </li>
@@ -877,181 +891,181 @@
                 </li>
                 <li>3.19.5 <a href="#policies">Policies</a>
                 </li>
-                <li>3.19.6 <a href="#toolcomponent-object--guid-property">`guid` Property</a>
+                <li>3.19.6 <a href="#toolcomponent-object--guid-property"><code>guid</code> Property</a>
                 </li>
                 <li>3.19.7 <a href="#product-hierarchy-properties">Product hierarchy properties</a>
                 </li>
-                <li>3.19.8 <a href="#toolcomponent-object--name-property">`name` Property</a>
+                <li>3.19.8 <a href="#toolcomponent-object--name-property"><code>name</code> Property</a>
                 </li>
-                <li>3.19.9 <a href="#toolcomponent-object--fullname-property">`fullName` Property</a>
+                <li>3.19.9 <a href="#toolcomponent-object--fullname-property"><code>fullName</code> Property</a>
                 </li>
-                <li>3.19.10 <a href="#product-property">`product` Property</a>
+                <li>3.19.10 <a href="#product-property"><code>product</code> Property</a>
                 </li>
-                <li>3.19.11 <a href="#productsuite-property">`productSuite` Property</a>
+                <li>3.19.11 <a href="#productsuite-property"><code>productSuite</code> Property</a>
                 </li>
-                <li>3.19.12 <a href="#semanticversion-property">`semanticVersion` Property</a>
+                <li>3.19.12 <a href="#semanticversion-property"><code>semanticVersion</code> Property</a>
                 </li>
-                <li>3.19.13 <a href="#toolcomponent-object--version-property">`version` Property</a>
+                <li>3.19.13 <a href="#toolcomponent-object--version-property"><code>version</code> Property</a>
                 </li>
-                <li>3.19.14 <a href="#dottedquadfileversion-property">`dottedQuadFileVersion` Property</a>
+                <li>3.19.14 <a href="#dottedquadfileversion-property"><code>dottedQuadFileVersion</code> Property</a>
                 </li>
-                <li>3.19.15 <a href="#releasedateutc-property">`releaseDateUtc` Property</a>
+                <li>3.19.15 <a href="#releasedateutc-property"><code>releaseDateUtc</code> Property</a>
                 </li>
-                <li>3.19.16 <a href="#toolcomponent-object--downloaduri-property">`downloadUri` Property</a>
+                <li>3.19.16 <a href="#toolcomponent-object--downloaduri-property"><code>downloadUri</code> Property</a>
                 </li>
-                <li>3.19.17 <a href="#toolcomponent-object--informationuri-property">`informationUri` Property</a>
+                <li>3.19.17 <a href="#toolcomponent-object--informationuri-property"><code>informationUri</code> Property</a>
                 </li>
-                <li>3.19.18 <a href="#organization-property">`organization` Property</a>
+                <li>3.19.18 <a href="#organization-property"><code>organization</code> Property</a>
                 </li>
-                <li>3.19.19 <a href="#toolcomponent-object--shortdescription-property">`shortDescription` Property</a>
+                <li>3.19.19 <a href="#toolcomponent-object--shortdescription-property"><code>shortDescription</code> Property</a>
                 </li>
-                <li>3.19.20 <a href="#toolcomponent-object--fulldescription-property">`fullDescription` Property</a>
+                <li>3.19.20 <a href="#toolcomponent-object--fulldescription-property"><code>fullDescription</code> Property</a>
                 </li>
-                <li>3.19.21 <a href="#language-property">`language` Property</a>
+                <li>3.19.21 <a href="#language-property"><code>language</code> Property</a>
                 </li>
-                <li>3.19.22 <a href="#globalmessagestrings-property">`globalMessageStrings` Property</a>
+                <li>3.19.22 <a href="#globalmessagestrings-property"><code>globalMessageStrings</code> Property</a>
                 </li>
-                <li>3.19.23 <a href="#rules-property">`rules` Property</a>
+                <li>3.19.23 <a href="#rules-property"><code>rules</code> Property</a>
                 </li>
-                <li>3.19.24 <a href="#notifications-property">`notifications` Property</a>
+                <li>3.19.24 <a href="#notifications-property"><code>notifications</code> Property</a>
                 </li>
-                <li>3.19.25 <a href="#toolcomponent-object--taxa-property">`taxa` Property</a>
+                <li>3.19.25 <a href="#toolcomponent-object--taxa-property"><code>taxa</code> Property</a>
                 </li>
-                <li>3.19.26 <a href="#supportedtaxonomies-property">`supportedTaxonomies` Property</a>
+                <li>3.19.26 <a href="#supportedtaxonomies-property"><code>supportedTaxonomies</code> Property</a>
                 </li>
-                <li>3.19.27 <a href="#translationmetadata-property">`translationMetadata` Property</a>
+                <li>3.19.27 <a href="#translationmetadata-property"><code>translationMetadata</code> Property</a>
                 </li>
-                <li>3.19.28 <a href="#toolcomponent-object--locations-property">`locations` Property</a>
+                <li>3.19.28 <a href="#toolcomponent-object--locations-property"><code>locations</code> Property</a>
                 </li>
-                <li>3.19.29 <a href="#toolcomponent-object--contents-property">`contents` Property</a>
+                <li>3.19.29 <a href="#toolcomponent-object--contents-property"><code>contents</code> Property</a>
                 </li>
-                <li>3.19.30 <a href="#iscomprehensive-property">`isComprehensive` Property</a>
+                <li>3.19.30 <a href="#iscomprehensive-property"><code>isComprehensive</code> Property</a>
                 </li>
-                <li>3.19.31 <a href="#localizeddatasemanticversion-property">`localizedDataSemanticVersion` Property</a>
+                <li>3.19.31 <a href="#localizeddatasemanticversion-property"><code>localizedDataSemanticVersion</code> Property</a>
                 </li>
-                <li>3.19.32 <a href="#minimumrequiredlocalizeddatasemanticversion-property">`minimumRequiredLocalizedDataSemanticVersion` Property</a>
+                <li>3.19.32 <a href="#minimumrequiredlocalizeddatasemanticversion-property"><code>minimumRequiredLocalizedDataSemanticVersion</code> Property</a>
                 </li>
-                <li>3.19.33 <a href="#associatedcomponent-property">`associatedComponent` Property</a>
+                <li>3.19.33 <a href="#associatedcomponent-property"><code>associatedComponent</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.20 <a href="#invocation-object">`invocation` Object</a>
+            <li>3.20 <a href="#invocation-object"><code>invocation</code> Object</a>
               <ul>
                 <li>3.20.1 <a href="#invocation-object--general">General</a>
                 </li>
-                <li>3.20.2 <a href="#commandline-property">`commandLine` Property</a>
+                <li>3.20.2 <a href="#commandline-property"><code>commandLine</code> Property</a>
                 </li>
                 <li>3.20.3 <a href="#invocation-object--arguments-property">arguments property</a>
                 </li>
-                <li>3.20.4 <a href="#responsefiles-property">`responseFiles` Property</a>
+                <li>3.20.4 <a href="#responsefiles-property"><code>responseFiles</code> Property</a>
                 </li>
-                <li>3.20.5 <a href="#ruleconfigurationoverrides-property">`ruleConfigurationOverrides` Property</a>
+                <li>3.20.5 <a href="#ruleconfigurationoverrides-property"><code>ruleConfigurationOverrides</code> Property</a>
                 </li>
-                <li>3.20.6 <a href="#notificationconfigurationoverrides-property">`notificationConfigurationOverrides` Property</a>
+                <li>3.20.6 <a href="#notificationconfigurationoverrides-property"><code>notificationConfigurationOverrides</code> Property</a>
                 </li>
-                <li>3.20.7 <a href="#starttimeutc-property">`startTimeUtc` Property</a>
+                <li>3.20.7 <a href="#starttimeutc-property"><code>startTimeUtc</code> Property</a>
                 </li>
-                <li>3.20.8 <a href="#endtimeutc-property">`endTimeUtc` Property</a>
+                <li>3.20.8 <a href="#endtimeutc-property"><code>endTimeUtc</code> Property</a>
                 </li>
-                <li>3.20.9 <a href="#exitcode-property">`exitCode` Property</a>
+                <li>3.20.9 <a href="#exitcode-property"><code>exitCode</code> Property</a>
                 </li>
-                <li>3.20.10 <a href="#exitcodedescription-property">`exitCodeDescription` Property</a>
+                <li>3.20.10 <a href="#exitcodedescription-property"><code>exitCodeDescription</code> Property</a>
                 </li>
-                <li>3.20.11 <a href="#exitsignalname-property">`exitSignalName` Property</a>
+                <li>3.20.11 <a href="#exitsignalname-property"><code>exitSignalName</code> Property</a>
                 </li>
-                <li>3.20.12 <a href="#exitsignalnumber-property">`exitSignalNumber` Property</a>
+                <li>3.20.12 <a href="#exitsignalnumber-property"><code>exitSignalNumber</code> Property</a>
                 </li>
-                <li>3.20.13 <a href="#processstartfailuremessage-property">`processStartFailureMessage` Property</a>
+                <li>3.20.13 <a href="#processstartfailuremessage-property"><code>processStartFailureMessage</code> Property</a>
                 </li>
-                <li>3.20.14 <a href="#executionsuccessful-property">`executionSuccessful` Property</a>
+                <li>3.20.14 <a href="#executionsuccessful-property"><code>executionSuccessful</code> Property</a>
                 </li>
-                <li>3.20.15 <a href="#machine-property">`machine` Property</a>
+                <li>3.20.15 <a href="#machine-property"><code>machine</code> Property</a>
                 </li>
-                <li>3.20.16 <a href="#account-property">`account` Property</a>
+                <li>3.20.16 <a href="#account-property"><code>account</code> Property</a>
                 </li>
-                <li>3.20.17 <a href="#processid-property">`processId` Property</a>
+                <li>3.20.17 <a href="#processid-property"><code>processId</code> Property</a>
                 </li>
-                <li>3.20.18 <a href="#executablelocation-property">`executableLocation` Property</a>
+                <li>3.20.18 <a href="#executablelocation-property"><code>executableLocation</code> Property</a>
                 </li>
-                <li>3.20.19 <a href="#workingdirectory-property">`workingDirectory` Property</a>
+                <li>3.20.19 <a href="#workingdirectory-property"><code>workingDirectory</code> Property</a>
                 </li>
-                <li>3.20.20 <a href="#environmentvariables-property">`environmentVariables` Property</a>
+                <li>3.20.20 <a href="#environmentvariables-property"><code>environmentVariables</code> Property</a>
                 </li>
-                <li>3.20.21 <a href="#toolexecutionnotifications-property">`toolExecutionNotifications` Property</a>
+                <li>3.20.21 <a href="#toolexecutionnotifications-property"><code>toolExecutionNotifications</code> Property</a>
                 </li>
-                <li>3.20.22 <a href="#toolconfigurationnotifications-property">`toolConfigurationNotifications` Property</a>
+                <li>3.20.22 <a href="#toolconfigurationnotifications-property"><code>toolConfigurationNotifications</code> Property</a>
                 </li>
-                <li>3.20.23 <a href="#stdin-stdout-stderr-and-stdoutstderr-properties">`stdin`, `stdout`, `stderr`, and `stdoutStderr` Properties</a>
+                <li>3.20.23 <a href="#stdin-stdout-stderr-and-stdoutstderr-properties"><code>stdin</code>, `stdout`, `stderr`, and `stdoutStderr` Properties</a>
                 </li>
               </ul>
             </li>
-            <li>3.21 <a href="#attachment-object">`attachment` Object</a>
+            <li>3.21 <a href="#attachment-object"><code>attachment</code> Object</a>
               <ul>
                 <li>3.21.1 <a href="#attachment-object--general">General</a>
                 </li>
-                <li>3.21.2 <a href="#attachment-object--description-property">`description` Property</a>
+                <li>3.21.2 <a href="#attachment-object--description-property"><code>description</code> Property</a>
                 </li>
-                <li>3.21.3 <a href="#attachment-object--location-property">`location` Property</a>
+                <li>3.21.3 <a href="#attachment-object--location-property"><code>location</code> Property</a>
                 </li>
-                <li>3.21.4 <a href="#regions-property">`regions` Property</a>
+                <li>3.21.4 <a href="#regions-property"><code>regions</code> Property</a>
                 </li>
-                <li>3.21.5 <a href="#rectangles-property">`rectangles` Property</a>
+                <li>3.21.5 <a href="#rectangles-property"><code>rectangles</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.22 <a href="#conversion-object">`conversion` Object</a>
+            <li>3.22 <a href="#conversion-object"><code>conversion</code> Object</a>
               <ul>
                 <li>3.22.1 <a href="#conversion-object--general">General</a>
                 </li>
-                <li>3.22.2 <a href="#conversion-object--tool-property">`tool` Property</a>
+                <li>3.22.2 <a href="#conversion-object--tool-property"><code>tool</code> Property</a>
                 </li>
-                <li>3.22.3 <a href="#invocation-property">`invocation` Property</a>
+                <li>3.22.3 <a href="#invocation-property"><code>invocation</code> Property</a>
                 </li>
-                <li>3.22.4 <a href="#analysistoollogfiles-property">`analysisToolLogFiles` Property</a>
+                <li>3.22.4 <a href="#analysistoollogfiles-property"><code>analysisToolLogFiles</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.23 <a href="#versioncontroldetails-object">`versionControlDetails` Object</a>
+            <li>3.23 <a href="#versioncontroldetails-object"><code>versionControlDetails</code> Object</a>
               <ul>
                 <li>3.23.1 <a href="#versioncontroldetails-object--general">General</a>
                 </li>
                 <li>3.23.2 <a href="#versioncontroldetails-object--constraints">Constraints</a>
                 </li>
-                <li>3.23.3 <a href="#repositoryuri-property">`repositoryUri` Property</a>
+                <li>3.23.3 <a href="#repositoryuri-property"><code>repositoryUri</code> Property</a>
                 </li>
                 <li>3.23.4 <a href="#revisionid-property">revisionId` Property</a>
                 </li>
-                <li>3.23.5 <a href="#branch-property">`branch` Property</a>
+                <li>3.23.5 <a href="#branch-property"><code>branch</code> Property</a>
                 </li>
-                <li>3.23.6 <a href="#revisiontag-property">`revisionTag` Property</a>
+                <li>3.23.6 <a href="#revisiontag-property"><code>revisionTag</code> Property</a>
                 </li>
-                <li>3.23.7 <a href="#asoftimeutc-property">`asOfTimeUtc` Property</a>
+                <li>3.23.7 <a href="#asoftimeutc-property"><code>asOfTimeUtc</code> Property</a>
                 </li>
-                <li>3.23.8 <a href="#mappedto-property">`mappedTo` Property</a>
+                <li>3.23.8 <a href="#mappedto-property"><code>mappedTo</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.24 <a href="#artifact-object">`artifact` Object</a>
+            <li>3.24 <a href="#artifact-object"><code>artifact</code> Object</a>
               <ul>
                 <li>3.24.1 <a href="#artifact-object--general">General</a>
                 </li>
                 <li>3.24.2 <a href="#artifact-object--location-property">`location property</a>
                 </li>
-                <li>3.24.3 <a href="#artifact-object--parentindex-property">`parentIndex` Property</a>
+                <li>3.24.3 <a href="#artifact-object--parentindex-property"><code>parentIndex</code> Property</a>
                 </li>
-                <li>3.24.4 <a href="#offset-property">`offset` Property</a>
+                <li>3.24.4 <a href="#offset-property"><code>offset</code> Property</a>
                 </li>
-                <li>3.24.5 <a href="#artifact-object--length-property">`length` Property</a>
+                <li>3.24.5 <a href="#artifact-object--length-property"><code>length</code> Property</a>
                 </li>
-                <li>3.24.6 <a href="#roles-property">`roles` Property</a>
+                <li>3.24.6 <a href="#roles-property"><code>roles</code> Property</a>
                 </li>
-                <li>3.24.7 <a href="#mimetype-property">`mimeType` Property</a>
+                <li>3.24.7 <a href="#mimetype-property"><code>mimeType</code> Property</a>
                 </li>
-                <li>3.24.8 <a href="#artifact-object--contents-property">`contents` Property</a>
+                <li>3.24.8 <a href="#artifact-object--contents-property"><code>contents</code> Property</a>
                 </li>
-                <li>3.24.9 <a href="#encoding-property">`encoding` Property</a>
+                <li>3.24.9 <a href="#encoding-property"><code>encoding</code> Property</a>
                 </li>
-                <li>3.24.10 <a href="#artifact-object--sourcelanguage-property">`sourceLanguage` Property</a>
+                <li>3.24.10 <a href="#artifact-object--sourcelanguage-property"><code>sourceLanguage</code> Property</a>
                   <ul>
                     <li>3.24.10.1 <a href="#sourcelanguage-property--general">General</a>
                     </li>
@@ -1059,41 +1073,41 @@
                     </li>
                   </ul>
                 </li>
-                <li>3.24.11 <a href="#hashes-property">`hashes` Property</a>
+                <li>3.24.11 <a href="#hashes-property"><code>hashes</code> Property</a>
                 </li>
-                <li>3.24.12 <a href="#lastmodifiedtimeutc-property">`lastModifiedTimeUtc` Property</a>
+                <li>3.24.12 <a href="#lastmodifiedtimeutc-property"><code>lastModifiedTimeUtc</code> Property</a>
                 </li>
-                <li>3.24.13 <a href="#artifact-object--description-property">`description` Property</a>
+                <li>3.24.13 <a href="#artifact-object--description-property"><code>description</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.25 <a href="#speciallocations-object">`specialLocations` Object</a>
+            <li>3.25 <a href="#speciallocations-object"><code>specialLocations</code> Object</a>
               <ul>
                 <li>3.25.1 <a href="#speciallocations-object--general">General</a>
                 </li>
-                <li>3.25.2 <a href="#displaybase-property">`displayBase` Property</a>
+                <li>3.25.2 <a href="#displaybase-property"><code>displayBase</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.26 <a href="#translationmetadata-object">`translationMetadata` Object</a>
+            <li>3.26 <a href="#translationmetadata-object"><code>translationMetadata</code> Object</a>
               <ul>
                 <li>3.26.1 <a href="#translationmetadata-object--general">General</a>
                 </li>
-                <li>3.26.2 <a href="#translationmetadata-object--name-property">`name` Property</a>
+                <li>3.26.2 <a href="#translationmetadata-object--name-property"><code>name</code> Property</a>
                 </li>
-                <li>3.26.3 <a href="#translationmetadata-object--fullname-property">`fullName` Property</a>
+                <li>3.26.3 <a href="#translationmetadata-object--fullname-property"><code>fullName</code> Property</a>
                 </li>
-                <li>3.26.4 <a href="#translationmetadata-object--shortdescription-property">`shortDescription` Property</a>
+                <li>3.26.4 <a href="#translationmetadata-object--shortdescription-property"><code>shortDescription</code> Property</a>
                 </li>
-                <li>3.26.5 <a href="#translationmetadata-object--fulldescription-property">`fullDescription` Property</a>
+                <li>3.26.5 <a href="#translationmetadata-object--fulldescription-property"><code>fullDescription</code> Property</a>
                 </li>
-                <li>3.26.6 <a href="#translationmetadata-object--downloaduri-property">`downloadUri` Property</a>
+                <li>3.26.6 <a href="#translationmetadata-object--downloaduri-property"><code>downloadUri</code> Property</a>
                 </li>
-                <li>3.26.7 <a href="#translationmetadata-object--informationuri-property">`informationUri` Property</a>
+                <li>3.26.7 <a href="#translationmetadata-object--informationuri-property"><code>informationUri</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.27 <a href="#result-object">`result` Object</a>
+            <li>3.27 <a href="#result-object"><code>result</code> Object</a>
               <ul>
                 <li>3.27.1 <a href="#result-object--general">General</a>
                 </li>
@@ -1101,99 +1115,99 @@
                 </li>
                 <li>3.27.3 <a href="#result-object--guid-property">guid property</a>
                 </li>
-                <li>3.27.4 <a href="#result-object--correlationguid-property">`correlationGuid` Property</a>
+                <li>3.27.4 <a href="#result-object--correlationguid-property"><code>correlationGuid</code> Property</a>
                 </li>
-                <li>3.27.5 <a href="#ruleid-property">`ruleId` Property</a>
+                <li>3.27.5 <a href="#ruleid-property"><code>ruleId</code> Property</a>
                 </li>
-                <li>3.27.6 <a href="#ruleindex-property">`ruleIndex` Property</a>
+                <li>3.27.6 <a href="#ruleindex-property"><code>ruleIndex</code> Property</a>
                 </li>
-                <li>3.27.7 <a href="#rule-property">`rule` Property</a>
+                <li>3.27.7 <a href="#rule-property"><code>rule</code> Property</a>
                 </li>
-                <li>3.27.8 <a href="#result-object--taxa-property">`taxa` Property</a>
+                <li>3.27.8 <a href="#result-object--taxa-property"><code>taxa</code> Property</a>
                 </li>
-                <li>3.27.9 <a href="#result-object--kind-property">`kind` Property</a>
+                <li>3.27.9 <a href="#result-object--kind-property"><code>kind</code> Property</a>
                 </li>
-                <li>3.27.10 <a href="#result-object--level-property">`level` Property</a>
+                <li>3.27.10 <a href="#result-object--level-property"><code>level</code> Property</a>
                 </li>
-                <li>3.27.11 <a href="#result-object--message-property">`message` Property</a>
+                <li>3.27.11 <a href="#result-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.27.12 <a href="#result-object--locations-property">`locations` Property</a>
+                <li>3.27.12 <a href="#result-object--locations-property"><code>locations</code> Property</a>
                 </li>
-                <li>3.27.13 <a href="#analysistarget-property">`analysisTarget` Property</a>
+                <li>3.27.13 <a href="#analysistarget-property"><code>analysisTarget</code> Property</a>
                 </li>
-                <li>3.27.14 <a href="#result-object--webrequest-property">`webRequest` Property</a>
+                <li>3.27.14 <a href="#result-object--webrequest-property"><code>webRequest</code> Property</a>
                 </li>
-                <li>3.27.15 <a href="#result-object--webresponse-property">`webResponse` Property</a>
+                <li>3.27.15 <a href="#result-object--webresponse-property"><code>webResponse</code> Property</a>
                 </li>
-                <li>3.27.16 <a href="#fingerprints-property">`fingerprints` Property</a>
+                <li>3.27.16 <a href="#fingerprints-property"><code>fingerprints</code> Property</a>
                 </li>
-                <li>3.27.17 <a href="#partialfingerprints-property">`partialFingerprints` Property</a>
+                <li>3.27.17 <a href="#partialfingerprints-property"><code>partialFingerprints</code> Property</a>
                 </li>
-                <li>3.27.18 <a href="#codeflows-property">`codeFlows` Property</a>
+                <li>3.27.18 <a href="#codeflows-property"><code>codeFlows</code> Property</a>
                 </li>
-                <li>3.27.19 <a href="#result-object--graphs-property">`graphs` Property</a>
+                <li>3.27.19 <a href="#result-object--graphs-property"><code>graphs</code> Property</a>
                 </li>
-                <li>3.27.20 <a href="#graphtraversals-property">`graphTraversals` Property</a>
+                <li>3.27.20 <a href="#graphtraversals-property"><code>graphTraversals</code> Property</a>
                 </li>
-                <li>3.27.21 <a href="#stacks-property">`stacks` Property</a>
+                <li>3.27.21 <a href="#stacks-property"><code>stacks</code> Property</a>
                 </li>
-                <li>3.27.22 <a href="#relatedlocations-property">`relatedLocations` Property</a>
+                <li>3.27.22 <a href="#relatedlocations-property"><code>relatedLocations</code> Property</a>
                 </li>
-                <li>3.27.23 <a href="#suppressions-property">`suppressions` Property</a>
+                <li>3.27.23 <a href="#suppressions-property"><code>suppressions</code> Property</a>
                 </li>
-                <li>3.27.24 <a href="#baselinestate-property">`baselineState` Property</a>
+                <li>3.27.24 <a href="#baselinestate-property"><code>baselineState</code> Property</a>
                 </li>
-                <li>3.27.25 <a href="#result-object--rank-property">`rank` Property</a>
+                <li>3.27.25 <a href="#result-object--rank-property"><code>rank</code> Property</a>
                 </li>
-                <li>3.27.26 <a href="#attachments-property">`attachments` Property</a>
+                <li>3.27.26 <a href="#attachments-property"><code>attachments</code> Property</a>
                 </li>
-                <li>3.27.27 <a href="#workitemuris-property">`workItemUris` Property</a>
+                <li>3.27.27 <a href="#workitemuris-property"><code>workItemUris</code> Property</a>
                 </li>
-                <li>3.27.28 <a href="#hostedvieweruri-property">`hostedViewerUri` Property</a>
+                <li>3.27.28 <a href="#hostedvieweruri-property"><code>hostedViewerUri</code> Property</a>
                 </li>
-                <li>3.27.29 <a href="#provenance-property">`provenance` Property</a>
+                <li>3.27.29 <a href="#provenance-property"><code>provenance</code> Property</a>
                 </li>
-                <li>3.27.30 <a href="#fixes-property">`fixes` Property</a>
+                <li>3.27.30 <a href="#fixes-property"><code>fixes</code> Property</a>
                 </li>
-                <li>3.27.31 <a href="#occurrencecount-property">`occurrenceCount` Property</a>
+                <li>3.27.31 <a href="#occurrencecount-property"><code>occurrenceCount</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.28 <a href="#location-object">`location` Object</a>
+            <li>3.28 <a href="#location-object"><code>location</code> Object</a>
               <ul>
                 <li>3.28.1 <a href="#location-object--general">General</a>
                 </li>
-                <li>3.28.2 <a href="#location-object--id-property">`id` Property</a>
+                <li>3.28.2 <a href="#location-object--id-property"><code>id</code> Property</a>
                 </li>
-                <li>3.28.3 <a href="#physicallocation-property">`physicalLocation` Property</a>
+                <li>3.28.3 <a href="#physicallocation-property"><code>physicalLocation</code> Property</a>
                 </li>
-                <li>3.28.4 <a href="#location-object--logicallocations-property">`logicalLocations` Property</a>
+                <li>3.28.4 <a href="#location-object--logicallocations-property"><code>logicalLocations</code> Property</a>
                 </li>
-                <li>3.28.5 <a href="#location-object--message-property">`message` Property</a>
+                <li>3.28.5 <a href="#location-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.28.6 <a href="#annotations-property">`annotations` Property</a>
+                <li>3.28.6 <a href="#annotations-property"><code>annotations</code> Property</a>
                 </li>
-                <li>3.28.7 <a href="#location-object--relationships-property">`relationships` Property</a>
+                <li>3.28.7 <a href="#location-object--relationships-property"><code>relationships</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.29 <a href="#physicallocation-object">`physicalLocation` Object</a>
+            <li>3.29 <a href="#physicallocation-object"><code>physicalLocation</code> Object</a>
               <ul>
                 <li>3.29.1 <a href="#physicallocation-object--general">General</a>
                 </li>
                 <li>3.29.2 <a href="#physicallocation-object--constraints">Constraints</a>
                 </li>
-                <li>3.29.3 <a href="#physicallocation-object--artifactlocation-property">`artifactLocation` Property</a>
+                <li>3.29.3 <a href="#physicallocation-object--artifactlocation-property"><code>artifactLocation</code> Property</a>
                 </li>
-                <li>3.29.4 <a href="#region-property">`region` Property</a>
+                <li>3.29.4 <a href="#region-property"><code>region</code> Property</a>
                 </li>
-                <li>3.29.5 <a href="#contextregion-property">`contextRegion` Property</a>
+                <li>3.29.5 <a href="#contextregion-property"><code>contextRegion</code> Property</a>
                 </li>
-                <li>3.29.6 <a href="#address-property">`address` Property</a>
+                <li>3.29.6 <a href="#address-property"><code>address</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.30 <a href="#region-object">`region` Object</a>
+            <li>3.30 <a href="#region-object"><code>region</code> Object</a>
               <ul>
                 <li>3.30.1 <a href="#region-object--general">General</a>
                 </li>
@@ -1203,41 +1217,41 @@
                 </li>
                 <li>3.30.4 <a href="#independence-of-text-and-binary-regions">Independence of Text and Binary Regions</a>
                 </li>
-                <li>3.30.5 <a href="#startline-property">`startLine` Property</a>
+                <li>3.30.5 <a href="#startline-property"><code>startLine</code> Property</a>
                 </li>
-                <li>3.30.6 <a href="#startcolumn-property">`startColumn` Property</a>
+                <li>3.30.6 <a href="#startcolumn-property"><code>startColumn</code> Property</a>
                 </li>
-                <li>3.30.7 <a href="#endline-property">`endLine` Property</a>
+                <li>3.30.7 <a href="#endline-property"><code>endLine</code> Property</a>
                 </li>
-                <li>3.30.8 <a href="#endcolumn-property">`endColumn` Property</a>
+                <li>3.30.8 <a href="#endcolumn-property"><code>endColumn</code> Property</a>
                 </li>
-                <li>3.30.9 <a href="#charoffset-property">`charOffset` Property</a>
+                <li>3.30.9 <a href="#charoffset-property"><code>charOffset</code> Property</a>
                 </li>
-                <li>3.30.10 <a href="#charlength-property">`charLength` Property</a>
+                <li>3.30.10 <a href="#charlength-property"><code>charLength</code> Property</a>
                 </li>
-                <li>3.30.11 <a href="#byteoffset-property">`byteOffset` Property</a>
+                <li>3.30.11 <a href="#byteoffset-property"><code>byteOffset</code> Property</a>
                 </li>
-                <li>3.30.12 <a href="#bytelength-property">`byteLength` Property</a>
+                <li>3.30.12 <a href="#bytelength-property"><code>byteLength</code> Property</a>
                 </li>
-                <li>3.30.13 <a href="#snippet-property">`snippet` Property</a>
+                <li>3.30.13 <a href="#snippet-property"><code>snippet</code> Property</a>
                 </li>
-                <li>3.30.14 <a href="#region-object--message-property">`message` Property</a>
+                <li>3.30.14 <a href="#region-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.30.15 <a href="#region-object--sourcelanguage-property">`sourceLanguage` Property</a>
+                <li>3.30.15 <a href="#region-object--sourcelanguage-property"><code>sourceLanguage</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.31 <a href="#rectangle-object">`rectangle` Object</a>
+            <li>3.31 <a href="#rectangle-object"><code>rectangle</code> Object</a>
               <ul>
                 <li>3.31.1 <a href="#rectangle-object--general">General</a>
                 </li>
-                <li>3.31.2 <a href="#top-left-bottom-and-right-properties">`top`, `left`, `bottom`, and `right` Properties</a>
+                <li>3.31.2 <a href="#top-left-bottom-and-right-properties"><code>top</code>, `left`, `bottom`, and `right` Properties</a>
                 </li>
-                <li>3.31.3 <a href="#rectangle-object--message-property">`message` Property</a>
+                <li>3.31.3 <a href="#rectangle-object--message-property"><code>message</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.32 <a href="#address-object">`address` Object</a>
+            <li>3.32 <a href="#address-object"><code>address</code> Object</a>
               <ul>
                 <li>3.32.1 <a href="#address-object--general">General</a>
                 </li>
@@ -1247,353 +1261,353 @@
                 </li>
                 <li>3.32.4 <a href="#relative-address-calculation">Relative Address Calculation</a>
                 </li>
-                <li>3.32.5 <a href="#address-object--index-property">`index` Property</a>
+                <li>3.32.5 <a href="#address-object--index-property"><code>index</code> Property</a>
                 </li>
-                <li>3.32.6 <a href="#absoluteaddress-property">`absoluteAddress` Property</a>
+                <li>3.32.6 <a href="#absoluteaddress-property"><code>absoluteAddress</code> Property</a>
                 </li>
-                <li>3.32.7 <a href="#relativeaddress-property">`relativeAddress` Property</a>
+                <li>3.32.7 <a href="#relativeaddress-property"><code>relativeAddress</code> Property</a>
                 </li>
-                <li>3.32.8 <a href="#offsetfromparent-property">`offsetFromParent` Property</a>
+                <li>3.32.8 <a href="#offsetfromparent-property"><code>offsetFromParent</code> Property</a>
                 </li>
-                <li>3.32.9 <a href="#address-object--length-property">`length` Property</a>
+                <li>3.32.9 <a href="#address-object--length-property"><code>length</code> Property</a>
                 </li>
-                <li>3.32.10 <a href="#address-object--name-property">`name` Property</a>
+                <li>3.32.10 <a href="#address-object--name-property"><code>name</code> Property</a>
                 </li>
-                <li>3.32.11 <a href="#address-object--fullyqualifiedname-property">`fullyQualifiedName` Property</a>
+                <li>3.32.11 <a href="#address-object--fullyqualifiedname-property"><code>fullyQualifiedName</code> Property</a>
                 </li>
-                <li>3.32.12 <a href="#address-object--kind-property">`kind` Property</a>
+                <li>3.32.12 <a href="#address-object--kind-property"><code>kind</code> Property</a>
                 </li>
-                <li>3.32.13 <a href="#address-object--parentindex-property">`parentIndex` Property</a>
+                <li>3.32.13 <a href="#address-object--parentindex-property"><code>parentIndex</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.33 <a href="#logicallocation-object">`logicalLocation` Object</a>
+            <li>3.33 <a href="#logicallocation-object"><code>logicalLocation</code> Object</a>
               <ul>
                 <li>3.33.1 <a href="#logicallocation-object--general">General</a>
                 </li>
                 <li>3.33.2 <a href="#logical-location-naming-rules">Logical Location Naming Rules</a>
                 </li>
-                <li>3.33.3 <a href="#logicallocation-object--index-property">`index` Property</a>
+                <li>3.33.3 <a href="#logicallocation-object--index-property"><code>index</code> Property</a>
                 </li>
-                <li>3.33.4 <a href="#logicallocation-object--name-property">`name` Property</a>
+                <li>3.33.4 <a href="#logicallocation-object--name-property"><code>name</code> Property</a>
                 </li>
-                <li>3.33.5 <a href="#logicallocation-object--fullyqualifiedname-property">`fullyQualifiedName` Property</a>
+                <li>3.33.5 <a href="#logicallocation-object--fullyqualifiedname-property"><code>fullyQualifiedName</code> Property</a>
                 </li>
-                <li>3.33.6 <a href="#decoratedname-property">`decoratedName` Property</a>
+                <li>3.33.6 <a href="#decoratedname-property"><code>decoratedName</code> Property</a>
                 </li>
-                <li>3.33.7 <a href="#logicallocation-object--kind-property">`kind` Property</a>
+                <li>3.33.7 <a href="#logicallocation-object--kind-property"><code>kind</code> Property</a>
                 </li>
-                <li>3.33.8 <a href="#logicallocation-object--parentindex-property">`parentIndex` Property</a>
+                <li>3.33.8 <a href="#logicallocation-object--parentindex-property"><code>parentIndex</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.34 <a href="#locationrelationship-object">`locationRelationship` Object</a>
+            <li>3.34 <a href="#locationrelationship-object"><code>locationRelationship</code> Object</a>
               <ul>
                 <li>3.34.1 <a href="#locationrelationship-object--general">General</a>
                 </li>
-                <li>3.34.2 <a href="#locationrelationship-object--target-property">`target` Property</a>
+                <li>3.34.2 <a href="#locationrelationship-object--target-property"><code>target</code> Property</a>
                 </li>
-                <li>3.34.3 <a href="#locationrelationship-object--kinds-property">`kinds` Property</a>
+                <li>3.34.3 <a href="#locationrelationship-object--kinds-property"><code>kinds</code> Property</a>
                 </li>
-                <li>3.34.4 <a href="#locationrelationship-object--description-property">`description` Property</a>
+                <li>3.34.4 <a href="#locationrelationship-object--description-property"><code>description</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.35 <a href="#suppression-object">`suppression` Object</a>
+            <li>3.35 <a href="#suppression-object"><code>suppression</code> Object</a>
               <ul>
                 <li>3.35.1 <a href="#suppression-object--general">General</a>
                 </li>
-                <li>3.35.2 <a href="#suppression-object--kind-property">`kind` Property</a>
+                <li>3.35.2 <a href="#suppression-object--kind-property"><code>kind</code> Property</a>
                 </li>
-                <li>3.35.3 <a href="#status-property">`status` Property</a>
+                <li>3.35.3 <a href="#status-property"><code>status</code> Property</a>
                 </li>
-                <li>3.35.4 <a href="#suppression-object--location-property">`location` Property</a>
+                <li>3.35.4 <a href="#suppression-object--location-property"><code>location</code> Property</a>
                 </li>
-                <li>3.35.5 <a href="#suppression-object--guid-property">`guid` Property</a>
+                <li>3.35.5 <a href="#suppression-object--guid-property"><code>guid</code> Property</a>
                 </li>
-                <li>3.35.6 <a href="#justification-property">`justification` Property</a>
+                <li>3.35.6 <a href="#justification-property"><code>justification</code> Property</a>
                 </li>
-                <li>3.35.7 <a href="#justificationtype-property">`justificationType` Property</a>
+                <li>3.35.7 <a href="#justificationtype-property"><code>justificationType</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.36 <a href="#codeflow-object">`codeFlow` Object</a>
+            <li>3.36 <a href="#codeflow-object"><code>codeFlow</code> Object</a>
               <ul>
                 <li>3.36.1 <a href="#codeflow-object--general">General</a>
                 </li>
-                <li>3.36.2 <a href="#codeflow-object--message-property">`message` Property</a>
+                <li>3.36.2 <a href="#codeflow-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.36.3 <a href="#threadflows-property">`threadFlows` Property</a>
+                <li>3.36.3 <a href="#threadflows-property"><code>threadFlows</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.37 <a href="#threadflow-object">`threadFlow` Object</a>
+            <li>3.37 <a href="#threadflow-object"><code>threadFlow</code> Object</a>
               <ul>
                 <li>3.37.1 <a href="#threadflow-object--general">General</a>
                 </li>
-                <li>3.37.2 <a href="#threadflow-object--id-property">`id` Property</a>
+                <li>3.37.2 <a href="#threadflow-object--id-property"><code>id</code> Property</a>
                 </li>
-                <li>3.37.3 <a href="#threadflow-object--message-property">`message` Property</a>
+                <li>3.37.3 <a href="#threadflow-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.37.4 <a href="#threadflow-object--initialstate-property">`initialState` Property</a>
+                <li>3.37.4 <a href="#threadflow-object--initialstate-property"><code>initialState</code> Property</a>
                 </li>
-                <li>3.37.5 <a href="#threadflow-object--immutablestate-property">`immutableState` Property</a>
+                <li>3.37.5 <a href="#threadflow-object--immutablestate-property"><code>immutableState</code> Property</a>
                 </li>
-                <li>3.37.6 <a href="#threadflow-object--locations-property">`locations` Property</a>
+                <li>3.37.6 <a href="#threadflow-object--locations-property"><code>locations</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.38 <a href="#threadflowlocation-object">`threadFlowLocation` Object</a>
+            <li>3.38 <a href="#threadflowlocation-object"><code>threadFlowLocation</code> Object</a>
               <ul>
                 <li>3.38.1 <a href="#threadflowlocation-object--general">General</a>
                 </li>
-                <li>3.38.2 <a href="#threadflowlocation-object--index-property">`index` Property</a>
+                <li>3.38.2 <a href="#threadflowlocation-object--index-property"><code>index</code> Property</a>
                 </li>
-                <li>3.38.3 <a href="#threadflowlocation-object--location-property">`location` Propertyy</a>
+                <li>3.38.3 <a href="#threadflowlocation-object--location-property"><code>location</code> Propertyy</a>
                 </li>
-                <li>3.38.4 <a href="#threadflowlocation-object--module-property">`module` Property</a>
+                <li>3.38.4 <a href="#threadflowlocation-object--module-property"><code>module</code> Property</a>
                 </li>
-                <li>3.38.5 <a href="#threadflowlocation-object--stack-property">`stack` Property</a>
+                <li>3.38.5 <a href="#threadflowlocation-object--stack-property"><code>stack</code> Property</a>
                 </li>
-                <li>3.38.6 <a href="#threadflowlocation-object--webrequest-property">`webRequest` Property</a>
+                <li>3.38.6 <a href="#threadflowlocation-object--webrequest-property"><code>webRequest</code> Property</a>
                 </li>
-                <li>3.38.7 <a href="#threadflowlocation-object--webresponse-property">`webResponse` Property</a>
+                <li>3.38.7 <a href="#threadflowlocation-object--webresponse-property"><code>webResponse</code> Property</a>
                 </li>
-                <li>3.38.8 <a href="#threadflowlocation-object--kinds-property">`kinds` Property</a>
+                <li>3.38.8 <a href="#threadflowlocation-object--kinds-property"><code>kinds</code> Property</a>
                 </li>
-                <li>3.38.9 <a href="#state-property">`state` Property</a>
+                <li>3.38.9 <a href="#state-property"><code>state</code> Property</a>
                 </li>
-                <li>3.38.10 <a href="#nestinglevel-property">`nestingLevel` Property</a>
+                <li>3.38.10 <a href="#nestinglevel-property"><code>nestingLevel</code> Property</a>
                 </li>
-                <li>3.38.11 <a href="#executionorder-property">`executionOrder` Property</a>
+                <li>3.38.11 <a href="#executionorder-property"><code>executionOrder</code> Property</a>
                 </li>
-                <li>3.38.12 <a href="#executiontimeutc-property">`executionTimeUtc` Property</a>
+                <li>3.38.12 <a href="#executiontimeutc-property"><code>executionTimeUtc</code> Property</a>
                 </li>
-                <li>3.38.13 <a href="#importance-property">`importance` Property</a>
+                <li>3.38.13 <a href="#importance-property"><code>importance</code> Property</a>
                 </li>
-                <li>3.38.14 <a href="#threadflowlocation-object--taxa-property">`taxa` Property</a>
+                <li>3.38.14 <a href="#threadflowlocation-object--taxa-property"><code>taxa</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.39 <a href="#graph-object">`graph` Object</a>
+            <li>3.39 <a href="#graph-object"><code>graph</code> Object</a>
               <ul>
                 <li>3.39.1 <a href="#graph-object--general">General</a>
                 </li>
-                <li>3.39.2 <a href="#graph-object--description-property">`description` Property</a>
+                <li>3.39.2 <a href="#graph-object--description-property"><code>description</code> Property</a>
                 </li>
-                <li>3.39.3 <a href="#nodes-property">`nodes` Property</a>
+                <li>3.39.3 <a href="#nodes-property"><code>nodes</code> Property</a>
                 </li>
-                <li>3.39.4 <a href="#edges-property">`edges` Property</a>
+                <li>3.39.4 <a href="#edges-property"><code>edges</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.40 <a href="#node-object">`node` Object</a>
+            <li>3.40 <a href="#node-object"><code>node</code> Object</a>
               <ul>
                 <li>3.40.1 <a href="#node-object--general">General</a>
                 </li>
-                <li>3.40.2 <a href="#node-object--id-property">`id` Property</a>
+                <li>3.40.2 <a href="#node-object--id-property"><code>id</code> Property</a>
                 </li>
-                <li>3.40.3 <a href="#node-object--label-property">`label` Property</a>
+                <li>3.40.3 <a href="#node-object--label-property"><code>label</code> Property</a>
                 </li>
-                <li>3.40.4 <a href="#node-object--location-property">`location` Property</a>
+                <li>3.40.4 <a href="#node-object--location-property"><code>location</code> Property</a>
                 </li>
-                <li>3.40.5 <a href="#children-property">`children` Property</a>
+                <li>3.40.5 <a href="#children-property"><code>children</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.41 <a href="#edge-object">`edge` Object</a>
+            <li>3.41 <a href="#edge-object"><code>edge</code> Object</a>
               <ul>
                 <li>3.41.1 <a href="#edge-object--general">General</a>
                 </li>
-                <li>3.41.2 <a href="#edge-object--id-property">`id` Property</a>
+                <li>3.41.2 <a href="#edge-object--id-property"><code>id</code> Property</a>
                 </li>
-                <li>3.41.3 <a href="#edge-object--label-property">`label` Property</a>
+                <li>3.41.3 <a href="#edge-object--label-property"><code>label</code> Property</a>
                 </li>
-                <li>3.41.4 <a href="#sourcenodeid-property">`sourceNodeId` Property</a>
+                <li>3.41.4 <a href="#sourcenodeid-property"><code>sourceNodeId</code> Property</a>
                 </li>
-                <li>3.41.5 <a href="#targetnodeid-property">`targetNodeId` Property</a>
+                <li>3.41.5 <a href="#targetnodeid-property"><code>targetNodeId</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.42 <a href="#graphtraversal-object">`graphTraversal` Object</a>
+            <li>3.42 <a href="#graphtraversal-object"><code>graphTraversal</code> Object</a>
               <ul>
                 <li>3.42.1 <a href="#graphtraversal-object--general">General</a>
                 </li>
                 <li>3.42.2 <a href="#graphtraversal-object--constraints">Constraints</a>
                 </li>
-                <li>3.42.3 <a href="#resultgraphindex-property">`resultGraphIndex` Property</a>
+                <li>3.42.3 <a href="#resultgraphindex-property"><code>resultGraphIndex</code> Property</a>
                 </li>
-                <li>3.42.4 <a href="#rungraphindex-property">`runGraphIndex` Property</a>
+                <li>3.42.4 <a href="#rungraphindex-property"><code>runGraphIndex</code> Property</a>
                 </li>
-                <li>3.42.5 <a href="#graphtraversal-object--description-property">`description` Property</a>
+                <li>3.42.5 <a href="#graphtraversal-object--description-property"><code>description</code> Property</a>
                 </li>
-                <li>3.42.6 <a href="#graphtraversal-object--initialstate-property">`initialState` Property</a>
+                <li>3.42.6 <a href="#graphtraversal-object--initialstate-property"><code>initialState</code> Property</a>
                 </li>
-                <li>3.42.7 <a href="#graphtraversal-object--immutablestate-property">`immutableState` Property</a>
+                <li>3.42.7 <a href="#graphtraversal-object--immutablestate-property"><code>immutableState</code> Property</a>
                 </li>
-                <li>3.42.8 <a href="#edgetraversals-property">`edgeTraversals` Property</a>
+                <li>3.42.8 <a href="#edgetraversals-property"><code>edgeTraversals</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.43 <a href="#edgetraversal-object">`edgeTraversal` Object</a>
+            <li>3.43 <a href="#edgetraversal-object"><code>edgeTraversal</code> Object</a>
               <ul>
                 <li>3.43.1 <a href="#edgetraversal-object--general">General</a>
                 </li>
-                <li>3.43.2 <a href="#edgeid-property">`edgeId` Property</a>
+                <li>3.43.2 <a href="#edgeid-property"><code>edgeId</code> Property</a>
                 </li>
-                <li>3.43.3 <a href="#edgetraversal-object--message-property">`message` Property</a>
+                <li>3.43.3 <a href="#edgetraversal-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.43.4 <a href="#finalstate-property">`finalState` Property</a>
+                <li>3.43.4 <a href="#finalstate-property"><code>finalState</code> Property</a>
                 </li>
-                <li>3.43.5 <a href="#stepoveredgecount-property">`stepOverEdgeCount` Property</a>
+                <li>3.43.5 <a href="#stepoveredgecount-property"><code>stepOverEdgeCount</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.44 <a href="#stack-object">`stack` Object</a>
+            <li>3.44 <a href="#stack-object"><code>stack</code> Object</a>
               <ul>
                 <li>3.44.1 <a href="#stack-object--general">General</a>
                 </li>
-                <li>3.44.2 <a href="#stack-object--message-property">`message` Property</a>
+                <li>3.44.2 <a href="#stack-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.44.3 <a href="#frames-property">`frames` Property</a>
+                <li>3.44.3 <a href="#frames-property"><code>frames</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.45 <a href="#stackframe-object">`stackFrame` Object</a>
+            <li>3.45 <a href="#stackframe-object"><code>stackFrame</code> Object</a>
               <ul>
                 <li>3.45.1 <a href="#stackframe-object--general">General</a>
                 </li>
-                <li>3.45.2 <a href="#stackframe-object--location-property">`location` Property</a>
+                <li>3.45.2 <a href="#stackframe-object--location-property"><code>location</code> Property</a>
                 </li>
-                <li>3.45.3 <a href="#stackframe-object--module-property">`module` Property</a>
+                <li>3.45.3 <a href="#stackframe-object--module-property"><code>module</code> Property</a>
                 </li>
-                <li>3.45.4 <a href="#stackframe-object--threadid-property">`threadId` Property</a>
+                <li>3.45.4 <a href="#stackframe-object--threadid-property"><code>threadId</code> Property</a>
                 </li>
-                <li>3.45.5 <a href="#stackframe-object--parameters-property">`parameters` Property</a>
+                <li>3.45.5 <a href="#stackframe-object--parameters-property"><code>parameters</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.46 <a href="#webrequest-object">`webRequest` Object</a>
+            <li>3.46 <a href="#webrequest-object"><code>webRequest</code> Object</a>
               <ul>
                 <li>3.46.1 <a href="#webrequest-object--general">General</a>
                 </li>
-                <li>3.46.2 <a href="#webrequest-object--index-property">`index` Property</a>
+                <li>3.46.2 <a href="#webrequest-object--index-property"><code>index</code> Property</a>
                 </li>
-                <li>3.46.3 <a href="#webrequest-object--protocol-property">`protocol` Property</a>
+                <li>3.46.3 <a href="#webrequest-object--protocol-property"><code>protocol</code> Property</a>
                 </li>
-                <li>3.46.4 <a href="#webrequest-object--version-property">`version` Property</a>
+                <li>3.46.4 <a href="#webrequest-object--version-property"><code>version</code> Property</a>
                 </li>
-                <li>3.46.5 <a href="#webrequest-object--target-property">`target` Property</a>
+                <li>3.46.5 <a href="#webrequest-object--target-property"><code>target</code> Property</a>
                 </li>
-                <li>3.46.6 <a href="#method-property">`method` Property</a>
+                <li>3.46.6 <a href="#method-property"><code>method</code> Property</a>
                 </li>
-                <li>3.46.7 <a href="#webrequest-object--headers-property">`headers` Property</a>
+                <li>3.46.7 <a href="#webrequest-object--headers-property"><code>headers</code> Property</a>
                 </li>
-                <li>3.46.8 <a href="#webrequest-object--parameters-property">`parameters` Property</a>
+                <li>3.46.8 <a href="#webrequest-object--parameters-property"><code>parameters</code> Property</a>
                 </li>
-                <li>3.46.9 <a href="#webrequest-object--body-property">`body` Property</a>
+                <li>3.46.9 <a href="#webrequest-object--body-property"><code>body</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.47 <a href="#webresponse-object">`webResponse` Object</a>
+            <li>3.47 <a href="#webresponse-object"><code>webResponse</code> Object</a>
               <ul>
                 <li>3.47.1 <a href="#webresponse-object--general">General</a>
                 </li>
-                <li>3.47.2 <a href="#webresponse-object--index-property">`index` Property</a>
+                <li>3.47.2 <a href="#webresponse-object--index-property"><code>index</code> Property</a>
                 </li>
-                <li>3.47.3 <a href="#webresponse-object--protocol-property">`protocol` Property</a>
+                <li>3.47.3 <a href="#webresponse-object--protocol-property"><code>protocol</code> Property</a>
                 </li>
-                <li>3.47.4 <a href="#webresponse-object--version-property">`version` Property</a>
+                <li>3.47.4 <a href="#webresponse-object--version-property"><code>version</code> Property</a>
                 </li>
-                <li>3.47.5 <a href="#statuscode-property">`statusCode` Property</a>
+                <li>3.47.5 <a href="#statuscode-property"><code>statusCode</code> Property</a>
                 </li>
-                <li>3.47.6 <a href="#reasonphrase-property">`reasonPhrase` Property</a>
+                <li>3.47.6 <a href="#reasonphrase-property"><code>reasonPhrase</code> Property</a>
                 </li>
-                <li>3.47.7 <a href="#webresponse-object--headers-property">`headers` Property</a>
+                <li>3.47.7 <a href="#webresponse-object--headers-property"><code>headers</code> Property</a>
                 </li>
-                <li>3.47.8 <a href="#webresponse-object--body-property">`body` Property</a>
+                <li>3.47.8 <a href="#webresponse-object--body-property"><code>body</code> Property</a>
                 </li>
-                <li>3.47.9 <a href="#noresponsereceived-property">`noResponseReceived` Property</a>
+                <li>3.47.9 <a href="#noresponsereceived-property"><code>noResponseReceived</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.48 <a href="#resultprovenance-object">`resultProvenance` Object</a>
+            <li>3.48 <a href="#resultprovenance-object"><code>resultProvenance</code> Object</a>
               <ul>
                 <li>3.48.1 <a href="#resultprovenance-object--general">General</a>
                 </li>
-                <li>3.48.2 <a href="#firstdetectiontimeutc-property">`firstDetectionTimeUtc` Property</a>
+                <li>3.48.2 <a href="#firstdetectiontimeutc-property"><code>firstDetectionTimeUtc</code> Property</a>
                 </li>
-                <li>3.48.3 <a href="#lastdetectiontimeutc-property">`lastDetectionTimeUtc` Property</a>
+                <li>3.48.3 <a href="#lastdetectiontimeutc-property"><code>lastDetectionTimeUtc</code> Property</a>
                 </li>
-                <li>3.48.4 <a href="#firstdetectionrunguid-property">`firstDetectionRunGuid` Property</a>
+                <li>3.48.4 <a href="#firstdetectionrunguid-property"><code>firstDetectionRunGuid</code> Property</a>
                 </li>
-                <li>3.48.5 <a href="#lastdetectionrunguid-property">`lastDetectionRunGuid` Property</a>
+                <li>3.48.5 <a href="#lastdetectionrunguid-property"><code>lastDetectionRunGuid</code> Property</a>
                 </li>
-                <li>3.48.6 <a href="#invocationindex-property">`invocationIndex` Property</a>
+                <li>3.48.6 <a href="#invocationindex-property"><code>invocationIndex</code> Property</a>
                 </li>
-                <li>3.48.7 <a href="#conversionsources-property">`conversionSources` Property</a>
+                <li>3.48.7 <a href="#conversionsources-property"><code>conversionSources</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.49 <a href="#reportingdescriptor-object">`reportingDescriptor` Object</a>
+            <li>3.49 <a href="#reportingdescriptor-object"><code>reportingDescriptor</code> Object</a>
               <ul>
                 <li>3.49.1 <a href="#reportingdescriptor-object--general">General</a>
                 </li>
                 <li>3.49.2 <a href="#reportingdescriptor-object--constraints">Constraints</a>
                 </li>
-                <li>3.49.3 <a href="#reportingdescriptor-object--id-property">`id` Property</a>
+                <li>3.49.3 <a href="#reportingdescriptor-object--id-property"><code>id</code> Property</a>
                 </li>
-                <li>3.49.4 <a href="#deprecatedids-property">`deprecatedIds` Property</a>
+                <li>3.49.4 <a href="#deprecatedids-property"><code>deprecatedIds</code> Property</a>
                 </li>
-                <li>3.49.5 <a href="#reportingdescriptor-object--guid-property">`guid` Property</a>
+                <li>3.49.5 <a href="#reportingdescriptor-object--guid-property"><code>guid</code> Property</a>
                 </li>
-                <li>3.49.6 <a href="#deprecatedguids-property">`deprecatedGuids` Property</a>
+                <li>3.49.6 <a href="#deprecatedguids-property"><code>deprecatedGuids</code> Property</a>
                 </li>
-                <li>3.49.7 <a href="#reportingdescriptor-object--name-property">`name` Property</a>
+                <li>3.49.7 <a href="#reportingdescriptor-object--name-property"><code>name</code> Property</a>
                 </li>
-                <li>3.49.8 <a href="#deprecatednames-property">`deprecatedNames` Property</a>
+                <li>3.49.8 <a href="#deprecatednames-property"><code>deprecatedNames</code> Property</a>
                 </li>
-                <li>3.49.9 <a href="#reportingdescriptor-object--shortdescription-property">`shortDescription` Property</a>
+                <li>3.49.9 <a href="#reportingdescriptor-object--shortdescription-property"><code>shortDescription</code> Property</a>
                 </li>
-                <li>3.49.10 <a href="#reportingdescriptor-object--fulldescription-property">`fullDescription` Property</a>
+                <li>3.49.10 <a href="#reportingdescriptor-object--fulldescription-property"><code>fullDescription</code> Property</a>
                 </li>
-                <li>3.49.11 <a href="#messagestrings-property">`messageStrings` Property</a>
+                <li>3.49.11 <a href="#messagestrings-property"><code>messageStrings</code> Property</a>
                 </li>
-                <li>3.49.12 <a href="#helpuri-property">`helpUri` Property</a>
+                <li>3.49.12 <a href="#helpuri-property"><code>helpUri</code> Property</a>
                 </li>
-                <li>3.49.13 <a href="#help-property">`help` Property</a>
+                <li>3.49.13 <a href="#help-property"><code>help</code> Property</a>
                 </li>
-                <li>3.49.14 <a href="#defaultconfiguration-property">`defaultConfiguration` Property</a>
+                <li>3.49.14 <a href="#defaultconfiguration-property"><code>defaultConfiguration</code> Property</a>
                 </li>
-                <li>3.49.15 <a href="#reportingdescriptor-object--relationships-property">`relationships` Property</a>
+                <li>3.49.15 <a href="#reportingdescriptor-object--relationships-property"><code>relationships</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.50 <a href="#reportingconfiguration-object">`reportingConfiguration` Object</a>
+            <li>3.50 <a href="#reportingconfiguration-object"><code>reportingConfiguration</code> Object</a>
               <ul>
                 <li>3.50.1 <a href="#reportingconfiguration-object--general">General</a>
                 </li>
-                <li>3.50.2 <a href="#enabled-property">`enabled` Property</a>
+                <li>3.50.2 <a href="#enabled-property"><code>enabled</code> Property</a>
                 </li>
-                <li>3.50.3 <a href="#reportingconfiguration-object--level-property">`level` Property</a>
+                <li>3.50.3 <a href="#reportingconfiguration-object--level-property"><code>level</code> Property</a>
                 </li>
-                <li>3.50.4 <a href="#reportingconfiguration-object--rank-property">`rank` Property</a>
+                <li>3.50.4 <a href="#reportingconfiguration-object--rank-property"><code>rank</code> Property</a>
                 </li>
-                <li>3.50.5 <a href="#reportingconfiguration-object--parameters-property">`parameters` Property</a>
+                <li>3.50.5 <a href="#reportingconfiguration-object--parameters-property"><code>parameters</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.51 <a href="#configurationoverride-object">`configurationOverride` Object</a>
+            <li>3.51 <a href="#configurationoverride-object"><code>configurationOverride</code> Object</a>
               <ul>
                 <li>3.51.1 <a href="#configurationoverride-object--general">General</a>
                 </li>
-                <li>3.51.2 <a href="#configurationoverride-object--descriptor-property">`descriptor` Property</a>
+                <li>3.51.2 <a href="#configurationoverride-object--descriptor-property"><code>descriptor</code> Property</a>
                 </li>
-                <li>3.51.3 <a href="#configuration-property">`configuration` Property</a>
+                <li>3.51.3 <a href="#configuration-property"><code>configuration</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.52 <a href="#reportingdescriptorreference-object">`reportingDescriptorReference` Object</a>
+            <li>3.52 <a href="#reportingdescriptorreference-object"><code>reportingDescriptorReference</code> Object</a>
               <ul>
                 <li>3.52.1 <a href="#reportingdescriptorreference-object--general">General</a>
                 </li>
@@ -1601,109 +1615,109 @@
                 </li>
                 <li>3.52.3 <a href="#reportingdescriptor-lookup">Reportingdescriptor Lookup</a>
                 </li>
-                <li>3.52.4 <a href="#reportingdescriptorreference-object--id-property">`id` Property</a>
+                <li>3.52.4 <a href="#reportingdescriptorreference-object--id-property"><code>id</code> Property</a>
                 </li>
-                <li>3.52.5 <a href="#reportingdescriptorreference-object--index-property">`index` Property</a>
+                <li>3.52.5 <a href="#reportingdescriptorreference-object--index-property"><code>index</code> Property</a>
                 </li>
-                <li>3.52.6 <a href="#reportingdescriptorreference-object--guid-property">`guid` Property</a>
+                <li>3.52.6 <a href="#reportingdescriptorreference-object--guid-property"><code>guid</code> Property</a>
                 </li>
-                <li>3.52.7 <a href="#toolcomponent-property">`toolComponent` Property</a>
+                <li>3.52.7 <a href="#toolcomponent-property"><code>toolComponent</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.53 <a href="#reportingdescriptorrelationship-object">`reportingDescriptorRelationship` Object</a>
+            <li>3.53 <a href="#reportingdescriptorrelationship-object"><code>reportingDescriptorRelationship</code> Object</a>
               <ul>
                 <li>3.53.1 <a href="#reportingdescriptorrelationship-object--general">General</a>
                 </li>
-                <li>3.53.2 <a href="#reportingdescriptorrelationship-object--target-property">`target` Property</a>
+                <li>3.53.2 <a href="#reportingdescriptorrelationship-object--target-property"><code>target</code> Property</a>
                 </li>
-                <li>3.53.3 <a href="#reportingdescriptorrelationship-object--kinds-property">`kinds` Property</a>
+                <li>3.53.3 <a href="#reportingdescriptorrelationship-object--kinds-property"><code>kinds</code> Property</a>
                 </li>
-                <li>3.53.4 <a href="#reportingdescriptorrelationship-object--description-property">`description` Property</a>
+                <li>3.53.4 <a href="#reportingdescriptorrelationship-object--description-property"><code>description</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.54 <a href="#toolcomponentreference-object">`toolComponentReference` Object</a>
+            <li>3.54 <a href="#toolcomponentreference-object"><code>toolComponentReference</code> Object</a>
               <ul>
                 <li>3.54.1 <a href="#toolcomponentreference-object--general">General</a>
                 </li>
                 <li>3.54.2 <a href="#toolcomponent-lookup">Toolcomponent Lookup</a>
                 </li>
-                <li>3.54.3 <a href="#toolcomponentreference-object--name-property">`name` Property</a>
+                <li>3.54.3 <a href="#toolcomponentreference-object--name-property"><code>name</code> Property</a>
                 </li>
-                <li>3.54.4 <a href="#toolcomponentreference-object--index-property">`index` Property</a>
+                <li>3.54.4 <a href="#toolcomponentreference-object--index-property"><code>index</code> Property</a>
                 </li>
-                <li>3.54.5 <a href="#toolcomponentreference-object--guid-property">`guid` Property</a>
+                <li>3.54.5 <a href="#toolcomponentreference-object--guid-property"><code>guid</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.55 <a href="#fix-object">`fix` Object</a>
+            <li>3.55 <a href="#fix-object"><code>fix</code> Object</a>
               <ul>
                 <li>3.55.1 <a href="#fix-object--general">General</a>
                 </li>
-                <li>3.55.2 <a href="#fix-object--description-property">`description` Property</a>
+                <li>3.55.2 <a href="#fix-object--description-property"><code>description</code> Property</a>
                 </li>
-                <li>3.55.3 <a href="#artifactchanges-property">`artifactChanges` Property</a>
+                <li>3.55.3 <a href="#artifactchanges-property"><code>artifactChanges</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.56 <a href="#artifactchange-object">`artifactChange` Object</a>
+            <li>3.56 <a href="#artifactchange-object"><code>artifactChange</code> Object</a>
               <ul>
                 <li>3.56.1 <a href="#artifactchange-object--general">General</a>
                 </li>
-                <li>3.56.2 <a href="#artifactchange-object--artifactlocation-property">`artifactLocation` Property</a>
+                <li>3.56.2 <a href="#artifactchange-object--artifactlocation-property"><code>artifactLocation</code> Property</a>
                 </li>
-                <li>3.56.3 <a href="#replacements-property">`replacements` Property</a>
+                <li>3.56.3 <a href="#replacements-property"><code>replacements</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.57 <a href="#replacement-object">`replacement` Object</a>
+            <li>3.57 <a href="#replacement-object"><code>replacement</code> Object</a>
               <ul>
                 <li>3.57.1 <a href="#replacement-object--general">General</a>
                 </li>
                 <li>3.57.2 <a href="#replacement-object--constraints">Constraints</a>
                 </li>
-                <li>3.57.3 <a href="#deletedregion-property">`deletedRegion` Property</a>
+                <li>3.57.3 <a href="#deletedregion-property"><code>deletedRegion</code> Property</a>
                 </li>
-                <li>3.57.4 <a href="#insertedcontent-property">`insertedContent` Property</a>
+                <li>3.57.4 <a href="#insertedcontent-property"><code>insertedContent</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.58 <a href="#notification-object">`notification` Object</a>
+            <li>3.58 <a href="#notification-object"><code>notification</code> Object</a>
               <ul>
                 <li>3.58.1 <a href="#notification-object--general">General</a>
                 </li>
-                <li>3.58.2 <a href="#notification-object--descriptor-property">`descriptor` Property</a>
+                <li>3.58.2 <a href="#notification-object--descriptor-property"><code>descriptor</code> Property</a>
                 </li>
-                <li>3.58.3 <a href="#associatedrule-property">`associatedRule` Property</a>
+                <li>3.58.3 <a href="#associatedrule-property"><code>associatedRule</code> Property</a>
                 </li>
-                <li>3.58.4 <a href="#notification-object--locations-property">`locations` Property</a>
+                <li>3.58.4 <a href="#notification-object--locations-property"><code>locations</code> Property</a>
                 </li>
-                <li>3.58.5 <a href="#notification-object--message-property">`message` Property</a>
+                <li>3.58.5 <a href="#notification-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.58.6 <a href="#notification-object--level-property">`level` Property</a>
+                <li>3.58.6 <a href="#notification-object--level-property"><code>level</code> Property</a>
                 </li>
-                <li>3.58.7 <a href="#notification-object--threadid-property">`threadId` Property</a>
+                <li>3.58.7 <a href="#notification-object--threadid-property"><code>threadId</code> Property</a>
                 </li>
-                <li>3.58.8 <a href="#timeutc-property">`timeUtc` Property</a>
+                <li>3.58.8 <a href="#timeutc-property"><code>timeUtc</code> Property</a>
                 </li>
-                <li>3.58.9 <a href="#exception-property">`exception` Property</a>
+                <li>3.58.9 <a href="#exception-property"><code>exception</code> Property</a>
                 </li>
-                <li>3.58.10 <a href="#notification-object--relatedlocations-property">`relatedLocations` Property</a>
+                <li>3.58.10 <a href="#notification-object--relatedlocations-property"><code>relatedLocations</code> Property</a>
                 </li>
               </ul>
             </li>
-            <li>3.59 <a href="#exception-object">`exception` Object</a>
+            <li>3.59 <a href="#exception-object"><code>exception</code> Object</a>
               <ul>
                 <li>3.59.1 <a href="#exception-object--general">General</a>
                 </li>
-                <li>3.59.2 <a href="#exception-object--kind-property">`kind` Property</a>
+                <li>3.59.2 <a href="#exception-object--kind-property"><code>kind</code> Property</a>
                 </li>
-                <li>3.59.3 <a href="#exception-object--message-property">`message` Property</a>
+                <li>3.59.3 <a href="#exception-object--message-property"><code>message</code> Property</a>
                 </li>
-                <li>3.59.4 <a href="#exception-object--stack-property">`stack` Property</a>
+                <li>3.59.4 <a href="#exception-object--stack-property"><code>stack</code> Property</a>
                 </li>
-                <li>3.59.5 <a href="#innerexceptions-property">`innerExceptions` Property</a>
+                <li>3.59.5 <a href="#innerexceptions-property"><code>innerExceptions</code> Property</a>
                 </li>
               </ul>
             </li>
@@ -1715,17 +1729,17 @@
             </li>
             <li>4.2 <a href="#external-property-file-naming-convention">External Property File Naming Convention</a>
             </li>
-            <li>4.3 <a href="#externalproperties-object">`externalProperties` Object</a>
+            <li>4.3 <a href="#externalproperties-object"><code>externalProperties</code> Object</a>
               <ul>
                 <li>4.3.1 <a href="#externalproperties-object--general">General</a>
                 </li>
-                <li>4.3.2 <a href="#externalproperties-object--schema-property">`$schema` Property</a>
+                <li>4.3.2 <a href="#externalproperties-object--schema-property"><code>$schema</code> Property</a>
                 </li>
-                <li>4.3.3 <a href="#externalproperties-object--version-property">`version` Property</a>
+                <li>4.3.3 <a href="#externalproperties-object--version-property"><code>version</code> Property</a>
                 </li>
-                <li>4.3.4 <a href="#externalproperties-object--guid-property">`guid` Property</a>
+                <li>4.3.4 <a href="#externalproperties-object--guid-property"><code>guid</code> Property</a>
                 </li>
-                <li>4.3.5 <a href="#runguid-property">`runGuid` Property</a>
+                <li>4.3.5 <a href="#runguid-property"><code>runGuid</code> Property</a>
                 </li>
                 <li>4.3.6 <a href="#the-property-value-properties">The Property Value Properties</a>
                 </li>
@@ -1759,50 +1773,56 @@
         </li>
         <li>Appendix A. <a href="#informative-acknowledgments">(Informative) Acknowledgments</a>
         </li>
-        <li>Appendix A. <a href="#normative-use-of-fingerprints-by-result-management-systems">(Normative) Use of Fingerprints by Result Management Systems</a>
+        <li>Appendix B. <a href="#normative-use-of-fingerprints-by-result-management-systems">(Normative) Use of Fingerprints by Result Management Systems</a>
         </li>
-        <li>Appendix A. <a href="#informative-use-of-sarif-by-log-file-viewers">(Informative) Use of SARIF by Log File Viewers</a>
+        <li>Appendix C. <a href="#informative-use-of-sarif-by-log-file-viewers">(Informative) Use of SARIF by Log File Viewers</a>
         </li>
-        <li>Appendix A. <a href="#normative-production-of-sarif-by-converters">(Normative) Production of SARIF by Converters</a>
+        <li>Appendix D. <a href="#normative-production-of-sarif-by-converters">(Normative) Production of SARIF by Converters</a>
         </li>
-        <li>Appendix A. <a href="#informative-locating-rule-and-notification-metadata">(Informative) Locating Rule and Notification Metadata</a>
+        <li>Appendix E. <a href="#informative-locating-rule-and-notification-metadata">(Informative) Locating Rule and Notification Metadata</a>
         </li>
-        <li>Appendix A. <a href="#informative-producing-deterministic-sarif-log-files">(Informative) Producing Deterministic SARIF Log Files</a>
+        <li>Appendix F. <a href="#informative-producing-deterministic-sarif-log-files">(Informative) Producing Deterministic SARIF Log Files</a>
           <ul>
-            <li>F.1 <a href="#informative-producing-deterministic-sarif-log-files--general">General</a>
+            <li>F.1. <a href="#general">General</a>
             </li>
-            <li>F.1 <a href="#non-deterministic-file-format-elements">Non-Deterministic File Format Elements</a>
+            <li>F.2. <a href="#non-deterministic-file-format-elements">Non-Deterministic File Format Elements</a>
             </li>
-            <li>F.1 <a href="#array-and-dictionary-element-ordering">Array and Dictionary Element Ordering</a>
+            <li>F.3. <a href="#array-and-dictionary-element-ordering">Array and Dictionary Element Ordering</a>
             </li>
-            <li>F.1 <a href="#absolute-paths">Absolute Paths</a>
+            <li>F.4. <a href="#absolute-paths">Absolute Paths</a>
             </li>
-            <li>F.1 <a href="#inherently-non-deterministic-tools">Inherently Non-Deterministic Tools</a>
+            <li>F.5. <a href="#inherently-non-deterministic-tools">Inherently Non-Deterministic Tools</a>
             </li>
-            <li>F.1 <a href="#compensating-for-non-deterministic-output">Compensating for Non-Deterministic Output</a>
+            <li>F.6. <a href="#compensating-for-non-deterministic-output">Compensating for Non-Deterministic Output</a>
             </li>
-            <li>F.1 <a href="#interaction-between-determinism-and-baselining">Interaction Between Determinism and Baselining</a>
-            </li>
-            <li>F.1 <a href="#informative-guidance-on-fixes">(Informative) Guidance on Fixes</a>
-            </li>
-            <li>F.1 <a href="#informative-diagnosing-results-in-generated-files">(Informative) Diagnosing Results in Generated Files</a>
-            </li>
-            <li>F.1 <a href="#informative-detecting-incomplete-result-sets">(Informative) Detecting Incomplete Result Sets</a>
-            </li>
-            <li>F.1 <a href="#informative-sample-sourcelanguage-values">(Informative) Sample `sourceLanguage` Values</a>
+            <li>F.7. <a href="#interaction-between-determinism-and-baselining">Interaction Between Determinism and Baselining</a>
             </li>
           </ul>
         </li>
+      </ul>
+      <ul>
+        <li>Appendix G. <a href="#informative-guidance-on-fixes">(Informative) Guidance on Fixes</a>
+        </li>
+        <li>Appendix H. <a href="#informative-diagnosing-results-in-generated-files">(Informative) Diagnosing Results in Generated Files</a>
+        </li>
+        <li>Appendix I. <a href="#informative-detecting-incomplete-result-sets">(Informative) Detecting Incomplete Result Sets</a>
+        </li>
+        <li>Appendix J. <a href="#informative-sample-sourcelanguage-values">(Informative) Sample <code>sourceLanguage</code> Values</a>
+        </li>
         <li>Appendix K. <a href="#informative-examples">(Informative) Examples</a>
+          <ul>
+            <li>K.1. <a href="#minimal-valid-sarif-log-file">Minimal Valid SARIF Log File</a>
+            </li>
+            <li>K.2. <a href="#minimal-recommended-sarif-log-file-with-source-information">Minimal Recommended SARIF Log File with Source Information</a>
+            </li>
+            <li>K.3. <a href="#minimal-recommended-sarif-log-file-without-source-information">Minimal Recommended SARIF Log File without Source Information</a>
+            </li>
+            <li>K.4. <a href="#comprehensive-sarif-file">Comprehensive SARIF File</a>
+            </li>
+          </ul>
         </li>
-        <li>Appendix K. <a href="#minimal-valid-sarif-log-file">Minimal Valid SARIF Log File</a>
-        </li>
-        <li>Appendix K. <a href="#minimal-recommended-sarif-log-file-with-source-information">Minimal Recommended SARIF Log File with Source Information</a>
-        </li>
-        <li>Appendix K. <a href="#minimal-recommended-sarif-log-file-without-source-information">Minimal Recommended SARIF Log File without Source Information</a>
-        </li>
-        <li>Appendix K. <a href="#comprehensive-sarif-file">Comprehensive SARIF File</a>
-        </li>
+      </ul>
+      <ul>
         <li>Appendix L. <a href="#informative-revision-history">(Informative) Revision History</a>
         </li>
         <li>Appendix M. <a href="#informative-mime-types-and-file-name-extensions">(Informative) MIME Types and File Name Extensions</a>
@@ -3371,7 +3391,7 @@ component character = ? JSON string character ? - "/";</code></pre>
       Certain properties in this document are defined to be "property bags". A property bag is an object (<a href="#object-properties">§3.6</a>) containing an unordered set of properties with arbitrary names.
     </p>
     <p>
-      The property names are hierarchical strings (<a href="#hierarchical-strings">§3.5.4</a>). The components of the property names <strong>SHOULD</strong> be camelCase strings, but see <a href="#normative-production-of-sarif-by-converters">§Appendix A</a> for exceptions.
+      The property names are hierarchical strings (<a href="#hierarchical-strings">§3.5.4</a>). The components of the property names <strong>SHOULD</strong> be camelCase strings, but see <a href="#normative-production-of-sarif-by-converters">§Appendix D.</a> for exceptions.
     </p>
     <p>
       The property values <strong>MAY</strong> be of any JSON type, including strings, numbers, arrays, objects, Booleans, and null. If a property value is a string, it <strong>MAY</strong> be an empty string.
@@ -4651,7 +4671,7 @@ index = non negative integer;</code></pre>
         </li>
         <li>
           <p>
-            To produce deterministic output (see <a href="#informative-producing-deterministic-sarif-log-files">§Appendix A</a>) by avoiding path names that differ depending on the machine where the analysis tool runs.
+            To produce deterministic output (see <a href="#informative-producing-deterministic-sarif-log-files">§Appendix F.</a>) by avoiding path names that differ depending on the machine where the analysis tool runs.
           </p>
         </li>
       </ul>
@@ -8012,7 +8032,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
       </li>
     </ul>
     <p>
-      <a href="#informative-sample-sourcelanguage-values">§F.1</a>, "Sample sourceLanguage values," provides sample values for common programming languages.
+      <a href="#informative-sample-sourcelanguage-values">§Appendix J.</a>, "Sample sourceLanguage values," provides sample values for common programming languages.
     </p>
     <h3 id="32411-hashes-property-">
       3.24.11 <code>hashes</code> Property <a id='hashes-property'></a>
@@ -8353,7 +8373,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
       management system <strong>SHALL</strong> set this property to the value it assigned.
     </p>
     <p>
-      A result management system <strong>MAY</strong> store multiple results with identical fingerprints (see <a href="#fingerprints-property">§3.27.16</a> and <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix A</a>), but the <code>guid</code> properties for those results <strong>SHALL</strong> be distinct.
+      A result management system <strong>MAY</strong> store multiple results with identical fingerprints (see <a href="#fingerprints-property">§3.27.16</a> and <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix B.</a>), but the <code>guid</code> properties for those results <strong>SHALL</strong> be distinct.
     </p>
     <h3 id="3274-correlationguid-property-">
       3.27.4 <code>correlationGuid</code> Property <a id='result-object--correlationguid-property'></a>
@@ -9129,7 +9149,7 @@ country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;</code
       property when it ingests a SARIF file. If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system <strong>MAY</strong> set this property to the value it assigned.
     </p>
     <p>
-      <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix A</a> provides requirements for how a result management system computes fingerprints.
+      <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix B.</a> provides requirements for how a result management system computes fingerprints.
     </p>
     <blockquote>
       <p>
@@ -9418,7 +9438,7 @@ C:\Code\a.js(2,6-6): info : JS3056: The previous declaration of 'index' was here
         NOTE 1: The purpose of <code>baselineState</code> is to allow (for example) a measurement of how many new results were introduced in the run, and how many previously existing results no longer appear.
       </p>
       <p>
-        To assign a value to <code>baselineState</code>, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix A</a> discusses how a result management system can assign a "fingerprint"
+        To assign a value to <code>baselineState</code>, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix B.</a> discusses how a result management system can assign a "fingerprint"
         to each result. See also the description of the <code>fingerprints</code> (<a href="#fingerprints-property">§3.27.16</a>) and <code>partialFingerprints</code> (<a href="#partialfingerprints-property">§3.27.17</a>) properties.
       </p>
       <p>
@@ -9568,7 +9588,7 @@ C:\Code\a.js(2,6-6): info : JS3056: The previous declaration of 'index' was here
         </li>
         <li>
           <p>
-            Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix A</a> for more information about
+            Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix B.</a> for more information about
             fingerprinting. The <code>logicalLocation.fullyQualifiedName</code> property (<a href="#logicallocation-object--fullyqualifiedname-property">§3.33.5</a>) is particularly convenient for fingerprinting.
           </p>
         </li>
@@ -15478,7 +15498,7 @@ VulnerabilityNotFeasible</code></pre>
       </li>
       <li>
         <p>
-          It additionally satisfies the normative requirements in <a href="#file-format">§3</a> and <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix A</a> ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
+          It additionally satisfies the normative requirements in <a href="#file-format">§3</a> and <a href="#normative-use-of-fingerprints-by-result-management-systems">§Appendix B.</a> ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
         </p>
       </li>
     </ul>
@@ -15570,8 +15590,8 @@ Tim Hudson, Cryptsoft Pty Ltd.
 Trey Darley, New Context Services, Inc.  
 Vamshi Basupalli, SWAMP Project, University of Wisconsin  
 Yekaterina O'Neil, Micro Focus</code></pre>
-    <h1 id="appendix-a-normative-use-of-fingerprints-by-result-management-systems-">
-      Appendix A. (Normative) Use of Fingerprints by Result Management Systems <a id='normative-use-of-fingerprints-by-result-management-systems'></a>
+    <h1 id="appendix-b-normative-use-of-fingerprints-by-result-management-systems-">
+      Appendix B. (Normative) Use of Fingerprints by Result Management Systems <a id='normative-use-of-fingerprints-by-result-management-systems'></a>
     </h1>
     <p>
       On large software projects, a single run of a set of analysis tools can produce hundreds of thousands of results or more. To deal with so many results, some engineering teams adopt a strategy whereby they first prevent the introduction of new problems into their code, and then work to address the existing problems.
@@ -15624,16 +15644,16 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     </p>
     <blockquote>
       <p>
-        NOTE: The inclusion of non-deterministic file format elements (<a href="#informative-producing-deterministic-sarif-log-files">§Appendix A</a>, <a href="#non-deterministic-file-format-elements">§F.1</a>) or non-deterministic absolute URIs (<a href="#informative-producing-deterministic-sarif-log-files">§Appendix A</a>, <a href=
-        "#absolute-paths">§F.1</a>) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
+        NOTE: The inclusion of non-deterministic file format elements (<a href="#informative-producing-deterministic-sarif-log-files">§Appendix F.</a>, <a href="#non-deterministic-file-format-elements">§F.2</a>) or non-deterministic absolute URIs (<a href="#informative-producing-deterministic-sarif-log-files">§Appendix F.</a>, <a href=
+        "#absolute-paths">§F.4</a>) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
       </p>
     </blockquote>
     <p>
       It is difficult to devise an algorithm that constructs a truly stable fingerprint for a result. Fortunately, for practical purposes, the fingerprint does not need to be absolutely stable; it only needs to be stable enough to reduce the number of results that are erroneously reported as "new" to a low enough level that the development
       team can manage the erroneously reported results without too much effort.
     </p>
-    <h1 id="appendix-a-informative-use-of-sarif-by-log-file-viewers-">
-      Appendix A. (Informative) Use of SARIF by Log File Viewers <a id='informative-use-of-sarif-by-log-file-viewers'></a>
+    <h1 id="appendix-c-informative-use-of-sarif-by-log-file-viewers-">
+      Appendix C. (Informative) Use of SARIF by Log File Viewers <a id='informative-use-of-sarif-by-log-file-viewers'></a>
     </h1>
     <p>
       It is frequently useful for an end user to view the results produced by an analysis tool in the context of the artifacts in which they occur. A log file viewer is a program that allows an end user to do this.
@@ -15661,8 +15681,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
       There are various ways that a viewer might obtain file type information. In the SARIF format, the <code>mimeType</code> (<a href="#mimetype-property">§3.24.7</a>) and <code>sourceLanguage</code> (<a href="#artifact-object--sourcelanguage-property">§3.24.10</a>) properties of the <code>artifact</code> object (<a href=
       "#artifact-object">§3.24</a>) provides this information. In the absence of these properties, a viewer can fall back to examining the filename extension, for example ".c".
     </p>
-    <h1 id="appendix-a-normative-production-of-sarif-by-converters-">
-      Appendix A. (Normative) Production of SARIF by Converters <a id='normative-production-of-sarif-by-converters'></a>
+    <h1 id="appendix-d-normative-production-of-sarif-by-converters-">
+      Appendix D. (Normative) Production of SARIF by Converters <a id='normative-production-of-sarif-by-converters'></a>
     </h1>
     <p>
       There are two broad categories of tools that can produce output in the SARIF format. Analysis tools produce SARIF as a result of performing a scan on a set of analysis targets. Converters translate existing data from a non-SARIF format into the SARIF format. That data might come from an analysis tool that produces output in a non-SARIF
@@ -15709,8 +15729,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
         </p>
       </li>
     </ul>
-    <h1 id="appendix-a-informative-locating-rule-and-notification-metadata-">
-      Appendix A. (Informative) Locating Rule and Notification Metadata <a id='informative-locating-rule-and-notification-metadata'></a>
+    <h1 id="appendix-e-informative-locating-rule-and-notification-metadata-">
+      Appendix E. (Informative) Locating Rule and Notification Metadata <a id='informative-locating-rule-and-notification-metadata'></a>
     </h1>
     <p>
       The SARIF format allows rule and notification metadata to be included in a SARIF log file (see <a href="#rules-property">§3.19.23</a> and <a href="#notifications-property">§3.19.24</a>). A SARIF log file does not need to include any metadata. This raises the questions of when metadata should be included in a log file, and how to locate
@@ -15740,11 +15760,11 @@ Yekaterina O'Neil, Micro Focus</code></pre>
       If metadata is not included in the log file, and if external property files (see <a href="#rationale">§3.15.2</a>) are not used, this document does not specify a mechanism for locating the metadata. If the SARIF log file is produced in the context of an engineering system that provides a service from which metadata can be obtained (for
       example, a result management system, or a web service dedicated to metadata), then tooling can be created to merge a log file with the relevant metadata when required (for example, when presenting the results in a log file viewer).
     </p>
-    <h1 id="appendix-a-informative-producing-deterministic-sarif-log-files-">
-      Appendix A. (Informative) Producing Deterministic SARIF Log Files <a id='informative-producing-deterministic-sarif-log-files'></a>
+    <h1 id="appendix-f-informative-producing-deterministic-sarif-log-files-">
+      Appendix F. (Informative) Producing Deterministic SARIF Log Files <a id='informative-producing-deterministic-sarif-log-files'></a>
     </h1>
     <h2 id="f1-general-">
-      F.1 General <a id='informative-producing-deterministic-sarif-log-files--general'></a>
+      F.1. General <a id='general'></a>
     </h2>
     <p>
       In certain circumstances, it is desirable for an analysis tool to produce deterministic output; that is, for it to produce identical output when run repeatedly with identical inputs.
@@ -15799,8 +15819,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
         </p>
       </li>
     </ul>
-    <h2 id="f1-non-deterministic-file-format-elements-">
-      F.1 Non-Deterministic File Format Elements <a id='non-deterministic-file-format-elements'></a>
+    <h2 id="f2-non-deterministic-file-format-elements-">
+      F.2. Non-Deterministic File Format Elements <a id='non-deterministic-file-format-elements'></a>
     </h2>
     <p>
       Certain optional elements of the SARIF format are non-deterministic in most situations. A log file that includes these elements will not be deterministic except under special circumstances. For example:
@@ -15961,8 +15981,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
         </p>
       </li>
     </ul>
-    <h2 id="f1-array-and-dictionary-element-ordering-">
-      F.1 Array and Dictionary Element Ordering <a id='array-and-dictionary-element-ordering'></a>
+    <h2 id="f3-array-and-dictionary-element-ordering-">
+      F.3. Array and Dictionary Element Ordering <a id='array-and-dictionary-element-ordering'></a>
     </h2>
     <p>
       One obstacle to determinism in SARIF log files is the ordering of array elements and object properties.
@@ -15980,8 +16000,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       For dictionaries such as the <code>artifact.hashes</code> object, a tool might order the property names alphabetically, using a locale-insensitive ordering.
     </p>
-    <h2 id="f1-absolute-paths-">
-      F.1 Absolute Paths <a id='absolute-paths'></a>
+    <h2 id="f4-absolute-paths-">
+      F.4. Absolute Paths <a id='absolute-paths'></a>
     </h2>
     <p>
       Another obstacle to determinism is the use of absolute paths which might differ from machine to machine. For example:
@@ -16001,8 +16021,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       Tools can avoid the use of absolute file paths by emitting URIs that are relative to one or more root directories (for example, a source root directory and an output root directory), and accompanying each <code>artifactLocation.uri</code> property with the corresponding <code>artifactLocation.uriBaseId</code> property.
     </p>
-    <h2 id="f1-inherently-non-deterministic-tools-">
-      F.1 Inherently Non-Deterministic Tools <a id='inherently-non-deterministic-tools'></a>
+    <h2 id="f5-inherently-non-deterministic-tools-">
+      F.5. Inherently Non-Deterministic Tools <a id='inherently-non-deterministic-tools'></a>
     </h2>
     <p>
       The algorithms used by some tools are inherently non-deterministic because, for example, they perform random sampling or random traversals of the graphs that represent the code. Generally, these tools produce mostly the same result set, but there might be small differences between runs.
@@ -16010,8 +16030,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       Such tools can avoid this source of non-determinism by, for example, providing a command-line argument to specify the random number generator seed.
     </p>
-    <h2 id="f1-compensating-for-non-deterministic-output-">
-      F.1 Compensating for Non-Deterministic Output <a id='compensating-for-non-deterministic-output'></a>
+    <h2 id="f6-compensating-for-non-deterministic-output-">
+      F.6. Compensating for Non-Deterministic Output <a id='compensating-for-non-deterministic-output'></a>
     </h2>
     <p>
       If an analysis tool does not produce deterministic output, a build system can add additional processing steps to compensate.
@@ -16037,8 +16057,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       In the second scenario, a post-processing step could intelligently compare the newly produced log to the log from a previous build by ignoring non-deterministic elements, ensuring that arrays have the same elements regardless of order, and ignoring file path prefixes.
     </p>
-    <h2 id="f1-interaction-between-determinism-and-baselining-">
-      F.1 Interaction Between Determinism and Baselining <a id='interaction-between-determinism-and-baselining'></a>
+    <h2 id="f7-interaction-between-determinism-and-baselining-">
+      F.7. Interaction Between Determinism and Baselining <a id='interaction-between-determinism-and-baselining'></a>
     </h2>
     <p>
       SARIF's baselining feature poses a particular challenge for determinism. We illustrate the problem with the following scenario:
@@ -16069,8 +16089,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
       If the build engineers for a project wish to absolutely minimize the execution of unnecessary build steps, they have various options. They might perform an "intelligent" comparison between the baseline and the new log, treating "new" results in the baseline as equivalent to "unchanged" results. Or they might rewrite the baseline
       (marking all "new" results as "unchanged") before performing the comparison. Of course, there is no guarantee that such an "intelligent" comparison or baseline rewriting process will actually take less time than the unnecessary build steps it is intended to avoid.
     </p>
-    <h1 id="f1-informative-guidance-on-fixes-">
-      F.1 (Informative) Guidance on Fixes <a id='informative-guidance-on-fixes'></a>
+    <h1 id="appendix-g-informative-guidance-on-fixes-">
+      Appendix G. (Informative) Guidance on Fixes <a id='informative-guidance-on-fixes'></a>
     </h1>
     <p>
       Tools that produce SARIF files which include <code>fix</code> objects should take care to structure those fixes in such a way as to affect a minimal range of content. This maximizes the likelihood that an automated tool can safely apply multiple fixes to the same artifact.
@@ -16148,8 +16168,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       Therefore, structuring fixes as sequences of minimal, disjoint replacements maximizes the amount of work that can be done by automated fixup tools.
     </p>
-    <h1 id="f1-informative-diagnosing-results-in-generated-files-">
-      F.1 (Informative) Diagnosing Results in Generated Files <a id='informative-diagnosing-results-in-generated-files'></a>
+    <h1 id="appendix-h-informative-diagnosing-results-in-generated-files-">
+      Appendix H. (Informative) Diagnosing Results in Generated Files <a id='informative-diagnosing-results-in-generated-files'></a>
     </h1>
     <p>
       Sometimes it is desirable to analyze files generated by the build. These files are usually not under source control, and the build might even overwrite them multiple times. This Appendix offers guidance on how to persist enough information in a SARIF log file to facilitate the diagnosis of results in these files.
@@ -16376,8 +16396,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
 <span id="cb182-58"><a href="#cb182-58" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre>
       </div>
     </blockquote>
-    <h1 id="f1-informative-detecting-incomplete-result-sets-">
-      F.1 (Informative) Detecting Incomplete Result Sets <a id='informative-detecting-incomplete-result-sets'></a>
+    <h1 id="appendix-i-informative-detecting-incomplete-result-sets-">
+      Appendix I. (Informative) Detecting Incomplete Result Sets <a id='informative-detecting-incomplete-result-sets'></a>
     </h1>
     <p>
       This document describes three conditions that inform the SARIF consumer that the tool has failed to produce a comprehensive set of results. For convenience, this Appendix gathers those conditions together in one place:
@@ -16404,8 +16424,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       These conditions apply separately to each run in the log file.
     </p>
-    <h1 id="f1-informative-sample-sourcelanguage-values-">
-      F.1 (Informative) Sample <code>sourceLanguage</code> Values <a id='informative-sample-sourcelanguage-values'></a>
+    <h1 id="appendix-j-informative-sample-sourcelanguage-values-">
+      Appendix J. (Informative) Sample <code>sourceLanguage</code> Values <a id='informative-sample-sourcelanguage-values'></a>
     </h1>
     <p>
       This Appendix contains a list of sample values for the <code>artifact.sourceLanguage</code> property (<a href="#artifact-object--sourcelanguage-property">§3.24.10</a>) for some common programming languages. The purpose of this Appendix is to promote interoperability by encouraging SARIF producers to use the same identifiers for these
@@ -16775,8 +16795,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
     <p>
       This Appendix contains examples of complete, valid SARIF files, to complement the fragments shown in examples throughout this document.
     </p>
-    <h2 id="appendix-k-minimal-valid-sarif-log-file-">
-      Appendix K. Minimal Valid SARIF Log File <a id='minimal-valid-sarif-log-file'></a>
+    <h2 id="k1-minimal-valid-sarif-log-file-">
+      K.1. Minimal Valid SARIF Log File <a id='minimal-valid-sarif-log-file'></a>
     </h2>
     <p>
       This is a minimal valid SARIF log file. It contains only those elements required by this document (elements which the document states <strong>SHALL</strong> be present).
@@ -16800,8 +16820,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
 <span id="cb183-13"><a href="#cb183-13" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
 <span id="cb183-14"><a href="#cb183-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre>
     </div>
-    <h2 id="appendix-k-minimal-recommended-sarif-log-file-with-source-information-">
-      Appendix K. Minimal Recommended SARIF Log File with Source Information <a id='minimal-recommended-sarif-log-file-with-source-information'></a>
+    <h2 id="k2-minimal-recommended-sarif-log-file-with-source-information-">
+      K.2. Minimal Recommended SARIF Log File with Source Information <a id='minimal-recommended-sarif-log-file-with-source-information'></a>
     </h2>
     <p>
       This is a minimal recommended SARIF log file for the case where an analysis tool produced results and source location information is available.
@@ -16889,8 +16909,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
 <span id="cb184-65"><a href="#cb184-65" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
 <span id="cb184-66"><a href="#cb184-66" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre>
     </div>
-    <h2 id="appendix-k-minimal-recommended-sarif-log-file-without-source-information-">
-      Appendix K. Minimal Recommended SARIF Log File without Source Information <a id='minimal-recommended-sarif-log-file-without-source-information'></a>
+    <h2 id="k3-minimal-recommended-sarif-log-file-without-source-information-">
+      K.3. Minimal Recommended SARIF Log File without Source Information <a id='minimal-recommended-sarif-log-file-without-source-information'></a>
     </h2>
     <p>
       This is a minimal recommended SARIF file for the case where an analysis tool produced results and source location information is not available.
@@ -16966,8 +16986,8 @@ Yekaterina O'Neil, Micro Focus</code></pre>
 <span id="cb185-56"><a href="#cb185-56" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
 <span id="cb185-57"><a href="#cb185-57" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre>
     </div>
-    <h2 id="appendix-k-comprehensive-sarif-file-">
-      Appendix K. Comprehensive SARIF File <a id='comprehensive-sarif-file'></a>
+    <h2 id="k4-comprehensive-sarif-file-">
+      K.4. Comprehensive SARIF File <a id='comprehensive-sarif-file'></a>
     </h2>
     <p>
       The purpose of this example is to demonstrate the usage of as many SARIF elements as possible. Not all elements are shown, because some are mutually exclusive.
@@ -17791,7 +17811,7 @@ Yekaterina O'Neil, Micro Focus</code></pre>
             Stefan Hagen
           </td>
           <td style="text-align: left;">
-            Editor revision for meeting 2025-06-12.
+            Editor revision for TC meeting.
           </td>
         </tr>
         <tr>
@@ -17805,7 +17825,7 @@ Yekaterina O'Neil, Micro Focus</code></pre>
             Stefan Hagen
           </td>
           <td style="text-align: left;">
-            Editor revision for meeting 2025-07-10.
+            Editor revision for TC meeting.
           </td>
         </tr>
         <tr>
@@ -17819,7 +17839,7 @@ Yekaterina O'Neil, Micro Focus</code></pre>
             Stefan Hagen
           </td>
           <td style="text-align: left;">
-            Editor revision for meeting 2025-08-07.
+            Editor revision for TC meeting.
           </td>
         </tr>
         <tr>
@@ -17833,7 +17853,7 @@ Yekaterina O'Neil, Micro Focus</code></pre>
             Stefan Hagen
           </td>
           <td style="text-align: left;">
-            Editor revision for meeting 2025-12-04.
+            Editor revision for TC meeting.
           </td>
         </tr>
         <tr>
@@ -17847,11 +17867,26 @@ Yekaterina O'Neil, Micro Focus</code></pre>
             Stefan Hagen
           </td>
           <td style="text-align: left;">
-            Editor revision for meeting 2026-02-05.
+            Editor revision for TC meeting.
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
+            sarif-v2.2-wd20260305-dev
+          </td>
+          <td style="text-align: left;">
+            2026-03-05
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen
+          </td>
+          <td style="text-align: left;">
+            Editor revision for TC meeting.
           </td>
         </tr>
       </tbody>
     </table>
+    <hr />
     <h1 id="appendix-m-informative-mime-types-and-file-name-extensions-">
       Appendix M. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
     </h1>

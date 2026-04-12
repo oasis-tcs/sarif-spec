@@ -1,0 +1,3 @@
+clean-md-start: "# Introduction"
+sec-ref-style: section-sign-number  # number | number-title | section-sign-number
+track-examples: false               # set true once example LUTs are populated
