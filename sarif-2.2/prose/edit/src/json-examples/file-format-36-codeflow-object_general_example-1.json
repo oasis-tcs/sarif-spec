@@ -1,0 +1,45 @@
+{
+  "codeFlows": [
+    {
+      "message": {
+        "text": "..."
+      },
+      "threadFlows": [
+        {
+          "id": "thread-123",
+          "message": {
+            "text": "..."
+          },
+          "locations": [
+            {
+              "location": {
+                "physicalLocation": {
+                  "artifactLocation": {
+                    "uri": "ui/window.c",
+                    "uriBaseId": "SRCROOT"
+                  },
+                  "region": {
+                    "startLine": 42
+                  }
+                }
+              },
+              "state": {
+                "x": {
+                  "text": "42"
+                },
+                "y": {
+                  "text": "54"
+                },
+                "x + y": {
+                  "text": "96"
+                }
+              },
+              "nestingLevel": 0,
+              "executionOrder": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

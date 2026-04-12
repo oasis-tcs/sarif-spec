@@ -1,0 +1,16 @@
+{
+  "driver": {
+    "name": "CodeScanner",
+    "fullName": "CodeScanner 1.1, Developer Preview (en-US)",
+    "semanticVersion": "1.1.2-beta.12",
+    "version": "1.1.2b12",
+    "...member-inject": "..."
+  },
+  "extensions": [
+    {
+      "name": "CodeScanner Security Rules",
+      "version": "3.1",
+      "...member-inject": "..."
+    }
+  ]
+}

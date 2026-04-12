@@ -1,0 +1,43 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "rules": [
+        {
+          "id": "abc/def",
+          "...member-inject": "..."
+        },
+        {
+          "...object-inject": "..."
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "ruleId": "abc/def",
+      "rule": {
+        "index": 0
+      }
+    },
+    {
+      "rule": {
+        "id": "abc/def/ghi",
+        "index": 0
+      }
+    },
+    {
+      "rule": {
+        "id": "abc/defg",
+        "index": 0
+      }
+    },
+    {
+      "ruleId": "abc/def",
+      "rule": {
+        "id": "abc/defg/hij",
+        "index": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "redactionTokens": [
+    "[REDACTED]"
+  ],
+  "invocation": {
+    "commandLine": "SourceScanner --input [REDACTED]/src/ui"
+  },
+  "...member-inject": "..."
+}

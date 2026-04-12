@@ -1,0 +1,42 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "semanticVersion": "3.3",
+      "minimumRequiredLocalizedDataSemanticVersion": "3.1",
+      "...member-inject": "...",
+      "rules": [
+        {
+          "id": "CA2101",
+          "shortDescription": {
+            "text": "Do not do dangerous things."
+          }
+        }
+      ]
+    }
+  },
+  "translations": [
+    {
+      "language": "fr-FR",
+      "semanticVersion": "3.1.3",
+      "localizedDataSemanticVersion": "3.1.2",
+      "contents": [
+        "localizedData"
+      ],
+      "translationMetadata": {
+        "name": "French translation for CodeScanner"
+      },
+      "name": "<The tool name 'CodeScanner' translated into French>",
+      "...member-inject": "...",
+      "rules": [
+        {
+          "id": "CA2101",
+          "shortDescription": {
+            "text": "<'Do not do dangerous things.' Translated into French>"
+          }
+        }
+      ]
+    }
+  ],
+  "...member-inject": "..."
+}

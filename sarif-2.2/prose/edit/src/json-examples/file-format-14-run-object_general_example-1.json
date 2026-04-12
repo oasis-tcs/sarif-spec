@@ -1,0 +1,16 @@
+{
+  "tool": {
+    "...member-inject": "..."
+  },
+  "results": [
+    {
+      "...member-inject": "..."
+    },
+    {
+      "...object-inject": "..."
+    },
+    {
+      "...member-inject": "..."
+    }
+  ]
+}

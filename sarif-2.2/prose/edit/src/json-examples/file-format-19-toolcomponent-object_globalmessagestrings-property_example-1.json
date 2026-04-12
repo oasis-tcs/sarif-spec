@@ -1,0 +1,14 @@
+{
+  "driver": {
+    "globalMessageStrings": {
+      "call": {
+        "text": "Function call",
+        "markdown": "Function **call**"
+      },
+      "return": {
+        "text": "Function return",
+        "markdown": "Function **return**"
+      }
+    }
+  }
+}

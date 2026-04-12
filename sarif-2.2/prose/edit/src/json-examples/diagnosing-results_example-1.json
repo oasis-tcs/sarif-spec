@@ -1,0 +1,39 @@
+{
+  "originalUriBaseIds": {
+    "GENERATED": {
+      "uri": "file:///C:/code/browser/obj/"
+    }
+  },
+  "results": [
+    {
+      "ruleId": "CS6789",
+      "message": {
+        "text": "Division by 0"
+      },
+      "locations": [
+        {
+          "physicalLocation": {
+            "artifactLocation": {
+              "uri": "ui/window.g.cs",
+              "uriBaseId": "GENERATED"
+            },
+            "region": {
+              "startLine": 42,
+              "snippet": {
+                "text": "    int z = x / y;\r\n"
+              }
+            },
+            "contextRegion": {
+              "startLine": 40,
+              "endLine": 42,
+              "snippet": {
+                "text": "    int x = 54;\r\n    int y = 0;\r\n    int z = x / y;\r\n"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "...member-inject": "..."
+}

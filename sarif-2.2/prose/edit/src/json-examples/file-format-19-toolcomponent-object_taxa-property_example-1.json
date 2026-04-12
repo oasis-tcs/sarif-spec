@@ -1,0 +1,27 @@
+{
+  "name": "CWE",
+  "version": "3.2",
+  "guid": "11111111-1111-1111-8888-111111111111",
+  "releaseDateUtc": "2019-01-03",
+  "informationUri": "https://cwe.mitre.org/data/published/cwe_v3.2.pdf/",
+  "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v3.2.xml.zip",
+  "organization": "MITRE",
+  "shortDescription": {
+    "text": "The MITRE Common Weakness Enumeration"
+  },
+  "taxa": [
+    {
+      "id": "327",
+      "name": "BrokenOrRiskyCryptographicAlgorithm",
+      "shortDescription": {
+        "text": "Use of a broken or risky cryptographic algorithm."
+      },
+      "defaultConfiguration": {
+        "level": "warning"
+      }
+    },
+    {
+      "...object-inject": "..."
+    }
+  ]
+}

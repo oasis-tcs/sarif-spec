@@ -1,0 +1,32 @@
+{
+  "version": "2.2",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CodeScanner"
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "id": "..."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "ui/window.c",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 42
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

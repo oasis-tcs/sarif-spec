@@ -1,0 +1,14 @@
+{
+  "version": "2.2",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CodeScanner"
+        }
+      },
+      "results": [
+      ]
+    }
+  ]
+}

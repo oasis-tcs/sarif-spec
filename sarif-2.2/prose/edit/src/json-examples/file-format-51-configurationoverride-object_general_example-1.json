@@ -1,0 +1,30 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "rules": [
+        {
+          "id": "CA2101",
+          "defaultConfiguration": {
+            "level": "error"
+          }
+        }
+      ]
+    }
+  },
+  "invocations": [
+    {
+      "ruleConfigurationOverrides": [
+        {
+          "descriptor": {
+            "index": 0
+          },
+          "configuration": {
+            "level": "warning"
+          }
+        }
+      ],
+      "...member-inject": "..."
+    }
+  ]
+}

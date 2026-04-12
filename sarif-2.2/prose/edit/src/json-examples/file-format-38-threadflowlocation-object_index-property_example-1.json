@@ -1,0 +1,17 @@
+{
+  "threadFlowLocations": [
+    {
+      "...object-inject": "..."
+    },
+    {
+      "index": 1,
+      "location": {
+        "...member-inject": "..."
+      }
+    },
+    {
+      "...object-inject": "..."
+    }
+  ],
+  "...member-inject": "..."
+}

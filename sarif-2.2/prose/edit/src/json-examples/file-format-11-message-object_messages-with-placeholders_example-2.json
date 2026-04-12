@@ -1,0 +1,13 @@
+{
+  "results": [
+    {
+      "ruleId": "CA2101",
+      "message": {
+        "text": "Variable '{0}' is uninitialized.",
+        "arguments": [
+          "pBuffer"
+        ]
+      }
+    }
+  ]
+}

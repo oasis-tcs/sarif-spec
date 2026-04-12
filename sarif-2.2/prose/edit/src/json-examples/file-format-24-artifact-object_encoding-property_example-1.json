@@ -1,0 +1,16 @@
+{
+  "defaultEncoding": "UTF-16BE",
+  "artifacts": [
+    {
+      "location": {
+        "uri": "output.txt"
+      }
+    },
+    {
+      "location": {
+        "uri": "data.txt"
+      },
+      "encoding": "UTF-16LE"
+    }
+  ]
+}

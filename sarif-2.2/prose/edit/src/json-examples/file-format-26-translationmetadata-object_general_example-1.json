@@ -1,0 +1,16 @@
+{
+  "language": "fr-FR",
+  "translationMetadata": {
+    "name": "CodeScanner translation for fr-FR ",
+    "fullName": "CodeScanner translation for fr-FR by Example Corp.",
+    "shortDescription": {
+      "text": "A good translation"
+    },
+    "fullDescription": {
+      "text": "A good translation performed by native en-US speakers."
+    }
+  },
+  "name": "(fr-FR translation of translated component’s name)",
+  "fullName": "(fr-FR translation of translated component’s full name)",
+  "...member-inject": "..."
+}

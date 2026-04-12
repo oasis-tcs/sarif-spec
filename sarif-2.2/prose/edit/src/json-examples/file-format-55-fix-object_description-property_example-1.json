@@ -1,0 +1,8 @@
+{
+  "fix": {
+    "description": {
+      "text": "Combine declaration and initialization of variable 'x'."
+    },
+    "...member-inject": "..."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "toolConfigurationNotifications": [
+    {
+      "descriptor": {
+        "id": "UnknownRule"
+      },
+      "associatedRule": {
+        "ruleId": "ABC0001"
+      },
+      "level": "warning",
+      "message": {
+        "text": "Could not disable rule \"ABC0001\" because there is no rule with that id."
+      }
+    }
+  ]
+}

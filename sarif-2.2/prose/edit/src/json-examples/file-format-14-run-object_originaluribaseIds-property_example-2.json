@@ -1,0 +1,26 @@
+{
+  "originalUriBaseIds": {
+    "PROJECTROOT": {
+      "uri": "file:///C:/code/TheProject/"
+    },
+    "SRCROOT": {
+      "uri": " src/",
+      "uriBaseId": "PROJECTROOT"
+    }
+  },
+  "results": [
+    {
+      "ruleId": "CA1001",
+      "locations": [
+        {
+          "physicalLocation": {
+            "artifactLocation": {
+              "uri": "lib/memory.c",
+              "uriBaseId": "SRCROOT"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "rules": [
+        {
+          "id": "CA2101",
+          "defaultConfiguration": {
+            "level": "warning"
+          }
+        },
+        {
+          "id": "CA2551",
+          "defaultConfiguration": {
+            "level": "warning",
+            "enabled": false
+          }
+        }
+      ]
+    }
+  },
+  "policies": [
+    {
+      "name": "Example Corp. Security Policy",
+      "semanticVersion": "7.0",
+      "rules": [
+        {
+          "id": "CA2101",
+          "defaultConfiguration": {
+            "level": "error"
+          }
+        },
+        {
+          "id": "CA2551",
+          "defaultConfiguration": {
+            "enabled": true
+          }
+        }
+      ]
+    }
+  ]
+}

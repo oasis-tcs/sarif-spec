@@ -1,0 +1,16 @@
+{
+  "id": "SA2707",
+  "name": {
+    "text": "LimitSourceLineLength"
+  },
+  "shortDescription": {
+    "text": "Limit source line length for readability."
+  },
+  "defaultConfiguration": {
+    "enabled": true,
+    "level": "warning",
+    "parameters": {
+      "maxLength": 120
+    }
+  }
+}

@@ -1,0 +1,7 @@
+approvals:
+- name: Michael Fanning and Stefan Hagen
+  role: Author
+- name: A Reviewer
+  role: Review
+- name: An App Rover
+  role: Approved

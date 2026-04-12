@@ -1,0 +1,72 @@
+{
+  "tool": {
+    "driver": {
+      "name": "TaintDetector",
+      "rules": [
+        {
+          "id": "TD0001",
+          "name": "UntrustedDataStoredInDatabase",
+          "shortDescription": {
+            "text": "Data from an untrusted source was stored in a database."
+          }
+        },
+        {
+          "...object-inject": "..."
+        }
+      ],
+      "taxa": [
+        {
+          "id": "HR0001",
+          "name": "SubstrPropogatesTaint",
+          "shortDescription": {
+            "text": "If the input to String.Substr is tainted, so is the return value."
+          }
+        },
+        {
+          "...object-inject": "..."
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "ruleId": "TD0001",
+      "...member-inject": "...",
+      "codeFlows": [
+        {
+          "threadFlows": [
+            {
+              "locations": [
+                {
+                  "...object-inject": "..."
+                },
+                {
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "io/input.c",
+                        "uriBaseId": "SRCROOT"
+                      },
+                      "region": {
+                        "startLine": 32
+                      }
+                    }
+                  },
+                  "taxa": [
+                    {
+                      "id": "HR0001",
+                      "index": 0
+                    }
+                  ]
+                },
+                {
+                  "...object-inject": "..."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "artifacts": [
+    {
+      "location": {
+        "uri": "http://www.example.com/libraries/jsonParser.js"
+      },
+      "properties": {
+        "tags": [
+          "openSource"
+        ]
+      }
+    },
+    {
+      "...object-inject": "..."
+    }
+  ],
+  "...member-inject": "...",
+  "properties": {
+    "openSource": {
+      "informationUri": "http://www.example.com/procedures/usingOpenSource.html"
+    }
+  }
+}

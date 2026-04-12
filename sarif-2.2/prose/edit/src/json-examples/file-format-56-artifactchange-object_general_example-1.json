@@ -1,0 +1,17 @@
+{
+  "artifactChanges": [
+    {
+      "artifactLocation": {
+        "uri": "a.h"
+      },
+      "replacements": [
+        {
+          "...member-inject": "..."
+        },
+        {
+          "...member-inject": "..."
+        }
+      ]
+    }
+  ]
+}

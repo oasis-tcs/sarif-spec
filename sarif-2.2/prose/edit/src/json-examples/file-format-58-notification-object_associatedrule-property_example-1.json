@@ -1,0 +1,36 @@
+{
+  "tool": {
+    "driver": {
+      "name": "CodeScanner",
+      "rules": [
+        {
+          "id": "CA1711",
+          "...member-inject": "..."
+        },
+        {
+          "id": "CA1711",
+          "...member-inject": "..."
+        }
+      ]
+    }
+  },
+  "invocations": [
+    {
+      "toolConfigurationNotifications": [
+        {
+          "descriptor": {
+            "id": "CFG0001"
+          },
+          "message": {
+            "text": "Rule configuration is missing."
+          },
+          "associatedRule": {
+            "id": "CA1711",
+            "index": 1
+          }
+        }
+      ],
+      "...member-inject": "..."
+    }
+  ]
+}
