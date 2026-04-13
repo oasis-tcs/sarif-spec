@@ -54,7 +54,7 @@ FENCED_BLOCK = '```'
 # Matches inner annex/appendix sub-headings like "A.1. Document Status" or "B.2 Informative References"
 APPENDIX_INNER_PATTERN = re.compile(r'(?P<display>[A-Z][.0-9]+) +(?P<rest>.+)')
 
-EXAMPLE_DETECT = re.compile(r'^\*Examples?\ +(?P<number>\d+)[:\*]')
+EXAMPLE_DETECT = re.compile(r'^\*Examples?\ +(?P<number>\d+)\b')
 
 # ---------------------------------------------------------------------------
 # Helpers
