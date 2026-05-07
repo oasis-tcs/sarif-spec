@@ -1745,7 +1745,7 @@
           "maximum": 100.0
         },
         "securitySeverity": {
-          "description": "A number between 0.0 and 100.0 inclusive, representing the security impact of results produced by the rule.",
+          "description": "A number between 0.0 and 100.0 inclusive, representing the severity of the class of vulnerabilities found by results produced by the rule.",
           "type": "number",
           "minimum": 0.0,
           "maximum": 100.0
@@ -2048,7 +2048,7 @@
           "maximum": 100.0
         },
         "securitySeverity": {
-          "description": "A number between 0.0 and 100.0 inclusive, representing the security impact of this result.",
+          "description": "A number between 0.0 and 100.0 inclusive, representing the severity of the class of vulnerabilities found by this result.",
           "type": "number",
           "minimum": 0.0,
           "maximum": 100.0
