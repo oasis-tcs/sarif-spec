@@ -787,7 +787,7 @@ If `precision` is absent on a `result` object, and `theDescriptor` exists and sp
 
 ### `securitySeverity` Property{#result-object--securityseverity-property}
 
-A `result` object **MAY** contain a property named `securitySeverity` whose value is a number between `0.0` and `100.0` inclusive, representing a numerical estimate of the severity of the class of vulnerabilities found by this result. `0.0` is the lowest severity and `100.0` is the highest severity.
+A `result` object **MAY** contain a property named `securitySeverity` whose value is a number between `0.0` and `100.0` inclusive, representing a numerical estimate of the severity of the class of vulnerabilities found by this result. This value **MAY** be represented as a floating-point number. `0.0` is the lowest severity and `100.0` is the highest severity.
 
 If `securitySeverity` is absent on a `result` object, and `theDescriptor` exists and specifies a `securitySeverity` property ([sec](#reportingdescriptor-object--securityseverity-property)), the `securitySeverity` of the result is inherited from `theDescriptor`.
 

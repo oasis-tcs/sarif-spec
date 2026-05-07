@@ -254,7 +254,7 @@ If `precision` is present, it acts as the value of `result.precision` ([sec](#re
 
 ### `securitySeverity` Property{#reportingdescriptor-object--securityseverity-property}
 
-A `reportingDescriptor` object that describes a rule **MAY** contain a property named `securitySeverity` whose value is a number between `0.0` and `100.0` inclusive, representing a numerical estimate of the severity of the class of vulnerabilities found by results produced by the rule. `0.0` is the lowest severity and `100.0` is the highest severity.
+A `reportingDescriptor` object that describes a rule **MAY** contain a property named `securitySeverity` whose value is a number between `0.0` and `100.0` inclusive, representing a numerical estimate of the severity of the class of vulnerabilities found by results produced by the rule. This value **MAY** be represented as a floating-point number. `0.0` is the lowest severity and `100.0` is the highest severity.
 
 If `securitySeverity` is present, it acts as the value of `result.securitySeverity` ([sec](#result-object--securityseverity-property)) for any `result` object ([sec](#result-object)) whose `ruleIndex` ([sec](#ruleindex-property)) or `rule` property ([sec](#rule-property)), either explicitly supplied or inferred from its default, references this `reportingDescriptor`, and which does not itself specify a `securitySeverity` property.
 
