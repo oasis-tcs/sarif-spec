@@ -136,13 +136,19 @@ Literal square brackets ("`[`" and "`]`") in the link text of a plain text messa
 >
 > Prohibited term used in para\[0\]\\spans\[2\].
 
-Literal square brackets and (doubled) backslashes **MAY** appear anywhere else in a plain text message without being escaped.
+Literal square brackets and backslashes anywhere else in a plain text message **MAY** be written either without escaping, or escaped with a backslash (`"\"`). However, if a sequence of literal characters in a plain text message could be parsed as an embedded link, a SARIF producer **SHOULD** escape the literal square brackets with a backslash (`"\"`) to avoid ambiguity.
+
+> EXAMPLE 2: Consider a message describing an out-of-bounds access to the source code expression `callbacks[42](0)` (where `callbacks` is an array of functions, `callbacks[42]` indexes into this array, and `callbacks[42](0)` attempts to call this function with argument `0`). Without escaping, this is ambiguous because `[42](0)` matches the embedded link syntax with `42` as the link text and `0` as the link destination. SARIF producers should escape the square brackets to remove the ambiguity:
+>
+>       "message": {
+>         "text": "out-of-bounds accessing \"callbacks\\[42\\](0)\""
+>       }
 
 In both plain text and formatted messages, if `link destination` is a non-negative integer, it **SHALL** refer to a `location` object ([sec](#location-object)) whose `id` property ([sec](#location-object--id-property)) equals the value of `link destination`. In this case, `theResult` **SHALL** contain exactly one `location` object with that `id`.
 
 > NOTE 3: Negative values are forbidden because their use would suggest some non-obvious semantic difference between positive and negative values.
 
-> EXAMPLE 2: In this example, a plain text message contains an embedded link to a location with a file. The `result` object contains exactly one `location` object whose `id` property matches the `link destination`.
+> EXAMPLE 3: In this example, a plain text message contains an embedded link to a location with a file. The `result` object contains exactly one `location` object whose `id` property matches the `link destination`.
 >
 > ```json
 > {                                  # A result object ((#result-object)).
