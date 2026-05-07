@@ -779,7 +779,7 @@ If `rank` is absent, it **SHALL** default to `-1.0`, which indicates that the va
 
 ### `precision` Property{#result-object--precision-property}
 
-A `result` object **MAY** contain a property named `precision` whose value is a number between `0.0` and `100.0` inclusive, representing the tool or tool maintainer's confidence that this result is a true positive. `0.0` is the lowest confidence, indicating that the result is likely to be a false positive, and `100.0` is the highest confidence, indicating that the result is likely to be a true positive.
+A `result` object **MAY** contain a property named `precision` whose value is a number between `0.0` and `100.0` inclusive, representing the tool or tool maintainer's confidence that this result is a true positive. This value **MAY** be represented as a floating-point number. `0.0` is the lowest confidence, indicating that the result is likely to be a false positive, and `100.0` is the highest confidence, indicating that the result is likely to be a true positive.
 
 If `precision` is absent on a `result` object, and `theDescriptor` exists and specifies a `precision` property ([sec](#reportingdescriptor-object--precision-property)), the `precision` of the result is inherited from `theDescriptor`.
 

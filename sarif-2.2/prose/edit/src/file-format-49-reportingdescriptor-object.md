@@ -244,7 +244,7 @@ The rule- or notification-specific configuration parameters for a `reportingDesc
 
 ### `precision` Property{#reportingdescriptor-object--precision-property}
 
-A `reportingDescriptor` object that describes a rule **MAY** contain a property named `precision` whose value is a number between `0.0` and `100.0` inclusive, representing the tool or tool maintainer's confidence that results produced by the rule are true positives. `0.0` is the lowest confidence, indicating that results are likely to be false positives, and `100.0` is the highest confidence, indicating that results are likely to be true positives.
+A `reportingDescriptor` object that describes a rule **MAY** contain a property named `precision` whose value is a number between `0.0` and `100.0` inclusive, representing the tool or tool maintainer's confidence that results produced by the rule are true positives. This value **MAY** be represented as a floating-point number. `0.0` is the lowest confidence, indicating that results are likely to be false positives, and `100.0` is the highest confidence, indicating that results are likely to be true positives.
 
 If `precision` is present, it acts as the value of `result.precision` ([sec](#result-object--precision-property)) for any `result` object ([sec](#result-object)) whose `ruleIndex` ([sec](#ruleindex-property)) or `rule` property ([sec](#rule-property)), either explicitly supplied or inferred from its default, references this `reportingDescriptor`, and which does not itself specify a `precision` property.
 
