@@ -260,7 +260,7 @@ If `securitySeverity` is present, it acts as the value of `result.securitySeveri
 
 `securitySeverity` is not applicable to notifications.
 
-> NOTE: `securitySeverity` values are in general only commensurable when they refer to results of the same rule from the same tool, or equivalent rules from different tools. In an engineering system that aggregates results from multiple tools, securitySeverity values might need to be adjusted, either automatically or by end users, so that securitySeverity values from different tools can be interleaved in a meaningful way.
+> NOTE: `securitySeverity` values are in general only commensurable when they refer to results of the same rule from the same tool, or equivalent rules from different tools. In an engineering system that aggregates results from multiple tools, `securitySeverity` values might need to be adjusted, either automatically or by end users, so that `securitySeverity` values from different tools can be interleaved in a meaningful way.
 
 > NOTE: To make `securitySeverity` values easier to compare between different results and rules, a tool may set the value by aggregating external metrics for security severity, such as the Common Vulnerability Scoring System (CVSS) (<https://www.first.org/cvss>) scores, for security vulnerabilities identified by similar results and rules.
 
