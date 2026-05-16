@@ -66,11 +66,10 @@ render-pdf:
 	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
 	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
 	bin/assemble.py -t pdf && \
-		mkdir -p $(build_pdf) && \
 		printf "pdf.md\n" > $(build_root)bind.txt && \
-		mkdir -p $(build_root)/images/ && \
-		cp -a ../media/OASISLogo-v3.0.png $(build_root)images/ && \
+		mkdir -p $(build_root)images/ && \
 		mkdir -p $(build_pdf)images/ && \
+		cp -a ../media/OASISLogo-v3.0.png $(build_root)images/ && \
 		cp -a ../media/OASISLogo-v3.0.png $(build_pdf)images/ && \
 		cp -a $(liitos_templates)approvals.yml $(build_root) && \
 		cp -a $(liitos_templates)bookmatter.tex.in $(build_root) && \
@@ -118,8 +117,18 @@ clean:
 	  $(build_root)structure.yml
 	rm -fr $(build_root)src/ $(build_pdf)
 
+.PHONY: distclean
+distclean: clean
+	rm -fr $(build_root)
+
 .PHONY: clone-info
 clone-info:
-	printf "Revision-info:\n"
+	printf "Clone-info:\n"
+	printf "%s name.is(): '%s'\n" "-" "$$(basename `git rev-parse --show-toplevel`)"
+	printf "%s branch.is(): '%s'\n" "-" "$$(git branch --show-current)"
 	printf "%s revision.is(): sha1:%s\n" "-" "$$(git rev-parse HEAD)"
+	printf "%s location.is(): %s\n" "-" "$$(python -c "$$(printf "from pathlib import Path; g = '.git'; o = p = c = Path().resolve(); x = lambda p, c, g: (c, c.parent if not (c / g).is_dir() else c); _ , c = x(p, c, g);|while c != p and str(c) != '/': p, c = x(p, c, g);|print(f'(orga/repo=\\\'{c.parent.name}/{c.name}\\\', rel-path=\\\'{o.relative_to(c)}\\\')' if c == p else '(orga/repo=\\\'?/?\\\', rel-path=\\\'?\\\')')" | tr '|' '\n')")"
 	printf "%s node.id(): '%s'\n" "-" "$$(python -c 'import platform; import uuid; print(str(uuid.uuid3(uuid.NAMESPACE_DNS, platform.node())))')"
+
+.PHONY: name
+name: clone-info
