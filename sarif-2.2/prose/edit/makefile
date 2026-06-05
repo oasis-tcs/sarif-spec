@@ -34,25 +34,16 @@ types:
 	command -v mypy >/dev/null 2>&1 || { echo >&2 "make types requires mypy but it's not installed - you can install with: 'pip install mypy'.  Aborting."; exit 1; }
 	$(types)
 
-.PHONY: inversions
-inversions: invert-sections invert-examples
-
-.PHONY: invert-examples
-invert-examples:
-	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-examples requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
-	inverso -agm 4321 etc/example-global-to-local.json etc/example-local-to-global.json
-
-.PHONY: invert-sections
-invert-sections:
-	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-sections requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
-	inverso -g etc/section-display-to-label.json etc/section-label-to-display.json
-
 .PHONY: render
 render: render-html
 
+.PHONY: sections
+sections:
+	bin/sections.py
+
 .PHONY: render-markdown
-render-markdown: inversions
-	bin/volatile.py && \
+render-markdown: sections
+	bin/assemble.py && \
 	  cp -a build/tmp.md ../share/sarif-v2.2-draft.md && \
 	  printf "Rendered user facing delivery item in markdown format:\n" && \
 	  ls -l ../share/sarif-v2.2-draft.md
@@ -61,7 +52,7 @@ render-markdown: inversions
 render-html: render-markdown
 	command -v pandoc >/dev/null 2>&1 || { echo >&2 "make render-html requires pandoc but it's not installed - you can get help on installing at https://pandoc.org.  Aborting."; exit 1; }
 	command -v tidy >/dev/null 2>&1 || { echo >&2 "make render-html requires tidy but it's not installed - you can get help on installing by searching for it on the wild internets.  Aborting."; exit 1; }
-	pandoc -f gfm+definition_lists -t html build/tmp.md --columns=345  \
+	pandoc -f gfm+definition_lists -t html build/tmp.md --columns=345 --title "Static Analysis Results Interchange Format (SARIF) Version 2.2" \
 		--css style/base.css --css style/skin.css --standalone -o build/tmp.html && \
 	  bin/toccata.py && \
 	  timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml 2>/dev/null | \
@@ -74,12 +65,11 @@ render-pdf:
 	command -v liitos >/dev/null 2>&1 || { echo >&2 "make render-pdf requires liitos but it's not installed - you can install per pip install liitos.  Aborting."; exit 1; }
 	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
 	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
-	bin/lapidify.py && \
-		mkdir -p $(build_pdf) && \
+	bin/assemble.py -t pdf && \
 		printf "pdf.md\n" > $(build_root)bind.txt && \
-		mkdir -p $(build_root)/images/ && \
-		cp -a ../media/OASISLogo-v3.0.png $(build_root)images/ && \
+		mkdir -p $(build_root)images/ && \
 		mkdir -p $(build_pdf)images/ && \
+		cp -a ../media/OASISLogo-v3.0.png $(build_root)images/ && \
 		cp -a ../media/OASISLogo-v3.0.png $(build_pdf)images/ && \
 		cp -a $(liitos_templates)approvals.yml $(build_root) && \
 		cp -a $(liitos_templates)bookmatter.tex.in $(build_root) && \
@@ -104,10 +94,16 @@ build: render status
 .PHONY: status
 status:
 	printf "Current version control status:\n"; \
-	git status
+	git status || true
 
 .PHONY: clean
 clean:
+	rm -rf `find . -name __pycache__`
+	rm -f `find . -type f -name '*.py[co]' `
+	rm -f `find . -type f -name '*~' `
+	rm -f `find . -type f -name '.*~' `
+	rm -rf .cache .*_cache
+	rm -f .DS_Store
 	rm -f $(build_root)approvals.yml \
 	  $(build_root)bind.txt \
 	  $(build_root)bookmatter.tex.in \
@@ -120,3 +116,19 @@ clean:
 	  $(build_root)setup.tex.in \
 	  $(build_root)structure.yml
 	rm -fr $(build_root)src/ $(build_pdf)
+
+.PHONY: distclean
+distclean: clean
+	rm -fr $(build_root)
+
+.PHONY: clone-info
+clone-info:
+	printf "Clone-info:\n"
+	printf "%s name.is(): '%s'\n" "-" "$$(basename `git rev-parse --show-toplevel`)"
+	printf "%s branch.is(): '%s'\n" "-" "$$(git branch --show-current)"
+	printf "%s revision.is(): sha1:%s\n" "-" "$$(git rev-parse HEAD)"
+	printf "%s location.is(): %s\n" "-" "$$(python -c "(lambda _Y: (lambda _mod: (lambda Path: (lambda g: [(lambda x: [(lambda c, p: (lambda _loop1: _loop1(c, p))(_Y(lambda _loop1: (lambda c, p: ([_loop1(c, p) for (p, c) in [x(p, c, g)]][0]) if (c != p) and (str(c) != '/') else print((f\"(orga/repo='{c.parent.name}/{c.name}', rel-path='{o.relative_to(c)}')\" if (c == p) else \"(orga/repo='?/?', rel-path='?')\"))))))(c if 'c' in dir() else None, p if 'p' in dir() else None) for (_, c) in [x(p, c, g)]][0])(lambda p, c, g: (c, c.parent if not (c / g).is_dir() else c)) for o, p, c in [[Path().resolve()] * 3]][0])('.git'))(_mod.Path))(__import__('pathlib', {}, {}, ['Path'])))((lambda f: (lambda x: x(x))(lambda y: f(lambda *args: y(y)(*args)))))")"
+	printf "%s node.id(): '%s'\n" "-" "$$(python -c 'import platform; import uuid; print(str(uuid.uuid3(uuid.NAMESPACE_DNS, platform.node())))')"
+
+.PHONY: name
+name: clone-info

@@ -1,12 +1,4 @@
-<!--
----
-toc:
-  auto: false
-  label: (Informative) Revision History
-  enumerate: Appendix L.
----
--->
-# (Informative) Revision History
+# Appendix L. (Informative) Revision History
 
 | Revision                  | Date       | Editors                     | Description                                                              |
 |:--------------------------|:-----------|:----------------------------|:-------------------------------------------------------------------------|
