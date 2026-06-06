@@ -1,0 +1,176 @@
+# 1. Opening Activities
+
+## 1.1 Opening comments (Co-Chair Stefan)
+
+## 1.2 Introduction of participants/roll call (Co-Chair Stefan)
+
+Quorum requires participation of three or more of the four voting members.
+
+| First Name | Last Name     | Company             | Role(s)                   | Present |
+|:-----------|:--------------|:--------------------|:--------------------------|:--------|
+| Aditya     | Sharad        | Microsoft           | Co-Chair                  | YES     |
+| Alexandre  | Dulaunoy      | CIRCL               | Member                    | NO      |
+| Andras     | Iklody        | CIRCL               | Member                    | NO      |
+| Arjun      | Gopalakrishna | Microsoft           | Member                    | NO      |
+| Charles    | Wilson        | Torc Robotics, Inc. | Voting Member             | YES     |
+| Chris      | Meyer         | Microsoft           | Member                    | NO      |
+| David      | Malcolm       | Red Hat             | Voting Member             | YES     |
+| Eddy       | Nakamura      | Microsoft           | Member                    | NO      |
+| Kevin      | Greene        | Mitre Corporation   | Member                    | NO      |
+| Luke       | Cartey        | Microsoft           | Member                    | NO      |
+| Mary       | Martin        | Microsoft           | Member                    | NO      |
+| Michael    | Fanning       | Microsoft           | Member (leave of absence) | NO      |
+| Michael    | Omokoh        | Microsoft           | Member                    | NO      |
+| Nathan     | Baird         | Microsoft           | Member                    | NO      |
+| Paul       | Brookes       | Microsoft           | Member                    | NO      |
+| Paul       | Seay          | Northrop Grumman    | Member                    | NO      |
+| Ross       | Wollman       | Microsoft           | Member                    | NO      |
+| Stefan     | Hagen         | Individual          | Co-Chair, taking notes    | YES     |
+| Tim        | Hudson        | Cryptsoft Pty Ltd.  | Member                    | NO      |
+| Vadim      | Okun          | NIST                | Observer                  | NO      |
+
+Four of the four voting members present - quorum was reached.
+
+The meeting does count against voting rights.
+
+## 1.3 Procedures for this meeting (Co-Chair Stefan)
+
+## 1.4 Approval of agenda (Co-Chair Stefan)
+
+- Roll call
+- Agenda approval
+- Previous minutes approval
+  - https://github.com/oasis-tcs/sarif-spec/blob/main/meeting_minutes/260305_SARIF_TC_107.md
+- Review of action items and resolutions
+- Future meetings
+  - Scheduled
+    - 2026-06-11 (in Summer 15:00 - 16:00 UTC)
+  - Proposed
+    - 2026-07-09 (in Summer 15:00 - 16:00 UTC)
+- Discussion (including issues and pull requests with focus on SARIF v2.2)
+- Other business
+- Resolutions and decisions reached
+- Next meeting
+- Adjournment
+
+Agenda was approved
+
+## 1.5 Approval of previous minutes (Co-Chair Stefan)
+
+- [Minutes of 2026-03-05 Meeting #107](https://github.com/oasis-tcs/sarif-spec/blob/main/meeting_minutes/260305_SARIF_TC_107.md)
+
+The minutes were approved.
+
+## 1.6 Review of action items and resolutions (Co-Chair Stefan)
+
+None.
+
+## 1.7 Identification of SARIF TC voting members (Co-Chair Stefan)
+
+### 1.7.1 Prospective voting members attending their first meeting
+
+### 1.7.2 Members attaining voting rights at the end of this meeting
+
+### 1.7.3 Members losing voting rights if they have not joined this meeting by the time it ends
+
+### 1.7.4 Members who previously lost voting rights who are attending this meeting
+
+### 1.7.5 Members who have declared a leave of absence
+
+# 2. Future Meetings
+
+## 2.1 Future meeting schedule (Co-Chair Stefan)
+
+- Scheduled Teleconference
+  ```
+  June 11, 2026 (Thursday at 08:00 PST / 15:00 UTC ~ 1 hr)
+  ```
+- Proposed Teleconference
+  ```
+  July 09, 2026 (Thursday at 08:00 PST / 15:00 UTC ~ 1 hr)
+  ```
+
+# 3. Discussion
+
+## 3.1 Review current state of ecosystem ongoing work
+
+### 3.1.1 Related activities (OPENSSF, etc.)
+
+Nothing reported.
+
+### 3.1.2 Other Ecosystem Items
+
+- David: gcc 16 release https://gcc.gnu.org/gcc-16/changes.html#diagnostics
+  and blog post: https://developers.redhat.com/articles/2026/04/28/gcc-16-improved-error-messages-sarif-output#updated_sarif_machine_readable_output
+- David: Someone asked David for maintainer contact of VSCode SARIF plugin to provide a patch and Aditya will re-route that request
+- Aditya: Michael asked for discussion of the AI related proposals to cater the ecosystem.
+
+## 3.2 Review outcomes of subgroup discussions
+
+- No editor meeting and no new editor revision for this month.
+- No other subgroup discussions.
+
+## 3.3 Discuss the list of small non-breaking changes for SARIF v2.2
+
+### 3.3.1 Editor's report
+
+No editor report.
+
+### 3.4.2 Approval of changes
+
+- The PR on escaping was discussed and merged https://github.com/oasis-tcs/sarif-spec/pull/768
+
+- Aditya walked all throught the precision PR at https://github.com/oasis-tcs/sarif-spec/pull/766
+  - David asked if confidence would be a better name
+  - All discussed and the result was to amend with:
+    - mention 'floating point' numbers
+    - encourage limiting precision of decimals
+    - mention that it's allowed to change between versions of a tool/component
+
+- Aditya walked the participants through the securitySeverity PR at https://github.com/oasis-tcs/sarif-spec/pull/767
+  - All discussed and concluded to:
+    - amend that the measure **MAY** be represented as a floating point number. 
+
+- Charles suggested to add glossary entries for accuracy and precision - Stefan will do
+  - Update: Stefan did per: https://github.com/oasis-tcs/sarif-spec/pull/770/changes/b836ab33
+
+### 3.4.3 Additional discussion
+
+None.
+
+## 3.5 Review Roadmap [Future.md](https://github.com/oasis-tcs/sarif-spec/blob/main/Future.md)
+
+Skipped
+
+## 3.6 Discuss SARIF's relationship to other relevant standards
+
+- Stefan shortly introduced the proposal for a CSAF extension for SARIF
+  https://github.com/oasis-tcs/sarif-spec/issues/781 and also a ticket in the CSAF TC repository
+  tro raise awareness and gather support: https://github.com/oasis-tcs/csaf/issues/1441
+- Charles: that such an extension would be highly interesting in a 3.0 world where fuzz testing and penetration testing could be represented.
+
+# 4. Other Business
+
+Skipped
+
+# 5. Resolutions and Decisions reached (by 10 minutes prior to scheduled meeting end)
+
+## 5.1 End debate of other issues by 10 minutes prior to scheduled meeting end and follow the agenda from this point (Co-Chair Stefan)
+
+## 5.2 Review of Decisions Reached (Co-Chair Stefan)
+
+- DECISION on the future meeding date of July 2026 as per proposal.
+
+## 5.3 Review of Action Items (Co-Chair Stefan)
+
+None besides the work on the pull-requests.
+
+# 7. Next Meeting
+
+  ```
+  June 11, 2026
+  ```
+
+# 8. Adjournment
+
+Meeting adjourned.
