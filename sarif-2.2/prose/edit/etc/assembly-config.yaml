@@ -1,0 +1,42 @@
+annex-starts-with: 'Annex '
+appendix-starts-with: '('
+binder: bind.txt
+binder-ignores:
+  gfm-plus: []
+  html: []
+  pdf:
+  - frontmatter.md
+build-path: build
+citation-skip-prefixes:
+- '#'
+citation-sources:
+- introduction-03-normative-references.md
+- introduction-04-informative-references.md
+delete-when:
+- contains: '<mark title="Ephemeral region marking">'
+  delete:
+  - '<mark title="Ephemeral region marking">'
+  - '</mark>'
+etc-path: etc
+example-local-to-global-db: example-local-to-global.json
+example-global-to-local-db: example-global-to-local.json
+first-authored-section: '# Introduction'
+glossary-sources:
+- introduction-02-terminology-glossary.md
+html-title: 'Static Analysis Results Interchange Format (SARIF) Version 2.2'
+meta-example-global-number: 4321
+section-display-to-label-db: section-display-to-label.json
+section-display-to-text-db: section-display-to-text.json
+section-label-to-display-db: section-label-to-display.json
+section-reference-style: number-title
+source-path: src
+track-examples: true
+
+# HTML post-processing (nide inject)
+html-inject-css-base: ../share/style/base.css
+html-inject-css-skin: ../share/style/skin.css
+html-inject-logo-data-url: ../media/logo-data-url.txt
+html-inject-logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
+html-inject-toc-trigger: '<h1 id="table-of-contents'
+html-inject-intro-trigger: '<h1 id="1-introduction'
+html-inject-images: false

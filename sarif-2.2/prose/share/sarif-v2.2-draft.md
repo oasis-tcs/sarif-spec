@@ -2,37 +2,37 @@
 
 -------
 
-# Static Analysis Results Interchange Format (SARIF) Version 2.2
+# Static Analysis Results Interchange Format (SARIF) Version 2.2 <a id='static-analysis-results-interchange-format-sarif-version-2-2'></a>
 
-## Committee Specification Draft 01
+## Committee Specification Draft 01 <a id='committee-specification-draft-01'></a>
 
-## 05 February 2026
+## 05 February 2026 <a id='05-february-2026'></a>
 
-### This stage:
+### This stage: <a id='this-stage'></a>
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html \
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.pdf
 
-#### Previous stage:
+#### Previous stage: <a id='previous-stage'></a>
 N/A
 
-#### Latest stage:
+#### Latest stage: <a id='latest-stage'></a>
 https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.md (Authoritative) \
 https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html \
 https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf
 
-#### Technical Committee:
+#### Technical Committee: <a id='technical-committee'></a>
 [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/sarif/)
 
-#### Chairs:
+#### Chairs: <a id='chairs'></a>
 Aditya Sharad (<adityasharad@github.com>), Microsoft Corporation \
 Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
-#### Editors:
+#### Editors: <a id='editors'></a>
 Michael Fanning (<michael.fanning@microsoft.com>), [Microsoft Corporation](https://www.microsoft.com/) \
 Stefan Hagen (<stefan@hagen.link>), [Individual](https://stefan-hagen.website)
 
-#### Additional artifacts:
+#### Additional artifacts: <a id='additional-artifacts'></a>
 This prose specification is one component of a Work Product that also includes:
 
 * SARIF schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json. \
@@ -40,15 +40,15 @@ This prose specification is one component of a Work Product that also includes:
 * SARIF External Property File schema: https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json. \
   Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json
 
-#### Related work:
+#### Related work: <a id='related-work'></a>
 This specification replaces or supersedes:
 
 _Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01_. Edited by Michael C. Fanning and Laurence J. Golding. 12 July 2023. OASIS Standard incorporating Approved Errata. https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html. Latest stage: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.
 
-#### Abstract:
+#### Abstract: <a id='abstract'></a>
 This document defines a standard format for the output of static analysis tools. The format is referred to as the "Static Analysis Results Interchange Format" and is abbreviated as SARIF.
 
-#### Status:
+#### Status: <a id='status'></a>
 This document was last revised or approved by the OASIS Static Analysis Results Interchange Format (SARIF) TC on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif#technical>.
 
 TC members should send comments on this document to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "[Send A Comment](https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=sarif)" button on the TC's web page at <https://www.oasis-open.org/committees/sarif/>.
@@ -57,7 +57,7 @@ This specification is provided under the [RF on RAND Terms](https://www.oasis-op
 
 Note that any machine-readable content ([Computer Language Definitions](https://www.oasis-open.org/policies-guidelines/tc-process/#wpComponentsCompLang)) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
 
-#### Citation format:
+#### Citation format: <a id='citation-format'></a>
 When referencing this specification, the following citation format should be used:
 
 **\[SARIF-v2.2\]**
@@ -67,7 +67,7 @@ _Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Mich
 
 -------
 
-## Notices
+## Notices <a id='notices'></a>
 
 Copyright © OASIS Open 2026. All Rights Reserved.
 
@@ -618,32 +618,33 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	5.8 [Conformance Clause 7: Viewer](#conformance-clause-7-viewer)  
 	5.9 [Conformance Clause 8: Result Management System](#conformance-clause-8-result-management-system)  
 	5.10 [Conformance Clause 9: Engineering System](#conformance-clause-9-engineering-system)  
+6. [(Informative) Acknowledgments](#informative-acknowledgments)  
+7. [(Normative) Use of Fingerprints by Result Management Systems](#normative-use-of-fingerprints-by-result-management-systems)  
+8. [(Informative) Use of SARIF by Log File Viewers](#informative-use-of-sarif-by-log-file-viewers)  
+9. [(Normative) Production of SARIF by Converters](#normative-production-of-sarif-by-converters)  
+10. [(Informative) Locating Rule and Notification Metadata](#informative-locating-rule-and-notification-metadata)  
+11. [(Informative) Producing Deterministic SARIF Log Files](#informative-producing-deterministic-sarif-log-files)  
+	11.1 [General](#informative-producing-deterministic-sarif-log-files--general)  
+	11.2 [Non-Deterministic File Format Elements](#non-deterministic-file-format-elements)  
+	11.3 [Array and Dictionary Element Ordering](#array-and-dictionary-element-ordering)  
+	11.4 [Absolute Paths](#absolute-paths)  
+	11.5 [Inherently Non-Deterministic Tools](#inherently-non-deterministic-tools)  
+	11.6 [Compensating for Non-Deterministic Output](#compensating-for-non-deterministic-output)  
+	11.7 [Interaction Between Determinism and Baselining](#interaction-between-determinism-and-baselining)  
+12. [(Informative) Guidance on Fixes](#informative-guidance-on-fixes)  
+13. [(Informative) Diagnosing Results in Generated Files](#informative-diagnosing-results-in-generated-files)  
+14. [(Informative) Detecting Incomplete Result Sets](#informative-detecting-incomplete-result-sets)  
+15. [(Informative) Sample `sourceLanguage` Values](#informative-sample-sourcelanguage-values)  
+16. [(Informative) Examples](#informative-examples)  
+	16.1 [Minimal Valid SARIF Log File](#minimal-valid-sarif-log-file)  
+	16.2 [Minimal Recommended SARIF Log File with Source Information](#minimal-recommended-sarif-log-file-with-source-information)  
+	16.3 [Minimal Recommended SARIF Log File without Source Information](#minimal-recommended-sarif-log-file-without-source-information)  
+	16.4 [Comprehensive SARIF File](#comprehensive-sarif-file)  
+17. [(Informative) Revision History](#informative-revision-history)  
+18. [(Informative) MIME Types and File Name Extensions](#informative-mime-types-and-file-name-extensions)  
+19. [Safety, Security and Data Protection](#safety-security-and-data-protection)  
 
-Appendix A. [(Informative) Acknowledgments](#informative-acknowledgments)  
-Appendix A. [(Normative) Use of Fingerprints by Result Management Systems](#normative-use-of-fingerprints-by-result-management-systems)  
-Appendix A. [(Informative) Use of SARIF by Log File Viewers](#informative-use-of-sarif-by-log-file-viewers)  
-Appendix A. [(Normative) Production of SARIF by Converters](#normative-production-of-sarif-by-converters)  
-Appendix A. [(Informative) Locating Rule and Notification Metadata](#informative-locating-rule-and-notification-metadata)  
-Appendix A. [(Informative) Producing Deterministic SARIF Log Files](#informative-producing-deterministic-sarif-log-files)  
-	F.1 [General](#informative-producing-deterministic-sarif-log-files--general)  
-F.1 [Non-Deterministic File Format Elements](#non-deterministic-file-format-elements)  
-F.1 [Array and Dictionary Element Ordering](#array-and-dictionary-element-ordering)  
-F.1 [Absolute Paths](#absolute-paths)  
-F.1 [Inherently Non-Deterministic Tools](#inherently-non-deterministic-tools)  
-F.1 [Compensating for Non-Deterministic Output](#compensating-for-non-deterministic-output)  
-F.1 [Interaction Between Determinism and Baselining](#interaction-between-determinism-and-baselining)  
-F.1 [(Informative) Guidance on Fixes](#informative-guidance-on-fixes)  
-F.1 [(Informative) Diagnosing Results in Generated Files](#informative-diagnosing-results-in-generated-files)  
-F.1 [(Informative) Detecting Incomplete Result Sets](#informative-detecting-incomplete-result-sets)  
-F.1 [(Informative) Sample `sourceLanguage` Values](#informative-sample-sourcelanguage-values)  
-Appendix K. [(Informative) Examples](#informative-examples)  
-Appendix K. [Minimal Valid SARIF Log File](#minimal-valid-sarif-log-file)  
-Appendix K. [Minimal Recommended SARIF Log File with Source Information](#minimal-recommended-sarif-log-file-with-source-information)  
-Appendix K. [Minimal Recommended SARIF Log File without Source Information](#minimal-recommended-sarif-log-file-without-source-information)  
-Appendix K. [Comprehensive SARIF File](#comprehensive-sarif-file)  
-Appendix L. [(Informative) Revision History](#informative-revision-history)  
-Appendix M. [(Informative) MIME Types and File Name Extensions](#informative-mime-types-and-file-name-extensions)  
-Appendix N. [Safety, Security and Data Protection](#safety-security-and-data-protection)  
+
 -------
 
 # 1. Introduction <a id='introduction'></a>
@@ -678,214 +679,303 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 For purposes of this document, the following terms and definitions apply:
 
-<dl>
-  <dt id="def;analysis-target">analysis target</dt>
-  <dd><a href="#def;artifact">artifact</a> which an <a href="#def;analysis-tool">analysis tool</a> is instructed to analyze</dd>
-  <dt id="def;analysis-tool">analysis tool</dt>
-  <dd>tool that models and analyzes an <a href="#def;artifact">artifact</a> or the interaction between entities (cf. <a href="#def;web-analysis-tool">web analysis tool</a> for an example)</dd>
-  <dt id="def;artifact">artifact</dt>
-  <dd>sequence of bytes addressable *via* a URI
-      Examples: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed *via* an HTTP request; an arbitrary stream of bytes returned from an HTTP request.</dd>
-  <dt id="def;baseline">baseline</dt>
-  <dd>set of <a href="#def;result">results</a> produced by a single <a href="#def;run">run</a> of a set of <a href="#def;static-analysis-tool">analysis tools</a> on a set of <a href="#def;artifact">artifacts</a>
-      NOTE: A <a href="#def;result-management-system">result management system</a> can compare the results of a subsequent <a href="#def;run">run</a> to a baseline produced by a <a href="#def;baseline-run">baseline run</a> to determine whether new results have been introduced.</dd>
-  <dt id="def;baseline-run">baseline run</dt>
-  <dd><a href="#def;run">run</a> that produces a <a href="#def;baseline">baseline</a> to which subsequent runs can be compared</dd>
-  <dt id="def;binary-artifact">binary artifact</dt>
-  <dd><a href="#def;artifact">artifact</a> considered as a sequence of bytes</dd>
-  <dt id="def;binary-region">binary region</dt>
-  <dd><a href="#def;region">region</a> representing a contiguous range of zero or more bytes in a <a href="#def;binary-file">binary artifact</a></dd>
-  <dt id="def;call-stack">call stack</dt>
-  <dd>sequence of nested function calls</dd>
-  <dt id="def;camelcase-name">camelCase name</dt>
-  <dd>name that begins with a lowercase letter, in which each subsequent word begins with an uppercase letter
-      Example: `camelCase`, `version`, `fullName`.</dd>
-  <dt id="def;code-flow">code flow</dt>
-  <dd>set of one or more <a href="#def;thread-flow">thread flows</a> which together specify a pattern of code execution relevant to detecting a <a href="#def;result">result</a></dd>
-  <dt id="def;column-number">column (number)</dt>
-  <dd>1-based index of a character within a <a href="#def;line">line</a></dd>
-  <dt id="def;configuration-file">configuration file</dt>
-  <dd>file, typically textual, that configures the execution of an <a href="#def;static-analysis-tool">analysis tool</a> or <a href="#def;tool-component">tool component</a></dd>
-  <dt id="def;converter">converter</dt>
-  <dd><a href="#def;sarif-producer">SARIF producer</a> that transforms the output of an <a href="#def;static-analysis-tool">analysis tool</a> from its native output format into the SARIF format</dd>
-  <dt id="def;custom-taxonomy">custom taxonomy</dt>
-  <dd><a href="#def;taxonomic-category">taxonomy</a> defined by and intended for use with a particular <a href="#def;static-analysis-tool">analysis tool</a></dd>
-  <dt id="def;direct-producer">direct producer</dt>
-  <dd><a href="#def;static-analysis-tool">analysis tool</a> which acts as a <a href="#def;sarif-producer">SARIF producer</a></dd>
-  <dt id="def;driver">driver</dt>
-  <dd><a href="#def;tool-component">tool component</a> containing an <a href="#def;static-analysis-tool">analysis tool</a>’s or <a href="#def;converter">converter</a>’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis <a href="#def;rule">rules</a></dd>
-  <dt id="def;embedded-link">embedded link</dt>
-  <dd>syntactic construct which enables a <a href="#def;message-string">message string</a> to refer to a location within an <a href="#def;artifact">artifact</a> mentioned in a <a href="#def;result">result</a></dd>
-  <dt id="def;engineering-system">engineering system</dt>
-  <dd>software development environment within which <a href="#def;static-analysis-tool">analysis tools</a> execute
-      NOTE: An engineering system might include a build system, a source control system, a <a href="#def;result-management-system">result management system</a>, a bug tracking system, a test execution system, and so on.</dd>
-  <dt id="def;empty-array">empty array</dt>
-  <dd>array that contains no elements, and so has a length of 0</dd>
-  <dt id="def;empty-object">empty object</dt>
-  <dd>object that contains no properties</dd>
-  <dt id="def;empty-string">empty string</dt>
-  <dd>string that contains no characters, and so has a length of 0</dd>
-  <dt id="def;end-user">(end) user</dt>
-  <dd>person who uses the information in a <a href="#def;log-file">log file</a> to investigate, <a href="#def;triage">triage</a>, or resolve <a href="#def;result">results</a></dd>
-  <dt id="def;extension">extension</dt>
-  <dd><a href="#def;tool-component">tool component</a> other than the <a href="#def;driver">driver</a> (for example, a <a href="#def;plugin">plugin</a>, a <a href="#def;configuration-file">configuration file</a>, or a <a href="#def;taxonomic-category">taxonomy</a>)</dd>
-  <dt id="def;external-property-file">external property file</dt>
-  <dd>file containing the values of one or more <a href="#def;externalized-property">externalized properties</a></dd>
-  <dt id="def;externalizable-property">externalizable property</dt>
-  <dd>property that can be contained in an <a href="#def;external-property-file">external property file</a></dd>
-  <dt id="def;externalized-property">externalized property</dt>
-  <dd>property stored outside of the <a href="#def;log-file">SARIF log file</a> to which it logically belongs</dd>
-  <dt id="def;false-positive">false positive</dt>
-  <dd><a href="#def;result">result</a> which an <a href="#def;end-user">end user</a> decides does not actually represent a <a href="#def;problem">problem</a></dd>
-  <dt id="def;fingerprint">fingerprint</dt>
-  <dd><a href="#def;stable-value">stable value</a> that can be used by a <a href="#def;result-management-system">result management system</a> to uniquely identify a <a href="#def;result">result</a> over time, even if a relevant <a href="#def;artifact">artifact</a> is modified</dd>
-  <dt id="def;formatted-message">formatted message</dt>
-  <dd><a href="#def;message-string">message string</a> which contains formatting information such as Markdown formatting characters</dd>
-  <dt id="def;fully-qualified-logical-name">fully qualified logical name</dt>
-  <dd>string that fully identifies the programmatic construct specified by a <a href="#def;logical-location">logical location</a>, typically by means of a hierarchical identifier.
-      Example: The fully qualified logical name of the C# method `f(void)` in class `C` in namespace `N` is `"N.C.f(void)"`. Its <a href="#def;logical-name">logical name</a> is `"f(void)"`.</dd>
-  <dt id="def;hierarchical-string">hierarchical string</dt>
-  <dd>string in the format `<component>{/<component>}*`</dd>
-  <dt id="def;line">line</dt>
-  <dd>contiguous sequence of characters, starting either at the beginning of an <a href="#def;artifact">artifact</a> or immediately after a <a href="#def;newline-sequence">newline sequence</a>, and ending at and including the nearest subsequent newline sequence, if one is present, or else extending to the end of the artifact</dd>
-  <dt id="def;line-number">line (number)</dt>
-  <dd>1-based index of a line within a file
-      NOTE: Abbreviated to "line" when there is no danger of ambiguity with "<a href="#def;line">line</a>" in the sense of a sequence of characters.</dd>
-  <dt id="def;localizable">localizable</dt>
-  <dd>subject to being translated from one natural language to another</dd>
-  <dt id="def;log-file">log file</dt>
-  <dd>output file produced by an <a href="#def;static-analysis-tool">analysis tool</a>, which enumerates the <a href="#def;result">results</a> produced by the tool</dd>
-  <dt id="def;log-file-viewer">(log file) viewer</dt>
-  <dd><a href="#def;sarif-consumer">SARIF consumer</a> that reads a <a href="#def;log-file">log file</a>, displays a list of the <a href="#def;result">results</a> it contains, and allows an <a href="#def;end-user">end user</a> to view each result in the context of the <a href="#def;artifact">artifact</a> in which it occurs</dd>
-  <dt id="def;logical-location">logical location</dt>
-  <dd>location specified by reference to a programmatic construct, without specifying the <a href="#def;artifact">artifact</a> within which that construct occurs
-      Example: A class name, a method name, a namespace.</dd>
-  <dt id="def;logical-name">logical name</dt>
-  <dd>string that partially identifies the programmatic construct specified by a <a href="#def;logical-location">logical location</a> by specifying the most specific (often the rightmost) component of its <a href="#def;fully-qualified-logical-name">fully qualified logical name</a>.
-      Example: The logical name of the C# method `f(void)` in class `C` in namespace `N` is `"f(void)"`. Its <a href="#def;fully-qualified-logical-name">fully qualified logical name</a> is `"N.C.f(void)"`.</dd>
-  <dt id="def;message-string">message string</dt>
-  <dd>human-readable string that conveys information relevant to an element in a SARIF file</dd>
-  <dt id="def;nested-artifact">nested artifact</dt>
-  <dd><a href="#def;artifact">artifact</a> that is contained within another artifact</dd>
-  <dt id="def;nested-logical-location">nested logical location</dt>
-  <dd><a href="#def;logical-location">logical location</a> that is contained within another logical location
-      Example: A method within a class in C++</dd>
-  <dt id="def;newline-sequence">newline sequence</dt>
-  <dd>sequence of one or more characters representing the end of a line of text
-      NOTE: Some systems represent a newline sequence with a single newline character; others represent it as a carriage return character followed by a newline character.</dd>
-  <dt id="def;notification">notification</dt>
-  <dd><a href="#def;reporting-item">reporting item</a> that describes a condition encountered by a <a href="#def;static-analysis-tool">tool</a> during its execution</dd>
-  <dt id="def;opaque">opaque</dt>
-  <dd>neither human-readable nor machine-parseable into constituent parts</dd>
-  <dt id="def;parent-artifact">parent (artifact)</dt>
-  <dd><a href="#def;artifact">artifact</a> which contains one or more <a href="#def;nested-artifact">nested artifacts</a></dd>
-  <dt id="def;physical-location">physical location</dt>
-  <dd>location specified by reference to an <a href="#def;artifact">artifact</a>, possibly together with a <a href="#def;region">region</a> within that artifact</dd>
-  <dt id="def;plain-text-message">plain text message</dt>
-  <dd><a href="#def;message-string">message string</a> which does not contain any formatting information</dd>
-  <dt id="def;plugin">plugin</dt>
-  <dd><a href="#def;tool-component">tool component</a> that defines additional <a href="#def;rule">rules</a></dd>
-  <dt id="def;policy">policy</dt>
-  <dd>set of <a href="#def;rule-configuration">rule configurations</a> that specify how <a href="#def;result">results</a> that violate the <a href="#def;rule">rules</a> defined by a particular <a href="#def;tool-component">tool component</a> are to be treated</dd>
-  <dt id="def;problem">problem</dt>
-  <dd><a href="#def;result">result</a> which indicates a condition that has the potential to detract from the quality of the program
-      Example: A security vulnerability, a deviation from contractual or legal requirements, a deviation from stylistic standards.</dd>
-  <dt id="def;property">property</dt>
-  <dd>attribute of an object consisting of a name and a value associated with the name</dd>
-  <dt id="def;property-bag">property bag</dt>
-  <dd>object consisting of an unordered set of non-standardized <a href="#def;property">properties</a> with arbitrary <a href="#def;camelCase-name">camelCase names</a></dd>
-  <dt id="def;redactable-property">redactable property</dt>
-  <dd><a href="#def;property">property</a> that potentially contains sensitive information that a SARIF <a href="#def;direct-producer">direct producer</a> or a <a href="#def;post-processor">SARIF post-processor</a> might wish to redact</dd>
-  <dt id="def;region">region</dt>
-  <dd>contiguous portion of an <a href="#def;artifact">artifact</a></dd>
-  <dt id="def;reporting-item">reporting item</dt>
-  <dd>unit of output produced by a <a href="#def;static-analysis-tool">tool</a>, either a <a href="#def;result">result</a> or a <a href="#def;notification">notification</a></dd>
-  <dt id="def;reporting-configuration">reporting configuration</dt>
-  <dd>the subset of <a href="#def;reporting-metadata">reporting metadata</a> that a <a href="#def;static-analysis-tool">tool</a> can configure at runtime, before performing its scan
-      Examples: severity level, rank</dd>
-  <dt id="def;reporting-descriptor">reporting descriptor</dt>
-  <dd>container for <a href="#def;reporting-metadata">reporting metadata</a></dd>
-  <dt id="def;reporting-metadata">reporting metadata</dt>
-  <dd>information that describes a class of related <a href="#def;reporting-item">reporting items</a>
-      Examples: id, description</dd>
-  <dt id="def;repository">repository</dt>
-  <dd>container for a related set of files in a version control system</dd>
-  <dt id="def;response-file">response file</dt>
-  <dd>file containing arguments for a <a href="#def;static-analysis-tool">tool</a>, which are interpreted as if they had appeared directly on the command line</dd>
-  <dt id="def;result">result</dt>
-  <dd><a href="#def;reporting-item">reporting item</a> that describes a condition present in an <a href="#def;artifact">artifact</a></dd>
-  <dt id="def;result-file">result file</dt>
-  <dd><a href="#def;artifact">artifact</a> in which an <a href="#def;static-analysis-tool">analysis tool</a> detects a <a href="#def;result">result</a></dd>
-  <dt id="def;result-management-system">result management system</dt>
-  <dd>software system that consumes the <a href="#def;log-file">log files</a> produced by <a href="#def;static-analysis-tool">analysis tools</a>, produces reports that enable engineering teams to assess the quality of their software <a href="#def;artifact">artifacts</a> at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual <a href="#def;result">results</a>
-      NOTE: A result management system can interact with a <a href="#def;log-file-viewer">log file viewer</a> to display information about individual defects.</dd>
-  <dt id="def;result-matching">result matching</dt>
-  <dd>process of determining whether two <a href="#def;result">results</a> are reporting the same condition in the code</dd>
-  <dt id="def;root-file">root file</dt>
-  <dd><a href="#def;log-file">SARIF log file</a> to which one or more <a href="#def;external-property-file">external property files</a> logically belong</dd>
-  <dt id="def;rule">rule</dt>
-  <dd>specific criterion for correctness verified by an <a href="#def;static-analysis-tool">analysis tool</a>
-      NOTE 1: Many analysis tools associate a <a href="#def;rule-id">rule id</a> with each <a href="#def;result">result</a> they report, but some do not.
-      NOTE 2: Some rules verify generally accepted criteria for correctness; others verify conventions in use in a particular team or organization.
-      Examples: "Variables must be initialized before use.", "Class names must begin with an uppercase letter.".</dd>
-  <dt id="def;rule-configuration">rule configuration</dt>
-  <dd><a href="#def;reporting-configuration">reporting configuration</a> that applies to a <a href="#def;rule">rule</a></dd>
-  <dt id="def;rule-id">rule id</dt>
-  <dd><a href="#def;stable-value">stable value</a> which an <a href="#def;static-analysis-tool">analysis tool</a> associates with a <a href="#def;rule">rule</a>
-      NOTE: A rule id is more likely to remain stable if it is a symbolic or numeric value, as opposed to a descriptive string.
-      Example: `CA2001`</dd>
-  <dt id="def;rule-metadata">rule metadata</dt>
-  <dd><a href="#def;reporting-metadata">reporting metadata</a> that describes a <a href="#def;rule">rule</a></dd>
-  <dt id="def;run">run</dt>
-  <dd>1. invocation of a specified <a href="#def;static-analysis-tool">analysis tool</a> on a specified version of a specified set of <a href="#def;analysis-target">analysis targets</a>, with a specified set of runtime parameters
-      2. set of <a href="#def;result">results</a> produced by such an invocation</dd>
-  <dt id="def;sarif-consumer">SARIF consumer</dt>
-  <dd>program that reads and interprets a SARIF log file</dd>
-  <dt id="def;sarif-log-file">SARIF log file</dt>
-  <dd><a href="#def;log-file">log file</a> in the format defined by this document</dd>
-  <dt id="def;sarif-post-processor">SARIF post-processor</dt>
-  <dd><a href="#def;sarif-producer">SARIF producer</a> that transforms an existing <a href="#def;sarif-log-file">SARIF log file</a> into a new SARIF log file, for example, by removing or redacting security-sensitive elements.</dd>
-  <dt id="def;sarif-producer">SARIF producer</dt>
-  <dd>program that emits output in the SARIF format</dd>
-  <dt id="def;stable-value">stable value</dt>
-  <dd>value which, once established, never changes over time</dd>
-  <dt id="def;standard-taxonomy">standard taxonomy</dt>
-  <dd><a href="#def;taxonomic-category">taxonomy</a> defined without reference to a particular <a href="#def;static-analysis-tool">analysis tool</a></dd>
-  <dt id="def;static-analysis-tool">(static analysis) tool</dt>
-  <dd>program that examines <a href="#def;artifact">artifacts</a> to detect problems, without executing the program
-      Example: Lint</dd>
-  <dt id="def;taxon-pl-taxa">taxon (pl. taxa)</dt>
-  <dd>one of a set of categories which together comprise a <a href="#def;taxonomic-category">taxonomy</a></dd>
-  <dt id="def;taxonomy">taxonomy</dt>
-  <dd>classification of analysis results into a set of categories</dd>
-  <dt id="def;tag">tag</dt>
-  <dd>string that conveys additional information about the SARIF <a href="#def;log-file">log file</a> element to which it applies</dd>
-  <dt id="def;text-artifact">text artifact</dt>
-  <dd><a href="#def;artifact">artifact</a> considered as a sequence of characters organized into <a href="#def;line">lines</a> and <a href="#def;column">columns</a></dd>
-  <dt id="def;text-region">text region</dt>
-  <dd><a href="#def;region">region</a> representing a contiguous range of zero or more characters in a <a href="#def;text-file">text artifact</a></dd>
-  <dt id="def;thread-flow">thread flow</dt>
-  <dd>temporally ordered set of code locations specifying a possible execution path through the code, which occur within a single thread of execution, such as an operating system thread or a fiber</dd>
-  <dt id="def;tool-component">tool component</dt>
-  <dd>component of an <a href="#def;static-analysis-tool">analysis tool</a> or <a href="#def;converter">converter</a>, either its <a href="#def;driver">driver</a> or an <a href="#def;extension">extension</a>, consisting of one or more files</dd>
-  <dt id="def;top-level-artifact">top-level artifact</dt>
-  <dd><a href="#def;artifact">artifact</a> which is not contained within any other artifact</dd>
-  <dt id="def;top-level-logical-location">top-level logical location</dt>
-  <dd><a href="#def;logical-location">logical location</a> that is not nested within another logical location
-      Example: A global function in C++</dd>
-  <dt id="def;translation">translation</dt>
-  <dd>rendering of a <a href="#def;tool-component">tool component</a>’s <a href="#def;localizable">localizable</a> strings into another language</dd>
-  <dt id="def;triage">triage</dt>
-  <dd>decide whether a <a href="#def;result">result</a> indicates a <a href="#def;problem">problem</a> that needs to be corrected</dd>
-  <dt id="def;user">user</dt>
-  <dd>see <a href="#def;end-user">end user</a>.</dd>
-  <dt id="def;vcs">VCS</dt>
-  <dd>version control system</dd>
-  <dt id="def;viewer">viewer</dt>
-  <dd>see <a href="#def;log-file-viewer">log file viewer</a>.</dd>
-  <dt id="def;web-analysis-tool">web analysis tool</dt>
-  <dd><a href="#def;web-analysis-tool">analysis tool</a> that models and analyzes the interaction between a web client and a server.</dd>
-</dl>
+analysis target
+:    [artifact](#def:artifact) which an [analysis tool](#def:analysis-tool) is instructed to analyze
+
+analysis tool
+:    tool that models and analyzes an [artifact](#def:artifact) or the interaction between entities (cf. [web analysis tool](#def:web-analysis-tool) for an example)
+
+artifact
+:    sequence of bytes addressable *via* a URI
+Examples: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed *via* an HTTP request; an arbitrary stream of bytes returned from an HTTP request.
+
+baseline
+:    set of [results](#def:result) produced by a single [run](#def:run) of a set of [analysis tools](#def:static-analysis-tool) on a set of [artifacts](#def:artifact)
+NOTE: A [result management system](#def:result-management-system) can compare the results of a subsequent [run](#def:run) to a baseline produced by a [baseline run](#def:baseline-run) to determine whether new results have been introduced.
+
+baseline run
+:    [run](#def:run) that produces a [baseline](#def:baseline) to which subsequent runs can be compared
+
+binary artifact
+:    [artifact](#def:artifact) considered as a sequence of bytes
+
+binary region
+:    [region](#def:region) representing a contiguous range of zero or more bytes in a [binary artifact](#def:binary-artifact)
+
+call stack
+:    sequence of nested function calls
+
+camelCase name
+:    name that begins with a lowercase letter, in which each subsequent word begins with an uppercase letter
+Example: `camelCase`, `version`, `fullName`.
+
+code flow
+:  set of one or more [thread flows](#def:thread-flow) which together specify a pattern of code execution relevant to detecting a [result](#def:result)
+
+column (number)
+:  1-based index of a character within a [line](#def:line)
+
+configuration file
+:  file, typically textual, that configures the execution of an [analysis tool](#def:static-analysis-tool) or [tool component](#def:tool-component)
+
+converter
+:  [SARIF producer](#def:sarif-producer) that transforms the output of an [analysis tool](#def:static-analysis-tool) from its native output format into the SARIF format
+
+custom taxonomy
+:  [taxonomy](#def:taxonomy) defined by and intended for use with a particular [analysis tool](#def:static-analysis-tool)
+
+direct producer
+:  [analysis tool](#def:static-analysis-tool) which acts as a [SARIF producer](#def:sarif-producer)
+
+driver
+:  [tool component](#def:tool-component) containing an [analysis tool](#def:static-analysis-tool)’s or [converter](#def:converter)’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis [rules](#def:rule)
+
+embedded link
+:  syntactic construct which enables a [message string](#def:message-string) to refer to a location within an [artifact](#def:artifact) mentioned in a [result](#def:result)
+
+engineering system
+:  software development environment within which [analysis tools](#def:static-analysis-tool) execute
+NOTE: An engineering system might include a build system, a source control system, a [result management system](#def:result-management-system), a bug tracking system, a test execution system, and so on.
+
+empty array
+:  array that contains no elements, and so has a length of 0
+
+empty object
+:  object that contains no properties
+
+empty string
+:  string that contains no characters, and so has a length of 0
+
+(end) user
+:  person who uses the information in a [log file](#def:log-file) to investigate, [triage](#def:triage), or resolve [results](#def:result)
+
+extension
+:  [tool component](#def:tool-component) other than the [driver](#def:driver) (for example, a [plugin](#def:plugin), a [configuration file](#def:configuration-file), or a [taxonomy](#def:taxonomy))
+
+external property file
+:  file containing the values of one or more [externalized properties](#def:externalized-property)
+
+externalizable property
+:  property that can be contained in an [external property file](#def:external-property-file)
+
+externalized property
+:  property stored outside of the [SARIF log file](#def:log-file) to which it logically belongs
+
+false positive
+:  [result](#def:result) which an [end user](#def:end-user) decides does not actually represent a [problem](#def:problem)
+
+fingerprint
+:  [stable value](#def:stable-value) that can be used by a [result management system](#def:result-management-system) to uniquely identify a [result](#def:result) over time, even if a relevant [artifact](#def:artifact) is modified
+
+formatted message
+:  [message string](#def:message-string) which contains formatting information such as Markdown formatting characters
+
+fully qualified logical name
+:  string that fully identifies the programmatic construct specified by a [logical location](#def:logical-location), typically by means of a hierarchical identifier.
+Example: The fully qualified logical name of the C# method `f(void)` in class `C` in namespace `N` is `"N.C.f(void)"`. Its [logical name](#def:logical-name) is `"f(void)"`.
+
+hierarchical string
+:  string in the format `<component>{/<component>}*`
+
+line
+:  contiguous sequence of characters, starting either at the beginning of an [artifact](#def:artifact) or immediately after a [newline sequence](#def:newline-sequence), and ending at and including the nearest subsequent newline sequence, if one is present, or else extending to the end of the artifact
+
+line (number)
+:  1-based index of a line within a file
+NOTE: Abbreviated to "line" when there is no danger of ambiguity with "[line](#def:line)" in the sense of a sequence of characters.
+
+localizable
+:  subject to being translated from one natural language to another
+
+log file
+:  output file produced by an [analysis tool](#def:static-analysis-tool), which enumerates the [results](#def:result) produced by the tool
+
+(log file) viewer
+:  [SARIF consumer](#def:sarif-consumer) that reads a [log file](#def:log-file), displays a list of the [results](#def:result) it contains, and allows an [end user](#def:end-user) to view each result in the context of the [artifact](#def:artifact) in which it occurs
+
+logical location
+:  location specified by reference to a programmatic construct, without specifying the [artifact](#def:artifact) within which that construct occurs
+Example: A class name, a method name, a namespace.
+
+logical name
+:  string that partially identifies the programmatic construct specified by a [logical location](#def:logical-location) by specifying the most specific (often the rightmost) component of its [fully qualified logical name](#def:fully-qualified-logical-name).
+Example: The logical name of the C# method `f(void)` in class `C` in namespace `N` is `"f(void)"`. Its [fully qualified logical name](#def:fully-qualified-logical-name) is `"N.C.f(void)"`.
+
+message string
+:  human-readable string that conveys information relevant to an element in a SARIF file
+
+nested artifact
+:  [artifact](#def:artifact) that is contained within another artifact
+
+nested logical location
+:  [logical location](#def:logical-location) that is contained within another logical location
+Example: A method within a class in C++
+
+newline sequence
+:  sequence of one or more characters representing the end of a line of text
+NOTE: Some systems represent a newline sequence with a single newline character; others represent it as a carriage return character followed by a newline character.
+
+notification
+:  [reporting item](#def:reporting-item) that describes a condition encountered by a [tool](#def:static-analysis-tool) during its execution
+
+opaque
+:  neither human-readable nor machine-parseable into constituent parts
+
+parent (artifact)
+:  [artifact](#def:artifact) which contains one or more [nested artifacts](#def:nested-artifact)
+
+physical location
+:  location specified by reference to an [artifact](#def:artifact), possibly together with a [region](#def:region) within that artifact
+
+plain text message
+:  [message string](#def:message-string) which does not contain any formatting information
+
+plugin
+:  [tool component](#def:tool-component) that defines additional [rules](#def:rule)
+
+policy
+:  set of [rule configurations](#def:rule-configuration) that specify how [results](#def:result) that violate the [rules](#def:rule) defined by a particular [tool component](#def:tool-component) are to be treated
+
+problem
+:  [result](#def:result) which indicates a condition that has the potential to detract from the quality of the program
+Example: A security vulnerability, a deviation from contractual or legal requirements, a deviation from stylistic standards.
+
+property
+:  attribute of an object consisting of a name and a value associated with the name
+
+property bag
+:  object consisting of an unordered set of non-standardized [properties](#def:property) with arbitrary [camelCase names](#def:camelcase-name)
+
+redactable property
+:  [property](#def:property) that potentially contains sensitive information that a SARIF [direct producer](#def:direct-producer) or a [SARIF post-processor](#def:sarif-post-processor) might wish to redact
+
+region
+:  contiguous portion of an [artifact](#def:artifact)
+
+reporting item
+:  unit of output produced by a [tool](#def:static-analysis-tool), either a [result](#def:result) or a [notification](#def:notification)
+
+reporting configuration
+:  the subset of [reporting metadata](#def:reporting-metadata) that a [tool](#def:static-analysis-tool) can configure at runtime, before performing its scan  
+Examples: severity level, rank
+
+reporting descriptor
+:  container for [reporting metadata](#def:reporting-metadata)
+
+reporting metadata
+:  information that describes a class of related [reporting items](#def:reporting-item)  
+Examples: id, description
+
+repository
+:  container for a related set of files in a version control system
+
+response file
+:  file containing arguments for a [tool](#def:static-analysis-tool), which are interpreted as if they had appeared directly on the command line
+
+result
+:  [reporting item](#def:reporting-item) that describes a condition present in an [artifact](#def:artifact)
+
+result file
+:  [artifact](#def:artifact) in which an [analysis tool](#def:static-analysis-tool) detects a [result](#def:result)
+
+result management system
+:  software system that consumes the [log files](#def:log-file) produced by [analysis tools](#def:static-analysis-tool), produces reports that enable engineering teams to assess the quality of their software [artifacts](#def:artifact) at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual [results](#def:result)
+NOTE: A result management system can interact with a [log file viewer](#def:log-file-viewer) to display information about individual defects.
+
+result matching
+:  process of determining whether two [results](#def:result) are reporting the same condition in the code
+
+root file
+:  [SARIF log file](#def:log-file) to which one or more [external property files](#def:external-property-file) logically belong
+
+rule
+:  specific criterion for correctness verified by an [analysis tool](#def:static-analysis-tool)
+NOTE 1: Many analysis tools associate a [rule id](#def:rule-id) with each [result](#def:result) they report, but some do not.
+NOTE 2: Some rules verify generally accepted criteria for correctness; others verify conventions in use in a particular team or organization.
+Examples: "Variables must be initialized before use.", "Class names must begin with an uppercase letter.".
+
+rule configuration
+:  [reporting configuration](#def:reporting-configuration) that applies to a [rule](#def:rule)
+
+rule id
+:  [stable value](#def:stable-value) which an [analysis tool](#def:static-analysis-tool) associates with a [rule](#def:rule)
+NOTE: A rule id is more likely to remain stable if it is a symbolic or numeric value, as opposed to a descriptive string.
+Example: `CA2001`
+
+rule metadata
+:  [reporting metadata](#def:reporting-metadata) that describes a [rule](#def:rule)
+
+run
+:  1. invocation of a specified [analysis tool](#def:static-analysis-tool) on a specified version of a specified set of [analysis targets](#def:analysis-target), with a specified set of runtime parameters
+2. set of [results](#def:result) produced by such an invocation
+
+SARIF consumer
+:  program that reads and interprets a SARIF log file
+
+SARIF log file
+:  [log file](#def:log-file) in the format defined by this document
+
+SARIF post-processor
+:  [SARIF producer](#def:sarif-producer) that transforms an existing [SARIF log file](#def:sarif-log-file) into a new SARIF log file, for example, by removing or redacting security-sensitive elements.
+
+SARIF producer
+:  program that emits output in the SARIF format
+
+stable value
+:  value which, once established, never changes over time
+
+standard taxonomy
+:  [taxonomy](#def:taxonomy) defined without reference to a particular [analysis tool](#def:static-analysis-tool)
+
+(static analysis) tool
+:  program that examines [artifacts](#def:artifact) to detect problems, without executing the program
+Example: Lint
+
+taxon (pl. taxa)
+:  one of a set of categories which together comprise a [taxonomy](#def:taxonomy)
+
+taxonomy
+:  classification of analysis results into a set of categories
+
+tag
+:  string that conveys additional information about the SARIF [log file](#def:log-file) element to which it applies
+
+text artifact
+:  [artifact](#def:artifact) considered as a sequence of characters organized into [lines](#def:line) and [columns](#def:column-number)
+
+text region
+:  [region](#def:region) representing a contiguous range of zero or more characters in a [text artifact](#def:text-artifact)
+
+thread flow
+:  temporally ordered set of code locations specifying a possible execution path through the code, which occur within a single thread of execution, such as an operating system thread or a fiber
+
+tool component
+:  component of an [analysis tool](#def:static-analysis-tool) or [converter](#def:converter), either its [driver](#def:driver) or an [extension](#def:extension), consisting of one or more files
+
+top-level artifact
+:  [artifact](#def:artifact) which is not contained within any other artifact
+
+top-level logical location
+:  [logical location](#def:logical-location) that is not nested within another logical location
+Example: A global function in C++
+
+translation
+:  rendering of a [tool component](#def:tool-component)’s [localizable](#def:localizable) strings into another language
+
+triage
+:  decide whether a [result](#def:result) indicates a [problem](#def:problem) that needs to be corrected
+
+user
+:  see [end user](#def:end-user).
+
+VCS
+:  version control system
+
+viewer
+:  see [log file viewer](#def:log-file-viewer).
+
+web analysis tool
+:  [analysis tool](#def:web-analysis-tool) that models and analyzes the interaction between a web client and a server.
 
 ## 1.3 Normative References <a id='normative-references'></a>
 
@@ -1029,19 +1119,19 @@ This document uses the following notation for certain commonly used objects:
 | Notation        | Commonly used object                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `theSarifLog`   | The root object of the SARIF log file.                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `theRun`        | The `run` object ([§3.14](#run-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                                                                          |
-| `theTool`       | The value of `theRun.tool` ([§3.14.6](#run-object--tool-property))                                                                                                                                                                                                                                                                                                                                                                         |
-| `theDescriptor` | The `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) identified by the `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) under discussion.                                                                                                                                                                                                                                          |
-| `theComponent`  | The `toolComponent` object ([§3.19](#toolcomponent-object)) identified by the `toolComponentReference` object ([§3.54](#toolcomponentreference-object)) under discussion.                                                                                                                                                                                                                                                                  |
-| `theResult`     | The `result` object ([§3.27](#result-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                                                                    |
-| `thisObject`    | The object containing the property under discussion.<br>NOTE: Usually when the description of a property refers to another property of the same object, the other property is referred to by its unqualified name. When necessary to avoid confusion, the name of the other property is qualified with \"`thisObject.`\" to emphasize that it is a property of the object under discussion. For an example, see [§3.27.7](#rule-property). |
-| `theLocationOwner` | The `result` object ([§3.27](#result-object)) or `notification` object ([§3.58](#notification-object)) with a `locations` array containing the `location` object ([§3.28](#location-object)) under discussion. |
+| `theRun`        | The `run` object ([3.14 "`run` Object"](#run-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                                                                          |
+| `theTool`       | The value of `theRun.tool` ([3.14.6 "`tool` Property"](#run-object--tool-property))                                                                                                                                                                                                                                                                                                                                                                         |
+| `theDescriptor` | The `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) identified by the `reportingDescriptorReference` object ([3.52 "`reportingDescriptorReference` Object"](#reportingdescriptorreference-object)) under discussion.                                                                                                                                                                                                                                          |
+| `theComponent`  | The `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)) identified by the `toolComponentReference` object ([3.54 "`toolComponentReference` Object"](#toolcomponentreference-object)) under discussion.                                                                                                                                                                                                                                                                  |
+| `theResult`     | The `result` object ([3.27 "`result` Object"](#result-object)) containing the object under discussion.                                                                                                                                                                                                                                                                                                                                                    |
+| `thisObject`    | The object containing the property under discussion.<br>NOTE: Usually when the description of a property refers to another property of the same object, the other property is referred to by its unqualified name. When necessary to avoid confusion, the name of the other property is qualified with \"`thisObject.`\" to emphasize that it is a property of the object under discussion. For an example, see [3.27.7 "`rule` Property"](#rule-property). |
+| `theLocationOwner` | The `result` object ([3.27 "`result` Object"](#result-object)) or `notification` object ([3.58 "`notification` Object"](#notification-object)) with a `locations` array containing the `location` object ([3.28 "`location` Object"](#location-object)) under discussion. |
 
 # 3. File Format <a id='file-format'></a>
 
 ## 3.1 General <a id='file-format--general'></a>
 
-SARIF defines an object model, the top level of which is the `sarifLog` object ([§3.13](#sariflog-object)),
+SARIF defines an object model, the top level of which is the `sarifLog` object ([3.13 "`sarifLog` Object"](#sariflog-object)),
 which contains the results of one or more analysis runs.
 The runs do not need to be produced by the same analysis tool.
 
@@ -1087,7 +1177,7 @@ Certain properties in this document represent the contents of portions of artifa
 
 ### 3.3.2 `text` Property <a id='artifactcontent-object--text-property'></a>
 
-If the external artifact is a text artifact, an `artifactContent` object **SHOULD** contain a property named `text` whose value is a string containing the relevant text. Since SARIF log files are encoded in UTF-8 (\[[RFC3629](#RFC3629)\]; see [§3.1](#file-format--general)), this means that if the external artifact is a text artifact in any encoding other than UTF-8, the SARIF producer **SHALL** transcode the text to UTF-8 before assigning it to the `text` property. The SARIF producer **SHALL** escape any characters that JSON \[[RFC8259](#RFC8259)\] requires to be escaped.
+If the external artifact is a text artifact, an `artifactContent` object **SHOULD** contain a property named `text` whose value is a string containing the relevant text. Since SARIF log files are encoded in UTF-8 (\[[RFC3629](#RFC3629)\]; see [3.1 "General"](#file-format--general)), this means that if the external artifact is a text artifact in any encoding other than UTF-8, the SARIF producer **SHALL** transcode the text to UTF-8 before assigning it to the `text` property. The SARIF producer **SHALL** escape any characters that JSON \[[RFC8259](#RFC8259)\] requires to be escaped.
 
 Notwithstanding any necessary transcoding and escaping, the SARIF producer **SHALL** preserve the text artifact’s line breaking convention (for example, `"\n"` or `"\r\n"`).
 
@@ -1103,20 +1193,20 @@ If the external artifact is a UTF-8 text artifact, the `binary` property **SHOUL
 
 ### 3.3.4 `rendered` Property <a id='rendered-property'></a>
 
-An `artifactContent` object **MAY** contain a property named `rendered` whose value is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that provides a rendered view of the contents.
+An `artifactContent` object **MAY** contain a property named `rendered` whose value is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) that provides a rendered view of the contents.
 
-> EXAMPLE 1: In this example, a `physicalLocation` object ([§3.29](#physicallocation-object)) denotes a memory address. Its `region.snippet.rendered` property ([§3.29.4](#region-property), [§3.30.13](#snippet-property)) offers a hex view of the relevant address range. The `markdown` property ([§3.12.4](#multiformatmessagestring-object--markdown-property)) emphasizes a byte of particular interest.
+> EXAMPLE 1: In this example, a `physicalLocation` object ([3.29 "`physicalLocation` Object"](#physicallocation-object)) denotes a memory address. Its `region.snippet.rendered` property ([3.29.4 "`region` Property"](#region-property), [3.30.13 "`snippet` Property"](#snippet-property)) offers a hex view of the relevant address range. The `markdown` property ([3.12.4 "`markdown` Property"](#multiformatmessagestring-object--markdown-property)) emphasizes a byte of particular interest.
 >
 > ```json
-> {                                # A physicalLocation object (§3.29).
->   "address": {                   # See §3.29.6.
->     "baseAddress": 4202880,      # See §3.32.6.
->     "offset": 64                 # See §3.32.8.
+> {                                # A physicalLocation object (3.29).
+>   "address": {                   # See 3.29.6.
+>     "baseAddress": 4202880,      # See 3.32.6.
+>     "offset": 64                 # See 3.32.8.
 >   },
 > 
->   "region": {                    # See §3.29.4.
->     "snippet": {                 # An artifactContent object. See §3.30.13.
->       "rendered": {              # A multiformatMessageString object (§3.12).
+>   "region": {                    # See 3.29.4.
+>     "snippet": {                 # An artifactContent object. See 3.30.13.
+>       "rendered": {              # A multiformatMessageString object (3.12).
 >         "text": "00 00 01 00 00 00 00 00",
 >         "markdown": "00 00 **01** 00 00 00 00 00"
 >       }
@@ -1129,15 +1219,15 @@ An `artifactContent` object **MAY** contain a property named `rendered` whose va
 
 ### 3.4.1 General <a id='artifactlocation--general'></a>
 
-Certain properties in this document specify the location of an artifact. SARIF represents an artifact’s location with an `artifactLocation` object. The most important member of an `artifactLocation` object is its `uri` property ([§3.4.3](#uri-property)). If the `uri` property contains a relative reference (the term used in the URI standard \[[RFC3986](#RFC3986)\] for what is commonly called a "relative URI"), the `uriBaseId` property ([§3.4.4](#uribaseid-property)) can sometimes be used to resolve the relative reference to an absolute URI.
+Certain properties in this document specify the location of an artifact. SARIF represents an artifact’s location with an `artifactLocation` object. The most important member of an `artifactLocation` object is its `uri` property ([3.4.3 "`uri` Property"](#uri-property)). If the `uri` property contains a relative reference (the term used in the URI standard \[[RFC3986](#RFC3986)\] for what is commonly called a "relative URI"), the `uriBaseId` property ([3.4.4 "`uriBaseId` Property"](#uribaseid-property)) can sometimes be used to resolve the relative reference to an absolute URI.
 
 ### 3.4.2 Constraints <a id='artifactlocation-object--constraints'></a>
 
-At least one of the `uri` property ([§3.4.3](#uri-property)) or the `index` property ([§3.4.5](#artifactlocation-object--index-property)) **SHALL** be present. In certain circumstances (see [§3.4.4](#uribaseid-property) and [§3.4.5](#artifactlocation-object--index-property)), they **MAY** both be present.
+At least one of the `uri` property ([3.4.3 "`uri` Property"](#uri-property)) or the `index` property ([3.4.5 "`index` Property"](#artifactlocation-object--index-property)) **SHALL** be present. In certain circumstances (see [3.4.4 "`uriBaseId` Property"](#uribaseid-property) and [3.4.5 "`index` Property"](#artifactlocation-object--index-property)), they **MAY** both be present.
 
-> NOTE: Providing both `uri` and `index` makes the log file more readable at the expense of increased size. Providing only `index` reduces log file size but makes it less readable to an end user, who has to determine the URI by locating the `artifact` object ([§3.24](#artifact-object)) at the index within `theRun.artifacts` ([§3.14.15](#artifacts-property)) specified by `index`.
+> NOTE: Providing both `uri` and `index` makes the log file more readable at the expense of increased size. Providing only `index` reduces log file size but makes it less readable to an end user, who has to determine the URI by locating the `artifact` object ([3.24 "`artifact` Object"](#artifact-object)) at the index within `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)) specified by `index`.
 
-If both `uri` and `index` are present, they **SHALL** both denote the same artifact. That is, let URI<sub>1</sub> be the fully resolved URI of the artifact specified by an `artifactLocation` object as determined by the `uriBaseId` resolution procedure described in [§3.4.4](#uribaseid-property). Let URI<sub>2</sub> be the fully resolved URI of the artifact specified by the `artifact` object indicated by `index`, determined in the same way. Then URI<sub>1</sub> and URI<sub>2</sub> **SHALL** be equivalent in the sense described in [§3.10.1](#uri-valued-properties--general).
+If both `uri` and `index` are present, they **SHALL** both denote the same artifact. That is, let URI<sub>1</sub> be the fully resolved URI of the artifact specified by an `artifactLocation` object as determined by the `uriBaseId` resolution procedure described in [3.4.4 "`uriBaseId` Property"](#uribaseid-property). Let URI<sub>2</sub> be the fully resolved URI of the artifact specified by the `artifact` object indicated by `index`, determined in the same way. Then URI<sub>1</sub> and URI<sub>2</sub> **SHALL** be equivalent in the sense described in [3.10.1 "General"](#uri-valued-properties--general).
 
 ### 3.4.3 `uri` Property <a id='uri-property'></a>
 
@@ -1151,21 +1241,21 @@ If `thisObject` describes a nested artifact whose location within its parent con
 
 If the nested artifact is a member of an archive file (for example, zip \[[ZIP](#ZIP)\] or tar \[[TAR](#TAR)\]), `uri` **SHOULD** specify the member name or path as specified by the archive.
 
-If `thisObject` occurs as the value of a "top-level" property in `theRun.originalBaseIds` ([§3.14.14](#originaluribaseids-property)), then `uri` **MAY** be absent. See [§3.14.14](#originaluribaseids-property) for an explanation and an example of this point. Otherwise:
+If `thisObject` occurs as the value of a "top-level" property in `theRun.originalBaseIds` ([3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property)), then `uri` **MAY** be absent. See [3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property) for an explanation and an example of this point. Otherwise:
 
-If `index` ([§3.4.5](#artifactlocation-object--index-property)) is absent, `uri` **SHALL** be present.
+If `index` ([3.4.5 "`index` Property"](#artifactlocation-object--index-property)) is absent, `uri` **SHALL** be present.
 
 > NOTE 3: This ensures that there is a way to locate the artifact specified by the `artifactLocation` object.
 
 If `thisObject` represents a nested artifact whose location within its parent container can be expressed only by means of a byte offset, then `uri` **SHALL NOT** be present.
 
-> NOTE 4: This implies that `index` will be present; see [§3.4.5](#artifactlocation-object--index-property).
+> NOTE 4: This implies that `index` will be present; see [3.4.5 "`index` Property"](#artifactlocation-object--index-property).
 
 Otherwise, `uri` **MAY** be present.
 
 ### 3.4.4 `uriBaseId` Property <a id='uribaseid-property'></a>
 
-If this `artifactLocation` object describes a top-level artifact and the value of its `uri` property ([§3.4.3](#uri-property)) is a relative reference, the `artifactLocation` object **SHOULD** contain a property named `uriBaseId` whose value is a string which indirectly specifies the absolute URI with respect to which that relative reference is interpreted. If the `uri` property contains an absolute URI, the `uriBaseId` property **SHALL** be absent. If this `artifactLocation` object describes a nested artifact, `uriBaseId` **SHALL** be absent.
+If this `artifactLocation` object describes a top-level artifact and the value of its `uri` property ([3.4.3 "`uri` Property"](#uri-property)) is a relative reference, the `artifactLocation` object **SHOULD** contain a property named `uriBaseId` whose value is a string which indirectly specifies the absolute URI with respect to which that relative reference is interpreted. If the `uri` property contains an absolute URI, the `uriBaseId` property **SHALL** be absent. If this `artifactLocation` object describes a nested artifact, `uriBaseId` **SHALL** be absent.
 
 If a SARIF consumer requires an absolute URI (for example, to display the specified artifact to a user), then it needs to resolve `uriBaseId` to an absolute URI, which it can then combine with the relative reference stored in the `uri` property.
 
@@ -1177,13 +1267,13 @@ A SARIF consumer **SHALL** use the following procedure to resolve a `uriBaseId` 
 >
 >      C:> SarifAnalyzer --input log.sarif --uriBaseId SRCROOT="file:///C:/browser/src/"
 
-2.  If `uriBaseId` is not yet resolved and `theRun.originalUriBaseIds` ([§3.14.14](#originaluribaseids-property)) is present, the consumer **SHALL** attempt to resolve the `uriBaseId` from the information in `originalUriBaseIds`, in the manner specified in [§3.14.14](#originaluribaseids-property).
+2.  If `uriBaseId` is not yet resolved and `theRun.originalUriBaseIds` ([3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property)) is present, the consumer **SHALL** attempt to resolve the `uriBaseId` from the information in `originalUriBaseIds`, in the manner specified in [3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property).
 
 3.  If `uriBaseId` is not yet resolved, the consumer **MAY** use other information or heuristics to locate the artifact.
 
 The `uriBaseId` property can be any string; it does not need to have any particular syntax or follow any particular naming convention. In particular, it does not need to designate a machine environment variable or similar value, although it might. The SARIF producer and any SARIF consumers need to agree on the meanings of any values for the `uriBaseId` property that appear in the log file.
 
-> EXAMPLE 2: In this example, the analysis tool has set the `uri` property of an `artifactLocation` object ([§3.4](#artifactlocation-object)) to a relative reference. The tool has also set the `uriBaseId` property to `"%srcroot%"`. The analysis tool and the SARIF consumers have agreed upon a convention whereby this indicates that the relative reference is expressed relative to the root of the source tree in which the file appears.
+> EXAMPLE 2: In this example, the analysis tool has set the `uri` property of an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) to a relative reference. The tool has also set the `uriBaseId` property to `"%srcroot%"`. The analysis tool and the SARIF consumers have agreed upon a convention whereby this indicates that the relative reference is expressed relative to the root of the source tree in which the file appears.
 >
 > ```json
 > "artifactLocation": {
@@ -1202,19 +1292,19 @@ The `uriBaseId` property can be any string; it does not need to have any particu
 >
 > - Semantics: Assuming the reader of the log file (an end user or another tool) has the necessary context, they can understand the meaning of the location specified by the `uri` property, for example, "this is a source file".
 >
-For more guidance on the intended use of the `uriBaseId` property, see [§3.4.7](#guidance-on-the-use-of-artifactlocation-objects).
+For more guidance on the intended use of the `uriBaseId` property, see [3.4.7 "Guidance on the Use of `artifactLocation` Objects"](#guidance-on-the-use-of-artifactlocation-objects).
 
 ### 3.4.5 `index` Property <a id='artifactlocation-object--index-property'></a>
 
-Depending on the circumstances, an `artifactLocation` object either **MAY**, **SHALL NOT**, **SHALL**, or **SHOULD** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.artifacts` ([§3.14.15](#artifacts-property)) of the `artifact` object ([§3.24](#artifact-object)), if any, that describes the artifact specified by this `artifactLocation` object.
+Depending on the circumstances, an `artifactLocation` object either **MAY**, **SHALL NOT**, **SHALL**, or **SHOULD** contain a property named `index` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)) of the `artifact` object ([3.24 "`artifact` Object"](#artifact-object)), if any, that describes the artifact specified by this `artifactLocation` object.
 
-If `thisObject` occurs as the `location` property ([§3.24.2](#artifact-object--location-property)) of an `artifact` object in `theRun.artifacts`, then `index` **MAY** be present. If present, it **SHALL** equal the array index within `theRun.artifacts` of the containing `artifact` object.
+If `thisObject` occurs as the `location` property ([3.24.2 "`location property"](#artifact-object--location-property)) of an `artifact` object in `theRun.artifacts`, then `index` **MAY** be present. If present, it **SHALL** equal the array index within `theRun.artifacts` of the containing `artifact` object.
 
 Otherwise, if `theRun.artifacts` is absent or does not contain an element that describes the artifact specified by `thisObject`, then `index` **SHALL NOT** be present.
 
 > NOTE 1: `index` cannot be present in this case because there is no array element for it to point to. But this implies that `uri` is present, because otherwise there would be no way to locate the artifact specified by `thisObject`.
 
-Otherwise, if the `uri` property ([§3.4.3](#uri-property)) is absent, then `index` **SHALL** be present.
+Otherwise, if the `uri` property ([3.4.3 "`uri` Property"](#uri-property)) is absent, then `index` **SHALL** be present.
 
 > NOTE 2: Again, this ensures that there is a way to locate the artifact specified by `thisObject`.
 
@@ -1225,7 +1315,7 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 > EXAMPLE 1: In this example, `results[0].locations[0].physicalLocation.artifactLocation.index` specifies the `artifact` object located at `artifacts[0]`.
 >
 > ```json
-> {                                    # A run object (§3.14).
+> {                                    # A run object (3.14).
 >   "artifacts": [
 >     {
 >       "location": {
@@ -1259,13 +1349,13 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 
 ### 3.4.6 `description` Property <a id='artifactlocation-object--description-property'></a>
 
-An `artifactLocation` object **MAY** have a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes this location.
+An `artifactLocation` object **MAY** have a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes this location.
 
-> EXAMPLE 1: In this example, the property values in `run.originalUriBaseIds` ([§3.14.14](#originaluribaseids-property)), which are `artifactLocation` objects, have `description` properties. This allows a SARIF viewer to display helpful information when prompting a user to supply values for the base id symbols.
+> EXAMPLE 1: In this example, the property values in `run.originalUriBaseIds` ([3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property)), which are `artifactLocation` objects, have `description` properties. This allows a SARIF viewer to display helpful information when prompting a user to supply values for the base id symbols.
 >
 > ```json
-> {                                                # A run object (§3.14).
->   "originalUriBaseIds": {                        # See §3.14.14.
+> {                                                # A run object (3.14).
+>   "originalUriBaseIds": {                        # See 3.14.14.
 >     "PROJROOT": {
 >       "uri": "file:///C:/browser/",
 >       "description": {
@@ -1294,23 +1384,23 @@ Some URIs are "deterministic" in the sense that they will be the same from one r
 
 In contrast, file system paths are typically non-deterministic. For example, a source code enlistment might exist at different paths on different machines.
 
-`artifactLocation` objects **MAY** represent both deterministic and non-deterministic URIs. In either case, the `uri` property ([§3.4.3](#uri-property)) **SHOULD** be deterministic, either because it is a deterministic relative reference (for example, the relative path to a file from the root of the directory tree containing the analyzed source code) or because it is an absolute URI. If the URI is non-deterministic, the `uriBaseId` property ([§3.4.4](#uribaseid-property)) **SHOULD** capture the non-deterministic portion of the URI, for example, the absolute path to the root of the directory tree containing the analyzed source code.
+`artifactLocation` objects **MAY** represent both deterministic and non-deterministic URIs. In either case, the `uri` property ([3.4.3 "`uri` Property"](#uri-property)) **SHOULD** be deterministic, either because it is a deterministic relative reference (for example, the relative path to a file from the root of the directory tree containing the analyzed source code) or because it is an absolute URI. If the URI is non-deterministic, the `uriBaseId` property ([3.4.4 "`uriBaseId` Property"](#uribaseid-property)) **SHOULD** capture the non-deterministic portion of the URI, for example, the absolute path to the root of the directory tree containing the analyzed source code.
 
 > EXAMPLE 1: In this example, the location of a result detected by a tool is specified by a relative reference together with a `uriBaseId` that specifies the root of the source code enlistment.
 >
 > ```json
-> {                                                # A run object (§3.14).
->   "originalUriBaseIds": {                        # See §3.14.14.
+> {                                                # A run object (3.14).
+>   "originalUriBaseIds": {                        # See 3.14.14.
 >     "SRCROOT": {
 >       "uri": "file:///C:/browser/src/"
 >     }
 >   },
 > 
->   "results": [                                   # See §3.14.23.                                     
->     {                                            # A result object (§3.27). 
->       "locations": [                             # See §3.27.12.
->         {                                        # A location object (§3.28).
->           "physicalLocation": {                  # See §3.28.3.
+>   "results": [                                   # See 3.14.23.                                     
+>     {                                            # A result object (3.27). 
+>       "locations": [                             # See 3.27.12.
+>         {                                        # A location object (3.28).
+>           "physicalLocation": {                  # See 3.28.3.
 >             "artifactLocation": {                # An artifactLocation object.
 >               "uri": "ui/window.cpp",
 >               "uriBaseId": "SRCROOT"
@@ -1327,16 +1417,16 @@ In contrast, file system paths are typically non-deterministic. For example, a s
 
 ### 3.5.1 Localizable Strings <a id='localizable-strings'></a>
 
-Certain string-valued properties in this document, for example, `toolComponent.name` ([§3.19.8](#toolcomponent-object--name-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
+Certain string-valued properties in this document, for example, `toolComponent.name` ([3.19.8 "`name` Property"](#toolcomponent-object--name-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
 
 ### 3.5.2 Redactable Strings <a id='redactable-strings'></a>
 
-Certain string-valued properties in this document (for example, `invocation.commandLine` ([§3.20.2](#commandline-property))) might contain
+Certain string-valued properties in this document (for example, `invocation.commandLine` ([3.20.2 "`commandLine` Property"](#commandline-property))) might contain
 sensitive information that a SARIF producer or a SARIF post-processor might choose to redact.
 We describe these properties as "redactable." The description of every redactable property will state that it is redactable.
 
 If a SARIF producer or a SARIF post-processor chooses to redact sensitive information in a redactable property,
-it **SHALL** replace the sensitive information with a string whose value is an element of `theRun.redactionTokens` ([§3.14.28](#redactiontokens-property)).
+it **SHALL** replace the sensitive information with a string whose value is an element of `theRun.redactionTokens` ([3.14.28 "`redactionTokens` Property"](#redactiontokens-property)).
 
 ### 3.5.3 GUID-valued Strings <a id='guid-valued-strings'></a>
 
@@ -1371,8 +1461,8 @@ Differing `guid` values on the root elements of two or more SARIF files indicate
 #### 3.5.4.1 General <a id='hierarchical-strings--general'></a>
 
 Certain string-valued properties and certain property names in this document
-(for example, the value of the `runAutomationDetails.id` property ([§3.17.3](#runautomationdetails-object--id-property)),
-and the property names in a property bag ([§3.8](#property-bags))) are said to be "hierarchical."
+(for example, the value of the `runAutomationDetails.id` property ([3.17.3 "`id` Property"](#runautomationdetails-object--id-property)),
+and the property names in a property bag ([3.8 "Property Bags"](#property-bags))) are said to be "hierarchical."
 This means that the string consists of a sequence of forward-slash-separated components, with this syntax:
 
 ```
@@ -1386,7 +1476,7 @@ component character = ? JSON string character ? - "/";
 > NOTE 1: The grammar prohibits a `component` from containing a forward slash.
 > There is no escape mechanism to allow a `component` to include a forward slash.
 
-For examples, see [§3.8.2](#tags) and [§3.17.3](#runautomationdetails-object--id-property).
+For examples, see [3.8.2 "Tags"](#tags) and [3.17.3 "`id` Property"](#runautomationdetails-object--id-property).
 
 The description of every hierarchical string will state that it is hierarchical.
 
@@ -1404,7 +1494,7 @@ and a SARIF consumer **SHALL NOT** interpret it as dividing the value into hiera
 #### 3.5.4.2 Versioned Hierarchical Strings <a id='versioned-hierarchical-strings'></a>
 
 Certain hierarchical strings in this document
-(for example, the property names in `result.fingerprints` ([§3.27.16](#fingerprints-property)) and `result.partialFingerprints` ([§3.27.17](#partialfingerprints-property)))
+(for example, the property names in `result.fingerprints` ([3.27.16 "`fingerprints` Property"](#fingerprints-property)) and `result.partialFingerprints` ([3.27.17 "`partialFingerprints` Property"](#partialfingerprints-property)))
 are said to be "versioned." This means that if the last `component` of the string is of the form
 
     version component = "v", non negative integer;
@@ -1427,8 +1517,8 @@ A hierarchical string without a version component **SHALL** be considered older 
 > property name is `"prohibitedWordHash/v1"`.
 >
 > ```json
-> {                                 # A result object (§3.27).
->   "partialFingerprints": {        # See §3.27.17.
+> {                                 # A result object (3.27).
+>   "partialFingerprints": {        # See 3.27.17.
 >     "prohibitedWordHash": "4efcc21977b55",
 >     "prohibitedWordHash/v2": "097886bc876fe"
 >   }
@@ -1440,13 +1530,13 @@ A hierarchical string without a version component **SHALL** be considered older 
 
 ## 3.6 Object Properties <a id='object-properties'></a>
 
-Certain properties in this document are defined to be objects whose property names satisfy certain conditions. Examples are `run.originalUriBaseIds` ([§3.14.14](#originaluribaseids-property)) and `reportingDescriptor.messageStrings` ([§3.49.11](#messagestrings-property)). Unless otherwise specified in the description of a specific property, if any such object is empty, then either the property **SHALL** be represented as an empty object `{}`, or it **SHALL** be absent.
+Certain properties in this document are defined to be objects whose property names satisfy certain conditions. Examples are `run.originalUriBaseIds` ([3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property)) and `reportingDescriptor.messageStrings` ([3.49.11 "`messageStrings` Property"](#messagestrings-property)). Unless otherwise specified in the description of a specific property, if any such object is empty, then either the property **SHALL** be represented as an empty object `{}`, or it **SHALL** be absent.
 
 ## 3.7 Array Properties <a id='array-properties'></a>
 
 ### 3.7.1 General <a id='array-properties--general'></a>
 
-Certain properties in this document are defined to be arrays. Examples are the `invocation.toolExecutionNotifications` property ([§3.20.21](#toolexecutionnotifications-property)) and the property bag `tags` property ([§3.8.2](#tags)).
+Certain properties in this document are defined to be arrays. Examples are the `invocation.toolExecutionNotifications` property ([3.20.21 "`toolExecutionNotifications` Property"](#toolexecutionnotifications-property)) and the property bag `tags` property ([3.8.2 "Tags"](#tags)).
 
 ### 3.7.2 Default Value <a id='default-value'></a>
 
@@ -1454,7 +1544,7 @@ If an array-valued property is absent, it **SHALL** default to an empty array un
 
 ### 3.7.3 Array Properties with Unique Values <a id='array-properties-with-unique-values'></a>
 
-Certain array-valued properties in this document are described as having "unique" elements. When a property is so described, it means that no two elements of the array **SHALL** have equal values. For purposes of this document, two array elements **SHALL** be considered equal when they satisfy the condition for equality described in the JSON Schema standard \[[JSCHEMA01](#JSCHEMA01)\], [§4.3](#externalproperties-object), "Instance equality". In particular, two strings are considered equal when they consist of the same sequence of Unicode \[[UNICODE12](#UNICODE12)\] code points.
+Certain array-valued properties in this document are described as having "unique" elements. When a property is so described, it means that no two elements of the array **SHALL** have equal values. For purposes of this document, two array elements **SHALL** be considered equal when they satisfy the condition for equality described in the JSON Schema standard \[[JSCHEMA01](#JSCHEMA01)\], [4.3 "`externalProperties` Object"](#externalproperties-object), "Instance equality". In particular, two strings are considered equal when they consist of the same sequence of Unicode \[[UNICODE12](#UNICODE12)\] code points.
 
 ### 3.7.4 Array Indices <a id='array-indices'></a>
 
@@ -1464,9 +1554,9 @@ If any property in this document is described as an "array index," it **SHALL** 
 
 ### 3.8.1 General <a id='property-bags--general'></a>
 
-Certain properties in this document are defined to be "property bags". A property bag is an object ([§3.6](#object-properties)) containing an unordered set of properties with arbitrary names.
+Certain properties in this document are defined to be "property bags". A property bag is an object ([3.6 "Object Properties"](#object-properties)) containing an unordered set of properties with arbitrary names.
 
-The property names are hierarchical strings ([§3.5.4](#hierarchical-strings)). The components of the property names **SHOULD** be camelCase strings, but see [§Appendix A](#normative-production-of-sarif-by-converters) for exceptions.
+The property names are hierarchical strings ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)). The components of the property names **SHOULD** be camelCase strings, but see [Appendix D "Production of SARIF by Converters"](#normative-production-of-sarif-by-converters) for exceptions.
 
 The property values **MAY** be of any JSON type, including strings, numbers, arrays, objects, Booleans, and null. If a property value is a string, it **MAY** be an empty string.
 
@@ -1476,9 +1566,9 @@ In addition to those properties that are explicitly documented, every object def
 
 #### 3.8.2.1 General <a id='tags--general'></a>
 
-If a property bag contains a property named `tags`, the property value **SHALL** be an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)), hierarchical ([§3.5.4](#hierarchical-strings)) strings. Two strings **SHALL** be considered the same if they consist of the same sequence of Unicode \[[UNICODE12](#UNICODE12)\] code points.
+If a property bag contains a property named `tags`, the property value **SHALL** be an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)), hierarchical ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)) strings. Two strings **SHALL** be considered the same if they consist of the same sequence of Unicode \[[UNICODE12](#UNICODE12)\] code points.
 
-Tags **SHOULD NOT** be used to label a result or a rule as belonging to a category in a classification system such as the Common Weakness Enumeration \[[CWE](#CWE)\] (for example, by adding a tag `"CWE/622"`). Instead, taxonomies ([§3.19.3](#taxonomies)) **SHOULD** be used for this purpose.
+Tags **SHOULD NOT** be used to label a result or a rule as belonging to a category in a classification system such as the Common Weakness Enumeration \[[CWE](#CWE)\] (for example, by adding a tag `"CWE/622"`). Instead, taxonomies ([3.19.3 "Taxonomies"](#taxonomies)) **SHOULD** be used for this purpose.
 
 Even when defining a custom classification system used within an engineering team, taxonomies **SHOULD** be used rather than tags when labeling a result or a rule.
 
@@ -1487,10 +1577,10 @@ Even when defining a custom classification system used within an engineering tea
 > EXAMPLE 2: In this example, the SARIF producer tags an artifact with the string `"openSource"`.
 >
 > ```json
-> {                              # A run object (§3.14).
->   "artifacts": [               # See §3.14.15.
->     {                          # An artifact object (§3.24).
->       "location": {            # See §3.24.2.
+> {                              # A run object (3.14).
+>   "artifacts": [               # See 3.14.15.
+>     {                          # An artifact object (3.24).
+>       "location": {            # See 3.24.2.
 >         "uri": "http://www.example.com/libraries/jsonParser.js"
 >       },
 >       "properties": {
@@ -1508,12 +1598,12 @@ Even when defining a custom classification system used within an engineering tea
 
 #### 3.8.2.2 Tag Metadata <a id='tag-metadata'></a>
 
-A SARIF log file **MAY** provide additional information about any tag value by including a property whose name is the same as that tag value and whose value is any JSON value. If present, this property **SHALL** be located by searching first in the property bag that contains the tag, and then in the property bag of the containing `run` object ([§3.14](#run-object)) `theRun`, if any.
+A SARIF log file **MAY** provide additional information about any tag value by including a property whose name is the same as that tag value and whose value is any JSON value. If present, this property **SHALL** be located by searching first in the property bag that contains the tag, and then in the property bag of the containing `run` object ([3.14 "`run` Object"](#run-object)) `theRun`, if any.
 
-> EXAMPLE 1: Continuing the example from [§3.8.2.1](#tags--general), suppose the tool wishes to provide additional information about using open source code. It might provide that information within the property bag containing the tag (the property bag belonging to the `artifact` object):
+> EXAMPLE 1: Continuing the example from [3.8.2.1 "General"](#tags--general), suppose the tool wishes to provide additional information about using open source code. It might provide that information within the property bag containing the tag (the property bag belonging to the `artifact` object):
 >
 > ```json
-> {                              # An artifact object (§3.24).
+> {                              # An artifact object (3.24).
 >   "location": {
 >     "uri": "http://www.example.com/libraries/jsonParser.js"
 >   },
@@ -1532,9 +1622,9 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 > EXAMPLE 2: There might be several open source files. To avoid duplicating information, the tool might choose to place the tag metadata in the property bag belonging to `theRun`:
 >
 > ```json
-> {                              # A run object (§3.14).
+> {                              # A run object (3.14).
 >   "artifacts": [
->     {                          # An artifact object (§3.24).
+>     {                          # An artifact object (3.24).
 >       "location": {
 >         "uri": "http://www.example.com/libraries/jsonParser.js"
 >       },
@@ -1603,7 +1693,7 @@ The time component of every date/time-valued property **SHALL** be expressed in 
 
 > NOTE 1: The name of every date/time-valued property ends in "Utc" to emphasize that requirement.
 
-The time components of date/time-valued properties in property bags ([§3.8](#property-bags)) **SHOULD** also be expressed in UTC.
+The time components of date/time-valued properties in property bags ([3.8 "Property Bags"](#property-bags)) **SHOULD** also be expressed in UTC.
 
 > NOTE 2: This might not always be possible if the property comes from a source that does not provide time zone information.
 
@@ -1627,7 +1717,7 @@ Two URI references **SHALL** be considered equivalent if their normalized forms 
 
 > NOTE 2: Features of this normalized form include using upper-case hexadecimal digits for percent-encoded characters and expressing the scheme component in lower-case. For the full specification of the normalized URI form, see the standard \[[RFC3986](#RFC3986)\].
 
-For additional normalization requirements for URIs that use the `"file"` scheme, see [§3.10.2](#normalizing-file-scheme-uris).
+For additional normalization requirements for URIs that use the `"file"` scheme, see [3.10.2 "Normalizing File Scheme URIs"](#normalizing-file-scheme-uris).
 
 When two URI references are not equivalent in this sense (that is, when their normalized forms are not the same), we will say that they are "distinct."
 
@@ -1667,7 +1757,7 @@ SARIF producers **SHALL** create `"file"` scheme URIs by means of the following 
 
 5.  Create a URI from the resulting path.
 
-6.  Optionally, divide the resulting URI into a base URI and a relative URI (preserving case in both parts), and create an entry for the base URI in `theRun.originalUriBaseIds` ([§3.14.14](#originaluribaseids-property)).
+6.  Optionally, divide the resulting URI into a base URI and a relative URI (preserving case in both parts), and create an entry for the base URI in `theRun.originalUriBaseIds` ([3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property)).
 
 > NOTE 3: URI and path manipulation are complex topics. Many operating systems, languages, and frameworks provide methods to perform these operations, which is preferable to having every SARIF producer reimplement them. For example, in C#, the operation can be performed as follows:
 >
@@ -1701,15 +1791,15 @@ A consumer would treat `f1` and `f2` as residing in the same directory. So, for 
 
 ### 3.10.3 URIs That use the SARIF Scheme <a id='uris-that-use-the-sarif-scheme'></a>
 
-In certain circumstances, a URI can refer to an element of the current SARIF log file (for example, see [§3.16.3](#externalpropertyfilereference-object--location-property)). Such a URI uses the `sarif` scheme. The `sarif` URI scheme consists of only a scheme (with the value `sarif`) and a path component. The path component is interpreted as a JSON pointer \[[RFC6901](#RFC6901)\] into the SARIF document containing the URI. The authority, query and fragment URI components **SHALL NOT** be present.
+In certain circumstances, a URI can refer to an element of the current SARIF log file (for example, see [3.16.3 "`location` Property"](#externalpropertyfilereference-object--location-property)). Such a URI uses the `sarif` scheme. The `sarif` URI scheme consists of only a scheme (with the value `sarif`) and a path component. The path component is interpreted as a JSON pointer \[[RFC6901](#RFC6901)\] into the SARIF document containing the URI. The authority, query and fragment URI components **SHALL NOT** be present.
 
-> EXAMPLE 1: The URI `"sarif:/inlineExternalProperties/0"` refers to the 0<sup>th</sup> element of the array contained in the `inlineExternalProperties` property ([§3.13.5](#inlineexternalproperties-property)) at the root of the log file.
+> EXAMPLE 1: The URI `"sarif:/inlineExternalProperties/0"` refers to the 0<sup>th</sup> element of the array contained in the `inlineExternalProperties` property ([3.13.5 "`inlineExternalProperties` Property"](#inlineexternalproperties-property)) at the root of the log file.
 
 ### 3.10.4 Internationalized Resource Identifiers (IRIs) <a id='internationalized-resource-identifiers-iris'></a>
 
-If a URI-valued property refers to a resource identified by an Internationalized Resource Identifier (IRI) \[[RFC3987](#RFC3987)\], the SARIF producer **SHALL** first transform the IRI into a URI, using the mapping mechanism specified in [§3.1](#file-format--general) of the standard \[[RFC3987](#RFC3987)\], and then assign the transformed value to the property. The string value of a URI-valued property **SHALL NOT** include Unicode characters such as `"é"`; such characters are permitted in IRIs but are not permitted in URIs. [§3.1](#file-format--general) of the standard \[[RFC3987](#RFC3987)\] describes how to replace such characters with "percent-encoded" equivalents to produce a valid URI.
+If a URI-valued property refers to a resource identified by an Internationalized Resource Identifier (IRI) \[[RFC3987](#RFC3987)\], the SARIF producer **SHALL** first transform the IRI into a URI, using the mapping mechanism specified in [3.1 "General"](#file-format--general) of the standard \[[RFC3987](#RFC3987)\], and then assign the transformed value to the property. The string value of a URI-valued property **SHALL NOT** include Unicode characters such as `"é"`; such characters are permitted in IRIs but are not permitted in URIs. [3.1 "General"](#file-format--general) of the standard \[[RFC3987](#RFC3987)\] describes how to replace such characters with "percent-encoded" equivalents to produce a valid URI.
 
-> EXAMPLE 1: Suppose a URI-valued property needs to refer to a resource identified by the string `"http://www.example.com/hu/sör.txt"`. This string contains the character `"ö"`, so it is a valid IRI but not a valid URI. Following the procedure in [§3.1](#file-format--general) of the standard \[[RFC3987](#RFC3987)\], a SARIF producer would transform this string to the valid URI `"http://www.example.com/hu/s%C3%B6r.txt"` before assigning it to the property.
+> EXAMPLE 1: Suppose a URI-valued property needs to refer to a resource identified by the string `"http://www.example.com/hu/sör.txt"`. This string contains the character `"ö"`, so it is a valid IRI but not a valid URI. Following the procedure in [3.1 "General"](#file-format--general) of the standard \[[RFC3987](#RFC3987)\], a SARIF producer would transform this string to the valid URI `"http://www.example.com/hu/s%C3%B6r.txt"` before assigning it to the property.
 
 ## 3.11 `message` Object <a id='message-object'></a>
 
@@ -1717,17 +1807,17 @@ If a URI-valued property refers to a resource identified by an Internationalized
 
 Certain objects in this document define messages intended to be viewed by a user. SARIF represents such a message with a `message` object, which offers the following features:
 
-- Message strings in plain text ("plain text messages") ([§3.11.3](#plain-text-messages)).
+- Message strings in plain text ("plain text messages") ([3.11.3 "Plain Text Messages"](#plain-text-messages)).
 
-- Message strings that incorporate formatting information ("formatted messages") in GitHub Flavored Markdown \[[GFM](#GFM)\] ([§3.11.4](#formatted-messages)).
+- Message strings that incorporate formatting information ("formatted messages") in GitHub Flavored Markdown \[[GFM](#GFM)\] ([3.11.4 "Formatted Messages"](#formatted-messages)).
 
-- Message strings with placeholders for variable information ([§3.11.5](#messages-with-placeholders)).
+- Message strings with placeholders for variable information ([3.11.5 "Messages with Placeholders"](#messages-with-placeholders)).
 
-- Message strings with embedded links ([§3.11.6](#messages-with-embedded-links)).
+- Message strings with embedded links ([3.11.6 "Messages with Embedded Links"](#messages-with-embedded-links)).
 
 ### 3.11.2 Constraints <a id='message-object--constraints'></a>
 
-At least one of the `text` ([§3.11.8](#message-object--text-property)) or `id` ([§3.11.10](#message-object--id-property)) properties **SHALL** be present.
+At least one of the `text` ([3.11.8 "`text` Property"](#message-object--text-property)) or `id` ([3.11.10 "`id` Property"](#message-object--id-property)) properties **SHALL** be present.
 
 > NOTE: This ensures that a SARIF consumer can locate the text of the message.
 
@@ -1737,7 +1827,7 @@ A plain text message **SHALL NOT** contain formatting information, for example, 
 
 If a plain text message consists of multiple paragraphs, it **MAY** contain line breaks (for example, `"\r\n"` or `"\n"`, if the SARIF log file is serialized as JSON) to separate the paragraphs. Line breaks **MAY** follow any convention (for example, `"\n"` or `"\r\n"`). A SARIF post-processor **MAY** normalize line breaks to any desired convention, including escaping or removing the line breaks so that the entire message renders on a single line.
 
-The message string **MAY** contain placeholders ([§3.11.5](#messages-with-placeholders)) and embedded links ([§3.11.6](#messages-with-embedded-links)).
+The message string **MAY** contain placeholders ([3.11.5 "Messages with Placeholders"](#messages-with-placeholders)) and embedded links ([3.11.6 "Messages with Embedded Links"](#messages-with-embedded-links)).
 
 If the message consists of more than one sentence, its first sentence **SHOULD** provide a useful summary of the message, suitable for display in cases where UI space is limited.
 
@@ -1751,7 +1841,7 @@ A SARIF post-processor **SHOULD NOT** modify line break sequences (except perhap
 
 #### 3.11.4.1 General <a id='formatted-messages--general'></a>
 
-Formatted messages **MAY** be of arbitrary length and **MAY** contain formatting information. The message string **MAY** also contain placeholders ([§3.11.5](#messages-with-placeholders)) and embedded links ([§3.11.6](#messages-with-embedded-links)).
+Formatted messages **MAY** be of arbitrary length and **MAY** contain formatting information. The message string **MAY** also contain placeholders ([3.11.5 "Messages with Placeholders"](#messages-with-placeholders)) and embedded links ([3.11.6 "Messages with Embedded Links"](#messages-with-embedded-links)).
 
 Formatted messages **SHALL** be expressed in GitHub-Flavored Markdown \[[GFM](#GFM)\]. Since GFM is a superset of CommonMark \[[CMARK](#CMARK)\], any CommonMark Markdown syntax is acceptable.
 
@@ -1777,7 +1867,7 @@ A message string **MAY** include one or more "placeholders." The syntax of a pla
 
     index = non negative integer;
 
-`index` represents a zero-based index into the array of strings contained in the `arguments` property ([§3.11.11](#message-object--arguments-property)).
+`index` represents a zero-based index into the array of strings contained in the `arguments` property ([3.11.11 "`arguments` Property"](#message-object--arguments-property)).
 
 When a SARIF consumer displays the message, it **SHALL** replace every occurrence of the placeholder `{n}` with the string value at index `n` in the `arguments` array. Within both plain text and formatted message strings, the characters "`{`" and "`}`" **SHALL** be represented by the character sequences "`{{`" and "`}}`" respectively.
 
@@ -1787,7 +1877,7 @@ Within a given `message` object:
 
 - A given placeholder index **SHALL** have the same meaning in the plain text and formatted message strings (so they can be replaced with the same element of the `arguments` array).
 
-> EXAMPLE 1: Suppose a `message` object’s `text` property ([§3.11.8](#message-object--text-property)) contains this string:
+> EXAMPLE 1: Suppose a `message` object’s `text` property ([3.11.8 "`text` Property"](#message-object--text-property)) contains this string:
 >
 > `"The variable \"{0}\" defined on line {1} is never used. Consider removing \"{0}\"."`
 >
@@ -1796,13 +1886,13 @@ Within a given `message` object:
 > EXAMPLE 2: In this example, the SARIF consumer will replace the placeholder `{0}` in `message.text` with the value `"pBuffer"` from the 0 element of `message.arguments`.
 >
 > ```json
-> {                                                   # A run object (§3.14).
->   "results": [                                      # See §3.14.23.
->     {                                               # A result object (§3.27).
->       "ruleId": "CA2101",                           # See §3.27.5.
->       "message": {                                  # See §3.27.11.
->         "text": "Variable '{0}' is uninitialized.", # See §3.11.8.
->         "arguments": [ "pBuffer" ]                  # See §3.11.11.
+> {                                                   # A run object (3.14).
+>   "results": [                                      # See 3.14.23.
+>     {                                               # A result object (3.27).
+>       "ruleId": "CA2101",                           # See 3.27.5.
+>       "message": {                                  # See 3.27.11.
+>         "text": "Variable '{0}' is uninitialized.", # See 3.11.8.
+>         "arguments": [ "pBuffer" ]                  # See 3.11.11.
 >       }
 >     }
 >   ]
@@ -1811,13 +1901,13 @@ Within a given `message` object:
 
 ### 3.11.6 Messages with Embedded Links <a id='messages-with-embedded-links'></a>
 
-A message string **MAY** include one or more links to locations within artifacts mentioned in the enclosing `result` object ([§3.27](#result-object)). We refer to these links as "embedded links".
+A message string **MAY** include one or more links to locations within artifacts mentioned in the enclosing `result` object ([3.27 "`result` Object"](#result-object)). We refer to these links as "embedded links".
 
-Within a formatted message ([§3.11.4](#formatted-messages)), an embedded link **SHALL** conform to the syntax of a GitHub Flavored Markdown link (see \[[GFM](#GFM)\], §6.6, "Links").
+Within a formatted message ([3.11.4 "Formatted Messages"](#formatted-messages)), an embedded link **SHALL** conform to the syntax of a GitHub Flavored Markdown link (see \[[GFM](#GFM)\], §6.6, "Links").
 
 > NOTE 1: The GFM link syntax is very flexible. Since a SARIF viewer that renders formatted messages will presumably rely on a full-featured GFM processor, there is no need to restrict the embedded link syntax in SARIF formatted messages.
 
-Within a plain text message ([§3.11.3](#plain-text-messages)), an embedded link **SHALL** conform to the following syntax (which is a greatly restricted subset of the GFM link syntax) before JSON encoding:
+Within a plain text message ([3.11.3 "Plain Text Messages"](#plain-text-messages)), an embedded link **SHALL** conform to the following syntax (which is a greatly restricted subset of the GFM link syntax) before JSON encoding:
 
 ```
     escaped link character = "\" | "[" | "]";
@@ -1851,14 +1941,14 @@ Literal square brackets ("`[`" and "`]`") in the link text of a plain text messa
 
 Literal square brackets and (doubled) backslashes **MAY** appear anywhere else in a plain text message without being escaped.
 
-In both plain text and formatted messages, if `link destination` is a non-negative integer, it **SHALL** refer to a `location` object ([§3.28](#location-object)) whose `id` property ([§3.28.2](#location-object--id-property)) equals the value of `link destination`. In this case, `theResult` **SHALL** contain exactly one `location` object with that `id`.
+In both plain text and formatted messages, if `link destination` is a non-negative integer, it **SHALL** refer to a `location` object ([3.28 "`location` Object"](#location-object)) whose `id` property ([3.28.2 "`id` Property"](#location-object--id-property)) equals the value of `link destination`. In this case, `theResult` **SHALL** contain exactly one `location` object with that `id`.
 
 > NOTE 3: Negative values are forbidden because their use would suggest some non-obvious semantic difference between positive and negative values.
 
 > EXAMPLE 2: In this example, a plain text message contains an embedded link to a location with a file. The `result` object contains exactly one `location` object whose `id` property matches the `link destination`.
 >
 > ```json
-> {                                  # A result object (§3.27).
+> {                                  # A result object (3.27).
 >   "ruleId": "TNT0001",
 >   "message": {
 >     "text": "Tainted data was used. The data came from [here](3)."
@@ -1889,9 +1979,9 @@ In both plain text and formatted messages, if `link destination` is a non-negati
 > }
 > ```
 
-The `link destination` in embedded links in both plain text messages and formatted messages **MAY** use the `sarif` URI scheme ([§3.10.3](#uris-that-use-the-sarif-scheme)). This allows a message to refer to any content elsewhere in the SARIF log file.
+The `link destination` in embedded links in both plain text messages and formatted messages **MAY** use the `sarif` URI scheme ([3.10.3 "URIs That use the SARIF Scheme"](#uris-that-use-the-sarif-scheme)). This allows a message to refer to any content elsewhere in the SARIF log file.
 
-> EXAMPLE 1: A `result.message` ([§3.27.11](#result-object--message-property)) can refer to another result in the same run (or, for that matter, in another run within the same log file) as follows:
+> EXAMPLE 1: A `result.message` ([3.27.11 "`message` Property"](#result-object--message-property)) can refer to another result in the same run (or, for that matter, in another run within the same log file) as follows:
 >
 > `"There was [another result](sarif:/runs/0/results/42) found by this code flow."`
 >
@@ -1925,11 +2015,11 @@ URLs MAY contain unescaped closing parentheses ')' and thus any parser applied t
 
 ### 3.11.7 Message String Lookup <a id='message-string-lookup'></a>
 
-A `message` object can directly contain message strings in its `text` ([§3.11.8](#message-object--text-property)) and `markdown` ([§3.11.9](#message-object--markdown-property)) properties. It can also indirectly refer to message strings through its `id` ([§3.11.10](#message-object--id-property)) property.
+A `message` object can directly contain message strings in its `text` ([3.11.8 "`text` Property"](#message-object--text-property)) and `markdown` ([3.11.9 "`markdown` Property"](#message-object--markdown-property)) properties. It can also indirectly refer to message strings through its `id` ([3.11.10 "`id` Property"](#message-object--id-property)) property.
 
 When a SARIF consumer needs to locate a message string from a `message` object, it **SHALL** follow the procedure specified in this section. The `run` object **SHALL** contain enough information for the procedure to succeed.
 
-The lookup **SHALL** occur entirely within the context of a single `toolComponent` object ([§3.19](#toolcomponent-object)) which we refer to as `theComponent`. If the SARIF consumer is displaying messages in the language specified by `theRun.language` ([§3.14.7](#language)), then `theComponent` is the tool component that defines the message. If the consumer is displaying messages in any other language – in which case a translation ([§3.19.4](#translations)) is in use – then `theComponent` is the tool component that contains the translation.
+The lookup **SHALL** occur entirely within the context of a single `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)) which we refer to as `theComponent`. If the SARIF consumer is displaying messages in the language specified by `theRun.language` ([3.14.7 "`language` Property"](#language)), then `theComponent` is the tool component that defines the message. If the consumer is displaying messages in any other language – in which case a translation ([3.19.4 "Translations"](#translations)) is in use – then `theComponent` is the tool component that contains the translation.
 
 In this procedure, we refer to the `message` object whose string is being looked up as `theMessage`.
 
@@ -1943,19 +2033,19 @@ IF `theMessage.text` is present and the desired language is `theRun.language` TH
 
 IF the string has not yet been found THEN
 
-&emsp;&emsp;IF `theMessage` occurs as the value of `result.message` ([§3.27.11](#result-object--message-property)) THEN
+&emsp;&emsp;IF `theMessage` occurs as the value of `result.message` ([3.27.11 "`message` Property"](#result-object--message-property)) THEN
 
-&emsp;&emsp;&emsp;&emsp;LET `theRule` be the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), an element of `theComponent.rules` ([§3.19.23](#rules-property)), which defines the rule that was violated by this result.
+&emsp;&emsp;&emsp;&emsp;LET `theRule` be the `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)), an element of `theComponent.rules` ([3.19.23 "`rules` Property"](#rules-property)), which defines the rule that was violated by this result.
 
-&emsp;&emsp;&emsp;&emsp;IF `theRule` exists AND `theRule.messageStrings` ([§3.49.11](#messagestrings-property)) is present AND contains a property whose name equals `theMessage.id` THEN
+&emsp;&emsp;&emsp;&emsp;IF `theRule` exists AND `theRule.messageStrings` ([3.49.11 "`messageStrings` Property"](#messagestrings-property)) is present AND contains a property whose name equals `theMessage.id` THEN
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;LET `theMFMS` be the `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that is the value of that property.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;LET `theMFMS` be the `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) that is the value of that property.
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Use the `text` or `markdown` property of `theMFMS` as appropriate.
 
-&emsp;&emsp;ELSE IF `theMessage` occurs as the value of `notification.message` ([§3.58.5](#notification-object--message-property)) THEN
+&emsp;&emsp;ELSE IF `theMessage` occurs as the value of `notification.message` ([3.58.5 "`message` Property"](#notification-object--message-property)) THEN
 
-&emsp;&emsp;&emsp;&emsp;LET `theDescriptor` be the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), an element of `theComponent.notifications` ([§3.19.23](#rules-property)), which describes this notification.
+&emsp;&emsp;&emsp;&emsp;LET `theDescriptor` be the `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)), an element of `theComponent.notifications` ([3.19.23 "`rules` Property"](#rules-property)), which describes this notification.
 
 &emsp;&emsp;&emsp;&emsp;IF `theDescriptor` exists AND `theDescriptor.messageStrings` is present AND contains a property whose name equals `theMessage.id` THEN
 
@@ -1965,7 +2055,7 @@ IF the string has not yet been found THEN
 
 IF the string has not yet been found THEN
 
-&emsp;&emsp;IF `theComponent.globalMessageStrings` ([§3.19.22](#globalmessagestrings-property)) is present AND contains a property whose name equals `theMessage.id` THEN
+&emsp;&emsp;IF `theComponent.globalMessageStrings` ([3.19.22 "`globalMessageStrings` Property"](#globalmessagestrings-property)) is present AND contains a property whose name equals `theMessage.id` THEN
 
 &emsp;&emsp;&emsp;&emsp;LET `theMFMS` be the `multiformatMessageString` object that is the value of that property.
 
@@ -1977,13 +2067,13 @@ IF the string has not yet been found THEN
 
 ### 3.11.8 `text` Property <a id='message-object--text-property'></a>
 
-A `message` object **MAY** contain a property named `text` whose value is a non-empty string containing a plain text message ([§3.11.3](#plain-text-messages)).
+A `message` object **MAY** contain a property named `text` whose value is a non-empty string containing a plain text message ([3.11.3 "Plain Text Messages"](#plain-text-messages)).
 
 ### 3.11.9 `markdown` Property <a id='message-object--markdown-property'></a>
 
-A `message` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([§3.11.4](#formatted-messages)) expressed in GitHub-Flavored Markdown \[[GFM](#GFM)\].
+A `message` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([3.11.4 "Formatted Messages"](#formatted-messages)) expressed in GitHub-Flavored Markdown \[[GFM](#GFM)\].
 
-If the `markdown` property is present, the `text` property ([§3.11.8](#message-object--text-property)) **SHALL** also be present.
+If the `markdown` property is present, the `text` property ([3.11.8 "`text` Property"](#message-object--text-property)) **SHALL** also be present.
 
 > NOTE: This ensures that the message is viewable even in contexts that do not support the rendering of formatted text.
 
@@ -1991,11 +2081,11 @@ SARIF consumers that cannot (or choose not to) render formatted text **SHALL** i
 
 ### 3.11.10 `id` Property <a id='message-object--id-property'></a>
 
-A `message` object **MAY** contain a property named `id` whose value is a non-empty string containing the identifier for the desired message. See [§3.11.7](#message-string-lookup) for details of the message string lookup procedure.
+A `message` object **MAY** contain a property named `id` whose value is a non-empty string containing the identifier for the desired message. See [3.11.7 "Message String Lookup"](#message-string-lookup) for details of the message string lookup procedure.
 
 ### 3.11.11 `arguments` Property <a id='message-object--arguments-property'></a>
 
-If the message string specified by any of the properties `text` ([§3.11.8](#message-object--text-property)), `markdown` ([§3.11.9](#message-object--markdown-property)), or `id` ([§3.11.10](#message-object--id-property)) contains any placeholders ([§3.11.5](#messages-with-placeholders)), the `message` object **SHALL** contain a property named `arguments` whose value is an array of strings. [§3.11.5](#messages-with-placeholders) specifies how a SARIF consumer combines the contents of the `arguments` array with the message string to construct the message that it presents to the end user, and provides an example.
+If the message string specified by any of the properties `text` ([3.11.8 "`text` Property"](#message-object--text-property)), `markdown` ([3.11.9 "`markdown` Property"](#message-object--markdown-property)), or `id` ([3.11.10 "`id` Property"](#message-object--id-property)) contains any placeholders ([3.11.5 "Messages with Placeholders"](#messages-with-placeholders)), the `message` object **SHALL** contain a property named `arguments` whose value is an array of strings. [3.11.5 "Messages with Placeholders"](#messages-with-placeholders) specifies how a SARIF consumer combines the contents of the `arguments` array with the message string to construct the message that it presents to the end user, and provides an example.
 
 If none of the properties `text`, `markdown`, or `id` contains any placeholders, then `arguments` **MAY** be absent.
 
@@ -2011,7 +2101,7 @@ A `multiformatMessageString` object groups together all available textual format
 
 ### 3.12.2 Localizable `multiformatMessageStrings` <a id='localizable-multiformatmessagestrings'></a>
 
-Certain `multiformatMessageString`-valued properties in this document, for example, `reportingDescriptor.shortDescription` ([§3.49.9](#reportingdescriptor-object--shortdescription-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
+Certain `multiformatMessageString`-valued properties in this document, for example, `reportingDescriptor.shortDescription` ([3.49.9 "`shortDescription` Property"](#reportingdescriptor-object--shortdescription-property)), can be translated into other languages. We describe these properties as being "localizable." The description of every localizable property will state that it is localizable.
 
 ### 3.12.3 `text` Property <a id='multiformatmessagestring-object--text-property'></a>
 
@@ -2021,9 +2111,9 @@ A `multiformatMessageString` object **SHALL** contain a property named `text` wh
 
 ### 3.12.4 `markdown` Property <a id='multiformatmessagestring-object--markdown-property'></a>
 
-A `multiformatMessageString` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([§3.11.4](#formatted-messages)) expressed in GitHub-Flavored Markdown \[[GFM](#GFM)\].
+A `multiformatMessageString` object **MAY** contain a property named `markdown` whose value is a non-empty string containing a formatted message ([3.11.4 "Formatted Messages"](#formatted-messages)) expressed in GitHub-Flavored Markdown \[[GFM](#GFM)\].
 
-SARIF consumers that cannot (or choose not to) render formatted text **SHALL** ignore the `markdown` property and use the `text` property ([§3.12.3](#multiformatmessagestring-object--text-property)) instead.
+SARIF consumers that cannot (or choose not to) render formatted text **SHALL** ignore the `markdown` property and use the `text` property ([3.12.3 "`text` Property"](#multiformatmessagestring-object--text-property)) instead.
 
 ## 3.13 `sarifLog` Object <a id='sariflog-object'></a>
 
@@ -2035,10 +2125,10 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 >
 > ```json
 > {
->   "version": "2.1.0", # See §3.13.2.
->   "runs": [           # See §3.13.4.
+>   "version": "2.1.0", # See 3.13.2.
+>   "runs": [           # See 3.13.4.
 >     {
->       ...             # A run object (§3.14).
+>       ...             # A run object (3.14).
 >     },
 >     ...
 >     {
@@ -2060,7 +2150,7 @@ Although the order in which properties appear in a JSON object value is not sema
 
 A `sarifLog` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document \[[JSCHEMA01](#JSCHEMA01)\] describing the version of the SARIF format to which this log file conforms can be obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([§3.13.2](#sariflog-object--version-property)).
+If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([3.13.2 "`version` Property"](#sariflog-object--version-property)).
 
 > NOTE 1: The purpose of the `\$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the log file. This is useful, for example, for tool authors who wish to ensure that logs produced by their tools conform to the SARIF format.
 
@@ -2068,7 +2158,7 @@ If the `\$schema` property is present, the JSON schema obtained from the specifi
 
 ### 3.13.4 `runs` Property <a id='runs-property'></a>
 
-A `sarifLog` object **SHALL** contain a property named `runs` whose value is either `null` or an array of zero or more `run` objects ([§3.14](#run-object)).
+A `sarifLog` object **SHALL** contain a property named `runs` whose value is either `null` or an array of zero or more `run` objects ([3.14 "`run` Object"](#run-object)).
 
 The value of `runs` **SHALL** be an array with at least one element except in the following circumstances:
 
@@ -2082,11 +2172,11 @@ The value of `runs` **SHALL** be an array with at least one element except in th
 
 ### 3.13.5 `inlineExternalProperties` Property <a id='inlineexternalproperties-property'></a>
 
-A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `externalProperties` objects ([§4.3](#externalproperties-object)).
+A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `externalProperties` objects ([4.3 "`externalProperties` Object"](#externalproperties-object)).
 
 > NOTE: This property allows multiple runs to share large data sets in a single, self-contained log file.
 
-> EXAMPLE 1: In this example, two tools analyze the same set of image files, stored in `sarifLog.inlineExternalProperties[0].artifacts`. The first tool locates the inline `externalProperties` object by means of a URI with the `sarif` scheme (see [§3.10.3](#uris-that-use-the-sarif-scheme)). The second tool locates the object by means of its `guid` property ([§4.3.4](#externalproperties-object--guid-property)).
+> EXAMPLE 1: In this example, two tools analyze the same set of image files, stored in `sarifLog.inlineExternalProperties[0].artifacts`. The first tool locates the inline `externalProperties` object by means of a URI with the `sarif` scheme (see [3.10.3 "URIs That use the SARIF Scheme"](#uris-that-use-the-sarif-scheme)). The second tool locates the object by means of its `guid` property ([4.3.4 "`guid` Property"](#externalproperties-object--guid-property)).
 >
 > ```json
 > {
@@ -2095,9 +2185,9 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 > 
 >   "inlineExternalProperties": [
 >     {                                            
->       "guid": "00001111-2222-1111-8888-555566667777", # See §4.3.4.
+>       "guid": "00001111-2222-1111-8888-555566667777", # See 4.3.4.
 > 
->       "artifacts": [                                  # See §4.3.6.
+>       "artifacts": [                                  # See 4.3.6.
 >         {
 >           "location": {
 >             "uri": "apple.png"
@@ -2114,14 +2204,14 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 >     }
 >   ],
 > 
->   "runs": [                                           # See §3.13.4.
->     {                                                 # A run object (§3.14).
->       "tool": {                                       # See §3.14.6.
+>   "runs": [                                           # See 3.13.4.
+>     {                                                 # A run object (3.14).
+>       "tool": {                                       # See 3.14.6.
 >         "driver": {
 >           "name": "ImageAccessibilityScanner"
 >         }
 >       },
->       "externalPropertyFileReferences": {             # See §3.14.2.
+>       "externalPropertyFileReferences": {             # See 3.14.2.
 >         "artifacts": [
 >           {
 >             "location": {
@@ -2157,7 +2247,7 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 
 ### 3.13.6 `guid` Property <a id='sariflog-object--guid-property'></a>
 
-A `sarifLog` object **SHOULD** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that provides a unique,
+A `sarifLog` object **SHOULD** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) that provides a unique,
 stable identifier for the `sarifLog` designating that the log itself has a conceptual identity as a bundle of tool runs for
 tracking a SARIF log through a distributed results processing pipeline.
 
@@ -2171,12 +2261,12 @@ A `run` object describes a single run of an analysis tool and contains the outpu
 >
 > ```json
 > {
->   "tool": {       # See §3.14.6.
->     ...           # A tool object (§3.18).
+>   "tool": {       # See 3.14.6.
+>     ...           # A tool object (3.18).
 >   },
->   "results": [    # See §3.14.23.
+>   "results": [    # See 3.14.23.
 >     {
->       ...         # A result object (§3.27).
+>       ...         # A result object (3.27).
 >     },
 >     ...
 >     {
@@ -2188,35 +2278,35 @@ A `run` object describes a single run of an analysis tool and contains the outpu
 
 ### 3.14.2 `externalPropertyFileReferences` Property <a id='externalpropertyfilereferences-property'></a>
 
-A `run` object **MAY** contain a property named `externalPropertyFileReferences` whose value is an `externalPropertyFileReferences` object ([§3.15](#externalpropertyfilereferences-object)) that specifies the locations of the external property files (see [§3.15.2](#rationale)) associated with this log file.
+A `run` object **MAY** contain a property named `externalPropertyFileReferences` whose value is an `externalPropertyFileReferences` object ([3.15 "`externalPropertyFileReferences` Object"](#externalpropertyfilereferences-object)) that specifies the locations of the external property files (see [3.15.2 "Rationale"](#rationale)) associated with this log file.
 
 ### 3.14.3 `automationDetails` Property <a id='automationdetails-property'></a>
 
-A `run` object **MAY** contain a property named `automationDetails` whose value is a `runAutomationDetails` object ([§3.17](#runautomationdetails-object)) that describes this run.
+A `run` object **MAY** contain a property named `automationDetails` whose value is a `runAutomationDetails` object ([3.17 "`runAutomationDetails` Object"](#runautomationdetails-object)) that describes this run.
 
-For an example, see [§3.17.1](#runautomationdetails-object--general).
+For an example, see [3.17.1 "General"](#runautomationdetails-object--general).
 
 ### 3.14.4 `runAggregates` Property <a id='runaggregates-property'></a>
 
-A `run` object **MAY** contain a property named `runAggregates` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `runAutomationDetails` objects ([§3.17](#runautomationdetails-object)) each of which describes an aggregate of runs to which this run belongs.
+A `run` object **MAY** contain a property named `runAggregates` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `runAutomationDetails` objects ([3.17 "`runAutomationDetails` Object"](#runautomationdetails-object)) each of which describes an aggregate of runs to which this run belongs.
 
-For an example, see [§3.17.1](#runautomationdetails-object--general).
+For an example, see [3.17.1 "General"](#runautomationdetails-object--general).
 
 ### 3.14.5 `baselineGuid` Property <a id='baselineguid-property'></a>
 
-A `run` object **MAY** contain a property named `baselineGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([§3.14.3](#automationdetails-property), [§3.17.4](#runautomationdetails-object--guid-property)) of some previous run.
+A `run` object **MAY** contain a property named `baselineGuid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([3.14.3 "`automationDetails` Property"](#automationdetails-property), [3.17.4 "`guid` Property"](#runautomationdetails-object--guid-property)) of some previous run.
 
 > NOTE: This ensures that only "similar" runs are compared.
 
-If `baselineGuid` is present, the `result.baselineState` property ([§3.27.24](#baselinestate-property)) of every `result` object ([§3.27](#result-object)) in `theRun` **SHALL** be computed with respect to the run specified by `baselineGuid`.
+If `baselineGuid` is present, the `result.baselineState` property ([3.27.24 "`baselineState` Property"](#baselinestate-property)) of every `result` object ([3.27 "`result` Object"](#result-object)) in `theRun` **SHALL** be computed with respect to the run specified by `baselineGuid`.
 
 ### 3.14.6 `tool` Property <a id='run-object--tool-property'></a>
 
-A `run` object **SHALL** contain a property named `tool` whose value is a `tool` object ([§3.18](#tool-object)) that describes the analysis tool that was run.
+A `run` object **SHALL** contain a property named `tool` whose value is a `tool` object ([3.18 "`tool` Object"](#tool-object)) that describes the analysis tool that was run.
 
 ### 3.14.7 `language` Property <a id='language'></a>
 
-A `run` object **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([§3.5.1](#localizable-strings)) in `theRun` (except for localizable strings that occur within `theRun.translations` ([§3.14.9](#translations-property))), in the format specified by the language tags standard \[[RFC5646](#RFC5646)\]. If this property is absent, it **SHALL** default to `"en-US"`.
+A `run` object **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([3.5.1 "Localizable Strings"](#localizable-strings)) in `theRun` (except for localizable strings that occur within `theRun.translations` ([3.14.9 "`translations` Property"](#translations-property))), in the format specified by the language tags standard \[[RFC5646](#RFC5646)\]. If this property is absent, it **SHALL** default to `"en-US"`.
 
 > EXAMPLE 1: The language is region-neutral English:
 >
@@ -2228,21 +2318,21 @@ A `run` object **MAY** contain a property named `language` whose value is a stri
 
 ### 3.14.8 `taxonomies` Property <a id='taxonomies-property'></a>
 
-A `run` object **MAY** contain a property named `taxonomies` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `toolComponent` objects ([§3.19](#toolcomponent-object)) each of which represents a standard taxonomy ([§3.19.3](#taxonomies)).
+A `run` object **MAY** contain a property named `taxonomies` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `toolComponent` objects ([3.19 "`toolComponent` Object"](#toolcomponent-object)) each of which represents a standard taxonomy ([3.19.3 "Taxonomies"](#taxonomies)).
 
-> NOTE: Analysis tools can define their own custom taxonomies; see [§3.19.3](#taxonomies) and [§3.19.25](#toolcomponent-object--taxa-property).
+> NOTE: Analysis tools can define their own custom taxonomies; see [3.19.3 "Taxonomies"](#taxonomies) and [3.19.25 "`taxa` Property"](#toolcomponent-object--taxa-property).
 
 ### 3.14.9 `translations` Property <a id='translations-property'></a>
 
-A `run` object **MAY** contain a property named `translations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `toolComponent` objects ([§3.19](#toolcomponent-object)) each of which represents a translation ([§3.19.4](#translations)).
+A `run` object **MAY** contain a property named `translations` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `toolComponent` objects ([3.19 "`toolComponent` Object"](#toolcomponent-object)) each of which represents a translation ([3.19.4 "Translations"](#translations)).
 
 ### 3.14.10 `policies` Property <a id='policies-property'></a>
 
-A `run` object **MAY** contain a property named `policies` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `toolComponent` objects ([§3.19](#toolcomponent-object)) each of which represents a policy ([§3.19.5](#policies)).
+A `run` object **MAY** contain a property named `policies` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `toolComponent` objects ([3.19 "`toolComponent` Object"](#toolcomponent-object)) each of which represents a policy ([3.19.5 "Policies"](#policies)).
 
 ### 3.14.11 `invocations` Property <a id='invocations-property'></a>
 
-A `run` object **MAY** contain a property named `invocations` whose value is an array of zero or more `invocation` objects ([§3.20](#invocation-object)) that together describe a single run of a single analysis tool.
+A `run` object **MAY** contain a property named `invocations` whose value is an array of zero or more `invocation` objects ([3.20 "`invocation` Object"](#invocation-object)) that together describe a single run of a single analysis tool.
 
 > NOTE: Normally, an analysis tool runs as a single process, and the `invocations` array requires only one element. The `invocations` property is defined as an array, rather than as a single `invocation` object, to accommodate tools which execute a sequence of programs to produce results. For example, a tool might run one program to determine the set of artifacts to analyze and another program to analyze those artifacts.
 
@@ -2250,13 +2340,13 @@ The elements of the `invocations` array **SHOULD**, as far as possible, be arran
 
 ### 3.14.12 `conversion` Property <a id='conversion-property'></a>
 
-If a `run` object was produced by a converter, it **MAY** contain a property named `conversion` whose value is a `conversion` object ([§3.22](#conversion-object)) that describes how the converter transformed the analysis tool’s native output format into the SARIF format.
+If a `run` object was produced by a converter, it **MAY** contain a property named `conversion` whose value is a `conversion` object ([3.22 "`conversion` Object"](#conversion-object)) that describes how the converter transformed the analysis tool’s native output format into the SARIF format.
 
 A direct producer **SHALL NOT** emit the `conversion` property.
 
 ### 3.14.13 `versionControlProvenance` Property <a id='versioncontrolprovenance-property'></a>
 
-A `run` object **MAY** contain a property named `versionControlProvenance` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `versionControlDetails` objects ([§3.23](#versioncontroldetails-object)). Each array entry specifies a revision in a repository containing files that were scanned during the run.
+A `run` object **MAY** contain a property named `versionControlProvenance` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `versionControlDetails` objects ([3.23 "`versionControlDetails` Object"](#versioncontroldetails-object)). Each array entry specifies a revision in a repository containing files that were scanned during the run.
 
 > NOTE 1: This property allows an engineering system to reproduce a scan by retrieving the specified revision of the required files from each repository before repeating the analysis run.
 
@@ -2271,10 +2361,10 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 > ```json
 >   {                                    # A run object.
 >      "versionControlProvenance": [
->       {                                # A versionControlDetails object (§3.23).
->           "repositoryUri": "https://github.com/example/browser",   # See §3.23.3.
->           "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e", # See §3.23.4.
->           "branch": "master"             # See §3.23.5.
+>       {                                # A versionControlDetails object (3.23).
+>           "repositoryUri": "https://github.com/example/browser",   # See 3.23.3.
+>           "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e", # See 3.23.4.
+>           "branch": "master"             # See 3.23.5.
 >       }
 >       ]
 >   }
@@ -2282,9 +2372,9 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 
 ### 3.14.14 `originalUriBaseIds` Property <a id='originaluribaseids-property'></a>
 
-A `run` object **MAY** contain a property named `originalUriBaseIds` whose value is an object ([§3.6](#object-properties)) each of whose property names designates a URI base id ([§3.4.4](#uribaseid-property)) and each of whose property values is an `artifactLocation` object ([§3.4](#artifactlocation-object)) that specifies (in the manner described below) the absolute URI \[[RFC3986](#RFC3986)\] of that URI base id on the machine where the SARIF producer ran.
+A `run` object **MAY** contain a property named `originalUriBaseIds` whose value is an object ([3.6 "Object Properties"](#object-properties)) each of whose property names designates a URI base id ([3.4.4 "`uriBaseId` Property"](#uribaseid-property)) and each of whose property values is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) that specifies (in the manner described below) the absolute URI \[[RFC3986](#RFC3986)\] of that URI base id on the machine where the SARIF producer ran.
 
-If the `artifactLocation` object’s `uri` property ([§3.4.3](#uri-property)) is a relative reference, its `uriBaseId` property ([§3.4.4](#uribaseid-property)) **SHALL** be present. Otherwise (that is, if `uri` is an absolute URI, or if it is absent), `uriBaseId` **SHALL** be absent.
+If the `artifactLocation` object’s `uri` property ([3.4.3 "`uri` Property"](#uri-property)) is a relative reference, its `uriBaseId` property ([3.4.4 "`uriBaseId` Property"](#uribaseid-property)) **SHALL** be present. Otherwise (that is, if `uri` is an absolute URI, or if it is absent), `uriBaseId` **SHALL** be absent.
 
 If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be omitted.
 
@@ -2292,7 +2382,7 @@ If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be o
 >
 > - To avoid revealing sensitive information such as a user name in a URI, for example, `file:///C:/Users/Mary/code/TheProject/`.
 >
-> - To produce deterministic output (see [§Appendix A](#informative-producing-deterministic-sarif-log-files)) by avoiding path names that differ depending on the machine where the analysis tool runs.
+> - To produce deterministic output (see [Appendix F "Producing Deterministic SARIF Log Files"](#informative-producing-deterministic-sarif-log-files)) by avoiding path names that differ depending on the machine where the analysis tool runs.
 
 > EXAMPLE 1: In this example, the "top-level" property `PROJECTROOT` specifies a URI containing a username:
 >
@@ -2343,13 +2433,13 @@ The values of the `uri` properties in the `artifactLocation` objects in `origina
 
 - **SHALL NOT** include `".."` path segments.
 
-    NOTE 2: The rationale for these restrictions is to allow the `uriBaseId` resolution procedure described below to work by simple concatenation of the `uri` properties in `originalUriBaseIds`. The prohibition of `".."` path segments ensures that the resolution procedure works with `file` scheme URIs, without concern for the presence of symbolic links. See [§3.10.2](#normalizing-file-scheme-uris) for more information on this point.
+    NOTE 2: The rationale for these restrictions is to allow the `uriBaseId` resolution procedure described below to work by simple concatenation of the `uri` properties in `originalUriBaseIds`. The prohibition of `".."` path segments ensures that the resolution procedure works with `file` scheme URIs, without concern for the presence of symbolic links. See [3.10.2 "Normalizing File Scheme URIs"](#normalizing-file-scheme-uris) for more information on this point.
 
 This property allows SARIF consumers to resolve any relative references which appear in any `artifactLocation` objects elsewhere in the run, as long as the consumer runs either on the same machine as the producer, or on a machine with an identical file system layout. This is useful for individual developers who wish to run analysis tools and examine the results in a viewer. It is also useful for teams which share a convention for their file system layout.
 
 A SARIF consumer **SHALL** use the following procedure to resolve a URI base id from the information in `originalUriBaseIds`:
 
-> NOTE 3: This procedure is part of an overall URI base id resolution procedure described in [§3.4.4](#uribaseid-property).
+> NOTE 3: This procedure is part of an overall URI base id resolution procedure described in [3.4.4 "`uriBaseId` Property"](#uribaseid-property).
 
 > NOTE 4: In this procedure, we refer to the resolved URI value by the variable name `resolvedUri`.
 
@@ -2388,12 +2478,12 @@ A SARIF consumer **SHALL** use the following procedure to resolve a URI base id 
 >   },
 > 
 >   "results": [
->     {                                     # A result object (§3.27).
+>     {                                     # A result object (3.27).
 >       "ruleId": "CA1001",
 >       "locations": [
->         {                                 # A location object (§3.28).
->           "physicalLocation": {           # See §3.28.3.
->             "artifactLocation": {         # An artifactLocation object (§3.4).
+>         {                                 # A location object (3.28).
+>           "physicalLocation": {           # See 3.28.3.
+>             "artifactLocation": {         # An artifactLocation object (3.4).
 >               "uri": "lib/memory.c",
 >               "uriBaseId": "SRCROOT"
 >             }
@@ -2407,9 +2497,9 @@ A SARIF consumer **SHALL** use the following procedure to resolve a URI base id 
 
 ### 3.14.15 `artifacts` Property <a id='artifacts-property'></a>
 
-A `run` object **MAY** contain a property named `artifacts` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `artifact` objects ([§3.24](#artifact-object)) each of which represents an artifact relevant to the run.
+A `run` object **MAY** contain a property named `artifacts` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `artifact` objects ([3.24 "`artifact` Object"](#artifact-object)) each of which represents an artifact relevant to the run.
 
-The array **SHOULD** contain elements representing at least those artifacts in which results were detected, but it **MAY** contain elements representing all artifacts examined by the tool (whether or not results were detected in those artifacts), or any subset of those artifacts. It **MAY** also include other artifacts relevant to the run, such as attachments ([§3.27.26](#attachments-property)).
+The array **SHOULD** contain elements representing at least those artifacts in which results were detected, but it **MAY** contain elements representing all artifacts examined by the tool (whether or not results were detected in those artifacts), or any subset of those artifacts. It **MAY** also include other artifacts relevant to the run, such as attachments ([3.27.26 "`attachments` Property"](#attachments-property)).
 
 > NOTE: `artifact` objects contain information that is useful for viewers. Viewers will be able to provide the most information to users if the `artifacts` property is present and contains information for every artifact in which results were detected.
 
@@ -2429,19 +2519,19 @@ The array **SHOULD** contain elements representing at least those artifacts in w
 >   ]
 >   ```
 
-In some cases, an artifact might be nested within another artifact (for example, a compressed container), referred to as its "parent." An artifact that is not nested within another artifact is referred to as a "top-level artifact". An artifact that is nested within another artifact is referred to as a "nested artifact". Within the `artifacts` array, an `artifact` object representing a nested artifact is linked to its parent *via* its `parentIndex` property ([§3.24.3](#artifact-object--parentindex-property)). For an example, see [§3.24.3](#artifact-object--parentindex-property).
+In some cases, an artifact might be nested within another artifact (for example, a compressed container), referred to as its "parent." An artifact that is not nested within another artifact is referred to as a "top-level artifact". An artifact that is nested within another artifact is referred to as a "nested artifact". Within the `artifacts` array, an `artifact` object representing a nested artifact is linked to its parent *via* its `parentIndex` property ([3.24.3 "`parentIndex` Property"](#artifact-object--parentindex-property)). For an example, see [3.24.3 "`parentIndex` Property"](#artifact-object--parentindex-property).
 
 If a nested artifact appears in the `artifacts` array, then the `artifacts` array **SHALL** also contain elements describing each of its parents, up to and including the top-level artifact.
 
 ### 3.14.16 `specialLocations` Property <a id='speciallocations-property'></a>
 
-A `run` object **MAY** contain a property named `specialLocations` whose value is a `specialLocations` object ([§3.25](#speciallocations-object)) that defines locations of special significance to SARIF consumers.
+A `run` object **MAY** contain a property named `specialLocations` whose value is a `specialLocations` object ([3.25 "`specialLocations` Object"](#speciallocations-object)) that defines locations of special significance to SARIF consumers.
 
 ### 3.14.17 `logicalLocations` Property <a id='run-object--logicallocations-property'></a>
 
-A `run` object **MAY** contain a property named `logicalLocations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `logicalLocation` objects ([§3.33](#logicallocation-object)) each of which represents a logical location relevant to one or more results detected during the run.
+A `run` object **MAY** contain a property named `logicalLocations` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `logicalLocation` objects ([3.33 "`logicalLocation` Object"](#logicallocation-object)) each of which represents a logical location relevant to one or more results detected during the run.
 
-In some cases, a logical location might be nested within another logical location (for example, a class nested within a namespace), referred to as its "parent." A logical location that is not nested within another logical location is referred to as a "top-level logical location". A logical location that is nested within another logical location is referred to as a "nested logical location". Within the `logicalLocations` array, a `logicalLocation` object representing a nested logical location is linked to its parent *via* its `parentIndex` property ([§3.33.8](#logicallocation-object--parentindex-property)).
+In some cases, a logical location might be nested within another logical location (for example, a class nested within a namespace), referred to as its "parent." A logical location that is not nested within another logical location is referred to as a "top-level logical location". A logical location that is nested within another logical location is referred to as a "nested logical location". Within the `logicalLocations` array, a `logicalLocation` object representing a nested logical location is linked to its parent *via* its `parentIndex` property ([3.33.8 "`parentIndex` Property"](#logicallocation-object--parentindex-property)).
 
 If a nested logical location appears in the `logicalLocations` array, then the `logicalLocations` array **SHALL** also contain elements describing each of its parents, up to and including the top-level logical location.
 
@@ -2468,19 +2558,19 @@ If a nested logical location appears in the `logicalLocations` array, then the `
 > ]
 > ```
 
-> NOTE: The detailed information in `logicalLocations` is useful, even though much of it is captured in `logicalLocation.fullyQualifiedName` ([§3.33.5](#logicallocation-object--fullyqualifiedname-property)), because it allows results management systems and other SARIF consumers to organize analysis results, for example, by asking questions such as "How many results were found in the namespace `namespaceA::namespaceB`?". Programs can ask these questions without having to know how to parse the `fullyQualifiedName` string.
+> NOTE: The detailed information in `logicalLocations` is useful, even though much of it is captured in `logicalLocation.fullyQualifiedName` ([3.33.5 "`fullyQualifiedName` Property"](#logicallocation-object--fullyqualifiedname-property)), because it allows results management systems and other SARIF consumers to organize analysis results, for example, by asking questions such as "How many results were found in the namespace `namespaceA::namespaceB`?". Programs can ask these questions without having to know how to parse the `fullyQualifiedName` string.
 
 ### 3.14.18 `addresses` Property <a id='addresses-property'></a>
 
-A `run` object **MAY** contain a property named `addresses` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `address` objects ([§3.32](#address-object)) representing addresses that appear in `physicalLocation` objects ([§3.29](#physicallocation-object)) within `theRun`.
+A `run` object **MAY** contain a property named `addresses` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `address` objects ([3.32 "`address` Object"](#address-object)) representing addresses that appear in `physicalLocation` objects ([3.29 "`physicalLocation` Object"](#physicallocation-object)) within `theRun`.
 
-In some cases, an address might be nested within another address (for example, an offset within a table within a section). An address that is nested within another address is referred to as a "nested address". Within the `addresses` array, an `address` object representing a nested address is linked to its parent *via* its `parentIndex` property ([§3.32.13](#address-object--parentindex-property)).
+In some cases, an address might be nested within another address (for example, an offset within a table within a section). An address that is nested within another address is referred to as a "nested address". Within the `addresses` array, an `address` object representing a nested address is linked to its parent *via* its `parentIndex` property ([3.32.13 "`parentIndex` Property"](#address-object--parentindex-property)).
 
 If a nested address appears in the `addresses` array, then `addresses` **SHALL** also contain elements describing each of its parents, up to and including the top-level address.
 
 ### 3.14.19 `threadFlowLocations` Property <a id='threadflowlocations-property'></a>
 
-A `run` object **MAY** contain a property named `threadFlowLocations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `threadFlowLocation` objects ([§3.38](#threadflowlocation-object)) representing locations that appear in `threadFlow` objects ([§3.37](#threadflow-object)) within `theRun`.
+A `run` object **MAY** contain a property named `threadFlowLocations` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `threadFlowLocation` objects ([3.38 "`threadFlowLocation` Object"](#threadflowlocation-object)) representing locations that appear in `threadFlow` objects ([3.37 "`threadFlow` Object"](#threadflow-object)) within `theRun`.
 
 The `threadFlowLocations` array may contain all or any subset of the `threadFlowLocation` objects in the run.
 
@@ -2488,29 +2578,29 @@ The `threadFlowLocations` array may contain all or any subset of the `threadFlow
 
 ### 3.14.20 `graphs` Property <a id='run-object--graphs-property'></a>
 
-A `run` object **MAY** contain a property named `graphs` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `graph` objects ([§3.39](#graph-object)). A `graph` object represents a directed graph: a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph).
+A `run` object **MAY** contain a property named `graphs` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `graph` objects ([3.39 "`graph` Object"](#graph-object)). A `graph` object represents a directed graph: a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph).
 
-A `graph` object defined at the `run` level **MAY** be referenced by a `graphTraversal` object ([§3.42](#graphtraversal-object)) defined in the `graphTraversals` property ([§3.27.20](#graphtraversals-property)) of any `result` object ([§3.27](#result-object)) in `theRun`.
+A `graph` object defined at the `run` level **MAY** be referenced by a `graphTraversal` object ([3.42 "`graphTraversal` Object"](#graphtraversal-object)) defined in the `graphTraversals` property ([3.27.20 "`graphTraversals` Property"](#graphtraversals-property)) of any `result` object ([3.27 "`result` Object"](#result-object)) in `theRun`.
 
 ### 3.14.21 `webRequests` Property <a id='webrequests-property'></a>
 
-A `run` object **MAY** contain a property named `webRequests` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `webRequest` objects ([§3.46](#webrequest-object)) representing HTTP requests that appear in `result` objects ([§3.27](#result-object)) within `theRun`.
+A `run` object **MAY** contain a property named `webRequests` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `webRequest` objects ([3.46 "`webRequest` Object"](#webrequest-object)) representing HTTP requests that appear in `result` objects ([3.27 "`result` Object"](#result-object)) within `theRun`.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
 ### 3.14.22 `webResponses` Property <a id='webresponses-property'></a>
 
-A `run` object **MAY** contain a property named `webResponses` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `webResponse` objects ([§3.47](#webresponse-object)) representing HTTP responses that appear in `result` objects ([§3.27](#result-object)) within `theRun`.
+A `run` object **MAY** contain a property named `webResponses` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `webResponse` objects ([3.47 "`webResponse` Object"](#webresponse-object)) representing HTTP responses that appear in `result` objects ([3.27 "`result` Object"](#result-object)) within `theRun`.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
 ### 3.14.23 `results` Property <a id='results-property'></a>
 
-Depending on the circumstances, a `run` object either **SHALL** or **MAY** contain a property named `results` whose value, again depending on circumstances, is either `null` or an array of zero or more `result` objects ([§3.27](#result-object)) each of which represents a single result detected in the course of the run.
+Depending on the circumstances, a `run` object either **SHALL** or **MAY** contain a property named `results` whose value, again depending on circumstances, is either `null` or an array of zero or more `result` objects ([3.27 "`result` Object"](#result-object)) each of which represents a single result detected in the course of the run.
 
-> NOTE: The `results` array is not defined to contain unique ([§3.7.3](#array-properties-with-unique-values)) elements because some tools report a line number but not a column number for a result’s location. Such a tool might report the same result twice on the same line, in some cases producing multiple identical `result` objects.
+> NOTE: The `results` array is not defined to contain unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) elements because some tools report a line number but not a column number for a result’s location. Such a tool might report the same result twice on the same line, in some cases producing multiple identical `result` objects.
 
-If the tool failed to start, and if the engineering system responsible for running the tool synthesized a SARIF file to record the failure, then `results` **MAY** be present. If it is present, its value **SHALL** be `null`. See [§3.20.13](#processstartfailuremessage-property), `invocation.processStartFailureMessage`, for more about this scenario.
+If the tool failed to start, and if the engineering system responsible for running the tool synthesized a SARIF file to record the failure, then `results` **MAY** be present. If it is present, its value **SHALL** be `null`. See [3.20.13 "`processStartFailureMessage` Property"](#processstartfailuremessage-property), `invocation.processStartFailureMessage`, for more about this scenario.
 
 If the tool started but failed to begin its analysis (for example, because its command line was invalid), then again `results` **MAY** be present, and if present **SHALL** be `null`.
 
@@ -2520,23 +2610,23 @@ If `results` is absent, it **SHALL** default to `null`.
 
 ### 3.14.24 `defaultEncoding` Property <a id='defaultencoding-property'></a>
 
-A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([§3.24.9](#encoding-property)) of any `artifact` object ([§3.24](#artifact-object)) in `theRun.artifacts` ([§3.14.15](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA-ENC)\].
+A `run` object **MAY** contain a property named `defaultEncoding` whose value is a case-sensitive string that provides a default for the `encoding` property ([3.24.9 "`encoding` Property"](#encoding-property)) of any `artifact` object ([3.24 "`artifact` Object"](#artifact-object)) in `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)) that refers to a text artifact. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA-ENC)\].
 
 If this property is absent, it **SHALL** be interpreted as meaning that there is no default file encoding. In that case, the encoding of any `artifact` object that does not contain an `encoding` property **SHALL** be taken to be unknown.
 
-For an example, see [§3.24.9](#encoding-property).
+For an example, see [3.24.9 "`encoding` Property"](#encoding-property).
 
 ### 3.14.25 `defaultSourceLanguage` Property <a id='defaultsourcelanguage-property'></a>
 
-A `run` object **MAY** contain a property named `defaultSourceLanguage` whose value is a hierarchical string ([§3.5.4](#hierarchical-strings)) that provides a default value for the `sourceLanguage` property ([§3.24.10](#artifact-object--sourcelanguage-property)) of any `artifact` object ([§3.24](#artifact-object)) in `theRun.artifacts` ([§3.14.15](#artifacts-property)) which refers to a text artifact that contains source code.
+A `run` object **MAY** contain a property named `defaultSourceLanguage` whose value is a hierarchical string ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)) that provides a default value for the `sourceLanguage` property ([3.24.10 "`sourceLanguage` Property"](#artifact-object--sourcelanguage-property)) of any `artifact` object ([3.24 "`artifact` Object"](#artifact-object)) in `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)) which refers to a text artifact that contains source code.
 
-If `defaultSourceLanguage` is present, its value **SHOULD** conform to the conventions defined in [§3.24.10.2](#source-language-identifier-conventions-and-practices).
+If `defaultSourceLanguage` is present, its value **SHOULD** conform to the conventions defined in [3.24.10.2 "Source language identifier conventions and practices"](#source-language-identifier-conventions-and-practices).
 
 If `defaultSourceLanguage` is absent, it **SHALL** be taken to mean that there is no default source language. In that case, the source language of any `artifact` object that does not contain a `sourceLanguage` property **SHALL** be taken to be unknown. In that case, a SARIF viewer **MAY** use any method or heuristic to determine the source language of each file, for example by examining the file’s file name extension or MIME type, or by prompting the user.
 
 ### 3.14.26 `newlineSequences` Property <a id='newlinesequences-property'></a>
 
-A `run` object **MAY** contain a property named `newlineSequences` whose value is an array of one or more unique ([§3.7.3](#array-properties-with-unique-values)) strings each of which specifies a character sequence that the tool treated as a line break during this run.
+A `run` object **MAY** contain a property named `newlineSequences` whose value is an array of one or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings each of which specifies a character sequence that the tool treated as a line break during this run.
 
 If this property is absent, it **SHALL** default to the array `[ "\r\n", "\n" ]`.
 
@@ -2544,12 +2634,12 @@ The order of the elements in the array is significant. It **SHALL** mean that at
 
 > EXAMPLE 1: If `newlineSequences` has the value `[ "\r\n", "\r", "\n" ]`, the character sequence `"\r\n"` counts as one line break, not two.
 
-> NOTE: This property is useful for SARIF consumers that are sensitive to the value of the line number properties `startLine` ([§3.30.5](#startline-property)) and `endLine` ([§3.30.7](#endline-property)) in `region` objects ([§3.30](#region-object)). It ensures that the consumer counts lines in the same way as the producer. A SARIF viewer might use this property when highlighting a region to ensure that it highlights the correct lines. More critically, a tool that applies fixes (see [§3.55](#fix-object)), especially one that applies them automatically, can use this property to ensure that it inserts and removes content on the correct lines.
+> NOTE: This property is useful for SARIF consumers that are sensitive to the value of the line number properties `startLine` ([3.30.5 "`startLine` Property"](#startline-property)) and `endLine` ([3.30.7 "`endLine` Property"](#endline-property)) in `region` objects ([3.30 "`region` Object"](#region-object)). It ensures that the consumer counts lines in the same way as the producer. A SARIF viewer might use this property when highlighting a region to ensure that it highlights the correct lines. More critically, a tool that applies fixes (see [3.55 "`fix` Object"](#fix-object)), especially one that applies them automatically, can use this property to ensure that it inserts and removes content on the correct lines.
 
 > EXAMPLE 2: In this example, the SARIF producer accepts the Unicode characters NEXT LINE (U+0085) and LINE SEPARATOR (U+2028) as line separators in addition to the usual values.
 >
 > ```json
-> {         # A run object (§3.14).
+> {         # A run object (3.14).
 >   ...
 >   "newlineSequences": [ "\r\n", "\n", "\u0085", "\u2028" ],
 >   ...
@@ -2558,7 +2648,7 @@ The order of the elements in the array is significant. It **SHALL** mean that at
 
 ### 3.14.27 `columnKind` Property <a id='columnkind-property'></a>
 
-If a SARIF producer processes text artifacts and `theRun.results` ([§3.14.23](#results-property)) is non-empty, the `run` object **SHALL** contain a property named `columnKind` whose value is a string that specifies the unit in which the analysis tool measures columns. If a SARIF producer processes text artifacts and `theRun.results` is empty, `columnKind` **MAY** be present.
+If a SARIF producer processes text artifacts and `theRun.results` ([3.14.23 "`results` Property"](#results-property)) is non-empty, the `run` object **SHALL** contain a property named `columnKind` whose value is a string that specifies the unit in which the analysis tool measures columns. If a SARIF producer processes text artifacts and `theRun.results` is empty, `columnKind` **MAY** be present.
 
 `columnKind` **SHALL** have one of the following values, with the specified meanings:
 
@@ -2567,7 +2657,7 @@ If a SARIF producer processes text artifacts and `theRun.results` ([§3.14.23](#
 - `"unicodeCodePoints"`: Each Unicode code point (abstract character) is considered to occupy one column. This means that even a character that is represented in UTF-16 by a surrogate pair is considered to occupy one column.
 
 - `"bytes"`: column numbers refer to byte offsets from the start of the line, where the first byte in a line has value 1.
-  Note: this is for consistency with column numbering in text regions ([§3.30.2](#text-regions)), and is different from binary regions ([§3.30.3](#binary-regions)), where the first byte offset in an **artifact** is 0.
+  Note: this is for consistency with column numbering in text regions ([3.30.2 "Text Regions"](#text-regions)), and is different from binary regions ([3.30.3 "Binary Regions"](#binary-regions)), where the first byte offset in an **artifact** is 0.
 
 If the SARIF producer does not process text artifacts, `columnKind` **SHALL** be absent.
 
@@ -2575,7 +2665,7 @@ If a SARIF consumer uses a column measurement unit other than that specified by 
 
 ### 3.14.28 `redactionTokens` Property <a id='redactiontokens-property'></a>
 
-If the value of any redactable property ([§3.5.2](#redactable-strings)) in `theRun` has been redacted, `theRun` **SHALL** contain a property named `redactionTokens` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) strings any of which can be used to replace redacted text. If no text in `theRun` has been redacted, `redactionTokens` **SHALL** be absent.
+If the value of any redactable property ([3.5.2 "Redactable Strings"](#redactable-strings)) in `theRun` has been redacted, `theRun` **SHALL** contain a property named `redactionTokens` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings any of which can be used to replace redacted text. If no text in `theRun` has been redacted, `redactionTokens` **SHALL** be absent.
 
 If `redactionTokens` contains a single element, that element **SHOULD** be the string `"[REDACTED]"`; if it contains more than one, each additional element **SHOULD** be of the form `"[REDACTED-`*n*`]"` where *n* is a positive integer.
 
@@ -2588,7 +2678,7 @@ If for any reason different values are used, they **MAY** be any readily identif
 > EXAMPLE 1: In this example, the leading portion of a full path name has been redacted from the redactable property `invocation.commandLine` to avoid revealing information about the machine’s directory layout.
 >
 > ```json
-> {                     # A run object (§3.14).
+> {                     # A run object (3.14).
 >   "redactionTokens": [
 >     "[REDACTED]"
 >   ],
@@ -2604,7 +2694,7 @@ If for any reason different values are used, they **MAY** be any readily identif
 
 ### 3.15.1 General <a id='externalpropertyfilereferences-object--general'></a>
 
-An `externalPropertyFileReferences` object contains information that enables a SARIF consumer to locate the external property files (see [§3.15.2](#rationale)) that contain the values of all externalized properties associated with `theRun`.
+An `externalPropertyFileReferences` object contains information that enables a SARIF consumer to locate the external property files (see [3.15.2 "Rationale"](#rationale)) that contain the values of all externalized properties associated with `theRun`.
 
 ### 3.15.2 Rationale <a id='rationale'></a>
 
@@ -2616,7 +2706,7 @@ In some engineering environments, a single tool run might analyze hundreds of th
 
 To mitigate these problems, SARIF allows certain properties of a `run` object and its sub-objects to be stored in separate files. We refer to these files as "external property files", and we refer to the file containing the `run` object itself as the "root file". We refer to a property that can be stored in an external property file as an "externalizable property." We refer to a property that *has* been stored in an external property file as an "externalized property."
 
-The format of an external property file is described in [§4](#external-property-file-format)
+The format of an external property file is described in [4 "External property file format"](#external-property-file-format)
 
 A SARIF consumer **SHALL** treat the value of an object-valued property stored in an external property file exactly as if it had appeared inline in the root file as the value of the corresponding property.
 
@@ -2651,7 +2741,7 @@ The following table lists all the externalizable properties together with their 
 
 > NOTE 2: Note that `run.conversion.tool.driver` and `run.conversion.tool.extensions` are not separately externalizable. Rather, the `run.conversion` property as a whole is externalizable.
 
-Every externalizable property whose type is shown in the table as "object" **SHALL**, if externalized, be stored in a single external property file. In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an `externalPropertyFileReference` object ([§3.16](#externalpropertyfilereference-object)) specifying the location of the external property file.
+Every externalizable property whose type is shown in the table as "object" **SHALL**, if externalized, be stored in a single external property file. In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an `externalPropertyFileReference` object ([3.16 "`externalPropertyFileReference` Object"](#externalpropertyfilereference-object)) specifying the location of the external property file.
 
 Every externalizable property whose type is shown in the table as "array" **SHALL**, if externalized, be stored in one or more external property files. In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an array of zero or more `externalPropertyFileReference` objects specifying the locations of those external property files.
 
@@ -2659,18 +2749,18 @@ Every externalizable property whose type is shown in the table as "array" **SHAL
 >
 > ```json
 > {                           # A run object.
->   "originalUriBaseIds": {   # See §3.14.14.
+>   "originalUriBaseIds": {   # See 3.14.14.
 >     "LOGSDIR": {
 >       "uri": "file:///C:/logs/"
 >     }
 >   },
 >   "externalPropertyFileReferences": {
->     "conversion": {         # An externalPropertyFileReference object (§3.16).
->       "location": {         # See §3.16.3.
+>     "conversion": {         # An externalPropertyFileReference object (3.16).
+>       "location": {         # See 3.16.3.
 >         "uri": "scantool.conversion.sarif-external-properties",
 >         "uriBaseId": "LOGSDIR"
 >       },
->       "guid": "11111111-1111-1111-8888-111111111111" # See §3.16.4.
+>       "guid": "11111111-1111-1111-8888-111111111111" # See 3.16.4.
 >     },
 >     "results": [
 >       {
@@ -2700,20 +2790,20 @@ With one exception described below, if a property appears inline in the root fil
 > EXAMPLE 2: In this example, `theRun.conversion` and `theRun.properties` are stored in the same external property file.
 >
 > ```json
-> {                            # A run object (§3.14).
->   "originalUriBaseIds": {    # See §3.14.14.
+> {                            # A run object (3.14).
+>   "originalUriBaseIds": {    # See 3.14.14.
 >     "LOGSDIR": {
 >       "uri": "file:///C:/logs/"
 >     }
 >   },
 >   "externalPropertyFileReferences": {
 >     "conversion": {     # An externalPropertyFileReference object (see (#externalpropertyfilereference-object)).
->       "location": {          # See §3.16.3.
+>       "location": {          # See 3.16.3.
 >         "uri": "scantool.sarif-external-properties",
 >         "uriBaseId": "LOGSDIR",
 >         "index": 0
 >       },
->       "guid": "11111111-1111-1111-8888-111111111111" # See §3.16.4.
+>       "guid": "11111111-1111-1111-8888-111111111111" # See 3.16.4.
 >     },
 >     "externalizedProperties": {
 >       "location": {
@@ -2731,8 +2821,8 @@ With one exception described below, if a property appears inline in the root fil
 > EXAMPLE 3: This example represents invalid SARIF because both elements of the array belonging to the `results` property denote the same external property file.
 >
 > ```json
-> {                            # A run object (§3.14).
->   "originalUriBaseIds": {    # See §3.14.14.
+> {                            # A run object (3.14).
+>   "originalUriBaseIds": {    # See 3.14.14.
 >     "LOGSDIR": {
 >       "uri": "file:///C:/logs/"
 >     }
@@ -2761,7 +2851,7 @@ With one exception described below, if a property appears inline in the root fil
 > }
 > ```
 
-The exception is that if `run.tool.driver` is externalized, it **SHALL** still occur inline in the root file. The inline `driver` property **SHOULD** contain only properties that identify the tool, such as `name` ([§3.19.8](#toolcomponent-object--name-property)) and `semanticVersion` ([§3.19.12](#semanticversion-property)); it **SHOULD NOT** contain properties such as `globalMessageStrings` ([§3.19.22](#globalmessagestrings-property)), `rules` ([§3.19.23](#rules-property)), `notifications` ([§3.19.24](#notifications-property)), and `taxa` ([§3.19.25](#toolcomponent-object--taxa-property)), which take up a large amount of space.
+The exception is that if `run.tool.driver` is externalized, it **SHALL** still occur inline in the root file. The inline `driver` property **SHOULD** contain only properties that identify the tool, such as `name` ([3.19.8 "`name` Property"](#toolcomponent-object--name-property)) and `semanticVersion` ([3.19.12 "`semanticVersion` Property"](#semanticversion-property)); it **SHOULD NOT** contain properties such as `globalMessageStrings` ([3.19.22 "`globalMessageStrings` Property"](#globalmessagestrings-property)), `rules` ([3.19.23 "`rules` Property"](#rules-property)), `notifications` ([3.19.24 "`notifications` Property"](#notifications-property)), and `taxa` ([3.19.25 "`taxa` Property"](#toolcomponent-object--taxa-property)), which take up a large amount of space.
 
 > NOTE 3: This makes it possible to identify the tool that produced the log file without locating and opening the external property file, while still getting the benefit of externalizing those properties that take up a large amount of space.
 
@@ -2769,33 +2859,33 @@ The exception is that if `run.tool.driver` is externalized, it **SHALL** still o
 
 ### 3.16.1 General <a id='externalpropertyfilereference-object--general'></a>
 
-An `externalPropertyFileReference` object contains information that enables a SARIF consumer to locate the external property file (see [§3.15.2](#rationale)) that contains the value of an externalized property associated with `theRun`.
+An `externalPropertyFileReference` object contains information that enables a SARIF consumer to locate the external property file (see [3.15.2 "Rationale"](#rationale)) that contains the value of an externalized property associated with `theRun`.
 
 ### 3.16.2 Constraints <a id='externalpropertyfilereference-object--constraints'></a>
 
-At least one of the `location` property ([§3.16.3](#externalpropertyfilereference-object--location-property)) or the `guid` property ([§3.16.4](#externalpropertyfilereference-object--guid-property)) **SHALL** be present. If both are present, they **SHALL** identify the same set of externalized properties (possibly located inline; see [§3.13.5](#inlineexternalproperties-property)).
+At least one of the `location` property ([3.16.3 "`location` Property"](#externalpropertyfilereference-object--location-property)) or the `guid` property ([3.16.4 "`guid` Property"](#externalpropertyfilereference-object--guid-property)) **SHALL** be present. If both are present, they **SHALL** identify the same set of externalized properties (possibly located inline; see [3.13.5 "`inlineExternalProperties` Property"](#inlineexternalproperties-property)).
 
 > NOTE: This constraint ensures that it is possible to locate the externalized properties.
 
 ### 3.16.3 `location` Property <a id='externalpropertyfilereference-object--location-property'></a>
 
-Depending on the circumstances, an `externalPropertyFileReference` object either **SHALL** or **MAY** contain a property named `location` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) that specifies the location of the external property file.
+Depending on the circumstances, an `externalPropertyFileReference` object either **SHALL** or **MAY** contain a property named `location` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) that specifies the location of the external property file.
 
-If the externalized properties are persisted in a separate file, `location` **SHALL** be present. In that case, if the `artifactLocation` object’s `uri` property ([§3.4.3](#uri-property)) specifies a relative reference and its `uriBaseId` property ([§3.4.4](#uribaseid-property)) is absent, then `uri` **SHALL** be interpreted relative to the location of the root file.
+If the externalized properties are persisted in a separate file, `location` **SHALL** be present. In that case, if the `artifactLocation` object’s `uri` property ([3.4.3 "`uri` Property"](#uri-property)) specifies a relative reference and its `uriBaseId` property ([3.4.4 "`uriBaseId` Property"](#uribaseid-property)) is absent, then `uri` **SHALL** be interpreted relative to the location of the root file.
 
-Otherwise (that is, if the externalized properties are persisted as an element of `theSarifLog.inlineExternalProperties` ([§3.13.5](#inlineexternalproperties-property))), then `location` **MAY** be present. If `location` is present, its `uri` property **SHALL** resolve to an absolute URI using the `sarif` scheme ([§3.10.3](#uris-that-use-the-sarif-scheme)). If `location` is absent, then a SARIF consumer that needs to locate the externalized properties **SHALL** do so using the `guid` property ([§3.16.4](#externalpropertyfilereference-object--guid-property)).
+Otherwise (that is, if the externalized properties are persisted as an element of `theSarifLog.inlineExternalProperties` ([3.13.5 "`inlineExternalProperties` Property"](#inlineexternalproperties-property))), then `location` **MAY** be present. If `location` is present, its `uri` property **SHALL** resolve to an absolute URI using the `sarif` scheme ([3.10.3 "URIs That use the SARIF Scheme"](#uris-that-use-the-sarif-scheme)). If `location` is absent, then a SARIF consumer that needs to locate the externalized properties **SHALL** do so using the `guid` property ([3.16.4 "`guid` Property"](#externalpropertyfilereference-object--guid-property)).
 
 ### 3.16.4 `guid` Property <a id='externalpropertyfilereference-object--guid-property'></a>
 
-Depending on the circumstances, an `externalPropertyFileReference` object either **SHALL** or **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) which provides a unique, stable identifier for the external property file.
+Depending on the circumstances, an `externalPropertyFileReference` object either **SHALL** or **MAY** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) which provides a unique, stable identifier for the external property file.
 
-If the externalized properties are persisted in an element of `theSarifLog.inlineExternalProperties` ([§3.13.5](#inlineexternalproperties-property)) and `location` ([§3.16.3](#externalpropertyfilereference-object--location-property)) is absent, then `guid` **SHALL** be present.
+If the externalized properties are persisted in an element of `theSarifLog.inlineExternalProperties` ([3.13.5 "`inlineExternalProperties` Property"](#inlineexternalproperties-property)) and `location` ([3.16.3 "`location` Property"](#externalpropertyfilereference-object--location-property)) is absent, then `guid` **SHALL** be present.
 
 Otherwise (that is, if the externalized properties are persisted in a separate file, in which case `location` is required, or if the externalized properties are persisted in an element of `theSarifLog.inlineExternalProperties` but `location` is present), guid **MAY** be present.
 
 > NOTE: The rationale for these constraints is to ensure that there is enough information to locate the external properties. If the properties are in an external file, then `location` is necessary but `guid` can still be present; if the properties are inline, either `location` or `guid` suffices but both can be present.
 
-If `guid` is present, it **SHALL** equal the `guid` property ([§4.3.4](#externalproperties-object--guid-property)) of the `externalProperties` object ([§4.3](#externalproperties-object)) identified by `guid` and/or `location`.
+If `guid` is present, it **SHALL** equal the `guid` property ([4.3.4 "`guid` Property"](#externalproperties-object--guid-property)) of the `externalProperties` object ([4.3 "`externalProperties` Object"](#externalproperties-object)) identified by `guid` and/or `location`.
 
 ### 3.16.5 `itemCount` Property <a id='itemcount-property'></a>
 
@@ -2805,7 +2895,7 @@ If `itemCount` is absent, it **SHALL** default to -1, which indicates that the v
 
 > NOTE: This information is useful to a SARIF consumer that needs to locate the item at a specified array index in an externalized array-valued property. Without this information, the consumer would have to open in turn each external property file belonging to that property, counting the number of array elements in each, until it reached the file containing the desired element.
 
-> EXAMPLE 1: In EXAMPLE 1 in [§3.15.3](#properties), the array-valued property `results` is divided into two files, the first containing 10,000 elements and the second containing 4,277 elements. A SARIF consumer that needs to access element 12,000 knows immediately that it is contained in the second file, at index 2,000.
+> EXAMPLE 1: In EXAMPLE 1 in [3.15.3 "Properties"](#properties), the array-valued property `results` is divided into two files, the first containing 10,000 elements and the second containing 4,277 elements. A SARIF consumer that needs to access element 12,000 knows immediately that it is contained in the second file, at index 2,000.
 
 ## 3.17 `runAutomationDetails` Object <a id='runautomationdetails-object'></a>
 
@@ -2818,8 +2908,8 @@ A `runAutomationDetails` object contains information that specifies `theRun`’s
 > The run in this example is part of an aggregate of runs which together comprise the nightly execution of the engineering system’s full suite of security tools. `theRun.runAggregates[0]` describes that aggregate. Its `id` and `guid` properties both identify the aggregate. Its `correlationGuid` property specifies the collection of such aggregates identified by *all but the last component* of `id`’s hierarchical string; that is, it identifies the collection of aggregates `"Nightly security tools run for sarif-sdk/master/x86/debug"`.
 >
 > ```json
-> {                              # A run object (§3.14).
->   "automationDetails": {       # See §3.14.3.
+> {                              # A run object (3.14).
+>   "automationDetails": {       # See 3.14.3.
 >     "description": {
 >       "text": "This is the {0} nightly run of the Credential Scanner tool on
 >              all product binaries in the '{1}' branch of the '{2}' repo. The
@@ -2836,7 +2926,7 @@ A `runAutomationDetails` object contains information that specifies `theRun`’s
 >     "guid": "11111111-1111-1111-8888-111111111111",
 >     "correlationGuid": "22222222-2222-1111-8888-222222222222"
 >   },
->   "runAggregates": [           # See §3.14.4.
+>   "runAggregates": [           # See 3.14.4.
 >     {
 >       "id":
 >         "Nightly security tools run for sarif-sdk/master/x86/debug/2018-10-05",
@@ -2849,11 +2939,11 @@ A `runAutomationDetails` object contains information that specifies `theRun`’s
 
 ### 3.17.2 `description` Property <a id='runautomationdetails-object--description-property'></a>
 
-A `runAutomationDetails` object **MAY** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the role played within the engineering system by `theRun`.
+A `runAutomationDetails` object **MAY** contain a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes the role played within the engineering system by `theRun`.
 
 ### 3.17.3 `id` Property <a id='runautomationdetails-object--id-property'></a>
 
-A `runAutomationDetails` object **MAY** contain a property named `id` whose value is a hierarchical string ([§3.5.4](#hierarchical-strings)) that uniquely identifies `theRun` within the engineering system.
+A `runAutomationDetails` object **MAY** contain a property named `id` whose value is a hierarchical string ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)) that uniquely identifies `theRun` within the engineering system.
 
 A result management system or other components of the engineering system **MAY** use `run.automationDetails.id` to associate the information in the log with additional information not provided by the analysis tool that produced it.
 
@@ -2863,7 +2953,7 @@ An engineering system **MAY** define any number of components and interpret them
 
 > EXAMPLE 1: A run whose `id` is `"My Nightly Run/Debug/x64/2018-10-10"` belongs to the category `"My Nightly Run/Debug/x64"`. Presumably, this is the run from October 10, 2018.
 
-The trailing component of `id` **MAY** be empty; note that the grammar for a hierarchical identifier ([§3.5.4.1](#hierarchical-strings--general)) permits any component to be empty. This **SHALL** be taken to signify that the run belongs to the specified category, but that the run itself has no unique identifier.
+The trailing component of `id` **MAY** be empty; note that the grammar for a hierarchical identifier ([3.5.4.1 "General"](#hierarchical-strings--general)) permits any component to be empty. This **SHALL** be taken to signify that the run belongs to the specified category, but that the run itself has no unique identifier.
 
 > EXAMPLE 2: A run whose `id` is `"My Nightly Run/Debug/x64/"` belongs to the category `"My Nightly Run/Debug/x64"` but is not distinguished from other runs in that category.
 
@@ -2873,15 +2963,15 @@ The trailing component of `id` **MAY** be empty; note that the grammar for a hie
 
 ### 3.17.4 `guid` Property <a id='runautomationdetails-object--guid-property'></a>
 
-A `runAutomationDetails` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that provides a unique, stable identifier for `theRun`.
+A `runAutomationDetails` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) that provides a unique, stable identifier for `theRun`.
 
 A result management system or other components of the engineering system **MAY** use `run.automationDetails.guid` to associate the information in the log with additional information not provided by the analysis tool that produced it.
 
 ### 3.17.5 `correlationGuid` Property <a id='runautomationdetails-object--correlationguid-property'></a>
 
-A `runAutomationDetails` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) which is shared by all such runs of the same type, and differs between any two runs of different types.
+A `runAutomationDetails` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) which is shared by all such runs of the same type, and differs between any two runs of different types.
 
-If `id` ([§3.17.3](#runautomationdetails-object--id-property)) is present, `correlationGuid` **SHALL** identify the category of runs specified by all but the last hierarchical component (which **MAY** be empty according to the grammar ([§3.5.4.1](#hierarchical-strings--general)) for hierarchical strings) of `id`.
+If `id` ([3.17.3 "`id` Property"](#runautomationdetails-object--id-property)) is present, `correlationGuid` **SHALL** identify the category of runs specified by all but the last hierarchical component (which **MAY** be empty according to the grammar ([3.5.4.1 "General"](#hierarchical-strings--general)) for hierarchical strings) of `id`.
 
 > NOTE: Consider an engineering system that allows engineers to define "build definitions", and that assigns a GUID to each build definition. In such a system, the build definition’s GUID could serve as `run.automationDetails.correlationGuid`. It would be the same for all runs produced by the same build definition, and different between any two runs produced by different build definitions.
 
@@ -2889,7 +2979,7 @@ If `id` ([§3.17.3](#runautomationdetails-object--id-property)) is present, `cor
 
 ### 3.18.1 General <a id='tool-object--general'></a>
 
-A `tool` object describes the analysis tool or converter that was run. The `tool` object in `run.tool` ([§3.14.6](#run-object--tool-property)) describes an analysis tool; the `tool` object in `run.conversion.tool` ([§3.14.12](#conversion-property), [§3.22.2](#conversion-object--tool-property)) describes a converter.
+A `tool` object describes the analysis tool or converter that was run. The `tool` object in `run.tool` ([3.14.6 "`tool` Property"](#run-object--tool-property)) describes an analysis tool; the `tool` object in `run.conversion.tool` ([3.14.12 "`conversion` Property"](#conversion-property), [3.22.2 "`tool` Property"](#conversion-object--tool-property)) describes a converter.
 
 A tool consists of one or more "tool components," each of which consists of one or more files. We refer to the component that contains the tool’s primary executable file as the "driver." It controls the tool’s execution and typically defines a set of analysis rules. We refer to all other tool components as "extensions." Extensions can include:
 
@@ -2899,7 +2989,7 @@ A tool consists of one or more "tool components," each of which consists of one 
 
     NOTE: Configuration files that affect the analysis output are of particular interest in compliance scenarios, where, for example, it is necessary to demonstrate that a particular set of rules has been evaluated.
 
-Each tool component is represented by a `toolComponent` object ([§3.19](#toolcomponent-object)).
+Each tool component is represented by a `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)).
 
 If another tool post-processes the log file (for example, by removing certain results, or by adding information that was not known to the analysis tool), the post-processing tool **SHOULD NOT** alter any part of the tool object.
 
@@ -2907,14 +2997,14 @@ If another tool post-processes the log file (for example, by removing certain re
 >
 > ```json
 > {                          # A tool object.
->   "driver": {              # See §3.18.2.
+>   "driver": {              # See 3.18.2.
 >     "name": "CodeScanner",
 >     "fullName": "CodeScanner 1.1, Developer Preview (en-US)",
 >     "semanticVersion": "1.1.2-beta.12",
 >     "version": "1.1.2b12",
 >     ...
 >   },
->   "extensions": [          # See §3.18.3.
+>   "extensions": [          # See 3.18.3.
 >     {
 >       "name": "CodeScanner Security Rules",
 >       "version": "3.1",
@@ -2926,52 +3016,52 @@ If another tool post-processes the log file (for example, by removing certain re
 
 ### 3.18.2 `driver` Property <a id='driver-property'></a>
 
-A `tool` object **SHALL** contain a property named `driver` whose value is a `toolComponent` object ([§3.19](#toolcomponent-object)) that describes the component containing the tool’s primary executable file.
+A `tool` object **SHALL** contain a property named `driver` whose value is a `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)) that describes the component containing the tool’s primary executable file.
 
 ### 3.18.3 `extensions` Property <a id='extensions-property'></a>
 
-If the tool used any extensions during the run, the `tool` object **SHOULD** contain a property named `extensions` whose value is an array of one or more unique ([§3.7.3](#array-properties-with-unique-values)) `toolComponent` objects ([§3.19](#toolcomponent-object)) that describe those extensions. If the tool did not use any extensions during the run, then `extensions` **SHALL** either be absent or an empty array.
+If the tool used any extensions during the run, the `tool` object **SHOULD** contain a property named `extensions` whose value is an array of one or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `toolComponent` objects ([3.19 "`toolComponent` Object"](#toolcomponent-object)) that describe those extensions. If the tool did not use any extensions during the run, then `extensions` **SHALL** either be absent or an empty array.
 
 ## 3.19 `toolComponent` Object <a id='toolcomponent-object'></a>
 
 ### 3.19.1 General <a id='toolcomponent-object--general'></a>
 
-A `toolComponent` object represents one of the components which comprise an analysis tool or a converter, either its driver or one of its extensions. For more information, see [§3.18.1](#tool-object--general).
+A `toolComponent` object represents one of the components which comprise an analysis tool or a converter, either its driver or one of its extensions. For more information, see [3.18.1 "General"](#tool-object--general).
 
 SARIF also uses `toolComponent` objects to represent other components that participate in the analysis, including:
 
-- Taxonomies ([§3.19.3](#taxonomies))
+- Taxonomies ([3.19.3 "Taxonomies"](#taxonomies))
 
-- Translations ([§3.19.4](#translations))
+- Translations ([3.19.4 "Translations"](#translations))
 
-- Policies ([§3.19.5](#policies))
+- Policies ([3.19.5 "Policies"](#policies))
 
-> NOTE: SARIF makes this design choice because `toolComponent` objects contain properties that are useful in all of these other types of components: properties that represent the component’s identity, localizable properties ([§3.5.1](#localizable-strings)) that label the component and describe its purpose, and properties that define rules and similar items that participate in the analysis. Not every property is useful in every component type; for example, `translationMetadata` ([§3.19.27](#translationmetadata-property)) is useful only in `toolComponent` objects that represent translations.
+> NOTE: SARIF makes this design choice because `toolComponent` objects contain properties that are useful in all of these other types of components: properties that represent the component’s identity, localizable properties ([3.5.1 "Localizable Strings"](#localizable-strings)) that label the component and describe its purpose, and properties that define rules and similar items that participate in the analysis. Not every property is useful in every component type; for example, `translationMetadata` ([3.19.27 "`translationMetadata` Property"](#translationmetadata-property)) is useful only in `toolComponent` objects that represent translations.
 
 ### 3.19.2 Constraints <a id='toolcomponent-object--constraints'></a>
 
-At least one of `version` ([§3.19.13](#toolcomponent-object--version-property)) and `semanticVersion` ([§3.19.12](#semanticversion-property)) **SHOULD** be present.
+At least one of `version` ([3.19.13 "`version` Property"](#toolcomponent-object--version-property)) and `semanticVersion` ([3.19.12 "`semanticVersion` Property"](#semanticversion-property)) **SHOULD** be present.
 
 ### 3.19.3 Taxonomies <a id='taxonomies'></a>
 
 A taxonomy is a classification of results into a set of categories. Some taxonomies are defined publicly, without reference to any particular tool; we refer to these as "standard taxonomies." An example is the Common Weakness Enumeration \[[CWE](#CWE)\]. A tool can also define its own classification (in addition to the classification implied by its rule definitions); we refer to this as a "custom taxonomy." We refer to a category within a taxonomy as a "taxon" (*pl.* "taxa").
 
-A taxonomy is represented by a `toolComponent` object. Its taxa are stored in the `taxa` property ([§3.19.25](#toolcomponent-object--taxa-property)).
+A taxonomy is represented by a `toolComponent` object. Its taxa are stored in the `taxa` property ([3.19.25 "`taxa` Property"](#toolcomponent-object--taxa-property)).
 
-A taxon is represented by a `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)); hence `toolComponent.taxa` is an array of `reportingDescriptor` objects. This is the same object that represents rules and notifications, so a taxon can specify identity properties such as `id` ([§3.49.3](#reportingdescriptor-object--id-property)) and `guid` ([§3.49.5](#reportingdescriptor-object--guid-property)), localizable ([§3.5.1](#localizable-strings)) descriptive properties such as `name` ([§3.49.7](#reportingdescriptor-object--name-property)) and `fullDescription` ([§3.49.10](#reportingdescriptor-object--fulldescription-property)), and configuration properties in `defaultConfiguration` ([§3.49.14](#defaultconfiguration-property)).
+A taxon is represented by a `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)); hence `toolComponent.taxa` is an array of `reportingDescriptor` objects. This is the same object that represents rules and notifications, so a taxon can specify identity properties such as `id` ([3.49.3 "`id` Property"](#reportingdescriptor-object--id-property)) and `guid` ([3.49.5 "`guid` Property"](#reportingdescriptor-object--guid-property)), localizable ([3.5.1 "Localizable Strings"](#localizable-strings)) descriptive properties such as `name` ([3.49.7 "`name` Property"](#reportingdescriptor-object--name-property)) and `fullDescription` ([3.49.10 "`fullDescription` Property"](#reportingdescriptor-object--fulldescription-property)), and configuration properties in `defaultConfiguration` ([3.49.14 "`defaultConfiguration` Property"](#defaultconfiguration-property)).
 
-Standard taxonomies **SHALL** be stored in the `run.taxonomies` array ([§3.14.8](#taxonomies-property)). Every `toolComponent` object in this array **SHALL** contain a `taxa` property ([§3.19.25](#toolcomponent-object--taxa-property)), and **SHALL NOT** contain `rules` ([§3.19.23](#rules-property)) or `notifications` ([§3.19.24](#notifications-property)) properties.
+Standard taxonomies **SHALL** be stored in the `run.taxonomies` array ([3.14.8 "`taxonomies` Property"](#taxonomies-property)). Every `toolComponent` object in this array **SHALL** contain a `taxa` property ([3.19.25 "`taxa` Property"](#toolcomponent-object--taxa-property)), and **SHALL NOT** contain `rules` ([3.19.23 "`rules` Property"](#rules-property)) or `notifications` ([3.19.24 "`notifications` Property"](#notifications-property)) properties.
 
-A custom taxonomy is represented by providing a `toolComponent` object in `tool.driver` ([§3.18.2](#driver-property)) or `tool.extensions` ([§3.18.3](#extensions-property)) with a `taxa` property. Such a `toolComponent` object **MAY** still contain `rules` and/or `notifications` as usual.
+A custom taxonomy is represented by providing a `toolComponent` object in `tool.driver` ([3.18.2 "`driver` Property"](#driver-property)) or `tool.extensions` ([3.18.3 "`extensions` Property"](#extensions-property)) with a `taxa` property. Such a `toolComponent` object **MAY** still contain `rules` and/or `notifications` as usual.
 
-> EXAMPLE 1: In this example, the tool driver supports the CWE™ taxonomy, and also supports a custom taxonomy that it defines. Any result that violates the driver’s rule `"CA2101"` falls into the `"MemoryManagement"` taxon of its custom taxonomy, as shown by the `"superset"` relationship from the `"MemoryManagement"` taxon to the rule (which is interpreted as "The `MemoryManagement` taxon is a superset of rule `CA2101`"). For more information on relationships, see [§3.49.15](#reportingdescriptor-object--relationships-property) and [§3.53](#reportingdescriptorrelationship-object).
+> EXAMPLE 1: In this example, the tool driver supports the CWE™ taxonomy, and also supports a custom taxonomy that it defines. Any result that violates the driver’s rule `"CA2101"` falls into the `"MemoryManagement"` taxon of its custom taxonomy, as shown by the `"superset"` relationship from the `"MemoryManagement"` taxon to the rule (which is interpreted as "The `MemoryManagement` taxon is a superset of rule `CA2101`"). For more information on relationships, see [3.49.15 "`relationships` Property"](#reportingdescriptor-object--relationships-property) and [3.53 "`reportingDescriptorRelationship` Object"](#reportingdescriptorrelationship-object).
 >
 > ```json
-> {                                  # A run object (§3.14).
->   "tool": {                        # See §3.14.6.
->     "driver": {                    # See §3.18.2.
+> {                                  # A run object (3.14).
+>   "tool": {                        # See 3.14.6.
+>     "driver": {                    # See 3.18.2.
 >       "name": "CodeScanner",
->       "semanticVersion": "3.3",    # See §3.19.12.
+>       "semanticVersion": "3.3",    # See 3.19.12.
 >       "guid": "11111111-1111-1111-8888-111111111111",
 >       ...
 >       "rules": [
@@ -2980,9 +3070,9 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
 >           "shortDescription": {
 >             "text": "Failed to release dynamic memory."
 >           },
->           "relationships": [       # See §3.49.15.
->             {              # A reportingDescriptorRelationship object (§3.53).
->               "target": {          # See §3.53.2
+>           "relationships": [       # See 3.49.15.
+>             {              # A reportingDescriptorRelationship object (3.53).
+>               "target": {          # See 3.53.2
 >                 "id": "MemoryManagement",
 >                 "guid": "66666666-6666-1111-8888-666666666666",
 >                 "toolComponent": {
@@ -2990,7 +3080,7 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
 >                   "guid": "11111111-1111-1111-8888-111111111111"
 >                 }
 >               },
->               "kinds": [           # See §3.53.3.
+>               "kinds": [           # See 3.53.3.
 >                 "superset"
 >               ]
 >             }
@@ -3080,32 +3170,32 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
 
 ### 3.19.4 Translations <a id='translations'></a>
 
-A translation is the rendering of a `toolComponent` object’s localizable strings ([§3.5.1](#localizable-strings)) into another language.
+A translation is the rendering of a `toolComponent` object’s localizable strings ([3.5.1 "Localizable Strings"](#localizable-strings)) into another language.
 
-A translation is itself represented by a `toolComponent` object whose localizable properties are the translated versions of the corresponding properties in the component being translated. A translation specifies the tool component to which it applies by way of its `associatedComponent` property ([§3.19.33](#associatedcomponent-property)).
+A translation is itself represented by a `toolComponent` object whose localizable properties are the translated versions of the corresponding properties in the component being translated. A translation specifies the tool component to which it applies by way of its `associatedComponent` property ([3.19.33 "`associatedComponent` Property"](#associatedcomponent-property)).
 
-Translations **SHALL** be stored in the `run.translations` array ([§3.14.9](#translations-property)).
+Translations **SHALL** be stored in the `run.translations` array ([3.14.9 "`translations` Property"](#translations-property)).
 
-A translation **SHALL** specify the component that it translates by way of its `associatedComponent` property ([§3.19.33](#associatedcomponent-property)). `associatedComponent` **SHALL NOT** refer to another translation.
+A translation **SHALL** specify the component that it translates by way of its `associatedComponent` property ([3.19.33 "`associatedComponent` Property"](#associatedcomponent-property)). `associatedComponent` **SHALL NOT** refer to another translation.
 
 A translation component **SHALL** contain the translations of every localizable string in the translated component, even if the translated string is identical to the original string. It **MAY** contain additional strings that do not appear in the translated component.
 
-To some degree, translations and the components they translate can version independently. The versioning relationship between a translation and the translated component is explained in the sections describing `localizedDataSemanticVersion` ([§3.19.31](#localizeddatasemanticversion-property)), populated by translations, and `requiredMinimumLocalizedDataSemanticVersion` ([§3.19.32](#minimumrequiredlocalizeddatasemanticversion-property)), populated by translated components.
+To some degree, translations and the components they translate can version independently. The versioning relationship between a translation and the translated component is explained in the sections describing `localizedDataSemanticVersion` ([3.19.31 "`localizedDataSemanticVersion` Property"](#localizeddatasemanticversion-property)), populated by translations, and `requiredMinimumLocalizedDataSemanticVersion` ([3.19.32 "`minimumRequiredLocalizedDataSemanticVersion` Property"](#minimumrequiredlocalizeddatasemanticversion-property)), populated by translated components.
 
-A translation **SHOULD** include the value `"localizedData"` in its `contents` array ([§3.19.29](#toolcomponent-object--contents-property)). It **MAY** also include the value `"nonLocalizedData"`.
+A translation **SHOULD** include the value `"localizedData"` in its `contents` array ([3.19.29 "`contents` Property"](#toolcomponent-object--contents-property)). It **MAY** also include the value `"nonLocalizedData"`.
 
-To facilitate the identification of translations that are associated with a given component, a `toolComponent` **SHOULD** populate its `guid` property ([§3.19.6](#toolcomponent-object--guid-property)), and a translation for that component **SHOULD** set its `guid` property to the same value.
+To facilitate the identification of translations that are associated with a given component, a `toolComponent` **SHOULD** populate its `guid` property ([3.19.6 "`guid` Property"](#toolcomponent-object--guid-property)), and a translation for that component **SHOULD** set its `guid` property to the same value.
 
-In many cases, a new version of a `toolComponent` defines new localizable strings or requires changes to existing ones (for example, when the tool defines new analysis rules). But in some cases, a new version of a `toolComponent` can use existing translations (for example, in the case of a bug fix release). To ensure that new translations are created only when necessary, a translation component **SHOULD** populate `localizedDataSemanticVersion` ([§3.19.31](#localizeddatasemanticversion-property)), and a translatable component **SHOULD** populate `minimumRequiredLocalizedDataSemanticVersion` ([§3.19.32](#minimumrequiredlocalizeddatasemanticversion-property)). See the descriptions of those two properties for an explanation of the interaction between them.
+In many cases, a new version of a `toolComponent` defines new localizable strings or requires changes to existing ones (for example, when the tool defines new analysis rules). But in some cases, a new version of a `toolComponent` can use existing translations (for example, in the case of a bug fix release). To ensure that new translations are created only when necessary, a translation component **SHOULD** populate `localizedDataSemanticVersion` ([3.19.31 "`localizedDataSemanticVersion` Property"](#localizeddatasemanticversion-property)), and a translatable component **SHOULD** populate `minimumRequiredLocalizedDataSemanticVersion` ([3.19.32 "`minimumRequiredLocalizedDataSemanticVersion` Property"](#minimumrequiredlocalizeddatasemanticversion-property)). See the descriptions of those two properties for an explanation of the interaction between them.
 
-> EXAMPLE 1: In this example, a French translation is available. It translates localizable component-level properties such as `toolComponent.name` ([§3.19.8](#toolcomponent-object--name-property)), as well as rule-level properties such as `reportingDescriptor.shortDescription` ([§3.49.9](#reportingdescriptor-object--shortdescription-property)). The translation can be used because its `localizedDataSemanticVersion` property ([§3.19.31](#localizeddatasemanticversion-property)) is compatible with the translated component’s `minimumRequiredLocalizedDataSemantic` version property ([§3.19.32](#minimumrequiredlocalizeddatasemanticversion-property)).
+> EXAMPLE 1: In this example, a French translation is available. It translates localizable component-level properties such as `toolComponent.name` ([3.19.8 "`name` Property"](#toolcomponent-object--name-property)), as well as rule-level properties such as `reportingDescriptor.shortDescription` ([3.49.9 "`shortDescription` Property"](#reportingdescriptor-object--shortdescription-property)). The translation can be used because its `localizedDataSemanticVersion` property ([3.19.31 "`localizedDataSemanticVersion` Property"](#localizeddatasemanticversion-property)) is compatible with the translated component’s `minimumRequiredLocalizedDataSemantic` version property ([3.19.32 "`minimumRequiredLocalizedDataSemanticVersion` Property"](#minimumrequiredlocalizeddatasemanticversion-property)).
 >
 > ```json
-> {                                  # A run object (§3.14).
->   "tool": {                        # See §3.14.6.
->     "driver": {                    # See §3.18.2.
+> {                                  # A run object (3.14).
+>   "tool": {                        # See 3.14.6.
+>     "driver": {                    # See 3.18.2.
 >       "name": "CodeScanner",
->       "semanticVersion": "3.3",    # See §3.19.12.
+>       "semanticVersion": "3.3",    # See 3.19.12.
 >       "minimumRequiredLocalizedDataSemanticVersion": "3.1",
 >       ...
 >       "rules": [
@@ -3150,27 +3240,27 @@ In many cases, a new version of a `toolComponent` defines new localizable string
 
 A policy is a set of rule configurations that specify how results that violate the rules defined by a particular tool component are to be treated.
 
-A policy is represented by a `toolComponent` object. A policy specifies the tool component to which it applies by way of its `associatedComponent` property ([§3.19.33](#associatedcomponent-property)).
+A policy is represented by a `toolComponent` object. A policy specifies the tool component to which it applies by way of its `associatedComponent` property ([3.19.33 "`associatedComponent` Property"](#associatedcomponent-property)).
 
-A policy **SHALL** contain a `rules` property ([§3.19.23](#rules-property)), each `reportingDescriptor`-valued ([§3.49](#reportingdescriptor-object)) element of which in turn contains a `defaultConfiguration` property ([§3.49.14](#defaultconfiguration-property)). Each element of the `rules` array **SHALL** correspond to a rule defined by the associated component. The `rules` array **MAY** contain elements describing any or all of the rules defined by the associated component. The elements of the `rules` array **MAY** alter rule properties such as `level` ([§3.50.3](#reportingconfiguration-object--level-property)), and **MAY** enable or disable rules. In this way, the policy defines the code analysis standard that is expected of the engineering team.
+A policy **SHALL** contain a `rules` property ([3.19.23 "`rules` Property"](#rules-property)), each `reportingDescriptor`-valued ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) element of which in turn contains a `defaultConfiguration` property ([3.49.14 "`defaultConfiguration` Property"](#defaultconfiguration-property)). Each element of the `rules` array **SHALL** correspond to a rule defined by the associated component. The `rules` array **MAY** contain elements describing any or all of the rules defined by the associated component. The elements of the `rules` array **MAY** alter rule properties such as `level` ([3.50.3 "`level` Property"](#reportingconfiguration-object--level-property)), and **MAY** enable or disable rules. In this way, the policy defines the code analysis standard that is expected of the engineering team.
 
-Policies **SHALL** be stored in the `run.policies` array ([§3.14.10](#policies-property)).
+Policies **SHALL** be stored in the `run.policies` array ([3.14.10 "`policies` Property"](#policies-property)).
 
-A SARIF consumer **MAY** offer the user the option of treating results according to the associated component’s default rule configuration (possibly modified by command line options stored in `theInvocation.ruleConfigurationOverrides` ([§3.20.5](#ruleconfigurationoverrides-property)), by configuration files, by environment variables, or by any other means), or according to the configuration defined by a selected element of `run.policies`. If the user selects a policy, then for any result that violates a rule covered by that policy, the SARIF consumer **SHALL** treat the result according to the policy, regardless of the associated component’s default configuration, regardless of any configuration overrides, and regardless of whether the `result` object ([§3.27](#result-object)) itself specifies a configuration property such as `level` ([§3.27.10](#result-object--level-property)).
+A SARIF consumer **MAY** offer the user the option of treating results according to the associated component’s default rule configuration (possibly modified by command line options stored in `theInvocation.ruleConfigurationOverrides` ([3.20.5 "`ruleConfigurationOverrides` Property"](#ruleconfigurationoverrides-property)), by configuration files, by environment variables, or by any other means), or according to the configuration defined by a selected element of `run.policies`. If the user selects a policy, then for any result that violates a rule covered by that policy, the SARIF consumer **SHALL** treat the result according to the policy, regardless of the associated component’s default configuration, regardless of any configuration overrides, and regardless of whether the `result` object ([3.27 "`result` Object"](#result-object)) itself specifies a configuration property such as `level` ([3.27.10 "`level` Property"](#result-object--level-property)).
 
 > NOTE: The rationale is that when a user asks to see how a policy views a set of results, they want to see exactly what the policy has to say, regardless of any configuration options that might have been selected when the log was created.
 
 > EXAMPLE 1: In this example, the tool driver defines rule `CA2101` to be a warning and disables rule `CA2551` by default. However, the corporate security policy specifies that a violation of rule `CA2101` is an error and requires rule `CA2551` to be run. The presence of `run.policies` allows a SARIF viewer to display the results according to the tool’s view or the policy’s view.
 
 ```json
-{                                  # A run object (§3.14).
-  "tool": {                        # See §3.14.6.
-    "driver": {                    # See §3.18.2.
+{                                  # A run object (3.14).
+  "tool": {                        # See 3.14.6.
+    "driver": {                    # See 3.18.2.
       "name": "CodeScanner",
-      "rules": [                   # See §3.19.23.
-        {                          # A reportingDescriptor object (§3.49).
+      "rules": [                   # See 3.19.23.
+        {                          # A reportingDescriptor object (3.49).
           "id": "CA2101",
-          "defaultConfiguration": { # See §3.49.14.
+          "defaultConfiguration": { # See 3.49.14.
             "level": "warning"
           }
         },
@@ -3185,7 +3275,7 @@ A SARIF consumer **MAY** offer the user the option of treating results according
     }
   },
   "policies": [
-    {                              # A toolComponent object (§3.19).
+    {                              # A toolComponent object (3.19).
       "name": "Example Corp. Security Policy",
       "semanticVersion": "7.0",
       "rules": [
@@ -3209,15 +3299,15 @@ A SARIF consumer **MAY** offer the user the option of treating results according
 
 ### 3.19.6 `guid` Property <a id='toolcomponent-object--guid-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that provides a unique, stable identifier for the component. `guid` **SHALL NOT** vary between versions of a given component.
+A `toolComponent` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) that provides a unique, stable identifier for the component. `guid` **SHALL NOT** vary between versions of a given component.
 
 ### 3.19.7 Product hierarchy properties <a id='product-hierarchy-properties'></a>
 
-The `name` ([§3.19.8](#toolcomponent-object--name-property)) or `fullName` ([§3.19.9](#toolcomponent-object--fullname-property)), `product` ([§3.19.10](#product-property)), and `productSuite` ([§3.19.11](#productsuite-property)) properties establish a hierarchy of related software: the tool component identified by `name` and/or `fullName` is part of the product named by `product`, which in turn is part of the product suite identified by `productSuite`.
+The `name` ([3.19.8 "`name` Property"](#toolcomponent-object--name-property)) or `fullName` ([3.19.9 "`fullName` Property"](#toolcomponent-object--fullname-property)), `product` ([3.19.10 "`product` Property"](#product-property)), and `productSuite` ([3.19.11 "`productSuite` Property"](#productsuite-property)) properties establish a hierarchy of related software: the tool component identified by `name` and/or `fullName` is part of the product named by `product`, which in turn is part of the product suite identified by `productSuite`.
 
 ### 3.19.8 `name` Property <a id='toolcomponent-object--name-property'></a>
 
-A `toolComponent` object **SHALL** contain a property named `name` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing the name of the tool component.
+A `toolComponent` object **SHALL** contain a property named `name` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing the name of the tool component.
 
 > EXAMPLE 1: `"CodeScanner"`
 
@@ -3227,19 +3317,19 @@ A `toolComponent` object **SHALL** contain a property named `name` whose value i
 
 ### 3.19.9 `fullName` Property <a id='toolcomponent-object--fullname-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `fullName` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing the name of the tool component along with its version and any other useful identifying information, such as its locale.
+A `toolComponent` object **MAY** contain a property named `fullName` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing the name of the tool component along with its version and any other useful identifying information, such as its locale.
 
 > EXAMPLE 1: `"CodeScanner 1.1, Developer Preview (en-US)"`
 
 ### 3.19.10 `product` Property <a id='product-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `product` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing the name of the product to which the tool component belongs.
+A `toolComponent` object **MAY** contain a property named `product` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing the name of the product to which the tool component belongs.
 
 > EXAMPLE 1: `"product": "Example Software Corp. Security Scanner"`
 
 ### 3.19.11 `productSuite` Property <a id='productsuite-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `productSuite` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing the name of the suite of products to which the tool component belongs.
+A `toolComponent` object **MAY** contain a property named `productSuite` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing the name of the suite of products to which the tool component belongs.
 
 > EXAMPLE 1: `"productSuite": "Example Software Corp. Quality Tools"`
 
@@ -3251,7 +3341,7 @@ A `toolComponent` object **MAY** contain a property named `semanticVersion` whos
 
 > NOTE 1: Semantic versions are sortable in chronological order of release. The presence of the `semanticVersion` property allows results management systems to (for example) restrict the results they display to versions newer than a specified version, or to restrict the results to a particular major version.
 
-Unless the author of the converter knows that the version number of the tool from which it converts is intended to be interpreted according to Semantic Versioning \[[SEMVER](#SEMVER)\], the converter **SHALL NOT** emit the `semanticVersion` property in `run.tool` ([§3.14.6](#run-object--tool-property)), although of course it may emit its own `semanticVersion` property (the one in `run.conversion.tool` ([§3.22.2](#conversion-object--tool-property))).
+Unless the author of the converter knows that the version number of the tool from which it converts is intended to be interpreted according to Semantic Versioning \[[SEMVER](#SEMVER)\], the converter **SHALL NOT** emit the `semanticVersion` property in `run.tool` ([3.14.6 "`tool` Property"](#run-object--tool-property)), although of course it may emit its own `semanticVersion` property (the one in `run.conversion.tool` ([3.22.2 "`tool` Property"](#conversion-object--tool-property))).
 
 ### 3.19.13 `version` Property <a id='toolcomponent-object--version-property'></a>
 
@@ -3273,43 +3363,43 @@ If the operating system does not provide such a value, the `dottedQuadFileVersio
 
 ### 3.19.15 `releaseDateUtc` Property <a id='releasedateutc-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `releaseDateUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date (and optionally, the time) of the component’s release.
+A `toolComponent` object **MAY** contain a property named `releaseDateUtc` whose value is a string in the format specified in [3.9 "Date/time Properties"](#datetime-properties), specifying the UTC date (and optionally, the time) of the component’s release.
 
 ### 3.19.16 `downloadUri` Property <a id='toolcomponent-object--downloaduri-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `downloadUri` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing the absolute URI \[[RFC3986](#RFC3986)\] from which this version of the tool component can be downloaded.
+A `toolComponent` object **MAY** contain a property named `downloadUri` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing the absolute URI \[[RFC3986](#RFC3986)\] from which this version of the tool component can be downloaded.
 
 > NOTE: This property is localizable to allow different language versions of a tool to be downloaded from their own URIs.
 
 ### 3.19.17 `informationUri` Property <a id='toolcomponent-object--informationuri-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `informationUri` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing the absolute URI \[[RFC3986](#RFC3986)\] at which information about this version of the tool component can be found.
+A `toolComponent` object **MAY** contain a property named `informationUri` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing the absolute URI \[[RFC3986](#RFC3986)\] at which information about this version of the tool component can be found.
 
 > NOTE: This property is localizable to allow tool information in different languages to be found at different URIs.
 
 ### 3.19.18 `organization` Property <a id='organization-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `organization` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing the name of the company or organization that produced the tool component.
+A `toolComponent` object **MAY** contain a property named `organization` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing the name of the company or organization that produced the tool component.
 
 > EXAMPLE 1: `"organization": "Example Software Corp."`
 
 ### 3.19.19 `shortDescription` Property <a id='toolcomponent-object--shortdescription-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object), [§3.12.2](#localizable-multiformatmessagestrings)) containing a brief description of the tool component.
+A `toolComponent` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object), [3.12.2 "Localizable `multiformatMessageStrings`"](#localizable-multiformatmessagestrings)) containing a brief description of the tool component.
 
 The `shortDescription` property **SHOULD** be a single sentence that is understandable when visible space is limited to a single line of text.
 
 ### 3.19.20 `fullDescription` Property <a id='toolcomponent-object--fulldescription-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `fullDescription` whose value is a localizable `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object), [§3.12.2](#localizable-multiformatmessagestrings)) containing a comprehensive description of the tool component.
+A `toolComponent` object **MAY** contain a property named `fullDescription` whose value is a localizable `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object), [3.12.2 "Localizable `multiformatMessageStrings`"](#localizable-multiformatmessagestrings)) containing a comprehensive description of the tool component.
 
-The beginning of `fullDescription` (for example, its first sentence) **SHOULD** provide a concise description of the tool component, suitable for display in cases where available space is limited. Tools that construct `fullDescription` in this way do not need to provide a value for `shortDescription` ([§3.19.19](#toolcomponent-object--shortdescription-property)). Tools that do not construct `fullDescription` in this way **SHOULD** provide a value for `shortDescription`.
+The beginning of `fullDescription` (for example, its first sentence) **SHOULD** provide a concise description of the tool component, suitable for display in cases where available space is limited. Tools that construct `fullDescription` in this way do not need to provide a value for `shortDescription` ([3.19.19 "`shortDescription` Property"](#toolcomponent-object--shortdescription-property)). Tools that do not construct `fullDescription` in this way **SHOULD** provide a value for `shortDescription`.
 
 > NOTE: The rationale for this guidance is that in the absence of `shortDescription`, a viewer with limited display space might display a truncated version of `fullDescription`, for example, the first sentence (if a sentence is identifiable), the first paragraph, or the first 100 characters. If this guidance is not followed, that truncated description might not be understandable.
 
 ### 3.19.21 `language` Property <a id='language-property'></a>
 
-Depending on the circumstances, a `toolComponent` object either **SHALL** or **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([§3.5.1](#localizable-strings)) contained in the component (except for those in the `translationMetadata` property ([§3.19.27](#translationmetadata-property))), in a subset of the format specified by the language tags standard \[[RFC5646](#RFC5646)\]. The subset consists of strings conforming to the syntax
+Depending on the circumstances, a `toolComponent` object either **SHALL** or **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([3.5.1 "Localizable Strings"](#localizable-strings)) contained in the component (except for those in the `translationMetadata` property ([3.19.27 "`translationMetadata` Property"](#translationmetadata-property))), in a subset of the format specified by the language tags standard \[[RFC5646](#RFC5646)\]. The subset consists of strings conforming to the syntax
 
     language value = language code, "-", country code;
 
@@ -3317,7 +3407,7 @@ Depending on the circumstances, a `toolComponent` object either **SHALL** or **M
 
     country code = ? ISO country code \[[ISO3166-1:2013](#ISO3166-1;2013)\] ?;
 
-If this object represents a translation (see [§3.19.4](#translations)), `language` **SHALL** be present; otherwise it **MAY** be present.
+If this object represents a translation (see [3.19.4 "Translations"](#translations)), `language` **SHALL** be present; otherwise it **MAY** be present.
 
 If this property is absent, it **SHALL** default to `"en-US"`.
 
@@ -3331,14 +3421,14 @@ If this property is absent, it **SHALL** default to `"en-US"`.
 
 ### 3.19.22 `globalMessageStrings` Property <a id='globalmessagestrings-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `globalMessageStrings` whose value is an object ([§3.6](#object-properties)) each of whose property values is a localizable `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object), [§3.12.2](#localizable-multiformatmessagestrings)). The property names correspond to `id` properties ([§3.11.10](#message-object--id-property)) within `message` objects ([§3.11](#message-object)).
+A `toolComponent` object **MAY** contain a property named `globalMessageStrings` whose value is an object ([3.6 "Object Properties"](#object-properties)) each of whose property values is a localizable `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object), [3.12.2 "Localizable `multiformatMessageStrings`"](#localizable-multiformatmessagestrings)). The property names correspond to `id` properties ([3.11.10 "`id` Property"](#message-object--id-property)) within `message` objects ([3.11 "`message` Object"](#message-object)).
 
 > EXAMPLE 1:
 >
 > ```json
-> "driver": {                       # A toolComponent object (§3.19).
+> "driver": {                       # A toolComponent object (3.19).
 >   "globalMessageStrings": {
->     "call": {                     # A multiformatMessageString object (§3.12).
+>     "call": {                     # A multiformatMessageString object (3.12).
 >       "text": "Function call",
 >       "markdown": "Function **call**"
 >     },
@@ -3354,17 +3444,17 @@ A `toolComponent` object **MAY** contain a property named `globalMessageStrings`
 
 ### 3.19.23 `rules` Property <a id='rules-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `rules` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `reportingDescriptor` objects ([§3.49](#reportingdescriptor-object)) each of which provides information about an analysis rule supported by the tool component.
+A `toolComponent` object **MAY** contain a property named `rules` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `reportingDescriptor` objects ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) each of which provides information about an analysis rule supported by the tool component.
 
-Some tools use the same identifier to refer to multiple distinct (although logically related) rules. Therefore, the `id` properties ([§3.49.3](#reportingdescriptor-object--id-property)) of the `reportingDescriptor` objects do not need to be unique within the array.
+Some tools use the same identifier to refer to multiple distinct (although logically related) rules. Therefore, the `id` properties ([3.49.3 "`id` Property"](#reportingdescriptor-object--id-property)) of the `reportingDescriptor` objects do not need to be unique within the array.
 
 > EXAMPLE 1: In this example, two distinct but related rules have the same rule id. They are distinguished by their message strings.
 >
 > ```json
-> "driver": {                       # A toolComponent object (§3.19).
+> "driver": {                       # A toolComponent object (3.19).
 >   "name": "CodeScaner",
 >   "rules": [
->     {                             # A reportingDescriptor object (§3.49).
+>     {                             # A reportingDescriptor object (3.49).
 >       "id": "CA1711",
 >       "shortDescription": {
 >         "text": "Certain type name suffixes should not be used."
@@ -3394,16 +3484,16 @@ Some tools use the same identifier to refer to multiple distinct (although logic
 
 ### 3.19.24 `notifications` Property <a id='notifications-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `notifications` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `reportingDescriptor` objects ([§3.49](#reportingdescriptor-object)) each of which provides information about a notification provided by the tool component.
+A `toolComponent` object **MAY** contain a property named `notifications` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `reportingDescriptor` objects ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) each of which provides information about a notification provided by the tool component.
 
-A tool might use the same identifier to refer to multiple distinct (although logically related) notifications. Therefore, the `id` properties ([§3.49.3](#reportingdescriptor-object--id-property)) of the `reportingDescriptor` objects do not need to be unique within the array.
+A tool might use the same identifier to refer to multiple distinct (although logically related) notifications. Therefore, the `id` properties ([3.49.3 "`id` Property"](#reportingdescriptor-object--id-property)) of the `reportingDescriptor` objects do not need to be unique within the array.
 
 > EXAMPLE 1: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
 >
 > ```json
-> "driver": {                      # A toolComponent object (§3.19).
+> "driver": {                      # A toolComponent object (3.19).
 >   "notifications": [
->     {                            # A reportingDescriptor object (§3.49).
+>     {                            # A reportingDescriptor object (3.49).
 >       "id": "ERR0001",
 >       "level": "error",
 >       "shortDescription": {
@@ -3430,11 +3520,11 @@ A tool might use the same identifier to refer to multiple distinct (although log
 
 ### 3.19.25 `taxa` Property <a id='toolcomponent-object--taxa-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `reportingDescriptor` objects ([§3.49](#reportingdescriptor-object)) each of which provides information about a taxon defined by the component.
+A `toolComponent` object **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `reportingDescriptor` objects ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) each of which provides information about a taxon defined by the component.
 
-If the `toolComponent` describes a standard taxonomy (for example, the Common Weakness Enumeration \[[CWE](#CWE)\]), it **SHALL NOT** contain `rules` ([§3.19.23](#rules-property)) or `notifications` ([§3.19.24](#notifications-property)).
+If the `toolComponent` describes a standard taxonomy (for example, the Common Weakness Enumeration \[[CWE](#CWE)\]), it **SHALL NOT** contain `rules` ([3.19.23 "`rules` Property"](#rules-property)) or `notifications` ([3.19.24 "`notifications` Property"](#notifications-property)).
 
-> NOTE: Tool components representing standard taxonomies are stored in `run.taxonomies` ([§3.14.8](#taxonomies-property)), but will typically be persisted to external property files (see [§3.15.2](#rationale)).
+> NOTE: Tool components representing standard taxonomies are stored in `run.taxonomies` ([3.14.8 "`taxonomies` Property"](#taxonomies-property)), but will typically be persisted to external property files (see [3.15.2 "Rationale"](#rationale)).
 
 If the `toolComponent` describes a tool driver or plugin that defines its own custom taxonomy, it **MAY** contain all of `rules`, `notifications`, and `taxa`.
 
@@ -3470,9 +3560,9 @@ If the `toolComponent` describes a tool driver or plugin that defines its own cu
 
 ### 3.19.26 `supportedTaxonomies` Property <a id='supportedtaxonomies-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `supportedTaxonomies` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `toolComponentReference` objects ([§3.54](#toolcomponentreference-object)) each of which refers to a taxonomy ([§3.19.3](#taxonomies)) that the component uses to classify results.
+A `toolComponent` object **MAY** contain a property named `supportedTaxonomies` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `toolComponentReference` objects ([3.54 "`toolComponentReference` Object"](#toolcomponentreference-object)) each of which refers to a taxonomy ([3.19.3 "Taxonomies"](#taxonomies)) that the component uses to classify results.
 
-A `toolComponent` object that contains a `supportedTaxonomies` property **SHALL** declare which taxa (if any) each of its rules falls into by providing the `relationships` property ([§3.49.15](#reportingdescriptor-object--relationships-property)) as appropriate on each `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) in its `rules` array ([§3.19.23](#rules-property)).
+A `toolComponent` object that contains a `supportedTaxonomies` property **SHALL** declare which taxa (if any) each of its rules falls into by providing the `relationships` property ([3.49.15 "`relationships` Property"](#reportingdescriptor-object--relationships-property)) as appropriate on each `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) in its `rules` array ([3.19.23 "`rules` Property"](#rules-property)).
 
 > NOTE: A SARIF consumer could infer the set of taxonomies that a component supports by examining the set of `relationships` properties of each element of `toolComponent.rules`. The `supportedTaxonomies` property is a convenience, intended to enable consumers to see this information at a glance.
 
@@ -3481,19 +3571,19 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 > EXAMPLE 1: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE](#CWE)\], and also supports a custom taxonomy.
 >
 > ```json
-> {                                 # A run object (§3.14).
->   "tool": {                       # See §3.14.6.
->     "driver": {                   # See §3.18.2.
+> {                                 # A run object (3.14).
+>   "tool": {                       # See 3.14.6.
+>     "driver": {                   # See 3.18.2.
 >       "name": "CodeScanner",
 >       "guid": "22222222-2222-1111-8888-222222222222",
->       "rules": [                  # See §3.19.23.
+>       "rules": [                  # See 3.19.23.
 >         ...
 >       ],
->       "taxa": [                   # See §3.19.25. Here, defines a custom
+>       "taxa": [                   # See 3.19.25. Here, defines a custom
 >         ...                       #  taxonomy.
 >       ],
 >       "supportedTaxonomies": [
->         {                         # A toolComponentReference object (§3.54).
+>         {                         # A toolComponentReference object (3.54).
 >           "name": "CWE",          # Declares support for CWE.
 >           "index": 0,
 >           "guid": "11111111-1111-1111-8888-111111111111"
@@ -3523,64 +3613,64 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 
 ### 3.19.27 `translationMetadata` Property <a id='translationmetadata-property'></a>
 
-If a `toolComponent` object represents a translation ([§3.19.4](#translations)), it **SHALL** contain a property named `translationMetadata` whose value is a `translationMetadata` object ([§3.26](#translationmetadata-object)) that contains descriptive information about the translation itself, as opposed to describing the component whose localizable strings ([§3.5.1](#localizable-strings)) it translates. Otherwise, `translationMetadata` **SHALL** be absent.
+If a `toolComponent` object represents a translation ([3.19.4 "Translations"](#translations)), it **SHALL** contain a property named `translationMetadata` whose value is a `translationMetadata` object ([3.26 "`translationMetadata` Object"](#translationmetadata-object)) that contains descriptive information about the translation itself, as opposed to describing the component whose localizable strings ([3.5.1 "Localizable Strings"](#localizable-strings)) it translates. Otherwise, `translationMetadata` **SHALL** be absent.
 
 ### 3.19.28 `locations` Property <a id='toolcomponent-object--locations-property'></a>
 
-A `toolComponent` object **MAY** contain a property named `locations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `artifactLocation` objects ([§3.4](#artifactlocation-object)) each of which specifies the location of one of the files comprising this tool component.
+A `toolComponent` object **MAY** contain a property named `locations` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `artifactLocation` objects ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) each of which specifies the location of one of the files comprising this tool component.
 
 ### 3.19.29 `contents` Property <a id='toolcomponent-object--contents-property'></a>
 
-A `toolComponent` object **SHOULD** contain a property named `contents` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) strings each of which is one of the following values with the specified meanings:
+A `toolComponent` object **SHOULD** contain a property named `contents` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings each of which is one of the following values with the specified meanings:
 
-- `"localizedData"`: The component includes localizable strings ([§3.5.1](#localizable-strings)) such as rule messages.
+- `"localizedData"`: The component includes localizable strings ([3.5.1 "Localizable Strings"](#localizable-strings)) such as rule messages.
 
 - `"nonLocalizedData"`: The component includes non-localizable properties such as rule severity levels.
 
 If `contents` is absent, it **SHALL** default to `[ "localizedData", "nonLocalizedData" ]`.
 
-> NOTE: The purpose of this property is to help protect components from misuse. Within a SARIF file, the component types are all stored in their own properties, so there is no danger of mistaking, for example, a translation (stored in `run.translations` ([§3.14.9](#translations-property))) for a policy (stored in `run.policies` ([§3.14.10](#policies-property))). But components such as translations and policies are typically authored independently from a tool and stored separately from its log files. The author of a translation (which contains only `"localizedData"`) can help prevent its misuse as a policy (which requires `"nonLocalizedData"`) by setting `contents` to `[ "localizedData" ]`.
+> NOTE: The purpose of this property is to help protect components from misuse. Within a SARIF file, the component types are all stored in their own properties, so there is no danger of mistaking, for example, a translation (stored in `run.translations` ([3.14.9 "`translations` Property"](#translations-property))) for a policy (stored in `run.policies` ([3.14.10 "`policies` Property"](#policies-property))). But components such as translations and policies are typically authored independently from a tool and stored separately from its log files. The author of a translation (which contains only `"localizedData"`) can help prevent its misuse as a policy (which requires `"nonLocalizedData"`) by setting `contents` to `[ "localizedData" ]`.
 >
 > For example, a user might specify the path to a policy file on a tool’s command line. If the specified file does not claim to contain `"nonLocalizedData"`, the tool could conclude that the file does not contain a policy and warn the user.
 
 ### 3.19.30 `isComprehensive` Property <a id='iscomprehensive-property'></a>
 
-A `toolComponent` object **SHOULD** contain a property named `isComprehensive` whose value is a Boolean that is `true` if the component contains complete information for the content types specified by `contents` ([§3.19.29](#toolcomponent-object--contents-property)) and `false` otherwise.
+A `toolComponent` object **SHOULD** contain a property named `isComprehensive` whose value is a Boolean that is `true` if the component contains complete information for the content types specified by `contents` ([3.19.29 "`contents` Property"](#toolcomponent-object--contents-property)) and `false` otherwise.
 
 If `isComprehensive` is absent, it **SHALL** default to `false`.
 
-> NOTE: This property is useful because tools are permitted to emit `rules` ([§3.19.23](#rules-property)), `notifications` ([§3.19.24](#notifications-property)), or `taxa` ([§3.19.25](#toolcomponent-object--taxa-property)) properties that contain only those items relevant to the current run. For example, a tool might define hundreds of rules, but if a scan detects violations of only two of them, then the `rules` property (if it is present at all, which it does not need to be) need only contain metadata for those two rules.
+> NOTE: This property is useful because tools are permitted to emit `rules` ([3.19.23 "`rules` Property"](#rules-property)), `notifications` ([3.19.24 "`notifications` Property"](#notifications-property)), or `taxa` ([3.19.25 "`taxa` Property"](#toolcomponent-object--taxa-property)) properties that contain only those items relevant to the current run. For example, a tool might define hundreds of rules, but if a scan detects violations of only two of them, then the `rules` property (if it is present at all, which it does not need to be) need only contain metadata for those two rules.
 >
-> So, for example, the author of a translation ([§3.19.4](#translations)) would want to work from a log file whose `contents` array includes `"localizedData"` and whose `isComprehensive` property is set to `true`. Similarly, the author of a policy ([§3.19.5](#policies)) would want to work from a log file whose `contents` array contains `"nonLocalizedData"` and whose `isComprehensive` property is set to `true`.
+> So, for example, the author of a translation ([3.19.4 "Translations"](#translations)) would want to work from a log file whose `contents` array includes `"localizedData"` and whose `isComprehensive` property is set to `true`. Similarly, the author of a policy ([3.19.5 "Policies"](#policies)) would want to work from a log file whose `contents` array contains `"nonLocalizedData"` and whose `isComprehensive` property is set to `true`.
 
 ### 3.19.31 `localizedDataSemanticVersion` Property <a id='localizeddatasemanticversion-property'></a>
 
-If a `toolComponent` object represents a translation ([§3.19.4](#translations)), it **SHOULD** contain a property named `localizedDataSemanticVersion` whose value is a string that specifies the semantic version \[[SEMVER](#SEMVER)\] of the translated strings. Otherwise, `localizedDataSemanticVersion` **MAY** be present, in which case it represents the semantic version of the localizable strings ([§3.5.1](#localizable-strings)) that are present in this component.
+If a `toolComponent` object represents a translation ([3.19.4 "Translations"](#translations)), it **SHOULD** contain a property named `localizedDataSemanticVersion` whose value is a string that specifies the semantic version \[[SEMVER](#SEMVER)\] of the translated strings. Otherwise, `localizedDataSemanticVersion` **MAY** be present, in which case it represents the semantic version of the localizable strings ([3.5.1 "Localizable Strings"](#localizable-strings)) that are present in this component.
 
-If `localizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([§3.19.12](#semanticversion-property)).
+If `localizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([3.19.12 "`semanticVersion` Property"](#semanticversion-property)).
 
-> NOTE 1: See the description of `minimumRequiredLocalizedDataSemanticVersion` ([§3.19.32](#minimumrequiredlocalizeddatasemanticversion-property)) for an explanation of how these two properties interact.
+> NOTE 1: See the description of `minimumRequiredLocalizedDataSemanticVersion` ([3.19.32 "`minimumRequiredLocalizedDataSemanticVersion` Property"](#minimumrequiredlocalizeddatasemanticversion-property)) for an explanation of how these two properties interact.
 
-> NOTE 2: In a translation, `localizedDataSemanticVersion` will usually be the same as `semanticVersion`. They will differ only if it is necessary to revise the translation component to correct an error unrelated to the translated strings, for example, an error in its `translationMetadata` ([§3.19.27](#translationmetadata-property)). In that case, `semanticVersion` would be incremented but `localizedDataSemanticVersion` would not.
+> NOTE 2: In a translation, `localizedDataSemanticVersion` will usually be the same as `semanticVersion`. They will differ only if it is necessary to revise the translation component to correct an error unrelated to the translated strings, for example, an error in its `translationMetadata` ([3.19.27 "`translationMetadata` Property"](#translationmetadata-property)). In that case, `semanticVersion` would be incremented but `localizedDataSemanticVersion` would not.
 
 ### 3.19.32 `minimumRequiredLocalizedDataSemanticVersion` Property <a id='minimumrequiredlocalizeddatasemanticversion-property'></a>
 
-If a `toolComponent` object does not represent a translation ([§3.19.4](#translations)), it **SHOULD** contain a property named `minimumRequiredLocalizedDataSemanticVersion` whose value is a string that specifies the minumum semantic version \[[SEMVER](#SEMVER)\] of the translated strings that it requires. Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
+If a `toolComponent` object does not represent a translation ([3.19.4 "Translations"](#translations)), it **SHOULD** contain a property named `minimumRequiredLocalizedDataSemanticVersion` whose value is a string that specifies the minumum semantic version \[[SEMVER](#SEMVER)\] of the translated strings that it requires. Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
 
-If `minimumRequiredLocalizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([§3.19.12](#semanticversion-property)).
+If `minimumRequiredLocalizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([3.19.12 "`semanticVersion` Property"](#semanticversion-property)).
 
-When a SARIF consumer is seeking a translation for this object, it **SHALL** only accept one whose `localizedDataSemanticVersion` ([§3.19.31](#localizeddatasemanticversion-property)) is greater than or equal to (in the SEMVER sense) but has the same major version component as `thisObject.minimumRequiredLocalizedDataSemanticVersion`.
+When a SARIF consumer is seeking a translation for this object, it **SHALL** only accept one whose `localizedDataSemanticVersion` ([3.19.31 "`localizedDataSemanticVersion` Property"](#localizeddatasemanticversion-property)) is greater than or equal to (in the SEMVER sense) but has the same major version component as `thisObject.minimumRequiredLocalizedDataSemanticVersion`.
 
 > NOTE: `minimumRequiredocalizedDataSemanticVersion` can differ from `semanticVersion` for two reasons. First, successive versions of a translated component (even versions whose minor version component is incremented) might be able to use the same set of translated strings. Second, the translation itself might be versioned if, for example, the translation author discovers a typo or decides to clarify a message string.
 
-> EXAMPLE 1: In this example, the tool is at version 3.3, but it only requires strings at version 3.1, because tool versions 3.2 and 3.3 didn’t affect any user-facing localizable strings. Therefore, the translation at index 0 in `theRun.translations` ([§3.14.9](#translations-property)) is acceptable.
+> EXAMPLE 1: In this example, the tool is at version 3.3, but it only requires strings at version 3.1, because tool versions 3.2 and 3.3 didn’t affect any user-facing localizable strings. Therefore, the translation at index 0 in `theRun.translations` ([3.14.9 "`translations` Property"](#translations-property)) is acceptable.
 >
 > ```json
-> {                                  # A run object (§3.14).
->   "tool": {                        # See §3.14.6.
->     "driver": {                    # See §3.18.2.
+> {                                  # A run object (3.14).
+>   "tool": {                        # See 3.14.6.
+>     "driver": {                    # See 3.18.2.
 >       "name": "CodeScanner",
->       "semanticVersion": "3.3",    # See §3.19.12.
+>       "semanticVersion": "3.3",    # See 3.19.12.
 >       "minimumRequiredLocalizedDataSemanticVersion": "3.1",
 >       ...
 >     }
@@ -3599,11 +3689,11 @@ When a SARIF consumer is seeking a translation for this object, it **SHALL** onl
 
 ### 3.19.33 `associatedComponent` Property <a id='associatedcomponent-property'></a>
 
-If this `toolComponent` object represents a plugin (see [§3.18.1](#tool-object--general)), a taxonomy ([§3.19.3](#taxonomies)), a translation ([§3.19.4](#translations)), or a policy ([§3.19.5](#policies)), it **MAY** contain a property named `associatedComponent` whose value is a `toolComponentReference` object ([§3.54](#toolcomponentreference-object)) which identifies the component (either `theTool.driver` ([§3.18.2](#driver-property)) or an element of `theTool.extensions` ([§3.18.3](#extensions-property))) to which this plugin, translation, or policy applies. If `associatedComponent` is absent, it **SHALL** default to a reference to `theTool.driver`.
+If this `toolComponent` object represents a plugin (see [3.18.1 "General"](#tool-object--general)), a taxonomy ([3.19.3 "Taxonomies"](#taxonomies)), a translation ([3.19.4 "Translations"](#translations)), or a policy ([3.19.5 "Policies"](#policies)), it **MAY** contain a property named `associatedComponent` whose value is a `toolComponentReference` object ([3.54 "`toolComponentReference` Object"](#toolcomponentreference-object)) which identifies the component (either `theTool.driver` ([3.18.2 "`driver` Property"](#driver-property)) or an element of `theTool.extensions` ([3.18.3 "`extensions` Property"](#extensions-property))) to which this plugin, translation, or policy applies. If `associatedComponent` is absent, it **SHALL** default to a reference to `theTool.driver`.
 
-> NOTE: The scenario for a taxonomy component to have an `associatedComponent` property is when a party other than the tool vendor defines a custom taxonomy to categorize the rules defined by a specific tool. In this case, `associatedComponent` would specify the tool’s driver. A custom taxonomy defined by the tool vendor would be defined in in the `taxa` property ([§3.19.25](#toolcomponent-object--taxa-property)) of the driver itself, so `associatedComponent` would not be necessary.
+> NOTE: The scenario for a taxonomy component to have an `associatedComponent` property is when a party other than the tool vendor defines a custom taxonomy to categorize the rules defined by a specific tool. In this case, `associatedComponent` would specify the tool’s driver. A custom taxonomy defined by the tool vendor would be defined in in the `taxa` property ([3.19.25 "`taxa` Property"](#toolcomponent-object--taxa-property)) of the driver itself, so `associatedComponent` would not be necessary.
 
-The associated `toolComponent` object **MAY** itself contain an `associatedComponent` property; for example, a translation might be associated with a plugin which in turn is associated with the driver (see [§3.18.1](#tool-object--general)).
+The associated `toolComponent` object **MAY** itself contain an `associatedComponent` property; for example, a translation might be associated with a plugin which in turn is associated with the driver (see [3.18.1 "General"](#tool-object--general)).
 
 ## 3.20 `invocation` Object <a id='invocation-object'></a>
 
@@ -3617,7 +3707,7 @@ An `invocation` object **MAY** contain a property named `commandLine` whose valu
 
 > NOTE 1: The information in the `commandLine` property helps to precisely repeat a run of an analysis tool, and to verify that the results reported in the log file were generated by an appropriate invocation of the tool.
 
-The `commandLine` property is redactable ([§3.5.2](#redactable-strings)) because it might contain information which it is not appropriate to disclose, such as passwords, tokens, database connection strings, or in some circumstances even the fully qualified path to the tool's executable or script file.
+The `commandLine` property is redactable ([3.5.2 "Redactable Strings"](#redactable-strings)) because it might contain information which it is not appropriate to disclose, such as passwords, tokens, database connection strings, or in some circumstances even the fully qualified path to the tool's executable or script file.
 
 > NOTE 2: Redacting sensitive information from `commandLine` makes it more difficult to precisely reproduce an analysis run. The value of `commandLine` would have to be combined with information from another source to allow the run to be repeated.
 
@@ -3651,17 +3741,17 @@ An empty array **SHALL** mean that the tool was invoked with no command line arg
 
 > EXAMPLE 1: If the tool is implemented as a C# or Java program, `arguments` would contain the contents of the `args` array passed to the entry point method.
 
-> NOTE: Although the `commandLine` property ([§3.20.2](#commandline-property)) contains the same information, parsing it is error prone even if one understands the command shell’s quoting and escaping conventions. SARIF consumers might find the pre-parsed `arguments` property easier to use.
+> NOTE: Although the `commandLine` property ([3.20.2 "`commandLine` Property"](#commandline-property)) contains the same information, parsing it is error prone even if one understands the command shell’s quoting and escaping conventions. SARIF consumers might find the pre-parsed `arguments` property easier to use.
 
 ### 3.20.4 `responseFiles` Property <a id='responsefiles-property'></a>
 
-An `invocation` object **MAY** contain a property named `responseFiles` whose value is either `null` or an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `artifactLocation` objects ([§3.4](#artifactlocation-object)) each of which represents a response file specified on the tool's command line.
+An `invocation` object **MAY** contain a property named `responseFiles` whose value is either `null` or an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `artifactLocation` objects ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) each of which represents a response file specified on the tool's command line.
 
 If `responseFiles` is absent, it **SHALL** default to `null`.
 
 An empty array **SHALL** mean that the tool was invoked with no command line arguments that specified response files. `null` **SHALL** mean that it is not known whether any command line arguments specified a response file.
 
-A SARIF producer **MAY** embed the contents of a response file in the SARIF log file by mentioning the response file in `theRun.artifacts` ([§3.14.15](#artifacts-property)) and providing a value for `artifact.contents` ([§3.24.8](#artifact-object--contents-property)).
+A SARIF producer **MAY** embed the contents of a response file in the SARIF log file by mentioning the response file in `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)) and providing a value for `artifact.contents` ([3.24.8 "`contents` Property"](#artifact-object--contents-property)).
 
 > EXAMPLE 1:
 >
@@ -3670,7 +3760,7 @@ A SARIF producer **MAY** embed the contents of a response file in the SARIF log 
 >     "commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rsp",
 > 
 >     "responseFiles": [
->       {                 # An artifactLocation object (§3.4).
+>       {                 # An artifactLocation object (3.4).
 >         "uri": "analyzer.rsp",
 >         "uriBaseId": "RESPONSEFILEDIR"
 >       },
@@ -3689,19 +3779,19 @@ A SARIF producer **MAY** embed the contents of a response file in the SARIF log 
 
 ### 3.20.5 `ruleConfigurationOverrides` Property <a id='ruleconfigurationoverrides-property'></a>
 
-An `invocation` object **MAY** contain a property named `ruleConfigurationOverrides` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `configurationOverride` objects ([§3.51](#configurationoverride-object)) each of which overrides the `defaultConfiguration` property ([§3.49.14](#defaultconfiguration-property)) of a `reportingDescriptor` object ([§3.48.7](#conversionsources-property)) that describes a rule (that is, a `reportingDescriptor` object that is an array element of the `rules` property ([§3.19.23](#rules-property)) of some `toolComponent` object ([§3.19](#toolcomponent-object))).
+An `invocation` object **MAY** contain a property named `ruleConfigurationOverrides` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `configurationOverride` objects ([3.51 "`configurationOverride` Object"](#configurationoverride-object)) each of which overrides the `defaultConfiguration` property ([3.49.14 "`defaultConfiguration` Property"](#defaultconfiguration-property)) of a `reportingDescriptor` object ([3.48.7 "`conversionSources` Property"](#conversionsources-property)) that describes a rule (that is, a `reportingDescriptor` object that is an array element of the `rules` property ([3.19.23 "`rules` Property"](#rules-property)) of some `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object))).
 
 ### 3.20.6 `notificationConfigurationOverrides` Property <a id='notificationconfigurationoverrides-property'></a>
 
-An `invocation` object **MAY** contain a property named `notificationConfigurationOverrides` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `configurationOverride` objects ([§3.51](#configurationoverride-object)) each of which overrides the `defaultConfiguration` property ([§3.49.14](#defaultconfiguration-property)) of a `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) that describes a notification (that is, a `reportingDescriptor` object that is an array element of the `notifications` property ([§3.19.24](#notifications-property)) of some `toolComponent` object ([§3.19](#toolcomponent-object))).
+An `invocation` object **MAY** contain a property named `notificationConfigurationOverrides` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `configurationOverride` objects ([3.51 "`configurationOverride` Object"](#configurationoverride-object)) each of which overrides the `defaultConfiguration` property ([3.49.14 "`defaultConfiguration` Property"](#defaultconfiguration-property)) of a `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) that describes a notification (that is, a `reportingDescriptor` object that is an array element of the `notifications` property ([3.19.24 "`notifications` Property"](#notifications-property)) of some `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object))).
 
 ### 3.20.7 `startTimeUtc` Property <a id='starttimeutc-property'></a>
 
-An `invocation` object **MAY** contain a property named `startTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the invocation started.
+An `invocation` object **MAY** contain a property named `startTimeUtc` whose value is a string in the format specified in [3.9 "Date/time Properties"](#datetime-properties), specifying the UTC date and time at which the invocation started.
 
 ### 3.20.8 `endTimeUtc` Property <a id='endtimeutc-property'></a>
 
-An `invocation` object **MAY** contain a property named `endTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the invocation ended.
+An `invocation` object **MAY** contain a property named `endTimeUtc` whose value is a string in the format specified in [3.9 "Date/time Properties"](#datetime-properties), specifying the UTC date and time at which the invocation ended.
 
 ### 3.20.9 `exitCode` Property <a id='exitcode-property'></a>
 
@@ -3709,7 +3799,7 @@ If the SARIF producer process did not exit due to a signal, an `invocation` obje
 
 If the SARIF producer process exited due to a signal, the `exitCode` property **SHALL** be absent.
 
-For examples, see [§3.20.10](#exitcodedescription-property).
+For examples, see [3.20.10 "`exitCodeDescription` Property"](#exitcodedescription-property).
 
 ### 3.20.10 `exitCodeDescription` Property <a id='exitcodedescription-property'></a>
 
@@ -3739,7 +3829,7 @@ If the SARIF producer process exited due to a signal, an `invocation` object **S
 
 If the SARIF producer process did not exit due to a signal, the `exitSignalName` property **SHALL** be absent.
 
-For an example, see [§3.20.12](#exitsignalnumber-property).
+For an example, see [3.20.12 "`exitSignalNumber` Property"](#exitsignalnumber-property).
 
 ### 3.20.12 `exitSignalNumber` Property <a id='exitsignalnumber-property'></a>
 
@@ -3790,11 +3880,11 @@ An `invocation` object **SHALL** contain a property named `executionSuccessful` 
 
 ### 3.20.15 `machine` Property <a id='machine-property'></a>
 
-An `invocation` object **MAY** contain a property named `machine` whose value is a redactable ([§3.5.2](#redactable-strings)) string containing the name of the machine on which the invocation occurred.
+An `invocation` object **MAY** contain a property named `machine` whose value is a redactable ([3.5.2 "Redactable Strings"](#redactable-strings)) string containing the name of the machine on which the invocation occurred.
 
 ### 3.20.16 `account` Property <a id='account-property'></a>
 
-An `invocation` object **MAY** contain a property named `account` whose value is a redactable ([§3.5.2](#redactable-strings)) string containing the name of the account under which the invocation occurred.
+An `invocation` object **MAY** contain a property named `account` whose value is a redactable ([3.5.2 "Redactable Strings"](#redactable-strings)) string containing the name of the account under which the invocation occurred.
 
 ### 3.20.17 `processId` Property <a id='processid-property'></a>
 
@@ -3802,17 +3892,17 @@ An `invocation` object **MAY** contain a property named `processId` whose value 
 
 ### 3.20.18 `executableLocation` Property <a id='executablelocation-property'></a>
 
-An `invocation` object **MAY** contain a property named `executableLocation` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) specifying the location of the primary executable file for the program or script that was invoked.
+An `invocation` object **MAY** contain a property named `executableLocation` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) specifying the location of the primary executable file for the program or script that was invoked.
 
-> NOTE 1: This property is defined in the `invocation` object rather than in the `toolComponent` object ([§3.19](#toolcomponent-object)) because the identical tool might be invoked from different paths on different machines.
+> NOTE 1: This property is defined in the `invocation` object rather than in the `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)) because the identical tool might be invoked from different paths on different machines.
 
-> NOTE 2: This property might duplicate information in the `commandLine` property ([§3.20.2](#commandline-property)). It is necessary because the command line might not explicitly specify the path to the tool (for example, if the tool directory is on the execution path), and this information is important for troubleshooting.
+> NOTE 2: This property might duplicate information in the `commandLine` property ([3.20.2 "`commandLine` Property"](#commandline-property)). It is necessary because the command line might not explicitly specify the path to the tool (for example, if the tool directory is on the execution path), and this information is important for troubleshooting.
 
 > NOTE 3: Absolute path names can reveal information that might be sensitive.
 
 ### 3.20.19 `workingDirectory` Property <a id='workingdirectory-property'></a>
 
-An `invocation` object **MAY** contain a property named `workingDirectory` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) specifying the fully qualified path name of the process’s working directory (a directory that the operating system associates with the process, with respect to which the operating system interprets relative file paths).
+An `invocation` object **MAY** contain a property named `workingDirectory` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) specifying the fully qualified path name of the process’s working directory (a directory that the operating system associates with the process, with respect to which the operating system interprets relative file paths).
 
 > NOTE: Absolute path names can reveal information that might be sensitive.
 
@@ -3820,17 +3910,17 @@ An `invocation` object **MAY** contain a property named `workingDirectory` whose
 
 An `invocation` object **MAY** contain a property named `environmentVariables` whose value is an object. The property names in this object **SHALL** contain the names of all the environment variables in the tool's execution environment. The value of each property **SHALL** be a string containing the value of the specified environment variable. If the value of the environment variable is an empty string, the corresponding property value **SHALL** be an empty string.
 
-> NOTE 1: Environment variables might be useful to include in a log file because they might affect the tool’s analysis output, for example, by specifying the location of a directory containing plugins (see [§3.18.1](#tool-object--general)). However, environment variable names and values are likely to reveal highly sensitive information. For example, on a machine running Microsoft Windows®, environment variables reveal the directories on the execution path, user account name, machine name, logon domain controller, *etc.*
+> NOTE 1: Environment variables might be useful to include in a log file because they might affect the tool’s analysis output, for example, by specifying the location of a directory containing plugins (see [3.18.1 "General"](#tool-object--general)). However, environment variable names and values are likely to reveal highly sensitive information. For example, on a machine running Microsoft Windows®, environment variables reveal the directories on the execution path, user account name, machine name, logon domain controller, *etc.*
 
 > NOTE 2: The result of setting an environment variable to an empty string is operating system dependent. On Microsoft Windows®, it removes the variable from the environment. In UNIX®, an environment variable can have an empty value.
 
-Both the property names and their values are redactable ([§3.5.2](#redactable-strings)). A distinct redaction token ([§3.14.28](#redactiontokens-property)) **SHALL** be used for each redacted property name.
+Both the property names and their values are redactable ([3.5.2 "Redactable Strings"](#redactable-strings)). A distinct redaction token ([3.14.28 "`redactionTokens` Property"](#redactiontokens-property)) **SHALL** be used for each redacted property name.
 
 > NOTE 3: This is necessary to prevent the creation of an object with identical property names, which is invalid in the JSON serialization.
 
 ### 3.20.21 `toolExecutionNotifications` Property <a id='toolexecutionnotifications-property'></a>
 
-An `invocation` object **MAY** contain a property named `toolExecutionNotifications` whose value is an array of zero or more `notification` objects ([§3.58](#notification-object)). Each element of the array represents a runtime condition detected by the invoked process, either by the tool’s driver or by one of its extensions. The presence within this array of any `notification` object whose level property ([§3.58.6](#notification-object--level-property)) is `"error"` **SHALL** mean that the run failed. A SARIF consumer **SHALL NOT** assume that a failed run contains a complete set of analysis results.
+An `invocation` object **MAY** contain a property named `toolExecutionNotifications` whose value is an array of zero or more `notification` objects ([3.58 "`notification` Object"](#notification-object)). Each element of the array represents a runtime condition detected by the invoked process, either by the tool’s driver or by one of its extensions. The presence within this array of any `notification` object whose level property ([3.58.6 "`level` Property"](#notification-object--level-property)) is `"error"` **SHALL** mean that the run failed. A SARIF consumer **SHALL NOT** assume that a failed run contains a complete set of analysis results.
 
 > NOTE: This is important in compliance scenarios, where, for example, a corporate policy might require that a project’s entire code base be analyzed with a specified set of rules.
 
@@ -3844,7 +3934,7 @@ The information in `toolExecutionNotifications` is primarily intended for the de
 
 ### 3.20.22 `toolConfigurationNotifications` Property <a id='toolconfigurationnotifications-property'></a>
 
-An `invocation` object **MAY** contain a property named `toolConfigurationNotifications` whose value is an array of zero or more `notification` objects ([§3.58](#notification-object)). Each element of the array represents a condition relevant to the configuration of the tool's driver or one of its extensions. The presence within this array of any `notification` object whose `level` property ([§3.58.6](#notification-object--level-property)) is `"error"` **SHALL** mean that the run failed.
+An `invocation` object **MAY** contain a property named `toolConfigurationNotifications` whose value is an array of zero or more `notification` objects ([3.58 "`notification` Object"](#notification-object)). Each element of the array represents a condition relevant to the configuration of the tool's driver or one of its extensions. The presence within this array of any `notification` object whose `level` property ([3.58.6 "`level` Property"](#notification-object--level-property)) is `"error"` **SHALL** mean that the run failed.
 
 The information in `toolConfigurationNotifications` is primarily intended for the engineers who configure the analysis tool, to aid them in diagnosing errors in the configuration. This contrasts with the information in `results`, which is intended for the developers of the code being analyzed. However, viewers **MAY** still present configuration notifications to users, so users are aware of any configuration problems. At a minimum, viewers **SHOULD** make users aware of configuration notifications whose `level` property is `"error"`.
 
@@ -3854,7 +3944,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 >
 > ```json
 > "toolConfigurationNotifications": [
->   {                                 # A notification object (§3.58).
+>   {                                 # A notification object (3.58).
 >     "descriptor": {
 >       "id": "UnknownRule"
 >     },
@@ -3874,7 +3964,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 >
 > ```json
 > "toolConfigurationNotifications": [
->   {                                 # A notification object (§3.58).
+>   {                                 # A notification object (3.58).
 >     "descriptor": {
 >       "id": "UnknownCommandLineArgument"
 >     },
@@ -3890,7 +3980,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 >
 > ```json
 > "toolConfigurationNotifications": [
->   {                                 # A notification object (§3.58).
+>   {                                 # A notification object (3.58).
 >     "descriptor": {
 >       "id": "AccessDenied"
 >     },
@@ -3904,29 +3994,29 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 
 ### 3.20.23 `stdin`, `stdout`, `stderr`, and `stdoutStderr` Properties <a id='stdin-stdout-stderr-and-stdoutstderr-properties'></a>
 
-An `invocation` object **MAY** contain any or all of the properties `stdin`, `stdout`, `stderr`, and `stdoutStderr`, whose values are `artifactLocation` objects ([§3.4](#artifactlocation-object)) referring to files that contain the input to and output from the SARIF producer process. `stdin`, `stdout`, and `stderr` refer, respectively, to files containing the contents of the standard input, standard output, and standard error streams. `stdoutStderr` refers to a file containing the interleaved contents of the standard output and standard error streams. This is useful when the output of those two streams was written to the same file by means of command shell redirection syntax such as `"> output.txt 2>&1"`.
+An `invocation` object **MAY** contain any or all of the properties `stdin`, `stdout`, `stderr`, and `stdoutStderr`, whose values are `artifactLocation` objects ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) referring to files that contain the input to and output from the SARIF producer process. `stdin`, `stdout`, and `stderr` refer, respectively, to files containing the contents of the standard input, standard output, and standard error streams. `stdoutStderr` refers to a file containing the interleaved contents of the standard output and standard error streams. This is useful when the output of those two streams was written to the same file by means of command shell redirection syntax such as `"> output.txt 2>&1"`.
 
-A SARIF producer **MAY** embed the stream contents in the log file by mentioning the corresponding file in `theRun.artifacts` ([§3.14.15](#artifacts-property)) and providing a value for `artifact.contents` ([§3.24.8](#artifact-object--contents-property)).
+A SARIF producer **MAY** embed the stream contents in the log file by mentioning the corresponding file in `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)) and providing a value for `artifact.contents` ([3.24.8 "`contents` Property"](#artifact-object--contents-property)).
 
 ## 3.21 `attachment` Object <a id='attachment-object'></a>
 
 ### 3.21.1 General <a id='attachment-object--general'></a>
 
-An `attachment` object describes an artifact relevant to the detection of a result (see [§3.27.26](#attachments-property)).
+An `attachment` object describes an artifact relevant to the detection of a result (see [3.27.26 "`attachments` Property"](#attachments-property)).
 
-A SARIF producer **MAY** embed the contents of an attachment in the log file by mentioning the attachment in `theRun.artifacts` ([§3.14.15](#artifacts-property)) and providing a value for `artifact.contents` ([§3.24.8](#artifact-object--contents-property)).
+A SARIF producer **MAY** embed the contents of an attachment in the log file by mentioning the attachment in `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)) and providing a value for `artifact.contents` ([3.24.8 "`contents` Property"](#artifact-object--contents-property)).
 
 > EXAMPLE 1: In this example, `image001.png` is a screen shot of the program being analyzed at the point where the result was detected. Note that this example is more appropriate to a dynamic analysis tool than to a static analysis tool.
 >
 > ```json
-> {                                             # A result object (§3.27).
+> {                                             # A result object (3.27).
 >   ...
->   "attachments": [                            # See §3.27.26.
+>   "attachments": [                            # See 3.27.26.
 >     {                                         # An attachment object.
->       "description": {                        # See §3.21.2.
+>       "description": {                        # See 3.21.2.
 >         "text": "Screen shot"
 >       },
->       "location": {                           # See §3.21.3.
+>       "location": {                           # See 3.21.3.
 >         "uri": "file:///C:/ScanOutput/image001.png"
 >       }
 >     }
@@ -3936,19 +4026,19 @@ A SARIF producer **MAY** embed the contents of an attachment in the log file by 
 
 ### 3.21.2 `description` Property <a id='attachment-object--description-property'></a>
 
-An `attachment` object **SHOULD** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) describing the role played by the attachment.
+An `attachment` object **SHOULD** contain a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) describing the role played by the attachment.
 
 ### 3.21.3 `location` Property <a id='attachment-object--location-property'></a>
 
-An `attachment` object **SHALL** contain a property named `location` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) that specifies the location of the attachment.
+An `attachment` object **SHALL** contain a property named `location` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) that specifies the location of the attachment.
 
 ### 3.21.4 `regions` Property <a id='regions-property'></a>
 
-An `attachment` object **MAY** contain a property named `regions` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `region` objects ([§3.30](#region-object)) each of which **SHALL** specify a region of interest within the attachment, and **SHOULD** contain a `message` property ([§3.30.14](#region-object--message-property)) so a user can understand its relevance.
+An `attachment` object **MAY** contain a property named `regions` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `region` objects ([3.30 "`region` Object"](#region-object)) each of which **SHALL** specify a region of interest within the attachment, and **SHOULD** contain a `message` property ([3.30.14 "`message` Property"](#region-object--message-property)) so a user can understand its relevance.
 
 ### 3.21.5 `rectangles` Property <a id='rectangles-property'></a>
 
-An `attachment` object **MAY** contain a property named `rectangles` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `rectangle` objects ([§3.31](#rectangle-object)). If the attachment is an image (for example `.png` or `.svg`), each `rectangle` object **SHALL** specify an area of interest within the image, and **SHOULD** contain a `message` property ([§3.31.3](#rectangle-object--message-property)) so a user can understand its relevance.
+An `attachment` object **MAY** contain a property named `rectangles` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `rectangle` objects ([3.31 "`rectangle` Object"](#rectangle-object)). If the attachment is an image (for example `.png` or `.svg`), each `rectangle` object **SHALL** specify an area of interest within the image, and **SHOULD** contain a `message` property ([3.31.3 "`message` Property"](#rectangle-object--message-property)) so a user can understand its relevance.
 
 If the attachment is not an image, and `rectangles` is present, its value **SHALL** be an empty array.
 
@@ -3971,16 +4061,16 @@ A `conversion` object describes how a converter transformed the output of an ana
 >         }
 >       },
 >       "conversion": {
->         "tool": {                                    # See §3.22.2.
+>         "tool": {                                    # See 3.22.2.
 >           "driver": {
 >             "name": "SARIF SDK Multitool"
 >           }
 >         },
->                                                      # See §3.22.3.
+>                                                      # See 3.22.3.
 >         "invocation":
 >           "Sarif.Multitool.exe convert -t AndroidStudio northwind.log",
 > 
->         "analysisToolLogFileLocation": {             # See §3.22.4.
+>         "analysisToolLogFileLocation": {             # See 3.22.4.
 >           "uri": "northwind.log",   
 >           "uriBaseId": "$LOG_DIR$"
 >         } 
@@ -3996,21 +4086,21 @@ A `conversion` object describes how a converter transformed the output of an ana
 
 ### 3.22.2 `tool` Property <a id='conversion-object--tool-property'></a>
 
-A `conversion` object **SHALL** contain a property named `tool` whose value is a `tool` object ([§3.18](#tool-object)) that describes the converter.
+A `conversion` object **SHALL** contain a property named `tool` whose value is a `tool` object ([3.18 "`tool` Object"](#tool-object)) that describes the converter.
 
 ### 3.22.3 `invocation` Property <a id='invocation-property'></a>
 
-A `conversion` object **MAY** contain a property named `invocation` whose value is an `invocation` object ([§3.20](#invocation-object)) that describes the invocation of the converter.
+A `conversion` object **MAY** contain a property named `invocation` whose value is an `invocation` object ([3.20 "`invocation` Object"](#invocation-object)) that describes the invocation of the converter.
 
 ### 3.22.4 `analysisToolLogFiles` Property <a id='analysistoollogfiles-property'></a>
 
 Some analysis tools produce one or more output files that describe the analysis run as a whole; we refer to these as "per-run" files. Some tools produce one or more output files for each result; we refer to these as "per-result" files. Some tools produce both per-run and per-result files.
 
-A `conversion` object **MAY** contain a property named `analysisToolLogFiles` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `artifactLocation` objects ([§3.4](#artifactlocation-object)) that specify the locations of the per-run files.
+A `conversion` object **MAY** contain a property named `analysisToolLogFiles` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `artifactLocation` objects ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) that specify the locations of the per-run files.
 
 If the analysis tool did not produce any per-run files, and `analysisToolLogFiles` is present, its value **SHALL** be an empty array.
 
-Per-result files are handled by the `resultProvenance.conversionSources` property ([§3.48.7](#conversionsources-property)).
+Per-result files are handled by the `resultProvenance.conversionSources` property ([3.48.7 "`conversionSources` Property"](#conversionsources-property)).
 
 ## 3.23 `versionControlDetails` Object <a id='versioncontroldetails-object'></a>
 
@@ -4018,13 +4108,13 @@ Per-result files are handled by the `resultProvenance.conversionSources` propert
 
 A `versionControlDetails` object specifies the information necessary to retrieve from a version control system (VCS) the correct revision of the files that were scanned during the run.
 
-For an example, see [§3.14.13](#versioncontrolprovenance-property).
+For an example, see [3.14.13 "`versionControlProvenance` Property"](#versioncontrolprovenance-property).
 
 ### 3.23.2 Constraints <a id='versioncontroldetails-object--constraints'></a>
 
 A `versionControlDetails` object **SHOULD** contain sufficient information to uniquely and permanently identify the revision of the files that were scanned.
 
-> NOTE: The required set of properties depends on the VCS and on the engineering system within which it is used. Consider Git as an example. The `revisionId` property (containing a commit id) would suffice. The `branch` property ([§3.23.5](#branch-property)) might not suffice because a Git branch is a pointer to the latest commit along a line of development; however, `branch` together with `asOfTimeUtc` ([§3.23.7](#asoftimeutc-property)) might suffice (although that is not an idiomatic use of Git). Similarly, `revisionTag` ([§3.23.6](#revisiontag-property)) might not suffice because a Git tag can be removed, but if the engineering system guaranteed that certain tags (such as those specifying public releases) were stable, then `revisionTag` might suffice.
+> NOTE: The required set of properties depends on the VCS and on the engineering system within which it is used. Consider Git as an example. The `revisionId` property (containing a commit id) would suffice. The `branch` property ([3.23.5 "`branch` Property"](#branch-property)) might not suffice because a Git branch is a pointer to the latest commit along a line of development; however, `branch` together with `asOfTimeUtc` ([3.23.7 "`asOfTimeUtc` Property"](#asoftimeutc-property)) might suffice (although that is not an idiomatic use of Git). Similarly, `revisionTag` ([3.23.6 "`revisionTag` Property"](#revisiontag-property)) might not suffice because a Git tag can be removed, but if the engineering system guaranteed that certain tags (such as those specifying public releases) were stable, then `revisionTag` might suffice.
 
 ### 3.23.3 `repositoryUri` Property <a id='repositoryuri-property'></a>
 
@@ -4032,15 +4122,15 @@ A `versionControlDetails` object **SHALL** contain a property named `repositoryU
 
 ### 3.23.4 revisionId` Property <a id='revisionid-property'></a>
 
-A `versionControlDetails` object **SHOULD** contain a property named `revisionId` whose value is a redactable ([§3.5.2](#redactable-strings)) string that uniquely and permanently identifies the appropriate revision of the scanned files.
+A `versionControlDetails` object **SHOULD** contain a property named `revisionId` whose value is a redactable ([3.5.2 "Redactable Strings"](#redactable-strings)) string that uniquely and permanently identifies the appropriate revision of the scanned files.
 
 ### 3.23.5 `branch` Property <a id='branch-property'></a>
 
-A `versionControlDetails` object **MAY** contain a property named `branch` whose value is a redactable ([§3.5.2](#redactable-strings)) string containing the name of a branch containing the correct revision of the scanned files.
+A `versionControlDetails` object **MAY** contain a property named `branch` whose value is a redactable ([3.5.2 "Redactable Strings"](#redactable-strings)) string containing the name of a branch containing the correct revision of the scanned files.
 
 ### 3.23.6 `revisionTag` Property <a id='revisiontag-property'></a>
 
-A `versionControlDetails` object **MAY** contain a property named `revisionTag` whose value is a redactable ([§3.5.2](#redactable-strings)) string containing a tag that has been applied to the revision in the VCS.
+A `versionControlDetails` object **MAY** contain a property named `revisionTag` whose value is a redactable ([3.5.2 "Redactable Strings"](#redactable-strings)) string containing a tag that has been applied to the revision in the VCS.
 
 > NOTE 1: This document refers to an identifier for a revision in a VCS as a "tag". Different VCSs use different terms; for example, Visual Studio Team Services Version Control calls it a "label".
 
@@ -4048,19 +4138,19 @@ A `versionControlDetails` object **MAY** contain a property named `revisionTag` 
 
 ### 3.23.7 `asOfTimeUtc` Property <a id='asoftimeutc-property'></a>
 
-A `versionControlDetails` object **MAY** contain a property named `asOfTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying a UTC date and time that can be used to synchronize an enlistment to the state of the repository as of that time.
+A `versionControlDetails` object **MAY** contain a property named `asOfTimeUtc` whose value is a string in the format specified in [3.9 "Date/time Properties"](#datetime-properties), specifying a UTC date and time that can be used to synchronize an enlistment to the state of the repository as of that time.
 
 > NOTE: In some VCSs, the "synchronize by date" feature requires the time to be expressed in the server’s time zone. In such a case, the SARIF producer would need to know the server’s time zone to correctly populate `asOfTimeUtc`.
 
 ### 3.23.8 `mappedTo` Property <a id='mappedto-property'></a>
 
-A `versionControlDetails` object **MAY** contain a property named `mappedTo` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) that specifies the location in the local file system to which the root of the repository was mapped at the time of the analysis.
+A `versionControlDetails` object **MAY** contain a property named `mappedTo` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) that specifies the location in the local file system to which the root of the repository was mapped at the time of the analysis.
 
 This property makes it possible to map any `artifactLocation` to the repository, if any, to which the file belongs. The mapping algorithm **SHALL** be as follows, or any algorithm with the same result (a clarifying example follows):
 
-1.  Resolve the `artifactLocation` as far as possible using the procedure specified in [§3.14.14](#originaluribaseids-property). Denote the resolved `artifactLocation` by `a`.
+1.  Resolve the `artifactLocation` as far as possible using the procedure specified in [3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property). Denote the resolved `artifactLocation` by `a`.
 
-2.  For every `versionControlDetails` object `vcd` in `theRun.versionControlProvenance` ([§3.14.13](#versioncontrolprovenance-property)), resolve the `artifactLocation` object specified by `vcd.mappedTo`, again using the procedure specified in [§3.14.14](#originaluribaseids-property). Denote each such resolved `artifactLocation` object by `v`.
+2.  For every `versionControlDetails` object `vcd` in `theRun.versionControlProvenance` ([3.14.13 "`versionControlProvenance` Property"](#versioncontrolprovenance-property)), resolve the `artifactLocation` object specified by `vcd.mappedTo`, again using the procedure specified in [3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property). Denote each such resolved `artifactLocation` object by `v`.
 
 3.  Let S be the set of all `versionControlDetails` objects `vcd` for which `v.uriBaseId` equals `a.uriBaseId` and `v.uri` is a prefix of `a.uri`.
 
@@ -4127,7 +4217,7 @@ This property makes it possible to map any `artifactLocation` to the repository,
 >
 > The object is to determine to which repository, if any, the file `plugin1/x.c` specified by the result location belongs. The algorithm proceeds as follows, using a simplified notation (*uriBaseId*, *uri*) to denote an `artifactLocation`:
 >
-> 1.  Use the information in `originalUriBaseIds` and the procedure specified in [§3.14.14](#originaluribaseids-property) to calculate the "resolved artifact location" `a`:  
+> 1.  Use the information in `originalUriBaseIds` and the procedure specified in [3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property) to calculate the "resolved artifact location" `a`:  
 >
 >     `(PACKAGE_ROOT, plugin1/x.c)` → `(HOME, package/plugin1/x.c)` → `(null, file:///home/user/package/plugin1/x.c)`.
 >
@@ -4155,7 +4245,7 @@ An `artifact` object represents a single artifact.
 
 ### 3.24.2 `location property <a id='artifact-object--location-property'></a>
 
-Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `location` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)).
+Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `location` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)).
 
 If the `artifact` object represents a top-level artifact, then `location` **SHALL** be present.
 
@@ -4163,13 +4253,13 @@ If the `artifact` object represents a nested artifact whose location relative to
 
 If the `artifact` object represents a nested artifact whose location within its parent can be expressed only by a byte offset from the start of the parent, and not by means of a path, then `location` **SHALL NOT** be present.
 
-If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `location` **MAY** be present; if it is absent, then `offset` ([§3.24.4](#offset-property)) **SHALL** be present. If `location` is present, the value of its `uri` property **SHALL** be a relative reference expressing the path of the nested artifact within the parent.
+If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `location` **MAY** be present; if it is absent, then `offset` ([3.24.4 "`offset` Property"](#offset-property)) **SHALL** be present. If `location` is present, the value of its `uri` property **SHALL** be a relative reference expressing the path of the nested artifact within the parent.
 
-For an example, see [§3.24.3](#artifact-object--parentindex-property).
+For an example, see [3.24.3 "`parentIndex` Property"](#artifact-object--parentindex-property).
 
 ### 3.24.3 `parentIndex` Property <a id='artifact-object--parentindex-property'></a>
 
-If this `artifact` object represents a nested artifact, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([§3.7.4](#array-indices)) of the parent artifact's `artifact` object within `theRun.artifacts` ([§3.14.15](#artifacts-property)).
+If this `artifact` object represents a nested artifact, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) of the parent artifact's `artifact` object within `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)).
 
 If this `artifact` object represents a top-level artifact, then `parentIndex` **SHALL** be absent.
 
@@ -4212,7 +4302,7 @@ If the `artifact` object represents a nested artifact whose location relative to
 
 If the `artifact` object represents a nested artifact whose location within its parent can only be expressed by means of a path, and not by means of a byte offset from the start of the parent, then `offset` **SHALL NOT** be present.
 
-If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `offset` **MAY** be present; if it is absent, then `location` ([§3.24.2](#artifact-object--location-property)) **SHALL** be present. If `offset` is present, its value **SHALL** be that byte offset.
+If the `artifact` object represents a nested artifact whose location within its parent can be expressed either by means of a path or by means of a byte offset from the start of the parent, then `offset` **MAY** be present; if it is absent, then `location` ([3.24.2 "`location property"](#artifact-object--location-property)) **SHALL** be present. If `offset` is present, its value **SHALL** be that byte offset.
 
 ### 3.24.5 `length` Property <a id='artifact-object--length-property'></a>
 
@@ -4222,13 +4312,13 @@ If `length` is absent, it **SHALL** default to -1, which indicates that the valu
 
 ### 3.24.6 `roles` Property <a id='roles-property'></a>
 
-An `artifact` object **MAY** contain a property named `roles` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) strings each of which specifies a role that this artifact played in the analysis.
+An `artifact` object **MAY** contain a property named `roles` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings each of which specifies a role that this artifact played in the analysis.
 
 Each array element **SHALL** have one of the following values, with the specified meanings:
 
 - `"analysisTarget"`: The analysis tool was instructed to scan this artifact.
 
-- `"attachment"`: The artifact is an attachment mentioned in `result.attachments` ([§3.27.26](#attachments-property)).
+- `"attachment"`: The artifact is an attachment mentioned in `result.attachments` ([3.27.26 "`attachments` Property"](#attachments-property)).
 
 - `"conversionSource"`: The artifact is an output from an analysis tool in a non-SARIF format that was converted to SARIF.
 
@@ -4238,15 +4328,15 @@ Each array element **SHALL** have one of the following values, with the specifie
 
     NOTE 1: URIs do not represent "directories" in the file system sense. Even if the URI `https://www.example.com/dir/file` addresses a resource, the URI `https://www.example.com/dir` might also address a resource. Nonetheless, if the analysis tool knows that `https://www.example.com/dir` is not itself a resource, but only a prefix for other URIs that *are* resources, it is appropriate for the tool to mark `https://www.example.com/dir` with the `"directory"` role.
 
-- `"driver"`: The file belongs to the analysis tool’s driver ([§3.18.2](#driver-property)).
+- `"driver"`: The file belongs to the analysis tool’s driver ([3.18.2 "`driver` Property"](#driver-property)).
 
-- `"extension"`: The file belongs to one of the analysis tool’s extensions ([§3.18.3](#extensions-property)).
+- `"extension"`: The file belongs to one of the analysis tool’s extensions ([3.18.3 "`extensions` Property"](#extensions-property)).
 
-- `"externalPropertyFile"`: The artifact is an external property file ([§4](#external-property-file-format)).
+- `"externalPropertyFile"`: The artifact is an external property file ([4 "External property file format"](#external-property-file-format)).
 
 - `"memoryContents"`: The artifact contains the contents of a portion of memory.
 
-- `"policy"`: The file belongs to a policy ([§3.19.5](#policies)).
+- `"policy"`: The file belongs to a policy ([3.19.5 "Policies"](#policies)).
 
 - `"referencedOnCommandLine"`: The artifact was referenced on the command line.
 
@@ -4254,7 +4344,7 @@ Each array element **SHALL** have one of the following values, with the specifie
 
     NOTE 2: A single run might analyze files from multiple repositories.
 
-- `"responseFile"`: The artifact contains command line arguments to a program, as specified in `invocation.responseFiles` ([§3.20.4](#responsefiles-property)).
+- `"responseFile"`: The artifact contains command line arguments to a program, as specified in `invocation.responseFiles` ([3.20.4 "`responseFiles` Property"](#responsefiles-property)).
 
 - `"resultFile"`: A result was detected in this artifact (which the analysis tool was not explicitly instructed to scan).
 
@@ -4262,21 +4352,21 @@ Each array element **SHALL** have one of the following values, with the specifie
 
     NOTE 3: For example, a scanner might be configured to analyze a C source file and find a result in a header file that it includes. The header file may be marked with the `"resultFile"` role. The C file should be marked with the `"analysisTarget"` role, however, as it was explicitly configured as a scan target.
 
-- `"standardStream"`: The artifact contains the contents of one of the standard input or output streams, as specified in `invocation.stdin`, `invocation.stdout`, `invocation.stderr`, or `invocation.stdoutStderr` ([§3.20.23](#stdin-stdout-stderr-and-stdoutstderr-properties)).
+- `"standardStream"`: The artifact contains the contents of one of the standard input or output streams, as specified in `invocation.stdin`, `invocation.stdout`, `invocation.stderr`, or `invocation.stdoutStderr` ([3.20.23 "`stdin`, `stdout`, `stderr`, and `stdoutStderr` Properties"](#stdin-stdout-stderr-and-stdoutstderr-properties)).
 
-- `"taxonomy"`: The file belongs to a taxonomy ([§3.19.3](#taxonomies)).
+- `"taxonomy"`: The file belongs to a taxonomy ([3.19.3 "Taxonomies"](#taxonomies)).
 
 - `"toolSpecifiedConfiguration"`: The artifact is a configuration file provided by the tool.
 
 - `"tracedFile"`: The analysis tool traced through this artifact while executing or simulating the execution of the code under test.
 
-- `"translation"`: The file belongs to a translation ([§3.19.4](#translations)).
+- `"translation"`: The file belongs to a translation ([3.19.4 "Translations"](#translations)).
 
 - `"userSpecifiedConfiguration"`: The artifact is a configuration file provided by the user.
 
 > The following role values denote artifacts that have changed since some previous time which we refer to as the "baseline time."
 >
-> A SARIF producer **MAY** determine the baseline time in any way. (For example, if `theRun.baselineGuid` ([§3.14.5](#baselineguid-property)) is present, the tool might use its start time as the baseline time. Alternatively, the tool might use version control information, such as the time of some commit before the one being analyzed.)
+> A SARIF producer **MAY** determine the baseline time in any way. (For example, if `theRun.baselineGuid` ([3.14.5 "`baselineGuid` Property"](#baselineguid-property)) is present, the tool might use its start time as the baseline time. Alternatively, the tool might use version control information, such as the time of some commit before the one being analyzed.)
 
 - `"added"`: The artifact was added after the baseline time.
 
@@ -4298,23 +4388,23 @@ An `artifact` object **MAY** contain a property named `mimeType` whose value is 
 
 ### 3.24.8 `contents` Property <a id='artifact-object--contents-property'></a>
 
-An `artifact` object **MAY** contain a property named contents whose value is an `artifactContent` object ([§3.3](#artifactcontent-object)) representing the entire contents of the artifact.
+An `artifact` object **MAY** contain a property named contents whose value is an `artifactContent` object ([3.3 "`artifactContent` Object"](#artifactcontent-object)) representing the entire contents of the artifact.
 
 ### 3.24.9 `encoding` Property <a id='encoding-property'></a>
 
 If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value is a case-sensitive string that specifies the artifact’s text encoding. The string **SHALL** be one of the character set names defined by IANA \[[IANA-ENC](#IANA-ENC)\].
 
-If the `artifact` object represents a text artifact and this property is absent, it **SHALL** default to the value of `theRun.defaultEncoding` ([§3.14.24](#defaultencoding-property)), if that property is present; otherwise, the artifact’s encoding **SHALL** be taken to be unknown.
+If the `artifact` object represents a text artifact and this property is absent, it **SHALL** default to the value of `theRun.defaultEncoding` ([3.14.24 "`defaultEncoding` Property"](#defaultencoding-property)), if that property is present; otherwise, the artifact’s encoding **SHALL** be taken to be unknown.
 
 If the `artifact` object represents a binary artifact, `encoding` **SHALL** be absent.
 
 > EXAMPLE 1: In this example, the encoding of output.txt is UTF-16BE (obtained from the default), but the encoding of data.txt is UTF-16LE:
 >
 > ```json
-> {                                      # A run object (§3.14).
->   "defaultEncoding": "UTF-16BE",       # See §3.14.24.
+> {                                      # A run object (3.14).
+>   "defaultEncoding": "UTF-16BE",       # See 3.14.24.
 > 
->   "artifacts": [                       # See §3.14.15.
+>   "artifacts": [                       # See 3.14.15.
 >     {
 >       "location": {
 >         "uri": "output.txt"
@@ -4336,11 +4426,11 @@ If the `artifact` object represents a binary artifact, `encoding` **SHALL** be a
 
 #### 3.24.10.1 General <a id='sourcelanguage-property--general'></a>
 
-If an `artifact` object represents a text artifact that contains source code, it **MAY** contain a property named `sourceLanguage` whose value is a hierarchical string ([§3.5.4](#hierarchical-strings)) that specifies the programming language in which the source code is written. If the `artifact` object does not represent a text artifact containing source code, `sourceLanguage` **SHALL** be absent.
+If an `artifact` object represents a text artifact that contains source code, it **MAY** contain a property named `sourceLanguage` whose value is a hierarchical string ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)) that specifies the programming language in which the source code is written. If the `artifact` object does not represent a text artifact containing source code, `sourceLanguage` **SHALL** be absent.
 
 For the remainder of this section, we assume that the `artifact` object represents a text artifact that contains source code.
 
-> NOTE 1: This property is intended to help SARIF viewers to render code snippets ([§3.30.13](#snippet-property)) with appropriate syntax coloring.
+> NOTE 1: This property is intended to help SARIF viewers to render code snippets ([3.30.13 "`snippet` Property"](#snippet-property)) with appropriate syntax coloring.
 
 If the artifact contains source code in a mix of languages, and if it is possible to identify one of those languages as the "primary" language of the artifact, then `sourceLanguage` **SHALL** specify that language.
 
@@ -4350,9 +4440,9 @@ If the artifact contains source code in a mix of languages, and if it is possibl
 
 If it is not possible to identify a primary language, `sourceLanguage` **MAY** specify any language used in the artifact, or it **MAY** be absent.
 
-> NOTE 3: In either case, it is possible to specify a source language for any region by using `region.sourceLanguage` (see [§3.30.15](#region-object--sourcelanguage-property)).
+> NOTE 3: In either case, it is possible to specify a source language for any region by using `region.sourceLanguage` (see [3.30.15 "`sourceLanguage` Property"](#region-object--sourcelanguage-property)).
 
-If `sourceLanguage` is absent, it **SHALL** default to the value of `theRun.defaultSourceLanguage` ([§3.14.25](#defaultsourcelanguage-property)). If both `artifact.sourceLanguage` and `theRun.defaultSourceLanguage` are absent, the artifact’s source language **SHALL** be taken to be unknown. In that case, a SARIF viewer **MAY** use any method or heuristic to determine the artifact’s source language, for example, by examining its file name extension or MIME type, or by prompting the user.
+If `sourceLanguage` is absent, it **SHALL** default to the value of `theRun.defaultSourceLanguage` ([3.14.25 "`defaultSourceLanguage` Property"](#defaultsourcelanguage-property)). If both `artifact.sourceLanguage` and `theRun.defaultSourceLanguage` are absent, the artifact’s source language **SHALL** be taken to be unknown. In that case, a SARIF viewer **MAY** use any method or heuristic to determine the artifact’s source language, for example, by examining its file name extension or MIME type, or by prompting the user.
 
 #### 3.24.10.2 Source language identifier conventions and practices <a id='source-language-identifier-conventions-and-practices'></a>
 
@@ -4376,11 +4466,11 @@ To maximize interoperability, SARIF producers and consumers **SHOULD** conform t
 
   - Compare source language identifiers case-insensitively.
 
-[§F.1](#informative-sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
+[Appendix J "Sample `sourceLanguage` Values"](#informative-sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
 
 ### 3.24.11 `hashes` Property <a id='hashes-property'></a>
 
-An `artifact` object **MAY** contain a property named `hashes` whose value is a non-empty object ([§3.6](#object-properties)) each of whose property names specifies the name of a hash function, and each of whose property values represents the value produced by that hash function.
+An `artifact` object **MAY** contain a property named `hashes` whose value is a non-empty object ([3.6 "Object Properties"](#object-properties)) each of whose property names specifies the name of a hash function, and each of whose property values represents the value produced by that hash function.
 
 > EXAMPLE 1: In this example, each of the hash functions SHA-256 and SHA-512 were used to compute hash values for the file.
 >
@@ -4417,13 +4507,13 @@ Each property value **SHALL** be a string representation of the hash digest of t
 
 ### 3.24.12 `lastModifiedTimeUtc` Property <a id='lastmodifiedtimeutc-property'></a>
 
-An `artifact` object **MAY** contain a property named `lastModifiedTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the artifact was most recently modified.
+An `artifact` object **MAY** contain a property named `lastModifiedTimeUtc` whose value is a string in the format specified in [3.9 "Date/time Properties"](#datetime-properties), specifying the UTC date and time at which the artifact was most recently modified.
 
-> NOTE: In scenarios where a tool has analyzed files on a network file share or on a local disk, an engineering system might use this property, rather than `hashes` ([§3.24.11](#hashes-property)), as the most lightweight mechanism to determine whether the analysis needs to be repeated.
+> NOTE: In scenarios where a tool has analyzed files on a network file share or on a local disk, an engineering system might use this property, rather than `hashes` ([3.24.11 "`hashes` Property"](#hashes-property)), as the most lightweight mechanism to determine whether the analysis needs to be repeated.
 
 ### 3.24.13 `description` Property <a id='artifact-object--description-property'></a>
 
-An `artifact` object **MAY** have a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the artifact.
+An `artifact` object **MAY** have a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes the artifact.
 
 ## 3.25 `specialLocations` Object <a id='speciallocations-object'></a>
 
@@ -4431,17 +4521,17 @@ An `artifact` object **MAY** have a property named `description` whose value is 
 
 A `specialLocations` object defines locations of special significance to SARIF consumers.
 
-> NOTE: This version of SARIF defines only one such location, `displayBase` ([§3.25.2](#displaybase-property)). In the future, other specially treated locations might be defined.
+> NOTE: This version of SARIF defines only one such location, `displayBase` ([3.25.2 "`displayBase` Property"](#displaybase-property)). In the future, other specially treated locations might be defined.
 
 ### 3.25.2 `displayBase` Property <a id='displaybase-property'></a>
 
-A `specialLocations` object **MAY** contain a property named `displayBase` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) which provides a suggestion to consumers to display file paths relative to the specified location.
+A `specialLocations` object **MAY** contain a property named `displayBase` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) which provides a suggestion to consumers to display file paths relative to the specified location.
 
 A consumer **MAY** act on this hint as follows:
 
-1.  Resolve `displayBase` to a URI (the "base URI") by the procedure defined in [§3.14.14](#originaluribaseids-property) or any procedure with the same result. If the result is not an absolute URI, the procedure fails.
+1.  Resolve `displayBase` to a URI (the "base URI") by the procedure defined in [3.14.14 "`originalUriBaseIds` Property"](#originaluribaseids-property) or any procedure with the same result. If the result is not an absolute URI, the procedure fails.
 
-2.  Normalize the base URI and the displayed URI by the procedures defined in [§3.10.1](#uri-valued-properties--general) and [§3.10.2](#normalizing-file-scheme-uris) or any procedures with the same result.
+2.  Normalize the base URI and the displayed URI by the procedures defined in [3.10.1 "General"](#uri-valued-properties--general) and [3.10.2 "Normalizing File Scheme URIs"](#normalizing-file-scheme-uris) or any procedures with the same result.
 
 3.  If the base URI and the displayed URI have the identical scheme, authority, and initial path segments, then display only the remaining path segments of the displayed URI, or "." if there are no remaining path segments.
 
@@ -4450,8 +4540,8 @@ A consumer **MAY** act on this hint as follows:
 > EXAMPLE 1: Given the following:
 >
 > ```json
-> {                           # A run object (§3.14).
->   "originalUriBaseIds": {   # See §3.14.14.
+> {                           # A run object (3.14).
+>   "originalUriBaseIds": {   # See 3.14.14.
 >     "WEBHOST": {
 >       "uri": "http://www.example.com/"
 >     },
@@ -4473,7 +4563,7 @@ A consumer **MAY** act on this hint as follows:
 >   },
 > 
 >   "specialLocations": {
->     "displayBase": {        # An artifactLocation object (§3.4).
+>     "displayBase": {        # An artifactLocation object (3.4).
 >       "uri": "",            # Empty string is valid relative reference.
 >       "uriBaseId": "PACKAGE"
 >     }
@@ -4540,14 +4630,14 @@ A consumer **MAY** act on this hint as follows:
 
 ### 3.26.1 General <a id='translationmetadata-object--general'></a>
 
-A `translationMetadata` object describes a translation. It is necessary because in a `toolComponent` object that represents a translation, the usual descriptive properties `name` ([§3.19.8](#toolcomponent-object--name-property)), `fullName` ([§3.19.9](#toolcomponent-object--fullname-property)), *etc.* contain the translations of the corresponding strings in the `toolComponent` being translated; therefore, they are not available to hold descriptive information for the translation itself.
+A `translationMetadata` object describes a translation. It is necessary because in a `toolComponent` object that represents a translation, the usual descriptive properties `name` ([3.19.8 "`name` Property"](#toolcomponent-object--name-property)), `fullName` ([3.19.9 "`fullName` Property"](#toolcomponent-object--fullname-property)), *etc.* contain the translations of the corresponding strings in the `toolComponent` being translated; therefore, they are not available to hold descriptive information for the translation itself.
 
-Because they occur only in `toolComponent` objects that represent translations, the properties of a `translationMetadata` object are not themselves localized ([§3.5.1](#localizable-strings)).
+Because they occur only in `toolComponent` objects that represent translations, the properties of a `translationMetadata` object are not themselves localized ([3.5.1 "Localizable Strings"](#localizable-strings)).
 
 > EXAMPLE 1:
 >
 > ```json
-> {                           # A toolComponent object (§3.19).
+> {                           # A toolComponent object (3.19).
 >   "language": "fr-FR",      # The language of the translation (see (#language-property)).
 > 
 >   "translationMetadata": {  # A translation metadata object.
@@ -4577,11 +4667,11 @@ A `translationMetadata` object **MAY** contain a property named `fullName` whose
 
 ### 3.26.4 `shortDescription` Property <a id='translationmetadata-object--shortdescription-property'></a>
 
-A `translationMetadata` object **MAY** contain a property named `shortDescription` whose value is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) containing a brief description of the translation.
+A `translationMetadata` object **MAY** contain a property named `shortDescription` whose value is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) containing a brief description of the translation.
 
 ### 3.26.5 `fullDescription` Property <a id='translationmetadata-object--fulldescription-property'></a>
 
-A `translationMetadata` object **MAY** contain a property named `fullDescription` whose value is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) containing a comprehensive description of the translation.
+A `translationMetadata` object **MAY** contain a property named `fullDescription` whose value is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) containing a comprehensive description of the translation.
 
 ### 3.26.6 `downloadUri` Property <a id='translationmetadata-object--downloaduri-property'></a>
 
@@ -4597,7 +4687,7 @@ A `translationMetadata` object **MAY** contain a property named `informationUri`
 
 A `result` object describes a single result detected by an analysis tool.
 
-Each result is produced by the evaluation of a rule. If `theTool` contains a `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) that describes that rule, we refer to that object as `theDescriptor`, and we refer to the `toolComponent` object ([§3.19](#toolcomponent-object)) that defines `theDescriptor` as `theComponent`.
+Each result is produced by the evaluation of a rule. If `theTool` contains a `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) that describes that rule, we refer to that object as `theDescriptor`, and we refer to the `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)) that defines `theDescriptor` as `theComponent`.
 
 ### 3.27.2 Distinguishing logically identical from logically distinct results <a id='distinguishing-logically-identical-from-logically-distinct-results'></a>
 
@@ -4611,33 +4701,33 @@ Other result management systems group results into equivalence classes *without*
 
 Still other result management systems compute a fingerprint, associate an arbitrary unique identifier with the fingerprint, and use that identifier rather than the fingerprint to identify the equivalence class of results.
 
-SARIF accommodates all these types of result management systems. Result management systems that compute fingerprints **SHOULD** populate the `fingerprints` property ([§3.27.16](#fingerprints-property)). Result management systems that group results into equivalence classes based on an arbitrary unique identifier **SHOULD** populate the `correlationGuid` property ([§3.27.4](#result-object--correlationguid-property)), regardless of whether they also compute a fingerprint.
+SARIF accommodates all these types of result management systems. Result management systems that compute fingerprints **SHOULD** populate the `fingerprints` property ([3.27.16 "`fingerprints` Property"](#fingerprints-property)). Result management systems that group results into equivalence classes based on an arbitrary unique identifier **SHOULD** populate the `correlationGuid` property ([3.27.4 "`correlationGuid` Property"](#result-object--correlationguid-property)), regardless of whether they also compute a fingerprint.
 
 ### 3.27.3 guid property <a id='result-object--guid-property'></a>
 
-A `result` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) defining a unique, stable identifier for the result.
+A `result` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) defining a unique, stable identifier for the result.
 
 Direct SARIF producers and SARIF converters **MAY** but do not need to set this property. A result management system **SHOULD** set this property when it ingests a SARIF log file. If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **SHALL** set this property to the value it assigned.
 
-A result management system **MAY** store multiple results with identical fingerprints (see [§3.27.16](#fingerprints-property) and [§Appendix A](#normative-use-of-fingerprints-by-result-management-systems)), but the `guid` properties for those results **SHALL** be distinct.
+A result management system **MAY** store multiple results with identical fingerprints (see [3.27.16 "`fingerprints` Property"](#fingerprints-property) and [Appendix B "Use of Fingerprints by Result Management Systems"](#normative-use-of-fingerprints-by-result-management-systems)), but the `guid` properties for those results **SHALL** be distinct.
 
 ### 3.27.4 `correlationGuid` Property <a id='result-object--correlationguid-property'></a>
 
-A `result` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that is shared by all results that are considered logically identical, and that is different between any two results that are considered logically distinct.
+A `result` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) that is shared by all results that are considered logically identical, and that is different between any two results that are considered logically distinct.
 
 Direct SARIF producers and SARIF converters **SHOULD NOT** set this property. A result management system **MAY** set this property when it ingests a SARIF log file. If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **MAY** set this property to the value it assigned.
 
-> NOTE: `correlationGuid` and `fingerprints` ([§3.27.16](#fingerprints-property)) provide two different ways for result management systems to associate results that are logically identical. See [§3.27.2](#distinguishing-logically-identical-from-logically-distinct-results) for more information.
+> NOTE: `correlationGuid` and `fingerprints` ([3.27.16 "`fingerprints` Property"](#fingerprints-property)) provide two different ways for result management systems to associate results that are logically identical. See [3.27.2 "Distinguishing logically identical from logically distinct results"](#distinguishing-logically-identical-from-logically-distinct-results) for more information.
 
 ### 3.27.5 `ruleId` Property <a id='ruleid-property'></a>
 
-Depending on the circumstances, a `result` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `ruleId` whose value is a hierarchical string ([§3.5.4](#hierarchical-strings)) whose leading components specify the stable identifier of the rule that was evaluated to produce the result. In addition to being stable, `ruleId` **SHOULD** be opaque.
+Depending on the circumstances, a `result` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `ruleId` whose value is a hierarchical string ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)) whose leading components specify the stable identifier of the rule that was evaluated to produce the result. In addition to being stable, `ruleId` **SHOULD** be opaque.
 
 > NOTE: `ruleId` will usually consist entirely of the rule’s stable opaque identifier. In some cases, it might be helpful to specify additional hierarchical components to more precisely describe the rule violation.
 
 A SARIF viewer or result management system **MAY** use the additional hierarchical components to allow a user to suppress a subset of the violations of a given rule. A result management system **MAY** also use the additional components to more precisely match results between runs.
 
-> EXAMPLE 1: In this example, the first result describes a violation of rule `CA2101`. Its `ruleId` consists entirely of the rule’s identifier. The second and third results both describe violations of rule `CA5350`. Each of their `ruleId`s specifies an additional hierarchical component that more precisely describes the rule violation. Note that `rule.index` ([§3.27.7](#rule-property), [§3.52.5](#reportingdescriptorreference-object--index-property)) for both those results is `1`; despite the additional hierarchical components in `ruleId`, both results describe violations of the same rule.
+> EXAMPLE 1: In this example, the first result describes a violation of rule `CA2101`. Its `ruleId` consists entirely of the rule’s identifier. The second and third results both describe violations of rule `CA5350`. Each of their `ruleId`s specifies an additional hierarchical component that more precisely describes the rule violation. Note that `rule.index` ([3.27.7 "`rule` Property"](#rule-property), [3.52.5 "`index` Property"](#reportingdescriptorreference-object--index-property)) for both those results is `1`; despite the additional hierarchical components in `ruleId`, both results describe violations of the same rule.
 >
 > A SARIF viewer or result management system might allow a user to suppress, for example, only those violations of rule `CA5350` which specify `md5` as the second hierarchical component of `ruleId`; that is, to allow the use of MD5 but still warn about the uses of other weak cryptographic algorithms.
 >
@@ -4685,9 +4775,9 @@ A SARIF viewer or result management system **MAY** use the additional hierarchic
 > }
 > ```
 
-Direct producers **SHALL** emit either or both of `ruleId` and `rule.id` ([§3.27.7](#rule-property), [§3.52.4](#reportingdescriptorreference-object--id-property)). If `rule.id` is absent, `ruleId` **SHALL** be present. If `rule.id` is present, `ruleId` **MAY** be present. If `ruleId` and `rule.id` are both present, they **SHALL** be equal.
+Direct producers **SHALL** emit either or both of `ruleId` and `rule.id` ([3.27.7 "`rule` Property"](#rule-property), [3.52.4 "`id` Property"](#reportingdescriptorreference-object--id-property)). If `rule.id` is absent, `ruleId` **SHALL** be present. If `rule.id` is present, `ruleId` **MAY** be present. If `ruleId` and `rule.id` are both present, they **SHALL** be equal.
 
-For an example of the interaction between `ruleId` and `rule.id`, see [§3.52.4](#reportingdescriptorreference-object--id-property).
+For an example of the interaction between `ruleId` and `rule.id`, see [3.52.4 "`id` Property"](#reportingdescriptorreference-object--id-property).
 
 Not all existing analysis tools emit the equivalent of a `ruleId` in their output. A SARIF converter which converts the output of such an analysis tool to the SARIF format **SHOULD** synthesize `ruleId` from other information available in the analysis tool's output.
 
@@ -4695,23 +4785,23 @@ Each SARIF converter might synthesize `ruleId` in a different way. Therefore, a 
 
 ### 3.27.6 `ruleIndex` Property <a id='ruleindex-property'></a>
 
-If `theDescriptor` exists (that is, if `theTool` contains a `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) that describes the rule that was violated), a `result` object **MAY** contain a property named `ruleIndex` whose value is the array index ([§3.7.4](#array-indices)) of `theDescriptor` within `theComponent.ruleDescriptors` ([§3.19.23](#rules-property)). Otherwise, `ruleIndex` **SHALL** be absent.
+If `theDescriptor` exists (that is, if `theTool` contains a `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) that describes the rule that was violated), a `result` object **MAY** contain a property named `ruleIndex` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) of `theDescriptor` within `theComponent.ruleDescriptors` ([3.19.23 "`rules` Property"](#rules-property)). Otherwise, `ruleIndex` **SHALL** be absent.
 
-The semantics of `ruleIndex` are identical to the semantics of `reportingDescriptorReference.index` ([§3.52.5](#reportingdescriptorreference-object--index-property)), and are described there.
+The semantics of `ruleIndex` are identical to the semantics of `reportingDescriptorReference.index` ([3.52.5 "`index` Property"](#reportingdescriptorreference-object--index-property)), and are described there.
 
-If `ruleIndex` and `rule.index` ([§3.27.7](#rule-property), [§3.52.5](#reportingdescriptorreference-object--index-property)) are both present, they **SHALL** be equal.
+If `ruleIndex` and `rule.index` ([3.27.7 "`rule` Property"](#rule-property), [3.52.5 "`index` Property"](#reportingdescriptorreference-object--index-property)) are both present, they **SHALL** be equal.
 
 ### 3.27.7 `rule` Property <a id='rule-property'></a>
 
-Depending on the circumstances, a `result` object either **SHALL NOT**, **SHOULD**, or **MAY** contain a property named `rule` whose value is a `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) that identifies `theDescriptor`. The procedure for looking up a `reportingDescriptor` from a `reportingDescriptorReference` is described in [§3.52.3](#reportingdescriptor-lookup).
+Depending on the circumstances, a `result` object either **SHALL NOT**, **SHOULD**, or **MAY** contain a property named `rule` whose value is a `reportingDescriptorReference` object ([3.52 "`reportingDescriptorReference` Object"](#reportingdescriptorreference-object)) that identifies `theDescriptor`. The procedure for looking up a `reportingDescriptor` from a `reportingDescriptorReference` is described in [3.52.3 "Reportingdescriptor Lookup"](#reportingdescriptor-lookup).
 
-If `theDescriptor` does not exist (that is, if `theTool` does not contain a `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) that describes the rule that was violated), then `rule` **SHALL NOT** be present.
+If `theDescriptor` does not exist (that is, if `theTool` does not contain a `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) that describes the rule that was violated), then `rule` **SHALL NOT** be present.
 
-If `theDescriptor` occurs in `theTool.extensions` ([§3.18.3](#extensions-property)), then `rule` **SHOULD** be present.
+If `theDescriptor` occurs in `theTool.extensions` ([3.18.3 "`extensions` Property"](#extensions-property)), then `rule` **SHOULD** be present.
 
-> NOTE 1: If `theDescriptor` occurs in `theTool.extensions` and `rule` is absent, the SARIF consumer will not be able to locate the rule metadata, even if `ruleIndex` ([§3.27.6](#ruleindex-property)) is present, because `ruleIndex` alone does not specify which extension contains `theDescriptor`.
+> NOTE 1: If `theDescriptor` occurs in `theTool.extensions` and `rule` is absent, the SARIF consumer will not be able to locate the rule metadata, even if `ruleIndex` ([3.27.6 "`ruleIndex` Property"](#ruleindex-property)) is present, because `ruleIndex` alone does not specify which extension contains `theDescriptor`.
 
-If `theDescriptor` occurs in `theTool.driver` ([§3.18.2](#driver-property)) and `ruleIndex` is absent, then again `rule` **SHOULD** be present.
+If `theDescriptor` occurs in `theTool.driver` ([3.18.2 "`driver` Property"](#driver-property)) and `ruleIndex` is absent, then again `rule` **SHOULD** be present.
 
 > NOTE 2: If `theDescriptor` occurs in `theTool.driver` and `ruleIndex` is absent, the SARIF consumer will not be able to locate the rule metadata within `theTool.driver.ruleDescriptors`.
 
@@ -4719,32 +4809,32 @@ If `theDescriptor` occurs in `theTool.driver` and `ruleIndex` is present, then `
 
 > NOTE 3: If `theDescriptor` occurs in `theTool.driver`, then `ruleIndex` suffices to locate the rule metadata within `theTool.driver.ruleDescriptors`.
 
-If `rule.id` ([§3.52.4](#reportingdescriptorreference-object--id-property)) is absent, it **SHALL** default to `thisObject.ruleId`. If `rule.id` and `thisObject.ruleId` are both present, they **SHALL** be equal.
+If `rule.id` ([3.52.4 "`id` Property"](#reportingdescriptorreference-object--id-property)) is absent, it **SHALL** default to `thisObject.ruleId`. If `rule.id` and `thisObject.ruleId` are both present, they **SHALL** be equal.
 
-If `rule.index` ([§3.52.5](#reportingdescriptorreference-object--index-property)) is absent, it **SHALL** default to `thisObject.ruleIndex`. If `rule.index` and `thisObject.ruleIndex` are both present, they **SHALL** be equal.
+If `rule.index` ([3.52.5 "`index` Property"](#reportingdescriptorreference-object--index-property)) is absent, it **SHALL** default to `thisObject.ruleIndex`. If `rule.index` and `thisObject.ruleIndex` are both present, they **SHALL** be equal.
 
 If `rule` is absent, it **SHALL** default to a `reportingDescriptorReference` object whose `id` property is set to `thisObject.ruleId` and whose `index` property is set to `thisObject.ruleIndex`.
 
-> NOTE: If the relevant rule is defined by the driver (see [§3.18.1](#tool-object--general)), which is likely to be the most common case, then `ruleId` and/or `ruleIndex` suffice to identify the rule, and take up less space in the log file than `rule`.
+> NOTE: If the relevant rule is defined by the driver (see [3.18.1 "General"](#tool-object--general)), which is likely to be the most common case, then `ruleId` and/or `ruleIndex` suffice to identify the rule, and take up less space in the log file than `rule`.
 
 ### 3.27.8 `taxa` Property <a id='result-object--taxa-property'></a>
 
-A `result` object **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `reportingDescriptorReference` objects ([§3.52](#reportingdescriptorreference-object)) each of which refers to a taxon (see [§3.19.3](#taxonomies)) into which this result falls.
+A `result` object **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `reportingDescriptorReference` objects ([3.52 "`reportingDescriptorReference` Object"](#reportingdescriptorreference-object)) each of which refers to a taxon (see [3.19.3 "Taxonomies"](#taxonomies)) into which this result falls.
 
-If the `toolComponent` object ([§3.19](#toolcomponent-object)) `theComponent` that defines the rule that was violated contains a `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) `theDescriptor` (a member of `toolComponent.rules` ([§3.19.23](#rules-property))) that describes that rule, then `thisObject.taxa` **SHALL** contain elements corresponding to those elements of `theDescriptor.relationships` ([§3.49.15](#reportingdescriptor-object--relationships-property)) that describe taxa into which this result falls. `thisObject.taxa` does not need to contain elements which correspond to `superset` or `equals` relationships; rather, the result **SHALL** implicitly be taken to fall into all the taxa described by those relationships.
+If the `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)) `theComponent` that defines the rule that was violated contains a `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) `theDescriptor` (a member of `toolComponent.rules` ([3.19.23 "`rules` Property"](#rules-property))) that describes that rule, then `thisObject.taxa` **SHALL** contain elements corresponding to those elements of `theDescriptor.relationships` ([3.49.15 "`relationships` Property"](#reportingdescriptor-object--relationships-property)) that describe taxa into which this result falls. `thisObject.taxa` does not need to contain elements which correspond to `superset` or `equals` relationships; rather, the result **SHALL** implicitly be taken to fall into all the taxa described by those relationships.
 
-> NOTE 1: See the example below for an illustration of this point. See [§3.53.3](#reportingdescriptorrelationship-object--kinds-property) for descriptions of the various types of relationships.
+> NOTE 1: See the example below for an illustration of this point. See [3.53.3 "`kinds` Property"](#reportingdescriptorrelationship-object--kinds-property) for descriptions of the various types of relationships.
 
 Otherwise (that is, if `theDescriptor` does not exist), `thisObject.taxa` **SHALL** contain elements that describe all taxa into which the result falls.
 
-In either case, if there is no `toolComponent` that defines the taxonomy to which an element of `thisObject.taxa` refers, then that element (a `reportingDescriptorReference` object) **SHALL NOT** contain `index` ([§3.52.5](#reportingdescriptorreference-object--index-property)) or `toolComponent.index` ([§3.52.7](#toolcomponent-property), [§3.54.4](#toolcomponentreference-object--index-property)).
+In either case, if there is no `toolComponent` that defines the taxonomy to which an element of `thisObject.taxa` refers, then that element (a `reportingDescriptorReference` object) **SHALL NOT** contain `index` ([3.52.5 "`index` Property"](#reportingdescriptorreference-object--index-property)) or `toolComponent.index` ([3.52.7 "`toolComponent` Property"](#toolcomponent-property), [3.54.4 "`index` Property"](#toolcomponentreference-object--index-property)).
 
-> NOTE 2: The rationale for this restriction is that `toolComponent.index` serves to locate the `toolComponent` object defining the rule, and `index` serves to locate the rule within that `toolComponent`. If there is no relevant `toolComponent` object, neither of those properties is meaningful. On the other hand, properties such as `id` ([§3.52.4](#reportingdescriptorreference-object--id-property)), `guid` ([§3.52.6](#reportingdescriptorreference-object--guid-property)), `toolComponent.name` ([§3.54.3](#toolcomponentreference-object--name-property)), and `toolComponent.guid` ([§3.54.5](#toolcomponentreference-object--guid-property)) are useful for readability and for identification, even if the `toolComponent` itself is absent, so they are permitted.
+> NOTE 2: The rationale for this restriction is that `toolComponent.index` serves to locate the `toolComponent` object defining the rule, and `index` serves to locate the rule within that `toolComponent`. If there is no relevant `toolComponent` object, neither of those properties is meaningful. On the other hand, properties such as `id` ([3.52.4 "`id` Property"](#reportingdescriptorreference-object--id-property)), `guid` ([3.52.6 "`guid` Property"](#reportingdescriptorreference-object--guid-property)), `toolComponent.name` ([3.54.3 "`name` Property"](#toolcomponentreference-object--name-property)), and `toolComponent.guid` ([3.54.5 "`guid` Property"](#toolcomponentreference-object--guid-property)) are useful for readability and for identification, even if the `toolComponent` itself is absent, so they are permitted.
 
-> EXAMPLE 1: In this example, a tool defines a custom taxonomy (see [§3.19.3](#taxonomies)) consisting of three taxa with ids `"SUP"`, `"INC1"`, and `"INC2"`. The tool emits a result that falls into the taxa `"SUP"` and `"INC2"`, but not into `"INC1"`. According to `relationships[0]`, `"SUP"` is a superset of `"CA2101"`; that is, every result that violates `"CA2101"` falls into the taxon `"SUP"`. Therefore, it is not necessary to mention `"SUP"` in `theResult.taxa`. On the other hand, according to `relationships[2]`, `"INC2"` is incomparable to `"CA2101"`; that is, the set of results that violate `"CA2101"` intersects with but is neither a superset nor a subset of the set of results that fall into the taxon `"INC2"`. Therefore, it is necessary to mention `"INC2"` in `theResult.taxa`.
+> EXAMPLE 1: In this example, a tool defines a custom taxonomy (see [3.19.3 "Taxonomies"](#taxonomies)) consisting of three taxa with ids `"SUP"`, `"INC1"`, and `"INC2"`. The tool emits a result that falls into the taxa `"SUP"` and `"INC2"`, but not into `"INC1"`. According to `relationships[0]`, `"SUP"` is a superset of `"CA2101"`; that is, every result that violates `"CA2101"` falls into the taxon `"SUP"`. Therefore, it is not necessary to mention `"SUP"` in `theResult.taxa`. On the other hand, according to `relationships[2]`, `"INC2"` is incomparable to `"CA2101"`; that is, the set of results that violate `"CA2101"` intersects with but is neither a superset nor a subset of the set of results that fall into the taxon `"INC2"`. Therefore, it is necessary to mention `"INC2"` in `theResult.taxa`.
 >
 > ```json
-> {                                     # A run object (§3.14).
+> {                                     # A run object (3.14).
 >   "tool": {
 >     "driver": {
 >       "name": "CodeScanner",
@@ -4827,7 +4917,7 @@ A `result` object **MAY** contain a property named `kind` whose value is one of 
 
 If present, the `kind` property **SHALL** have one of the following values, with the specified meanings:
 
-- `"pass"`: The rule specified by `ruleId` ([§3.27.5](#ruleid-property)), `ruleIndex` ([§3.27.6](#ruleindex-property)), and/or `rule` ([§3.27.7](#rule-property)) was evaluated, and no problem was found.
+- `"pass"`: The rule specified by `ruleId` ([3.27.5 "`ruleId` Property"](#ruleid-property)), `ruleIndex` ([3.27.6 "`ruleIndex` Property"](#ruleindex-property)), and/or `rule` ([3.27.7 "`rule` Property"](#rule-property)) was evaluated, and no problem was found.
 
 - `"open"`: The specified rule was evaluated, and the tool concluded that there was insufficient information to decide whether a problem exists.
 
@@ -4878,7 +4968,7 @@ If present, the `kind` property **SHALL** have one of the following values, with
 
     NOTE 2: This value is used by tools that are unable to check for certain conditions, but that wish to bring to the user’s attention the possibility that there might be a problem. For example, an accessibility checker might produce a result with the message "Do not use color alone to highlight important information," with `kind` = `"review"`. A user might address this issue by visually inspecting the UI.
 
-- `"fail"`: The result represents a problem whose severity is specified by the `level` property ([§3.27.10](#result-object--level-property)).
+- `"fail"`: The result represents a problem whose severity is specified by the `level` property ([3.27.10 "`level` Property"](#result-object--level-property)).
 
 If `kind` is absent, it **SHALL** default to `"fail"`.
 
@@ -4896,7 +4986,7 @@ If present, the `level` property **SHALL** have one of the following values, wit
 
 - `"note"`: The rule specified by `ruleId` was evaluated and a minor problem or an opportunity to improve the code was found.
 
-- `"none"`: The concept of "severity" does not apply to this result because the `kind` property ([§3.27.9](#result-object--kind-property)) has a value other than `"fail"`.
+- `"none"`: The concept of "severity" does not apply to this result because the `kind` property ([3.27.9 "`kind` Property"](#result-object--kind-property)) has a value other than `"fail"`.
 
 > EXAMPLE 1: In this example, the tool reports an opportunity to improve the code.
 >
@@ -4924,29 +5014,29 @@ If present, the `level` property **SHALL** have one of the following values, wit
 > ]
 > ```
 
-If `kind` ([§3.27.9](#result-object--kind-property)) has any value other than `"fail"`, then if `level` is absent, it **SHALL** default to `"none"`, and if it is present, it **SHALL** have the value `"none"`.
+If `kind` ([3.27.9 "`kind` Property"](#result-object--kind-property)) has any value other than `"fail"`, then if `level` is absent, it **SHALL** default to `"none"`, and if it is present, it **SHALL** have the value `"none"`.
 
 If `kind` has the value `"fail"` and `level` is absent, then `level` **SHALL** be determined by the following procedure:
 
-IF rule ([§3.27.7](#rule-property)) is present THEN
+IF rule ([3.27.7 "`rule` Property"](#rule-property)) is present THEN
 
-&emsp;&emsp;LET `theDescriptor` be the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) that it specifies.
+&emsp;&emsp;LET `theDescriptor` be the `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) that it specifies.
 
 &emsp;&emsp;# Is there a configuration override for the `level` property?
 
-&emsp;&emsp;IF `result.provenance.invocationIndex` ([§3.27.29](#provenance-property), [§3.48.6](#invocationindex-property)) is >= 0 THEN
+&emsp;&emsp;IF `result.provenance.invocationIndex` ([3.27.29 "`provenance` Property"](#provenance-property), [3.48.6 "`invocationIndex` Property"](#invocationindex-property)) is >= 0 THEN
 
-&emsp;&emsp;&emsp;&emsp;LET `theInvocation` be the `invocation` object ([§3.20](#invocation-object)) that it specifies.
+&emsp;&emsp;&emsp;&emsp;LET `theInvocation` be the `invocation` object ([3.20 "`invocation` Object"](#invocation-object)) that it specifies.
 
-&emsp;&emsp;&emsp;&emsp;IF `theInvocation.ruleConfigurationOverrides` ([§3.20.5](#ruleconfigurationoverrides-property)) is present
+&emsp;&emsp;&emsp;&emsp;IF `theInvocation.ruleConfigurationOverrides` ([3.20.5 "`ruleConfigurationOverrides` Property"](#ruleconfigurationoverrides-property)) is present
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND it contains a `configurationOverride` object ([§3.51](#configurationoverride-object)) whose
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AND it contains a `configurationOverride` object ([3.51 "`configurationOverride` Object"](#configurationoverride-object)) whose
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;`descriptor` property ([§3.51.2](#configurationoverride-object--descriptor-property)) specifies `theDescriptor` THEN
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;`descriptor` property ([3.51.2 "`descriptor` Property"](#configurationoverride-object--descriptor-property)) specifies `theDescriptor` THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;LET `theOverride` be that `configurationOverride` object.
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `theOverride.configuration.level` ([§3.51.3](#configuration-property), [§3.50.3](#reportingconfiguration-object--level-property)) is present THEN
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `theOverride.configuration.level` ([3.51.3 "`configuration` Property"](#configuration-property), [3.50.3 "`level` Property"](#reportingconfiguration-object--level-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Set `level` to `theConfiguration.level`.
 
@@ -4954,7 +5044,7 @@ IF rule ([§3.27.7](#rule-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;# There is no configuration override for `level`. Is there a default configuration for it?
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `theDescriptor.defaultConfiguration.level` ([§3.49.14](#defaultconfiguration-property), [§3.50.3](#reportingconfiguration-object--level-property)) is present THEN
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;IF `theDescriptor.defaultConfiguration.level` ([3.49.14 "`defaultConfiguration` Property"](#defaultconfiguration-property), [3.50.3 "`level` Property"](#reportingconfiguration-object--level-property)) is present THEN
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;SET level to `theDescriptor.defaultConfiguration.level`.
 
@@ -4968,7 +5058,7 @@ IF rule ([§3.27.7](#rule-property)) is present THEN
 
 ### 3.27.11 `message` Property <a id='result-object--message-property'></a>
 
-A `result` object **SHALL** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) that describes the result.
+A `result` object **SHALL** contain a property named `message` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes the result.
 
 The `message` property **SHOULD** provide sufficient details to allow an end user to resolve any problem that the result might indicate. In particular, it **SHALL** include all of the following information that is available and relevant to the result:
 
@@ -4998,20 +5088,20 @@ The `message` property **SHOULD** provide sufficient details to allow an end use
 > ]
 > ```
 
-See [§3.11.7](#message-string-lookup) for the procedure for looking up a message string from a `message` object, in particular, for the case where the `message` object occurs as the value of `result.message`.
+See [3.11.7 "Message String Lookup"](#message-string-lookup) for the procedure for looking up a message string from a `message` object, in particular, for the case where the `message` object occurs as the value of `result.message`.
 
 > EXAMPLE 2: In this example, `message.id` refers to the property named `default` defined in the `messageStrings` property of the `reportingDescriptor` object identified by `"CA2101"`.
 >
 > ```json
-> {                                 # A run object (§3.14).
->   "tool": {                       # See §3.14.6.
->     "driver": {                   # See §3.18.2.
+> {                                 # A run object (3.14).
+>   "tool": {                       # See 3.14.6.
+>     "driver": {                   # See 3.18.2.
 >       "name": "CodeScanner",
->       "rules": [                  # See §3.19.23.
->         {                         # A reportingDescriptor object (§3.49).
+>       "rules": [                  # See 3.19.23.
+>         {                         # A reportingDescriptor object (3.49).
 >           "id": "CA2101",
 >           "messageStrings": {
->             "default": {          # A multiformatMessageString object (§3.12).
+>             "default": {          # A multiformatMessageString object (3.12).
 >               "text": "The default message for this rule.",
 >               "markdown": "The default message for *this* rule."
 >             },
@@ -5025,7 +5115,7 @@ See [§3.11.7](#message-string-lookup) for the procedure for looking up a messag
 >     }
 >   },
 >   "results": [
->     {                             # A result object (§3.27).
+>     {                             # A result object (3.27).
 >       "ruleId": "CA2101",
 >       "rule": {
 >         "index": 0
@@ -5041,13 +5131,13 @@ See [§3.11.7](#message-string-lookup) for the procedure for looking up a messag
 
 ### 3.27.12 `locations` Property <a id='result-object--locations-property'></a>
 
-A `result` object **SHOULD** contain a property named `locations` whose value is an array of zero or more `location` objects ([§3.28](#location-object)) each of which specifies a location where the result occurred.
+A `result` object **SHOULD** contain a property named `locations` whose value is an array of zero or more `location` objects ([3.28 "`location` Object"](#location-object)) each of which specifies a location where the result occurred.
 
 > NOTE 1: In rare circumstances, it might not be possible to specify a location for a result. However, the `locations` property contains very valuable information for anyone who needs to diagnose and correct the condition described by the result, so the authors of analysis tools should make every effort to provide it.
 
 > EXAMPLE 1: If a C++ analyzer detects that no file defines a global function `main`, then that result cannot be associated with a file.
 
-> NOTE 2: The `locations` array is not defined to contain unique ([§3.7.3](#array-properties-with-unique-values)) elements because some tools report a line number but not a column number for a result’s location. Such a tool might report the same result twice on the same line, in some cases producing multiple identical `location` objects.
+> NOTE 2: The `locations` array is not defined to contain unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) elements because some tools report a line number but not a column number for a result’s location. Such a tool might report the same result twice on the same line, in some cases producing multiple identical `location` objects.
 
 The `locations` array **SHALL NOT** contain more than one element unless the condition indicated by the result, if any, can only be corrected by making a change at every location specified in the array.
 
@@ -5061,22 +5151,22 @@ The `locations` array **SHALL NOT** be used to specify distinct occurrences of t
 
 ### 3.27.13 `analysisTarget` Property <a id='analysistarget-property'></a>
 
-If the analysis target differs from the result file, a `result` object **SHOULD** contain a property named `analysisTarget` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) that specifies the analysis target.
+If the analysis target differs from the result file, a `result` object **SHOULD** contain a property named `analysisTarget` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) that specifies the analysis target.
 
 If the analysis target and the result file are the same, the `analysisTarget` property **SHOULD** be absent.
 
 > EXAMPLE 1: In this example, the tool’s analysis target was the file mouse.c. During the scan, the tool detected a result in the included file mouse.h.
 >
 > ```json
-> {                                 # A result object (§3.27).
->   "analysisTarget": {             # An artifactLocation object (§3.4).
+> {                                 # A result object (3.27).
+>   "analysisTarget": {             # An artifactLocation object (3.4).
 >     "uri": "input/mouse.c",
 >     "uriBaseId": "SRCROOT"
 >   },
 > 
->   "locations": [                  # See §3.27.12.
->     {                             # A location object (§3.28).
->       "physicalLocation": {       # See §3.28.3.
+>   "locations": [                  # See 3.27.12.
+>     {                             # A location object (3.28).
+>       "physicalLocation": {       # See 3.28.3.
 >         "artifactLocation": {     # An artifactLocation object.
 >           "uri": "input/mouse.h",
 >           "uriBaseId": "SRCROOT"
@@ -5093,23 +5183,23 @@ If the analysis target and the result file are the same, the `analysisTarget` pr
 
 ### 3.27.14 `webRequest` Property <a id='result-object--webrequest-property'></a>
 
-A `result` object **MAY** contain a property named `webRequest` whose value is a `webRequest` object ([§3.46](#webrequest-object)) that describes the HTTP request which led to this result.
+A `result` object **MAY** contain a property named `webRequest` whose value is a `webRequest` object ([3.46 "`webRequest` Object"](#webrequest-object)) that describes the HTTP request which led to this result.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
 ### 3.27.15 `webResponse` Property <a id='result-object--webresponse-property'></a>
 
-A `result` object **MAY** contain a property named `webResponse` whose value is a `webResponse` object ([§3.47](#webresponse-object)) that describes the response to the HTTP request which led to this result.
+A `result` object **MAY** contain a property named `webResponse` whose value is a `webResponse` object ([3.47 "`webResponse` Object"](#webresponse-object)) that describes the response to the HTTP request which led to this result.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
 ### 3.27.16 `fingerprints` Property <a id='fingerprints-property'></a>
 
-A `result` object **MAY** contain a property named `fingerprints` whose value is an object ([§3.6](#object-properties)).
+A `result` object **MAY** contain a property named `fingerprints` whose value is an object ([3.6 "Object Properties"](#object-properties)).
 
 Each property value in this object **SHALL** be a string that provides a stable identifier for the result. This identifier **SHALL**, to the extent that it is feasible, be the same for all results that are logically identical, and different for any two results that are logically distinct. This requirement is intended to ensure that a fingerprint is resistant to changes that do not affect the logical identity of the result, such as the location of the root of a source code enlistment, or the line number where a result appears in a source file.
 
-Each property name in this object **SHALL** be a versioned hierarchical string ([§3.5.4.2](#versioned-hierarchical-strings)). A result management system **MAY** use the property names to identify the method used to calculate the fingerprint.
+Each property name in this object **SHALL** be a versioned hierarchical string ([3.5.4.2 "Versioned Hierarchical Strings"](#versioned-hierarchical-strings)). A result management system **MAY** use the property names to identify the method used to calculate the fingerprint.
 
 > EXAMPLE 1: In this example, the producer has calculated a fingerprint using version 2 of a fingerprinting method it refers to as `"stableResultHash"`:
 >
@@ -5126,8 +5216,8 @@ When a result management system uses fingerprint information to determine whethe
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the "context region hash" fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
 >
 > ```json
-> {                                  # A run object (§3.14).
->   "results": [                     # See §3.14.23.
+> {                                  # A run object (3.14).
+>   "results": [                     # See 3.14.23.
 >     {                              # A result object.
 >       "fingerprints": {
 >         "stableResultHash/v1": "1234567900abc",
@@ -5152,22 +5242,22 @@ When a result management system uses fingerprint information to determine whethe
 
 A direct SARIF producer **SHOULD NOT** populate this property. A SARIF converter **MAY** populate this property if the analysis tool’s native output format provides a value that qualifies as a fingerprint (a stable identifier for the result). A result management system **MAY** populate this property when it ingests a SARIF file. If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **MAY** set this property to the value it assigned.
 
-[§Appendix A](#normative-use-of-fingerprints-by-result-management-systems) provides requirements for how a result management system computes fingerprints.
+[Appendix B "Use of Fingerprints by Result Management Systems"](#normative-use-of-fingerprints-by-result-management-systems) provides requirements for how a result management system computes fingerprints.
 
-> NOTE: `fingerprints` and `correlationGuid` ([§3.27.4](#result-object--correlationguid-property)) provide two different ways for result management systems to associate results that are logically identical. See [§3.27.2](#distinguishing-logically-identical-from-logically-distinct-results) for more information.
+> NOTE: `fingerprints` and `correlationGuid` ([3.27.4 "`correlationGuid` Property"](#result-object--correlationguid-property)) provide two different ways for result management systems to associate results that are logically identical. See [3.27.2 "Distinguishing logically identical from logically distinct results"](#distinguishing-logically-identical-from-logically-distinct-results) for more information.
 
 ### 3.27.17 `partialFingerprints` Property <a id='partialfingerprints-property'></a>
 
-A `result` object **MAY** contain a property named `partialFingerprints` whose value is an object ([§3.6](#object-properties)).
+A `result` object **MAY** contain a property named `partialFingerprints` whose value is an object ([3.6 "Object Properties"](#object-properties)).
 
-Each property value in this object **SHALL** be a string that contributes to the stable, unique identity, or "fingerprint," of the result (see [§3.27.16](#fingerprints-property)). Appendix B explains how a result management system can compute these fingerprints.
+Each property value in this object **SHALL** be a string that contributes to the stable, unique identity, or "fingerprint," of the result (see [3.27.16 "`fingerprints` Property"](#fingerprints-property)). Appendix B explains how a result management system can compute these fingerprints.
 
-Each property name in this object **SHALL** be a versioned hierarchical string ([§3.5.4.2](#versioned-hierarchical-strings)). A SARIF producer **MAY** use the property name to identify the nature of the information used to compute the partial fingerprint.
+Each property name in this object **SHALL** be a versioned hierarchical string ([3.5.4.2 "Versioned Hierarchical Strings"](#versioned-hierarchical-strings)). A SARIF producer **MAY** use the property name to identify the nature of the information used to compute the partial fingerprint.
 
 > EXAMPLE 1: In this example, the producer has calculated a partial fingerprint using version 3 of a partial fingerprint value it refers to as `"prohibitedWordHash"`:
 >
 > ```json
-> {                                 # A result object (§3.27).
+> {                                 # A result object (3.27).
 >   "partialFingerprints": {
 >     "prohibitedWordHash/v3": "097886bc876fe"
 >   }
@@ -5179,8 +5269,8 @@ When a result management system uses partial fingerprint information to determin
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the "prohibited word hash" partial fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
 >
 > ```json
-> {                                  # A run object (§3.14).
->   "results": [                     # See §3.14.23.
+> {                                  # A run object (3.14).
+>   "results": [                     # See 3.14.23.
 >     {                              # A result object.
 >       "partialFingerprints": {
 >         "prohibitedWordHash/v1": "1234567900abc",
@@ -5236,29 +5326,29 @@ Because result management systems might come to depend on the choice of property
 
 ### 3.27.18 `codeFlows` Property <a id='codeflows-property'></a>
 
-A `result` object **MAY** contain a property named `codeFlows` whose value is an array of zero or more `codeFlow` objects ([§3.36](#codeflow-object)). The `codeFlows` property is intended for use by analysis tools that provide execution path details that illustrate a possible problem in the code.
+A `result` object **MAY** contain a property named `codeFlows` whose value is an array of zero or more `codeFlow` objects ([3.36 "`codeFlow` Object"](#codeflow-object)). The `codeFlows` property is intended for use by analysis tools that provide execution path details that illustrate a possible problem in the code.
 
 > NOTE: The SARIF file format allows multiple `codeFlow` objects within a single `result` object to allow for the possibility that more than one code flow might be relevant to a single result.
 
 ### 3.27.19 `graphs` Property <a id='result-object--graphs-property'></a>
 
-A `result` object **MAY** contain a property named `graphs` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `graph` objects ([§3.39](#graph-object)). A `graph` object represents a directed graph: a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph).
+A `result` object **MAY** contain a property named `graphs` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `graph` objects ([3.39 "`graph` Object"](#graph-object)). A `graph` object represents a directed graph: a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph).
 
-A `graph` object defined at the `result` level **SHALL** be referenced only by `graphTraversal` objects ([§3.42](#graphtraversal-object)) defined in the `graphTraversals` property ([§3.27.20](#graphtraversals-property)) of the `result` object in which it is defined. This contrasts with `graph` objects defined at the `run` level ([§3.14.20](#run-object--graphs-property)), which **MAY** be referenced by `graphTraversal` objects defined in the `graphTraversals` property of any `result` object in `theRun`.
+A `graph` object defined at the `result` level **SHALL** be referenced only by `graphTraversal` objects ([3.42 "`graphTraversal` Object"](#graphtraversal-object)) defined in the `graphTraversals` property ([3.27.20 "`graphTraversals` Property"](#graphtraversals-property)) of the `result` object in which it is defined. This contrasts with `graph` objects defined at the `run` level ([3.14.20 "`graphs` Property"](#run-object--graphs-property)), which **MAY** be referenced by `graphTraversal` objects defined in the `graphTraversals` property of any `result` object in `theRun`.
 
 ### 3.27.20 `graphTraversals` Property <a id='graphtraversals-property'></a>
 
-If a `result` object contains a `graphs` property ([§3.27.19](#result-object--graphs-property)), or if `theRun` contains a `graphs` property ([§3.14.20](#run-object--graphs-property)), then the `result` object **MAY** contain a property named `graphTraversals` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `graphTraversal` objects ([§3.42](#graphtraversal-object)). If neither the `result` object nor `theRun` contains a `graphs` property, the `graphTraversals` property **SHALL** be absent. A graph traversal is a path through the code that visits one or more nodes in a specified graph.
+If a `result` object contains a `graphs` property ([3.27.19 "`graphs` Property"](#result-object--graphs-property)), or if `theRun` contains a `graphs` property ([3.14.20 "`graphs` Property"](#run-object--graphs-property)), then the `result` object **MAY** contain a property named `graphTraversals` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `graphTraversal` objects ([3.42 "`graphTraversal` Object"](#graphtraversal-object)). If neither the `result` object nor `theRun` contains a `graphs` property, the `graphTraversals` property **SHALL** be absent. A graph traversal is a path through the code that visits one or more nodes in a specified graph.
 
 ### 3.27.21 `stacks` Property <a id='stacks-property'></a>
 
-A `result` object **MAY** contain a property named `stacks` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `stack` objects ([§3.44](#stack-object)). The `stacks` property is intended for use by analysis tools that compute or collect call stack information in the process of producing results.
+A `result` object **MAY** contain a property named `stacks` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `stack` objects ([3.44 "`stack` Object"](#stack-object)). The `stacks` property is intended for use by analysis tools that compute or collect call stack information in the process of producing results.
 
 > NOTE: The SARIF file format allows multiple `stack` objects within a single `result` object to allow for the possibility that more than one call stack might be relevant to a single result.
 
 ### 3.27.22 `relatedLocations` Property <a id='relatedlocations-property'></a>
 
-A `result` object **MAY** contain a property named `relatedLocations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `location` objects ([§3.28](#location-object)) each of which represents a location relevant to understanding the result.
+A `result` object **MAY** contain a property named `relatedLocations` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `location` objects ([3.28 "`location` Object"](#location-object)) each of which represents a location relevant to understanding the result.
 
 > EXAMPLE 1: Suppose that a tool for analyzing JavaScript™ has a rule that reports a problem when a variable declared in an inner scope hides a variable with the same name in an enclosing scope. The tool would report the problem on the line where the inner variable is declared. The tool could choose to add an element to the `relatedLocations` array, specifying the location where the outer variable was declared.  
 >
@@ -5285,7 +5375,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 >         }
 >       }
 >     ],
->     "relatedLocations": [   # An array of location objects (§3.28).
+>     "relatedLocations": [   # An array of location objects (3.28).
 >       {                     # A location object.
 >         "id": 0,
 >         "message": {
@@ -5314,11 +5404,11 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 
 ### 3.27.23 `suppressions` Property <a id='suppressions-property'></a>
 
-A `result` object **MAY** contain a property named `suppressions` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `suppression` objects ([§3.35](#suppression-object)) each of which describes a request to "suppress" a result (that is, to exclude it from result lists, bug counts, *etc.*).
+A `result` object **MAY** contain a property named `suppressions` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `suppression` objects ([3.35 "`suppression` Object"](#suppression-object)) each of which describes a request to "suppress" a result (that is, to exclude it from result lists, bug counts, *etc.*).
 
 If `suppressions` is absent, it **SHALL** default to `null.`
 
-The presence of an array value, whether or not the array is empty, **SHALL** mean that suppression information is available for the result. In this case, if the array is empty, a consumer **SHALL** treat the result as not suppressed. If the array is non-empty, a consumer that needs to determine the result’s suppression state **SHALL** examine the `status` properties ([§3.35.3](#status-property)) of the `suppression` objects in the array.
+The presence of an array value, whether or not the array is empty, **SHALL** mean that suppression information is available for the result. In this case, if the array is empty, a consumer **SHALL** treat the result as not suppressed. If the array is non-empty, a consumer that needs to determine the result’s suppression state **SHALL** examine the `status` properties ([3.35.3 "`status` Property"](#status-property)) of the `suppression` objects in the array.
 
 The absence of an array value, or the presence of a `null` value, **SHALL** mean that suppression information is not available for the result. A SARIF consumer **SHALL** treat such a result as not suppressed.
 
@@ -5330,7 +5420,7 @@ The `suppressions` values for all `result` objects in `theRun` **SHALL** be eith
 
 A `result` object **MAY** contain a property named `baselineState` whose value is a string that specifies the state of this result with respect to some previous run, which we refer to as the "baseline run."
 
-If `theRun.baselineGuid` ([§3.14.5](#baselineguid-property)) is present, its value **SHALL** specify the baseline run.
+If `theRun.baselineGuid` ([3.14.5 "`baselineGuid` Property"](#baselineguid-property)) is present, its value **SHALL** specify the baseline run.
 
 This property **SHALL** have one of the following values, with the specified meanings:
 
@@ -5344,7 +5434,7 @@ This property **SHALL** have one of the following values, with the specified mea
 
 > NOTE 1: The purpose of `baselineState` is to allow (for example) a measurement of how many new results were introduced in the run, and how many previously existing results no longer appear.
 >
-> To assign a value to `baselineState`, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. [§Appendix A](#normative-use-of-fingerprints-by-result-management-systems) discusses how a result management system can assign a "fingerprint" to each result. See also the description of the `fingerprints` ([§3.27.16](#fingerprints-property)) and `partialFingerprints` ([§3.27.17](#partialfingerprints-property)) properties.
+> To assign a value to `baselineState`, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. [Appendix B "Use of Fingerprints by Result Management Systems"](#normative-use-of-fingerprints-by-result-management-systems) discusses how a result management system can assign a "fingerprint" to each result. See also the description of the `fingerprints` ([3.27.16 "`fingerprints` Property"](#fingerprints-property)) and `partialFingerprints` ([3.27.17 "`partialFingerprints` Property"](#partialfingerprints-property)) properties.
 >
 > An analysis tool that works together with such a result management system can use the fingerprint to determine whether two results are logically the same; two results with the same fingerprint are considered logically the same.
 
@@ -5360,9 +5450,9 @@ If `baselineState` is present on any `result` object in `theRun`, it **SHALL** b
 
 A `result` object **MAY** contain a property named `rank` whose value is a number between `0.0` and `100.0` inclusive, representing the priority or importance of the result. `0.0` is the lowest priority and `100.0` is the highest.
 
-`rank` is only meaningful if `kind` ([§3.27.9](#result-object--kind-property)) has the value `"fail"`.
+`rank` is only meaningful if `kind` ([3.27.9 "`kind` Property"](#result-object--kind-property)) has the value `"fail"`.
 
-If `kind` has the value `"fail"`, then if `rank` is absent, it **SHALL** default to the value determined by the procedure defined for `level` ([§3.27.10](#result-object--level-property)), except throughout the procedure, replace `"level"` with `"rank"` and replace `"warning"` with `-1.0`.
+If `kind` has the value `"fail"`, then if `rank` is absent, it **SHALL** default to the value determined by the procedure defined for `level` ([3.27.10 "`level` Property"](#result-object--level-property)), except throughout the procedure, replace `"level"` with `"rank"` and replace `"warning"` with `-1.0`.
 
 If `kind` has any other value, then `rank` **SHALL** be absent.
 
@@ -5372,11 +5462,11 @@ If `rank` is absent, it **SHALL** default to `-1.0`, which indicates that the va
 
 ### 3.27.26 `attachments` Property <a id='attachments-property'></a>
 
-A `result` object **MAY** contain a property named `attachments` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `attachment` objects ([§3.21](#attachment-object)) each of which describes an artifact relevant to the detection of the result.
+A `result` object **MAY** contain a property named `attachments` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `attachment` objects ([3.21 "`attachment` Object"](#attachment-object)) each of which describes an artifact relevant to the detection of the result.
 
 ### 3.27.27 `workItemUris` Property <a id='workitemuris-property'></a>
 
-A `result` object **MAY** contain a property named `workItemUris` whose value is either `null` or an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) strings each of which contains the absolute URI \[[RFC3986](#RFC3986)\] of a work item associated with this result.
+A `result` object **MAY** contain a property named `workItemUris` whose value is either `null` or an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings each of which contains the absolute URI \[[RFC3986](#RFC3986)\] of a work item associated with this result.
 
 If `workItemUris` is absent, it **SHALL** default to `null`.
 
@@ -5396,17 +5486,17 @@ A `result` object **MAY** contain a property named `hostedViewerUri` whose value
 
 ### 3.27.29 `provenance` Property <a id='provenance-property'></a>
 
-A `result` object **MAY** contain a property named `provenance` whose value is a `resultProvenance` object ([§3.48](#resultprovenance-object)) that contains information about how and when the result was detected.
+A `result` object **MAY** contain a property named `provenance` whose value is a `resultProvenance` object ([3.48 "`resultProvenance` Object"](#resultprovenance-object)) that contains information about how and when the result was detected.
 
 ### 3.27.30 `fixes` Property <a id='fixes-property'></a>
 
-A `result` object **MAY** contain a property named `fixes` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `fix` objects ([§3.55](#fix-object)).
+A `result` object **MAY** contain a property named `fixes` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `fix` objects ([3.55 "`fix` Object"](#fix-object)).
 
 ### 3.27.31 `occurrenceCount` Property <a id='occurrencecount-property'></a>
 
-A `result` object **MAY** contain a property named `occurrenceCount` whose value is a positive integer specifying the number of times a result with `theResult.correlationGuid` ([§3.27.4](#result-object--correlationguid-property)) has been observed.
+A `result` object **MAY** contain a property named `occurrenceCount` whose value is a positive integer specifying the number of times a result with `theResult.correlationGuid` ([3.27.4 "`correlationGuid` Property"](#result-object--correlationguid-property)) has been observed.
 
-> NOTE: This property is intended for the scenario where multiple SARIF files are being merged into a single SARIF file, with the intent that each logically distinct result (see [§3.27.2](#distinguishing-logically-identical-from-logically-distinct-results)) occurs only once in the merged file. In that case, the system performing the merge would select one occurrence of each logically distinct result to serve as the exemplar for that class of results, and it would set `occurrenceCount` on that instance to the number of times a result with that `correlationGuid` occurred in the input files.
+> NOTE: This property is intended for the scenario where multiple SARIF files are being merged into a single SARIF file, with the intent that each logically distinct result (see [3.27.2 "Distinguishing logically identical from logically distinct results"](#distinguishing-logically-identical-from-logically-distinct-results)) occurs only once in the merged file. In that case, the system performing the merge would select one occurrence of each logically distinct result to serve as the exemplar for that class of results, and it would set `occurrenceCount` on that instance to the number of times a result with that `correlationGuid` occurred in the input files.
 >
 > This property can also be useful even in the context of a single log file. Consider an accessibility checker that detects an accessibility problem at a particular location. Suppose the checker has access to activity logs that trace user paths through the application. The checker could use those logs to determine how many times users encountered the location with the accessibility problem, and store that information in `occurrenceCount`.
 
@@ -5414,7 +5504,7 @@ A `result` object **MAY** contain a property named `occurrenceCount` whose value
 
 ### 3.28.1 General <a id='location-object--general'></a>
 
-A `location` object describes a location. Depending on the circumstances, a `location` object is described by physical location ([§3.29](#physicallocation-object)), a logical location ([§3.33](#logicallocation-object)), both, or in rare circumstances, neither (see below).
+A `location` object describes a location. Depending on the circumstances, a `location` object is described by physical location ([3.29 "`physicalLocation` Object"](#physicallocation-object)), a logical location ([3.33 "`logicalLocation` Object"](#logicallocation-object)), both, or in rare circumstances, neither (see below).
 
 A logical location specifies a programmatic construct, for example, a class name or a function name, without specifying the artifact within which that construct occurs.
 
@@ -5422,15 +5512,15 @@ A logical location specifies a programmatic construct, for example, a class name
 >
 > - In the absence of symbol information, binary analysis tools might not have source code locations available, so information about line and column numbers might not be present in the log file. In this case, code editors, other programs, or end users can use logical location to navigate from a result to the correct source code location.
 >
-> - Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See [§Appendix A](#normative-use-of-fingerprints-by-result-management-systems) for more information about fingerprinting. The `logicalLocation.fullyQualifiedName` property ([§3.33.5](#logicallocation-object--fullyqualifiedname-property)) is particularly convenient for fingerprinting.
+> - Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See [Appendix B "Use of Fingerprints by Result Management Systems"](#normative-use-of-fingerprints-by-result-management-systems) for more information about fingerprinting. The `logicalLocation.fullyQualifiedName` property ([3.33.5 "`fullyQualifiedName` Property"](#logicallocation-object--fullyqualifiedname-property)) is particularly convenient for fingerprinting.
 >
 > - In the analysis of structured data files such as XML or JSON, internal structural information (such as an XML path like `"/orders[2]/customers/lastName"`) might be helpful.
 
-In rare circumstances, there might be neither physical nor logical location information available for a `location` object. See [§3.38](#threadflowlocation-object) for an example. In that case, the location object **SHOULD** contain a message property ([§3.28.5](#location-object--message-property)) explaining the significance of this "location."
+In rare circumstances, there might be neither physical nor logical location information available for a `location` object. See [3.38 "`threadFlowLocation` Object"](#threadflowlocation-object) for an example. In that case, the location object **SHOULD** contain a message property ([3.28.5 "`message` Property"](#location-object--message-property)) explaining the significance of this "location."
 
 ### 3.28.2 `id` Property <a id='location-object--id-property'></a>
 
-A `location` object **MAY** contain a property named `id` whose value is a non-negative integer that is unique among all `location` objects belonging to `theLocationOwner`. The value does not need to be unique across all `result` ([§3.27](#result-object)) or `notification` ([§3.58](#notification-object)) objects in `theRun`.
+A `location` object **MAY** contain a property named `id` whose value is a non-negative integer that is unique among all `location` objects belonging to `theLocationOwner`. The value does not need to be unique across all `result` ([3.27 "`result` Object"](#result-object)) or `notification` ([3.58 "`notification` Object"](#notification-object)) objects in `theRun`.
 
 If `id` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
@@ -5442,25 +5532,25 @@ If `id` is absent, it **SHALL** default to -1, which indicates that the value is
 >     result.codeFlows[0].threadFlows[0].locations[0].location
 >     result.stacks[0].frames[0].location
 
-The `id` property has two purposes: to enable an embedded link ([§3.11.6](#messages-with-embedded-links)) within a `message` object ([§3.11](#message-object)) to refer to `thisObject`, and to identify `thisObject` as the target of a `locationRelationship` ([§3.34](#locationrelationship-object)). If no `message` object within `theLocationOwner` refers to `thisObject` *via* an embedded link and no `locationRelationship` object within `theLocationOwner` specifies `thisObject` as its target, the `id` property does not need to appear.
+The `id` property has two purposes: to enable an embedded link ([3.11.6 "Messages with Embedded Links"](#messages-with-embedded-links)) within a `message` object ([3.11 "`message` Object"](#message-object)) to refer to `thisObject`, and to identify `thisObject` as the target of a `locationRelationship` ([3.34 "`locationRelationship` Object"](#locationrelationship-object)). If no `message` object within `theLocationOwner` refers to `thisObject` *via* an embedded link and no `locationRelationship` object within `theLocationOwner` specifies `thisObject` as its target, the `id` property does not need to appear.
 
 ### 3.28.3 `physicalLocation` Property <a id='physicallocation-property'></a>
 
-Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `physicalLocation` whose value is a `physicalLocation` object ([§3.29](#physicallocation-object)) that identifies the file within which the location lies. If physical location information is available and the `logicalLocations` property ([§3.28.4](#location-object--logicallocations-property)) is absent or empty, `physicalLocation` **SHALL** be present. If physical location is available and `logicalLocations` is present and non-empty, `physicalLocation` **MAY** be present. If physical location information is not available, `physicalLocation` **SHALL NOT** be present.
+Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `physicalLocation` whose value is a `physicalLocation` object ([3.29 "`physicalLocation` Object"](#physicallocation-object)) that identifies the file within which the location lies. If physical location information is available and the `logicalLocations` property ([3.28.4 "`logicalLocations` Property"](#location-object--logicallocations-property)) is absent or empty, `physicalLocation` **SHALL** be present. If physical location is available and `logicalLocations` is present and non-empty, `physicalLocation` **MAY** be present. If physical location information is not available, `physicalLocation` **SHALL NOT** be present.
 
 ### 3.28.4 `logicalLocations` Property <a id='location-object--logicallocations-property'></a>
 
-Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `logicalLocations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `logicalLocation` objects ([§3.33](#logicallocation-object)) that identify the programmatic construct within which the location lies. If logical location information is available and the `physicalLocation` property ([§3.28.3](#physicallocation-property)) is absent, `logicalLocations` **SHALL** be present and non-empty. If logical location information is available and `physicalLocation` is present, `logicalLocations` **MAY** be present. If logical location information is not available, `logicalLocations` **SHALL NOT** be present.
+Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `logicalLocations` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `logicalLocation` objects ([3.33 "`logicalLocation` Object"](#logicallocation-object)) that identify the programmatic construct within which the location lies. If logical location information is available and the `physicalLocation` property ([3.28.3 "`physicalLocation` Property"](#physicallocation-property)) is absent, `logicalLocations` **SHALL** be present and non-empty. If logical location information is available and `physicalLocation` is present, `logicalLocations` **MAY** be present. If logical location information is not available, `logicalLocations` **SHALL NOT** be present.
 
 > NOTE: `logicalLocations` is an array because some logical locations can be expressed in more than one way. For example, the logical location of an element in an HTML document might be expressed by an XML Path expression such as `/html/body/img[1]` or by a CSS selector such as `#logo`.
 
 ### 3.28.5 `message` Property <a id='location-object--message-property'></a>
 
-A `location` object **MAY** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) relevant to the location.
+A `location` object **MAY** contain a property named `message` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) relevant to the location.
 
 ### 3.28.6 `annotations` Property <a id='annotations-property'></a>
 
-A `location` object **MAY** contain a property named `annotations` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `region` objects ([§3.30](#region-object)) each of which describes a region within the artifact specified by the `location` object that is relevant to the location. Each of these `region` objects **SHOULD** contain a `message` property ([§3.30.14](#region-object--message-property)) that explains the relevance of the region to the location.
+A `location` object **MAY** contain a property named `annotations` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `region` objects ([3.30 "`region` Object"](#region-object)) each of which describes a region within the artifact specified by the `location` object that is relevant to the location. Each of these `region` objects **SHOULD** contain a `message` property ([3.30.14 "`message` Property"](#region-object--message-property)) that explains the relevance of the region to the location.
 
 > EXAMPLE 1: Consider a `location` object which describes the declaration statement
 >
@@ -5472,7 +5562,7 @@ A `location` object **MAY** contain a property named `annotations` whose value i
 >
 > ```json
 > "annotations": [                  # An array of region objects.
->   {                               # A region object (§3.30).
+>   {                               # A region object (3.30).
 >     "startLine": 12,
 >     "startColumn": 9,
 >     "endColumn": 16,
@@ -5485,7 +5575,7 @@ A `location` object **MAY** contain a property named `annotations` whose value i
 
 ### 3.28.7 `relationships` Property <a id='location-object--relationships-property'></a>
 
-A `location` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `locationRelationship` objects ([§3.34](#locationrelationship-object)) each of which declares one or more directed relationship from `thisObject` to another `location` object, which we refer to as `theTarget`, specified by `locationRelationship.target` ([§3.34.2](#locationrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `locationRelationship.kinds` ([§3.34.3](#locationrelationship-object--kinds-property)).
+A `location` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `locationRelationship` objects ([3.34 "`locationRelationship` Object"](#locationrelationship-object)) each of which declares one or more directed relationship from `thisObject` to another `location` object, which we refer to as `theTarget`, specified by `locationRelationship.target` ([3.34.2 "`target` Property"](#locationrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `locationRelationship.kinds` ([3.34.3 "`kinds` Property"](#locationrelationship-object--kinds-property)).
 
 ## 3.29 `physicalLocation` Object <a id='physicallocation-object'></a>
 
@@ -5495,25 +5585,25 @@ A `physicalLocation` object represents the physical location where a result was 
 
 ### 3.29.2 Constraints <a id='physicallocation-object--constraints'></a>
 
-Either the `artifactLocation` property ([§3.29.3](#physicallocation-object--artifactlocation-property)), the `address` property ([§3.29.6](#address-property)), or both **SHALL** be present.
+Either the `artifactLocation` property ([3.29.3 "`artifactLocation` Property"](#physicallocation-object--artifactlocation-property)), the `address` property ([3.29.6 "`address` Property"](#address-property)), or both **SHALL** be present.
 
-If `region.byteLength` ([§3.29.4](#region-property), [§3.30.12](#bytelength-property)) and `address.length` ([§3.29.6](#address-property), [§3.32.9](#address-object--length-property)) are both present, then `region.byteLength` **SHALL** equal the absolute value of `address.length`.
+If `region.byteLength` ([3.29.4 "`region` Property"](#region-property), [3.30.12 "`byteLength` Property"](#bytelength-property)) and `address.length` ([3.29.6 "`address` Property"](#address-property), [3.32.9 "`length` Property"](#address-object--length-property)) are both present, then `region.byteLength` **SHALL** equal the absolute value of `address.length`.
 
 ### 3.29.3 `artifactLocation` Property <a id='physicallocation-object--artifactlocation-property'></a>
 
-A `physicalLocation` object **MAY** contain a property named `artifactLocation` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) that represents the location of the artifact. If `artifactLocation` is absent, then `address` ([§3.29.6](#address-property)) **SHALL** be present.
+A `physicalLocation` object **MAY** contain a property named `artifactLocation` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) that represents the location of the artifact. If `artifactLocation` is absent, then `address` ([3.29.6 "`address` Property"](#address-property)) **SHALL** be present.
 
 ### 3.29.4 `region` Property <a id='region-property'></a>
 
-A `physicalLocation` object **MAY** contain a property named `region` whose value is a `region` object ([§3.30](#region-object)) that represents a relevant portion of the artifact. In particular, if the `physicalLocation` object occurs within the `locations` property ([§3.27.12](#result-object--locations-property)) of a `result` object ([§3.27](#result-object)), the region property **SHALL** specify the region within the artifact where the result was detected.
+A `physicalLocation` object **MAY** contain a property named `region` whose value is a `region` object ([3.30 "`region` Object"](#region-object)) that represents a relevant portion of the artifact. In particular, if the `physicalLocation` object occurs within the `locations` property ([3.27.12 "`locations` Property"](#result-object--locations-property)) of a `result` object ([3.27 "`result` Object"](#result-object)), the region property **SHALL** specify the region within the artifact where the result was detected.
 
 > EXAMPLE 1: In this example, a `physicalLocation` object specifies the location where a result was detected. Its `region` property specifies the portion of the file where the result was detected.
 >
 > ```json
-> {                              # A result object (§3.27).
->   "locations": [               # See §3.27.12.
->     {                          # A location object (§3.28).
->       "physicalLocation": {    # See §3.28.3.
+> {                              # A result object (3.27).
+>   "locations": [               # See 3.27.12.
+>     {                          # A location object (3.28).
+>       "physicalLocation": {    # See 3.28.3.
 >         "artifactLocation": {  # A artifactLocation object.
 >           "uri": "ui/window.c",
 >           "uriBaseId": "SRCROOT"
@@ -5536,23 +5626,23 @@ If the `region` property is absent, the `physicalLocation` object refers to the 
 
 ### 3.29.5 `contextRegion` Property <a id='contextregion-property'></a>
 
-If a `physicalLocation` object contains a `region` property ([§3.29.4](#region-property)), it **MAY** also contain a property named `contextRegion` whose value is a `region` object ([§3.30](#region-object)) which specifies a region that is a proper superset of the region specified by the `region` property. If `region` is absent, `contextRegion` **SHALL** be absent.
+If a `physicalLocation` object contains a `region` property ([3.29.4 "`region` Property"](#region-property)), it **MAY** also contain a property named `contextRegion` whose value is a `region` object ([3.30 "`region` Object"](#region-object)) which specifies a region that is a proper superset of the region specified by the `region` property. If `region` is absent, `contextRegion` **SHALL** be absent.
 
 > NOTE: `contextRegion` enables a viewer to provide visual context when displaying a portion of an artifact. It can also be used to improve result matching.
 
 > EXAMPLE In this example, an analysis tool detected a result on line 42. The tool provides additional context for SARIF viewers by specifying a range of content surrounding the result line.
 >
 > ```json
-> {                                       # A result object (§3.27).
->   "locations": [                        # See §3.27.12.
->     {                                   # A location object (§3.28).
->       "physicalLocation": {             # A physicalLocation object (§3.29).
->         "artifactLocation": {           # An artifactLocation object (§3.4).
+> {                                       # A result object (3.27).
+>   "locations": [                        # See 3.27.12.
+>     {                                   # A location object (3.28).
+>       "physicalLocation": {             # A physicalLocation object (3.29).
+>         "artifactLocation": {           # An artifactLocation object (3.4).
 >           "uri": "ui/window.c",
 >           "uriBaseId": "SRCROOT"
 >         },
 > 
->         "region": {                      # See §3.29.4.
+>         "region": {                      # See 3.29.4.
 >           "startLine": 42,
 >           "snippet": {
 >             "text": "int n = m + 1;"
@@ -5574,7 +5664,7 @@ If a `physicalLocation` object contains a `region` property ([§3.29.4](#region-
 
 ### 3.29.6 `address` Property <a id='address-property'></a>
 
-A `physicalLocation` object **MAY** contain a property named address whose value is an `address` object ([§3.32](#address-object)) that represents the physical or virtual address of this location. If `address` is absent, then `artifactLocation` ([§3.29.3](#physicallocation-object--artifactlocation-property)) **SHALL** be present.
+A `physicalLocation` object **MAY** contain a property named address whose value is an `address` object ([3.32 "`address` Object"](#address-object)) that represents the physical or virtual address of this location. If `address` is absent, then `artifactLocation` ([3.29.3 "`artifactLocation` Property"](#physicallocation-object--artifactlocation-property)) **SHALL** be present.
 
 ## 3.30 `region` Object <a id='region-object'></a>
 
@@ -5586,13 +5676,13 @@ The `region` object defines both "text properties" and "binary properties." The 
 
 A region SHALL contain at least one of startLine, charOffset, or byteOffset.
 
-If `startLine` ([§3.30.5](#startline-property)) > 0 or `charOffset` ([§3.30.10](#charlength-property)) >= 0, this `region` object **SHALL** define a text region. If `byteOffset` ([§3.30.11](#byteoffset-property)) >= 0, this `region` object **SHALL** define a binary region. If a `region` object defines both a text region and a binary region, the text region and the binary region **SHALL** specify the identical range of bytes in the artifact, as determined by the artifact’s character encoding.
+If `startLine` ([3.30.5 "`startLine` Property"](#startline-property)) > 0 or `charOffset` ([3.30.10 "`charLength` Property"](#charlength-property)) >= 0, this `region` object **SHALL** define a text region. If `byteOffset` ([3.30.11 "`byteOffset` Property"](#byteoffset-property)) >= 0, this `region` object **SHALL** define a binary region. If a `region` object defines both a text region and a binary region, the text region and the binary region **SHALL** specify the identical range of bytes in the artifact, as determined by the artifact’s character encoding.
 
 For regions in text artifacts, a `region` object **SHOULD** define a text region and **MAY** also define a binary region; it **SHALL** define either a text region or a binary region or both.
 
 For regions in binary artifacts, a region object **SHALL** define a binary region and **SHALL NOT** define a text region.
 
-If any text properties are present, enough text properties **SHALL** be present to fully specify a text region (see [§3.30.2](#text-regions)). If any binary properties are present, then enough binary properties **SHALL** be present to fully specify a binary region (see [§3.30.3](#binary-regions)).
+If any text properties are present, enough text properties **SHALL** be present to fully specify a text region (see [3.30.2 "Text Regions"](#text-regions)). If any binary properties are present, then enough binary properties **SHALL** be present to fully specify a binary region (see [3.30.3 "Binary Regions"](#binary-regions)).
 
 ### 3.30.2 Text Regions <a id='text-regions'></a>
 
@@ -5613,27 +5703,27 @@ The line number of the first line in a text artifact **SHALL** be 1. The column 
 
 The values of text properties **SHALL NOT** depend on the presence or absence of a byte order mark (BOM) at the start of the artifact.
 
-Column numbers are expressed in the measurement unit specified by `theRun.columnKind` ([§3.14.27](#columnkind-property)).
+Column numbers are expressed in the measurement unit specified by `theRun.columnKind` ([3.14.27 "`columnKind` Property"](#columnkind-property)).
 
 A SARIF viewer **MAY** choose to present column numbers that match the visual offset of each character from the beginning of the line. These "visual" column numbers might not match the column numbers contained in the SARIF file.
 
 > NOTE 2: Such a mismatch might occur if, for example, the line contains a tab character, or an accented character represented by a base character plus a combining character.
 
-A text artifact’s character encoding determines the number of bytes that represent each character, and therefore determines the range of bytes represented by a text region. A SARIF consumer **SHALL** consider an artifact to have the encoding specified by `artifact.encoding` ([§3.24.9](#encoding-property)), if present, or else by `theRun.defaultEncoding` ([§3.14.24](#defaultencoding-property)), if present. If neither is present, the consumer **MAY** use any heuristic or procedure to determine the encoding, including (for example) prompting the user.
+A text artifact’s character encoding determines the number of bytes that represent each character, and therefore determines the range of bytes represented by a text region. A SARIF consumer **SHALL** consider an artifact to have the encoding specified by `artifact.encoding` ([3.24.9 "`encoding` Property"](#encoding-property)), if present, or else by `theRun.defaultEncoding` ([3.14.24 "`defaultEncoding` Property"](#defaultencoding-property)), if present. If neither is present, the consumer **MAY** use any heuristic or procedure to determine the encoding, including (for example) prompting the user.
 
 > NOTE 3: If a consumer incorrectly determines an artifact’s encoding, it might not display the artifact correctly. For example, when it attempts to highlight a region, it might highlight an incorrect range of characters.
 
 A text region **MAY** be specified in two ways:
 
-- By means of the "line/column" properties `startLine` ([§3.30.5](#startline-property)), `startColumn` ([§3.30.6](#startcolumn-property)), `endLine` ([§3.30.7](#endline-property)), and `endColumn` ([§3.30.8](#endcolumn-property)).
+- By means of the "line/column" properties `startLine` ([3.30.5 "`startLine` Property"](#startline-property)), `startColumn` ([3.30.6 "`startColumn` Property"](#startcolumn-property)), `endLine` ([3.30.7 "`endLine` Property"](#endline-property)), and `endColumn` ([3.30.8 "`endColumn` Property"](#endcolumn-property)).
 
-- By means of the "offset/length" properties `charOffset` ([§3.30.9](#charoffset-property)) and `charLength` ([§3.30.10](#charlength-property)).
+- By means of the "offset/length" properties `charOffset` ([3.30.9 "`charOffset` Property"](#charoffset-property)) and `charLength` ([3.30.10 "`charLength` Property"](#charlength-property)).
 
 A text region **SHALL** specify both its start (the location of its first character) and its end (the location of its last character).
 
 > NOTE 4: The end of a text region does not have to be specified explicitly if the default values for `endLine`, `endColumn`, and/or `charLength` correctly describe the region.
 
-A text region does not include the character specified by `endColumn` (see [§3.30.8](#endcolumn-property)).
+A text region does not include the character specified by `endColumn` (see [3.30.8 "`endColumn` Property"](#endcolumn-property)).
 
 > EXAMPLE 1: The following regions (among others) all specify the range of characters `"bc"`.
 >
@@ -5672,11 +5762,11 @@ A text region does not include the character specified by `endColumn` (see [§3.
 >
 > This is because the line/column properties and the offset/length properties, taken independently, specify different regions:
 >
-> - `"startColumn"` is absent, and so defaults to 1 (see [§3.30.6](#startcolumn-property)).
+> - `"startColumn"` is absent, and so defaults to 1 (see [3.30.6 "`startColumn` Property"](#startcolumn-property)).
 >
-> - `"endLine"` is absent, and so defaults to `"startLine"`, which in this example is 1 (see [§3.30.7](#endline-property)).
+> - `"endLine"` is absent, and so defaults to `"startLine"`, which in this example is 1 (see [3.30.7 "`endLine` Property"](#endline-property)).
 >
-> - `"charLength"` is absent, and so defaults to 0 (see [§3.30.10](#charlength-property)).
+> - `"charLength"` is absent, and so defaults to 0 (see [3.30.10 "`charLength` Property"](#charlength-property)).
 >
 > In summary, the above region is equivalent to the region
 >
@@ -5692,7 +5782,7 @@ A text region does not include the character specified by `endColumn` (see [§3.
 > }
 > ```
 >
-> Now we can see that the line/column properties represent the range of characters `"abc"`, while the offset/length properties represent an insertion point before the character `"b"` (see [§3.30.10](#charlength-property)). Those two regions are not the same, and so the region is invalid.
+> Now we can see that the line/column properties represent the range of characters `"abc"`, while the offset/length properties represent an insertion point before the character `"b"` (see [3.30.10 "`charLength` Property"](#charlength-property)). Those two regions are not the same, and so the region is invalid.
 >
 If a region spans one or more lines, it **SHALL** include the newline sequences of all but the last line in the region.
 
@@ -5745,13 +5835,13 @@ To specify an insertion point after the last character in an artifact, set `endL
 
 The byte offset of the first byte in an artifact **SHALL** be 0.
 
-To specify a byte region, at least `byteOffset` ([§3.30.11](#byteoffset-property)) **SHALL** be present. `byteLength` ([§3.30.12](#bytelength-property)) **MAY** also be present. `byteOffset` specifies the start of the region. `byteLength` specifies the region’s length and thereby, indirectly, its end. A `byteLength` value of 0 represents an insertion point before the byte specified by `byteOffset`.
+To specify a byte region, at least `byteOffset` ([3.30.11 "`byteOffset` Property"](#byteoffset-property)) **SHALL** be present. `byteLength` ([3.30.12 "`byteLength` Property"](#bytelength-property)) **MAY** also be present. `byteOffset` specifies the start of the region. `byteLength` specifies the region’s length and thereby, indirectly, its end. A `byteLength` value of 0 represents an insertion point before the byte specified by `byteOffset`.
 
 ### 3.30.4 Independence of Text and Binary Regions <a id='independence-of-text-and-binary-regions'></a>
 
 The text-related and binary-related properties in a `region` object **SHALL** be treated independently. That is, the value of a text-related property **SHALL NOT** be inferred from the value of any set of binary-related properties, and *vice versa*.
 
-> EXAMPLE 1: This example is based on the sample text file shown in NOTE 1 of [§3.30.2](#text-regions). It represents invalid SARIF because the text-related and binary-related properties are inconsistent. At first glance they appear to be consistent because the byte at offset 2 is indeed on line 1:
+> EXAMPLE 1: This example is based on the sample text file shown in NOTE 1 of [3.30.2 "Text Regions"](#text-regions). It represents invalid SARIF because the text-related and binary-related properties are inconsistent. At first glance they appear to be consistent because the byte at offset 2 is indeed on line 1:
 >
 >     { "startLine": 1, "byteOffset": 2, "byteLength": 6 }
 >
@@ -5801,7 +5891,7 @@ When a `region` object represents a text region specified by offset/length prope
 
 When a `region` object represents a text region specified by offset/length properties, it **MAY** contain a property named `charLength` whose value is a non-negative integer equal to the number of characters in the region.
 
-If `charLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at the position specified by `charOffset` ([§3.30.9](#charoffset-property))
+If `charLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at the position specified by `charOffset` ([3.30.9 "`charOffset` Property"](#charoffset-property))
 
 The sum of `charOffset` and `charLength` **SHALL** be greater than or equal to 0 and less than or equal to the number of characters in the artifact.
 
@@ -5813,7 +5903,7 @@ When a `region` object represents a binary region, it **SHALL** contain a proper
 
 ### 3.30.12 `byteLength` Property <a id='bytelength-property'></a>
 
-When a `region` object represents a binary region, it **MAY** contain a property named `byteLength` whose value is an integer equal to the number of bytes in the region. If `byteLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at the position specified by `byteOffset` ([§3.30.11](#byteoffset-property)).
+When a `region` object represents a binary region, it **MAY** contain a property named `byteLength` whose value is an integer equal to the number of bytes in the region. If `byteLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at the position specified by `byteOffset` ([3.30.11 "`byteOffset` Property"](#byteoffset-property)).
 
 The sum of `byteOffset` and `byteLength` **SHALL** be greater than or equal to 0 and less than or equal to the number of bytes in the artifact.
 
@@ -5821,7 +5911,7 @@ A `region` object whose `byteOffset` equals the number of bytes in the artifact 
 
 ### 3.30.13 `snippet` Property <a id='snippet-property'></a>
 
-A `region` object **MAY** contain a property named `snippet` whose value is an `artifactContent` object ([§3.3](#artifactcontent-object)) representing the portion of the artifact specified by the `region` object.
+A `region` object **MAY** contain a property named `snippet` whose value is an `artifactContent` object ([3.3 "`artifactContent` Object"](#artifactcontent-object)) representing the portion of the artifact specified by the `region` object.
 
 > NOTE: The `snippet` property has various uses:
 >
@@ -5833,21 +5923,21 @@ A `region` object **MAY** contain a property named `snippet` whose value is an `
 
 ### 3.30.14 `message` Property <a id='region-object--message-property'></a>
 
-A `region` object **MAY** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) containing a message relevant to the region.
+A `region` object **MAY** contain a property named `message` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) containing a message relevant to the region.
 
 A SARIF viewer **MAY** display this message when the user interacts with the region. (For example, if the user hovers over the region with the mouse, the viewer might present the message as hover text.)
 
 ### 3.30.15 `sourceLanguage` Property <a id='region-object--sourcelanguage-property'></a>
 
-If the `region` object represents a portion of a text artifact that contains source code, it **MAY** contain a property named `sourceLanguage` whose value is a hierarchical string ([§3.5.4](#hierarchical-strings)) that specifies the programming language in which this portion of the source code is written. If the `region` object does not represent a portion of a text artifact containing source code, then `sourceLanguage` **SHALL** be absent.
+If the `region` object represents a portion of a text artifact that contains source code, it **MAY** contain a property named `sourceLanguage` whose value is a hierarchical string ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)) that specifies the programming language in which this portion of the source code is written. If the `region` object does not represent a portion of a text artifact containing source code, then `sourceLanguage` **SHALL** be absent.
 
 For the remainder of this section, we assume that the `region` object represents a portion of a text artifact that contains source code.
 
-> NOTE: This property is intended to help SARIF viewers to render code snippets ([§3.30.13](#snippet-property)) with appropriate syntax coloring. It is intended for use in mixed-language files, such as HTML files that contain JavaScript™. For more information about this usage, see [§3.24.10](#artifact-object--sourcelanguage-property).
+> NOTE: This property is intended to help SARIF viewers to render code snippets ([3.30.13 "`snippet` Property"](#snippet-property)) with appropriate syntax coloring. It is intended for use in mixed-language files, such as HTML files that contain JavaScript™. For more information about this usage, see [3.24.10 "`sourceLanguage` Property"](#artifact-object--sourcelanguage-property).
 
-if `sourceLanguage` is absent, it **SHALL** default to the value of the `sourceLanguage` property ([§3.24.10](#artifact-object--sourcelanguage-property)) of the `artifact` object ([§3.24](#artifact-object)) which describes the artifact that contains the region. `artifact.sourceLanguage` in turn defaults to `theRun.defaultSourceLanguage` ([§3.14.25](#defaultsourcelanguage-property)). If all three of `region.sourceLanguage`, `artifact.sourceLanguage`, and `theRun.defaultSourceLanguage` are absent, the source language of the region object **SHALL** be taken to be unknown. In that case, a SARIF viewer **MAY** use any method or heuristic to determine the region’s source language, for example, by examining the file’s file name extension or MIME type, or by prompting the user.
+if `sourceLanguage` is absent, it **SHALL** default to the value of the `sourceLanguage` property ([3.24.10 "`sourceLanguage` Property"](#artifact-object--sourcelanguage-property)) of the `artifact` object ([3.24 "`artifact` Object"](#artifact-object)) which describes the artifact that contains the region. `artifact.sourceLanguage` in turn defaults to `theRun.defaultSourceLanguage` ([3.14.25 "`defaultSourceLanguage` Property"](#defaultsourcelanguage-property)). If all three of `region.sourceLanguage`, `artifact.sourceLanguage`, and `theRun.defaultSourceLanguage` are absent, the source language of the region object **SHALL** be taken to be unknown. In that case, a SARIF viewer **MAY** use any method or heuristic to determine the region’s source language, for example, by examining the file’s file name extension or MIME type, or by prompting the user.
 
-For conventions and practices regarding the value of this property, see [§3.24.10.2](#source-language-identifier-conventions-and-practices).
+For conventions and practices regarding the value of this property, see [3.24.10.2 "Source language identifier conventions and practices"](#source-language-identifier-conventions-and-practices).
 
 ## 3.31 `rectangle` Object <a id='rectangle-object'></a>
 
@@ -5863,7 +5953,7 @@ A `rectangle` object **SHALL** contain properties named `top`, `left`, `bottom`,
 
 ### 3.31.3 `message` Property <a id='rectangle-object--message-property'></a>
 
-A `rectangle` object **SHOULD** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) containing a message relevant to this area of the image.
+A `rectangle` object **SHOULD** contain a property named `message` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) containing a message relevant to this area of the image.
 
 A SARIF viewer **MAY** display this message when the user interacts with the area. For example, if the user hovers over the area with the mouse, the viewer might present the message as hover text.
 
@@ -5875,25 +5965,25 @@ An `address` object describes a physical or virtual address, or a range of addre
 
 ### 3.32.2 Parent-child Relationships <a id='parent-child-relationships'></a>
 
-`address` objects can be linked by their `parentIndex` properties ([§3.32.13](#address-object--parentindex-property)) to form a chain in which each address is specified as an offset from a "parent" object which we refer to as `theParent`.
+`address` objects can be linked by their `parentIndex` properties ([3.32.13 "`parentIndex` Property"](#address-object--parentindex-property)) to form a chain in which each address is specified as an offset from a "parent" object which we refer to as `theParent`.
 
 > EXAMPLE 1: In this example, the location of the Sections region of a Windows ® Portable Executable file \[[PE](#PE)\] is expressed as an offset from the start of the module. The location of the .text section is in turn expressed as an offset from Sections.
 >
 > ```json
-> {                                  # A run object (§3.14).
->   "addresses": [                   # See §3.14.18.
+> {                                  # A run object (3.14).
+>   "addresses": [                   # See 3.14.18.
 >     {
->       "name": "Multitool.exe",     # See §3.32.10.
->       "kind": "module",            # See §3.32.12.
->       "absoluteAddress": 1024      # See §3.32.6.
+>       "name": "Multitool.exe",     # See 3.32.10.
+>       "kind": "module",            # See 3.32.12.
+>       "absoluteAddress": 1024      # See 3.32.6.
 >     },
 >     {
 >       "name": "Sections",
 >       "kind": "header",
->       "parentIndex": 0,            # See §3.32.13.
->       "offsetFromParent": 376,     # See §3.32.8.
+>       "parentIndex": 0,            # See 3.32.13.
+>       "offsetFromParent": 376,     # See 3.32.8.
 >       "absoluteAddress": 1400,
->       "relativeAddress": 376       # See §3.32.7.
+>       "relativeAddress": 376       # See 3.32.7.
 >     },
 >     {
 >       "name": ".text",
@@ -5912,7 +6002,7 @@ An `address` object describes a physical or virtual address, or a range of addre
 
 Each `address` object has an associated value called its "absolute address" which is the offset of the address from the start of the addressable region. The absolute address is calculated by executing the function `CalculateAbsoluteAddress` defined below on `thisObject` or by any procedure with the same result.
 
-This procedure assumes that the `offsetFromParent` ([§3.32.8](#offsetfromparent-property)) and `parentIndex` ([§3.32.13](#address-object--parentindex-property)) properties are either both present or both absent; if this is not the case, the SARIF file is invalid.
+This procedure assumes that the `offsetFromParent` ([3.32.8 "`offsetFromParent` Property"](#offsetfromparent-property)) and `parentIndex` ([3.32.13 "`parentIndex` Property"](#address-object--parentindex-property)) properties are either both present or both absent; if this is not the case, the SARIF file is invalid.
 
 FUNCTION `CalculateAbsoluteAddress`(`addr`)
 
@@ -5922,7 +6012,7 @@ FUNCTION `CalculateAbsoluteAddress`(`addr`)
 
 &emsp;&emsp;ELSE IF `addr.parentIndex` exists THEN
 
-&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [§3.32.2](#parent-child-relationships)) of `addr`
+&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [3.32.2 "Parent-child Relationships"](#parent-child-relationships)) of `addr`
 
 &emsp;&emsp;&emsp;&emsp;RETURN `addr.offsetFromParent` + `CalculateAbsoluteAddress`(`theParent`)
 
@@ -5938,7 +6028,7 @@ If both `absoluteAddress` and `offsetFromParent` exist, then `absoluteAddress` *
 
 Each `address` object has an associated value called its "relative address" which is the offset of the address from the address of the top-most object in its parent chain. The relative address is calculated by executing the function `CalculateRelativeAddress` defined below on `thisObject` or by any procedure with the same result.
 
-This procedure assumes that the `offsetFromParent` ([§3.32.8](#offsetfromparent-property)) and `parentIndex` ([§3.32.13](#address-object--parentindex-property)) properties are either both present or both absent; if this is not the case, the SARIF file is invalid.
+This procedure assumes that the `offsetFromParent` ([3.32.8 "`offsetFromParent` Property"](#offsetfromparent-property)) and `parentIndex` ([3.32.13 "`parentIndex` Property"](#address-object--parentindex-property)) properties are either both present or both absent; if this is not the case, the SARIF file is invalid.
 
 FUNCTION `CalculateRelativeAddress`(`addr`)
 
@@ -5948,7 +6038,7 @@ FUNCTION `CalculateRelativeAddress`(`addr`)
 
 &emsp;&emsp;ELSE IF `addr.parentIndex` exists THEN
 
-&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [§3.32.2](#parent-child-relationships)) of `addr`
+&emsp;&emsp;&emsp;&emsp;LET `theParent` = the parent object (see [3.32.2 "Parent-child Relationships"](#parent-child-relationships)) of `addr`
 
 &emsp;&emsp;&emsp;&emsp;RETURN `addr.offsetFromParent` + `CalculateRelativeAddress`(`theParent`)
 
@@ -5962,7 +6052,7 @@ If both `relativeAddress` and `offsetFromParent` exist, then `relativeAddress` *
 
 ### 3.32.5 `index` Property <a id='address-object--index-property'></a>
 
-Depending on the circumstances, an `address` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.addresses` ([§3.14.18](#addresses-property)) of an `address` object that provides the properties for `thisObject`. We refer to the object in `theRun.addresses` as the "cached object."
+Depending on the circumstances, an `address` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within `theRun.addresses` ([3.14.18 "`addresses` Property"](#addresses-property)) of an `address` object that provides the properties for `thisObject`. We refer to the object in `theRun.addresses` as the "cached object."
 
 If `thisObject` is an element of `theRun.addresses`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.addresses`.
 
@@ -5974,17 +6064,17 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 1: This allows a SARIF producer to reduce the size of the log file by reusing the same `address` object in multiple results.
 
-> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [§3.38.2](#threadflowlocation-object--index-property).
+> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [3.38.2 "`index` Property"](#threadflowlocation-object--index-property).
 
 ### 3.32.6 `absoluteAddress` Property <a id='absoluteaddress-property'></a>
 
-An `address` object **MAY** contain a property named `absoluteAddress` whose value is a non-negative integer containing the absolute address (see [§3.32.3](#absolute-address-calculation)) of `thisObject`.
+An `address` object **MAY** contain a property named `absoluteAddress` whose value is a non-negative integer containing the absolute address (see [3.32.3 "Absolute Address Calculation"](#absolute-address-calculation)) of `thisObject`.
 
 If `absoluteAddress` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
 
 ### 3.32.7 `relativeAddress` Property <a id='relativeaddress-property'></a>
 
-If `parentIndex` ([§3.32.13](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `relativeAddress` whose value, if present, is an integer containing the relative address (see [§3.32.4](#relative-address-calculation)) of `thisObject`.
+If `parentIndex` ([3.32.13 "`parentIndex` Property"](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `relativeAddress` whose value, if present, is an integer containing the relative address (see [3.32.4 "Relative Address Calculation"](#relative-address-calculation)) of `thisObject`.
 
 If `parentIndex` is absent, `relativeAddress` **SHALL** be absent.
 
@@ -5992,7 +6082,7 @@ If `relativeAddress` is absent, it **SHALL** default to `null`, which indicates 
 
 ### 3.32.8 `offsetFromParent` Property <a id='offsetfromparent-property'></a>
 
-If `parentIndex` ([§3.32.13](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `offsetFromParent` whose value, if present, is an integer containing the offset of this address from the absolute address of `theParent` (see [§3.32.2](#parent-child-relationships)). This is the case even if the absolute address of the parent cannot be determined by the procedure in [§3.32.3](#absolute-address-calculation).
+If `parentIndex` ([3.32.13 "`parentIndex` Property"](#address-object--parentindex-property)) is present, an `address` object **MAY** contain a property named `offsetFromParent` whose value, if present, is an integer containing the offset of this address from the absolute address of `theParent` (see [3.32.2 "Parent-child Relationships"](#parent-child-relationships)). This is the case even if the absolute address of the parent cannot be determined by the procedure in [3.32.3 "Absolute Address Calculation"](#absolute-address-calculation).
 
 > NOTE 1: The rationale is that the absolute address always exists, even if the log file does not contain enough information to determine it, so it is always sensible to talk about an offset from that address.
 
@@ -6056,7 +6146,7 @@ Although a function does contain executable code, the value `"function"` **SHOUL
 
 ### 3.32.13 `parentIndex` Property <a id='address-object--parentindex-property'></a>
 
-If `theParent` exists (that is, if `thisObject` is expressed as an offset from some other address), then an `address` object **SHALL** contain a property named `parentIndex` whose value is the array index ([§3.7.4](#array-indices)) of `theParent` within `theRun.addresses` ([§3.14.18](#addresses-property)).
+If `theParent` exists (that is, if `thisObject` is expressed as an offset from some other address), then an `address` object **SHALL** contain a property named `parentIndex` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) of `theParent` within `theRun.addresses` ([3.14.18 "`addresses` Property"](#addresses-property)).
 
 If `theParent` does not exist, then `parentIndex` **SHALL** be absent.
 
@@ -6066,7 +6156,7 @@ If `theParent` does not exist, then `parentIndex` **SHALL** be absent.
 
 A `logicalLocation` object describes a logical location. A logical location is a location specified by a programmatic construct such as a namespace, a type, or a method, without regard to the physical location where the construct occurs.
 
-`logicalLocation` objects occur in two places: as array elements of `run.logicalLocations` ([§3.14.17](#run-object--logicallocations-property)) and as array elements of `location.logicalLocations` ([§3.28.4](#location-object--logicallocations-property)).
+`logicalLocation` objects occur in two places: as array elements of `run.logicalLocations` ([3.14.17 "`logicalLocations` Property"](#run-object--logicallocations-property)) and as array elements of `location.logicalLocations` ([3.28.4 "`logicalLocations` Property"](#location-object--logicallocations-property)).
 
 ### 3.33.2 Logical Location Naming Rules <a id='logical-location-naming-rules'></a>
 
@@ -6078,7 +6168,7 @@ Whenever possible, logical names and fully qualified logical names **SHOULD** co
 
 This is not always possible, for two reasons:
 
-- For certain values of `logicalLocation.kind` ([§3.33.7](#logicallocation-object--kind-property)), there is no language syntax to specify the fully qualified name.
+- For certain values of `logicalLocation.kind` ([3.33.7 "`kind` Property"](#logicallocation-object--kind-property)), there is no language syntax to specify the fully qualified name.
 
 > EXAMPLE 2: Suppose the logical location is the local variable `pBuffer` in the C++ method `"N::C::f(void)"`. `logicalLocation.kind` is `"variable"`. There is no way to express the fully qualified name in C++. The SARIF producer might choose a fully qualified name such as `"N::C::f(void)?pBuffer"`.
 
@@ -6098,7 +6188,7 @@ This is not always possible, for two reasons:
 
 ### 3.33.3 `index` Property <a id='logicallocation-object--index-property'></a>
 
-Depending on the circumstances, a `logicalLocation` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.logicalLocations` ([§3.14.17](#run-object--logicallocations-property)) of a `logicalLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.logicalLocations` as the "cached object."
+Depending on the circumstances, a `logicalLocation` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within `theRun.logicalLocations` ([3.14.17 "`logicalLocations` Property"](#run-object--logicallocations-property)) of a `logicalLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.logicalLocations` as the "cached object."
 
 If `thisObject` is an element of `theRun.logicalLocations`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.logicalLocations`.
 
@@ -6110,29 +6200,29 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 1: This allows a SARIF producer to reduce the size of the log file by reusing the same `logicalLocation` object in multiple results.
 
-> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [§3.38.2](#threadflowlocation-object--index-property).
+> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [3.38.2 "`index` Property"](#threadflowlocation-object--index-property).
 
 ### 3.33.4 `name` Property <a id='logicallocation-object--name-property'></a>
 
 A `logicalLocation` object **SHOULD** contain a property named `name` whose value is the logical name of the programmatic construct specified by this object. For example, this property might contain the name of a class or a method.
 
-The `name` property **SHALL** be suitable for display and **SHALL** follow the naming rules for logical names described in [§3.33.2](#logical-location-naming-rules).
+The `name` property **SHALL** be suitable for display and **SHALL** follow the naming rules for logical names described in [3.33.2 "Logical Location Naming Rules"](#logical-location-naming-rules).
 
-> NOTE: A C++ analysis tool might have available both the source code form of a function name and the compiler’s "decorated" function name (which encodes the function signature in a manner that is compiler-dependent and not easily readable). The tool would place the source code form of the function name in the `name` property, and the decorated name in the `decoratedName` property ([§3.33.6](#decoratedname-property)).
+> NOTE: A C++ analysis tool might have available both the source code form of a function name and the compiler’s "decorated" function name (which encodes the function signature in a manner that is compiler-dependent and not easily readable). The tool would place the source code form of the function name in the `name` property, and the decorated name in the `decoratedName` property ([3.33.6 "`decoratedName` Property"](#decoratedname-property)).
 
 > EXAMPLE 1: In this C++ example, the fully qualified name is `"b::c(float)"`, so `"name"` is the rightmost component, `"c(float)"`.
 >
 > ```json
 > {                                      # A logicalLocation object.
 >   "name": "c(float)",
->   "fullyQualifiedName": "b::c(float)", # See §3.33.5.
->   "kind": "function"                   # See §3.33.7
+>   "fullyQualifiedName": "b::c(float)", # See 3.33.5.
+>   "kind": "function"                   # See 3.33.7
 > }
 > ```
 
 ### 3.33.5 `fullyQualifiedName` Property <a id='logicallocation-object--fullyqualifiedname-property'></a>
 
-Depending on the circumstances, a `logicalLocation` object either **SHOULD** or **MAY** contain a property named `fullyQualifiedName` whose value is the fully qualified name of the logical location. This name **SHALL** follow the naming rules for fully qualified names described in [§3.33.2](#logical-location-naming-rules).
+Depending on the circumstances, a `logicalLocation` object either **SHOULD** or **MAY** contain a property named `fullyQualifiedName` whose value is the fully qualified name of the logical location. This name **SHALL** follow the naming rules for fully qualified names described in [3.33.2 "Logical Location Naming Rules"](#logical-location-naming-rules).
 
 If this `logicalLocation` object represents a top-level logical location, then `fullyQualifiedName` **MAY** be present. If present, it **SHALL** equal `name`; if absent, it **SHALL** default to `name`. If this object does not represent a top-level logical location, `fullyQualifiedName` **SHOULD** be present.
 
@@ -6193,7 +6283,7 @@ It is possible for two or more distinct logical locations to have the same fully
 >
 > - It allows a SARIF viewer to display the logical location in a way that is easily understood by users.
 >
-> - As mentioned in [§3.28.1](#location-object--general), `fullyQualifiedName` is also particularly convenient for fingerprinting, although the more detailed information in `run.logicalLocations` could be used instead.
+> - As mentioned in [3.28.1 "General"](#location-object--general), `fullyQualifiedName` is also particularly convenient for fingerprinting, although the more detailed information in `run.logicalLocations` could be used instead.
 >
 > - It relieves viewers from having to format the logical location from the more detailed information in `run.logicalLocations`.
 >
@@ -6271,12 +6361,12 @@ Although the values suggested here are useful in the specified categories (for e
 > Suppose that an analysis tool detects errors on line 3 (the order number is blank) and line 4 (the total is negative). It might represent the logical locations of these errors as XML Paths (although this is not required), as follows:
 >
 > ```json
-> {                                 # A run object (§3.14).
->   "results": [                    # See §3.14.23.
->     {                             # A result object (§3.27).
->       "locations": [              # See §3.27.12.
->         {                         # A location object (§3.28).
->           "logicalLocations": [   # See §3.28.4.
+> {                                 # A run object (3.14).
+>   "results": [                    # See 3.14.23.
+>     {                             # A result object (3.27).
+>       "locations": [              # See 3.27.12.
+>         {                         # A location object (3.28).
+>           "logicalLocations": [   # See 3.28.4.
 >             {                     # A logicalLocation object.
 >               "fullyQualifiedName": "/orders/order[1]/@number",
 >               "index": 2
@@ -6301,7 +6391,7 @@ Although the values suggested here are useful in the specified categories (for e
 >     }
 >   ],
 > 
->   "logicalLocations": [           # See §3.14.17.
+>   "logicalLocations": [           # See 3.14.17.
 >     {                             # A logicalLocation object.
 >       "name": "orders",
 >       "fullyQualifiedName": "/orders",
@@ -6355,13 +6445,13 @@ Although the values suggested here are useful in the specified categories (for e
 > Suppose that an analysis tool detects errors on line 4 (one of the product ids blank) and line 5 (the total is negative). It might represent the logical locations of these errors as JSON Pointers (although this is not required), as follows:
 >
 > ```json
-> {                                 # A run object (§3.14).
->   "results": [                    # See §3.14.23.
->     {                             # A result object (§3.27).
->       "locations": [              # See §3.27.12.
->         {                         # A location object (§3.28).
->           "logicalLocations": [   # See §3.28.4.
->             {                     # A logicallocation object (§3.33).
+> {                                 # A run object (3.14).
+>   "results": [                    # See 3.14.23.
+>     {                             # A result object (3.27).
+>       "locations": [              # See 3.27.12.
+>         {                         # A location object (3.28).
+>           "logicalLocations": [   # See 3.28.4.
+>             {                     # A logicallocation object (3.33).
 >               "fullyQualifiedName": "/orders/0/productIds/1",
 >               "index": 3
 >             }
@@ -6383,8 +6473,8 @@ Although the values suggested here are useful in the specified categories (for e
 >     }
 >   ],
 > 
->   "logicalLocations": [           # See §3.14.17.
->     {                             # A logicalLocation object (§3.33).
+>   "logicalLocations": [           # See 3.14.17.
+>     {                             # A logicalLocation object (3.33).
 >       "name": "orders",
 >       "fullyQualifiedName": "/orders",
 >       "kind": "array"
@@ -6425,7 +6515,7 @@ If a logical location is both a member and a type (for example, a nested class i
 
 ### 3.33.8 `parentIndex` Property <a id='logicallocation-object--parentindex-property'></a>
 
-If this `logicalLocation` object represents a nested logical location, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([§3.7.4](#array-indices)) of the parent `logicalLocation` object within `theRun.logicalLocations` ([§3.14.17](#run-object--logicallocations-property)).
+If this `logicalLocation` object represents a nested logical location, then it **SHALL** contain a property named `parentIndex` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) of the parent `logicalLocation` object within `theRun.logicalLocations` ([3.14.17 "`logicalLocations` Property"](#run-object--logicallocations-property)).
 
 If `thisObject` represents a top-level logical location, then `parentIndex` **SHALL** be absent.
 
@@ -6434,12 +6524,12 @@ If `thisObject` represents a top-level logical location, then `parentIndex` **SH
 > EXAMPLE 1: In this example, the logical location `n::f(void)` is nested within the top-level logical location `n`. The `logicalLocation` object representing `n::f(void)` contains a `parentIndex` property that points to the object representing `n`; the object representing `n` does not contain a `parentIndex` property.
 >
 > ```json
-> {                                            # A run object (§3.14).
->   "logicalLocations": [                      # See §3.14.17.
+> {                                            # A run object (3.14).
+>   "logicalLocations": [                      # See 3.14.17.
 >     {
->       "name": "f(void)",                     # See §3.33.4.
->       "fullyQualifiedName": "n::f(void)",    # See §3.33.5.
->       "kind": "function",                    # See §3.33.7.
+>       "name": "f(void)",                     # See 3.33.4.
+>       "fullyQualifiedName": "n::f(void)",    # See 3.33.5.
+>       "kind": "function",                    # See 3.33.7.
 >       "parentIndex": 1
 >     },
 >     {
@@ -6454,17 +6544,17 @@ If `thisObject` represents a top-level logical location, then `parentIndex` **SH
 
 ### 3.34.1 General <a id='locationrelationship-object--general'></a>
 
-A `locationRelationship` object specifies one or more directed relationships from one `location` object ([§3.28](#location-object)), which we refer to as `theSource`, to another one, which we refer to as `theTarget`.
+A `locationRelationship` object specifies one or more directed relationships from one `location` object ([3.28 "`location` Object"](#location-object)), which we refer to as `theSource`, to another one, which we refer to as `theTarget`.
 
-`locationRelationship` objects appear as elements of the `location.relationships` array ([§3.28.7](#location-object--relationships-property)). The `location` object containing this property is `theSource`.
+`locationRelationship` objects appear as elements of the `location.relationships` array ([3.28.7 "`relationships` Property"](#location-object--relationships-property)). The `location` object containing this property is `theSource`.
 
 > EXAMPLE 1: In this example, the location relationships specify that the file f.h in which the result was found is included by g.h, which is in turn included by g.c. Depending on the circumstances, it might or might not be useful to include both the `"includes"` and `"isIncludedBy"` relationships, as this example does for g.h.
 >
 > ```json
-> {                                        # A result object (§3.27).
->   "locations": [                         # See §3.27.12.
->     {                                    # A location object (§3.28).
->       "id": 0,                           # See §3.28.2.
+> {                                        # A result object (3.27).
+>   "locations": [                         # See 3.27.12.
+>     {                                    # A location object (3.28).
+>       "id": 0,                           # See 3.28.2.
 >       "physicalLocation": {
 >         "artifactLocation": {
 >           "uri": "f.h"
@@ -6473,16 +6563,16 @@ A `locationRelationship` object specifies one or more directed relationships fro
 >           "startLine": 42
 >         }
 >       },
->       "relationships": [                 # See §3.28.7
+>       "relationships": [                 # See 3.28.7
 >         {                                # A locationRelationship object.
->           "target": 1,                   # See §3.34.2.
->           "kinds": [ "isIncludedBy" ]    # See §3.34.3.
+>           "target": 1,                   # See 3.34.2.
+>           "kinds": [ "isIncludedBy" ]    # See 3.34.3.
 >         }
 >       ]
 >     }
 >   ],
 > 
->   "relatedLocations": [                  # See §3.27.22.
+>   "relatedLocations": [                  # See 3.27.22.
 >     {
 >       "id": 1,
 >       "physicalLocation": {
@@ -6527,13 +6617,13 @@ A `locationRelationship` object specifies one or more directed relationships fro
 
 ### 3.34.2 `target` Property <a id='locationrelationship-object--target-property'></a>
 
-A `locationRelationship` object **SHALL** contain a property named `target` whose value is a non-negative integer which identifies `theTarget` (see [§3.34.1](#locationrelationship-object--general)) among all `location` objects ([§3.28](#location-object)) in `theResult` by virtue of being equal to `theTarget.id` ([§3.28.2](#location-object--id-property)).
+A `locationRelationship` object **SHALL** contain a property named `target` whose value is a non-negative integer which identifies `theTarget` (see [3.34.1 "General"](#locationrelationship-object--general)) among all `location` objects ([3.28 "`location` Object"](#location-object)) in `theResult` by virtue of being equal to `theTarget.id` ([3.28.2 "`id` Property"](#location-object--id-property)).
 
 > NOTE: Negative values are forbidden because their use might suggest some non-obvious semantic difference between positive and negative values.
 
 ### 3.34.3 `kinds` Property <a id='locationrelationship-object--kinds-property'></a>
 
-A `locationRelationship` object **MAY** contain a property named `kinds` whose value is an array of one or more unique ([§3.7.3](#array-properties-with-unique-values)) strings each of which specifies a relationship between `theSource` and `theTarget` (see [§3.34.1](#locationrelationship-object--general)). If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`).
+A `locationRelationship` object **MAY** contain a property named `kinds` whose value is an array of one or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings each of which specifies a relationship between `theSource` and `theTarget` (see [3.34.1 "General"](#locationrelationship-object--general)). If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`).
 
 When possible, SARIF producers **SHOULD** use the following values, with the specified meanings.
 
@@ -6547,11 +6637,11 @@ If none of these values are appropriate, a SARIF producer **MAY** use any value.
 
 > NOTE: Although `"relevant"` is a catch-all for any relationship not described by the other values, a producer might still wish to define its own more specific values.
 
-In particular, the values defined for `logicalLocation.kind` ([§3.33.7](#logicallocation-object--kind-property)) and `threadFlowLocation.kinds` ([§3.38.8](#threadflowlocation-object--kinds-property)) might prove useful.
+In particular, the values defined for `logicalLocation.kind` ([3.33.7 "`kind` Property"](#logicallocation-object--kind-property)) and `threadFlowLocation.kinds` ([3.38.8 "`kinds` Property"](#threadflowlocation-object--kinds-property)) might prove useful.
 
 ### 3.34.4 `description` Property <a id='locationrelationship-object--description-property'></a>
 
-A `locationRelationship` object **MAY** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the relationship.
+A `locationRelationship` object **MAY** contain a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes the relationship.
 
 ## 3.35 `suppression` Object <a id='suppression-object'></a>
 
@@ -6559,7 +6649,7 @@ A `locationRelationship` object **MAY** contain a property named `description` w
 
 A `suppression` object describes a request to suppress a result.
 
-> NOTE 1: The `suppression` object is valuable in compliance scenarios, where teams must show an auditor that they have looked at all results that corporate policy requires, and either fixed them or explicitly decided not to fix them. The `kind` property ([§3.35.2](#suppression-object--kind-property)) enables a review process that ensures that the engineering team agrees with the suppression, and makes the agreement explicit in the log file.
+> NOTE 1: The `suppression` object is valuable in compliance scenarios, where teams must show an auditor that they have looked at all results that corporate policy requires, and either fixed them or explicitly decided not to fix them. The `kind` property ([3.35.2 "`kind` Property"](#suppression-object--kind-property)) enables a review process that ensures that the engineering team agrees with the suppression, and makes the agreement explicit in the log file.
 
 > NOTE 2: The treatment of suppressed results depends on the development environment within which the log file is used, for example, a build system, an integrated development environment (IDE), or a result management system. Typically, development environments do not expose suppressed results to the user. For example, they do not include them in build log files, display them in error lists, or include them in bug counts.
 
@@ -6587,17 +6677,17 @@ A `suppression` object **MAY** contain a property named `status` whose value is 
 
 ### 3.35.4 `location` Property <a id='suppression-object--location-property'></a>
 
-A `suppression` object **MAY** contain a property named `location` whose value is a `location` object ([§3.28](#location-object)) that specifies the location where the suppression is persisted.
+A `suppression` object **MAY** contain a property named `location` whose value is a `location` object ([3.28 "`location` Object"](#location-object)) that specifies the location where the suppression is persisted.
 
 > NOTE: In the common scenario, a suppression is represented by a source code construct (which we will refer to as a "suppression construct") such as an attribute or a specially formatted comment at the location where the result was detected. In this scenario, `location` is unnecessary, although it is permitted, because an end user who navigates from the result to the source code location will see the suppression attribute or comment near the relevant code.
 >
 > Nevertheless, there are several scenarios where `location` is useful. Here are some examples:
 >
-> When the suppression construct is placed in a separate compiled source file, `kind` ([§3.35.2](#suppression-object--kind-property)) is `"inSource"`, and `location.physicalLocation` ([§3.28.3](#physicallocation-property)) specifies the location of the suppression attribute in that separate file.
+> When the suppression construct is placed in a separate compiled source file, `kind` ([3.35.2 "`kind` Property"](#suppression-object--kind-property)) is `"inSource"`, and `location.physicalLocation` ([3.28.3 "`physicalLocation` Property"](#physicallocation-property)) specifies the location of the suppression attribute in that separate file.
 >
-> Even when the suppression construct is adjacent to the result line, `location.physicalLocation` can be useful because it allows you to include in the log file a source code snippet containing the suppression construct, using `location.physicalLocation.region.snippet` ([§3.29.4](#region-property), [§3.30.13](#snippet-property)).
+> Even when the suppression construct is adjacent to the result line, `location.physicalLocation` can be useful because it allows you to include in the log file a source code snippet containing the suppression construct, using `location.physicalLocation.region.snippet` ([3.29.4 "`region` Property"](#region-property), [3.30.13 "`snippet` Property"](#snippet-property)).
 >
-> When a tool detects a result within a method, but the suppression construct is applied to some higher-level construct such as the enclosing class, then `kind` is again `"inSource"`, `location.logicalLocation` ([§3.28.4](#location-object--logicallocations-property)) can specify the construct to which the suppression was applied, and `location.physicalLocation` can still usefully specify the location of the suppression construct in the source file, since it is distant from the result.
+> When a tool detects a result within a method, but the suppression construct is applied to some higher-level construct such as the enclosing class, then `kind` is again `"inSource"`, `location.logicalLocation` ([3.28.4 "`logicalLocations` Property"](#location-object--logicallocations-property)) can specify the construct to which the suppression was applied, and `location.physicalLocation` can still usefully specify the location of the suppression construct in the source file, since it is distant from the result.
 >
 > In a similar case, a binary analysis tool that detected the suppression within an executable file’s metadata could provide `location.logicalLocation` even if it could not provide `location.physicalLocation`.
 >
@@ -6607,7 +6697,7 @@ A `suppression` object **MAY** contain a property named `location` whose value i
 
 ### 3.35.5 `guid` Property <a id='suppression-object--guid-property'></a>
 
-A `suppression` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)).
+A `suppression` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)).
 
 > NOTE: This can be used, for example, to link a `suppression` object in a SARIF file to suppression information in a result management system’s database.
 
@@ -6615,7 +6705,7 @@ A `suppression` object **MAY** contain a property named `guid` whose value is a 
 
 A `suppression` object **MAY** contain a property named `justification` whose value is a user-supplied string that explains why the result was suppressed.
 
-This is one of the few properties that contain textual content supplied by a user rather than by a tool or taxonomy (see [§3.19.3](#taxonomies)) vendor. As such, it might contain undesirable content. Therefore, SARIF consumers **SHOULD** exercise appropriate caution when displaying, sharing, or publishing this information.
+This is one of the few properties that contain textual content supplied by a user rather than by a tool or taxonomy (see [3.19.3 "Taxonomies"](#taxonomies)) vendor. As such, it might contain undesirable content. Therefore, SARIF consumers **SHOULD** exercise appropriate caution when displaying, sharing, or publishing this information.
 
 > NOTE: This property exists because the information it contains is commonly made available by existing suppression mechanisms such as the `SuppressMessage` attribute in the .NET Framework.
 
@@ -6667,24 +6757,24 @@ A `codeFlow` object describes the progress of one or more programs through one o
 > EXAMPLE
 >
 > ```json
-> {                                       # A result object (§3.27).
->   "codeFlows": [                        # See §3.27.18.
+> {                                       # A result object (3.27).
+>   "codeFlows": [                        # See 3.27.18.
 >     {                                   # A codeFlow object.
->       "message": {                      # See §3.36.2.
+>       "message": {                      # See 3.36.2.
 >         "text": "..."
 >       },
 > 
->       "threadFlows": [                  # See §3.36.3.
->         {                               # A threadFlow object (§3.37).
->           "id": "thread-123",           # See §3.37.2.
->           "message": {                  # See §3.37.3.
+>       "threadFlows": [                  # See 3.36.3.
+>         {                               # A threadFlow object (3.37).
+>           "id": "thread-123",           # See 3.37.2.
+>           "message": {                  # See 3.37.3.
 >             "text": "..."
 >           },
 > 
->           "locations": [                # See §3.37.6.
->             {                           # A threadFlowLocation object (§3.38).
->               "location": {             # See §3.38.3.
->                 "physicalLocation": {   # See §3.28.3.
+>           "locations": [                # See 3.37.6.
+>             {                           # A threadFlowLocation object (3.38).
+>               "location": {             # See 3.38.3.
+>                 "physicalLocation": {   # See 3.28.3.
 >                   "artifactLocation": {
 >                     "uri": "ui/window.c",
 >                     "uriBaseId": "SRCROOT"
@@ -6696,7 +6786,7 @@ A `codeFlow` object describes the progress of one or more programs through one o
 >                 }
 >               },
 > 
->               "state": {                # See §3.38.9.
+>               "state": {                # See 3.38.9.
 >                 "x": {
 >                   "text": "42"
 >                 },
@@ -6708,8 +6798,8 @@ A `codeFlow` object describes the progress of one or more programs through one o
 >                 }
 >               },
 > 
->               "nestingLevel": 0,        # See §3.38.10.
->               "executionOrder": 2       # See §3.38.11.
+>               "nestingLevel": 0,        # See 3.38.10.
+>               "executionOrder": 2       # See 3.38.11.
 >             }
 >           ]
 >         }
@@ -6721,11 +6811,11 @@ A `codeFlow` object describes the progress of one or more programs through one o
 
 ### 3.36.2 `message` Property <a id='codeflow-object--message-property'></a>
 
-A `codeFlow` object **MAY** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) relevant to the code flow.
+A `codeFlow` object **MAY** contain a property named `message` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) relevant to the code flow.
 
 ### 3.36.3 `threadFlows` Property <a id='threadflows-property'></a>
 
-A `codeFlow` object **SHALL** contain a property named `threadFlows` whose value is an array of one or more `threadFlow` objects ([§3.37](#threadflow-object)) each of which describes the progress of a program through a single thread of execution such as an operating system thread or a fiber.
+A `codeFlow` object **SHALL** contain a property named `threadFlows` whose value is an array of one or more `threadFlow` objects ([3.37 "`threadFlow` Object"](#threadflow-object)) each of which describes the progress of a program through a single thread of execution such as an operating system thread or a fiber.
 
 ## 3.37 `threadFlow` Object <a id='threadflow-object'></a>
 
@@ -6733,29 +6823,29 @@ A `codeFlow` object **SHALL** contain a property named `threadFlows` whose value
 
 A thread flow is a sequence of code locations that specify a possible path through a single thread of execution such as an operating system thread or a fiber.
 
-For an example, see [§3.36.1](#codeflow-object--general).
+For an example, see [3.36.1 "General"](#codeflow-object--general).
 
 ### 3.37.2 `id` Property <a id='threadflow-object--id-property'></a>
 
-A `threadFlow` object **MAY** contain a property named `id` whose value is a string that uniquely identifies this `threadFlow` within its containing `codeFlow` object ([§3.36](#codeflow-object)).
+A `threadFlow` object **MAY** contain a property named `id` whose value is a string that uniquely identifies this `threadFlow` within its containing `codeFlow` object ([3.36 "`codeFlow` Object"](#codeflow-object)).
 
 > NOTE: A tool might choose to use an operating system thread id for this purpose. However, if thread ids are reused on a single machine, or if the code flow includes thread flows from more than one machine, the thread id might not be unique.
 
 ### 3.37.3 `message` Property <a id='threadflow-object--message-property'></a>
 
-A `threadFlow` object **MAY** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) relevant to the thread flow.
+A `threadFlow` object **MAY** contain a property named `message` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) relevant to the thread flow.
 
 ### 3.37.4 `initialState` Property <a id='threadflow-object--initialstate-property'></a>
 
-A `threadFlow` object **MAY** contain a property named `initialState` whose value is an object ([§3.6](#object-properties)) each of whose property values is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that represents the initial value of a relevant item prior to the first location in the thread flow. This property, together with `threadFlowLocation.state` ([§3.38.9](#state-property)), enables a SARIF viewer to present a debugger-like "watch window" experience as the user traverses a thread flow.
+A `threadFlow` object **MAY** contain a property named `initialState` whose value is an object ([3.6 "Object Properties"](#object-properties)) each of whose property values is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) that represents the initial value of a relevant item prior to the first location in the thread flow. This property, together with `threadFlowLocation.state` ([3.38.9 "`state` Property"](#state-property)), enables a SARIF viewer to present a debugger-like "watch window" experience as the user traverses a thread flow.
 
-This property **SHOULD NOT** include items whose values remain constant throughout the thread flow. Such items **SHOULD** be stored in the `immutableState` property ([§3.37.5](#threadflow-object--immutablestate-property)).
+This property **SHOULD NOT** include items whose values remain constant throughout the thread flow. Such items **SHOULD** be stored in the `immutableState` property ([3.37.5 "`immutableState` Property"](#threadflow-object--immutablestate-property)).
 
-For details of how properties within a "state" object are represented, see EXAMPLE 1 in [§3.38.9](#state-property).
+For details of how properties within a "state" object are represented, see EXAMPLE 1 in [3.38.9 "`state` Property"](#state-property).
 
 ### 3.37.5 `immutableState` Property <a id='threadflow-object--immutablestate-property'></a>
 
-A `threadFlow` object **MAY** contain a property named `immutableState` whose value is an object ([§3.6](#object-properties)) each of whose property values is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that represents the value of a relevant item that remains constant throughout the thread flow.
+A `threadFlow` object **MAY** contain a property named `immutableState` whose value is an object ([3.6 "Object Properties"](#object-properties)) each of whose property values is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) that represents the value of a relevant item that remains constant throughout the thread flow.
 
 > EXAMPLE 1: In this example, `immutableState` holds the value of a global variable that remains constant throughout the thread flow.
 >
@@ -6771,7 +6861,7 @@ A `threadFlow` object **MAY** contain a property named `immutableState` whose va
 
 ### 3.37.6 `locations` Property <a id='threadflow-object--locations-property'></a>
 
-A `threadFlow` object **SHALL** contain a property named `locations` whose value is an array of one or more `threadFlowLocation` objects ([§3.38](#threadflowlocation-object)). Each element of the array **SHALL** represent a single location visited by the tool in the course of producing the result. This array does not need to include every location visited by the tool, but the elements that are present **SHALL** occur in the execution order that demonstrates the problem. The elements do not need to be unique within the array.
+A `threadFlow` object **SHALL** contain a property named `locations` whose value is an array of one or more `threadFlowLocation` objects ([3.38 "`threadFlowLocation` Object"](#threadflowlocation-object)). Each element of the array **SHALL** represent a single location visited by the tool in the course of producing the result. This array does not need to include every location visited by the tool, but the elements that are present **SHALL** occur in the execution order that demonstrates the problem. The elements do not need to be unique within the array.
 
 > NOTE: The locations array might include multiple identical elements if, for example, the analysis tool simulated the execution of a loop in the course of producing the result.
 
@@ -6783,7 +6873,7 @@ A `threadFlowLocation` object represents a location visited by an analysis tool 
 
 ### 3.38.2 `index` Property <a id='threadflowlocation-object--index-property'></a>
 
-Depending on the circumstances, a `threadFlowLocation` object either **MAY**, **SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.threadFlowLocations` ([§3.14.19](#threadflowlocations-property)) of a `threadFlowLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.threadFlowLocations` as the "cached object."
+Depending on the circumstances, a `threadFlowLocation` object either **MAY**, **SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within `theRun.threadFlowLocations` ([3.14.19 "`threadFlowLocations` Property"](#threadflowlocations-property)) of a `threadFlowLocation` object that provides the properties for `thisObject`. We refer to the object in `theRun.threadFlowLocations` as the "cached object."
 
 If `thisObject` is an element of `theRun.threadFlowLocations`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.threadFlowLocations`.
 
@@ -6798,8 +6888,8 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 1: In this example, `thisObject` is an element of `theRun.threadFlowLocations`. Its array index is known to be 1, so `thisObject.index` does not need to be present, but since it is present, it equals the array index, as required.
 >
 > ```json
-> {                                 # A run object (§3.14).
->   "threadFlowLocations": [        # See §3.14.19.
+> {                                 # A run object (3.14).
+>   "threadFlowLocations": [        # See 3.14.19.
 >     ...
 >     {                             # A threadFlowLocation object: thisObject.
 >       "index": 1,                 # Optional.
@@ -6816,16 +6906,16 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 2: In this example, `thisObject` is not an element of `theRun.threadFlowLocations`; rather, it is an element of `theResult.codeFlows[0].threadFlows[0].locations`. There is no cached object; that is, there is no object in `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is absent, as required.
 >
 > ```json
-> {                                 # A run object (§3.14).
->   "results": [                    # See §3.14.23.
->     {                             # A result object (§3.27).
->       "codeFlows": [              # See §3.27.18.
->         {                         # A codeFlow object (§3.36).
->           "threadFlows": [        # See §3.36.3.
->             {                     # A threadFlow object (§3.37).
->               "locations": [      # See §3.37.6.
+> {                                 # A run object (3.14).
+>   "results": [                    # See 3.14.23.
+>     {                             # A result object (3.27).
+>       "codeFlows": [              # See 3.27.18.
+>         {                         # A codeFlow object (3.36).
+>           "threadFlows": [        # See 3.36.3.
+>             {                     # A threadFlow object (3.37).
+>               "locations": [      # See 3.37.6.
 >                 {                 # A threadFlowLocation object (thisObject).
->                   "location": {   # See §3.38.3.
+>                   "location": {   # See 3.38.3.
 >                     ...
 >                   }
 >                 }
@@ -6838,7 +6928,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 >     }
 >   ],
 >   ...
->   "threadFlowLocations": [        # See §3.14.19.
+>   "threadFlowLocations": [        # See 3.14.19.
 >     ...
 >   ]
 > }
@@ -6847,14 +6937,14 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 > EXAMPLE 3: In this example, `thisObject` is again an element of `theResult.codeFlows[0].threadFlows[0].locations`, not an element of `theRun.threadFlowLocations`. But in this example, there is a cached object, an element of `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is present, as required.
 >
 > ```json
-> {                                 # A run object (§3.14).
->   "results": [                    # See §3.14.23.
->     {                             # A result object (§3.27).
->       "codeFlows": [              # See §3.27.18.
->         {                         # A codeFlow object (§3.36).
->           "threadFlows": [        # See §3.36.3.
->             {                     # A threadFlow object (§3.37).
->               "locations": [      # See §3.37.6.
+> {                                 # A run object (3.14).
+>   "results": [                    # See 3.14.23.
+>     {                             # A result object (3.27).
+>       "codeFlows": [              # See 3.27.18.
+>         {                         # A codeFlow object (3.36).
+>           "threadFlows": [        # See 3.36.3.
+>             {                     # A threadFlow object (3.37).
+>               "locations": [      # See 3.37.6.
 >                 {                 # An threadFlowLocation object: thisObject.
 >                   "index": 0      # index is present so no other properties.
 >                 }
@@ -6867,9 +6957,9 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 >     }
 >   ],
 >   ...
->   "threadFlowLocations": [        # See §3.14.19.
+>   "threadFlowLocations": [        # See 3.14.19.
 >     {                             # The cached threadFlowLocation object.
->       "location": {               # See §3.38.3.
+>       "location": {               # See 3.38.3.
 >         ...
 >       }
 >     },
@@ -6880,22 +6970,22 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 ### 3.38.3 `location` Propertyy <a id='threadflowlocation-object--location-property'></a>
 
-If location information is available, a `threadFlowLocation` object **SHALL** contain a property named `location` whose value is a `location` object ([§3.28](#location-object)) that specifies the location to which the `threadFlowLocation` object refers. If location information is not available, `location` **SHALL** be absent.
+If location information is available, a `threadFlowLocation` object **SHALL** contain a property named `location` whose value is a `location` object ([3.28 "`location` Object"](#location-object)) that specifies the location to which the `threadFlowLocation` object refers. If location information is not available, `location` **SHALL** be absent.
 
-There are analysis tools whose native output format includes the equivalent of a SARIF code flow, but which do not provide location information for every step in the code flow. A SARIF converter for such a format might not be able to populate `location`. However, if the native output format associates a human readable message with such a step, the SARIF converter **SHOULD** create a `location` object and populate only its `message` property ([§3.28.5](#location-object--message-property)). A SARIF direct producer which creates such code flows **SHOULD** populate `location.message`, even if no actual location information is available.
+There are analysis tools whose native output format includes the equivalent of a SARIF code flow, but which do not provide location information for every step in the code flow. A SARIF converter for such a format might not be able to populate `location`. However, if the native output format associates a human readable message with such a step, the SARIF converter **SHOULD** create a `location` object and populate only its `message` property ([3.28.5 "`message` Property"](#location-object--message-property)). A SARIF direct producer which creates such code flows **SHOULD** populate `location.message`, even if no actual location information is available.
 
 > EXAMPLE 1: In this example, a file is locked by another program before a thread attempts to write to it. The analysis tool has no location information for the other program; in fact, the analysis tool might merely be simulating an execution sequence in which a *hypothetical* external program locks the file. Nevertheless, it provides a helpful message.
 >
-> Note the use of `executionOrder` ([§3.38.11](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
+> Note the use of `executionOrder` ([3.38.11 "`executionOrder` Property"](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
 >
 > ```json
-> {                                     # A codeFlow object (§3.36).
->   "threadFlows": [                    # See §3.36.3.
->     {                                 # A threadFlow object (§3.37).
->       "message": {                    # See §3.37.3.
+> {                                     # A codeFlow object (3.36).
+>   "threadFlows": [                    # See 3.36.3.
+>     {                                 # A threadFlow object (3.37).
+>       "message": {                    # See 3.37.3.
 >         "text": "An external program."
 >       },
->       "locations": [                  # See §3.37.6.
+>       "locations": [                  # See 3.37.6.
 >         {                             # A threadFlowLocation object.
 >           "executionOrder": 1,
 >           "location": {               # A location object with only a message.
@@ -6944,23 +7034,23 @@ A `threadFlowLocation` object **MAY** contain a property named `module` whose va
 
 ### 3.38.5 `stack` Property <a id='threadflowlocation-object--stack-property'></a>
 
-A `threadFlowLocation` object **MAY** contain a property named `stack` whose value is a `stack` object ([§3.44](#stack-object)) that represents the call stack leading to this location.
+A `threadFlowLocation` object **MAY** contain a property named `stack` whose value is a `stack` object ([3.44 "`stack` Object"](#stack-object)) that represents the call stack leading to this location.
 
 ### 3.38.6 `webRequest` Property <a id='threadflowlocation-object--webrequest-property'></a>
 
-A `threadFlowLocation` object **MAY** contain a property named `webRequest` whose value is a `webRequest` object ([§3.46](#webrequest-object)) that describes an HTTP request sent from this location.
+A `threadFlowLocation` object **MAY** contain a property named `webRequest` whose value is a `webRequest` object ([3.46 "`webRequest` Object"](#webrequest-object)) that describes an HTTP request sent from this location.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
 ### 3.38.7 `webResponse` Property <a id='threadflowlocation-object--webresponse-property'></a>
 
-A `threadFlowLocation` object **MAY** contain a property named `webResponse` whose value is a `webResponse` object ([§3.47](#webresponse-object)) that describes the response to the HTTP request sent from this location.
+A `threadFlowLocation` object **MAY** contain a property named `webResponse` whose value is a `webResponse` object ([3.47 "`webResponse` Object"](#webresponse-object)) that describes the response to the HTTP request sent from this location.
 
 > NOTE: This property is primarily useful to web analysis tools.
 
 ### 3.38.8 `kinds` Property <a id='threadflowlocation-object--kinds-property'></a>
 
-A `threadFlowLocation` object **MAY** contain a property named `kinds` whose value is an array of unique ([§3.7.3](#array-properties-with-unique-values)) strings that describe the meaning of this location. The strings **SHOULD** be human-readable (as opposed to, for example, GUIDs or hash values).
+A `threadFlowLocation` object **MAY** contain a property named `kinds` whose value is an array of unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings that describe the meaning of this location. The strings **SHOULD** be human-readable (as opposed to, for example, GUIDs or hash values).
 
 When possible, SARIF producers **SHOULD** use the following values, with the specified meanings.
 
@@ -7111,7 +7201,7 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 
 ### 3.38.9 `state` Property <a id='state-property'></a>
 
-A `threadFlowLocation` object **MAY** contain a property named `state` whose value is an object ([§3.6](#object-properties)) in which each property name represents an item relevant to the location in the context of the code flow, and the corresponding property value is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that specifies either the value of or a constraint on that item.
+A `threadFlowLocation` object **MAY** contain a property named `state` whose value is an object ([3.6 "Object Properties"](#object-properties)) in which each property name represents an item relevant to the location in the context of the code flow, and the corresponding property value is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) that specifies either the value of or a constraint on that item.
 
 > NOTE: This property enables a SARIF viewer to present a debugger-like "watch window" experience as the user navigates through a code flow.
 
@@ -7170,7 +7260,7 @@ A viewer that renders a `threadFlow` **SHOULD** provide a visual representation 
 
 ### 3.38.11 `executionOrder` Property <a id='executionorder-property'></a>
 
-A `threadFlowLocation` object **MAY** contain a property named `executionOrder` whose value is a non-negative integer that represents the temporal order in which execution reached this location, across all `threadFlowLocation` objects within all `threadFlow` objects belonging to a single `codeFlow` ([§3.36](#codeflow-object)). `executionOrder` values are assigned in increasing order of time; for example, execution reaches a `threadFlowLocation` whose `executionOrder` is 2 occurs before it reaches a `threadFlowLocation` whose `executionOrder` is 3. If two `threadFlowLocation`s in different `threadFlow` objects within the same `codeFlow` have the same value for `executionOrder`, it means that execution reached both of those locations simultaneously. For that reason, values of `executionOrder` within a single `threadFlow` **SHALL** be unique.
+A `threadFlowLocation` object **MAY** contain a property named `executionOrder` whose value is a non-negative integer that represents the temporal order in which execution reached this location, across all `threadFlowLocation` objects within all `threadFlow` objects belonging to a single `codeFlow` ([3.36 "`codeFlow` Object"](#codeflow-object)). `executionOrder` values are assigned in increasing order of time; for example, execution reaches a `threadFlowLocation` whose `executionOrder` is 2 occurs before it reaches a `threadFlowLocation` whose `executionOrder` is 3. If two `threadFlowLocation`s in different `threadFlow` objects within the same `codeFlow` have the same value for `executionOrder`, it means that execution reached both of those locations simultaneously. For that reason, values of `executionOrder` within a single `threadFlow` **SHALL** be unique.
 
 It is only necessary to assign a value to `executionOrder` when the temporal ordering of a `threadFlowLocation` relative to a location in a different `threadFlow` is significant to the detection of a result.
 
@@ -7180,7 +7270,7 @@ If `executionOrder` is absent, it **SHALL** default to -1, which indicates that 
 
 ### 3.38.12 `executionTimeUtc` Property <a id='executiontimeutc-property'></a>
 
-A `threadFlowLocation` object **MAY** contain a property named `executionTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the thread of execution through the code reached this location.
+A `threadFlowLocation` object **MAY** contain a property named `executionTimeUtc` whose value is a string in the format specified in [3.9 "Date/time Properties"](#datetime-properties), specifying the UTC date and time at which the thread of execution through the code reached this location.
 
 ### 3.38.13 `importance` Property <a id='importance-property'></a>
 
@@ -7206,15 +7296,15 @@ If this property is absent, it **SHALL** be considered to have the value `"impor
 
 ### 3.38.14 `taxa` Property <a id='threadflowlocation-object--taxa-property'></a>
 
-A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `reportingDescriptorReference` objects each of which specifies a category into which this `threadFlowLocation` falls.
+A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `reportingDescriptorReference` objects each of which specifies a category into which this `threadFlowLocation` falls.
 
-> NOTE: The motivation for this property is an analysis tool that uses a set of rules to guide its analysis as it traces tainted data from a source to a sink. For example, at one location, the tool might apply a rule that says: "If the input to `String.Substr` is tainted, then so is the return value." Such a tool can represent these "helper rules" as a custom taxonomy ([§3.19.3](#taxonomies)), an array of `reportingDescriptor` objects ([§3.49](#reportingdescriptor-object)). Each member of `threadFlowLocation.taxa` can reference one of these helper rules.
+> NOTE: The motivation for this property is an analysis tool that uses a set of rules to guide its analysis as it traces tainted data from a source to a sink. For example, at one location, the tool might apply a rule that says: "If the input to `String.Substr` is tainted, then so is the return value." Such a tool can represent these "helper rules" as a custom taxonomy ([3.19.3 "Taxonomies"](#taxonomies)), an array of `reportingDescriptor` objects ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)). Each member of `threadFlowLocation.taxa` can reference one of these helper rules.
 
 > EXAMPLE 1: This example illustrates the scenario in the above note.
 >
 > ```json
-> {                                # A run object (§3.14).
->   "tool": {                      # See §3.14.6.
+> {                                # A run object (3.14).
+>   "tool": {                      # See 3.14.6.
 >     "driver": {
 >       "name": "TaintDetector",
 >       "rules": [
@@ -7228,7 +7318,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 >         ...
 >       ],
 >       "taxa": [                  # Custom taxonomy ((#taxonomies)) for helper rules.
->         {                        # A reportingDescriptor object (§3.49).
+>         {                        # A reportingDescriptor object (3.49).
 >           "id": "HR0001",
 >           "name": "SubstrPropogatesTaint",
 >           "shortDescription": {
@@ -7241,18 +7331,18 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 >     }
 >   },
 > 
->   "results": [                   # See §3.14.23.
->     {                            # A result object §3.27.
+>   "results": [                   # See 3.14.23.
+>     {                            # A result object 3.27.
 >       "ruleId": "TD0001",
 >       ...
->       "codeFlows": [             # See §3.27.18.
->         {                        # A codeFlow object (§3.36).
->           "threadFlows": [       # See §3.36.3.
->             {                    # A threadFlow object (§3.37).
->               "locations": [     # See §3.37.6.
+>       "codeFlows": [             # See 3.27.18.
+>         {                        # A codeFlow object (3.36).
+>           "threadFlows": [       # See 3.36.3.
+>             {                    # A threadFlow object (3.37).
+>               "locations": [     # See 3.37.6.
 >                 ...
 >                 {                # A threadFlowLocation object.
->                   "location": {  # See §3.38.3.
+>                   "location": {  # See 3.38.3.
 >                     "physicalLocation": {
 >                       "artifactLocation": {
 >                         "uri": "io/input.c",
@@ -7264,7 +7354,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 >                     }
 >                   },
 >                   "taxa": [
->                     {        # A reportingDescriptorReference object (§3.52).
+>                     {        # A reportingDescriptorReference object (3.52).
 >                       "id": "HR0001",
 >                       "index": 0
 >                     }
@@ -7285,40 +7375,40 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 
 ### 3.39.1 General <a id='graph-object--general'></a>
 
-A `graph` object represents a directed graph, a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph). `graph` objects **MAY** be defined both at the run level in `run.graphs` ([§3.14.20](#run-object--graphs-property)) and at the result level in `result.graphs` ([§3.27.19](#result-object--graphs-property)).
+A `graph` object represents a directed graph, a network of nodes and directed edges that describes some aspect of the structure of the code (for example, a call graph). `graph` objects **MAY** be defined both at the run level in `run.graphs` ([3.14.20 "`graphs` Property"](#run-object--graphs-property)) and at the result level in `result.graphs` ([3.27.19 "`graphs` Property"](#result-object--graphs-property)).
 
-A path through a graph, called a "graph traversal," is represented by a `graphTraversal` object ([§3.42](#graphtraversal-object)).
+A path through a graph, called a "graph traversal," is represented by a `graphTraversal` object ([3.42 "`graphTraversal` Object"](#graphtraversal-object)).
 
 ### 3.39.2 `description` Property <a id='graph-object--description-property'></a>
 
-A `graph` object **MAY** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the graph.
+A `graph` object **MAY** contain a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes the graph.
 
 ### 3.39.3 `nodes` Property <a id='nodes-property'></a>
 
-A `graph` object **MAY** contain a property named `nodes` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `node` objects ([§3.40](#node-object)) which represent the nodes of the graph.
+A `graph` object **MAY** contain a property named `nodes` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `node` objects ([3.40 "`node` Object"](#node-object)) which represent the nodes of the graph.
 
 ### 3.39.4 `edges` Property <a id='edges-property'></a>
 
-A `graph` object **MAY** contain a property named `edges` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `edge` objects ([§3.41](#edge-object)) which represent the edges of the graph.
+A `graph` object **MAY** contain a property named `edges` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `edge` objects ([3.41 "`edge` Object"](#edge-object)) which represent the edges of the graph.
 
 ## 3.40 `node` Object <a id='node-object'></a>
 
 ### 3.40.1 General <a id='node-object--general'></a>
 
-A `node` object represents a node in the graph represented by the containing `graph` object ([§3.39](#graph-object)), which we refer to as `theGraph`.
+A `node` object represents a node in the graph represented by the containing `graph` object ([3.39 "`graph` Object"](#graph-object)), which we refer to as `theGraph`.
 
 ### 3.40.2 `id` Property <a id='node-object--id-property'></a>
 
-A `node` object **SHALL** contain a property named `id` whose value is a string that uniquely identifies the node within `theGraph`. `id` **SHALL** be unique among all nodes in `theGraph`, regardless of nesting (see [§3.40.5](#children-property)).
+A `node` object **SHALL** contain a property named `id` whose value is a string that uniquely identifies the node within `theGraph`. `id` **SHALL** be unique among all nodes in `theGraph`, regardless of nesting (see [3.40.5 "`children` Property"](#children-property)).
 
 > EXAMPLE 1: This graph is invalid because two nodes have the same `id`, even though the nodes are within unrelated nested graphs.
 >
 > ```json
-> {                             # A graph object (§3.39).
->   "nodes": [                  # See §3.39.3.
+> {                             # A graph object (3.39).
+>   "nodes": [                  # See 3.39.3.
 >     {                         # A node object.
 >       "id": "n1",
->       "children": [           # See §3.40.5.
+>       "children": [           # See 3.40.5.
 >         {
 >           "id": "n3"
 >         }
@@ -7339,15 +7429,15 @@ A `node` object **SHALL** contain a property named `id` whose value is a string 
 
 ### 3.40.3 `label` Property <a id='node-object--label-property'></a>
 
-A `node` object **MAY** contain a property named `label` whose value is a `message` object ([§3.11](#message-object)) that provides a short description of the node.
+A `node` object **MAY** contain a property named `label` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that provides a short description of the node.
 
 ### 3.40.4 `location` Property <a id='node-object--location-property'></a>
 
-A `node` object **SHOULD** have a property named `location` whose value is a `location` object ([§3.28](#location-object)) that specifies the location associated with the node.
+A `node` object **SHOULD** have a property named `location` whose value is a `location` object ([3.28 "`location` Object"](#location-object)) that specifies the location associated with the node.
 
 ### 3.40.5 `children` Property <a id='children-property'></a>
 
-A `node` object **MAY** contain a property named `children` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `node` objects, referred to as "child nodes."
+A `node` object **MAY** contain a property named `children` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `node` objects, referred to as "child nodes."
 
 Child nodes are logically subordinate to their containing node, and form a "nested graph" within that node.
 
@@ -7363,20 +7453,20 @@ An `edge` object **SHALL** contain a property named `id` whose value is a string
 
 ### 3.41.3 `label` Property <a id='edge-object--label-property'></a>
 
-An `edge` object **MAY** contain a property named `label` whose value is a `message` object ([§3.11](#message-object)) that provides a short description of the edge.
+An `edge` object **MAY** contain a property named `label` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that provides a short description of the edge.
 
 ### 3.41.4 `sourceNodeId` Property <a id='sourcenodeid-property'></a>
 
-An `edge` object **SHALL** contain a property named `sourceNodeId` whose value is a string that identifies the source node (the node at which the edge starts). It **SHALL** equal the `id` property ([§3.40.2](#node-object--id-property)) of one of the `node` objects ([§3.40](#node-object)) in `theGraph`. It **MAY** equal the id of any node within `theGraph`, regardless of nesting (see [§3.40.5](#children-property)).
+An `edge` object **SHALL** contain a property named `sourceNodeId` whose value is a string that identifies the source node (the node at which the edge starts). It **SHALL** equal the `id` property ([3.40.2 "`id` Property"](#node-object--id-property)) of one of the `node` objects ([3.40 "`node` Object"](#node-object)) in `theGraph`. It **MAY** equal the id of any node within `theGraph`, regardless of nesting (see [3.40.5 "`children` Property"](#children-property)).
 
 > EXAMPLE 1: In this example, an edge connects two nodes defined in unrelated nested graphs.
 >
 > ```json
-> {                             # A graph object (§3.39).
->   "nodes": [                  # See §3.39.3.
+> {                             # A graph object (3.39).
+>   "nodes": [                  # See 3.39.3.
 >     {                         # A node object.
 >       "id": "n1",
->       "children": [           # See §3.40.5.
+>       "children": [           # See 3.40.5.
 >         {
 >           "id": "n3"
 >         }
@@ -7391,7 +7481,7 @@ An `edge` object **SHALL** contain a property named `sourceNodeId` whose value i
 >       ]
 >     }
 >   ],
->   "edges": [                  # See §3.39.4.
+>   "edges": [                  # See 3.39.4.
 >     {
 >       "sourceNodeId": "n3",   # Source node and target node are in separate
 >       "targetNodeId": "n4"    # nested graphs: ok.
@@ -7403,41 +7493,41 @@ An `edge` object **SHALL** contain a property named `sourceNodeId` whose value i
 
 ### 3.41.5 `targetNodeId` Property <a id='targetnodeid-property'></a>
 
-An `edge` object **SHALL** contain a property named `targetNodeId` whose value is a string that identifies the target node (the node at which the edge ends). It **SHALL** equal the `id` property ([§3.40.2](#node-object--id-property)) of one of the `node` objects ([§3.40](#node-object)) in `theGraph`. It **MAY** equal `sourceNodeId` ([§3.41.4](#sourcenodeid-property)).
+An `edge` object **SHALL** contain a property named `targetNodeId` whose value is a string that identifies the target node (the node at which the edge ends). It **SHALL** equal the `id` property ([3.40.2 "`id` Property"](#node-object--id-property)) of one of the `node` objects ([3.40 "`node` Object"](#node-object)) in `theGraph`. It **MAY** equal `sourceNodeId` ([3.41.4 "`sourceNodeId` Property"](#sourcenodeid-property)).
 
 ## 3.42 `graphTraversal` Object <a id='graphtraversal-object'></a>
 
 ### 3.42.1 General <a id='graphtraversal-object--general'></a>
 
-A `graphTraversal` object represents a "graph traversal," that is, a path through a graph specified by a sequence of connected "edge traversals," each of which is represented by an `edgeTraversal` object ([§3.43](#edgetraversal-object)). For an example, see [§3.42.8](#edgetraversals-property).
+A `graphTraversal` object represents a "graph traversal," that is, a path through a graph specified by a sequence of connected "edge traversals," each of which is represented by an `edgeTraversal` object ([3.43 "`edgeTraversal` Object"](#edgetraversal-object)). For an example, see [3.42.8 "`edgeTraversals` Property"](#edgetraversals-property).
 
 ### 3.42.2 Constraints <a id='graphtraversal-object--constraints'></a>
 
-Exactly one of the `resultGraphIndex` property ([§3.42.3](#resultgraphindex-property)) and the `runGraphIndex` property ([§3.42.4](#rungraphindex-property)) **SHALL** be present.
+Exactly one of the `resultGraphIndex` property ([3.42.3 "`resultGraphIndex` Property"](#resultgraphindex-property)) and the `runGraphIndex` property ([3.42.4 "`runGraphIndex` Property"](#rungraphindex-property)) **SHALL** be present.
 
 ### 3.42.3 `resultGraphIndex` Property <a id='resultgraphindex-property'></a>
 
-If a `graphTraversal` object represents the traversal of a `graph` object ([§3.39](#graph-object)) that resides in `theResult.graphs` ([§3.27.19](#result-object--graphs-property)), the `graphTraversal` object **SHALL** contain a property named `resultGraphIndex` whose value is the array index ([§3.7.4](#array-indices)) within `theResult.graphs` of that `graph` object.
+If a `graphTraversal` object represents the traversal of a `graph` object ([3.39 "`graph` Object"](#graph-object)) that resides in `theResult.graphs` ([3.27.19 "`graphs` Property"](#result-object--graphs-property)), the `graphTraversal` object **SHALL** contain a property named `resultGraphIndex` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within `theResult.graphs` of that `graph` object.
 
 ### 3.42.4 `runGraphIndex` Property <a id='rungraphindex-property'></a>
 
-If a `graphTraversal` object represents the traversal of a `graph` object ([§3.39](#graph-object)) that resides in `theRun.graphs` ([§3.14.20](#run-object--graphs-property)), the `graphTraversal` object **SHALL** contain a property named `runGraphIndex` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.graphs` of that `graph` object.
+If a `graphTraversal` object represents the traversal of a `graph` object ([3.39 "`graph` Object"](#graph-object)) that resides in `theRun.graphs` ([3.14.20 "`graphs` Property"](#run-object--graphs-property)), the `graphTraversal` object **SHALL** contain a property named `runGraphIndex` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within `theRun.graphs` of that `graph` object.
 
 ### 3.42.5 `description` Property <a id='graphtraversal-object--description-property'></a>
 
-A `graphTraversal` object **MAY** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the graph traversal.
+A `graphTraversal` object **MAY** contain a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes the graph traversal.
 
 ### 3.42.6 `initialState` Property <a id='graphtraversal-object--initialstate-property'></a>
 
-A `graphTraversal` object **MAY** contain a property named `initialState` whose value is an object ([§3.6](#object-properties)) each of whose properties is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that represents the value of a relevant item at the point of entry to the graph. This property, together with `edgeTraversal.finalState` ([§3.43.4](#finalstate-property)), enables a SARIF viewer to present a debugger-like "watch window" experience as the user traverses a graph.
+A `graphTraversal` object **MAY** contain a property named `initialState` whose value is an object ([3.6 "Object Properties"](#object-properties)) each of whose properties is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) that represents the value of a relevant item at the point of entry to the graph. This property, together with `edgeTraversal.finalState` ([3.43.4 "`finalState` Property"](#finalstate-property)), enables a SARIF viewer to present a debugger-like "watch window" experience as the user traverses a graph.
 
-This property **SHOULD NOT** include items whose value remains constant throughout the traversal. Such items **SHOULD** be stored in the `immutableState` property ([§3.42.7](#graphtraversal-object--immutablestate-property)).
+This property **SHOULD NOT** include items whose value remains constant throughout the traversal. Such items **SHOULD** be stored in the `immutableState` property ([3.42.7 "`immutableState` Property"](#graphtraversal-object--immutablestate-property)).
 
-For details of how properties within a "state" object are represented, see EXAMPLE 1 in [§3.38.9](#state-property).
+For details of how properties within a "state" object are represented, see EXAMPLE 1 in [3.38.9 "`state` Property"](#state-property).
 
 ### 3.42.7 `immutableState` Property <a id='graphtraversal-object--immutablestate-property'></a>
 
-A `graphTraversal` object **MAY** contain a property named `immutableState` whose value is an object ([§3.6](#object-properties)) each of whose properties is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that represents the value of a relevant item that remains constant throughout the traversal.
+A `graphTraversal` object **MAY** contain a property named `immutableState` whose value is an object ([3.6 "Object Properties"](#object-properties)) each of whose properties is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) that represents the value of a relevant item that remains constant throughout the traversal.
 
 > EXAMPLE 1: In this example, `immutableState` holds the value of a global variable that remains constant throughout the traversal.
 >
@@ -7453,30 +7543,30 @@ A `graphTraversal` object **MAY** contain a property named `immutableState` whos
 
 ### 3.42.8 `edgeTraversals` Property <a id='edgetraversals-property'></a>
 
-A `graphTraversal` object **MAY** contain a property named `edgeTraversals` whose value is an array of zero or more `edgeTraversal` objects ([§3.43](#edgetraversal-object)) which together represent the sequence of edges traversed during this graph traversal.
+A `graphTraversal` object **MAY** contain a property named `edgeTraversals` whose value is an array of zero or more `edgeTraversal` objects ([3.43 "`edgeTraversal` Object"](#edgetraversal-object)) which together represent the sequence of edges traversed during this graph traversal.
 
 The `edgeTraversal` objects **SHALL** be connected end to end; that is, the target node of every traversed edge except the last **SHALL** equal the source node of the next edge.
 
 > EXAMPLE 1: In this example, the `graphTraversal` contains two `edgeTraversal` objects. The id of the first traversed edge is `"e1"`, which connects node `"n1"` to node `"n2"`. The id of the second traversed edge is `"e3"`, which connects node `"n2"` to node `"n4"`. This is a valid graph traversal because the target node of each traversed edge is the source node of the next.
 >
-> This example also demonstrates the usage of `graphTraversal.initialState` ([§3.42.6](#graphtraversal-object--initialstate-property)) and `edgeTraversal.finalState` ([§3.43.4](#finalstate-property)).
+> This example also demonstrates the usage of `graphTraversal.initialState` ([3.42.6 "`initialState` Property"](#graphtraversal-object--initialstate-property)) and `edgeTraversal.finalState` ([3.43.4 "`finalState` Property"](#finalstate-property)).
 >
 > ```json
-> {                                          # A result object (§3.27).
->   "graphs": [                              # See §3.27.19.
->     {                                      # A graph object (§3.39).
->       "nodes": [                           # See §3.39.3.
->         { "id": "n1" },                    # A node object (§3.40).
+> {                                          # A result object (3.27).
+>   "graphs": [                              # See 3.27.19.
+>     {                                      # A graph object (3.39).
+>       "nodes": [                           # See 3.39.3.
+>         { "id": "n1" },                    # A node object (3.40).
 >         { "id": "n2" },
 >         { "id": "n3" },
 >         { "id": "n4" }
 >       ],
 > 
->       "edges": [                           # See §3.39.4.
->         {                                  # An edge object (§3.41).
->           "id": "e1",                      # See §3.41.2.
->           "sourceNodeId": "n1",            # See §3.41.4.
->           "targetNodeId": "n2"             # See §3.41.5.
+>       "edges": [                           # See 3.39.4.
+>         {                                  # An edge object (3.41).
+>           "id": "e1",                      # See 3.41.2.
+>           "sourceNodeId": "n1",            # See 3.41.4.
+>           "targetNodeId": "n2"             # See 3.41.5.
 >         },
 >         {
 >           "id": "e2",
@@ -7492,11 +7582,11 @@ The `edgeTraversal` objects **SHALL** be connected end to end; that is, the targ
 >     }
 >   ],
 > 
->   "graphTraversals": [                     # See §3.27.20.
->     {                                      # A graphTraversal object (§3.42).
->       "resultGraphIndex": 0,               # See §3.42.3.
+>   "graphTraversals": [                     # See 3.27.20.
+>     {                                      # A graphTraversal object (3.42).
+>       "resultGraphIndex": 0,               # See 3.42.3.
 > 
->       "initialState": {                    # See §3.42.6.
+>       "initialState": {                    # See 3.42.6.
 >         "x": {
 >           "text": "1"
 >         },
@@ -7508,11 +7598,11 @@ The `edgeTraversal` objects **SHALL** be connected end to end; that is, the targ
 >         }
 >       },
 > 
->       "edgeTraversals": [                  # See §3.42.8.
->         {                                  # An edgeTraversal object (§3.43).
->           "edgeId": "e1",                  # See §3.43.2.
+>       "edgeTraversals": [                  # See 3.42.8.
+>         {                                  # An edgeTraversal object (3.43).
+>           "edgeId": "e1",                  # See 3.43.2.
 > 
->           "finalState": {                  # See §3.43.4.
+>           "finalState": {                  # See 3.43.4.
 >             "x": {
 >               "text": "4"
 >             },
@@ -7553,27 +7643,27 @@ An `edgeTraversal` object represents the traversal of a single edge during a gra
 
 ### 3.43.2 `edgeId` Property <a id='edgeid-property'></a>
 
-An `edgeTraversal` object **SHALL** contain a property named `edgeId` whose value is a string which equals the `id` property ([§3.41.2](#edge-object--id-property)) of one of the `edge` objects ([§3.41](#edge-object)) in the graph identified by the `resultGraphIndex` property ([§3.42.3](#resultgraphindex-property)) or the `runGraphIndex` property ([§3.42.4](#rungraphindex-property)) of the containing `graphTraversal` object ([§3.42](#graphtraversal-object)).
+An `edgeTraversal` object **SHALL** contain a property named `edgeId` whose value is a string which equals the `id` property ([3.41.2 "`id` Property"](#edge-object--id-property)) of one of the `edge` objects ([3.41 "`edge` Object"](#edge-object)) in the graph identified by the `resultGraphIndex` property ([3.42.3 "`resultGraphIndex` Property"](#resultgraphindex-property)) or the `runGraphIndex` property ([3.42.4 "`runGraphIndex` Property"](#rungraphindex-property)) of the containing `graphTraversal` object ([3.42 "`graphTraversal` Object"](#graphtraversal-object)).
 
 ### 3.43.3 `message` Property <a id='edgetraversal-object--message-property'></a>
 
-An `edgeTraversal` object **MAY** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) that contains a message to display to the user as the edge is traversed.
+An `edgeTraversal` object **MAY** contain a property named `message` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that contains a message to display to the user as the edge is traversed.
 
 ### 3.43.4 `finalState` Property <a id='finalstate-property'></a>
 
-An `edgeTraversal` object **MAY** contain a property named `finalState` whose value is an object ([§3.6](#object-properties)) each of whose properties is a `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object)) that represents the value of a relevant item after the edge has been traversed.
+An `edgeTraversal` object **MAY** contain a property named `finalState` whose value is an object ([3.6 "Object Properties"](#object-properties)) each of whose properties is a `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object)) that represents the value of a relevant item after the edge has been traversed.
 
-> NOTE: This property, together with `graphTraversal.initialState` ([§3.42.6](#graphtraversal-object--initialstate-property)), enables a viewer to present a debugger-like "watch window" experience as the user traverses a graph.
+> NOTE: This property, together with `graphTraversal.initialState` ([3.42.6 "`initialState` Property"](#graphtraversal-object--initialstate-property)), enables a viewer to present a debugger-like "watch window" experience as the user traverses a graph.
 
 A SARIF viewer **SHALL** display only those properties that are explicitly present in the `finalState` property of the current `edgeTraversal`. It **SHALL NOT** assume that properties present in previous steps are still present with unchanged values.
 
-For details of how properties within a "state" object are represented, see [§3.38.9](#state-property).
+For details of how properties within a "state" object are represented, see [3.38.9 "`state` Property"](#state-property).
 
 ### 3.43.5 `stepOverEdgeCount` Property <a id='stepoveredgecount-property'></a>
 
 An `edgeTraversal` object **MAY** contain a property named `stepOverEdgeCount` whose value is a non-negative integer specifying the number of edges a user can step over.
 
-This property is intended to enable a viewing experience in which the user can either step over or step into the traversal of a nested graph ([§3.40.5](#children-property)). Therefore, this property **SHOULD** be specified only on an edge that leads from a node to one of its child nodes, and its value **SHOULD** be the number of edges the user would need to traverse to return to the current nesting level.
+This property is intended to enable a viewing experience in which the user can either step over or step into the traversal of a nested graph ([3.40.5 "`children` Property"](#children-property)). Therefore, this property **SHOULD** be specified only on an edge that leads from a node to one of its child nodes, and its value **SHOULD** be the number of edges the user would need to traverse to return to the current nesting level.
 
 If this property is present, a SARIF viewer **MAY** provide a visual cue informing the user that they have the option of either stepping over the current edge and into the nested graph, or of stepping over the entire traversal of the nested graph.
 
@@ -7596,9 +7686,9 @@ If this property is present, a SARIF viewer **MAY** provide a visual cue informi
 > &emsp;&emsp;`[ na1, na2, na3, na4 ]`
 >
 > ```json
-> {                                           # A result object (§3.27).
->   "graphs": [                               # See §3.27.19.
->     {                                       # A graph object (§3.39).
+> {                                           # A result object (3.27).
+>   "graphs": [                               # See 3.27.19.
+>     {                                       # A graph object (3.39).
 >       "nodes": [
 >         {
 >           "id": "functionA",
@@ -7630,8 +7720,8 @@ If this property is present, a SARIF viewer **MAY** provide a visual cue informi
 >     }
 >   ],
 > 
->   "graphTraversals": [                      # See §3.27.20.
->     {                                       # A graphTraversal object (§3.42).
+>   "graphTraversals": [                      # See 3.27.20.
+>     {                                       # A graphTraversal object (3.42).
 >       "resultGraphIndex": 0,                # The graph being traversed.
 >       "edgeTraversals": [
 >         { "edgeId": "ea1" },
@@ -7657,11 +7747,11 @@ A `stack` object describes a single call stack. A call stack is a sequence of ne
 
 ### 3.44.2 `message` Property <a id='stack-object--message-property'></a>
 
-A `stack` object **MAY** contain a property named `message` whose value is `message` object ([§3.11](#message-object)) relevant to this call stack.
+A `stack` object **MAY** contain a property named `message` whose value is `message` object ([3.11 "`message` Object"](#message-object)) relevant to this call stack.
 
 ### 3.44.3 `frames` Property <a id='frames-property'></a>
 
-A stack object **SHALL** contain a property named `frames` whose value is an array of zero or more `stackFrame` objects ([§3.45](#stackframe-object)). This array **SHALL** include every function call in the stack for which the tool has information, and the entries that are present **SHALL** occur in chronological order with the most recent (innermost) call first and the least recent (outermost) call last. The entries in this array do not need to be unique within the array.
+A stack object **SHALL** contain a property named `frames` whose value is an array of zero or more `stackFrame` objects ([3.45 "`stackFrame` Object"](#stackframe-object)). This array **SHALL** include every function call in the stack for which the tool has information, and the entries that are present **SHALL** occur in chronological order with the most recent (innermost) call first and the least recent (outermost) call last. The entries in this array do not need to be unique within the array.
 
 > NOTE 1: It is possible for the same frame to occur multiple times if the call stack includes a recursion.
 
@@ -7671,13 +7761,13 @@ A stack object **SHALL** contain a property named `frames` whose value is an arr
 
 ### 3.45.1 General <a id='stackframe-object--general'></a>
 
-A `stackFrame` object describes a single stack frame within a call stack ([§3.44](#stack-object)).
+A `stackFrame` object describes a single stack frame within a call stack ([3.44 "`stack` Object"](#stack-object)).
 
 ### 3.45.2 `location` Property <a id='stackframe-object--location-property'></a>
 
-A `stackFrame` object **MAY** contain a property named `location` whose value is a `location` object ([§3.28](#location-object)) specifying the location to which this stack frame refers.
+A `stackFrame` object **MAY** contain a property named `location` whose value is a `location` object ([3.28 "`location` Object"](#location-object)) specifying the location to which this stack frame refers.
 
-If location information is unavailable (as it might be, for example, when stepping from application code into library code or operating system code), `location` **SHOULD** be present and **SHOULD** contain a `message` property ([§3.28](#location-object)) (for example, with a message string `"Call into external code"`).
+If location information is unavailable (as it might be, for example, when stepping from application code into library code or operating system code), `location` **SHOULD** be present and **SHOULD** contain a `message` property ([3.28 "`location` Object"](#location-object)) (for example, with a message string `"Call into external code"`).
 
 ### 3.45.3 `module` Property <a id='stackframe-object--module-property'></a>
 
@@ -7695,7 +7785,7 @@ A `stackFrame` object **MAY** contain a property named parameters whose value is
 
 ### 3.46.1 General <a id='webrequest-object--general'></a>
 
-A `webRequest` object describes an HTTP request \[[RFC7230](#RFC7230)\]. The response to the request is described by a `webResponse` object ([§3.47](#webresponse-object)).
+A `webRequest` object describes an HTTP request \[[RFC7230](#RFC7230)\]. The response to the request is described by a `webResponse` object ([3.47 "`webResponse` Object"](#webresponse-object)).
 
 > NOTE 1: This object is primarily useful to web analysis tools.
 
@@ -7705,7 +7795,7 @@ A `webRequest` object does not need to represent a valid HTTP request.
 
 ### 3.46.2 `index` Property <a id='webrequest-object--index-property'></a>
 
-Depending on the circumstances, a `webRequest` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.webRequests` ([§3.14.21](#webrequests-property)) of a `webRequest` object that provides the properties for `thisObject`. We refer to the object in `theRun.webRequests` as the "cached object."
+Depending on the circumstances, a `webRequest` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within `theRun.webRequests` ([3.14.21 "`webRequests` Property"](#webrequests-property)) of a `webRequest` object that provides the properties for `thisObject`. We refer to the object in `theRun.webRequests` as the "cached object."
 
 If `thisObject` is an element of `theRun.webRequests`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.webRequests`.
 
@@ -7717,7 +7807,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 1: This allows a SARIF producer to reduce the size of the log file by reusing the same `webRequest` object in multiple results.
 
-> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [§3.38.2](#threadflowlocation-object--index-property).
+> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [3.38.2 "`index` Property"](#threadflowlocation-object--index-property).
 
 ### 3.46.3 `protocol` Property <a id='webrequest-object--protocol-property'></a>
 
@@ -7733,7 +7823,7 @@ A `webRequest` object **SHOULD** contain a property named `version` whose value 
 
 ### 3.46.5 `target` Property <a id='webrequest-object--target-property'></a>
 
-A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [§5.3](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard \[[RFC7230](#RFC7230)\].
+A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [5.3 "Conformance Clause 2: SARIF Producer"](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard \[[RFC7230](#RFC7230)\].
 
 ### 3.46.6 `method` Property <a id='method-property'></a>
 
@@ -7741,25 +7831,25 @@ A `webRequest` object **SHOULD** contain a property named `method` whose value i
 
 ### 3.46.7 `headers` Property <a id='webrequest-object--headers-property'></a>
 
-A `webRequest` object **SHOULD** contain a property named `headers` whose value is an object ([§3.6](#object-properties)) whose property names are the names of the HTTP headers in the request (for example, `"Content-Type"`) and whose corresponding values are the header values (for example, `"text/plain; charset=ascii"`).
+A `webRequest` object **SHOULD** contain a property named `headers` whose value is an object ([3.6 "Object Properties"](#object-properties)) whose property names are the names of the HTTP headers in the request (for example, `"Content-Type"`) and whose corresponding values are the header values (for example, `"text/plain; charset=ascii"`).
 
 ### 3.46.8 `parameters` Property <a id='webrequest-object--parameters-property'></a>
 
-A `webRequest` object **MAY** contain a property named `parameters` whose value is an object ([§3.6](#object-properties)) whose property names are the names of the parameters in the request and whose corresponding values are the values of those parameters.
+A `webRequest` object **MAY** contain a property named `parameters` whose value is an object ([3.6 "Object Properties"](#object-properties)) whose property names are the names of the parameters in the request and whose corresponding values are the values of those parameters.
 
-> NOTE: The `parameters` property exists as a convenience for the log file consumer. If it is absent, the consumer can parse the parameters from `body` ([§3.46.9](#webrequest-object--body-property)), in the case of a forms post, or from the query portion of `uri` ([§3.46.5](#webrequest-object--target-property)).
+> NOTE: The `parameters` property exists as a convenience for the log file consumer. If it is absent, the consumer can parse the parameters from `body` ([3.46.9 "`body` Property"](#webrequest-object--body-property)), in the case of a forms post, or from the query portion of `uri` ([3.46.5 "`target` Property"](#webrequest-object--target-property)).
 
 ### 3.46.9 `body` Property <a id='webrequest-object--body-property'></a>
 
-A `webRequest` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([§3.3](#artifactcontent-object)) containing the body of the request.
+A `webRequest` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([3.3 "`artifactContent` Object"](#artifactcontent-object)) containing the body of the request.
 
-If the request body is entirely textual, `body.text` ([§3.3.2](#artifactcontent-object--text-property)) **SHOULD** be present. If present, it **SHALL** contain the request body, transcoded to UTF-8 if necessary.
+If the request body is entirely textual, `body.text` ([3.3.2 "`text` Property"](#artifactcontent-object--text-property)) **SHOULD** be present. If present, it **SHALL** contain the request body, transcoded to UTF-8 if necessary.
 
-> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [§3.1](#file-format--general)).
+> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [3.1 "General"](#file-format--general)).
 
-> NOTE 2: If necessary, the character encoding actually used in the request can be deduced from the value of the `Content-Type` header (see [§3.46.7](#webrequest-object--headers-property)), for example, `"text/plain; charset=ascii"`.
+> NOTE 2: If necessary, the character encoding actually used in the request can be deduced from the value of the `Content-Type` header (see [3.46.7 "`headers` Property"](#webrequest-object--headers-property)), for example, `"text/plain; charset=ascii"`.
 
-If the request body is entirely textual, `body.binary` ([§3.3.3](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding \[[RFC2045](#RFC2045)\] of the body as it was actually transmitted.
+If the request body is entirely textual, `body.binary` ([3.3.3 "`binary` Property"](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding \[[RFC2045](#RFC2045)\] of the body as it was actually transmitted.
 
 If the request body consists partially or entirely of binary data, `body.binary` **SHALL** be present and **SHALL** contain the MIME Base64 encoding of the body. In this situation, `body.text` **SHALL** be absent.
 
@@ -7767,7 +7857,7 @@ If the request body consists partially or entirely of binary data, `body.binary`
 
 ### 3.47.1 General <a id='webresponse-object--general'></a>
 
-A `webResponse` object describes the response to an HTTP request \[[RFC7230](#RFC7230)\]. The request itself is described by a `webRequest` object ([§3.46](#webrequest-object)).
+A `webResponse` object describes the response to an HTTP request \[[RFC7230](#RFC7230)\]. The request itself is described by a `webRequest` object ([3.46 "`webRequest` Object"](#webrequest-object)).
 
 > NOTE: This object is primarily useful to web analysis tools.
 
@@ -7777,7 +7867,7 @@ A `webResponse` object does not need to represent a valid HTTP response.
 
 ### 3.47.2 `index` Property <a id='webresponse-object--index-property'></a>
 
-Depending on the circumstances, a `webResponse` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) within `theRun.webResponses` ([§3.14.22](#webresponses-property)) of a `webResponse` object that provides additional properties for `thisObject`. We refer to the object in `theRun.webResponses` as the "cached object."
+Depending on the circumstances, a `webResponse` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within `theRun.webResponses` ([3.14.22 "`webResponses` Property"](#webresponses-property)) of a `webResponse` object that provides additional properties for `thisObject`. We refer to the object in `theRun.webResponses` as the "cached object."
 
 If `thisObject` is an element of `theRun.webResponses`, then `index` **MAY** be present. If present, its value **SHALL** be the index of `thisObject` within `theRun.webResponses`.
 
@@ -7789,7 +7879,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > NOTE 1: This allows a SARIF producer to reduce the size of the log file by reusing the same `webResponse` object in multiple results.
 
-> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [§3.38.2](#threadflowlocation-object--index-property).
+> NOTE 2: For examples of the use of an `index` property to locate a cached object, see [3.38.2 "`index` Property"](#threadflowlocation-object--index-property).
 
 ### 3.47.3 `protocol` Property <a id='webresponse-object--protocol-property'></a>
 
@@ -7811,27 +7901,27 @@ A `webResponse` object **SHOULD** contain a property named `statusCode` whose va
 
 ### 3.47.6 `reasonPhrase` Property <a id='reasonphrase-property'></a>
 
-A `webResponse` object **SHOULD** contain a property named `reasonPhrase` whose value is a string containing the textual description of the `statusCode` ([§3.47.5](#statuscode-property)) found on the HTTP status line.
+A `webResponse` object **SHOULD** contain a property named `reasonPhrase` whose value is a string containing the textual description of the `statusCode` ([3.47.5 "`statusCode` Property"](#statuscode-property)) found on the HTTP status line.
 
 > EXAMPLE 1: `"reasonPhrase": "OK"`
 
-If `noResponseReceived` ([§3.47.9](#noresponsereceived-property)) is `true`, then `reasonPhrase` **SHOULD** instead contain a string describing the reason that no response was received.
+If `noResponseReceived` ([3.47.9 "`noResponseReceived` Property"](#noresponsereceived-property)) is `true`, then `reasonPhrase` **SHOULD** instead contain a string describing the reason that no response was received.
 
 ### 3.47.7 `headers` Property <a id='webresponse-object--headers-property'></a>
 
-A `webResponse` object **SHOULD** contain a property named `headers` whose value is an object ([§3.6](#object-properties)) whose property names are the names of the HTTP headers in the response (for example, `"Content-Type"`) and whose corresponding values are the header values (for example, `"text/plain; charset=ascii"`).
+A `webResponse` object **SHOULD** contain a property named `headers` whose value is an object ([3.6 "Object Properties"](#object-properties)) whose property names are the names of the HTTP headers in the response (for example, `"Content-Type"`) and whose corresponding values are the header values (for example, `"text/plain; charset=ascii"`).
 
 ### 3.47.8 `body` Property <a id='webresponse-object--body-property'></a>
 
-A `webResponse` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([§3.3](#artifactcontent-object)) containing the body of the response.
+A `webResponse` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([3.3 "`artifactContent` Object"](#artifactcontent-object)) containing the body of the response.
 
-If the response body is entirely textual, `body.text` ([§3.3.2](#artifactcontent-object--text-property)) **SHOULD** be present. If present, it **SHALL** contain the response body, transcoded to UTF-8 if necessary.
+If the response body is entirely textual, `body.text` ([3.3.2 "`text` Property"](#artifactcontent-object--text-property)) **SHOULD** be present. If present, it **SHALL** contain the response body, transcoded to UTF-8 if necessary.
 
-> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [§3.1](#file-format--general)).
+> NOTE 1: The transcoding is required because all textual content in a SARIF log file is represented in UTF-8 (see [3.1 "General"](#file-format--general)).
 
-> NOTE 2: If necessary, the character encoding actually used in the response can be deduced from the value of the `Content-Type` header (see [§3.47.7](#webresponse-object--headers-property)), for example, `"text/plain; charset=ascii"`.
+> NOTE 2: If necessary, the character encoding actually used in the response can be deduced from the value of the `Content-Type` header (see [3.47.7 "`headers` Property"](#webresponse-object--headers-property)), for example, `"text/plain; charset=ascii"`.
 
-If the response body is entirely textual, `body.binary` ([§3.3.3](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding \[[RFC2045](#RFC2045)\] of the body as it was actually transmitted.
+If the response body is entirely textual, `body.binary` ([3.3.3 "`binary` Property"](#binary-property)) **MAY** be present. If present, it **SHALL** contain the MIME Base64 encoding \[[RFC2045](#RFC2045)\] of the body as it was actually transmitted.
 
 If the response body consists partially or entirely of binary data, `body.binary` **SHALL** be present and **SHALL** contain the MIME Base64 encoding of the body. In this situation, `body.text` **SHALL** be absent.
 
@@ -7839,7 +7929,7 @@ If the response body consists partially or entirely of binary data, `body.binary
 
 If no response to the HTTP request was received (for example, because of a network failure), the `webResponse` object **SHALL** contain a property named `noResponseReceived` whose value is a Boolean `true`. If a response was received, `noResponseReceived` **SHALL** either be present with the value `false`, or absent, in which case it defaults to `false`.
 
-If `noResponseReceived` is `true`, then `reasonPhrase` ([§3.47.6](#reasonphrase-property)), which normally contains the reason phrase from the HTTP response line, **SHOULD** instead contain a string describing the reason that no response was received.
+If `noResponseReceived` is `true`, then `reasonPhrase` ([3.47.6 "`reasonPhrase` Property"](#reasonphrase-property)), which normally contains the reason phrase from the HTTP response line, **SHOULD** instead contain a string describing the reason that no response was received.
 
 ## 3.48 `resultProvenance` Object <a id='resultprovenance-object'></a>
 
@@ -7857,33 +7947,33 @@ A `resultProvenance` object contains information about the how and when `theResu
 
 ### 3.48.2 `firstDetectionTimeUtc` Property <a id='firstdetectiontimeutc-property'></a>
 
-A `resultProvenance` object **MAY** contain a property named `firstDetectionTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the result was first detected. It **SHOULD** specify the start time of the run in which the result was first detected, as opposed to, for example, the time within the run at which the result was actually generated.
+A `resultProvenance` object **MAY** contain a property named `firstDetectionTimeUtc` whose value is a string in the format specified in [3.9 "Date/time Properties"](#datetime-properties), specifying the UTC date and time at which the result was first detected. It **SHOULD** specify the start time of the run in which the result was first detected, as opposed to, for example, the time within the run at which the result was actually generated.
 
 > NOTE: Using the run’s start time makes it possible to group together results that were first detected in the same run.
 
 ### 3.48.3 `lastDetectionTimeUtc` Property <a id='lastdetectiontimeutc-property'></a>
 
-A `resultProvenance` object **MAY** contain a property named `lastDetectionTimeUtc` whose value is a string in the format specified in [§3.9](#datetime-properties), specifying the UTC date and time at which the result was most recently detected. It **SHOULD** specify the start time of the run in which the result was most recently detected, as opposed to, for example, the time within the run at which the result was actually generated.
+A `resultProvenance` object **MAY** contain a property named `lastDetectionTimeUtc` whose value is a string in the format specified in [3.9 "Date/time Properties"](#datetime-properties), specifying the UTC date and time at which the result was most recently detected. It **SHOULD** specify the start time of the run in which the result was most recently detected, as opposed to, for example, the time within the run at which the result was actually generated.
 
 > NOTE: Using the run’s start time makes it possible to group together results that were detected in the same run.
 
 If `lastDetectionTimeUtc` is absent, its default value **SHALL** be determined as follows:
 
-1.  If `run.invocations` is present, and if the `startTimeUtc` property ([§3.20.7](#starttimeutc-property)) is present on any of the `invocation` objects ([§3.20](#invocation-object)) in that array, then the default is the earliest of those times.
+1.  If `run.invocations` is present, and if the `startTimeUtc` property ([3.20.7 "`startTimeUtc` Property"](#starttimeutc-property)) is present on any of the `invocation` objects ([3.20 "`invocation` Object"](#invocation-object)) in that array, then the default is the earliest of those times.
 
 2.  Otherwise, there is no default.
 
 ### 3.48.4 `firstDetectionRunGuid` Property <a id='firstdetectionrunguid-property'></a>
 
-A `resultProvenance` object **MAY** contain a property named `firstDetectionRunGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([§3.14.3](#automationdetails-property), [§3.17.4](#runautomationdetails-object--guid-property)) of the run in which `theResult` was first detected (either the current run or some previous run).
+A `resultProvenance` object **MAY** contain a property named `firstDetectionRunGuid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([3.14.3 "`automationDetails` Property"](#automationdetails-property), [3.17.4 "`guid` Property"](#runautomationdetails-object--guid-property)) of the run in which `theResult` was first detected (either the current run or some previous run).
 
 ### 3.48.5 `lastDetectionRunGuid` Property <a id='lastdetectionrunguid-property'></a>
 
-A `resultProvenance` object **MAY** contain a property named `lastDetectionRunGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([§3.14.3](#automationdetails-property), [§3.17.4](#runautomationdetails-object--guid-property)) of the run in which `theResult` was most recently detected (either the current run or some previous run).
+A `resultProvenance` object **MAY** contain a property named `lastDetectionRunGuid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([3.14.3 "`automationDetails` Property"](#automationdetails-property), [3.17.4 "`guid` Property"](#runautomationdetails-object--guid-property)) of the run in which `theResult` was most recently detected (either the current run or some previous run).
 
 ### 3.48.6 `invocationIndex` Property <a id='invocationindex-property'></a>
 
-If `theRun.invocations` ([§3.14.11](#invocations-property)) is present, a `resultProvenance` object **MAY** contain a property named `invocationIndex` whose value is the array index ([§3.7.4](#array-indices)) within the `invocations` property of the `invocation` object ([§3.20](#invocation-object)) that describes the tool invocation as a result of which `theResult` was detected.
+If `theRun.invocations` ([3.14.11 "`invocations` Property"](#invocations-property)) is present, a `resultProvenance` object **MAY** contain a property named `invocationIndex` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) within the `invocations` property of the `invocation` object ([3.20 "`invocation` Object"](#invocation-object)) that describes the tool invocation as a result of which `theResult` was detected.
 
 If `theRun.invocations` is absent, `invocationIndex` **SHALL** be absent.
 
@@ -7897,13 +7987,13 @@ If `invocationIndex` is absent and `theRun.invocations` is present and contains 
 
 Some analysis tools produce output files that describe the analysis run as a whole; we refer to these as "per-run" files. Some tools produce one or more output files for each result; we refer to these as "per-result" files. Some tools produce both per-run and per-result files.
 
-A `resultProvenance` object **MAY** contain a property named `conversionSources` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `physicalLocation` objects ([§3.29](#physicallocation-object)).
+A `resultProvenance` object **MAY** contain a property named `conversionSources` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `physicalLocation` objects ([3.29 "`physicalLocation` Object"](#physicallocation-object)).
 
 If `theResult` was produced by a converter, and if the analysis tool whose output was converted to SARIF produced any per-result files for this result, then the `physicalLocation` objects in the array **SHALL** specify the relevant portions of the per-result files for this result.
 
 Otherwise (that is, if the `run` object was not produced by a converter, or if there were no per-run files for this result), then if `conversionSources` is present, its value **SHALL** be an empty array.
 
-Per-run files are handled by the `conversion.analysisToolLogFiles` property ([§3.22.4](#analysistoollogfiles-property)).
+Per-run files are handled by the `conversion.analysisToolLogFiles` property ([3.22.4 "`analysisToolLogFiles` Property"](#analysistoollogfiles-property)).
 
 > NOTE: This property is intended to be useful to developers of converters, to help them debug the conversion from the analysis tool’s native output format to the SARIF format.
 
@@ -7945,14 +8035,14 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([§
 >             "text": "Assertions are unreliable. ..."
 >           },
 >           ...
->           "provenance": {              # See §3.27.29.
+>           "provenance": {              # See 3.27.29.
 >             "conversionSources": [     # An array of physicalLocation objects 
 >               {                        # ((#physicallocation-object)).
->                 "artifactLocation": {  # See §3.29.3.
+>                 "artifactLocation": {  # See 3.29.3.
 >                   "uri": "CodeScanner.log",
 >                   "uriBaseId": "$LOGSROOT"
 >                 },
->                 "region": {            # See §3.29.4.
+>                 "region": {            # See 3.29.4.
 >                   "startLine": 3,
 >                   "startColumn": 3,
 >                   "endLine": 12,
@@ -7976,13 +8066,13 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([§
 
 ### 3.49.1 General <a id='reportingdescriptor-object--general'></a>
 
-A `reportingDescriptor` object contains information that describes a "reporting item" generated by a tool. A reporting item is either a result produced by the tool’s analysis (see [§3.27](#result-object)), or a notification of a condition encountered by the tool ([§3.58](#notification-object)). We refer to this descriptive information as "reporting item metadata." When referring to the metadata that describes a result, we use the more specific term "rule metadata."
+A `reportingDescriptor` object contains information that describes a "reporting item" generated by a tool. A reporting item is either a result produced by the tool’s analysis (see [3.27 "`result` Object"](#result-object)), or a notification of a condition encountered by the tool ([3.58 "`notification` Object"](#notification-object)). We refer to this descriptive information as "reporting item metadata." When referring to the metadata that describes a result, we use the more specific term "rule metadata."
 
 Some of the properties of the `reportingDescriptor` object are interpreted differently depending on whether the object represents a rule or a notification. The description of each property will specify any such differences.
 
 ### 3.49.2 Constraints <a id='reportingdescriptor-object--constraints'></a>
 
-Either the `shortDescription` property ([§3.49.9](#reportingdescriptor-object--shortdescription-property)) or the `fullDescription` property ([§3.49.10](#reportingdescriptor-object--fulldescription-property)) or both **SHOULD** be present.
+Either the `shortDescription` property ([3.49.9 "`shortDescription` Property"](#reportingdescriptor-object--shortdescription-property)) or the `fullDescription` property ([3.49.10 "`fullDescription` Property"](#reportingdescriptor-object--fulldescription-property)) or both **SHOULD** be present.
 
 ### 3.49.3 `id` Property <a id='reportingdescriptor-object--id-property'></a>
 
@@ -7998,17 +8088,17 @@ A `reportingDescriptor` object **SHALL** contain a property named `id` whose val
 >
 > Rule identifiers should be opaque – that is, they should not convey information to a user – because a rule's implementation might change over time. Suppose a rule id is `"DoNotDoXOrY"`, suppose circumstances change so that "Y" is now acceptable, and suppose the implementation of the rule changes accordingly. Because the rule id must not change, the string `"DoNotDoXOrY"` will continue to be persisted to logs, where it will convey outdated guidance to users in a way that an opaque identifier such as "`CA2101"` would not.
 
-> NOTE 2: Despite the fact that the `result.ruleId` property ([§3.27.5](#ruleid-property)) is permitted to be a hierarchical string ([§3.5.4](#hierarchical-strings)) whose trailing components denote a subset of the specified rule, SARIF does not support separate metadata for such "sub-rules". The `id` property of a `reportingDescriptor` object always specifies an entire rule (or notification), not a subset of one.
+> NOTE 2: Despite the fact that the `result.ruleId` property ([3.27.5 "`ruleId` Property"](#ruleid-property)) is permitted to be a hierarchical string ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)) whose trailing components denote a subset of the specified rule, SARIF does not support separate metadata for such "sub-rules". The `id` property of a `reportingDescriptor` object always specifies an entire rule (or notification), not a subset of one.
 
 ### 3.49.4 `deprecatedIds` Property <a id='deprecatedids-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `deprecatedIds` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) strings each of which contains an id (see [§3.49.3](#reportingdescriptor-object--id-property)) by which this reporting item was known in some previous version of the analysis tool.
+A `reportingDescriptor` object **MAY** contain a property named `deprecatedIds` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings each of which contains an id (see [3.49.3 "`id` Property"](#reportingdescriptor-object--id-property)) by which this reporting item was known in some previous version of the analysis tool.
 
 > NOTE: This property is most useful for rules. It addresses the scenario where rule ids change from one version of a tool to the next. For example, a tool developer might decide that a rule is too general, covering too many concepts. In the next version of the tool, the tool developer might break this rule into a set of more specific rules.
 
 Now the result management system has the problem of matching results between the newer and the older versions of the tool. `deprecatedIds` solves this problem.
 
-> EXAMPLE 1: In this example, version 1 of an analysis tool defines rule `CA1000`. A run of this tool finds two results. The result management system decides that neither result was previously detected, so it marks them as with `"baselineState": "new"` ([§3.27.24](#baselinestate-property)), producing this log:
+> EXAMPLE 1: In this example, version 1 of an analysis tool defines rule `CA1000`. A run of this tool finds two results. The result management system decides that neither result was previously detected, so it marks them as with `"baselineState": "new"` ([3.27.24 "`baselineState` Property"](#baselinestate-property)), producing this log:
 >
 > ```json
 > {
@@ -8114,19 +8204,19 @@ Now the result management system has the problem of matching results between the
 >
 > - As a result, the analysis tool can determine that the in-source suppressions still apply, even though the rule ids have changed, so it correctly marks each result with `"kind": "inSource"`.
 >
-> - Furthermore, the result management system can determine that these are the same results it saw in the previous run, so it correctly marks them with `"baselineState": "unchanged"` or `"updated"` as appropriate (see [§3.27.24](#baselinestate-property)).
+> - Furthermore, the result management system can determine that these are the same results it saw in the previous run, so it correctly marks them with `"baselineState": "unchanged"` or `"updated"` as appropriate (see [3.27.24 "`baselineState` Property"](#baselinestate-property)).
 
 ### 3.49.5 `guid` Property <a id='reportingdescriptor-object--guid-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that uniquely identifies the descriptor.
+A `reportingDescriptor` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) that uniquely identifies the descriptor.
 
 ### 3.49.6 `deprecatedGuids` Property <a id='deprecatedguids-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `deprecatedGuids` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) GUID-valued strings ([§3.5.3](#guid-valued-strings)) each of which was used by a previous version of the tool as the value of the `guid` property ([§3.49.5](#reportingdescriptor-object--guid-property)) for this object.
+A `reportingDescriptor` object **MAY** contain a property named `deprecatedGuids` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) GUID-valued strings ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) each of which was used by a previous version of the tool as the value of the `guid` property ([3.49.5 "`guid` Property"](#reportingdescriptor-object--guid-property)) for this object.
 
 ### 3.49.7 `name` Property <a id='reportingdescriptor-object--name-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `name` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing an identifier that is understandable to an end user. If the `name` of a rule contains implementation details that change over time, a tool author might alter a rule's name (while leaving the stable `id` property ([§3.49.3](#reportingdescriptor-object--id-property)) unchanged).
+A `reportingDescriptor` object **MAY** contain a property named `name` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing an identifier that is understandable to an end user. If the `name` of a rule contains implementation details that change over time, a tool author might alter a rule's name (while leaving the stable `id` property ([3.49.3 "`id` Property"](#reportingdescriptor-object--id-property)) unchanged).
 
 > NOTE: A rule name is suitable in contexts where a readable identifier is preferable and where the lack of stability is not a concern.
 
@@ -8134,13 +8224,13 @@ A `reportingDescriptor` object **MAY** contain a property named `name` whose val
 
 ### 3.49.8 `deprecatedNames` Property <a id='deprecatednames-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `deprecatedNames` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) localizable ([§3.5.1](#localizable-strings)) strings each of which was used by a previous version of the tool as the value of the `name` property ([§3.49.7](#reportingdescriptor-object--name-property)) for this object.
+A `reportingDescriptor` object **MAY** contain a property named `deprecatedNames` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) localizable ([3.5.1 "Localizable Strings"](#localizable-strings)) strings each of which was used by a previous version of the tool as the value of the `name` property ([3.49.7 "`name` Property"](#reportingdescriptor-object--name-property)) for this object.
 
-The array elements **SHALL** occur in the same order in every translation ([§3.19.3](#taxonomies)).
+The array elements **SHALL** occur in the same order in every translation ([3.19.3 "Taxonomies"](#taxonomies)).
 
 ### 3.49.9 `shortDescription` Property <a id='reportingdescriptor-object--shortdescription-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object), [§3.12.2](#localizable-multiformatmessagestrings)) that provides a concise description of the reporting item. The `shortDescription` property **SHOULD** be a single sentence that is understandable when visible space is limited to a single line of text.
+A `reportingDescriptor` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object), [3.12.2 "Localizable `multiformatMessageStrings`"](#localizable-multiformatmessagestrings)) that provides a concise description of the reporting item. The `shortDescription` property **SHOULD** be a single sentence that is understandable when visible space is limited to a single line of text.
 
 > EXAMPLE 1:
 >
@@ -8154,19 +8244,19 @@ A `reportingDescriptor` object **MAY** contain a property named `shortDescriptio
 
 ### 3.49.10 `fullDescription` Property <a id='reportingdescriptor-object--fulldescription-property'></a>
 
-A `reportingDescriptor` object **SHOULD** contain a property named `fullDescription` whose value is a localizable `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object), [§3.12.2](#localizable-multiformatmessagestrings)) that comprehensively describes the reporting item.
+A `reportingDescriptor` object **SHOULD** contain a property named `fullDescription` whose value is a localizable `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object), [3.12.2 "Localizable `multiformatMessageStrings`"](#localizable-multiformatmessagestrings)) that comprehensively describes the reporting item.
 
 The `fullDescription` property **SHOULD**, as far as possible, provide details sufficient to enable resolution of any problem indicated by the reporting item.
 
-The beginning of `fullDescription` (for example, its first sentence) **SHOULD** provide a concise description of the reporting item, suitable for display in cases where available space is limited. Tools that construct `fullDescription` in this way do not need to provide a value for `shortDescription` ([§3.49.9](#reportingdescriptor-object--shortdescription-property)). Tools that do not construct `fullDescription` in this way **SHOULD** provide a value for `shortDescription`.
+The beginning of `fullDescription` (for example, its first sentence) **SHOULD** provide a concise description of the reporting item, suitable for display in cases where available space is limited. Tools that construct `fullDescription` in this way do not need to provide a value for `shortDescription` ([3.49.9 "`shortDescription` Property"](#reportingdescriptor-object--shortdescription-property)). Tools that do not construct `fullDescription` in this way **SHOULD** provide a value for `shortDescription`.
 
 > NOTE:The rationale for this guidance is that in the absence of `shortDescription`, a viewer with limited display space might display a truncated version of `fullDescription`, for example, the first sentence (if a sentence is identifiable), the first paragraph, or the first 100 characters. If this guidance is not followed, that truncated version might not be understandable.
 
 ### 3.49.11 `messageStrings` Property <a id='messagestrings-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `messageStrings` whose value is an object ([§3.6](#object-properties)) consisting of a set of properties with arbitrary names, each of whose values is a localizable `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object), [§3.12.2](#localizable-multiformatmessagestrings)).
+A `reportingDescriptor` object **MAY** contain a property named `messageStrings` whose value is an object ([3.6 "Object Properties"](#object-properties)) consisting of a set of properties with arbitrary names, each of whose values is a localizable `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object), [3.12.2 "Localizable `multiformatMessageStrings`"](#localizable-multiformatmessagestrings)).
 
-If the `reportingDescriptor` object defines a rule, the set of property names appearing in the `messageStrings` property **SHALL** contain at least the set of strings which occur as values of `result.message.id` properties ([§3.27.11](#result-object--message-property), [§3.11.10](#message-object--id-property)) in the current `run` object. The `messageStrings` property **MAY** contain additional properties whose names do not appear as the value of the `result.message.id` property for any `result` object in the `run`.
+If the `reportingDescriptor` object defines a rule, the set of property names appearing in the `messageStrings` property **SHALL** contain at least the set of strings which occur as values of `result.message.id` properties ([3.27.11 "`message` Property"](#result-object--message-property), [3.11.10 "`id` Property"](#message-object--id-property)) in the current `run` object. The `messageStrings` property **MAY** contain additional properties whose names do not appear as the value of the `result.message.id` property for any `result` object in the `run`.
 
 If the `reportingDescriptor` object describes a notification, the set of property names appearing in the `messageStrings` property **SHALL** contain at least the set of strings which occur as values of `notification.message.id` for any `notification` object in the run.
 
@@ -8177,7 +8267,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 > ```json
 > {                         # A reportingDescriptor object for a rule.
 >   "messageStrings": {
->     "objectCreation":  {  # A multiformatMessageString object (§3.12).
+>     "objectCreation":  {  # A multiformatMessageString object (3.12).
 >       "text": "{0} creates a new instance of {1} which is never used.
 >               Pass the instance as an argument to another method,
 >               assign the instance to a variable,
@@ -8196,7 +8286,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 
 ### 3.49.12 `helpUri` Property <a id='helpuri-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `helpUri` whose value is a localizable string ([§3.5.1](#localizable-strings)) containing the absolute URI \[[RFC3986](#RFC3986)\] of the primary documentation for the reporting item.
+A `reportingDescriptor` object **MAY** contain a property named `helpUri` whose value is a localizable string ([3.5.1 "Localizable Strings"](#localizable-strings)) containing the absolute URI \[[RFC3986](#RFC3986)\] of the primary documentation for the reporting item.
 
 > NOTE 1: The documentation might include examples, contact information for the authors, and links to additional information.
 
@@ -8204,31 +8294,31 @@ A `reportingDescriptor` object **MAY** contain a property named `helpUri` whose 
 
 ### 3.49.13 `help` Property <a id='help-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `help` whose value is a localizable `multiformatMessageString` object ([§3.12](#multiformatmessagestring-object), [§3.12.2](#localizable-multiformatmessagestrings)) which provides the primary documentation for the reporting item.
+A `reportingDescriptor` object **MAY** contain a property named `help` whose value is a localizable `multiformatMessageString` object ([3.12 "`multiformatMessageString` Object"](#multiformatmessagestring-object), [3.12.2 "Localizable `multiformatMessageStrings`"](#localizable-multiformatmessagestrings)) which provides the primary documentation for the reporting item.
 
 > NOTE: This property is useful when help information is not available at a URI, for example, in the case of a custom rule written by a developer, as opposed to one supplied by the tool vendor.
 
 ### 3.49.14 `defaultConfiguration` Property <a id='defaultconfiguration-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `defaultConfiguration` whose value is a `reportingConfiguration` object ([§3.50](#reportingconfiguration-object)).
+A `reportingDescriptor` object **MAY** contain a property named `defaultConfiguration` whose value is a `reportingConfiguration` object ([3.50 "`reportingConfiguration` Object"](#reportingconfiguration-object)).
 
-If this property is absent, it **SHALL** be taken to be present, and its properties **SHALL** be taken to have the default values specified in [§3.50](#reportingconfiguration-object).
+If this property is absent, it **SHALL** be taken to be present, and its properties **SHALL** be taken to have the default values specified in [3.50 "`reportingConfiguration` Object"](#reportingconfiguration-object).
 
-The rule- or notification-specific configuration parameters for a `reportingDescriptor`, if any, **SHALL NOT** be stored in its property bag ([§3.8](#property-bags)) Rather, they **SHALL** be stored in `defaultConfiguration.parameters` ([§3.50.5](#reportingconfiguration-object--parameters-property)).
+The rule- or notification-specific configuration parameters for a `reportingDescriptor`, if any, **SHALL NOT** be stored in its property bag ([3.8 "Property Bags"](#property-bags)) Rather, they **SHALL** be stored in `defaultConfiguration.parameters` ([3.50.5 "`parameters` Property"](#reportingconfiguration-object--parameters-property)).
 
 ### 3.49.15 `relationships` Property <a id='reportingdescriptor-object--relationships-property'></a>
 
-A `reportingDescriptor` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `reportingDescriptorRelationship` objects ([§3.53](#reportingdescriptorrelationship-object)) each of which declares one or more directed relationships from `thisObject` to another `reportingDescriptor` object, which we refer to as `theTarget`, specified by `reportingDescriptorRelationship`.`target` ([§3.53.2](#reportingdescriptorrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `reportingDescriptorRelationship.kinds` ([§3.53.3](#reportingdescriptorrelationship-object--kinds-property)).
+A `reportingDescriptor` object **MAY** contain a property named `relationships` whose value is an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `reportingDescriptorRelationship` objects ([3.53 "`reportingDescriptorRelationship` Object"](#reportingdescriptorrelationship-object)) each of which declares one or more directed relationships from `thisObject` to another `reportingDescriptor` object, which we refer to as `theTarget`, specified by `reportingDescriptorRelationship`.`target` ([3.53.2 "`target` Property"](#reportingdescriptorrelationship-object--target-property)). The natures of the relationships between `thisObject` and `theTarget` are specified by `reportingDescriptorRelationship.kinds` ([3.53.3 "`kinds` Property"](#reportingdescriptorrelationship-object--kinds-property)).
 
 ## 3.50 `reportingConfiguration` Object <a id='reportingconfiguration-object'></a>
 
 ### 3.50.1 General <a id='reportingconfiguration-object--general'></a>
 
-A `reportingConfiguration` object contains the information in a `reportingDescriptor` ([§3.49](#reportingdescriptor-object)) that a SARIF producer can modify at runtime, before executing its scan. We refer to the `reportingDescriptor` object whose configuration is established or modified by a `reportingConfiguration` object as `theDescriptor`.
+A `reportingConfiguration` object contains the information in a `reportingDescriptor` ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) that a SARIF producer can modify at runtime, before executing its scan. We refer to the `reportingDescriptor` object whose configuration is established or modified by a `reportingConfiguration` object as `theDescriptor`.
 
-When a `reportingConfiguration` object appears as the value of `theDescriptor.defaultConfiguration` ([§3.49.14](#defaultconfiguration-property)), it specifies `theReportingDescriptor`’s default configuration. When a `reportingConfiguration` object appears as the value of `configurationOverride.configuration` ([§3.51.3](#configuration-property)), it overrides the default values in the `reportingDescriptor` identified by `configurationOverride.descriptor` ([§3.51.2](#configurationoverride-object--descriptor-property)).
+When a `reportingConfiguration` object appears as the value of `theDescriptor.defaultConfiguration` ([3.49.14 "`defaultConfiguration` Property"](#defaultconfiguration-property)), it specifies `theReportingDescriptor`’s default configuration. When a `reportingConfiguration` object appears as the value of `configurationOverride.configuration` ([3.51.3 "`configuration` Property"](#configuration-property)), it overrides the default values in the `reportingDescriptor` identified by `configurationOverride.descriptor` ([3.51.2 "`descriptor` Property"](#configurationoverride-object--descriptor-property)).
 
-For an example, see [§3.50.5](#reportingconfiguration-object--parameters-property).
+For an example, see [3.50.5 "`parameters` Property"](#reportingconfiguration-object--parameters-property).
 
 ### 3.50.2 `enabled` Property <a id='enabled-property'></a>
 
@@ -8242,13 +8332,13 @@ If this property is absent, it **SHALL** default to `true`.
 
 ### 3.50.3 `level` Property <a id='reportingconfiguration-object--level-property'></a>
 
-A `reportingConfiguration` object **MAY** contain a property named `level` whose value is one of the strings `"warning"`, `"error"`, `"note"`, or `"none"`, with the same meanings as when those strings appear as the value of `result.level` ([§3.27.10](#result-object--level-property)) or `notification.level` ([§3.58.6](#notification-object--level-property)).
+A `reportingConfiguration` object **MAY** contain a property named `level` whose value is one of the strings `"warning"`, `"error"`, `"note"`, or `"none"`, with the same meanings as when those strings appear as the value of `result.level` ([3.27.10 "`level` Property"](#result-object--level-property)) or `notification.level` ([3.58.6 "`level` Property"](#notification-object--level-property)).
 
 If `level` is absent, it **SHALL** default to `"warning"`.
 
-If `theDescriptor` describes a rule, then if `level` is present, it **SHALL** provide the value for the `level` property of any `result` object ([§3.27](#result-object)) whose `ruleIndex` ([§3.27.6](#ruleindex-property)) or `rule` property ([§3.27.7](#rule-property)), either explicitly supplied or inferred from its default, identifies `theDescriptor` and which does not itself specify a `level` property. For details of the configuration property resolution procedure, see [§3.27.10](#result-object--level-property) (which illustrates the procedure for the specific case of the `result.level` property).
+If `theDescriptor` describes a rule, then if `level` is present, it **SHALL** provide the value for the `level` property of any `result` object ([3.27 "`result` Object"](#result-object)) whose `ruleIndex` ([3.27.6 "`ruleIndex` Property"](#ruleindex-property)) or `rule` property ([3.27.7 "`rule` Property"](#rule-property)), either explicitly supplied or inferred from its default, identifies `theDescriptor` and which does not itself specify a `level` property. For details of the configuration property resolution procedure, see [3.27.10 "`level` Property"](#result-object--level-property) (which illustrates the procedure for the specific case of the `result.level` property).
 
-If `theDescriptor` describes a notification, then if `level` is present, it **SHALL** provide the value for the `level` property of any `notification` object ([§3.58](#notification-object)) whose `descriptor` property ([§3.58.2](#notification-object--descriptor-property)) identifies `theDescriptor` and which does not itself specify a `level` property.
+If `theDescriptor` describes a notification, then if `level` is present, it **SHALL** provide the value for the `level` property of any `notification` object ([3.58 "`notification` Object"](#notification-object)) whose `descriptor` property ([3.58.2 "`descriptor` Property"](#notification-object--descriptor-property)) identifies `theDescriptor` and which does not itself specify a `level` property.
 
 > EXAMPLE 1: In this example, a tool allows the user to override a rule or notification’s default level:
 >
@@ -8256,22 +8346,22 @@ If `theDescriptor` describes a notification, then if `level` is present, it **SH
 
 ### 3.50.4 `rank` Property <a id='reportingconfiguration-object--rank-property'></a>
 
-A `reportingConfiguration` object **MAY** contain a property named `rank` whose value is a number between `0.0` and `100.0` inclusive, with the same interpretation as the value of the `result.rank` ([§3.27.25](#result-object--rank-property)).
+A `reportingConfiguration` object **MAY** contain a property named `rank` whose value is a number between `0.0` and `100.0` inclusive, with the same interpretation as the value of the `result.rank` ([3.27.25 "`rank` Property"](#result-object--rank-property)).
 
 If `rank` is absent, it **SHALL** default to `-1.0`, which indicates that the value is unknown (not set).
 
-If `theDescriptor` describes a rule, then if `rank` is present, it **SHALL** provide the value for the `rank` property of any `result` object ([§3.27](#result-object)) whose `ruleIndex` ([§3.27.6](#ruleindex-property)) or `rule` property ([§3.27.7](#rule-property)), either explicitly supplied or inferred from its default, identifies `theDescriptor` and which does not itself specify a `rank` property.
+If `theDescriptor` describes a rule, then if `rank` is present, it **SHALL** provide the value for the `rank` property of any `result` object ([3.27 "`result` Object"](#result-object)) whose `ruleIndex` ([3.27.6 "`ruleIndex` Property"](#ruleindex-property)) or `rule` property ([3.27.7 "`rule` Property"](#rule-property)), either explicitly supplied or inferred from its default, identifies `theDescriptor` and which does not itself specify a `rank` property.
 
 `rank` is not applicable to notifications.
 
 ### 3.50.5 `parameters` Property <a id='reportingconfiguration-object--parameters-property'></a>
 
-A `reportingConfiguration` object **MAY** contain a property named `parameters` whose value is a property bag ([§3.8](#property-bags)). This allows a `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) to define configuration information that is specific to that descriptor.
+A `reportingConfiguration` object **MAY** contain a property named `parameters` whose value is a property bag ([3.8 "Property Bags"](#property-bags)). This allows a `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) to define configuration information that is specific to that descriptor.
 
 > EXAMPLE 1: In this example, a rule that specifies the maximum permitted source line length is parameterized by the maximum length.
 >
 > ```json
-> {                                  # A reportingDescriptor object (§3.49).
+> {                                  # A reportingDescriptor object (3.49).
 >   "id": "SA2707",
 >   "name": {
 >     "text": "LimitSourceLineLength"
@@ -8297,22 +8387,22 @@ A `reportingConfiguration` object **MAY** contain a property named `parameters` 
 
 ### 3.51.1 General <a id='configurationoverride-object--general'></a>
 
-A `configurationOverride` object modifies the effective runtime configuration of a specified `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), which we refer to as `theDescriptor`.
+A `configurationOverride` object modifies the effective runtime configuration of a specified `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)), which we refer to as `theDescriptor`.
 
-> NOTE: Together with `toolComponent.rules` ([§3.19.23](#rules-property)), the `configurationOverride` object allows the SARIF consumer to determine exactly how the tool’s analysis rules were configured during the run. This is useful in compliance scenarios where, for example, an auditor might want to confirm that a particular rule was reconfigured from a warning to an error. It might also be useful for reproducing a run.
+> NOTE: Together with `toolComponent.rules` ([3.19.23 "`rules` Property"](#rules-property)), the `configurationOverride` object allows the SARIF consumer to determine exactly how the tool’s analysis rules were configured during the run. This is useful in compliance scenarios where, for example, an auditor might want to confirm that a particular rule was reconfigured from a warning to an error. It might also be useful for reproducing a run.
 
-The `configurationOverride` object’s `descriptor` property ([§3.51.2](#configurationoverride-object--descriptor-property)) identifies `theDescriptor`. Its `configuration` property ([§3.51.3](#configuration-property)) overrides the values specified in `theDescriptor.defaultConfiguration` ([§3.49.14](#defaultconfiguration-property)).
+The `configurationOverride` object’s `descriptor` property ([3.51.2 "`descriptor` Property"](#configurationoverride-object--descriptor-property)) identifies `theDescriptor`. Its `configuration` property ([3.51.3 "`configuration` Property"](#configuration-property)) overrides the values specified in `theDescriptor.defaultConfiguration` ([3.49.14 "`defaultConfiguration` Property"](#defaultconfiguration-property)).
 
 > EXAMPLE 1: In this example, rule `CA2101` is treated as a warning rather than an error.
 >
 > ```json
-> {                                           # A run object (§3.14).
->   "tool": {                                 # See §3.14.6.
->     "driver": {                             # See §3.18.2.
+> {                                           # A run object (3.14).
+>   "tool": {                                 # See 3.14.6.
+>     "driver": {                             # See 3.18.2.
 >       "name": "CodeScanner",
->       "rules": [                            # See §3.19.23.
+>       "rules": [                            # See 3.19.23.
 >         {                                   # A reportingDescriptor object
->           "id": "CA2101",                   #  (§3.49).
+>           "id": "CA2101",                   #  (3.49).
 >           "defaultConfiguration": {
 >             "level": "error"
 >           }
@@ -8321,15 +8411,15 @@ The `configurationOverride` object’s `descriptor` property ([§3.51.2](#config
 >     }
 >   },
 >
->   "invocations": [                          # See §3.14.11.
->     {                                       # An invocation object (§3.20).
->       "ruleConfigurationOverrides": [       # See §3.20.5.
+>   "invocations": [                          # See 3.14.11.
+>     {                                       # An invocation object (3.20).
+>       "ruleConfigurationOverrides": [       # See 3.20.5.
 >         {                                   # A configurationOverride object
->                                             #  (§3.51).
->           "descriptor": {                   # See §3.51.2.
+>                                             #  (3.51).
+>           "descriptor": {                   # See 3.51.2.
 >             "index": 0
 >           },
->           "configuration": {                # See §3.51.3.
+>           "configuration": {                # See 3.51.3.
 >             "level": "warning"
 >           }
 >         }
@@ -8342,30 +8432,30 @@ The `configurationOverride` object’s `descriptor` property ([§3.51.2](#config
 
 ### 3.51.2 `descriptor` Property <a id='configurationoverride-object--descriptor-property'></a>
 
-A `configurationOverride` object **SHALL** contain a property named `descriptor` whose value is a `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) that identifies the `reportingDescriptor` ([§3.49](#reportingdescriptor-object)) whose runtime configuration is to be modified, which we refer to as `theDescriptor`.
+A `configurationOverride` object **SHALL** contain a property named `descriptor` whose value is a `reportingDescriptorReference` object ([3.52 "`reportingDescriptorReference` Object"](#reportingdescriptorreference-object)) that identifies the `reportingDescriptor` ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) whose runtime configuration is to be modified, which we refer to as `theDescriptor`.
 
 ### 3.51.3 `configuration` Property <a id='configuration-property'></a>
 
-A `configurationOverride` object **SHALL** contain a property named `configuration` whose value is a `reportingConfiguration` object ([§3.50](#reportingconfiguration-object)) each of whose properties overrides the corresponding property in `theDescriptor.defaultConfiguration` ([§3.49.14](#defaultconfiguration-property)). If any property of `configuration` is absent, the corresponding property of `theDescriptor.defaultConfiguration` is respected.
+A `configurationOverride` object **SHALL** contain a property named `configuration` whose value is a `reportingConfiguration` object ([3.50 "`reportingConfiguration` Object"](#reportingconfiguration-object)) each of whose properties overrides the corresponding property in `theDescriptor.defaultConfiguration` ([3.49.14 "`defaultConfiguration` Property"](#defaultconfiguration-property)). If any property of `configuration` is absent, the corresponding property of `theDescriptor.defaultConfiguration` is respected.
 
 ## 3.52 `reportingDescriptorReference` Object <a id='reportingdescriptorreference-object'></a>
 
 ### 3.52.1 General <a id='reportingdescriptorreference-object--general'></a>
 
-A `reportingDescriptorReference` object identifies a particular `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), which we refer to as `theDescriptor`, among all `reportingDescriptor` objects defined by `theTool`, including those defined by `theTool.driver` ([§3.18.2](#driver-property)) and `theTool.extensions` ([§3.18.3](#extensions-property)).
+A `reportingDescriptorReference` object identifies a particular `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)), which we refer to as `theDescriptor`, among all `reportingDescriptor` objects defined by `theTool`, including those defined by `theTool.driver` ([3.18.2 "`driver` Property"](#driver-property)) and `theTool.extensions` ([3.18.3 "`extensions` Property"](#extensions-property)).
 
-In some cases, there is no `reportingDescriptor` object associated with a `reportingDescriptorReference` object. In that case, the `reportingDescriptorReference` object **SHALL** contain only the `id` property ([§3.52.4](#reportingdescriptorreference-object--id-property)), and `theDescriptor` does not exist.
+In some cases, there is no `reportingDescriptor` object associated with a `reportingDescriptorReference` object. In that case, the `reportingDescriptorReference` object **SHALL** contain only the `id` property ([3.52.4 "`id` Property"](#reportingdescriptorreference-object--id-property)), and `theDescriptor` does not exist.
 
-> EXAMPLE 1: In this example, a tool emits a tool execution notification that refers to a rule. The tool does not provide rule metadata. Therefore, `associatedRule` ([§3.58.3](#associatedrule-property)) contains only an `id` property, whose value is the id of the rule that failed. Similarly, the tool does not provide metadata about its notifications, so `"descriptor"` ([§3.58.2](#notification-object--descriptor-property)) contains only the id of the notification.
+> EXAMPLE 1: In this example, a tool emits a tool execution notification that refers to a rule. The tool does not provide rule metadata. Therefore, `associatedRule` ([3.58.3 "`associatedRule` Property"](#associatedrule-property)) contains only an `id` property, whose value is the id of the rule that failed. Similarly, the tool does not provide metadata about its notifications, so `"descriptor"` ([3.58.2 "`descriptor` Property"](#notification-object--descriptor-property)) contains only the id of the notification.
 >
 > ```json
-> {                                            # An invocation object (§3.20).
->   "toolExecutionNotifications": [            # See §3.20.21.
->     {                                        # A notification object (§3.58).
->       "descriptor": {                        # See §3.58.2.
+> {                                            # An invocation object (3.20).
+>   "toolExecutionNotifications": [            # See 3.20.21.
+>     {                                        # A notification object (3.58).
+>       "descriptor": {                        # See 3.58.2.
 >         "id": "CTN9999"
 >       },
->       "associatedRule": {                    # See §3.58.3.
+>       "associatedRule": {                    # See 3.58.3.
 >         "id": "C2001"
 >       },
 >       "level": "error",
@@ -8380,51 +8470,51 @@ In some cases, there is no `reportingDescriptor` object associated with a `repor
 
 ### 3.52.2 Constraints <a id='reportingdescriptorreference-object--constraints'></a>
 
-If metadata is present, at least one of `index` ([§3.52.5](#reportingdescriptorreference-object--index-property)) and `guid` ([§3.52.6](#reportingdescriptorreference-object--guid-property)) **SHALL** be present. If both are present, they **SHALL** identify the same `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)).
+If metadata is present, at least one of `index` ([3.52.5 "`index` Property"](#reportingdescriptorreference-object--index-property)) and `guid` ([3.52.6 "`guid` Property"](#reportingdescriptorreference-object--guid-property)) **SHALL** be present. If both are present, they **SHALL** identify the same `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)).
 
 ### 3.52.3 Reportingdescriptor Lookup <a id='reportingdescriptor-lookup'></a>
 
-`theDescriptor` **SHALL** be located within the `toolComponent` object ([§3.19](#toolcomponent-object)) identified by the `toolComponent` property ([§3.52.7](#toolcomponent-property)), which we refer to as `theComponent`. The procedure for looking up a `toolComponent` from a `toolComponentReference` is described in [§3.54.2](#toolcomponent-lookup).
+`theDescriptor` **SHALL** be located within the `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)) identified by the `toolComponent` property ([3.52.7 "`toolComponent` Property"](#toolcomponent-property)), which we refer to as `theComponent`. The procedure for looking up a `toolComponent` from a `toolComponentReference` is described in [3.54.2 "Toolcomponent Lookup"](#toolcomponent-lookup).
 
-`theDescriptor` **SHALL** be located either within `theComponent.rules` ([§3.19.23](#rules-property)) or `theComponent.notifications` ([§3.19.24](#notifications-property)), according to this table:
+`theDescriptor` **SHALL** be located either within `theComponent.rules` ([3.19.23 "`rules` Property"](#rules-property)) or `theComponent.notifications` ([3.19.24 "`notifications` Property"](#notifications-property)), according to this table:
 
 | If the `reportingDescriptorReference` occurs in:                                                      | ... then `theDescriptor` is an element of: |
 |:------------------------------------------------------------------------------------------------------|:-------------------------------------------|
-| `invocation.ruleConfigurationOverrides` ([§3.20.5](#ruleconfigurationoverrides-property))                 | `rules`                                    |
-| `invocation.notificationConfigurationOverrides` ([§3.20.6](#notificationconfigurationoverrides-property)) | `notifications`                            |
-| `result.rule` ([§3.27.7](#rule-property))                                                                 | `rules`                                    |
-| `notification.descriptor` ([§3.58.2](#notification-object--descriptor-property))                          | `notifications`                            |
-| `notification.associatedRule` ([§3.58.3](#associatedrule-property))                                       | `rules`                                    |
+| `invocation.ruleConfigurationOverrides` ([3.20.5 "`ruleConfigurationOverrides` Property"](#ruleconfigurationoverrides-property))                 | `rules`                                    |
+| `invocation.notificationConfigurationOverrides` ([3.20.6 "`notificationConfigurationOverrides` Property"](#notificationconfigurationoverrides-property)) | `notifications`                            |
+| `result.rule` ([3.27.7 "`rule` Property"](#rule-property))                                                                 | `rules`                                    |
+| `notification.descriptor` ([3.58.2 "`descriptor` Property"](#notification-object--descriptor-property))                          | `notifications`                            |
+| `notification.associatedRule` ([3.58.3 "`associatedRule` Property"](#associatedrule-property))                                       | `rules`                                    |
 
 ### 3.52.4 `id` Property <a id='reportingdescriptorreference-object--id-property'></a>
 
-A `reportingDescriptorReference` object **MAY** contain a property named `id` whose value is a hierarchical string ([§3.5.4](#hierarchical-strings)) that either equals `theDescriptor.id` ([§3.49.3](#reportingdescriptor-object--id-property)) or equals `theDescriptor.id` plus one additional hierarchical component.
+A `reportingDescriptorReference` object **MAY** contain a property named `id` whose value is a hierarchical string ([3.5.4 "Hierarchical Strings"](#hierarchical-strings)) that either equals `theDescriptor.id` ([3.49.3 "`id` Property"](#reportingdescriptor-object--id-property)) or equals `theDescriptor.id` plus one additional hierarchical component.
 
 > NOTE: This property does not participate in the lookup, but its presence improves the readability of the log file at the expense of increased file size.
 
-If `id` is absent and `theResult.ruleId` ([§3.27.5](#ruleid-property)) is present, then `id` **SHALL** default to `theResult.ruleId`. If both are present, they **SHALL** be equal.
+If `id` is absent and `theResult.ruleId` ([3.27.5 "`ruleId` Property"](#ruleid-property)) is present, then `id` **SHALL** default to `theResult.ruleId`. If both are present, they **SHALL** be equal.
 
-For more information about the semantics of `id` when `theDescriptor` is a rule, in particular the usage of the hierarchical components of `id`, see the description of `result.ruleId` ([§3.27.5](#ruleid-property)).
+For more information about the semantics of `id` when `theDescriptor` is a rule, in particular the usage of the hierarchical components of `id`, see the description of `result.ruleId` ([3.27.5 "`ruleId` Property"](#ruleid-property)).
 
 > EXAMPLE 1: In this example, the first `result` object is valid because `rule.id` (inherited from `ruleId`) equals `theDescriptor.id`. The second `result` object is also valid because `rule.id` (this time specified directly) equals `theDescriptor.id` plus one additional hierarchical component (`"ghi"`). The third `result` object is invalid because `theDescriptor.id` is not a "component-wise" prefix of `rule.id`. The fourth `result` object is invalid because `ruleId` does not equal `rule.id`.
 >
 > ```json
-> {                             # A run object (§3.14).
->   "tool": {                   # See §3.14.6.
->     "driver": {               # See §3.18.2.
+> {                             # A run object (3.14).
+>   "tool": {                   # See 3.14.6.
+>     "driver": {               # See 3.18.2.
 >       "name": "CodeScanner",
->       "rules": [              # See §3.19.23.
->         {                     # A reportingDescriptor object (§3.49).
->           "id": "abc/def",    # See §3.49.3.
+>       "rules": [              # See 3.19.23.
+>         {                     # A reportingDescriptor object (3.49).
+>           "id": "abc/def",    # See 3.49.3.
 >           ...
 >         },
 >         ...
 >       ]
 >     }
 >   },
->   "results": [                # See §3.14.23.
->     {                         # A result object (§3.27).
->       "ruleId": "abc/def",    # See §3.27.5.
+>   "results": [                # See 3.14.23.
+>     {                         # A result object (3.27).
+>       "ruleId": "abc/def",    # See 3.27.5.
 >       "rule": {
 >         "index": 0
 >       }
@@ -8454,18 +8544,18 @@ For more information about the semantics of `id` when `theDescriptor` is a rule,
 
 ### 3.52.5 `index` Property <a id='reportingdescriptorreference-object--index-property'></a>
 
-A `reportingDescriptorReference` object **MAY** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) into `theComponent.rules` ([§3.19.23](#rules-property)) or `theComponent.notifications` ([§3.19.24](#notifications-property)), according to the table in [§3.52.3](#reportingdescriptor-lookup).
+A `reportingDescriptorReference` object **MAY** contain a property named `index` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) into `theComponent.rules` ([3.19.23 "`rules` Property"](#rules-property)) or `theComponent.notifications` ([3.19.24 "`notifications` Property"](#notifications-property)), according to the table in [3.52.3 "Reportingdescriptor Lookup"](#reportingdescriptor-lookup).
 
 > EXAMPLE 1: In this example, there is more than one rule with id `CA1711`. `index` uniquely specifies the relevant rule, whether or not there are multiple rules with the same id.
 >
 > ```json
-> {                            # A run object (§3.14).
->   "tool": {                  # See §3.14.6.
->     "driver": {              # See §3.18.2.
+> {                            # A run object (3.14).
+>   "tool": {                  # See 3.14.6.
+>     "driver": {              # See 3.18.2.
 >       "name": "CodeScanner",
->       "rules": [             # See §3.19.23.
->         {                    # A reportingDescriptor object (§3.49).
->           "id": "CA1711",    # See §3.49.3.
+>       "rules": [             # See 3.19.23.
+>         {                    # A reportingDescriptor object (3.49).
+>           "id": "CA1711",    # See 3.49.3.
 >           ...
 >         },
 >         {                    # Another reportingDescriptor with the same id.
@@ -8475,9 +8565,9 @@ A `reportingDescriptorReference` object **MAY** contain a property named `index`
 >       ]
 >     }
 >   },
->   "results": [               # See §3.14.23.
->     {                        # A result object (§3.27).
->       "ruleId": "CA1711",    # See §3.27.5.
+>   "results": [               # See 3.14.23.
+>     {                        # A result object (3.27).
+>       "ruleId": "CA1711",    # See 3.27.5.
 > 
 >                              # A reportingDescriptorReference object.
 >       "rule": {
@@ -8488,43 +8578,43 @@ A `reportingDescriptorReference` object **MAY** contain a property named `index`
 > }
 > ```
 
-If `index` is absent and `theResult.ruleIndex` ([§3.27.6](#ruleindex-property)) is present, `index` **SHALL** default to `theResult.ruleIndex`. If both are present, they **SHALL** be equal.
+If `index` is absent and `theResult.ruleIndex` ([3.27.6 "`ruleIndex` Property"](#ruleindex-property)) is present, `index` **SHALL** default to `theResult.ruleIndex`. If both are present, they **SHALL** be equal.
 
 ### 3.52.6 `guid` Property <a id='reportingdescriptorreference-object--guid-property'></a>
 
-A `reportingDescriptorReference` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) equal to `theDescriptor.guid` ([§3.49.5](#reportingdescriptor-object--guid-property)).
+A `reportingDescriptorReference` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) equal to `theDescriptor.guid` ([3.49.5 "`guid` Property"](#reportingdescriptor-object--guid-property)).
 
 ### 3.52.7 `toolComponent` Property <a id='toolcomponent-property'></a>
 
-A `reportingDescriptorReference` object **MAY** contain a property named `toolComponent` whose value is a `toolComponentReference` object ([§3.54](#toolcomponentreference-object)) that identifies `theComponent`.
+A `reportingDescriptorReference` object **MAY** contain a property named `toolComponent` whose value is a `toolComponentReference` object ([3.54 "`toolComponentReference` Object"](#toolcomponentreference-object)) that identifies `theComponent`.
 
-If `toolComponent` is absent, `theComponent` shall be taken to be `theTool.driver` ([§3.18.2](#driver-property)).
+If `toolComponent` is absent, `theComponent` shall be taken to be `theTool.driver` ([3.18.2 "`driver` Property"](#driver-property)).
 
 ## 3.53 `reportingDescriptorRelationship` Object <a id='reportingdescriptorrelationship-object'></a>
 
 ### 3.53.1 General <a id='reportingdescriptorrelationship-object--general'></a>
 
-A `reportingDescriptorRelationship` object specifies one or more directed relationships from one `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)), which we refer to as `theSource`, to another one, which we refer to as `theTarget`.
+A `reportingDescriptorRelationship` object specifies one or more directed relationships from one `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)), which we refer to as `theSource`, to another one, which we refer to as `theTarget`.
 
-`reportingDescriptorRelationship` objects appear as elements of the `reportingDescriptor.relationships` array ([§3.49.15](#reportingdescriptor-object--relationships-property)). The `reportingDescriptor` object containing this property is `theSource`.
+`reportingDescriptorRelationship` objects appear as elements of the `reportingDescriptor.relationships` array ([3.49.15 "`relationships` Property"](#reportingdescriptor-object--relationships-property)). The `reportingDescriptor` object containing this property is `theSource`.
 
 `reportingDescriptorRelationship` objects are useful in various scenarios:
 
-1.  In relating analysis rules to taxonomic categories ("taxa"; see [§3.19.3](#taxonomies)).
+1.  In relating analysis rules to taxonomic categories ("taxa"; see [3.19.3 "Taxonomies"](#taxonomies)).
 
 > EXAMPLE 1: In this example, the definition of rule `CA1000` states that every result that violates this rule falls into the taxonomic category ("taxon") specified by ID 327 of the Common Weakness Enumeration \[[CWE](#CWE)\]:
 >
 > ```json
-> {                              # A run object (§3.14).
->   "tool": {                    # See §3.14.6.
->     "driver": {                # See §3.18.2.
+> {                              # A run object (3.14).
+>   "tool": {                    # See 3.14.6.
+>     "driver": {                # See 3.18.2.
 >       "name": "CodeScanner",
->       "rules": [               # See §3.19.23.
->         {                      # A reportingDescriptor object (§3.49).
+>       "rules": [               # See 3.19.23.
+>         {                      # A reportingDescriptor object (3.49).
 >           "id": "CA1000",
 >           "relationships": [
 >             {                  # A reportingDescriptorRelationship object.
->               "target": {      # See §3.53.2.
+>               "target": {      # See 3.53.2.
 >                 "id": "327",
 >                 "guid": "33333333-0000-1111-8888-111111111111",
 >                 "toolComponent": {
@@ -8568,17 +8658,17 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 > EXAMPLE 2: In this example, the definition of rule `CA1000` states that every violation of this rule will lead to a violation of rule `CA2000`.
 >
 > ```json
-> {                              # A run object (§3.14).
->   "tool": {                    # See §3.14.6.
->     "driver": {                # See §3.18.2.
+> {                              # A run object (3.14).
+>   "tool": {                    # See 3.14.6.
+>     "driver": {                # See 3.18.2.
 >       "name": "CodeScanner",
->       "rules": [               # See §3.19.23.
->         {                      # A reportingDescriptor object (§3.49).
+>       "rules": [               # See 3.19.23.
+>         {                      # A reportingDescriptor object (3.49).
 >           "id": "CA1000",
 >           "guid": "11111111-0000-1111-8888-000000000001",
 >           "relationships": [
 >             {                  # A reportingDescriptor object.
->               "target": {      # See §3.53.2.
+>               "target": {      # See 3.53.2.
 >                 "id": "CA2000",
 >                 "guid": "11111111-0000-1111-8888-000000000002"
 >               },
@@ -8601,11 +8691,11 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 
 ### 3.53.2 `target` Property <a id='reportingdescriptorrelationship-object--target-property'></a>
 
-A `reportingDescriptorRelationship` object **SHALL** contain a property named `target` whose value is a `reportingDescriptorReference` object which identifies `theTarget` (see [§3.53.1](#reportingdescriptorrelationship-object--general)).
+A `reportingDescriptorRelationship` object **SHALL** contain a property named `target` whose value is a `reportingDescriptorReference` object which identifies `theTarget` (see [3.53.1 "General"](#reportingdescriptorrelationship-object--general)).
 
 ### 3.53.3 `kinds` Property <a id='reportingdescriptorrelationship-object--kinds-property'></a>
 
-A `reportingDescriptorRelationship` object **MAY** contain a property named `kinds` whose value is an array of one or more unique ([§3.7.3](#array-properties-with-unique-values)) strings each of which specifies a relationship between `theSource` and `theTarget` (see [§3.53.1](#reportingdescriptorrelationship-object--general)). If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`).
+A `reportingDescriptorRelationship` object **MAY** contain a property named `kinds` whose value is an array of one or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) strings each of which specifies a relationship between `theSource` and `theTarget` (see [3.53.1 "General"](#reportingdescriptorrelationship-object--general)). If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`).
 
 When possible, SARIF producers **SHOULD** use the following values, with the specified meanings.
 
@@ -8633,39 +8723,39 @@ If none of these values are appropriate, a SARIF producer **MAY** use any value.
 
 > NOTE 1: Although `"relevant"` is a catch-all for any relationship not described by the other values, a producer might still wish to define its own more specific values.
 
-> NOTE 2: The values `"equal"` and `"superset"` are special in that they allow certain elements of `result.taxa` ([§3.27.8](#result-object--taxa-property)) to be elided. See [§3.27.8](#result-object--taxa-property), paragraph 2, for more information on this point.
+> NOTE 2: The values `"equal"` and `"superset"` are special in that they allow certain elements of `result.taxa` ([3.27.8 "`taxa` Property"](#result-object--taxa-property)) to be elided. See [3.27.8 "`taxa` Property"](#result-object--taxa-property), paragraph 2, for more information on this point.
 
 ### 3.53.4 `description` Property <a id='reportingdescriptorrelationship-object--description-property'></a>
 
-A `reportingDescriptorRelationship` object **MAY** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the relationship.
+A `reportingDescriptorRelationship` object **MAY** contain a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes the relationship.
 
 ## 3.54 `toolComponentReference` Object <a id='toolcomponentreference-object'></a>
 
 ### 3.54.1 General <a id='toolcomponentreference-object--general'></a>
 
-A `toolComponentReference` object identifies a particular `toolComponent` object ([§3.19](#toolcomponent-object)), either `theTool.driver` ([§3.18.2](#driver-property)) or an element of `theTool.extensions` ([§3.18.3](#extensions-property)). We refer to the identified `toolComponent` object as `theComponent`.
+A `toolComponentReference` object identifies a particular `toolComponent` object ([3.19 "`toolComponent` Object"](#toolcomponent-object)), either `theTool.driver` ([3.18.2 "`driver` Property"](#driver-property)) or an element of `theTool.extensions` ([3.18.3 "`extensions` Property"](#extensions-property)). We refer to the identified `toolComponent` object as `theComponent`.
 
 ### 3.54.2 Toolcomponent Lookup <a id='toolcomponent-lookup'></a>
 
-If neither `index` ([§3.54.4](#toolcomponentreference-object--index-property)) nor `guid` ([§3.54.5](#toolcomponentreference-object--guid-property)) is present, `theComponent` **SHALL** be `theTool.driver` ([§3.18.2](#driver-property)).
+If neither `index` ([3.54.4 "`index` Property"](#toolcomponentreference-object--index-property)) nor `guid` ([3.54.5 "`guid` Property"](#toolcomponentreference-object--guid-property)) is present, `theComponent` **SHALL** be `theTool.driver` ([3.18.2 "`driver` Property"](#driver-property)).
 
-If `index` is present, `theComponent` **SHALL** be the object at array index `index` within `theTool.extensions` ([§3.18.3](#extensions-property)).
+If `index` is present, `theComponent` **SHALL** be the object at array index `index` within `theTool.extensions` ([3.18.3 "`extensions` Property"](#extensions-property)).
 
 If `index` is absent and `guid` is present, `theComponent` **SHALL** be either `theTool.driver` or an element of `theTool.extensions`, whichever one has a matching `guid` property.
 
 ### 3.54.3 `name` Property <a id='toolcomponentreference-object--name-property'></a>
 
-A `toolComponentReference` object **MAY** contain a property named `name` whose value is a string equal to `theComponent.name` ([§3.19.8](#toolcomponent-object--name-property)).
+A `toolComponentReference` object **MAY** contain a property named `name` whose value is a string equal to `theComponent.name` ([3.19.8 "`name` Property"](#toolcomponent-object--name-property)).
 
 > NOTE: This property does not participate in the lookup, but its presence improves the readability of the log file at the expense of increased file size.
 
 ### 3.54.4 `index` Property <a id='toolcomponentreference-object--index-property'></a>
 
-If `theComponent` is an element of `theTool.extensions` ([§3.18.3](#extensions-property)), a `toolComponentReference` object **MAY** contain a property named `index` whose value is the array index ([§3.7.4](#array-indices)) of that element. Otherwise, `index` SHALL be absent.
+If `theComponent` is an element of `theTool.extensions` ([3.18.3 "`extensions` Property"](#extensions-property)), a `toolComponentReference` object **MAY** contain a property named `index` whose value is the array index ([3.7.4 "Array Indices"](#array-indices)) of that element. Otherwise, `index` SHALL be absent.
 
 ### 3.54.5 `guid` Property <a id='toolcomponentreference-object--guid-property'></a>
 
-A `toolComponentReference` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) equal to `theComponent.guid` ([§3.19.6](#toolcomponent-object--guid-property)).
+A `toolComponentReference` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) equal to `theComponent.guid` ([3.19.6 "`guid` Property"](#toolcomponent-object--guid-property)).
 
 ## 3.55 `fix` Object <a id='fix-object'></a>
 
@@ -8676,14 +8766,14 @@ A `fix` object represents a proposed fix for the problem indicated by `theResult
 > EXAMPLE 1:
 >
 > ```json
-> {                                   # A result object (§3.27).
->   "fixes": [                        # See §3.27.30.
+> {                                   # A result object (3.27).
+>   "fixes": [                        # See 3.27.30.
 >     {                               # A fix object.
->       "description": {              # See §3.55.2.
+>       "description": {              # See 3.55.2.
 >         "text": "Private member names begin with '_'"
 >       },
->       "artifactChanges": [          # See §3.55.3.
->         {                           # An artifactChange object (§3.56).
+>       "artifactChanges": [          # See 3.55.3.
+>         {                           # An artifactChange object (3.56).
 >           ...
 >         }
 >       ]
@@ -8695,7 +8785,7 @@ A `fix` object represents a proposed fix for the problem indicated by `theResult
 
 ### 3.55.2 `description` Property <a id='fix-object--description-property'></a>
 
-A `fix` object **SHOULD** contain a property named `description` whose value is a `message` object ([§3.11](#message-object)) that describes the proposed fix.
+A `fix` object **SHOULD** contain a property named `description` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that describes the proposed fix.
 
 > NOTE: The purpose of the `description` property is to enable a SARIF viewer to present the proposed fix to the end user.
 
@@ -8712,7 +8802,7 @@ A `fix` object **SHOULD** contain a property named `description` whose value is 
 
 ### 3.55.3 `artifactChanges` Property <a id='artifactchanges-property'></a>
 
-A `fix` object **SHALL** contain a property named `artifactChanges` whose value is an array of one or more unique ([§3.7.3](#array-properties-with-unique-values)) `artifactChange` objects ([§3.56](#artifactchange-object)) each of which describes the changes to a single artifact that are necessary to effect the fix.
+A `fix` object **SHALL** contain a property named `artifactChanges` whose value is an array of one or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `artifactChange` objects ([3.56 "`artifactChange` Object"](#artifactchange-object)) each of which describes the changes to a single artifact that are necessary to effect the fix.
 
 > NOTE: `artifactChanges` is an array because a fix might require changes to multiple artifacts.
 
@@ -8723,18 +8813,18 @@ The array elements **SHALL** refer to distinct artifacts.
 > ```json
 > {                                    # A fix object.
 >   "artifactChanges": [                   
->     {                                # An artifactChange object (§3.56).
->       "artifactLocation": {          # See §3.56.2.
+>     {                                # An artifactChange object (3.56).
+>       "artifactLocation": {          # See 3.56.2.
 >         "uri": "src/a.c"
 >       },
->       "replacements": [              # See §3.56.3.
->         {                            # A replacement object (§3.57).
->           "deletedRegion": {         # See §3.57.3.
+>       "replacements": [              # See 3.56.3.
+>         {                            # A replacement object (3.57).
+>           "deletedRegion": {         # See 3.57.3.
 >             "startLine": 1,
 >             "startColumn": 1,
 >             "endColumn": 1
 >           },
->           "insertedContent": {       # See §3.57.4.
+>           "insertedContent": {       # See 3.57.4.
 >             "text": "// "
 >           }
 >         }
@@ -8766,18 +8856,18 @@ The array elements **SHALL** refer to distinct artifacts.
 > ```json
 > {                                    # A fix object.
 >   "artifactChanges": [                   
->     {                                # An artifactChange object (§3.56).
->       "artifactLocation": {          # See §3.56.2.
+>     {                                # An artifactChange object (3.56).
+>       "artifactLocation": {          # See 3.56.2.
 >         "uri": "src/a.c"
 >       },
->       "replacements": [              # See §3.56.3.
->         {                            # A replacement object (§3.57).
->           "deletedRegion": {         # See §3.57.3.
+>       "replacements": [              # See 3.56.3.
+>         {                            # A replacement object (3.57).
+>           "deletedRegion": {         # See 3.57.3.
 >             "startLine": 1,
 >             "startColumn": 1,
 >             "endColumn": 1
 >           },
->           "insertedContent": {       # See §3.57.4.
+>           "insertedContent": {       # See 3.57.4.
 >             "text": "// "
 >           }
 >         }
@@ -8813,14 +8903,14 @@ An `artifactChange` object represents a change to a single artifact.
 > EXAMPLE 1:
 >
 > ```json
-> {                             # A fix object (§3.55).
->   "artifactChanges": [        # See §3.55.3.
+> {                             # A fix object (3.55).
+>   "artifactChanges": [        # See 3.55.3.
 >     {                          
->       "artifactLocation": {   # See §3.56.2.
+>       "artifactLocation": {   # See 3.56.2.
 >         "uri": "a.h"
 >       },
->       "replacements": [       # See §3.56.3.
->         {                     # A replacement object (§3.57).
+>       "replacements": [       # See 3.56.3.
+>         {                     # A replacement object (3.57).
 >           ...
 >         },
 >         {                     # Another replacement object.
@@ -8834,11 +8924,11 @@ An `artifactChange` object represents a change to a single artifact.
 
 ### 3.56.2 `artifactLocation` Property <a id='artifactchange-object--artifactlocation-property'></a>
 
-An `artifactChange` object **SHALL** contain a property named `artifactLocation` whose value is an `artifactLocation` object ([§3.4](#artifactlocation-object)) that represents the location of the artifact.
+An `artifactChange` object **SHALL** contain a property named `artifactLocation` whose value is an `artifactLocation` object ([3.4 "`artifactLocation` Object"](#artifactlocation-object)) that represents the location of the artifact.
 
 ### 3.56.3 `replacements` Property <a id='replacements-property'></a>
 
-An `artifactChange` object **SHALL** contain a property named `replacements` whose value is an array of one or more `replacement` objects ([§3.57](#replacement-object)) each of which represents the replacement of a single region of the artifact specified by the `artifactLocation` property ([§3.56.2](#artifactchange-object--artifactlocation-property)).
+An `artifactChange` object **SHALL** contain a property named `replacements` whose value is an array of one or more `replacement` objects ([3.57 "`replacement` Object"](#replacement-object)) each of which represents the replacement of a single region of the artifact specified by the `artifactLocation` property ([3.56.2 "`artifactLocation` Property"](#artifactchange-object--artifactlocation-property)).
 
 ## 3.57 `replacement` Object <a id='replacement-object'></a>
 
@@ -8846,9 +8936,9 @@ An `artifactChange` object **SHALL** contain a property named `replacements` who
 
 A `replacement` object represents the replacement of a single region of an artifact. If the region’s length is zero, it represents an insertion point.
 
-If a replacement object specifies both the removal of a region by means of the `deletedRegion` property ([§3.57.3](#deletedregion-property)) and the insertion of new content by means of the `insertedContent` property ([§3.57.4](#insertedcontent-property)), then the effect of the replacement **SHALL** be as if the removal were performed before the insertion.
+If a replacement object specifies both the removal of a region by means of the `deletedRegion` property ([3.57.3 "`deletedRegion` Property"](#deletedregion-property)) and the insertion of new content by means of the `insertedContent` property ([3.57.4 "`insertedContent` Property"](#insertedcontent-property)), then the effect of the replacement **SHALL** be as if the removal were performed before the insertion.
 
-If a single `artifactChange` object ([§3.56](#artifactchange-object)) specifies more than one replacement, then the effect of the replacements **SHALL** be as if they were performed in the order they appear in the `replacements` array ([§3.56.3](#replacements-property)). The `deletedRegion` property of each `replacement` object **SHALL** specify the location of the replacement in the unmodified artifact.
+If a single `artifactChange` object ([3.56 "`artifactChange` Object"](#artifactchange-object)) specifies more than one replacement, then the effect of the replacements **SHALL** be as if they were performed in the order they appear in the `replacements` array ([3.56.3 "`replacements` Property"](#replacements-property)). The `deletedRegion` property of each `replacement` object **SHALL** specify the location of the replacement in the unmodified artifact.
 
 > EXAMPLE 1: Suppose an `artifactChange` object contains a `replacements` property whose value is the following array of `replacement` objects:
 >
@@ -8887,14 +8977,14 @@ If a single `artifactChange` object ([§3.56](#artifactchange-object)) specifies
 >
 > In the third `replacement` object, the length of the region specified by the `deletedRegion` property is zero, so the region represents an insertion point. The 7 bytes specified by the `insertedContent.binary` property are inserted at offset 312 with respect to the unmodified artifact.
 
-A `replacement` object can represent either a textual replacement or a binary replacement, depending on whether the `deletedRegion` property ([§3.57.3](#deletedregion-property)) specifies a text region ([§3.30.2](#text-regions)) or a binary region ([§3.30.3](#binary-regions)).
+A `replacement` object can represent either a textual replacement or a binary replacement, depending on whether the `deletedRegion` property ([3.57.3 "`deletedRegion` Property"](#deletedregion-property)) specifies a text region ([3.30.2 "Text Regions"](#text-regions)) or a binary region ([3.30.3 "Binary Regions"](#binary-regions)).
 
 > EXAMPLE 2: In this example, the `replacements` property specifies a replacement in a text file.
 >
 > ```json
 > "replacements": [
 >   {
->     "deletedRegion": { # The region object represents a text region (§3.30.2).
+>     "deletedRegion": { # The region object represents a text region (3.30.2).
 >       "startLine": 12,
 >       "startColumn": 5,
 >       "endColumn": 9
@@ -8910,21 +9000,21 @@ When performing a replacement in a text artifact, the SARIF producer **SHOULD** 
 
 ### 3.57.2 Constraints <a id='replacement-object--constraints'></a>
 
-If the `deletedRegion` property ([§3.57.3](#deletedregion-property)) specifies a text region ([§3.30.2](#text-regions)) and the `insertedContent` property ([§3.57.4](#insertedcontent-property)) is present, then the `insertedContent` property **SHOULD** contain a `text` property ([§3.3.2](#artifactcontent-object--text-property)).
+If the `deletedRegion` property ([3.57.3 "`deletedRegion` Property"](#deletedregion-property)) specifies a text region ([3.30.2 "Text Regions"](#text-regions)) and the `insertedContent` property ([3.57.4 "`insertedContent` Property"](#insertedcontent-property)) is present, then the `insertedContent` property **SHOULD** contain a `text` property ([3.3.2 "`text` Property"](#artifactcontent-object--text-property)).
 
-If the `deletedRegion` property specifies a binary region ([§3.30.3](#binary-regions)) and the `insertedContent` property is present, then the `insertedContent` property **SHALL** contain a `binary` property ([§3.3.3](#binary-property)).
+If the `deletedRegion` property specifies a binary region ([3.30.3 "Binary Regions"](#binary-regions)) and the `insertedContent` property is present, then the `insertedContent` property **SHALL** contain a `binary` property ([3.3.3 "`binary` Property"](#binary-property)).
 
 Although it is possible to construct a `replacement` object that neither removes nor adds any content, a `replacement` object **SHOULD** have a material effect on the target artifact, either because `deletedRegion` denotes a non-empty region to delete, or because `insertedContent` specifies non-empty content to insert, or both.
 
 ### 3.57.3 `deletedRegion` Property <a id='deletedregion-property'></a>
 
-A `replacement` object **SHALL** contain a property named `deletedRegion` whose value is a `region` object ([§3.30](#region-object)) specifying the region to delete.
+A `replacement` object **SHALL** contain a property named `deletedRegion` whose value is a `region` object ([3.30 "`region` Object"](#region-object)) specifying the region to delete.
 
 If the length of the region specified by `deletedRegion` is zero, then `deletedRegion` specifies an insertion point, and the SARIF consumer performing the replacement **SHALL NOT** remove any content.
 
 ### 3.57.4 `insertedContent` Property <a id='insertedcontent-property'></a>
 
-A `replacement` object **MAY** contain a property named `insertedContent` whose value is an `artifactContent` object ([§3.3](#artifactcontent-object)) that specifies the content to insert in place of the region specified by the `deletedRegion` property (or at the point specified by `deletedRegion`, if `deletedRegion` has a length of zero and therefore specifies an insertion point).
+A `replacement` object **MAY** contain a property named `insertedContent` whose value is an `artifactContent` object ([3.3 "`artifactContent` Object"](#artifactcontent-object)) that specifies the content to insert in place of the region specified by the `deletedRegion` property (or at the point specified by `deletedRegion`, if `deletedRegion` has a length of zero and therefore specifies an insertion point).
 
 If the inserted content is specified as text, the text **SHALL** be transcoded from UTF-8 (the encoding of all text in all SARIF log files) to the encoding of the target artifact before being inserted.
 
@@ -8938,14 +9028,14 @@ If `insertedContent` is absent or its properties specify content whose length is
 
 A `notification` object describes a condition encountered during the execution of an analysis tool which is relevant to
 the operation of the tool itself, as opposed to being relevant to an artifact being analyzed by the tool.
-Conditions relevant to artifacts being analyzed by a tool are represented by `result` objects ([§3.27](#result-object)).
+Conditions relevant to artifacts being analyzed by a tool are represented by `result` objects ([3.27 "`result` Object"](#result-object)).
 
 ### 3.58.2 `descriptor` Property <a id='notification-object--descriptor-property'></a>
 
 A `notification` object **SHOULD** contain a property named `descriptor` whose value is
-a `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) that identifies this notification.
+a `reportingDescriptorReference` object ([3.52 "`reportingDescriptorReference` Object"](#reportingdescriptorreference-object)) that identifies this notification.
 
-If the `reportingDescriptor` object ([§3.49](#reportingdescriptor-object)) `theDescriptor` to which `descriptor` refers exists
+If the `reportingDescriptor` object ([3.49 "`reportingDescriptor` Object"](#reportingdescriptor-object)) `theDescriptor` to which `descriptor` refers exists
 (that is, if `theTool` contains a `reportingDescriptor` object that describes this notification),
 then `descriptor` **SHOULD** refer to `theDescriptor`.
 
@@ -8956,18 +9046,18 @@ then `descriptor` **SHOULD** refer to `theDescriptor`.
 
 If the condition described by the `notification` object is relevant to a particular analysis rule,
 the `notification` object **SHOULD** contain a property named `associatedRule` whose value is
-a `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-object)) that identifies the rule.
+a `reportingDescriptorReference` object ([3.52 "`reportingDescriptorReference` Object"](#reportingdescriptorreference-object)) that identifies the rule.
 
 > EXAMPLE 1: In this example, there is more than one rule with id `CA1711`.
 > `associatedRule.index` uniquely specifies the relevant rule.
 >
 > ```json
-> {                                      # A run object (§3.14).
->   "tool": {                            # See §3.14.6.
->     "driver": {                        # See §3.18.2.
+> {                                      # A run object (3.14).
+>   "tool": {                            # See 3.14.6.
+>     "driver": {                        # See 3.18.2.
 >       "name": "CodeScanner",
->       "rules": [                       # See §3.19.23.
->         {                              # A reportingDescriptor object (§3.49).
+>       "rules": [                       # See 3.19.23.
+>         {                              # A reportingDescriptor object (3.49).
 >           "id": "CA1711",
 >           ...
 >         },
@@ -8978,10 +9068,10 @@ a `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-
 >       ]
 >     }
 >   },
->   "invocations": [                      # See §3.14.11.
->     {                                   # An invocation object (§3.20).
->       "toolConfigurationNotifications": [ # See §3.20.22.
->         {                               # A notification object (§3.58).
+>   "invocations": [                      # See 3.14.11.
+>     {                                   # An invocation object (3.20).
+>       "toolConfigurationNotifications": [ # See 3.20.22.
+>         {                               # A notification object (3.58).
 >           "descriptor": {
 >             "id": "CFG0001"
 >           },
@@ -9004,14 +9094,14 @@ a `reportingDescriptorReference` object ([§3.52](#reportingdescriptorreference-
 
 If the condition described by the `notification` object is relevant to one or more locations,
 the `notification` object **MAY** contain a property named `locations` whose value is
-an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `location` objects ([§3.28](#location-object)) that identify
+an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `location` objects ([3.28 "`location` Object"](#location-object)) that identify
 those locations to which the condition described by the notification applies.
 
 ### 3.58.5 `message` Property <a id='notification-object--message-property'></a>
 
-A `notification` object **SHALL** contain a property named `message` whose value is a `message` object ([§3.11](#message-object)) that
+A `notification` object **SHALL** contain a property named `message` whose value is a `message` object ([3.11 "`message` Object"](#message-object)) that
 describes the condition that was encountered.
-See [§3.11.7](#message-string-lookup) for the procedure for looking up a message string from a `message` object, in particular,
+See [3.11.7 "Message String Lookup"](#message-string-lookup) for the procedure for looking up a message string from a `message` object, in particular,
 for the case where the `message` object occurs as the value of `notification.message`.
 
 ### 3.58.6 `level` Property <a id='notification-object--level-property'></a>
@@ -9032,7 +9122,7 @@ If present, the `level` property **SHALL** have one of the following values, wit
 
 - `"none"`: This is a trace notification (typically, debug output from the tool).
 
-If `level` is absent, it **SHALL** default to the value determined by the procedure defined for `result.level` ([§3.27.10](#result-object--level-property)),
+If `level` is absent, it **SHALL** default to the value determined by the procedure defined for `result.level` ([3.27.10 "`level` Property"](#result-object--level-property)),
 except throughout the procedure, replace `ruleConfigurationOverrides` with `notificationConfigurationOverrides`.
 
 Analysis tools **SHOULD** treat notifications whose `level` property is `"error"` as failures and treat the entire run as
@@ -9048,20 +9138,20 @@ identifies the thread associated with this notification.
 
 ### 3.58.8 `timeUtc` Property <a id='timeutc-property'></a>
 
-A `notification` object **MAY** contain a property named `timeUtc` whose value is a string in the format specified [§3.9](#datetime-properties),
+A `notification` object **MAY** contain a property named `timeUtc` whose value is a string in the format specified [3.9 "Date/time Properties"](#datetime-properties),
 specifying the UTC date and time at which the analysis tool generated the notification.
 
 ### 3.58.9 `exception` Property <a id='exception-property'></a>
 
 If the notification is a result of a runtime exception,
-the `notification` object **MAY** contain a property named `exception` whose value is an `exception` object ([§3.59](#exception-object)).
+the `notification` object **MAY** contain a property named `exception` whose value is an `exception` object ([3.59 "`exception` Object"](#exception-object)).
 
 If the notification is not the result of a runtime exception, the `exception` property **SHALL** be absent.
 
 ### 3.58.10 `relatedLocations` Property <a id='notification-object--relatedlocations-property'></a>
 
 A `notification` object **MAY** contain a property named `relatedLocations` whose value is
-an array of zero or more unique ([§3.7.3](#array-properties-with-unique-values)) `location` objects ([§3.28](#location-object)) that
+an array of zero or more unique ([3.7.3 "Array Properties with Unique Values"](#array-properties-with-unique-values)) `location` objects ([3.28 "`location` Object"](#location-object)) that
 identify those locations relevant to understanding the `notification`.
 
 The `relatedLocations` property **SHOULD** allow `notification` objects to distinguish between the following types of locations:
@@ -9102,7 +9192,7 @@ If the tool does not have access to an appropriate property of the thrown object
 
 ### 3.59.4 `stack` Property <a id='exception-object--stack-property'></a>
 
-An `exception` object **MAY** contain a property named `stack` whose value is a `stack` object ([§3.44](#stack-object)) that describes the sequence of function calls leading to the exception.
+An `exception` object **MAY** contain a property named `stack` whose value is a `stack` object ([3.44 "`stack` Object"](#stack-object)) that describes the sequence of function calls leading to the exception.
 
 ### 3.59.5 `innerExceptions` Property <a id='innerexceptions-property'></a>
 
@@ -9114,7 +9204,7 @@ An `exception` object **MAY** contain a property named `innerExceptions` whose v
 
 ## 4.1 General <a id='external-property-file-format--general'></a>
 
-External property files (see [§3.15.2](#rationale)) conform to a schema distinct from that of the root file. External property files contain information that makes it possible for a consumer to determine which properties are contained in the file, to parse their contents, and to associate the external properties with the run to which they belong.
+External property files (see [3.15.2 "Rationale"](#rationale)) conform to a schema distinct from that of the root file. External property files contain information that makes it possible for a consumer to determine which properties are contained in the file, to parse their contents, and to associate the external properties with the run to which they belong.
 
 An external property file **SHALL** contain one or more externalized properties. A SARIF consumer **SHALL** treat the value of an externalized property exactly as if it had appeared inline in the root file as the value of the corresponding property.
 
@@ -9134,22 +9224,22 @@ The file name **MAY** end with the additional extension `".json"`.
 
 The top-level element of an external property file **SHALL** be an object which we refer to as an `externalProperties` object.
 
-> EXAMPLE 1: In this example, `run.artifacts` and `run.properties` have been externalized to a file with these contents. Note that `run.properties` has been externalized under the property name `externalizedProperties`, as explained in [§3.15.3](#properties).
+> EXAMPLE 1: In this example, `run.artifacts` and `run.properties` have been externalized to a file with these contents. Note that `run.properties` has been externalized under the property name `externalizedProperties`, as explained in [3.15.3 "Properties"](#properties).
 >
 > ```json
 > {                             # An externalProperties object
->   "version": "2.1.0",         # See §4.3.3.
+>   "version": "2.1.0",         # See 4.3.3.
 > 
->   "$schema":                  # See §4.3.2.
+>   "$schema":                  # See 4.3.2.
 >     "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json",
 > 
->                               # See §4.3.4.
+>                               # See 4.3.4.
 >   "guid": "00001111-2222-1111-8888-555566667777",
 > 
->                               # See §4.3.5.
+>                               # See 4.3.5.
 >   "runGuid": "88889999-AAAA-1111-8888-DDDDEEEEFFFF",
 > 
->   "artifacts": [              # See §4.3.6.
+>   "artifacts": [              # See 4.3.6.
 >     {
 >       "location": {
 >         "uri": "apple.png"
@@ -9174,7 +9264,7 @@ The top-level element of an external property file **SHALL** be an object which 
 
 An `externalProperties` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to which this external property file conforms can be obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the external property file format corresponding to the SARIF version specified by the `version` property ([§4.3.3](#externalproperties-object--version-property)).
+If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the external property file format corresponding to the SARIF version specified by the `version` property ([4.3.3 "`version` Property"](#externalproperties-object--version-property)).
 
 > NOTE 1: The purpose of the `\$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the external property file. This is useful, for example, for tool authors who wish to ensure that external property files produced by their tools conform to the external property file format.
 
@@ -9184,9 +9274,9 @@ If the `\$schema` property is present, the JSON schema obtained from the specifi
 
 Depending on the circumstances, an `externalProperties` object either **SHALL** or **MAY** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this external property file conforms. If present, this string **SHALL** have the value `"2.1.0"`.
 
-If this `externalProperties` object is the root element of an external property file (see [§3.15.2](#rationale)), then `version` **SHALL** be present.
+If this `externalProperties` object is the root element of an external property file (see [3.15.2 "Rationale"](#rationale)), then `version` **SHALL** be present.
 
-Otherwise (that is, if this `externalProperties` object is an element of `theSarifLog.inlineExternalProperties` ([§3.13.5](#inlineexternalproperties-property))), then `version` **MAY** be present. If absent, it **SHALL** default to the value of `theSarifLog.version` ([§3.13.2](#sariflog-object--version-property)).
+Otherwise (that is, if this `externalProperties` object is an element of `theSarifLog.inlineExternalProperties` ([3.13.5 "`inlineExternalProperties` Property"](#inlineexternalproperties-property))), then `version` **MAY** be present. If absent, it **SHALL** default to the value of `theSarifLog.version` ([3.13.2 "`version` Property"](#sariflog-object--version-property)).
 
 Although the order in which properties appear in a JSON object value is not semantically significant, the `version` property **SHOULD** appear first.
 
@@ -9194,19 +9284,19 @@ Although the order in which properties appear in a JSON object value is not sema
 
 ### 4.3.4 `guid` Property <a id='externalproperties-object--guid-property'></a>
 
-An `externalProperties` object **SHOULD** contain a property named `guid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that equals the `guid` property ([§3.16.4](#externalpropertyfilereference-object--guid-property)) of the corresponding `externalPropertyFileReference` object ([§3.16](#externalpropertyfilereference-object)) in the `run.externalPropertyFiles` property ([§3.14.2](#externalpropertyfilereferences-property)) in the root file.
+An `externalProperties` object **SHOULD** contain a property named `guid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) that equals the `guid` property ([3.16.4 "`guid` Property"](#externalpropertyfilereference-object--guid-property)) of the corresponding `externalPropertyFileReference` object ([3.16 "`externalPropertyFileReference` Object"](#externalpropertyfilereference-object)) in the `run.externalPropertyFiles` property ([3.14.2 "`externalPropertyFileReferences` Property"](#externalpropertyfilereferences-property)) in the root file.
 
 ### 4.3.5 `runGuid` Property <a id='runguid-property'></a>
 
-If the externalized properties contained in this `externalProperties` object are associated with a single `run` object ([§3.14](#run-object)) `theRun`, and if `theRun` contains an `automationDetails.guid` property ([§3.14.3](#automationdetails-property), [§3.17.4](#runautomationdetails-object--guid-property)), the `externalProperties` object **MAY** contain a property named `runGuid` whose value is a GUID-valued string ([§3.5.3](#guid-valued-strings)) that equals `theRun.automationDetails.guid`. Otherwise (that is, if this `externalProperties` object is associated with more than one `run` object, or if `theRun` does not define `automationDetails.guid`), then `runGuid` **SHALL** be absent.
+If the externalized properties contained in this `externalProperties` object are associated with a single `run` object ([3.14 "`run` Object"](#run-object)) `theRun`, and if `theRun` contains an `automationDetails.guid` property ([3.14.3 "`automationDetails` Property"](#automationdetails-property), [3.17.4 "`guid` Property"](#runautomationdetails-object--guid-property)), the `externalProperties` object **MAY** contain a property named `runGuid` whose value is a GUID-valued string ([3.5.3 "GUID-valued Strings"](#guid-valued-strings)) that equals `theRun.automationDetails.guid`. Otherwise (that is, if this `externalProperties` object is associated with more than one `run` object, or if `theRun` does not define `automationDetails.guid`), then `runGuid` **SHALL** be absent.
 
 ### 4.3.6 The Property Value Properties <a id='the-property-value-properties'></a>
 
-An `externalProperties` object **SHALL** contain zero or more externalized properties. The property names in this object, and the names of the corresponding externalized properties, are given in the table in [§3.15.3](#properties).
+An `externalProperties` object **SHALL** contain zero or more externalized properties. The property names in this object, and the names of the corresponding externalized properties, are given in the table in [3.15.3 "Properties"](#properties).
 
 The corresponding property values are the values of the externalized properties, exactly as they would have appeared had they occurred inline in the root file.
 
-> NOTE 2: See the EXAMPLE in [§4.3.1](#externalproperties-object--general), where the externalized properties are `run.artifacts` and `run.properties`, the externalized value of `run.artifacts` is stored in a property named `artifacts`, and the externalized value of `run.properties` is stored in a property named `externalizedProperties`.
+> NOTE 2: See the EXAMPLE in [4.3.1 "General"](#externalproperties-object--general), where the externalized properties are `run.artifacts` and `run.properties`, the externalized value of `run.artifacts` is stored in a property named `artifacts`, and the externalized value of `run.properties` is stored in a property named `externalizedProperties`.
 
 # 5. Conformance <a id='conformance'></a>
 
@@ -9238,15 +9328,15 @@ The normative content in this document defines requirements for SARIF log files,
 
 A text file satisfies the "SARIF log file" conformance profile if:
 
-- It conforms to the syntax and semantics defined in [§3](#file-format)
+- It conforms to the syntax and semantics defined in [3 "File Format"](#file-format)
 
 ## 5.3 Conformance Clause 2: SARIF Producer <a id='conformance-clause-2-sarif-producer'></a>
 
 A program satisfies the "SARIF producer" conformance profile if:
 
-- It produces output in the SARIF format, according to the semantics defined in [§3](#file-format)
+- It produces output in the SARIF format, according to the semantics defined in [3 "File Format"](#file-format)
 
-- It satisfies those normative requirements in [§3](#file-format) that are designated as applying to SARIF producers.
+- It satisfies those normative requirements in [3 "File Format"](#file-format) that are designated as applying to SARIF producers.
 
 ## 5.4 Conformance Clause 3: Direct Producer <a id='conformance-clause-3-direct-producer'></a>
 
@@ -9254,9 +9344,9 @@ An analysis tool satisfies the "Direct producer" conformance profile if:
 
 - It satisfies the "SARIF producer" conformance profile.
 
-- It additionally satisfies those normative requirements in [§3](#file-format) that are designated as applying to "direct producers" or to "analysis tools".
+- It additionally satisfies those normative requirements in [3 "File Format"](#file-format) that are designated as applying to "direct producers" or to "analysis tools".
 
-- It does not emit any objects, properties, or values which, according to [§3](#file-format), are intended to be produced only by converters.
+- It does not emit any objects, properties, or values which, according to [3 "File Format"](#file-format), are intended to be produced only by converters.
 
 ## 5.5 Conformance Clause 4: Converter <a id='conformance-clause-4-converter'></a>
 
@@ -9264,9 +9354,9 @@ A converter satisfies the "Converter" conformance profile if:
 
 - It satisfies the "SARIF producer" conformance profile.
 
-- It additionally satisfies those normative requirements in [§3](#file-format) that are designated as applying to converters.
+- It additionally satisfies those normative requirements in [3 "File Format"](#file-format) that are designated as applying to converters.
 
-- It does not emit any objects, properties, or values which, according to [§3](#file-format), are intended to be produced only by direct producers.
+- It does not emit any objects, properties, or values which, according to [3 "File Format"](#file-format), are intended to be produced only by direct producers.
 
 ## 5.6 Conformance Clause 5: SARIF Post-Processor <a id='conformance-clause-5-sarif-post-processor'></a>
 
@@ -9276,15 +9366,15 @@ A SARIF post-processor satisfies the "SARIF post-processor" conformance profile 
 
 - It satisfies the "SARIF producer" conformance profile.
 
-- It additionally satisfies those normative requirements in [§3](#file-format) that are designated as applying to post-processors.
+- It additionally satisfies those normative requirements in [3 "File Format"](#file-format) that are designated as applying to post-processors.
 
 ## 5.7 Conformance Clause 6: SARIF Consumer <a id='conformance-clause-6-sarif-consumer'></a>
 
 A consumer satisfies the "SARIF consumer" conformance profile if:
 
-- It reads SARIF log files and interprets them according to the semantics defined in [§3](#file-format)
+- It reads SARIF log files and interprets them according to the semantics defined in [3 "File Format"](#file-format)
 
-- It satisfies those normative requirements in [§3](#file-format) that are designated as applying to SARIF consumers.
+- It satisfies those normative requirements in [3 "File Format"](#file-format) that are designated as applying to SARIF consumers.
 
 ## 5.8 Conformance Clause 7: Viewer <a id='conformance-clause-7-viewer'></a>
 
@@ -9292,7 +9382,7 @@ A viewer satisfies the "viewer" conformance profile if:
 
 - It satisfies the "SARIF consumer" conformance profile.
 
-- It additionally satisfies the normative requirements in [§3](#file-format) that are designated as applying to viewers.
+- It additionally satisfies the normative requirements in [3 "File Format"](#file-format) that are designated as applying to viewers.
 
 ## 5.9 Conformance Clause 8: Result Management System <a id='conformance-clause-8-result-management-system'></a>
 
@@ -9300,15 +9390,23 @@ A result management system satisfies the "result management system" conformance 
 
 - It satisfies the "SARIF consumer" conformance profile.
 
-- It additionally satisfies the normative requirements in [§3](#file-format) and [§Appendix A](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
+- It additionally satisfies the normative requirements in [3 "File Format"](#file-format) and [Appendix B "Use of Fingerprints by Result Management Systems"](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
 
 ## 5.10 Conformance Clause 9: Engineering System <a id='conformance-clause-9-engineering-system'></a>
 
 An engineering system satisfies the "engineering system" conformance profile if:
 
-- It satisfies the normative requirements in [§3](#file-format) that are designated as applying to engineering systems.
+- It satisfies the normative requirements in [3 "File Format"](#file-format) that are designated as applying to engineering systems.
 
-# Appendix A. (Informative) Acknowledgments <a id='informative-acknowledgments'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Acknowledgments
+  enumerate: Appendix A.
+---
+-->
+# 6. (Informative) Acknowledgments <a id='informative-acknowledgments'></a>
 
 **The following individuals have participated in the creation of this document and are gratefully acknowledged:**
 
@@ -9386,7 +9484,15 @@ Vamshi Basupalli, SWAMP Project, University of Wisconsin
 Yekaterina O'Neil, Micro Focus
 ```
 
-# Appendix A. (Normative) Use of Fingerprints by Result Management Systems <a id='normative-use-of-fingerprints-by-result-management-systems'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Normative) Use of fingerprints by result management systems
+  enumerate: Appendix B.
+---
+-->
+# 7. (Normative) Use of Fingerprints by Result Management Systems <a id='normative-use-of-fingerprints-by-result-management-systems'></a>
 
 On large software projects, a single run of a set of analysis tools can produce hundreds of thousands of results or more. To deal with so many results, some engineering teams adopt a strategy whereby they first prevent the introduction of new problems into their code, and then work to address the existing problems.
 
@@ -9404,7 +9510,7 @@ A result management system **SHOULD** construct a fingerprint by using informati
 
 There are situations where information that would be helpful in uniquely identifying a result is not easily detectable by the result management system. For example, consider a tool which checks documentation for words that are culturally or politically sensitive. The word would most likely occur only in `result.message`, for example: `"The word xxx should not be used in documentation."`
 
-The SARIF format provides the `partialFingerprints` property to allow analysis tools and other components in the SARIF ecosystem to provide additional information which a result management system can incorporate into the fingerprint that it constructs for each result. In this example, the tool might set the value of a property in the `partialFingerprints` object to the prohibited word. A result management system **SHOULD** include the information in `partialFingerprints` in its fingerprint computation. See [§3.27.17](#partialfingerprints-property) for more requirements on how a result management system decides which partial fingerprints to use.
+The SARIF format provides the `partialFingerprints` property to allow analysis tools and other components in the SARIF ecosystem to provide additional information which a result management system can incorporate into the fingerprint that it constructs for each result. In this example, the tool might set the value of a property in the `partialFingerprints` object to the prohibited word. A result management system **SHOULD** include the information in `partialFingerprints` in its fingerprint computation. See [3.27.17 "`partialFingerprints` Property"](#partialfingerprints-property) for more requirements on how a result management system decides which partial fingerprints to use.
 
 An analysis tool **SHOULD NOT** include in `partialFingerprints` information that a result management system could deduce from other information in the SARIF file, for example, file hashes. Rather, the result management would use such information, along with `partialFingerprints`, in its computation of `fingerprints`.
 
@@ -9412,11 +9518,19 @@ Some information contained in the result is not useful in constructing a fingerp
 
 A result management system **SHOULD NOT** include an absolute line number (or an absolute byte location in a binary artifact) in its fingerprint computation.
 
-> NOTE: The inclusion of non-deterministic file format elements ([§Appendix A](#informative-producing-deterministic-sarif-log-files), [§F.1](#non-deterministic-file-format-elements)) or non-deterministic absolute URIs ([§Appendix A](#informative-producing-deterministic-sarif-log-files), [§F.1](#absolute-paths)) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
+> NOTE: The inclusion of non-deterministic file format elements ([Appendix F "Producing Deterministic SARIF Log Files"](#informative-producing-deterministic-sarif-log-files), [Non-Deterministic File Format Elements "Non-Deterministic File Format Elements"](#non-deterministic-file-format-elements)) or non-deterministic absolute URIs ([Appendix F "Producing Deterministic SARIF Log Files"](#informative-producing-deterministic-sarif-log-files), [Absolute Paths "Absolute Paths"](#absolute-paths)) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
 
 It is difficult to devise an algorithm that constructs a truly stable fingerprint for a result. Fortunately, for practical purposes, the fingerprint does not need to be absolutely stable; it only needs to be stable enough to reduce the number of results that are erroneously reported as "new" to a low enough level that the development team can manage the erroneously reported results without too much effort.
 
-# Appendix A. (Informative) Use of SARIF by Log File Viewers <a id='informative-use-of-sarif-by-log-file-viewers'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Use of SARIF by log file viewers
+  enumerate: Appendix C.
+---
+-->
+# 8. (Informative) Use of SARIF by Log File Viewers <a id='informative-use-of-sarif-by-log-file-viewers'></a>
 
 It is frequently useful for an end user to view the results produced by an analysis tool in the context of the artifacts in which they occur. A log file viewer is a program that allows an end user to do this.
 
@@ -9428,15 +9542,23 @@ There are various reasons why a viewer might need to know the type of informatio
 
 - If the result occurs in a source file that is nested within (for example) a compressed container file, then the viewer needs to know the file type of the container so that it can extract the source file.
 
-There are various ways that a viewer might obtain file type information. In the SARIF format, the `mimeType` ([§3.24.7](#mimetype-property)) and `sourceLanguage` ([§3.24.10](#artifact-object--sourcelanguage-property)) properties of the `artifact` object ([§3.24](#artifact-object)) provides this information. In the absence of these properties, a viewer can fall back to examining the filename extension, for example ".c".
+There are various ways that a viewer might obtain file type information. In the SARIF format, the `mimeType` ([3.24.7 "`mimeType` Property"](#mimetype-property)) and `sourceLanguage` ([3.24.10 "`sourceLanguage` Property"](#artifact-object--sourcelanguage-property)) properties of the `artifact` object ([3.24 "`artifact` Object"](#artifact-object)) provides this information. In the absence of these properties, a viewer can fall back to examining the filename extension, for example ".c".
 
-# Appendix A. (Normative) Production of SARIF by Converters <a id='normative-production-of-sarif-by-converters'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Normative) Production of SARIF by converters
+  enumerate: Appendix D.
+---
+-->
+# 9. (Normative) Production of SARIF by Converters <a id='normative-production-of-sarif-by-converters'></a>
 
 There are two broad categories of tools that can produce output in the SARIF format. Analysis tools produce SARIF as a result of performing a scan on a set of analysis targets. Converters translate existing data from a non-SARIF format into the SARIF format. That data might come from an analysis tool that produces output in a non-SARIF format, from a bug database, or from any other source.
 
 A converter **SHOULD** populate those elements of the SARIF format for which a direct equivalent exists in the input data.
 
-If the input data includes information for which there is no SARIF equivalent, a converter **MAY** use it to populate the various property bags ([§3.8](#property-bags)) and tag lists ([§3.8.2](#tags)) defined by the SARIF format, or they **MAY** simply omit it from the output. When populating a property bag with such information, a converter **SHOULD** use a property name that matches the name of that piece of information in the native tool format, even if that name does not conform to the camelCase convention used in the rest of this document.
+If the input data includes information for which there is no SARIF equivalent, a converter **MAY** use it to populate the various property bags ([3.8 "Property Bags"](#property-bags)) and tag lists ([3.8.2 "Tags"](#tags)) defined by the SARIF format, or they **MAY** simply omit it from the output. When populating a property bag with such information, a converter **SHOULD** use a property name that matches the name of that piece of information in the native tool format, even if that name does not conform to the camelCase convention used in the rest of this document.
 
 > NOTE: This makes it easier to match these properties with the source data in the native tool format.
 
@@ -9444,19 +9566,27 @@ When serializing SARIF as JSON, a converter **SHALL** replace any characters in 
 
 If the input data does not include an equivalent for any SARIF element, a converter **MAY** attempt to synthesize that element. (For example, a converter might heuristically extract a rule id from the text of an unstructured error message.)
 
-Since each converter might synthesize SARIF elements differently (notably the rule id; see [§3.27.5](#ruleid-property)), a SARIF consumer **SHOULD NOT** attempt to combine results produced by different converters for the same tool.
+Since each converter might synthesize SARIF elements differently (notably the rule id; see [3.27.5 "`ruleId` Property"](#ruleid-property)), a SARIF consumer **SHOULD NOT** attempt to combine results produced by different converters for the same tool.
 
-A converter **SHOULD** populate its own semantic version \[[SEMVER](#SEMVER)\] property `theRun.conversion.tool.driver.semanticVersion` ([§3.19.12](#semanticversion-property)). If it does, and if a subsequent version of the converter synthesizes SARIF elements in a sematically incompatible way, it **SHALL** increment the major version component of its semantic version.
+A converter **SHOULD** populate its own semantic version \[[SEMVER](#SEMVER)\] property `theRun.conversion.tool.driver.semanticVersion` ([3.19.12 "`semanticVersion` Property"](#semanticversion-property)). If it does, and if a subsequent version of the converter synthesizes SARIF elements in a sematically incompatible way, it **SHALL** increment the major version component of its semantic version.
 
 Notwithstanding this general guidance recommending that a converter synthesize SARIF elements where possible:
 
-- A converter that knows which artifact a result was detected in, but not which artifact the analysis tool was originally instructed to scan, **SHOULD** populate `result.locations` ([§3.27.12](#result-object--locations-property)), but **SHOULD NOT** attempt to populate `result.analysisTarget` ([§3.27.13](#analysistarget-property)).
+- A converter that knows which artifact a result was detected in, but not which artifact the analysis tool was originally instructed to scan, **SHOULD** populate `result.locations` ([3.27.12 "`locations` Property"](#result-object--locations-property)), but **SHOULD NOT** attempt to populate `result.analysisTarget` ([3.27.13 "`analysisTarget` Property"](#analysistarget-property)).
 
-- A converter **SHOULD NOT** populate the analysis tool’s `toolComponent.semanticVersion` ([§3.19.12](#semanticversion-property)) unless it knows that the tool component's version string is intended to be interpreted as a semantic version \[[SEMVER](#SEMVER)\] version string.
+- A converter **SHOULD NOT** populate the analysis tool’s `toolComponent.semanticVersion` ([3.19.12 "`semanticVersion` Property"](#semanticversion-property)) unless it knows that the tool component's version string is intended to be interpreted as a semantic version \[[SEMVER](#SEMVER)\] version string.
 
-# Appendix A. (Informative) Locating Rule and Notification Metadata <a id='informative-locating-rule-and-notification-metadata'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Locating rule and notification metadata
+  enumerate: Appendix E.
+---
+-->
+# 10. (Informative) Locating Rule and Notification Metadata <a id='informative-locating-rule-and-notification-metadata'></a>
 
-The SARIF format allows rule and notification metadata to be included in a SARIF log file (see [§3.19.23](#rules-property) and [§3.19.24](#notifications-property)). A SARIF log file does not need to include any metadata. This raises the questions of when metadata should be included in a log file, and how to locate the metadata if it is not included in the log file.
+The SARIF format allows rule and notification metadata to be included in a SARIF log file (see [3.19.23 "`rules` Property"](#rules-property) and [3.19.24 "`notifications` Property"](#notifications-property)). A SARIF log file does not need to include any metadata. This raises the questions of when metadata should be included in a log file, and how to locate the metadata if it is not included in the log file.
 
 Metadata should be included in a log file in the following circumstances:
 
@@ -9466,11 +9596,34 @@ Metadata should be included in a log file in the following circumstances:
 
 - Neither of the above applies, but the increased log file size due to the metadata is not considered significant.
 
-If metadata is not included in the log file, and if external property files (see [§3.15.2](#rationale)) are not used, this document does not specify a mechanism for locating the metadata. If the SARIF log file is produced in the context of an engineering system that provides a service from which metadata can be obtained (for example, a result management system, or a web service dedicated to metadata), then tooling can be created to merge a log file with the relevant metadata when required (for example, when presenting the results in a log file viewer).
+If metadata is not included in the log file, and if external property files (see [3.15.2 "Rationale"](#rationale)) are not used, this document does not specify a mechanism for locating the metadata. If the SARIF log file is produced in the context of an engineering system that provides a service from which metadata can be obtained (for example, a result management system, or a web service dedicated to metadata), then tooling can be created to merge a log file with the relevant metadata when required (for example, when presenting the results in a log file viewer).
 
-# Appendix A. (Informative) Producing Deterministic SARIF Log Files <a id='informative-producing-deterministic-sarif-log-files'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Producing deterministic SARIF log files
+  enumerate: Appendix F.
+  children:
+  - label: General
+    enumerate: F.1
+  - label: Non-deterministic file format elements
+    enumerate: F.2
+  - label: Array and dictionary element ordering
+    enumerate: F.3
+  - label: Absolute paths
+    enumerate: F.4
+  - label: Inherently non-deterministic tools
+    enumerate: F.5
+  - label: Compensating for non-deterministic output
+    enumerate: F.6
+  - label: Interaction between determinism and baselining
+    enumerate: F.7
+---
+-->
+# 11. (Informative) Producing Deterministic SARIF Log Files <a id='informative-producing-deterministic-sarif-log-files'></a>
 
-## F.1 General <a id='informative-producing-deterministic-sarif-log-files--general'></a>
+## 11.1 General <a id='informative-producing-deterministic-sarif-log-files--general'></a>
 
 In certain circumstances, it is desirable for an analysis tool to produce deterministic output; that is, for it to produce identical output when run repeatedly with identical inputs.
 
@@ -9496,7 +9649,7 @@ There are several issues to consider when producing deterministic output:
 
 - Handling baseline information
 
-## F.1 Non-Deterministic File Format Elements <a id='non-deterministic-file-format-elements'></a>
+## 11.2 Non-Deterministic File Format Elements <a id='non-deterministic-file-format-elements'></a>
 
 Certain optional elements of the SARIF format are non-deterministic in most situations. A log file that includes these elements will not be deterministic except under special circumstances. For example:
 
@@ -9562,7 +9715,7 @@ Avoiding these elements, in conjunction with the techniques described in subsequ
 
 - `physicalLocation.address`, for the same reason as `run.addresses`.
 
-## F.1 Array and Dictionary Element Ordering <a id='array-and-dictionary-element-ordering'></a>
+## 11.3 Array and Dictionary Element Ordering <a id='array-and-dictionary-element-ordering'></a>
 
 One obstacle to determinism in SARIF log files is the ordering of array elements and object properties.
 
@@ -9574,7 +9727,7 @@ The array of `result` objects in the `run.results` array presents more of a prob
 
 For dictionaries such as the `artifact.hashes` object, a tool might order the property names alphabetically, using a locale-insensitive ordering.
 
-## F.1 Absolute Paths <a id='absolute-paths'></a>
+## 11.4 Absolute Paths <a id='absolute-paths'></a>
 
 Another obstacle to determinism is the use of absolute paths which might differ from machine to machine. For example:
 
@@ -9584,13 +9737,13 @@ Another obstacle to determinism is the use of absolute paths which might differ 
 
 Tools can avoid the use of absolute file paths by emitting URIs that are relative to one or more root directories (for example, a source root directory and an output root directory), and accompanying each `artifactLocation.uri` property with the corresponding `artifactLocation.uriBaseId` property.
 
-## F.1 Inherently Non-Deterministic Tools <a id='inherently-non-deterministic-tools'></a>
+## 11.5 Inherently Non-Deterministic Tools <a id='inherently-non-deterministic-tools'></a>
 
 The algorithms used by some tools are inherently non-deterministic because, for example, they perform random sampling or random traversals of the graphs that represent the code. Generally, these tools produce mostly the same result set, but there might be small differences between runs.
 
 Such tools can avoid this source of non-determinism by, for example, providing a command-line argument to specify the random number generator seed.
 
-## F.1 Compensating for Non-Deterministic Output <a id='compensating-for-non-deterministic-output'></a>
+## 11.6 Compensating for Non-Deterministic Output <a id='compensating-for-non-deterministic-output'></a>
 
 If an analysis tool does not produce deterministic output, a build system can add additional processing steps to compensate.
 
@@ -9604,7 +9757,7 @@ In the first scenario, a post-processing step could produce deterministic output
 
 In the second scenario, a post-processing step could intelligently compare the newly produced log to the log from a previous build by ignoring non-deterministic elements, ensuring that arrays have the same elements regardless of order, and ignoring file path prefixes.
 
-## F.1 Interaction Between Determinism and Baselining <a id='interaction-between-determinism-and-baselining'></a>
+## 11.7 Interaction Between Determinism and Baselining <a id='interaction-between-determinism-and-baselining'></a>
 
 SARIF's baselining feature poses a particular challenge for determinism. We illustrate the problem with the following scenario:
 
@@ -9616,7 +9769,7 @@ Because a new problem has been introduced, `log_20170614.sarif` will contain a r
 
     ToolX --input a.c b.c --baseline log_20170915.sarif --output log_20170916.sarif
 
-The result object that first appeared in `log_20160615.sarif` still appears in `log_20160616.sarif`, but since it existed in the baseline, its baselineState will now be `"unchanged"` or `"updated"` as appropriate (see [§3.27.24](#baselinestate-property)).
+The result object that first appeared in `log_20160615.sarif` still appears in `log_20160616.sarif`, but since it existed in the baseline, its baselineState will now be `"unchanged"` or `"updated"` as appropriate (see [3.27.24 "`baselineState` Property"](#baselinestate-property)).
 
 The result is that even though none of the analysis target files have changed, the log file has changed, or at least, a simple file comparison (such as comparing the hash of the new log with the hash of the baseline) will report that it has changed.
 
@@ -9626,7 +9779,15 @@ If the build uses a simple mechanism such as hash value comparison to determine 
 
 If the build engineers for a project wish to absolutely minimize the execution of unnecessary build steps, they have various options. They might perform an "intelligent" comparison between the baseline and the new log, treating "new" results in the baseline as equivalent to "unchanged" results. Or they might rewrite the baseline (marking all "new" results as "unchanged") before performing the comparison. Of course, there is no guarantee that such an "intelligent" comparison or baseline rewriting process will actually take less time than the unnecessary build steps it is intended to avoid.
 
-# F.1 (Informative) Guidance on Fixes <a id='informative-guidance-on-fixes'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Guidance on fixes
+  enumerate: Appendix G.
+---
+-->
+# 12. (Informative) Guidance on Fixes <a id='informative-guidance-on-fixes'></a>
 
 Tools that produce SARIF files which include `fix` objects should take care to structure those fixes in such a way as to affect a minimal range of content. This maximizes the likelihood that an automated tool can safely apply multiple fixes to the same artifact.
 
@@ -9674,7 +9835,15 @@ If the fix for result #1 were structured as a single replacement, then after app
 
 Therefore, structuring fixes as sequences of minimal, disjoint replacements maximizes the amount of work that can be done by automated fixup tools.
 
-# F.1 (Informative) Diagnosing Results in Generated Files <a id='informative-diagnosing-results-in-generated-files'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Diagnosing results in generated files
+  enumerate: Appendix H.
+---
+-->
+# 13. (Informative) Diagnosing Results in Generated Files <a id='informative-diagnosing-results-in-generated-files'></a>
 
 Sometimes it is desirable to analyze files generated by the build. These files are usually not under source control, and the build might even overwrite them multiple times. This Appendix offers guidance on how to persist enough information in a SARIF log file to facilitate the diagnosis of results in these files.
 
@@ -9690,31 +9859,31 @@ It can be difficult to diagnose results in generated files for the following rea
 
 For both singly and multiply generated files, there are two options (which can be used together):
 
-1.  Use the `physicalLocation` object’s ([§3.29](#physicallocation-object)) `region` ([§3.29.4](#region-property)) and `contextRegion` ([§3.29.5](#contextregion-property)) properties to store enough of the generated file’s contents to facilitate diagnosis. The `region` object’s ([§3.30](#region-object)) `snippet` property ([§3.30.13](#snippet-property)) holds the relevant portion of the file contents.
+1.  Use the `physicalLocation` object’s ([3.29 "`physicalLocation` Object"](#physicallocation-object)) `region` ([3.29.4 "`region` Property"](#region-property)) and `contextRegion` ([3.29.5 "`contextRegion` Property"](#contextregion-property)) properties to store enough of the generated file’s contents to facilitate diagnosis. The `region` object’s ([3.30 "`region` Object"](#region-object)) `snippet` property ([3.30.13 "`snippet` Property"](#snippet-property)) holds the relevant portion of the file contents.
 
-2.  Use the `artifact` object’s ([§3.24](#artifact-object)) `contents` ([§3.24.8](#artifact-object--contents-property)) property to persist the entire contents of the file in `theRun.artifacts` ([§3.14.15](#artifacts-property)).
+2.  Use the `artifact` object’s ([3.24 "`artifact` Object"](#artifact-object)) `contents` ([3.24.8 "`contents` Property"](#artifact-object--contents-property)) property to persist the entire contents of the file in `theRun.artifacts` ([3.14.15 "`artifacts` Property"](#artifacts-property)).
 
 The first option is more compact; the second allows a SARIF viewer to present results with greater context.
 
 > EXAMPLE 1: In this example, the analysis tool populates `region.snippet` and `contextRegion.snippet`, allowing a SARIF viewer to display just enough context (one hopes) to diagnose the result.
 >
 > ```json
-> {                                           # A run object (§3.14).
->   "originalUriBaseIds": {                   # See §3.14.14
+> {                                           # A run object (3.14).
+>   "originalUriBaseIds": {                   # See 3.14.14
 >     "GENERATED": {
 >       "uri": "file:///C:/code/browser/obj/"
 >     }
 >   },
 > 
->   "results": [                              # See §3.14.23.
->     {                                       # A result object (§3.27).
->       "ruleId": "CS6789",                   # See §3.27.5.
->       "message": {                          # See §3.27.11.
+>   "results": [                              # See 3.14.23.
+>     {                                       # A result object (3.27).
+>       "ruleId": "CS6789",                   # See 3.27.5.
+>       "message": {                          # See 3.27.11.
 >         "text": "Division by 0"
 >       },
->       "locations": [                        # See §3.27.12.
->         {                                   # A location object (§3.28).
->           "physicalLocation": {             # See §3.28.3.
+>       "locations": [                        # See 3.27.12.
+>         {                                   # A location object (3.28).
+>           "physicalLocation": {             # See 3.28.3.
 >             "artifactLocation": {
 >               "uri": "ui/window.g.cs",      # A generated file (".g").
 >               "uriBaseId": "GENERATED"
@@ -9780,14 +9949,14 @@ The first option is more compact; the second allows a SARIF viewer to present re
 >     }
 >   ],
 > 
->   "artifacts": [                            # See §3.14.15.
->     {                                       # An artifact object (§3.24).
->       "location": {                         # See §3.24.2.
+>   "artifacts": [                            # See 3.14.15.
+>     {                                       # An artifact object (3.24).
+>       "location": {                         # See 3.24.2.
 >         "uri": "ui/window.g.cs",
 >         "uriBaseId": "GENERATED"
 >       },
->       "contents": {                         # See §3.24.8.
->         "text": "..."                       # See §3.3.2.
+>       "contents": {                         # See 3.24.8.
+>         "text": "..."                       # See 3.3.2.
 >       }
 >     }
 >   ]
@@ -9861,21 +10030,37 @@ The recommended solution is for the analysis tool to create a new entry in `theR
 > }
 > ```
 
-# F.1 (Informative) Detecting Incomplete Result Sets <a id='informative-detecting-incomplete-result-sets'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Detecting incomplete result sets
+  enumerate: Appendix I.
+---
+-->
+# 14. (Informative) Detecting Incomplete Result Sets <a id='informative-detecting-incomplete-result-sets'></a>
 
 This document describes three conditions that inform the SARIF consumer that the tool has failed to produce a comprehensive set of results. For convenience, this Appendix gathers those conditions together in one place:
 
-- If any `invocation` object ([§3.20](#invocation-object)) in `theRun.invocations` ([§3.14.11](#invocations-property)) has a value of `false` for its `executionSuccessful` property ([§3.20.14](#executionsuccessful-property)), the tool either failed to start, terminated with an exit code that denotes failure, or terminated with an unhandled exception or signal.
+- If any `invocation` object ([3.20 "`invocation` Object"](#invocation-object)) in `theRun.invocations` ([3.14.11 "`invocations` Property"](#invocations-property)) has a value of `false` for its `executionSuccessful` property ([3.20.14 "`executionSuccessful` Property"](#executionsuccessful-property)), the tool either failed to start, terminated with an exit code that denotes failure, or terminated with an unhandled exception or signal.
 
-- If any `notification` object ([§3.58](#notification-object)) in `invocation.toolExecutionNotifications` ([§3.20.21](#toolexecutionnotifications-property)) or `toolConfigurationNotifications` ([§3.20.22](#toolconfigurationnotifications-property)) has a value of `"error"` for its `level` property ([§3.58.6](#notification-object--level-property)), it is possible that the tool was unable to execute every analysis rule on every analysis target. Therefore, the results cannot be assumed to be complete.
+- If any `notification` object ([3.58 "`notification` Object"](#notification-object)) in `invocation.toolExecutionNotifications` ([3.20.21 "`toolExecutionNotifications` Property"](#toolexecutionnotifications-property)) or `toolConfigurationNotifications` ([3.20.22 "`toolConfigurationNotifications` Property"](#toolconfigurationnotifications-property)) has a value of `"error"` for its `level` property ([3.58.6 "`level` Property"](#notification-object--level-property)), it is possible that the tool was unable to execute every analysis rule on every analysis target. Therefore, the results cannot be assumed to be complete.
 
-- If `theRun.results` ([§3.14.23](#results-property)) is `null`, the tool either failed to start or failed to begin its analysis.
+- If `theRun.results` ([3.14.23 "`results` Property"](#results-property)) is `null`, the tool either failed to start or failed to begin its analysis.
 
 These conditions apply separately to each run in the log file.
 
-# F.1 (Informative) Sample `sourceLanguage` Values <a id='informative-sample-sourcelanguage-values'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Sample sourceLanguage values
+  enumerate: Appendix J.
+---
+-->
+# 15. (Informative) Sample `sourceLanguage` Values <a id='informative-sample-sourcelanguage-values'></a>
 
-This Appendix contains a list of sample values for the `artifact.sourceLanguage` property ([§3.24.10](#artifact-object--sourcelanguage-property)) for some common programming languages. The purpose of this Appendix is to promote interoperability by encouraging SARIF producers to use the same identifiers for these languages.
+This Appendix contains a list of sample values for the `artifact.sourceLanguage` property ([3.24.10 "`sourceLanguage` Property"](#artifact-object--sourcelanguage-property)) for some common programming languages. The purpose of this Appendix is to promote interoperability by encouraging SARIF producers to use the same identifiers for these languages.
 
 The names of some of the languages in this list are the trademarks of their respective owners.
 
@@ -10017,15 +10202,32 @@ The names of some of the languages in this list are the trademarks of their resp
 
   - `powershell`
 
-# Appendix K. (Informative) Examples <a id='informative-examples'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Examples
+  enumerate: Appendix K.
+  children:
+  - label: Minimal valid SARIF log file
+    enumerate: K.1
+  - label: Minimal recommended SARIF log file with source information
+    enumerate: K.2
+  - label: Minimal recommended SARIF log file without source information
+    enumerate: K.3
+  - label: Comprehensive SARIF file
+    enumerate: K.4
+---
+-->
+# 16. (Informative) Examples <a id='informative-examples'></a>
 
 This Appendix contains examples of complete, valid SARIF files, to complement the fragments shown in examples throughout this document.
 
-## Appendix K. Minimal Valid SARIF Log File <a id='minimal-valid-sarif-log-file'></a>
+## 16.1 Minimal Valid SARIF Log File <a id='minimal-valid-sarif-log-file'></a>
 
 This is a minimal valid SARIF log file. It contains only those elements required by this document (elements which the document states **SHALL** be present).
 
-The file contains a single `run` object ([§3.14](#run-object)) with an empty `results` array ([§3.14.23](#results-property)), as would happen if the tool detected no issues in any of the artifacts it scanned.
+The file contains a single `run` object ([3.14 "`run` Object"](#run-object)) with an empty `results` array ([3.14.23 "`results` Property"](#results-property)), as would happen if the tool detected no issues in any of the artifacts it scanned.
 
 ```json
 {
@@ -10044,19 +10246,19 @@ The file contains a single `run` object ([§3.14](#run-object)) with an empty `r
 }
 ```
 
-## Appendix K. Minimal Recommended SARIF Log File with Source Information <a id='minimal-recommended-sarif-log-file-with-source-information'></a>
+## 16.2 Minimal Recommended SARIF Log File with Source Information <a id='minimal-recommended-sarif-log-file-with-source-information'></a>
 
 This is a minimal recommended SARIF log file for the case where an analysis tool produced results and source location information is available.
 
 The file contains those elements recommended by this document (elements which the document states "**SHOULD**" be present), in addition to the required elements.
 
-The file contains a single `run` object ([§3.14](#run-object)) with a `results` array ([§3.14.23](#results-property)). The results array contains a single `result` object ([§3.27](#result-object)) so the recommended elements of the `result` object can be shown.
+The file contains a single `run` object ([3.14 "`run` Object"](#run-object)) with a `results` array ([3.14.23 "`results` Property"](#results-property)). The results array contains a single `result` object ([3.27 "`result` Object"](#result-object)) so the recommended elements of the `result` object can be shown.
 
-Its `run.artifacts` property ([§3.14.15](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
+Its `run.artifacts` property ([3.14.15 "`artifacts` Property"](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
 
-It does not contain a `run.logicalLocations` property ([§3.14.17](#run-object--logicallocations-property)), because when physical location information is available, that property is optional (it "**MAY**" be present).
+It does not contain a `run.logicalLocations` property ([3.14.17 "`logicalLocations` Property"](#run-object--logicallocations-property)), because when physical location information is available, that property is optional (it "**MAY**" be present).
 
-This example also includes a `toolComponent.rules` property ([§3.19.23](#rules-property)) containing rule metadata, even though rule metadata is optional, to show how a SARIF log file can be self-contained, in the sense of containing all the information necessary to interpret the results.
+This example also includes a `toolComponent.rules` property ([3.19.23 "`rules` Property"](#rules-property)) containing rule metadata, even though rule metadata is optional, to show how a SARIF log file can be self-contained, in the sense of containing all the information necessary to interpret the results.
 
 ```json
 {
@@ -10127,17 +10329,17 @@ This example also includes a `toolComponent.rules` property ([§3.19.23](#rules-
 }
 ```
 
-## Appendix K. Minimal Recommended SARIF Log File without Source Information <a id='minimal-recommended-sarif-log-file-without-source-information'></a>
+## 16.3 Minimal Recommended SARIF Log File without Source Information <a id='minimal-recommended-sarif-log-file-without-source-information'></a>
 
 This is a minimal recommended SARIF file for the case where an analysis tool produced results and source location information is not available.
 
 The file contains those elements recommended by this document (elements which the document states "**SHOULD**" be present), in addition to the required elements.
 
-The file contains a single `run` object ([§3.14](#run-object)) with a `results` array ([§3.14.23](#results-property)). The results array contains a single `result` object ([§3.27](#result-object)) so the recommended elements of the `result` object can be shown.
+The file contains a single `run` object ([3.14 "`run` Object"](#run-object)) with a `results` array ([3.14.23 "`results` Property"](#results-property)). The results array contains a single `result` object ([3.27 "`result` Object"](#result-object)) so the recommended elements of the `result` object can be shown.
 
-Its `run.artifacts` property ([§3.14.15](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
+Its `run.artifacts` property ([3.14.15 "`artifacts` Property"](#artifacts-property)) specifies only those artifacts in which the tool detected a result.
 
-It contains a `run.logicalLocations` property ([§3.14.17](#run-object--logicallocations-property)), because when physical location information is not available, that property is recommended.
+It contains a `run.logicalLocations` property ([3.14.17 "`logicalLocations` Property"](#run-object--logicallocations-property)), because when physical location information is not available, that property is recommended.
 
 ```json
 {
@@ -10199,7 +10401,7 @@ It contains a `run.logicalLocations` property ([§3.14.17](#run-object--logicall
 }
 ```
 
-## Appendix K. Comprehensive SARIF File <a id='comprehensive-sarif-file'></a>
+## 16.4 Comprehensive SARIF File <a id='comprehensive-sarif-file'></a>
 
 The purpose of this example is to demonstrate the usage of as many SARIF elements as possible. Not all elements are shown, because some are mutually exclusive.
 
@@ -10957,28 +11159,54 @@ Because the purpose is to present as many elements as possible, the file as a wh
 }
 ```
 
-# Appendix L. (Informative) Revision History <a id='informative-revision-history'></a>
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) Revision History
+  enumerate: Appendix L.
+---
+-->
+# 17. (Informative) Revision History <a id='informative-revision-history'></a>
 
 | Revision                  | Date       | Editors                     | Description                                                              |
 |:--------------------------|:-----------|:----------------------------|:-------------------------------------------------------------------------|
 | sarif-v2.2-wd20240605-dev | 2024-06-05 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #471 and #637.                    |
 | sarif-v2.2-wd20240808-dev | 2024-08-08 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #459, #483, #491, #492, and #634. |
-| sarif-v2.2-wd20250612-dev | 2025-06-12 | Stefan Hagen                | Editor revision for meeting 2025-06-12.                                  |
-| sarif-v2.2-wd20250710-dev | 2025-07-10 | Stefan Hagen                | Editor revision for meeting 2025-07-10.                                  |
-| sarif-v2.2-wd20250807-dev | 2025-08-07 | Stefan Hagen                | Editor revision for meeting 2025-08-07.                                  |
-| sarif-v2.2-wd20251204-dev | 2025-12-04 | Stefan Hagen                | Editor revision for meeting 2025-12-04.                                  |
-| sarif-v2.2-wd20260205-dev | 2026-02-05 | Stefan Hagen                | Editor revision for meeting 2026-02-05.                                  |
+| sarif-v2.2-wd20250612-dev | 2025-06-12 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20250710-dev | 2025-07-10 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20250807-dev | 2025-08-07 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20251204-dev | 2025-12-04 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20260205-dev | 2026-02-05 | Stefan Hagen                | Editor revision for TC meeting.                                          |
 
-# Appendix M. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
+-------
+
+<!--
+---
+toc:
+  auto: false
+  label: (Informative) MIME Types and File Name Extensions
+  enumerate: Appendix M.
+---
+-->
+# 18. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
 
 The following is a list of MIME types and file extensions for files that conform to this specification, registered according to \[[RFC2048](#RFC2048)\].
 
 | MIME type                                  | Extension                                                      | Description                                                           |
 |:-------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------------------|
-| application/sarif+json                     | .sarif,<br>.sarif.json                                         | SARIF log files ([§3](#file-format))                                 |
-| application/sarif-external-properties+json | .sarif-external-properties,<br>.sarif-external-properties.json | SARIF external property files ([§4](#external-property-file-format)) |
+| application/sarif+json                     | .sarif,<br>.sarif.json                                         | SARIF log files ([3 "File Format"](#file-format))                                 |
+| application/sarif-external-properties+json | .sarif-external-properties,<br>.sarif-external-properties.json | SARIF external property files ([4 "External property file format"](#external-property-file-format)) |
 
-# Appendix N. Safety, Security and Data Protection <a id='safety-security-and-data-protection'></a>
+<!--
+---
+toc:
+  auto: false
+  label: Safety, Security and Data Protection
+  enumerate: Appendix N.
+---
+-->
+# 19. Safety, Security and Data Protection <a id='safety-security-and-data-protection'></a>
 
 All safety, security, and data protection requirements relevant to the context in which SARIF documents are used MUST be translated into,
 and consistently enforced through, SARIF implementations and processes.

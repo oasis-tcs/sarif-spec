@@ -6,7 +6,7 @@ toc:
   enumerate: Appendix J.
 ---
 -->
-# (Informative) Sample `sourceLanguage` Values
+# (Informative) Sample `sourceLanguage` Values{#informative-sample-sourcelanguage-values}
 
 This Appendix contains a list of sample values for the `artifact.sourceLanguage` property ([sec](#artifact-object--sourcelanguage-property)) for some common programming languages. The purpose of this Appendix is to promote interoperability by encouraging SARIF producers to use the same identifiers for these languages.
 
