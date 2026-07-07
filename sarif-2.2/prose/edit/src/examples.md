@@ -1,21 +1,4 @@
-<!--
----
-toc:
-  auto: false
-  label: (Informative) Examples
-  enumerate: Appendix K.
-  children:
-  - label: Minimal valid SARIF log file
-    enumerate: K.1
-  - label: Minimal recommended SARIF log file with source information
-    enumerate: K.2
-  - label: Minimal recommended SARIF log file without source information
-    enumerate: K.3
-  - label: Comprehensive SARIF file
-    enumerate: K.4
----
--->
-# (Informative) Examples
+# Appendix 10 Examples
 
 This Appendix contains examples of complete, valid SARIF files, to complement the fragments shown in examples throughout this document.
 

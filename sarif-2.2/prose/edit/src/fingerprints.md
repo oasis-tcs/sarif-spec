@@ -1,12 +1,4 @@
-<!--
----
-toc:
-  auto: false
-  label: (Normative) Use of fingerprints by result management systems
-  enumerate: Appendix B.
----
--->
-# (Normative) Use of Fingerprints by Result Management Systems{#normative-use-of-fingerprints-by-result-management-systems}
+# Annex C Use of Fingerprints by Result Management Systems
 
 On large software projects, a single run of a set of analysis tools can produce hundreds of thousands of results or more. To deal with so many results, some engineering teams adopt a strategy whereby they first prevent the introduction of new problems into their code, and then work to address the existing problems.
 
@@ -32,6 +24,6 @@ Some information contained in the result is not useful in constructing a fingerp
 
 A result management system **SHOULD NOT** include an absolute line number (or an absolute byte location in a binary artifact) in its fingerprint computation.
 
-> NOTE: The inclusion of non-deterministic file format elements ([sec](#informative-producing-deterministic-sarif-log-files), [sec](#non-deterministic-file-format-elements)) or non-deterministic absolute URIs ([sec](#informative-producing-deterministic-sarif-log-files), [sec](#absolute-paths)) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
+> NOTE: The inclusion of non-deterministic file format elements ([sec](#producing-deterministic-sarif-log-files), [sec](#non-deterministic-file-format-elements)) or non-deterministic absolute URIs ([sec](#producing-deterministic-sarif-log-files), [sec](#absolute-paths)) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
 
 It is difficult to devise an algorithm that constructs a truly stable fingerprint for a result. Fortunately, for practical purposes, the fingerprint does not need to be absolutely stable; it only needs to be stable enough to reduce the number of results that are erroneously reported as "new" to a low enough level that the development team can manage the erroneously reported results without too much effort.

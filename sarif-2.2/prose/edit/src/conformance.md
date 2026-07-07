@@ -90,7 +90,7 @@ A result management system satisfies the "result management system" conformance 
 
 - It satisfies the "SARIF consumer" conformance profile.
 
-- It additionally satisfies the normative requirements in [sec](#file-format) and [sec](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
+- It additionally satisfies the normative requirements in [sec](#file-format) and [sec](#use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
 
 ## Conformance Clause 9: Engineering System
 

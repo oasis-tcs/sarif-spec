@@ -26,7 +26,7 @@ A `result` object **MAY** contain a property named `guid` whose value is a GUID-
 
 Direct SARIF producers and SARIF converters **MAY** but do not need to set this property. A result management system **SHOULD** set this property when it ingests a SARIF log file. If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **SHALL** set this property to the value it assigned.
 
-A result management system **MAY** store multiple results with identical fingerprints (see [sec](#fingerprints-property) and [sec](#normative-use-of-fingerprints-by-result-management-systems)), but the `guid` properties for those results **SHALL** be distinct.
+A result management system **MAY** store multiple results with identical fingerprints (see [sec](#fingerprints-property) and [sec](#use-of-fingerprints-by-result-management-systems)), but the `guid` properties for those results **SHALL** be distinct.
 
 ### `correlationGuid` Property{#result-object--correlationguid-property}
 
@@ -98,7 +98,7 @@ For an example of the interaction between `ruleId` and `rule.id`, see [sec](#rep
 
 Not all existing analysis tools emit the equivalent of a `ruleId` in their output. A SARIF converter which converts the output of such an analysis tool to the SARIF format **SHOULD** synthesize `ruleId` from other information available in the analysis tool's output.
 
-Each SARIF converter might synthesize `ruleId` in a different way. Therefore, a SARIF consumer **SHOULD NOT** attempt to compare or combine the output from different converters for the same analysis tool. See Appendix D for more information about production of SARIF by converters.
+Each SARIF converter might synthesize `ruleId` in a different way. Therefore, a SARIF consumer **SHOULD NOT** attempt to compare or combine the output from different converters for the same analysis tool. See Annex D for more information about production of SARIF by converters.
 
 ### `ruleIndex` Property
 
@@ -559,7 +559,7 @@ When a result management system uses fingerprint information to determine whethe
 
 A direct SARIF producer **SHOULD NOT** populate this property. A SARIF converter **MAY** populate this property if the analysis tool’s native output format provides a value that qualifies as a fingerprint (a stable identifier for the result). A result management system **MAY** populate this property when it ingests a SARIF file. If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **MAY** set this property to the value it assigned.
 
-[sec](#normative-use-of-fingerprints-by-result-management-systems) provides requirements for how a result management system computes fingerprints.
+[sec](#use-of-fingerprints-by-result-management-systems) provides requirements for how a result management system computes fingerprints.
 
 > NOTE: `fingerprints` and `correlationGuid` ([sec](#result-object--correlationguid-property)) provide two different ways for result management systems to associate results that are logically identical. See [sec](#distinguishing-logically-identical-from-logically-distinct-results) for more information.
 
@@ -567,7 +567,7 @@ A direct SARIF producer **SHOULD NOT** populate this property. A SARIF converter
 
 A `result` object **MAY** contain a property named `partialFingerprints` whose value is an object ([sec](#object-properties)).
 
-Each property value in this object **SHALL** be a string that contributes to the stable, unique identity, or "fingerprint," of the result (see [sec](#fingerprints-property)). Appendix B explains how a result management system can compute these fingerprints.
+Each property value in this object **SHALL** be a string that contributes to the stable, unique identity, or "fingerprint," of the result (see [sec](#fingerprints-property)). Annex C explains how a result management system can compute these fingerprints.
 
 Each property name in this object **SHALL** be a versioned hierarchical string ([sec](#versioned-hierarchical-strings)). A SARIF producer **MAY** use the property name to identify the nature of the information used to compute the partial fingerprint.
 
@@ -751,7 +751,7 @@ This property **SHALL** have one of the following values, with the specified mea
 
 > NOTE 1: The purpose of `baselineState` is to allow (for example) a measurement of how many new results were introduced in the run, and how many previously existing results no longer appear.
 >
-> To assign a value to `baselineState`, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. [sec](#normative-use-of-fingerprints-by-result-management-systems) discusses how a result management system can assign a "fingerprint" to each result. See also the description of the `fingerprints` ([sec](#fingerprints-property)) and `partialFingerprints` ([sec](#partialfingerprints-property)) properties.
+> To assign a value to `baselineState`, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. [sec](#use-of-fingerprints-by-result-management-systems) discusses how a result management system can assign a "fingerprint" to each result. See also the description of the `fingerprints` ([sec](#fingerprints-property)) and `partialFingerprints` ([sec](#partialfingerprints-property)) properties.
 >
 > An analysis tool that works together with such a result management system can use the fingerprint to determine whether two results are logically the same; two results with the same fingerprint are considered logically the same.
 

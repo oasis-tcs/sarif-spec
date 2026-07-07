@@ -1,5 +1,4 @@
-annex-starts-with: 'Annex '
-appendix-starts-with: '('
+section-type-prefixes: [Annex, Appendix]
 binder: bind.txt
 binder-ignores:
   gfm-plus: []
@@ -9,9 +8,12 @@ binder-ignores:
 build-path: build
 citation-skip-prefixes:
 - '#'
+- '('
+- 'This section'
+- 'Normative references'
+- 'The following'
 citation-sources:
-- introduction-03-normative-references.md
-- introduction-04-informative-references.md
+- references.md
 delete-when:
 - contains: '<mark title="Ephemeral region marking">'
   delete:
@@ -20,9 +22,11 @@ delete-when:
 etc-path: etc
 example-local-to-global-db: example-local-to-global.json
 example-global-to-local-db: example-global-to-local.json
-first-authored-section: '# Introduction'
+first-authored-section: '# Scope'
 glossary-sources:
-- introduction-02-terminology-glossary.md
+- definitions-and-acronyms-01-ext-def-list.md
+- definitions-and-acronyms-02-int-def-list.md
+- definitions-and-acronyms-03-acr-def-list.md
 html-title: 'Static Analysis Results Interchange Format (SARIF) Version 2.2'
 meta-example-global-number: 4321
 section-display-to-label-db: section-display-to-label.json
@@ -31,12 +35,11 @@ section-label-to-display-db: section-label-to-display.json
 section-reference-style: number-title
 source-path: src
 track-examples: true
-
-# HTML post-processing (nide inject)
-html-inject-css-base: ../share/style/base.css
-html-inject-css-skin: ../share/style/skin.css
-html-inject-logo-data-url: ../media/logo-data-url.txt
-html-inject-logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
-html-inject-toc-trigger: '<h1 id="table-of-contents'
-html-inject-intro-trigger: '<h1 id="1-introduction'
-html-inject-images: false
+html-inject:
+  css-base: ../share/style/base.css
+  css-skin: ../share/style/skin.css
+  images: false
+  intro-trigger: '<h1 id="1-scope'
+  logo-data-url: ../media/logo-data-url.txt
+  logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
+  toc-trigger: '<h1 id="table-of-contents'

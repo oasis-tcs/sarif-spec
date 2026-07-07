@@ -21,13 +21,6 @@ binary artifact
 binary region
 :    [region](#def:region) representing a contiguous range of zero or more bytes in a [binary artifact](#def:binary-artifact)
 
-call stack
-:    sequence of nested function calls
-
-camelCase name
-:    name that begins with a lowercase letter, in which each subsequent word begins with an uppercase letter
-Example: `camelCase`, `version`, `fullName`.
-
 code flow
 :  set of one or more [thread flows](#def:thread-flow) which together specify a pattern of code execution relevant to detecting a [result](#def:result)
 
@@ -55,15 +48,6 @@ embedded link
 engineering system
 :  software development environment within which [analysis tools](#def:static-analysis-tool) execute
 NOTE: An engineering system might include a build system, a source control system, a [result management system](#def:result-management-system), a bug tracking system, a test execution system, and so on.
-
-empty array
-:  array that contains no elements, and so has a length of 0
-
-empty object
-:  object that contains no properties
-
-empty string
-:  string that contains no characters, and so has a length of 0
 
 (end) user
 :  person who uses the information in a [log file](#def:log-file) to investigate, [triage](#def:triage), or resolve [results](#def:result)
@@ -253,9 +237,6 @@ Example: Lint
 taxon (pl. taxa)
 :  one of a set of categories which together comprise a [taxonomy](#def:taxonomy)
 
-taxonomy
-:  classification of analysis results into a set of categories
-
 tag
 :  string that conveys additional information about the SARIF [log file](#def:log-file) element to which it applies
 
@@ -286,9 +267,6 @@ triage
 
 user
 :  see [end user](#def:end-user).
-
-VCS
-:  version control system
 
 viewer
 :  see [log file viewer](#def:log-file-viewer).

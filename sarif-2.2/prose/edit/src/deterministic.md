@@ -1,29 +1,6 @@
-<!--
----
-toc:
-  auto: false
-  label: (Informative) Producing deterministic SARIF log files
-  enumerate: Appendix F.
-  children:
-  - label: General
-    enumerate: F.1
-  - label: Non-deterministic file format elements
-    enumerate: F.2
-  - label: Array and dictionary element ordering
-    enumerate: F.3
-  - label: Absolute paths
-    enumerate: F.4
-  - label: Inherently non-deterministic tools
-    enumerate: F.5
-  - label: Compensating for non-deterministic output
-    enumerate: F.6
-  - label: Interaction between determinism and baselining
-    enumerate: F.7
----
--->
-# (Informative) Producing Deterministic SARIF Log Files{#informative-producing-deterministic-sarif-log-files}
+# Appendix 5 Producing Deterministic SARIF Log Files
 
-## General{#informative-producing-deterministic-sarif-log-files--general}
+## General
 
 In certain circumstances, it is desirable for an analysis tool to produce deterministic output; that is, for it to produce identical output when run repeatedly with identical inputs.
 
