@@ -66,5 +66,3 @@ Copyright &copy; OASIS Open 2026. All Rights Reserved.
 
 For license and copyright information, and complete status, please see [Annex A](#annex-a)
 which contains the License, Document Status and Notices.
-
----

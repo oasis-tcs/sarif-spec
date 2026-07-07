@@ -67,8 +67,6 @@ Copyright &copy; OASIS Open 2026. All Rights Reserved.
 For license and copyright information, and complete status, please see [Annex A](#annex-a)
 which contains the License, Document Status and Notices.
 
----
-
 -------
 
 # Table of Contents
@@ -1035,6 +1033,8 @@ In all EBNF definitions in this spec:
 
 This document uses the following notation for certain commonly used objects:
 
+\columns=20%,
+
 | Notation        | Commonly used object                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `theSarifLog`   | The root object of the SARIF log file.                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -1118,7 +1118,7 @@ This information is given for the convenience of users of this document and does
   * `"systemverilog"` (#687) (#688)
   * `"zig"` (#746) (#749)
 
-* Section 9: **Safety, Security and Data Protection**: new section (#732) (#738)
+* Section 7: **Safety, Security and Data Protection**: new section (#732) (#738)
 
 ### 4.2.2 Other changes <a id='other-changes'></a>
 

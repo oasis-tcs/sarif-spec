@@ -68,7 +68,7 @@ This information is given for the convenience of users of this document and does
   * `"systemverilog"` (#687) (#688)
   * `"zig"` (#746) (#749)
 
-* Section 9: **Safety, Security and Data Protection**: new section (#732) (#738)
+* Section 7: **Safety, Security and Data Protection**: new section (#732) (#738)
 
 ### Other changes
 
