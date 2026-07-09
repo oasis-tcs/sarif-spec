@@ -1,12 +1,4 @@
-<!--
----
-toc:
-  auto: false
-  label: Safety, Security and Data Protection
-  enumerate: Appendix N.
----
--->
-# Safety, Security and Data Protection
+# Appendix N. Safety, Security and Data Protection
 
 All safety, security, and data protection requirements relevant to the context in which SARIF documents are used MUST be translated into,
 and consistently enforced through, SARIF implementations and processes.

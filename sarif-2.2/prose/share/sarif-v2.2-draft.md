@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 05 February 2026
+## 05 March 2026
 
 ### This stage:
 https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md (Authoritative) \
@@ -620,27 +620,27 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	5.10 [Conformance Clause 9: Engineering System](#conformance-clause-9-engineering-system)  
 
 Appendix A. [(Informative) Acknowledgments](#informative-acknowledgments)  
-Appendix A. [(Normative) Use of Fingerprints by Result Management Systems](#normative-use-of-fingerprints-by-result-management-systems)  
-Appendix A. [(Informative) Use of SARIF by Log File Viewers](#informative-use-of-sarif-by-log-file-viewers)  
-Appendix A. [(Normative) Production of SARIF by Converters](#normative-production-of-sarif-by-converters)  
-Appendix A. [(Informative) Locating Rule and Notification Metadata](#informative-locating-rule-and-notification-metadata)  
-Appendix A. [(Informative) Producing Deterministic SARIF Log Files](#informative-producing-deterministic-sarif-log-files)  
-	F.1 [General](#informative-producing-deterministic-sarif-log-files--general)  
-F.1 [Non-Deterministic File Format Elements](#non-deterministic-file-format-elements)  
-F.1 [Array and Dictionary Element Ordering](#array-and-dictionary-element-ordering)  
-F.1 [Absolute Paths](#absolute-paths)  
-F.1 [Inherently Non-Deterministic Tools](#inherently-non-deterministic-tools)  
-F.1 [Compensating for Non-Deterministic Output](#compensating-for-non-deterministic-output)  
-F.1 [Interaction Between Determinism and Baselining](#interaction-between-determinism-and-baselining)  
-F.1 [(Informative) Guidance on Fixes](#informative-guidance-on-fixes)  
-F.1 [(Informative) Diagnosing Results in Generated Files](#informative-diagnosing-results-in-generated-files)  
-F.1 [(Informative) Detecting Incomplete Result Sets](#informative-detecting-incomplete-result-sets)  
-F.1 [(Informative) Sample `sourceLanguage` Values](#informative-sample-sourcelanguage-values)  
+Appendix B. [(Normative) Use of Fingerprints by Result Management Systems](#normative-use-of-fingerprints-by-result-management-systems)  
+Appendix C. [(Informative) Use of SARIF by Log File Viewers](#informative-use-of-sarif-by-log-file-viewers)  
+Appendix D. [(Normative) Production of SARIF by Converters](#normative-production-of-sarif-by-converters)  
+Appendix E. [(Informative) Locating Rule and Notification Metadata](#informative-locating-rule-and-notification-metadata)  
+Appendix F. [(Informative) Producing Deterministic SARIF Log Files](#informative-producing-deterministic-sarif-log-files)  
+	F.1. [General](#general)  
+	F.2. [Non-Deterministic File Format Elements](#non-deterministic-file-format-elements)  
+	F.3. [Array and Dictionary Element Ordering](#array-and-dictionary-element-ordering)  
+	F.4. [Absolute Paths](#absolute-paths)  
+	F.5. [Inherently Non-Deterministic Tools](#inherently-non-deterministic-tools)  
+	F.6. [Compensating for Non-Deterministic Output](#compensating-for-non-deterministic-output)  
+	F.7. [Interaction Between Determinism and Baselining](#interaction-between-determinism-and-baselining)  
+Appendix G. [(Informative) Guidance on Fixes](#informative-guidance-on-fixes)  
+Appendix H. [(Informative) Diagnosing Results in Generated Files](#informative-diagnosing-results-in-generated-files)  
+Appendix I. [(Informative) Detecting Incomplete Result Sets](#informative-detecting-incomplete-result-sets)  
+Appendix J. [(Informative) Sample `sourceLanguage` Values](#informative-sample-sourcelanguage-values)  
 Appendix K. [(Informative) Examples](#informative-examples)  
-Appendix K. [Minimal Valid SARIF Log File](#minimal-valid-sarif-log-file)  
-Appendix K. [Minimal Recommended SARIF Log File with Source Information](#minimal-recommended-sarif-log-file-with-source-information)  
-Appendix K. [Minimal Recommended SARIF Log File without Source Information](#minimal-recommended-sarif-log-file-without-source-information)  
-Appendix K. [Comprehensive SARIF File](#comprehensive-sarif-file)  
+	K.1. [Minimal Valid SARIF Log File](#minimal-valid-sarif-log-file)  
+	K.2. [Minimal Recommended SARIF Log File with Source Information](#minimal-recommended-sarif-log-file-with-source-information)  
+	K.3. [Minimal Recommended SARIF Log File without Source Information](#minimal-recommended-sarif-log-file-without-source-information)  
+	K.4. [Comprehensive SARIF File](#comprehensive-sarif-file)  
 Appendix L. [(Informative) Revision History](#informative-revision-history)  
 Appendix M. [(Informative) MIME Types and File Name Extensions](#informative-mime-types-and-file-name-extensions)  
 Appendix N. [Safety, Security and Data Protection](#safety-security-and-data-protection)  
@@ -1466,7 +1466,7 @@ If any property in this document is described as an "array index," it **SHALL** 
 
 Certain properties in this document are defined to be "property bags". A property bag is an object ([§3.6](#object-properties)) containing an unordered set of properties with arbitrary names.
 
-The property names are hierarchical strings ([§3.5.4](#hierarchical-strings)). The components of the property names **SHOULD** be camelCase strings, but see [§Appendix A](#normative-production-of-sarif-by-converters) for exceptions.
+The property names are hierarchical strings ([§3.5.4](#hierarchical-strings)). The components of the property names **SHOULD** be camelCase strings, but see [§Appendix D.](#normative-production-of-sarif-by-converters) for exceptions.
 
 The property values **MAY** be of any JSON type, including strings, numbers, arrays, objects, Booleans, and null. If a property value is a string, it **MAY** be an empty string.
 
@@ -2292,7 +2292,7 @@ If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be o
 >
 > - To avoid revealing sensitive information such as a user name in a URI, for example, `file:///C:/Users/Mary/code/TheProject/`.
 >
-> - To produce deterministic output (see [§Appendix A](#informative-producing-deterministic-sarif-log-files)) by avoiding path names that differ depending on the machine where the analysis tool runs.
+> - To produce deterministic output (see [§Appendix F.](#informative-producing-deterministic-sarif-log-files)) by avoiding path names that differ depending on the machine where the analysis tool runs.
 
 > EXAMPLE 1: In this example, the "top-level" property `PROJECTROOT` specifies a URI containing a username:
 >
@@ -4376,7 +4376,7 @@ To maximize interoperability, SARIF producers and consumers **SHOULD** conform t
 
   - Compare source language identifiers case-insensitively.
 
-[§F.1](#informative-sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
+[§Appendix J.](#informative-sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
 
 ### 3.24.11 `hashes` Property <a id='hashes-property'></a>
 
@@ -4619,7 +4619,7 @@ A `result` object **MAY** contain a property named `guid` whose value is a GUID-
 
 Direct SARIF producers and SARIF converters **MAY** but do not need to set this property. A result management system **SHOULD** set this property when it ingests a SARIF log file. If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **SHALL** set this property to the value it assigned.
 
-A result management system **MAY** store multiple results with identical fingerprints (see [§3.27.16](#fingerprints-property) and [§Appendix A](#normative-use-of-fingerprints-by-result-management-systems)), but the `guid` properties for those results **SHALL** be distinct.
+A result management system **MAY** store multiple results with identical fingerprints (see [§3.27.16](#fingerprints-property) and [§Appendix B.](#normative-use-of-fingerprints-by-result-management-systems)), but the `guid` properties for those results **SHALL** be distinct.
 
 ### 3.27.4 `correlationGuid` Property <a id='result-object--correlationguid-property'></a>
 
@@ -5152,7 +5152,7 @@ When a result management system uses fingerprint information to determine whethe
 
 A direct SARIF producer **SHOULD NOT** populate this property. A SARIF converter **MAY** populate this property if the analysis tool’s native output format provides a value that qualifies as a fingerprint (a stable identifier for the result). A result management system **MAY** populate this property when it ingests a SARIF file. If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **MAY** set this property to the value it assigned.
 
-[§Appendix A](#normative-use-of-fingerprints-by-result-management-systems) provides requirements for how a result management system computes fingerprints.
+[§Appendix B.](#normative-use-of-fingerprints-by-result-management-systems) provides requirements for how a result management system computes fingerprints.
 
 > NOTE: `fingerprints` and `correlationGuid` ([§3.27.4](#result-object--correlationguid-property)) provide two different ways for result management systems to associate results that are logically identical. See [§3.27.2](#distinguishing-logically-identical-from-logically-distinct-results) for more information.
 
@@ -5344,7 +5344,7 @@ This property **SHALL** have one of the following values, with the specified mea
 
 > NOTE 1: The purpose of `baselineState` is to allow (for example) a measurement of how many new results were introduced in the run, and how many previously existing results no longer appear.
 >
-> To assign a value to `baselineState`, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. [§Appendix A](#normative-use-of-fingerprints-by-result-management-systems) discusses how a result management system can assign a "fingerprint" to each result. See also the description of the `fingerprints` ([§3.27.16](#fingerprints-property)) and `partialFingerprints` ([§3.27.17](#partialfingerprints-property)) properties.
+> To assign a value to `baselineState`, a tool needs a way to determine whether a result is logically "the same", in some sense, as a result that appeared in the baseline. [§Appendix B.](#normative-use-of-fingerprints-by-result-management-systems) discusses how a result management system can assign a "fingerprint" to each result. See also the description of the `fingerprints` ([§3.27.16](#fingerprints-property)) and `partialFingerprints` ([§3.27.17](#partialfingerprints-property)) properties.
 >
 > An analysis tool that works together with such a result management system can use the fingerprint to determine whether two results are logically the same; two results with the same fingerprint are considered logically the same.
 
@@ -5422,7 +5422,7 @@ A logical location specifies a programmatic construct, for example, a class name
 >
 > - In the absence of symbol information, binary analysis tools might not have source code locations available, so information about line and column numbers might not be present in the log file. In this case, code editors, other programs, or end users can use logical location to navigate from a result to the correct source code location.
 >
-> - Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See [§Appendix A](#normative-use-of-fingerprints-by-result-management-systems) for more information about fingerprinting. The `logicalLocation.fullyQualifiedName` property ([§3.33.5](#logicallocation-object--fullyqualifiedname-property)) is particularly convenient for fingerprinting.
+> - Logical location information is an important contributor to fingerprinting scenarios because it is typically more resilient to changes in source code than are the line numbers included in physical locations. See [§Appendix B.](#normative-use-of-fingerprints-by-result-management-systems) for more information about fingerprinting. The `logicalLocation.fullyQualifiedName` property ([§3.33.5](#logicallocation-object--fullyqualifiedname-property)) is particularly convenient for fingerprinting.
 >
 > - In the analysis of structured data files such as XML or JSON, internal structural information (such as an XML path like `"/orders[2]/customers/lastName"`) might be helpful.
 
@@ -9300,7 +9300,7 @@ A result management system satisfies the "result management system" conformance 
 
 - It satisfies the "SARIF consumer" conformance profile.
 
-- It additionally satisfies the normative requirements in [§3](#file-format) and [§Appendix A](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
+- It additionally satisfies the normative requirements in [§3](#file-format) and [§Appendix B.](#normative-use-of-fingerprints-by-result-management-systems) ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
 
 ## 5.10 Conformance Clause 9: Engineering System <a id='conformance-clause-9-engineering-system'></a>
 
@@ -9386,7 +9386,7 @@ Vamshi Basupalli, SWAMP Project, University of Wisconsin
 Yekaterina O'Neil, Micro Focus
 ```
 
-# Appendix A. (Normative) Use of Fingerprints by Result Management Systems <a id='normative-use-of-fingerprints-by-result-management-systems'></a>
+# Appendix B. (Normative) Use of Fingerprints by Result Management Systems <a id='normative-use-of-fingerprints-by-result-management-systems'></a>
 
 On large software projects, a single run of a set of analysis tools can produce hundreds of thousands of results or more. To deal with so many results, some engineering teams adopt a strategy whereby they first prevent the introduction of new problems into their code, and then work to address the existing problems.
 
@@ -9412,11 +9412,11 @@ Some information contained in the result is not useful in constructing a fingerp
 
 A result management system **SHOULD NOT** include an absolute line number (or an absolute byte location in a binary artifact) in its fingerprint computation.
 
-> NOTE: The inclusion of non-deterministic file format elements ([§Appendix A](#informative-producing-deterministic-sarif-log-files), [§F.1](#non-deterministic-file-format-elements)) or non-deterministic absolute URIs ([§Appendix A](#informative-producing-deterministic-sarif-log-files), [§F.1](#absolute-paths)) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
+> NOTE: The inclusion of non-deterministic file format elements ([§Appendix F.](#informative-producing-deterministic-sarif-log-files), [§F.2](#non-deterministic-file-format-elements)) or non-deterministic absolute URIs ([§Appendix F.](#informative-producing-deterministic-sarif-log-files), [§F.4](#absolute-paths)) in the fingerprint computation will compromise the usefulness of fingerprints for distinguishing logically identical from logically distinct results.
 
 It is difficult to devise an algorithm that constructs a truly stable fingerprint for a result. Fortunately, for practical purposes, the fingerprint does not need to be absolutely stable; it only needs to be stable enough to reduce the number of results that are erroneously reported as "new" to a low enough level that the development team can manage the erroneously reported results without too much effort.
 
-# Appendix A. (Informative) Use of SARIF by Log File Viewers <a id='informative-use-of-sarif-by-log-file-viewers'></a>
+# Appendix C. (Informative) Use of SARIF by Log File Viewers <a id='informative-use-of-sarif-by-log-file-viewers'></a>
 
 It is frequently useful for an end user to view the results produced by an analysis tool in the context of the artifacts in which they occur. A log file viewer is a program that allows an end user to do this.
 
@@ -9430,7 +9430,7 @@ There are various reasons why a viewer might need to know the type of informatio
 
 There are various ways that a viewer might obtain file type information. In the SARIF format, the `mimeType` ([§3.24.7](#mimetype-property)) and `sourceLanguage` ([§3.24.10](#artifact-object--sourcelanguage-property)) properties of the `artifact` object ([§3.24](#artifact-object)) provides this information. In the absence of these properties, a viewer can fall back to examining the filename extension, for example ".c".
 
-# Appendix A. (Normative) Production of SARIF by Converters <a id='normative-production-of-sarif-by-converters'></a>
+# Appendix D. (Normative) Production of SARIF by Converters <a id='normative-production-of-sarif-by-converters'></a>
 
 There are two broad categories of tools that can produce output in the SARIF format. Analysis tools produce SARIF as a result of performing a scan on a set of analysis targets. Converters translate existing data from a non-SARIF format into the SARIF format. That data might come from an analysis tool that produces output in a non-SARIF format, from a bug database, or from any other source.
 
@@ -9454,7 +9454,7 @@ Notwithstanding this general guidance recommending that a converter synthesize S
 
 - A converter **SHOULD NOT** populate the analysis tool’s `toolComponent.semanticVersion` ([§3.19.12](#semanticversion-property)) unless it knows that the tool component's version string is intended to be interpreted as a semantic version \[[SEMVER](#SEMVER)\] version string.
 
-# Appendix A. (Informative) Locating Rule and Notification Metadata <a id='informative-locating-rule-and-notification-metadata'></a>
+# Appendix E. (Informative) Locating Rule and Notification Metadata <a id='informative-locating-rule-and-notification-metadata'></a>
 
 The SARIF format allows rule and notification metadata to be included in a SARIF log file (see [§3.19.23](#rules-property) and [§3.19.24](#notifications-property)). A SARIF log file does not need to include any metadata. This raises the questions of when metadata should be included in a log file, and how to locate the metadata if it is not included in the log file.
 
@@ -9468,9 +9468,9 @@ Metadata should be included in a log file in the following circumstances:
 
 If metadata is not included in the log file, and if external property files (see [§3.15.2](#rationale)) are not used, this document does not specify a mechanism for locating the metadata. If the SARIF log file is produced in the context of an engineering system that provides a service from which metadata can be obtained (for example, a result management system, or a web service dedicated to metadata), then tooling can be created to merge a log file with the relevant metadata when required (for example, when presenting the results in a log file viewer).
 
-# Appendix A. (Informative) Producing Deterministic SARIF Log Files <a id='informative-producing-deterministic-sarif-log-files'></a>
+# Appendix F. (Informative) Producing Deterministic SARIF Log Files <a id='informative-producing-deterministic-sarif-log-files'></a>
 
-## F.1 General <a id='informative-producing-deterministic-sarif-log-files--general'></a>
+## F.1. General <a id='general'></a>
 
 In certain circumstances, it is desirable for an analysis tool to produce deterministic output; that is, for it to produce identical output when run repeatedly with identical inputs.
 
@@ -9496,7 +9496,7 @@ There are several issues to consider when producing deterministic output:
 
 - Handling baseline information
 
-## F.1 Non-Deterministic File Format Elements <a id='non-deterministic-file-format-elements'></a>
+## F.2. Non-Deterministic File Format Elements <a id='non-deterministic-file-format-elements'></a>
 
 Certain optional elements of the SARIF format are non-deterministic in most situations. A log file that includes these elements will not be deterministic except under special circumstances. For example:
 
@@ -9562,7 +9562,7 @@ Avoiding these elements, in conjunction with the techniques described in subsequ
 
 - `physicalLocation.address`, for the same reason as `run.addresses`.
 
-## F.1 Array and Dictionary Element Ordering <a id='array-and-dictionary-element-ordering'></a>
+## F.3. Array and Dictionary Element Ordering <a id='array-and-dictionary-element-ordering'></a>
 
 One obstacle to determinism in SARIF log files is the ordering of array elements and object properties.
 
@@ -9574,7 +9574,7 @@ The array of `result` objects in the `run.results` array presents more of a prob
 
 For dictionaries such as the `artifact.hashes` object, a tool might order the property names alphabetically, using a locale-insensitive ordering.
 
-## F.1 Absolute Paths <a id='absolute-paths'></a>
+## F.4. Absolute Paths <a id='absolute-paths'></a>
 
 Another obstacle to determinism is the use of absolute paths which might differ from machine to machine. For example:
 
@@ -9584,13 +9584,13 @@ Another obstacle to determinism is the use of absolute paths which might differ 
 
 Tools can avoid the use of absolute file paths by emitting URIs that are relative to one or more root directories (for example, a source root directory and an output root directory), and accompanying each `artifactLocation.uri` property with the corresponding `artifactLocation.uriBaseId` property.
 
-## F.1 Inherently Non-Deterministic Tools <a id='inherently-non-deterministic-tools'></a>
+## F.5. Inherently Non-Deterministic Tools <a id='inherently-non-deterministic-tools'></a>
 
 The algorithms used by some tools are inherently non-deterministic because, for example, they perform random sampling or random traversals of the graphs that represent the code. Generally, these tools produce mostly the same result set, but there might be small differences between runs.
 
 Such tools can avoid this source of non-determinism by, for example, providing a command-line argument to specify the random number generator seed.
 
-## F.1 Compensating for Non-Deterministic Output <a id='compensating-for-non-deterministic-output'></a>
+## F.6. Compensating for Non-Deterministic Output <a id='compensating-for-non-deterministic-output'></a>
 
 If an analysis tool does not produce deterministic output, a build system can add additional processing steps to compensate.
 
@@ -9604,7 +9604,7 @@ In the first scenario, a post-processing step could produce deterministic output
 
 In the second scenario, a post-processing step could intelligently compare the newly produced log to the log from a previous build by ignoring non-deterministic elements, ensuring that arrays have the same elements regardless of order, and ignoring file path prefixes.
 
-## F.1 Interaction Between Determinism and Baselining <a id='interaction-between-determinism-and-baselining'></a>
+## F.7. Interaction Between Determinism and Baselining <a id='interaction-between-determinism-and-baselining'></a>
 
 SARIF's baselining feature poses a particular challenge for determinism. We illustrate the problem with the following scenario:
 
@@ -9626,7 +9626,7 @@ If the build uses a simple mechanism such as hash value comparison to determine 
 
 If the build engineers for a project wish to absolutely minimize the execution of unnecessary build steps, they have various options. They might perform an "intelligent" comparison between the baseline and the new log, treating "new" results in the baseline as equivalent to "unchanged" results. Or they might rewrite the baseline (marking all "new" results as "unchanged") before performing the comparison. Of course, there is no guarantee that such an "intelligent" comparison or baseline rewriting process will actually take less time than the unnecessary build steps it is intended to avoid.
 
-# F.1 (Informative) Guidance on Fixes <a id='informative-guidance-on-fixes'></a>
+# Appendix G. (Informative) Guidance on Fixes <a id='informative-guidance-on-fixes'></a>
 
 Tools that produce SARIF files which include `fix` objects should take care to structure those fixes in such a way as to affect a minimal range of content. This maximizes the likelihood that an automated tool can safely apply multiple fixes to the same artifact.
 
@@ -9674,7 +9674,7 @@ If the fix for result #1 were structured as a single replacement, then after app
 
 Therefore, structuring fixes as sequences of minimal, disjoint replacements maximizes the amount of work that can be done by automated fixup tools.
 
-# F.1 (Informative) Diagnosing Results in Generated Files <a id='informative-diagnosing-results-in-generated-files'></a>
+# Appendix H. (Informative) Diagnosing Results in Generated Files <a id='informative-diagnosing-results-in-generated-files'></a>
 
 Sometimes it is desirable to analyze files generated by the build. These files are usually not under source control, and the build might even overwrite them multiple times. This Appendix offers guidance on how to persist enough information in a SARIF log file to facilitate the diagnosis of results in these files.
 
@@ -9861,7 +9861,7 @@ The recommended solution is for the analysis tool to create a new entry in `theR
 > }
 > ```
 
-# F.1 (Informative) Detecting Incomplete Result Sets <a id='informative-detecting-incomplete-result-sets'></a>
+# Appendix I. (Informative) Detecting Incomplete Result Sets <a id='informative-detecting-incomplete-result-sets'></a>
 
 This document describes three conditions that inform the SARIF consumer that the tool has failed to produce a comprehensive set of results. For convenience, this Appendix gathers those conditions together in one place:
 
@@ -9873,7 +9873,7 @@ This document describes three conditions that inform the SARIF consumer that the
 
 These conditions apply separately to each run in the log file.
 
-# F.1 (Informative) Sample `sourceLanguage` Values <a id='informative-sample-sourcelanguage-values'></a>
+# Appendix J. (Informative) Sample `sourceLanguage` Values <a id='informative-sample-sourcelanguage-values'></a>
 
 This Appendix contains a list of sample values for the `artifact.sourceLanguage` property ([§3.24.10](#artifact-object--sourcelanguage-property)) for some common programming languages. The purpose of this Appendix is to promote interoperability by encouraging SARIF producers to use the same identifiers for these languages.
 
@@ -10021,7 +10021,7 @@ The names of some of the languages in this list are the trademarks of their resp
 
 This Appendix contains examples of complete, valid SARIF files, to complement the fragments shown in examples throughout this document.
 
-## Appendix K. Minimal Valid SARIF Log File <a id='minimal-valid-sarif-log-file'></a>
+## K.1. Minimal Valid SARIF Log File <a id='minimal-valid-sarif-log-file'></a>
 
 This is a minimal valid SARIF log file. It contains only those elements required by this document (elements which the document states **SHALL** be present).
 
@@ -10044,7 +10044,7 @@ The file contains a single `run` object ([§3.14](#run-object)) with an empty `r
 }
 ```
 
-## Appendix K. Minimal Recommended SARIF Log File with Source Information <a id='minimal-recommended-sarif-log-file-with-source-information'></a>
+## K.2. Minimal Recommended SARIF Log File with Source Information <a id='minimal-recommended-sarif-log-file-with-source-information'></a>
 
 This is a minimal recommended SARIF log file for the case where an analysis tool produced results and source location information is available.
 
@@ -10127,7 +10127,7 @@ This example also includes a `toolComponent.rules` property ([§3.19.23](#rules-
 }
 ```
 
-## Appendix K. Minimal Recommended SARIF Log File without Source Information <a id='minimal-recommended-sarif-log-file-without-source-information'></a>
+## K.3. Minimal Recommended SARIF Log File without Source Information <a id='minimal-recommended-sarif-log-file-without-source-information'></a>
 
 This is a minimal recommended SARIF file for the case where an analysis tool produced results and source location information is not available.
 
@@ -10199,7 +10199,7 @@ It contains a `run.logicalLocations` property ([§3.14.17](#run-object--logicall
 }
 ```
 
-## Appendix K. Comprehensive SARIF File <a id='comprehensive-sarif-file'></a>
+## K.4. Comprehensive SARIF File <a id='comprehensive-sarif-file'></a>
 
 The purpose of this example is to demonstrate the usage of as many SARIF elements as possible. Not all elements are shown, because some are mutually exclusive.
 
@@ -10963,11 +10963,14 @@ Because the purpose is to present as many elements as possible, the file as a wh
 |:--------------------------|:-----------|:----------------------------|:-------------------------------------------------------------------------|
 | sarif-v2.2-wd20240605-dev | 2024-06-05 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #471 and #637.                    |
 | sarif-v2.2-wd20240808-dev | 2024-08-08 | Stacy Wray and Stefan Hagen | Editor revision implementing proposals #459, #483, #491, #492, and #634. |
-| sarif-v2.2-wd20250612-dev | 2025-06-12 | Stefan Hagen                | Editor revision for meeting 2025-06-12.                                  |
-| sarif-v2.2-wd20250710-dev | 2025-07-10 | Stefan Hagen                | Editor revision for meeting 2025-07-10.                                  |
-| sarif-v2.2-wd20250807-dev | 2025-08-07 | Stefan Hagen                | Editor revision for meeting 2025-08-07.                                  |
-| sarif-v2.2-wd20251204-dev | 2025-12-04 | Stefan Hagen                | Editor revision for meeting 2025-12-04.                                  |
-| sarif-v2.2-wd20260205-dev | 2026-02-05 | Stefan Hagen                | Editor revision for meeting 2026-02-05.                                  |
+| sarif-v2.2-wd20250612-dev | 2025-06-12 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20250710-dev | 2025-07-10 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20250807-dev | 2025-08-07 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20251204-dev | 2025-12-04 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20260205-dev | 2026-02-05 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+| sarif-v2.2-wd20260305-dev | 2026-03-05 | Stefan Hagen                | Editor revision for TC meeting.                                          |
+
+-------
 
 # Appendix M. (Informative) MIME Types and File Name Extensions <a id='informative-mime-types-and-file-name-extensions'></a>
 

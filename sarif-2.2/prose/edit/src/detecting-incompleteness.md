@@ -1,12 +1,4 @@
-<!--
----
-toc:
-  auto: false
-  label: (Informative) Detecting incomplete result sets
-  enumerate: Appendix I.
----
--->
-# (Informative) Detecting Incomplete Result Sets
+# Appendix I. (Informative) Detecting Incomplete Result Sets
 
 This document describes three conditions that inform the SARIF consumer that the tool has failed to produce a comprehensive set of results. For convenience, this Appendix gathers those conditions together in one place:
 

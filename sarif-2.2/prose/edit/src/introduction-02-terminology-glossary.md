@@ -1,3 +1,6 @@
+accuracy
+:    indicates how close a given series of measurements is to the true value.
+
 analysis target
 :    [artifact](#def;artifact) which an [analysis tool](#def;analysis-tool) is instructed to analyze
 
@@ -154,6 +157,9 @@ plugin
 
 policy
 :  set of [rule configurations](#def;rule-configuration) that specify how [results](#def;result) that violate the [rules](#def;rule) defined by a particular [tool component](#def;tool-component) are to be treated
+
+precision
+:    indicates how close several measurements of the same object are to each other.
 
 problem
 :  [result](#def;result) which indicates a condition that has the potential to detract from the quality of the program
