@@ -46,6 +46,8 @@ If metadata is present, at least one of `index` ([sec](#reportingdescriptorrefer
 | `notification.descriptor` ([sec](#notification-object--descriptor-property))                          | `notifications`                            |
 | `notification.associatedRule` ([sec](#associatedrule-property))                                       | `rules`                                    |
 
+Table: Relationships between `reportingDescriptorReference` and `theDescriptor`{#tab:reporting-descriptor-consequences}
+
 ### `id` Property{#reportingdescriptorreference-object--id-property}
 
 A `reportingDescriptorReference` object **MAY** contain a property named `id` whose value is a hierarchical string ([sec](#hierarchical-strings)) that either equals `theDescriptor.id` ([sec](#reportingdescriptor-object--id-property)) or equals `theDescriptor.id` plus one additional hierarchical component.

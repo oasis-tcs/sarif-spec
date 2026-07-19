@@ -2,15 +2,26 @@
 .SILENT:
 .DEFAULT_GOAL = build
 
-pyversion = py312
+pyversion = py314
 linelength = 120
 black = black -S -l $(linelength) --target-version $(pyversion) --quiet bin
 lint = ruff check bin
 types = mypy bin
-build_root = build/
-build_pdf = $(build_root)render/pdf/
-liitos_templates = etc/liitos/
-optimize_pdf = qpdf --linearize --replace-input
+OPEN ?= open
+
+shared = ../share/
+artifact_stem = sarif-v2.2-draft
+
+target_gfm_plus = gfm-plus
+
+out_html          = $(shared)$(artifact_stem).html
+out_gfm_plus      = $(shared)$(artifact_stem).md
+out_ir            = $(shared)$(artifact_stem).ir.json
+out_manifest      = $(shared)$(artifact_stem).manifest.json
+out_pdf           = $(shared)$(artifact_stem).pdf
+out_pdf_sha256    = $(shared)$(artifact_stem).pdf.sha256
+out_pdf_blake3    = $(shared)$(artifact_stem).pdf.blake3
+out_typst         = $(shared)$(artifact_stem).typ
 
 .PHONY: all
 all: lint types build
@@ -27,7 +38,7 @@ lint:
 	$(lint) --diff
 	$(black) --check --diff
 	command -v unmake >/dev/null 2>&1 || { echo >&2 "make lint requires unmake but it's not installed - you can install with: 'cargo install unmake'.  Aborting."; exit 1; }
-	unmake makefile
+	-unmake makefile
 
 .PHONY: types
 types:
@@ -35,58 +46,66 @@ types:
 	$(types)
 
 .PHONY: render
-render: render-html
+render: html
 
 .PHONY: sections
 sections:
-	bin/sections.py
+	command -v nide >/dev/null 2>&1 || { echo >&2 "make sections requires nide but it's not installed - you can install with: 'pip install nide'.  Aborting."; exit 1; }
+	nide harvest
 
-.PHONY: render-markdown
-render-markdown: sections
-	bin/assemble.py && \
-	  cp -a build/tmp.md ../share/sarif-v2.2-draft.md && \
-	  printf "Rendered user facing delivery item in markdown format:\n" && \
-	  ls -l ../share/sarif-v2.2-draft.md
+.PHONY: gfm-plus
+gfm-plus: sections
+	nide assemble && \
+	  cp -p build/ir.json $(out_ir) && \
+	  nide render -t $(target_gfm_plus) && \
+	  cp -p build/gfm-plus.md $(out_gfm_plus) && \
+	  printf "Rendered markdown:\n" && \
+	  ls -l $(out_gfm_plus)
 
-.PHONY: render-html
-render-html: render-markdown
-	command -v pandoc >/dev/null 2>&1 || { echo >&2 "make render-html requires pandoc but it's not installed - you can get help on installing at https://pandoc.org.  Aborting."; exit 1; }
-	command -v tidy >/dev/null 2>&1 || { echo >&2 "make render-html requires tidy but it's not installed - you can get help on installing by searching for it on the wild internets.  Aborting."; exit 1; }
-	pandoc -f gfm+definition_lists -t html build/tmp.md --columns=345 --title "Static Analysis Results Interchange Format (SARIF) Version 2.2" \
-		--css style/base.css --css style/skin.css --standalone -o build/tmp.html && \
-	  bin/toccata.py && \
-	  timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml 2>/dev/null | \
-		sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > ../share/sarif-v2.2-draft.html && \
-	  printf "Rendered user facing delivery item in html format:\n" && \
-	  ls -l ../share/sarif-v2.2-draft.html
+.PHONY: html
+html: gfm-plus
+	command -v pandoc >/dev/null 2>&1 || { echo >&2 "make html requires pandoc but it's not installed - you can get help on installing at https://pandoc.org.  Aborting."; exit 1; }
+	nide render -t html && \
+	  pandoc -f gfm+definition_lists -t html build/html.md --columns=345 \
+	  --css style/base.css --css style/skin.css --standalone -o build/pandoc.html && \
+	  nide inject && \
+	  cp -p build/injected.html $(out_html) && \
+	  printf "Rendered html:\n" && \
+	  ls -l $(out_html)
 
-.PHONY: render-pdf
-render-pdf:
-	command -v liitos >/dev/null 2>&1 || { echo >&2 "make render-pdf requires liitos but it's not installed - you can install per pip install liitos.  Aborting."; exit 1; }
-	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
-	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
-	bin/assemble.py -t pdf && \
-		printf "pdf.md\n" > $(build_root)bind.txt && \
-		mkdir -p $(build_root)images/ && \
-		mkdir -p $(build_pdf)images/ && \
-		cp -a ../media/OASISLogo-v3.0.png $(build_root)images/ && \
-		cp -a ../media/OASISLogo-v3.0.png $(build_pdf)images/ && \
-		cp -a $(liitos_templates)approvals.yml $(build_root) && \
-		cp -a $(liitos_templates)bookmatter.tex.in $(build_root) && \
-		cp -a $(liitos_templates)changes.yml $(build_root) && \
-		cp -a $(liitos_templates)driver.tex.in $(build_pdf) && \
-		cp -a $(liitos_templates)meta.yml $(build_root) && \
-		cp -a $(liitos_templates)metadata.tex.in $(build_pdf) && \
-		cp -a $(liitos_templates)patch.yml $(build_root) && \
-		cp -a $(liitos_templates)publisher.tex.in $(build_root) && \
-		cp -a $(liitos_templates)setup.tex.in $(build_pdf) && \
-		cp -a $(liitos_templates)structure.yml $(build_root) && \
-		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
-		cd $(build_pdf) && \
-		max_print_line=10000 liitos render ../../ -t sarif -f pdf -p -l "etiketti --config etiketti.yml --enforce"  && \
-		$(optimize_pdf) -- this.pdf && \
-		cp -a this.pdf ../../../../share/sarif-v2.2-draft.pdf && \
-		open ../../../../share/sarif-v2.2-draft.pdf && cd -
+.PHONY: pdf
+pdf:
+	nide assemble && nide render -t typst
+	mkdir -p build/images
+	cp ../media/OASISLogo-v3.0.png build/images/
+	pandoc -f markdown+definition_lists -t typst --standalone \
+	  --template etc/sarif.typ --lua-filter build/nide-columns.lua \
+	  build/typst.md -o build/typst.typ
+	typst compile --root . build/typst.typ build/sarif-typst.pdf
+	cp -p build/sarif-typst.pdf $(out_pdf)
+	cp -p build/typst.typ $(out_typst)
+	shasum -a 256 $(out_pdf) > $(out_pdf_sha256)
+	{ command -v b3sum >/dev/null 2>&1 && b3sum $(out_pdf) > $(out_pdf_blake3); } || \
+	  printf "b3sum not found — skipping blake3 checksum\n"
+	$(OPEN) $(out_pdf)
+
+.PHONY: release
+release: html pdf
+	nide manifest && nide validate
+	cp -p build/manifest.json $(out_manifest)
+	ls -l $(shared)$(artifact_stem).*
+
+.PHONY: quality
+quality:
+	nide quality
+
+.PHONY: diff
+diff:
+	nide diff --mode prose $(out_html) || true
+
+.PHONY: diff-repro
+diff-repro:
+	nide diff --mode repro $(out_pdf) || true
 
 .PHONY: build
 build: render status
@@ -104,25 +123,17 @@ clean:
 	rm -f `find . -type f -name '.*~' `
 	rm -rf .cache .*_cache
 	rm -f .DS_Store
-	rm -f $(build_root)approvals.yml \
-	  $(build_root)bind.txt \
-	  $(build_root)bookmatter.tex.in \
-	  $(build_root)changes.yml \
-	  $(build_root)driver.tex.in \
-	  $(build_root)meta.yml \
-	  $(build_root)metadata.tex.in \
-	  $(build_root)patch.yml \
-	  $(build_root)publisher.tex.in \
-	  $(build_root)setup.tex.in \
-	  $(build_root)structure.yml
-	rm -fr $(build_root)src/ $(build_pdf)
+	rm -fr build/
+	mkdir -p build/
 
 .PHONY: distclean
 distclean: clean
-	rm -fr $(build_root)
+	rm -fr build/
 
-.PHONY: clone-info
-clone-info:
+
+
+.PHONY: context
+context:
 	printf "Clone-info:\n"
 	printf "%s name.is(): '%s'\n" "-" "$$(basename `git rev-parse --show-toplevel`)"
 	printf "%s branch.is(): '%s'\n" "-" "$$(git branch --show-current)"
@@ -130,5 +141,20 @@ clone-info:
 	printf "%s location.is(): %s\n" "-" "$$(python -c "(lambda _Y: (lambda _mod: (lambda Path: (lambda g: [(lambda x: [(lambda c, p: (lambda _loop1: _loop1(c, p))(_Y(lambda _loop1: (lambda c, p: ([_loop1(c, p) for (p, c) in [x(p, c, g)]][0]) if (c != p) and (str(c) != '/') else print((f\"(orga/repo='{c.parent.name}/{c.name}', rel-path='{o.relative_to(c)}')\" if (c == p) else \"(orga/repo='?/?', rel-path='?')\"))))))(c if 'c' in dir() else None, p if 'p' in dir() else None) for (_, c) in [x(p, c, g)]][0])(lambda p, c, g: (c, c.parent if not (c / g).is_dir() else c)) for o, p, c in [[Path().resolve()] * 3]][0])('.git'))(_mod.Path))(__import__('pathlib', {}, {}, ['Path'])))((lambda f: (lambda x: x(x))(lambda y: f(lambda *args: y(y)(*args)))))")"
 	printf "%s node.id(): '%s'\n" "-" "$$(python -c 'import platform; import uuid; print(str(uuid.uuid3(uuid.NAMESPACE_DNS, platform.node())))')"
 
-.PHONY: name
-name: clone-info
+.PHONY: name  # Deprecated - backwards compatibility target
+name: context
+
+.PHONY: whoami  # Deprecated - backwards compatibility target
+whoami: context
+
+.PHONY: typst  # Deprecated - use pdf
+typst: pdf
+
+.PHONY: render-html  # Deprecated - backwards compatibility target
+render-html: html
+
+.PHONY: render-markdown  # Deprecated - backwards compatibility target
+render-markdown: gfm-plus
+
+.PHONY: render-pdf  # Deprecated - backwards compatibility target
+render-pdf: pdf

@@ -4,7 +4,7 @@
 
 Certain properties in this document are defined to be "property bags". A property bag is an object ([sec](#object-properties)) containing an unordered set of properties with arbitrary names.
 
-The property names are hierarchical strings ([sec](#hierarchical-strings)). The components of the property names **SHOULD** be camelCase strings, but see [sec](#normative-production-of-sarif-by-converters) for exceptions.
+The property names are hierarchical strings ([sec](#hierarchical-strings)). The components of the property names **SHOULD** be camelCase strings, but see [sec](#production-of-sarif-by-converters) for exceptions.
 
 The property values **MAY** be of any JSON type, including strings, numbers, arrays, objects, Booleans, and null. If a property value is a string, it **MAY** be an empty string.
 

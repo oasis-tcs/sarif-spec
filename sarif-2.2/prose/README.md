@@ -1,46 +1,32 @@
-# The SARIF 2.2 Prose Folder
+# SARIF Version 2.2 — Prose
 
-This place offers access to the editable sources of the v2.2 SARIF specification (to be).
+The `prose` folder holds the editable source and the publication-ready delivery items
+for the Static Analysis Results Interchange Format (SARIF) v2.2 specification.
 
-TL;DR: Call `make` and `make render-pdf` in the `edit` folder and this will build the user facing delivery items in the `share` folder.
+## Delivery channels
 
-In the `share` folder there are the user facing delivery items that offer layout and navigation
-optimized for online viewing per 
+The `share/` folder contains four rendered artifacts:
 
-- a typical web interface of a version control server (like Codeberg, GitHub, GitLab, or SourceHut) - the Markdown file
-- any typical browser (like Brave, Chrome, Edge, Firefox, or Safari) - the HTML file
-- any PDF viewing app - the PDF file
+| Channel | File | Description |
+|---------|------|-------------|
+| GFM+ | `sarif-v2.2-draft.md` | Single-file GitHub-flavored Markdown; renders on Codeberg, GitHub, and GitLab |
+| HTML | `sarif-v2.2-draft.html` | Self-contained HTML with OASIS styling; open in any browser |
+| PDF | `sarif-v2.2-draft.pdf` | Print-ready PDF via nide + pandoc + typst |
+| IR | `sarif-v2.2-draft.ir.json` | Intermediate representation; input for downstream tooling |
 
-Inside the `edit` folder we build these delivery items from the source files (also in Markdown format, but
-split by concerns, verifiable per syntax, and offering clean structural constructs for definition lists etc.
-instead of the specific idioms mixed in for ease of use in specific reading tools).
+## Building
 
-To generate both the Markdown and the HTML user facing delivery items simply call `make` inside the edit folder.
+All targets are defined in `edit/makefile`.
+Run commands from the `edit/` directory.
 
-Execution of any `make` target / dependency that uses non-standard tools, will verify the tools are available.
-In case essential tools for the task are missing,
-make will abort printing some information on what is missing and how such tool can be installed.
+```
+make          # GFM+ and HTML (default)
+make pdf      # PDF via typst
+make release  # all channels + manifest + validation
+make quality  # run spec and OASIS baseline quality checks
+```
 
-## Typical Editor Tasks
+## Source layout
 
-When changing section labels, positions of sections, or when adding, moving, or deleting examples,
-the mappings have to be updated
-
-Please only modify two of the four mapping files. The other two will be derived from the former.
-
-Changes to section mapping:
-
-1. Edit `etc/section-display-to-label.json` to align with the document
-2. Eventually (when moving sections or renaming the labels) edit `etc/example-global-to-local.json` too.
-3. Execute `make inversions` to derive the coresponding `etc/section-label-to-display.json` and
-   `etc/example-local-to-global.json` files, or directly call `make`.
-   The latter has the `inversions` target as dependency.
-
-Changes only to examples:
-
-1. Edit `etc/example-global-to-local.json` too.
-2. Execute `make invert-examples` to derive the coresponding `etc/example-local-to-global.json` file, or directly call `make`.
-   The latter has the `inversions` target as dependency.
-
-In case the `make` command does detect `inverso` tool needed for the inversions as missing,
-but does not print out the installation hint: `pip install inverso` should do the trick.
+The source lives in `edit/src/` assembled per `edit/etc/bind.txt`.
+See `edit/README.md` for the full authoring reference.
