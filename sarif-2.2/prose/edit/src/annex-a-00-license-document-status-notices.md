@@ -1,10 +1,10 @@
 <!--
----
+
 toc:
   auto: false
   label: License, Document Status and Notices
   enumerate: Annex A
----
+
 -->
 
 # Annex A License, Document Status and Notices{#annex-a}

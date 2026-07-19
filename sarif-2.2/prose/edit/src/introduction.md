@@ -2,7 +2,8 @@
 
 Software developers use a variety of analysis tools to assess the quality of their programs. These tools report results which can indicate problems related to program qualities such as correctness, security, performance, compliance with contractual or legal requirements, compliance with stylistic standards, understandability, and maintainability. To form an overall picture of program quality, developers often need to aggregate the results produced by all of these tools. This aggregation is more difficult if each tool produces output in a different format.
 
-This document defines a standard format for the output of static analysis tools, called the Static Analysis Results Interchange Format, or "SARIF"[^1]. The goals of the format are:
+This document defines a standard format for the output of static analysis tools, called the Static Analysis Results Interchange Format,
+or "SARIF"[^1]. The goals of the format are:
 
 - Comprehensively capture the range of data produced by commonly used static analysis tools.
 
@@ -78,4 +79,6 @@ This information is given for the convenience of users of this document and does
 * Fix typo in XML example of logical locations (#669) (#675)
 * Fixed errors in the algorithm for calculating `result.level` (#470) (#758)
 
----
+
+
+[^1]: Pronounced 'sæ-rɪf ("a" as in "cat", "i" as in "if", emphasis on the first syllable).

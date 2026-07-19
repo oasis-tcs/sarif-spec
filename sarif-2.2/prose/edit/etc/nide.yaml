@@ -1,45 +1,75 @@
-section-type-prefixes: [Annex, Appendix]
-binder: bind.txt
-binder-ignores:
-  gfm-plus: []
-  html: []
+assembly:
+  binder: bind.txt
+  source-path: src
+  build-path: build
+  etc-path: etc
+  first-authored-section: '# Scope'
+  binder-ignores:
+    gfm-plus: []
+    html: []
+    pdf:
+    - frontmatter.md
+  delete-when:
+  - contains: '<mark title="Ephemeral region marking">'
+    delete:
+    - '<mark title="Ephemeral region marking">'
+    - '</mark>'
+
+structure:
+  section-type-prefixes: [Annex, Appendix]
+
+enumeration:
+  sections:
+    l1-dot: true
+    sub-dot: false
+    reference-style: number-title
+    lut:
+      label-to-display: section-label-to-display.json
+      display-to-label: section-display-to-label.json
+      display-to-text: section-display-to-text.json
+  examples:
+    track: true
+    global-start: 4321
+    lut:
+      local-to-global: example-local-to-global.json
+      global-to-local: example-global-to-local.json
+
+references:
+  citations:
+    sources:
+    - references.md
+    skip-prefixes:
+    - '#'
+    - '('
+    - 'This section'
+    - 'Normative references'
+    - 'The following'
+    keyword: cite
+  sections:
+    keyword: sec
+  glossary:
+    sources:
+    - definitions-and-acronyms-01-ext-def-list.md
+    - definitions-and-acronyms-02-int-def-list.md
+    - definitions-and-acronyms-03-acr-def-list.md
+
+quality:
+  rules:
+    - etc/rules/spec.rules.yaml
+
+channels:
+  html:
+    title: 'Static Analysis Results Interchange Format (SARIF) Version 2.2'
+    inject:
+      css-base: ../share/style/base.css
+      css-skin: ../share/style/skin.css
+      images: false
+      intro-trigger: '<h1 id="1-scope'
+      logo-data-url: ../media/logo-data-url.txt
+      logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
+      toc-trigger: '<h1 id="table-of-contents'
   pdf:
-  - frontmatter.md
-build-path: build
-citation-skip-prefixes:
-- '#'
-- '('
-- 'This section'
-- 'Normative references'
-- 'The following'
-citation-sources:
-- references.md
-delete-when:
-- contains: '<mark title="Ephemeral region marking">'
-  delete:
-  - '<mark title="Ephemeral region marking">'
-  - '</mark>'
-etc-path: etc
-example-local-to-global-db: example-local-to-global.json
-example-global-to-local-db: example-global-to-local.json
-first-authored-section: '# Scope'
-glossary-sources:
-- definitions-and-acronyms-01-ext-def-list.md
-- definitions-and-acronyms-02-int-def-list.md
-- definitions-and-acronyms-03-acr-def-list.md
-html-title: 'Static Analysis Results Interchange Format (SARIF) Version 2.2'
-meta-example-global-number: 4321
-section-display-to-label-db: section-display-to-label.json
-section-display-to-text-db: section-display-to-text.json
-section-label-to-display-db: section-label-to-display.json
-section-reference-style: number-title
-source-path: src
-track-examples: true
-html-inject:
-  css-base: ../share/style/base.css
-  css-skin: ../share/style/skin.css
-  images: false
-  intro-trigger: '<h1 id="1-scope'
-  logo-data-url: ../media/logo-data-url.txt
-  logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
-  toc-trigger: '<h1 id="table-of-contents'
+    logo-local-path: images/OASISLogo-v3.0.png
+    logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
+  typst:
+    page-break-l1: true

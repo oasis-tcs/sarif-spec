@@ -1,6 +1,6 @@
-![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
+![](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
----
+
 
 # Static Analysis Results Interchange Format (SARIF) Version 2.2
 

@@ -12,4 +12,4 @@ This aggregation is more difficult if each tool produces output in a different f
 Although most static analysis tools analyze files on disk, SARIF can represent results detected in any URI-addressable artifact (for example, the text returned by an HTTP query).
 This specification uses the term "artifact" to refer to any item that a tool might analyze. It uses the more restrictive term "file" when referring specifically to a file on disk.
 
----
+

@@ -95,4 +95,3 @@ detecting-incompleteness.md
 source-language-examples.md
 examples.md
 mime-types.md
-endnotes.md

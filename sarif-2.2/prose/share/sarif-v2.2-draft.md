@@ -1,6 +1,6 @@
-![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
+![](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
----
+
 
 # Static Analysis Results Interchange Format (SARIF) Version 2.2 <a id='static-analysis-results-interchange-format-sarif-version-2-2'></a>
 
@@ -71,25 +71,25 @@ which contains the License, Document Status and Notices.
 
 # Table of Contents
 
-1 [Scope](#scope)  
-2 [Definitions and Acronyms](#definitions-and-acronyms)  
+1. [Scope](#scope)  
+2. [Definitions and Acronyms](#definitions-and-acronyms)  
 	2.1 [Definitions](#definitions)  
 		2.1.1 [Terms Defined Elsewhere](#terms-defined-elsewhere)  
 		2.1.2 [Terms Defined in this Document](#terms-defined-in-this-document)  
 	2.2 [Abbreviations and Acronyms](#abbreviations-and-acronyms)  
-3 [Document Conventions](#document-conventions)  
+3. [Document Conventions](#document-conventions)  
 	3.1 [Key Words](#key-words)  
 	3.2 [Typographical Conventions](#typographical-conventions)  
 		3.2.1 [Format Examples](#format-examples)  
 		3.2.2 [Property Notation](#property-notation)  
 		3.2.3 [Syntax Notation](#syntax-notation)  
 		3.2.4 [Commonly Used Objects](#commonly-used-objects)  
-4 [Introduction](#introduction)  
+4. [Introduction](#introduction)  
 	4.1 [Trademarks](#trademarks)  
 	4.2 [Changes From the Previous Version](#changes-from-the-previous-version)  
 		4.2.1 [File Format Extensions](#file-format-extensions)  
 		4.2.2 [Other changes](#other-changes)  
-5 [File Format](#file-format)  
+5. [File Format](#file-format)  
 	5.1 [General](#file-format--general)  
 	5.2 [SARIF File Naming Convention](#sarif-file-naming-convention)  
 	5.3 [`artifactContent` Object](#artifactcontent-object)  
@@ -583,7 +583,7 @@ which contains the License, Document Status and Notices.
 		5.59.3 [`message` Property](#exception-object--message-property)  
 		5.59.4 [`stack` Property](#exception-object--stack-property)  
 		5.59.5 [`innerExceptions` Property](#innerexceptions-property)  
-6 [External property file format](#external-property-file-format)  
+6. [External property file format](#external-property-file-format)  
 	6.1 [General](#external-property-file-format--general)  
 	6.2 [External Property File Naming Convention](#external-property-file-naming-convention)  
 	6.3 [`externalProperties` Object](#externalproperties-object)  
@@ -593,8 +593,8 @@ which contains the License, Document Status and Notices.
 		6.3.4 [`guid` Property](#externalproperties-object--guid-property)  
 		6.3.5 [`runGuid` Property](#runguid-property)  
 		6.3.6 [The Property Value Properties](#the-property-value-properties)  
-7 [Safety, Security and Data Protection](#safety-security-and-data-protection)  
-8 [Conformance](#conformance)  
+7. [Safety, Security and Data Protection](#safety-security-and-data-protection)  
+8. [Conformance](#conformance)  
 	8.1 [Conformance Targets](#conformance-targets)  
 	8.2 [Conformance Clause 1: SARIF Log File](#conformance-clause-1-sarif-log-file)  
 	8.3 [Conformance Clause 2: SARIF Producer](#conformance-clause-2-sarif-producer)  
@@ -606,19 +606,19 @@ which contains the License, Document Status and Notices.
 	8.9 [Conformance Clause 8: Result Management System](#conformance-clause-8-result-management-system)  
 	8.10 [Conformance Clause 9: Engineering System](#conformance-clause-9-engineering-system)  
 
-Annex A [License, Document Status and Notices](#annex-a)  
+Annex A. [License, Document Status and Notices](#annex-a)  
 	A.1 [Document Status](#document-status)  
 	A.2 [License and Notices](#license-and-notices)  
-Annex B [References](#references)  
+Annex B. [References](#references)  
 	B.1 [Normative References](#normative-references)  
 	B.2 [Informative References](#informative-references)  
-Annex C [Use of Fingerprints by Result Management Systems](#use-of-fingerprints-by-result-management-systems)  
-Annex D [Production of SARIF by Converters](#production-of-sarif-by-converters)  
-Appendix 1 [Acknowledgments](#acknowledgments)  
-Appendix 2 [Revision History](#revision-history)  
-Appendix 3 [Use of SARIF by Log File Viewers](#use-of-sarif-by-log-file-viewers)  
-Appendix 4 [Locating Rule and Notification Metadata](#locating-rule-and-notification-metadata)  
-Appendix 5 [Producing Deterministic SARIF Log Files](#producing-deterministic-sarif-log-files)  
+Annex C. [Use of Fingerprints by Result Management Systems](#use-of-fingerprints-by-result-management-systems)  
+Annex D. [Production of SARIF by Converters](#production-of-sarif-by-converters)  
+Appendix 1. [Acknowledgments](#acknowledgments)  
+Appendix 2. [Revision History](#revision-history)  
+Appendix 3. [Use of SARIF by Log File Viewers](#use-of-sarif-by-log-file-viewers)  
+Appendix 4. [Locating Rule and Notification Metadata](#locating-rule-and-notification-metadata)  
+Appendix 5. [Producing Deterministic SARIF Log Files](#producing-deterministic-sarif-log-files)  
 	 [General](#general)  
 	 [Non-Deterministic File Format Elements](#non-deterministic-file-format-elements)  
 	 [Array and Dictionary Element Ordering](#array-and-dictionary-element-ordering)  
@@ -626,16 +626,16 @@ Appendix 5 [Producing Deterministic SARIF Log Files](#producing-deterministic-sa
 	 [Inherently Non-Deterministic Tools](#inherently-non-deterministic-tools)  
 	 [Compensating for Non-Deterministic Output](#compensating-for-non-deterministic-output)  
 	 [Interaction Between Determinism and Baselining](#interaction-between-determinism-and-baselining)  
-Appendix 6 [Guidance on Fixes](#guidance-on-fixes)  
-Appendix 7 [Diagnosing Results in Generated Files](#diagnosing-results-in-generated-files)  
-Appendix 8 [Detecting Incomplete Result Sets](#detecting-incomplete-result-sets)  
-Appendix 9 [Sample `sourceLanguage` Values](#sample-sourcelanguage-values)  
-Appendix 10 [Examples](#examples)  
+Appendix 6. [Guidance on Fixes](#guidance-on-fixes)  
+Appendix 7. [Diagnosing Results in Generated Files](#diagnosing-results-in-generated-files)  
+Appendix 8. [Detecting Incomplete Result Sets](#detecting-incomplete-result-sets)  
+Appendix 9. [Sample `sourceLanguage` Values](#sample-sourcelanguage-values)  
+Appendix 10. [Examples](#examples)  
 	 [Minimal Valid SARIF Log File](#minimal-valid-sarif-log-file)  
 	 [Minimal Recommended SARIF Log File with Source Information](#minimal-recommended-sarif-log-file-with-source-information)  
 	 [Minimal Recommended SARIF Log File without Source Information](#minimal-recommended-sarif-log-file-without-source-information)  
 	 [Comprehensive SARIF File](#comprehensive-sarif-file)  
-Appendix 11 [MIME Types and File Name Extensions](#mime-types-and-file-name-extensions)  
+Appendix 11. [MIME Types and File Name Extensions](#mime-types-and-file-name-extensions)  
 
 
 -------
@@ -654,7 +654,6 @@ This aggregation is more difficult if each tool produces output in a different f
 Although most static analysis tools analyze files on disk, SARIF can represent results detected in any URI-addressable artifact (for example, the text returned by an HTTP query).
 This specification uses the term "artifact" to refer to any item that a tool might analyze. It uses the more restrictive term "file" when referring specifically to a file on disk.
 
----
 
 
 # 2. Definitions and Acronyms <a id='definitions-and-acronyms'></a>
@@ -983,7 +982,7 @@ VCS
 
 
 The key words "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", "**RECOMMENDED**", "**NOT RECOMMENDED**", "**MAY**",
-and "**OPTIONAL**" in this document are to be interpreted as described in BCP 14 [RFC2119] and [RFC8174] when, and only when, they appear in all capitals, as shown here.
+and "**OPTIONAL**" in this document are to be interpreted as described in BCP 14 \[[RFC2119](#RFC2119)\] and \[[RFC8174](#RFC8174)\] when, and only when, they appear in all capitals, as shown here.
 
 
 ## 3.2 Typographical Conventions <a id='typographical-conventions'></a>
@@ -1029,11 +1028,12 @@ In all EBNF definitions in this spec:
     ? JSON string character ?
     ```
 
+\newpage
+
 ### 3.2.4 Commonly Used Objects <a id='commonly-used-objects'></a>
 
 This document uses the following notation for certain commonly used objects:
 
-\columns=20%,
 
 | Notation        | Commonly used object                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1046,13 +1046,15 @@ This document uses the following notation for certain commonly used objects:
 | `thisObject`    | The object containing the property under discussion.<br>NOTE: Usually when the description of a property refers to another property of the same object, the other property is referred to by its unqualified name. When necessary to avoid confusion, the name of the other property is qualified with \"`thisObject.`\" to emphasize that it is a property of the object under discussion. For an example, see [5.27.7 "`rule` Property"](#rule-property). |
 | `theLocationOwner` | The `result` object ([5.27 "`result` Object"](#result-object)) or `notification` object ([5.58 "`notification` Object"](#notification-object)) with a `locations` array containing the `location` object ([5.28 "`location` Object"](#location-object)) under discussion. |
 
----
+<a id="tab:notation-for-commonly-used-objects"></a>
+Table 1: Notation for commonly used objects.
 
 # 4. Introduction <a id='introduction'></a>
 
 Software developers use a variety of analysis tools to assess the quality of their programs. These tools report results which can indicate problems related to program qualities such as correctness, security, performance, compliance with contractual or legal requirements, compliance with stylistic standards, understandability, and maintainability. To form an overall picture of program quality, developers often need to aggregate the results produced by all of these tools. This aggregation is more difficult if each tool produces output in a different format.
 
-This document defines a standard format for the output of static analysis tools, called the Static Analysis Results Interchange Format, or "SARIF"[^1]. The goals of the format are:
+This document defines a standard format for the output of static analysis tools, called the Static Analysis Results Interchange Format,
+or "SARIF"[^1]. The goals of the format are:
 
 - Comprehensively capture the range of data produced by commonly used static analysis tools.
 
@@ -1128,7 +1130,9 @@ This information is given for the convenience of users of this document and does
 * Fix typo in XML example of logical locations (#669) (#675)
 * Fixed errors in the algorithm for calculating `result.level` (#470) (#758)
 
----
+
+
+[^1]: Pronounced 'sæ-rɪf ("a" as in "cat", "i" as in "if", emphasis on the first syllable).
 
 # 5. File Format <a id='file-format'></a>
 
@@ -2739,6 +2743,9 @@ The following table lists all the externalizable properties together with their 
 | `run.translations`        | `translations`           | array  |
 | `run.tool.driver`         | `driver`                 | object |
 | `run.tool.extensions`     | `extensions`             | array  |
+
+<a id="tab:properties"></a>
+Table 2: All externalizable properties together with their corresponding property names in the `externalPropertyFileReferences` object
 
 > NOTE 1: `run.properties` is externalized under the property name `externalizedProperties` to allow this object to have a property bag named `properties`, consistent with all other objects in this document.
 
@@ -8489,6 +8496,9 @@ If metadata is present, at least one of `index` ([5.52.5 "`index` Property"](#re
 | `notification.descriptor` ([5.58.2 "`descriptor` Property"](#notification-object--descriptor-property))                          | `notifications`                            |
 | `notification.associatedRule` ([5.58.3 "`associatedRule` Property"](#associatedrule-property))                                       | `rules`                                    |
 
+<a id="tab:reporting-descriptor-consequences"></a>
+Table 3: Relationships between `reportingDescriptorReference` and `theDescriptor`
+
 ### 5.52.4 `id` Property <a id='reportingdescriptorreference-object--id-property'></a>
 
 A `reportingDescriptorReference` object **MAY** contain a property named `id` whose value is a hierarchical string ([5.5.4 "Hierarchical Strings"](#hierarchical-strings)) that either equals `theDescriptor.id` ([5.49.3 "`id` Property"](#reportingdescriptor-object--id-property)) or equals `theDescriptor.id` plus one additional hierarchical component.
@@ -9382,7 +9392,7 @@ This document defines requirements for the SARIF file format and for certain sof
 
 - **Result management system**: a software system that consumes the log files produced by analysis tools, produces reports that enable engineering teams to assess the quality of their software artifacts at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual results.
 
-- **Engineering system**: a software development environment within which analysis tools execute. It might include a build system, a source control system, a [result management system](#def;result-management-system), a bug tracking system, a test execution system, and so on.
+- **Engineering system**: a software development environment within which analysis tools execute. It might include a build system, a source control system, a [result management system](#def:result-management-system), a bug tracking system, a test execution system, and so on.
 
 The normative content in this document defines requirements for SARIF log files, except for those normative requirements that are explicitly designated as defining the behavior of another conformance target.
 
@@ -9461,25 +9471,25 @@ An engineering system satisfies the "engineering system" conformance profile if:
 - It satisfies the normative requirements in [5 "File Format"](#file-format) that are designated as applying to engineering systems.
 
 <!--
----
+
 toc:
   auto: false
   label: License, Document Status and Notices
   enumerate: Annex A
----
+
 -->
 
-# Annex A License, Document Status and Notices <a id='annex-a'></a>
+# Annex A. License, Document Status and Notices <a id='annex-a'></a>
 
 (This annex forms an integral part of this Specification.)
 
 <!--
----
+
 toc:
   auto: false
   label: Document Status
   enumerate: A.1.
----
+
 -->
 
 ## A.1 Document Status <a id='document-status'></a>
@@ -9491,12 +9501,12 @@ TC members should send comments on this document to the TC's email list. Others 
 NOTE: any machine-readable content (Computer Language Definitions) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
 
 <!--
----
+
 toc:
   auto: false
   label: License and Notices
   enumerate: A.2.
----
+
 -->
 
 ## A.2 License and Notices <a id='license-and-notices'></a>
@@ -9525,10 +9535,9 @@ OASIS takes no position regarding the validity or scope of any intellectual prop
 
 The name "OASIS" is a trademark of OASIS, the owner and developer of this document, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, its documents, while reserving the right to enforce its marks against misleading uses. Please see [https://www.oasis-open.org/policies-guidelines/trademark/](https://www.oasis-open.org/policies-guidelines/trademark/) for guidance.
 
----
 
 
-# Annex B References <a id='references'></a>
+# Annex B. References <a id='references'></a>
 
 (This annex forms an integral part of this Specification.)
 
@@ -9614,7 +9623,7 @@ The following referenced documents are not required for the application of this 
 
 **\[**<span id="ZIP" class="anchor"></span>**ZIP\]** ".ZIP File Format Specification, Version 6.3.6, Revised April 26, 2019", <https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.6.TXT>.
 
-# Annex C Use of Fingerprints by Result Management Systems <a id='use-of-fingerprints-by-result-management-systems'></a>
+# Annex C. Use of Fingerprints by Result Management Systems <a id='use-of-fingerprints-by-result-management-systems'></a>
 
 On large software projects, a single run of a set of analysis tools can produce hundreds of thousands of results or more. To deal with so many results, some engineering teams adopt a strategy whereby they first prevent the introduction of new problems into their code, and then work to address the existing problems.
 
@@ -9644,7 +9653,7 @@ A result management system **SHOULD NOT** include an absolute line number (or an
 
 It is difficult to devise an algorithm that constructs a truly stable fingerprint for a result. Fortunately, for practical purposes, the fingerprint does not need to be absolutely stable; it only needs to be stable enough to reduce the number of results that are erroneously reported as "new" to a low enough level that the development team can manage the erroneously reported results without too much effort.
 
-# Annex D Production of SARIF by Converters <a id='production-of-sarif-by-converters'></a>
+# Annex D. Production of SARIF by Converters <a id='production-of-sarif-by-converters'></a>
 
 There are two broad categories of tools that can produce output in the SARIF format. Analysis tools produce SARIF as a result of performing a scan on a set of analysis targets. Converters translate existing data from a non-SARIF format into the SARIF format. That data might come from an analysis tool that produces output in a non-SARIF format, from a bug database, or from any other source.
 
@@ -9668,7 +9677,7 @@ Notwithstanding this general guidance recommending that a converter synthesize S
 
 - A converter **SHOULD NOT** populate the analysis tool’s `toolComponent.semanticVersion` ([5.19.12 "`semanticVersion` Property"](#semanticversion-property)) unless it knows that the tool component's version string is intended to be interpreted as a semantic version \[[SEMVER](#SEMVER)\] version string.
 
-# Appendix 1 Acknowledgments <a id='acknowledgments'></a>
+# Appendix 1. Acknowledgments <a id='acknowledgments'></a>
 
 **The following individuals have participated in the creation of this document and are gratefully acknowledged:**
 
@@ -9746,14 +9755,13 @@ Vamshi Basupalli, SWAMP Project, University of Wisconsin
 Yekaterina O'Neil, Micro Focus
 ```
 
-# Appendix 2 Revision History <a id='revision-history'></a>
+# Appendix 2. Revision History <a id='revision-history'></a>
 
 Revision tracking is publicly available in the version control system at
 <https://github.com/oasis-tcs/sarif-spec/commits/main>.
 
----
 
-# Appendix 3 Use of SARIF by Log File Viewers <a id='use-of-sarif-by-log-file-viewers'></a>
+# Appendix 3. Use of SARIF by Log File Viewers <a id='use-of-sarif-by-log-file-viewers'></a>
 
 It is frequently useful for an end user to view the results produced by an analysis tool in the context of the artifacts in which they occur. A log file viewer is a program that allows an end user to do this.
 
@@ -9767,7 +9775,7 @@ There are various reasons why a viewer might need to know the type of informatio
 
 There are various ways that a viewer might obtain file type information. In the SARIF format, the `mimeType` ([5.24.7 "`mimeType` Property"](#mimetype-property)) and `sourceLanguage` ([5.24.10 "`sourceLanguage` Property"](#artifact-object--sourcelanguage-property)) properties of the `artifact` object ([5.24 "`artifact` Object"](#artifact-object)) provides this information. In the absence of these properties, a viewer can fall back to examining the filename extension, for example ".c".
 
-# Appendix 4 Locating Rule and Notification Metadata <a id='locating-rule-and-notification-metadata'></a>
+# Appendix 4. Locating Rule and Notification Metadata <a id='locating-rule-and-notification-metadata'></a>
 
 The SARIF format allows rule and notification metadata to be included in a SARIF log file (see [5.19.23 "`rules` Property"](#rules-property) and [5.19.24 "`notifications` Property"](#notifications-property)). A SARIF log file does not need to include any metadata. This raises the questions of when metadata should be included in a log file, and how to locate the metadata if it is not included in the log file.
 
@@ -9781,7 +9789,7 @@ Metadata should be included in a log file in the following circumstances:
 
 If metadata is not included in the log file, and if external property files (see [5.15.2 "Rationale"](#rationale)) are not used, this document does not specify a mechanism for locating the metadata. If the SARIF log file is produced in the context of an engineering system that provides a service from which metadata can be obtained (for example, a result management system, or a web service dedicated to metadata), then tooling can be created to merge a log file with the relevant metadata when required (for example, when presenting the results in a log file viewer).
 
-# Appendix 5 Producing Deterministic SARIF Log Files <a id='producing-deterministic-sarif-log-files'></a>
+# Appendix 5. Producing Deterministic SARIF Log Files <a id='producing-deterministic-sarif-log-files'></a>
 
 ## General <a id='general'></a>
 
@@ -9939,7 +9947,7 @@ If the build uses a simple mechanism such as hash value comparison to determine 
 
 If the build engineers for a project wish to absolutely minimize the execution of unnecessary build steps, they have various options. They might perform an "intelligent" comparison between the baseline and the new log, treating "new" results in the baseline as equivalent to "unchanged" results. Or they might rewrite the baseline (marking all "new" results as "unchanged") before performing the comparison. Of course, there is no guarantee that such an "intelligent" comparison or baseline rewriting process will actually take less time than the unnecessary build steps it is intended to avoid.
 
-# Appendix 6 Guidance on Fixes <a id='guidance-on-fixes'></a>
+# Appendix 6. Guidance on Fixes <a id='guidance-on-fixes'></a>
 
 Tools that produce SARIF files which include `fix` objects should take care to structure those fixes in such a way as to affect a minimal range of content. This maximizes the likelihood that an automated tool can safely apply multiple fixes to the same artifact.
 
@@ -9987,7 +9995,7 @@ If the fix for result #1 were structured as a single replacement, then after app
 
 Therefore, structuring fixes as sequences of minimal, disjoint replacements maximizes the amount of work that can be done by automated fixup tools.
 
-# Appendix 7 Diagnosing Results in Generated Files <a id='diagnosing-results-in-generated-files'></a>
+# Appendix 7. Diagnosing Results in Generated Files <a id='diagnosing-results-in-generated-files'></a>
 
 Sometimes it is desirable to analyze files generated by the build. These files are usually not under source control, and the build might even overwrite them multiple times. This Appendix offers guidance on how to persist enough information in a SARIF log file to facilitate the diagnosis of results in these files.
 
@@ -10174,7 +10182,7 @@ The recommended solution is for the analysis tool to create a new entry in `theR
 > }
 > ```
 
-# Appendix 8 Detecting Incomplete Result Sets <a id='detecting-incomplete-result-sets'></a>
+# Appendix 8. Detecting Incomplete Result Sets <a id='detecting-incomplete-result-sets'></a>
 
 This document describes three conditions that inform the SARIF consumer that the tool has failed to produce a comprehensive set of results. For convenience, this Appendix gathers those conditions together in one place:
 
@@ -10186,7 +10194,7 @@ This document describes three conditions that inform the SARIF consumer that the
 
 These conditions apply separately to each run in the log file.
 
-# Appendix 9 Sample `sourceLanguage` Values <a id='sample-sourcelanguage-values'></a>
+# Appendix 9. Sample `sourceLanguage` Values <a id='sample-sourcelanguage-values'></a>
 
 This Appendix contains a list of sample values for the `artifact.sourceLanguage` property ([5.24.10 "`sourceLanguage` Property"](#artifact-object--sourcelanguage-property)) for some common programming languages. The purpose of this Appendix is to promote interoperability by encouraging SARIF producers to use the same identifiers for these languages.
 
@@ -10330,7 +10338,7 @@ The names of some of the languages in this list are the trademarks of their resp
 
   - `powershell`
 
-# Appendix 10 Examples <a id='examples'></a>
+# Appendix 10. Examples <a id='examples'></a>
 
 This Appendix contains examples of complete, valid SARIF files, to complement the fragments shown in examples throughout this document.
 
@@ -11270,7 +11278,7 @@ Because the purpose is to present as many elements as possible, the file as a wh
 }
 ```
 
-# Appendix 11 MIME Types and File Name Extensions <a id='mime-types-and-file-name-extensions'></a>
+# Appendix 11. MIME Types and File Name Extensions <a id='mime-types-and-file-name-extensions'></a>
 
 The following is a list of MIME types and file extensions for files that conform to this specification, registered according to \[[RFC2048](#RFC2048)\].
 
@@ -11279,4 +11287,4 @@ The following is a list of MIME types and file extensions for files that conform
 | application/sarif+json                     | .sarif,<br>.sarif.json                                         | SARIF log files ([5 "File Format"](#file-format))                                 |
 | application/sarif-external-properties+json | .sarif-external-properties,<br>.sarif-external-properties.json | SARIF external property files ([6 "External property file format"](#external-property-file-format)) |
 
-[^1]: Pronounced 'sæ-rɪf ("a" as in "cat", "i" as in "if", emphasis on the first syllable).
+Table: MIME Types and File Name Extensions{tab:mime-type-and-file-name-extensions}

@@ -5,7 +5,7 @@
 
 
 The key words "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", "**RECOMMENDED**", "**NOT RECOMMENDED**", "**MAY**",
-and "**OPTIONAL**" in this document are to be interpreted as described in BCP 14 [RFC2119] and [RFC8174] when, and only when, they appear in all capitals, as shown here.
+and "**OPTIONAL**" in this document are to be interpreted as described in BCP 14 [cite](#RFC2119) and [cite](#RFC8174) when, and only when, they appear in all capitals, as shown here.
 
 
 ## Typographical Conventions
@@ -51,6 +51,8 @@ In all EBNF definitions in this spec:
     ? JSON string character ?
     ```
 
+\newpage
+
 ### Commonly Used Objects
 
 This document uses the following notation for certain commonly used objects:
@@ -68,4 +70,4 @@ This document uses the following notation for certain commonly used objects:
 | `thisObject`    | The object containing the property under discussion.<br>NOTE: Usually when the description of a property refers to another property of the same object, the other property is referred to by its unqualified name. When necessary to avoid confusion, the name of the other property is qualified with \"`thisObject.`\" to emphasize that it is a property of the object under discussion. For an example, see [sec](#rule-property). |
 | `theLocationOwner` | The `result` object ([sec](#result-object)) or `notification` object ([sec](#notification-object)) with a `locations` array containing the `location` object ([sec](#location-object)) under discussion. |
 
----
+Table: Notation for commonly used objects.{#tab:notation-for-commonly-used-objects}
