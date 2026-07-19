@@ -747,7 +747,8 @@ and only when, they appear in all capitals, as shown here.
 
 == Typographical Conventions
 <typographical-conventions>
-The following conventions are used within this document.
+The following conventions are used within this document. The source
+files in markdown format are UTF-8 encoded.
 
 === Format Examples
 <format-examples>
@@ -930,8 +931,8 @@ and does not constitute an endorsement by OASIS of any of the products
 named. Equivalent products may be used if they can be shown to lead to
 the same results.
 
-== Changes From the Previous Version
-<changes-from-the-previous-version>
+== Changes From the Previous Version 2.1
+<changes-from-the-previous-version-2-1>
 === File Format Extensions
 <file-format-extensions>
 - 2.5 (now 3.2.4): added `"theLocationOwner"` to generalize
@@ -15383,8 +15384,8 @@ and Notices]
 
 #heading(level: 2, numbering: none)[A.1 Document Status]
 <document-status>
-This document was last revised or approved by the OASIS OpenEoX TC on
-the above date. The level of approval is also listed above. Check the
+This document was last revised or approved by the OASIS SARIF TC on the
+above date. The level of approval is also listed above. Check the
 "Latest version" location noted above for possible later revisions of
 this document. Any other numbered Versions and other technical work
 produced by the Technical Committee (TC) are listed at
@@ -15394,7 +15395,7 @@ TC members should send comments on this document to the TC's email list.
 Others should send comments to the TC's public comment list, after
 subscribing to it by following the instructions at the "Send A Comment"
 button on the TC's web page at
-#link("https://www.oasis-open.org/committees/openeox/").
+#link("https://www.oasis-open.org/committees/sarif/").
 
 NOTE: any machine-readable content (Computer Language Definitions)
 declared Normative for this Work Product is provided in separate plain
@@ -15435,7 +15436,7 @@ For information on whether any patents have been disclosed that may be
 essential to implementing this document, and any offers of patent
 licensing terms, please refer to the Intellectual Property Rights
 section of the project's web page
-(#link("https://www.oasis-open.org/committees/openeox/ipr.php")).
+(#link("https://www.oasis-open.org/committees/sarif/ipr.php")).
 
 This document and the information contained herein is provided on an "AS
 IS" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED,

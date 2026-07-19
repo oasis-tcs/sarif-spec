@@ -86,7 +86,7 @@ which contains the License, Document Status and Notices.
 		3.2.4 [Commonly Used Objects](#commonly-used-objects)  
 4. [Introduction](#introduction)  
 	4.1 [Trademarks](#trademarks)  
-	4.2 [Changes From the Previous Version](#changes-from-the-previous-version)  
+	4.2 [Changes From the Previous Version 2.1](#changes-from-the-previous-version-2-1)  
 		4.2.1 [File Format Extensions](#file-format-extensions)  
 		4.2.2 [Other changes](#other-changes)  
 5. [File Format](#file-format)  
@@ -988,6 +988,7 @@ and "**OPTIONAL**" in this document are to be interpreted as described in BCP 14
 ## 3.2 Typographical Conventions <a id='typographical-conventions'></a>
 
 The following conventions are used within this document.
+The source files in markdown format are UTF-8 encoded.
 
 ### 3.2.1 Format Examples <a id='format-examples'></a>
 
@@ -1088,7 +1089,7 @@ Windows® is the registered trademark of a product supplied by Microsoft Corpora
 
 This information is given for the convenience of users of this document and does not constitute an endorsement by OASIS of any of the products named. Equivalent products may be used if they can be shown to lead to the same results.
 
-## 4.2 Changes From the Previous Version <a id='changes-from-the-previous-version'></a>
+## 4.2 Changes From the Previous Version 2.1 <a id='changes-from-the-previous-version-2-1'></a>
 
 ### 4.2.1 File Format Extensions <a id='file-format-extensions'></a>
 
@@ -9483,20 +9484,12 @@ toc:
 
 (This annex forms an integral part of this Specification.)
 
-<!--
-
-toc:
-  auto: false
-  label: Document Status
-  enumerate: A.1.
-
--->
 
 ## A.1 Document Status <a id='document-status'></a>
 
-This document was last revised or approved by the OASIS OpenEoX TC on the above date. The level of approval is also listed above. Check the "Latest version" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=26350f39-9c7b-4bf2-a422-018dc7d3f5aa>.
+This document was last revised or approved by the OASIS SARIF TC on the above date. The level of approval is also listed above. Check the "Latest version" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <https://groups.oasis-open.org/communities/tc-community-home2?CommunityKey=26350f39-9c7b-4bf2-a422-018dc7d3f5aa>.
 
-TC members should send comments on this document to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at <https://www.oasis-open.org/committees/openeox/>.
+TC members should send comments on this document to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at <https://www.oasis-open.org/committees/sarif/>.
 
 NOTE: any machine-readable content (Computer Language Definitions) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
 
@@ -9521,7 +9514,7 @@ This document and translations of it may be copied and furnished to others, and 
 
 The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns, as provided in the OASIS IPR Policy.
 
-This document is provided under the “Non-Assertion” IPR mode that was chosen when the project was established, as defined in the IPR Policy. For information on whether any patents have been disclosed that may be essential to implementing this document, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the project’s web page ([https://www.oasis-open.org/committees/openeox/ipr.php](https://www.oasis-open.org/committees/openeox/ipr.php)).
+This document is provided under the “Non-Assertion” IPR mode that was chosen when the project was established, as defined in the IPR Policy. For information on whether any patents have been disclosed that may be essential to implementing this document, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the project’s web page ([https://www.oasis-open.org/committees/sarif/ipr.php](https://www.oasis-open.org/committees/sarif/ipr.php)).
 
 This document and the information contained herein is provided on an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. OASIS AND ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.
 

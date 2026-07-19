@@ -11,6 +11,7 @@ and "**OPTIONAL**" in this document are to be interpreted as described in BCP 14
 ## Typographical Conventions
 
 The following conventions are used within this document.
+The source files in markdown format are UTF-8 encoded.
 
 ### Format Examples
 
