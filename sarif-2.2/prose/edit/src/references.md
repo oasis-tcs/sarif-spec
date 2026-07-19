@@ -84,7 +84,7 @@ SEMVER
 :    "Semantic Versioning 2.0.0", <http://semver.org/>.
 
 UNICODE12
-:    Unicode 10.0, June 2017, <http://www.unicode.org/versions/Unicode12.0.0>.
+:    Unicode 12.0, June 2017, <http://www.unicode.org/versions/Unicode12.0.0>.
 
 ## B.2 Informative References
 

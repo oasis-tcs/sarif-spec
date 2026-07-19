@@ -9597,7 +9597,7 @@ The following documents are referenced in such a way that some or all of their c
 
 **\[**<span id="SEMVER" class="anchor"></span>**SEMVER\]** "Semantic Versioning 2.0.0", <http://semver.org/>.
 
-**\[**<span id="UNICODE12" class="anchor"></span>**UNICODE12\]** Unicode 10.0, June 2017, <http://www.unicode.org/versions/Unicode12.0.0>.
+**\[**<span id="UNICODE12" class="anchor"></span>**UNICODE12\]** Unicode 12.0, June 2017, <http://www.unicode.org/versions/Unicode12.0.0>.
 
 ## B.2 Informative References <a id='informative-references'></a>
 

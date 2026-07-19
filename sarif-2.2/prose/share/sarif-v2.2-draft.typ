@@ -15622,7 +15622,7 @@ Notation (JSON) Data Interchange Format", RFC 8259, DOI
 #strong[\[]<SEMVER>#strong[SEMVER\]] "Semantic Versioning 2.0.0",
 #link("http://semver.org/").
 
-#strong[\[]<UNICODE12>#strong[UNICODE12\]] Unicode 10.0, June 2017,
+#strong[\[]<UNICODE12>#strong[UNICODE12\]] Unicode 12.0, June 2017,
 #link("http://www.unicode.org/versions/Unicode12.0.0").
 
 #heading(level: 2, numbering: none)[B.2 Informative References]
