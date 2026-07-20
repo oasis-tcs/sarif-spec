@@ -120,7 +120,7 @@ No editor report.
 
 - The PR on escaping was discussed and merged https://github.com/oasis-tcs/sarif-spec/pull/768
 
-- Aditya walked all throught the precision PR at https://github.com/oasis-tcs/sarif-spec/pull/766
+- Aditya walked all through the precision PR at https://github.com/oasis-tcs/sarif-spec/pull/766
   - David asked if confidence would be a better name
   - All discussed and the result was to amend with:
     - mention 'floating point' numbers
