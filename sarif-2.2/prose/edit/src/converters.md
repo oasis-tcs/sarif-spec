@@ -14,7 +14,7 @@ If the input data does not include an equivalent for any SARIF element, a conver
 
 Since each converter might synthesize SARIF elements differently (notably the rule id; see [sec](#ruleid-property)), a SARIF consumer **SHOULD NOT** attempt to combine results produced by different converters for the same tool.
 
-A converter **SHOULD** populate its own semantic version [cite](#SEMVER) property `theRun.conversion.tool.driver.semanticVersion` ([sec](#semanticversion-property)). If it does, and if a subsequent version of the converter synthesizes SARIF elements in a sematically incompatible way, it **SHALL** increment the major version component of its semantic version.
+A converter **SHOULD** populate its own semantic version [cite](#SEMVER) property `theRun.conversion.tool.driver.semanticVersion` ([sec](#semanticversion-property)). If it does, and if a subsequent version of the converter synthesizes SARIF elements in a semantically incompatible way, it **SHALL** increment the major version component of its semantic version.
 
 Notwithstanding this general guidance recommending that a converter synthesize SARIF elements where possible:
 

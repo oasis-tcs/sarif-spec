@@ -631,7 +631,7 @@ If `localizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject
 
 ### `minimumRequiredLocalizedDataSemanticVersion` Property
 
-If a `toolComponent` object does not represent a translation ([sec](#translations)), it **SHOULD** contain a property named `minimumRequiredLocalizedDataSemanticVersion` whose value is a string that specifies the minumum semantic version [cite](#SEMVER) of the translated strings that it requires. Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
+If a `toolComponent` object does not represent a translation ([sec](#translations)), it **SHOULD** contain a property named `minimumRequiredLocalizedDataSemanticVersion` whose value is a string that specifies the minimum semantic version [cite](#SEMVER) of the translated strings that it requires. Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
 
 If `minimumRequiredLocalizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([sec](#semanticversion-property)).
 

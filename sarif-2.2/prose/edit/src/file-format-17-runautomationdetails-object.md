@@ -58,7 +58,7 @@ The trailing component of `id` **MAY** be empty; note that the grammar for a hie
 
 > EXAMPLE 2: A run whose `id` is `"My Nightly Run/Debug/x64/"` belongs to the category `"My Nightly Run/Debug/x64"` but is not distinguished from other runs in that category.
 
-`id` **MAY** consist of a single component. This **SHALL** be taken to specify a unique identifier for the run, withough specifying any category that the run belongs to.
+`id` **MAY** consist of a single component. This **SHALL** be taken to specify a unique identifier for the run, without specifying any category that the run belongs to.
 
 > EXAMPLE 3: A run whose `id` is `"My Nightly Run Debug x64 2018-10-10"` has a unique identifier but cannot be inferred to belong to any category.
 

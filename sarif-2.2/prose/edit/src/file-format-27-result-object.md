@@ -238,7 +238,7 @@ If present, the `kind` property **SHALL** have one of the following values, with
 
 - `"open"`: The specified rule was evaluated, and the tool concluded that there was insufficient information to decide whether a problem exists.
 
-    NOTE 1: This value is used by proof-based tools. Sometimes such a tool can prove that there is no violation (`kind` = `"pass"`), sometimes it can prove that there is a violation (`kind` = `"fail"`), and sometimes it does not detect a violation but is unable to prove that there is none (`kind` = `"open"`). In such a tool, a `kind` value of `"open"` might be an indication that the user should add additional assertions to enabe the tool to determine if there is a violation.
+    NOTE 1: This value is used by proof-based tools. Sometimes such a tool can prove that there is no violation (`kind` = `"pass"`), sometimes it can prove that there is a violation (`kind` = `"fail"`), and sometimes it does not detect a violation but is unable to prove that there is none (`kind` = `"open"`). In such a tool, a `kind` value of `"open"` might be an indication that the user should add additional assertions to enable the tool to determine if there is a violation.
 
 - `"informational"`: The specified rule was evaluated and produced a purely informational result that does not indicate the presence of a problem. (See the example below.)
 

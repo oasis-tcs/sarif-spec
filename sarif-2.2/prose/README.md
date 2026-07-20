@@ -32,14 +32,14 @@ Changes to section mapping:
 
 1. Edit `etc/section-display-to-label.json` to align with the document
 2. Eventually (when moving sections or renaming the labels) edit `etc/example-global-to-local.json` too.
-3. Execute `make inversions` to derive the coresponding `etc/section-label-to-display.json` and
+3. Execute `make inversions` to derive the corresponding `etc/section-label-to-display.json` and
    `etc/example-local-to-global.json` files, or directly call `make`.
    The latter has the `inversions` target as dependency.
 
 Changes only to examples:
 
 1. Edit `etc/example-global-to-local.json` too.
-2. Execute `make invert-examples` to derive the coresponding `etc/example-local-to-global.json` file, or directly call `make`.
+2. Execute `make invert-examples` to derive the corresponding `etc/example-local-to-global.json` file, or directly call `make`.
    The latter has the `inversions` target as dependency.
 
 In case the `make` command does detect `inverso` tool needed for the inversions as missing,

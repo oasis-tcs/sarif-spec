@@ -37,7 +37,7 @@ The following table shows mapping between current SARIF terminology as used for 
 
 Originally SARIF was embodied in **XML**. This format, although expressive, lacked ease of use.
 
-Currently SARIF's prefered embodiment is **JSON**. This format is widely supported by multiple programming languages. Additionally, schema validation is much more light weight when compared to **XML**.
+Currently SARIF's preferred embodiment is **JSON**. This format is widely supported by multiple programming languages. Additionally, schema validation is much more light weight when compared to **XML**.
 
 As SARIF is considered in domains beyond static analysis, additional capabilities provided by the file format are desired.
 

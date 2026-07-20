@@ -148,7 +148,7 @@ def main(args: list[str]) -> int:
         if not in_toc and line.startswith(TOC_STARTSWITH_TRIGGER):
             in_toc = True
             outgoing.append(line)
-            outgoing.append(the_toc)  # Here we inject the gerenated table of content
+            outgoing.append(the_toc)  # Here we inject the generated table of content
             continue
 
         # Patch an unescaped opening angle bracket to pacify the markdown parser
