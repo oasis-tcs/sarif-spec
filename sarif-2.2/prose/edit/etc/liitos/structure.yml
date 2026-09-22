@@ -1,7 +1,0 @@
-sarif:
-- pdf:
-    approvals: approvals.yml
-    bind: bind.txt
-    changes: changes.yml
-    meta: meta.yml
-    render: true

@@ -1,0 +1,152 @@
+meta:
+  name: sarif-spec-rules
+  description: >-
+    SARIF Version 2.2 specification-level quality rules.
+    Extends the shared OASIS baseline (oasis.rules.yaml) and adds SARIF-specific checks.
+    Run with: nide quality --rules etc/rules/spec.rules.yaml
+  extends: oasis
+
+context:
+  tc-name: sarif
+  spec-name: sarif
+  spec-version: "2.2"
+  stage: csd01
+  doc-url-base: https://docs.oasis-open.org/sarif/sarif/v2.2
+
+rules:
+
+  # ── SARIF spec-specific checks ─────────────────────────────────────────────
+
+  - id: SARIF-TITLE
+    severity: BLOCKER
+    description: The document title must identify the spec by name
+    check:
+      type: section-present
+      pattern: 'Static Analysis Results Interchange Format|SARIF'
+      flags: IGNORECASE
+
+  - id: SARIF-STAGE-HEADING
+    severity: WARN
+    description: >-
+      A publication-stage heading (Committee Specification Draft, Committee
+      Specification, etc.) must appear in the front matter
+    check:
+      type: section-present
+      pattern: 'Committee Specification Draft|Committee Specification|Candidate OASIS Standard|OASIS Standard'
+      flags: IGNORECASE
+
+  - id: SARIF-THIS-VERSION
+    severity: BLOCKER
+    description: A 'This version' heading must be present in the front matter
+    check:
+      type: section-present
+      pattern: 'This version'
+      flags: IGNORECASE
+
+  - id: SARIF-LATEST-VERSION
+    severity: WARN
+    description: A 'Latest version' heading must be present in the front matter
+    check:
+      type: section-present
+      pattern: 'Latest version'
+      flags: IGNORECASE
+
+  - id: SARIF-TC-LINK
+    severity: WARN
+    description: A link to the SARIF TC community page should appear in the front matter
+    check:
+      type: any-match
+      target: prose
+      pattern: 'oasis-open\.org.*sarif|groups\.oasis-open\.org.*communities'
+      flags: IGNORECASE
+
+  - id: SARIF-DOC-URL
+    severity: WARN
+    description: >-
+      At least one this-version URL under docs.oasis-open.org/sarif
+      must appear in the front matter
+    check:
+      type: any-match
+      target: prose
+      pattern: 'docs\.oasis-open\.org/sarif'
+      flags: IGNORECASE
+
+  - id: SARIF-SAFETY-SECURITY
+    severity: WARN
+    description: >-
+      A Safety, Security and Data Protection section must be present
+      (OASIS best practice for all Standards Track Work Products)
+    check:
+      type: section-present
+      pattern: 'Safety.*Security|Security.*Safety'
+      flags: IGNORECASE
+
+  - id: SARIF-REFERENCES-ANNEX
+    severity: BLOCKER
+    description: >-
+      A top-level References section must be present.
+      Match the base heading text only (annex counter is not part of HeadingNode.text).
+    check:
+      type: section-present
+      pattern: '^References$'
+      flags: IGNORECASE
+
+  - id: SARIF-NORMATIVE-REFS
+    severity: BLOCKER
+    description: A Normative references subsection must be present
+    check:
+      type: section-present
+      pattern: 'Normative [Rr]eferences'
+      flags: IGNORECASE
+
+  - id: SARIF-INFORMATIVE-REFS
+    severity: WARN
+    description: An Informative references subsection should be present
+    check:
+      type: section-present
+      pattern: 'Informative [Rr]eferences'
+      flags: IGNORECASE
+
+  - id: SARIF-LICENSE-ANNEX
+    severity: BLOCKER
+    description: >-
+      A License, Document Status and Notices annex must be present
+      (mandatory OASIS content)
+    check:
+      type: section-present
+      pattern: 'License.*Notices|Notices.*License|Document Status'
+      flags: IGNORECASE
+
+  - id: SARIF-ACKNOWLEDGMENTS
+    severity: WARN
+    description: An Acknowledgments appendix should be present
+    check:
+      type: section-present
+      pattern: '^Acknowledgments?$'
+      flags: IGNORECASE
+
+  - id: SARIF-CHANGES-APPENDIX
+    severity: WARN
+    description: A Changes From Previous Version appendix should be present
+    check:
+      type: section-present
+      pattern: 'Changes From Previous Version|Revision History'
+      flags: IGNORECASE
+
+  - id: SARIF-KEY-WORDS-SECTION
+    severity: WARN
+    description: >-
+      A Key Words subsection under Document Conventions must be present
+      (standard location for RFC 2119 boilerplate)
+    check:
+      type: section-present
+      pattern: 'Key Words|Terminology'
+      flags: IGNORECASE
+
+  - id: SARIF-DEFINITIONS-SECTION
+    severity: WARN
+    description: A Definitions and Abbreviations section (or equivalent) must be present
+    check:
+      type: section-present
+      pattern: 'Definitions|Terms and Definitions'
+      flags: IGNORECASE

@@ -1,0 +1,75 @@
+assembly:
+  binder: bind.txt
+  source-path: src
+  build-path: build
+  etc-path: etc
+  first-authored-section: '# Scope'
+  binder-ignores:
+    gfm-plus: []
+    html: []
+    pdf:
+    - frontmatter.md
+  delete-when:
+  - contains: '<mark title="Ephemeral region marking">'
+    delete:
+    - '<mark title="Ephemeral region marking">'
+    - '</mark>'
+
+structure:
+  section-type-prefixes: [Annex, Appendix]
+
+enumeration:
+  sections:
+    l1-dot: true
+    sub-dot: false
+    reference-style: number-title
+    lut:
+      label-to-display: section-label-to-display.json
+      display-to-label: section-display-to-label.json
+      display-to-text: section-display-to-text.json
+  examples:
+    track: true
+    global-start: 4321
+    lut:
+      local-to-global: example-local-to-global.json
+      global-to-local: example-global-to-local.json
+
+references:
+  citations:
+    sources:
+    - references.md
+    skip-prefixes:
+    - '#'
+    - '('
+    - 'This section'
+    - 'Normative references'
+    - 'The following'
+    keyword: cite
+  sections:
+    keyword: sec
+  glossary:
+    sources:
+    - definitions-and-acronyms-01-ext-def-list.md
+    - definitions-and-acronyms-02-int-def-list.md
+    - definitions-and-acronyms-03-acr-def-list.md
+
+quality:
+  rules:
+    - etc/rules/spec.rules.yaml
+
+channels:
+  html:
+    title: 'Static Analysis Results Interchange Format (SARIF) Version 2.2'
+    inject:
+      css-base: ../share/style/base.css
+      css-skin: ../share/style/skin.css
+      images: false
+      intro-trigger: '<h1 id="1-scope'
+      logo-data-url: ../media/logo-data-url.txt
+      logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
+      toc-trigger: '<h1 id="table-of-contents'
+  pdf:
+    logo-local-path: images/OASISLogo-v3.0.png
+    logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
+  typst:
+    page-break-l1: true
