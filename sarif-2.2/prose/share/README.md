@@ -4,16 +4,16 @@ This folder contains the publication-ready artifacts built from the sources in `
 
 ## Artifacts
 
-| File | Description |
-|------|-------------|
-| `sarif-v2.2-draft.md` | GFM+ single-file Markdown |
-| `sarif-v2.2-draft.html` | Self-contained HTML with OASIS styling |
-| `sarif-v2.2-draft.ir.json` | Intermediate representation (nide IR) |
-| `sarif-v2.2-draft.manifest.json` | Content manifest with per-channel hashes |
-| `sarif-v2.2-draft.pdf` | PDF |
-| `sarif-v2.2-draft.pdf.sha256` | SHA-256 checksum of the PDF |
-| `sarif-v2.2-draft.pdf.blake3` | BLAKE3 checksum of the PDF |
-| `sarif-v2.2-draft.typ` | Typst source (input used to produce the PDF) |
+| File                             | Description                                            |
+|:---------------------------------|:-------------------------------------------------------|
+| `sarif-v2.2-draft.md`            | GFM+ single-file Markdown                              |
+| `sarif-v2.2-draft.html`          | Self-contained HTML with OASIS styling                 |
+| `sarif-v2.2-draft.ir.json`       | Intermediate representation (nide IR)                  |
+| `sarif-v2.2-draft.manifest.json` | Content manifest with per-channel hashes               |
+| `sarif-v2.2-draft.pdf`           | PDF                                                    |
+| `sarif-v2.2-draft.pdf.sha256`    | SHA-256 checksum of the PDF                            |
+| `sarif-v2.2-draft.pdf.blake3`    | BLAKE3 checksum of the PDF                             |
+| `sarif-v2.2-draft.typ`           | Generated typst source (input used to produce the PDF) |
 
 ## Verifying checksums
 
