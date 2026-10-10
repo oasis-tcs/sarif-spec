@@ -21,7 +21,7 @@
     align: (left + horizon, center + horizon, right + horizon),
     text(size: 8pt)[sarif-v2.2-csd01],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[05 February 2026 — Page #counter(page).display()
+    text(size: 8pt)[09 October 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -53,15 +53,15 @@ Results Interchange Format (SARIF) Version 2.2]
 #heading(level: 2, outlined: false, numbering: none)[Committee
 Specification Draft 01]
 <committee-specification-draft-01>
-#heading(level: 2, outlined: false, numbering: none)[05 February 2026]
-<05-february-2026>
+#heading(level: 2, outlined: false, numbering: none)[09 October 2026]
+<09-october-2026>
 #heading(level: 3, outlined: false, numbering: none)[This version]
 <this-version>
-https:/\/docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md")
 (Authoritative) \
-https:/\/docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html")
 \
-https:/\/docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.pdf
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.pdf")
 
 #heading(level: 4, outlined: false, numbering: none)[Previous version]
 <previous-version>
@@ -69,10 +69,10 @@ N/A
 
 #heading(level: 4, outlined: false, numbering: none)[Latest version]
 <latest-version>
-https:/\/docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.md
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.md")
 (Authoritative) \
-https:/\/docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html \
-https:/\/docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html") \
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.pdf")
 
 #heading(level: 4, outlined: false, numbering: none)[Technical
 Committee]
@@ -109,11 +109,11 @@ should be used:
 #strong[\[SARIF-v2.2\]]
 
 #emph[Static Analysis Results Interchange Format (SARIF) Version 2.2].
-Edited by Michael Fanning and Stefan Hagen. 05 February 2026. Committees
+Edited by Michael Fanning and Stefan Hagen. 09 October 2026. Committees
 Specification Draft.
-https:/\/docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html.
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html").
 Latest stage:
-https:/\/docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html.
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html").
 
 #heading(level: 4, outlined: false, numbering: none)[Additional
 artifacts]
@@ -122,13 +122,13 @@ This prose specification is one component of a Work Product that also
 includes:
 
 - SARIF schema:
-  https:/\/docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json.
+  #link("https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json").
   \ Latest stage:
-  https:/\/docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json
+  #link("https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json")
 - SARIF External Property File schema:
-  https:/\/docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json.
+  #link("https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json").
   \ Latest stage:
-  https:/\/docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json
+  #link("https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json")
 
 #heading(level: 3, outlined: false, numbering: none)[Related Work]
 <related-work>
@@ -137,9 +137,9 @@ This document replaces or supersedes:
 #emph[Static Analysis Results Interchange Format (SARIF) Version 2.1.0
 Plus Errata 01]. Edited by Michael C. Fanning and Laurence J. Golding.
 28 August 2023. OASIS Standard incorporating Approved Errata.
-https:/\/docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html.
+#link("https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html").
 Latest stage:
-https:/\/docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html.
+#link("https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html").
 
 This document is related to:
 
@@ -191,427 +191,262 @@ disk.
 <terms-defined-elsewhere>
 This document uses the following terms defined elsewhere:
 
-/ ​call stack<def:call-stack>: #block[
-sequence of nested function calls
-]
-
-/ ​camelCase name<def:camelcase-name>: #block[
-name that begins with a lowercase letter, in which each subsequent word
-begins with an uppercase letter Example: `camelCase`, `version`,
-`fullName`.
-]
-
-/ ​empty array<def:empty-array>: #block[
-array that contains no elements, and so has a length of 0
-]
-
-/ ​empty object<def:empty-object>: #block[
-object that contains no properties
-]
-
-/ ​empty string<def:empty-string>: #block[
-string that contains no characters, and so has a length of 0
-]
-
-/ ​taxonomy<def:taxonomy>: #block[
-classification of analysis results into a set of categories
-]
+/ ​call stack<def:call-stack>: sequence of nested function calls
+/ ​camelCase name<def:camelcase-name>: name that begins with a lowercase
+    letter, in which each subsequent word begins with an uppercase
+    letter Example: `camelCase`, `version`, `fullName`.
+/ ​empty array<def:empty-array>: array that contains no elements, and so
+    has a length of 0
+/ ​empty object<def:empty-object>: object that contains no properties
+/ ​empty string<def:empty-string>: string that contains no characters,
+    and so has a length of 0
+/ ​taxonomy<def:taxonomy>: classification of analysis results into a set
+    of categories
 
 === Terms Defined in this Document
 <terms-defined-in-this-document>
 This document defines the following terms:
 
-/ ​analysis target<def:analysis-target>: #block[
-#link(<def:artifact>)[artifact] which an
-#link(<def:analysis-tool>)[analysis tool] is instructed to analyze
-]
-
-/ ​analysis tool<def:analysis-tool>: #block[
-tool that models and analyzes an #link(<def:artifact>)[artifact] or the
-interaction between entities
-(cf.~#link(<def:web-analysis-tool>)[web analysis tool] for an example)
-]
-
-/ ​artifact<def:artifact>: #block[
-sequence of bytes addressable #emph[via] a URI Examples: A physical file
-in a file system such as a source file, an object file, a configuration
-file or a data file; a specific version of a file in a version control
-system; a database table accessed #emph[via] an HTTP request; an
-arbitrary stream of bytes returned from an HTTP request.
-]
-
-/ ​baseline<def:baseline>: #block[
-set of #link(<def:result>)[results] produced by a single
-#link(<def:run>)[run] of a set of
-#link(<def:static-analysis-tool>)[analysis tools] on a set of
-#link(<def:artifact>)[artifacts] NOTE: A
-#link(<def:result-management-system>)[result management system] can
-compare the results of a subsequent #link(<def:run>)[run] to a baseline
-produced by a #link(<def:baseline-run>)[baseline run] to determine
-whether new results have been introduced.
-]
-
-/ ​baseline run<def:baseline-run>: #block[
-#link(<def:run>)[run] that produces a #link(<def:baseline>)[baseline] to
-which subsequent runs can be compared
-]
-
-/ ​binary artifact<def:binary-artifact>: #block[
-#link(<def:artifact>)[artifact] considered as a sequence of bytes
-]
-
-/ ​binary region<def:binary-region>: #block[
-#link(<def:region>)[region] representing a contiguous range of zero or
-more bytes in a #link(<def:binary-artifact>)[binary artifact]
-]
-
-/ ​code flow<def:code-flow>: #block[
-set of one or more #link(<def:thread-flow>)[thread flows] which together
-specify a pattern of code execution relevant to detecting a
-#link(<def:result>)[result]
-]
-
-/ ​column (number)<def:column-number>: #block[
-1-based index of a character within a #link(<def:line>)[line]
-]
-
-/ ​configuration file<def:configuration-file>: #block[
-file, typically textual, that configures the execution of an
-#link(<def:static-analysis-tool>)[analysis tool] or
-#link(<def:tool-component>)[tool component]
-]
-
-/ ​converter<def:converter>: #block[
-#link(<def:sarif-producer>)[SARIF producer] that transforms the output
-of an #link(<def:static-analysis-tool>)[analysis tool] from its native
-output format into the SARIF format
-]
-
-/ ​custom taxonomy<def:custom-taxonomy>: #block[
-#link(<def:taxonomy>)[taxonomy] defined by and intended for use with a
-particular #link(<def:static-analysis-tool>)[analysis tool]
-]
-
-/ ​direct producer<def:direct-producer>: #block[
-#link(<def:static-analysis-tool>)[analysis tool] which acts as a
-#link(<def:sarif-producer>)[SARIF producer]
-]
-
-/ ​driver<def:driver>: #block[
-#link(<def:tool-component>)[tool component] containing an
-#link(<def:static-analysis-tool>)[analysis tool]'s or
-#link(<def:converter>)[converter]'s primary executable, which controls
-the tool's or converter's execution, and which in the case of an
-analysis tool typically defines a set of analysis
-#link(<def:rule>)[rules]
-]
-
-/ ​embedded link<def:embedded-link>: #block[
-syntactic construct which enables a
-#link(<def:message-string>)[message string] to refer to a location
-within an #link(<def:artifact>)[artifact] mentioned in a
-#link(<def:result>)[result]
-]
-
-/ ​engineering system<def:engineering-system>: #block[
-software development environment within which
-#link(<def:static-analysis-tool>)[analysis tools] execute NOTE: An
-engineering system might include a build system, a source control
-system, a
-#link(<def:result-management-system>)[result management system], a bug
-tracking system, a test execution system, and so on.
-]
-
-/ ​\(end) user<def:end-user>: #block[
-person who uses the information in a #link(<def:log-file>)[log file] to
-investigate, #link(<def:triage>)[triage], or resolve
-#link(<def:result>)[results]
-]
-
-/ ​extension<def:extension>: #block[
-#link(<def:tool-component>)[tool component] other than the
-#link(<def:driver>)[driver] (for example, a #link(<def:plugin>)[plugin],
-a #link(<def:configuration-file>)[configuration file], or a
-#link(<def:taxonomy>)[taxonomy])
-]
-
-/ ​external property file<def:external-property-file>: #block[
-file containing the values of one or more
-#link(<def:externalized-property>)[externalized properties]
-]
-
-/ ​externalizable property<def:externalizable-property>: #block[
-property that can be contained in an
-#link(<def:external-property-file>)[external property file]
-]
-
-/ ​externalized property<def:externalized-property>: #block[
-property stored outside of the #link(<def:log-file>)[SARIF log file] to
-which it logically belongs
-]
-
-/ ​false positive<def:false-positive>: #block[
-#link(<def:result>)[result] which an #link(<def:end-user>)[end user]
-decides does not actually represent a #link(<def:problem>)[problem]
-]
-
-/ ​fingerprint<def:fingerprint>: #block[
-#link(<def:stable-value>)[stable value] that can be used by a
-#link(<def:result-management-system>)[result management system] to
-uniquely identify a #link(<def:result>)[result] over time, even if a
-relevant #link(<def:artifact>)[artifact] is modified
-]
-
-/ ​formatted message<def:formatted-message>: #block[
-#link(<def:message-string>)[message string] which contains formatting
-information such as Markdown formatting characters
-]
-
-/ ​fully qualified logical name<def:fully-qualified-logical-name>: #block[
-string that fully identifies the programmatic construct specified by a
-#link(<def:logical-location>)[logical location], typically by means of a
-hierarchical identifier. Example: The fully qualified logical name of
-the C\# method `f(void)` in class `C` in namespace `N` is
-`"N.C.f(void)"`. Its #link(<def:logical-name>)[logical name] is
-`"f(void)"`.
-]
-
-/ ​hierarchical string<def:hierarchical-string>: #block[
-string in the format `<component>{/<component>}*`
-]
-
-/ ​line<def:line>: #block[
-contiguous sequence of characters, starting either at the beginning of
-an #link(<def:artifact>)[artifact] or immediately after a
-#link(<def:newline-sequence>)[newline sequence], and ending at and
-including the nearest subsequent newline sequence, if one is present, or
-else extending to the end of the artifact
-]
-
-/ ​line (number)<def:line-number>: #block[
-1-based index of a line within a file NOTE: Abbreviated to "line" when
-there is no danger of ambiguity with "#link(<def:line>)[line]" in the
-sense of a sequence of characters.
-]
-
-/ ​localizable<def:localizable>: #block[
-subject to being translated from one natural language to another
-]
-
-/ ​log file<def:log-file>: #block[
-output file produced by an
-#link(<def:static-analysis-tool>)[analysis tool], which enumerates the
-#link(<def:result>)[results] produced by the tool
-]
-
-/ ​\(log file) viewer<def:log-file-viewer>: #block[
-#link(<def:sarif-consumer>)[SARIF consumer] that reads a
-#link(<def:log-file>)[log file], displays a list of the
-#link(<def:result>)[results] it contains, and allows an
-#link(<def:end-user>)[end user] to view each result in the context of
-the #link(<def:artifact>)[artifact] in which it occurs
-]
-
-/ ​logical location<def:logical-location>: #block[
-location specified by reference to a programmatic construct, without
-specifying the #link(<def:artifact>)[artifact] within which that
-construct occurs Example: A class name, a method name, a namespace.
-]
-
-/ ​logical name<def:logical-name>: #block[
-string that partially identifies the programmatic construct specified by
-a #link(<def:logical-location>)[logical location] by specifying the most
-specific (often the rightmost) component of its
-#link(<def:fully-qualified-logical-name>)[fully qualified logical name].
-Example: The logical name of the C\# method `f(void)` in class `C` in
-namespace `N` is `"f(void)"`. Its
-#link(<def:fully-qualified-logical-name>)[fully qualified logical name]
-is `"N.C.f(void)"`.
-]
-
-/ ​message string<def:message-string>: #block[
-human-readable string that conveys information relevant to an element in
-a SARIF file
-]
-
-/ ​nested artifact<def:nested-artifact>: #block[
-#link(<def:artifact>)[artifact] that is contained within another
-artifact
-]
-
-/ ​nested logical location<def:nested-logical-location>: #block[
-#link(<def:logical-location>)[logical location] that is contained within
-another logical location Example: A method within a class in C++
-]
-
-/ ​newline sequence<def:newline-sequence>: #block[
-sequence of one or more characters representing the end of a line of
-text NOTE: Some systems represent a newline sequence with a single
-newline character; others represent it as a carriage return character
-followed by a newline character.
-]
-
-/ ​notification<def:notification>: #block[
-#link(<def:reporting-item>)[reporting item] that describes a condition
-encountered by a #link(<def:static-analysis-tool>)[tool] during its
-execution
-]
-
-/ ​opaque<def:opaque>: #block[
-neither human-readable nor machine-parseable into constituent parts
-]
-
-/ ​parent (artifact)<def:parent-artifact>: #block[
-#link(<def:artifact>)[artifact] which contains one or more
-#link(<def:nested-artifact>)[nested artifacts]
-]
-
-/ ​physical location<def:physical-location>: #block[
-location specified by reference to an #link(<def:artifact>)[artifact],
-possibly together with a #link(<def:region>)[region] within that
-artifact
-]
-
-/ ​plain text message<def:plain-text-message>: #block[
-#link(<def:message-string>)[message string] which does not contain any
-formatting information
-]
-
-/ ​plugin<def:plugin>: #block[
-#link(<def:tool-component>)[tool component] that defines additional
-#link(<def:rule>)[rules]
-]
-
-/ ​policy<def:policy>: #block[
-set of #link(<def:rule-configuration>)[rule configurations] that specify
-how #link(<def:result>)[results] that violate the
-#link(<def:rule>)[rules] defined by a particular
-#link(<def:tool-component>)[tool component] are to be treated
-]
-
-/ ​problem<def:problem>: #block[
-#link(<def:result>)[result] which indicates a condition that has the
-potential to detract from the quality of the program Example: A security
-vulnerability, a deviation from contractual or legal requirements, a
-deviation from stylistic standards.
-]
-
-/ ​property<def:property>: #block[
-attribute of an object consisting of a name and a value associated with
-the name
-]
-
-/ ​property bag<def:property-bag>: #block[
-object consisting of an unordered set of non-standardized
-#link(<def:property>)[properties] with arbitrary
-#link(<def:camelcase-name>)[camelCase names]
-]
-
-/ ​redactable property<def:redactable-property>: #block[
-#link(<def:property>)[property] that potentially contains sensitive
-information that a SARIF #link(<def:direct-producer>)[direct producer]
-or a #link(<def:sarif-post-processor>)[SARIF post-processor] might wish
-to redact
-]
-
-/ ​region<def:region>: #block[
-contiguous portion of an #link(<def:artifact>)[artifact]
-]
-
-/ ​reporting item<def:reporting-item>: #block[
-unit of output produced by a #link(<def:static-analysis-tool>)[tool],
-either a #link(<def:result>)[result] or a
-#link(<def:notification>)[notification]
-]
-
-/ ​reporting configuration<def:reporting-configuration>: #block[
-the subset of #link(<def:reporting-metadata>)[reporting metadata] that a
-#link(<def:static-analysis-tool>)[tool] can configure at runtime, before
-performing its scan \ Examples: severity level, rank
-]
-
-/ ​reporting descriptor<def:reporting-descriptor>: #block[
-container for #link(<def:reporting-metadata>)[reporting metadata]
-]
-
-/ ​reporting metadata<def:reporting-metadata>: #block[
-information that describes a class of related
-#link(<def:reporting-item>)[reporting items] \ Examples: id, description
-]
-
-/ ​repository<def:repository>: #block[
-container for a related set of files in a version control system
-]
-
-/ ​response file<def:response-file>: #block[
-file containing arguments for a #link(<def:static-analysis-tool>)[tool],
-which are interpreted as if they had appeared directly on the command
-line
-]
-
-/ ​result<def:result>: #block[
-#link(<def:reporting-item>)[reporting item] that describes a condition
-present in an #link(<def:artifact>)[artifact]
-]
-
-/ ​result file<def:result-file>: #block[
-#link(<def:artifact>)[artifact] in which an
-#link(<def:static-analysis-tool>)[analysis tool] detects a
-#link(<def:result>)[result]
-]
-
-/ ​result management system<def:result-management-system>: #block[
-software system that consumes the #link(<def:log-file>)[log files]
-produced by #link(<def:static-analysis-tool>)[analysis tools], produces
-reports that enable engineering teams to assess the quality of their
-software #link(<def:artifact>)[artifacts] at a point in time and to
-observe trends in the quality over time, and performs functions such as
-filing bugs and displaying information about individual
-#link(<def:result>)[results] NOTE: A result management system can
-interact with a #link(<def:log-file-viewer>)[log file viewer] to display
-information about individual defects.
-]
-
-/ ​result matching<def:result-matching>: #block[
-process of determining whether two #link(<def:result>)[results] are
-reporting the same condition in the code
-]
-
-/ ​root file<def:root-file>: #block[
-#link(<def:log-file>)[SARIF log file] to which one or more
-#link(<def:external-property-file>)[external property files] logically
-belong
-]
-
-/ ​rule<def:rule>: #block[
-specific criterion for correctness verified by an
-#link(<def:static-analysis-tool>)[analysis tool] NOTE 1: Many analysis
-tools associate a #link(<def:rule-id>)[rule id] with each
-#link(<def:result>)[result] they report, but some do not. NOTE 2: Some
-rules verify generally accepted criteria for correctness; others verify
-conventions in use in a particular team or organization. Examples:
-"Variables must be initialized before use.", "Class names must begin
-with an uppercase letter.".
-]
-
-/ ​rule configuration<def:rule-configuration>: #block[
-#link(<def:reporting-configuration>)[reporting configuration] that
-applies to a #link(<def:rule>)[rule]
-]
-
-/ ​rule id<def:rule-id>: #block[
-#link(<def:stable-value>)[stable value] which an
-#link(<def:static-analysis-tool>)[analysis tool] associates with a
-#link(<def:rule>)[rule] NOTE: A rule id is more likely to remain stable
-if it is a symbolic or numeric value, as opposed to a descriptive
-string. Example: `CA2001`
-]
-
-/ ​rule metadata<def:rule-metadata>: #block[
-#link(<def:reporting-metadata>)[reporting metadata] that describes a
-#link(<def:rule>)[rule]
-]
-
+/ ​analysis target<def:analysis-target>: #link(<def:artifact>)[artifact]
+    which an #link(<def:analysis-tool>)[analysis tool] is instructed to
+    analyze
+/ ​analysis tool<def:analysis-tool>: tool that models and analyzes an
+    #link(<def:artifact>)[artifact] or the interaction between entities
+    (cf.~#link(<def:web-analysis-tool>)[web analysis tool] for an
+    example)
+/ ​artifact<def:artifact>: sequence of bytes addressable #emph[via] a URI
+    Examples: A physical file in a file system such as a source file, an
+    object file, a configuration file or a data file; a specific version
+    of a file in a version control system; a database table accessed
+    #emph[via] an HTTP request; an arbitrary stream of bytes returned
+    from an HTTP request.
+/ ​baseline<def:baseline>: set of #link(<def:result>)[results] produced
+    by a single #link(<def:run>)[run] of a set of
+    #link(<def:static-analysis-tool>)[analysis tools] on a set of
+    #link(<def:artifact>)[artifacts] NOTE: A
+    #link(<def:result-management-system>)[result management system] can
+    compare the results of a subsequent #link(<def:run>)[run] to a
+    baseline produced by a #link(<def:baseline-run>)[baseline run] to
+    determine whether new results have been introduced.
+/ ​baseline run<def:baseline-run>: #link(<def:run>)[run] that produces a
+    #link(<def:baseline>)[baseline] to which subsequent runs can be
+    compared
+/ ​binary artifact<def:binary-artifact>: #link(<def:artifact>)[artifact]
+    considered as a sequence of bytes
+/ ​binary region<def:binary-region>: #link(<def:region>)[region]
+    representing a contiguous range of zero or more bytes in a
+    #link(<def:binary-artifact>)[binary artifact]
+/ ​code flow<def:code-flow>: set of one or more
+    #link(<def:thread-flow>)[thread flows] which together specify a
+    pattern of code execution relevant to detecting a
+    #link(<def:result>)[result]
+/ ​column (number)<def:column-number>: 1-based index of a character
+    within a #link(<def:line>)[line]
+/ ​configuration file<def:configuration-file>: file, typically textual,
+    that configures the execution of an
+    #link(<def:static-analysis-tool>)[analysis tool] or
+    #link(<def:tool-component>)[tool component]
+/ ​converter<def:converter>: #link(<def:sarif-producer>)[SARIF producer]
+    that transforms the output of an
+    #link(<def:static-analysis-tool>)[analysis tool] from its native
+    output format into the SARIF format
+/ ​custom taxonomy<def:custom-taxonomy>: #link(<def:taxonomy>)[taxonomy]
+    defined by and intended for use with a particular
+    #link(<def:static-analysis-tool>)[analysis tool]
+/ ​direct producer<def:direct-producer>: #link(<def:static-analysis-tool>)[analysis tool]
+    which acts as a #link(<def:sarif-producer>)[SARIF producer]
+/ ​driver<def:driver>: #link(<def:tool-component>)[tool component]
+    containing an #link(<def:static-analysis-tool>)[analysis tool]'s or
+    #link(<def:converter>)[converter]'s primary executable, which
+    controls the tool's or converter's execution, and which in the case
+    of an analysis tool typically defines a set of analysis
+    #link(<def:rule>)[rules]
+/ ​embedded link<def:embedded-link>: syntactic construct which enables a
+    #link(<def:message-string>)[message string] to refer to a location
+    within an #link(<def:artifact>)[artifact] mentioned in a
+    #link(<def:result>)[result]
+/ ​engineering system<def:engineering-system>: software development
+    environment within which
+    #link(<def:static-analysis-tool>)[analysis tools] execute NOTE: An
+    engineering system might include a build system, a source control
+    system, a
+    #link(<def:result-management-system>)[result management system], a
+    bug tracking system, a test execution system, and so on.
+/ ​\(end) user<def:end-user>: person who uses the information in a
+    #link(<def:log-file>)[log file] to investigate,
+    #link(<def:triage>)[triage], or resolve #link(<def:result>)[results]
+/ ​extension<def:extension>: #link(<def:tool-component>)[tool component]
+    other than the #link(<def:driver>)[driver] (for example, a
+    #link(<def:plugin>)[plugin], a
+    #link(<def:configuration-file>)[configuration file], or a
+    #link(<def:taxonomy>)[taxonomy])
+/ ​external property file<def:external-property-file>: file containing
+    the values of one or more
+    #link(<def:externalized-property>)[externalized properties]
+/ ​externalizable property<def:externalizable-property>: property that
+    can be contained in an
+    #link(<def:external-property-file>)[external property file]
+/ ​externalized property<def:externalized-property>: property stored
+    outside of the #link(<def:log-file>)[SARIF log file] to which it
+    logically belongs
+/ ​false positive<def:false-positive>: #link(<def:result>)[result] which
+    an #link(<def:end-user>)[end user] decides does not actually
+    represent a #link(<def:problem>)[problem]
+/ ​fingerprint<def:fingerprint>: #link(<def:stable-value>)[stable value]
+    that can be used by a
+    #link(<def:result-management-system>)[result management system] to
+    uniquely identify a #link(<def:result>)[result] over time, even if a
+    relevant #link(<def:artifact>)[artifact] is modified
+/ ​formatted message<def:formatted-message>: #link(<def:message-string>)[message string]
+    which contains formatting information such as Markdown formatting
+    characters
+/ ​fully qualified logical name<def:fully-qualified-logical-name>: string
+    that fully identifies the programmatic construct specified by a
+    #link(<def:logical-location>)[logical location], typically by means
+    of a hierarchical identifier. Example: The fully qualified logical
+    name of the C\# method `f(void)` in class `C` in namespace `N` is
+    `"N.C.f(void)"`. Its #link(<def:logical-name>)[logical name] is
+    `"f(void)"`.
+/ ​hierarchical string<def:hierarchical-string>: string in the format
+    `<component>{/<component>}*`
+/ ​line<def:line>: contiguous sequence of characters, starting either at
+    the beginning of an #link(<def:artifact>)[artifact] or immediately
+    after a #link(<def:newline-sequence>)[newline sequence], and ending
+    at and including the nearest subsequent newline sequence, if one is
+    present, or else extending to the end of the artifact
+/ ​line (number)<def:line-number>: 1-based index of a line within a file
+    NOTE: Abbreviated to "line" when there is no danger of ambiguity
+    with "#link(<def:line>)[line]" in the sense of a sequence of
+    characters.
+/ ​localizable<def:localizable>: subject to being translated from one
+    natural language to another
+/ ​log file<def:log-file>: output file produced by an
+    #link(<def:static-analysis-tool>)[analysis tool], which enumerates
+    the #link(<def:result>)[results] produced by the tool
+/ ​\(log file) viewer<def:log-file-viewer>: #link(<def:sarif-consumer>)[SARIF consumer]
+    that reads a #link(<def:log-file>)[log file], displays a list of the
+    #link(<def:result>)[results] it contains, and allows an
+    #link(<def:end-user>)[end user] to view each result in the context
+    of the #link(<def:artifact>)[artifact] in which it occurs
+/ ​logical location<def:logical-location>: location specified by
+    reference to a programmatic construct, without specifying the
+    #link(<def:artifact>)[artifact] within which that construct occurs
+    Example: A class name, a method name, a namespace.
+/ ​logical name<def:logical-name>: string that partially identifies the
+    programmatic construct specified by a
+    #link(<def:logical-location>)[logical location] by specifying the
+    most specific (often the rightmost) component of its
+    #link(<def:fully-qualified-logical-name>)[fully qualified logical name].
+    Example: The logical name of the C\# method `f(void)` in class `C`
+    in namespace `N` is `"f(void)"`. Its
+    #link(<def:fully-qualified-logical-name>)[fully qualified logical name]
+    is `"N.C.f(void)"`.
+/ ​message string<def:message-string>: human-readable string that conveys
+    information relevant to an element in a SARIF file
+/ ​nested artifact<def:nested-artifact>: #link(<def:artifact>)[artifact]
+    that is contained within another artifact
+/ ​nested logical location<def:nested-logical-location>: #link(<def:logical-location>)[logical location]
+    that is contained within another logical location Example: A method
+    within a class in C++
+/ ​newline sequence<def:newline-sequence>: sequence of one or more
+    characters representing the end of a line of text NOTE: Some systems
+    represent a newline sequence with a single newline character; others
+    represent it as a carriage return character followed by a newline
+    character.
+/ ​notification<def:notification>: #link(<def:reporting-item>)[reporting item]
+    that describes a condition encountered by a
+    #link(<def:static-analysis-tool>)[tool] during its execution
+/ ​opaque<def:opaque>: neither human-readable nor machine-parseable into
+    constituent parts
+/ ​parent (artifact)<def:parent-artifact>: #link(<def:artifact>)[artifact]
+    which contains one or more
+    #link(<def:nested-artifact>)[nested artifacts]
+/ ​physical location<def:physical-location>: location specified by
+    reference to an #link(<def:artifact>)[artifact], possibly together
+    with a #link(<def:region>)[region] within that artifact
+/ ​plain text message<def:plain-text-message>: #link(<def:message-string>)[message string]
+    which does not contain any formatting information
+/ ​plugin<def:plugin>: #link(<def:tool-component>)[tool component] that
+    defines additional #link(<def:rule>)[rules]
+/ ​policy<def:policy>: set of
+    #link(<def:rule-configuration>)[rule configurations] that specify
+    how #link(<def:result>)[results] that violate the
+    #link(<def:rule>)[rules] defined by a particular
+    #link(<def:tool-component>)[tool component] are to be treated
+/ ​problem<def:problem>: #link(<def:result>)[result] which indicates a
+    condition that has the potential to detract from the quality of the
+    program Example: A security vulnerability, a deviation from
+    contractual or legal requirements, a deviation from stylistic
+    standards.
+/ ​property<def:property>: attribute of an object consisting of a name
+    and a value associated with the name
+/ ​property bag<def:property-bag>: object consisting of an unordered set
+    of non-standardized #link(<def:property>)[properties] with arbitrary
+    #link(<def:camelcase-name>)[camelCase names]
+/ ​redactable property<def:redactable-property>: #link(<def:property>)[property]
+    that potentially contains sensitive information that a SARIF
+    #link(<def:direct-producer>)[direct producer] or a
+    #link(<def:sarif-post-processor>)[SARIF post-processor] might wish
+    to redact
+/ ​region<def:region>: contiguous portion of an
+    #link(<def:artifact>)[artifact]
+/ ​reporting item<def:reporting-item>: unit of output produced by a
+    #link(<def:static-analysis-tool>)[tool], either a
+    #link(<def:result>)[result] or a
+    #link(<def:notification>)[notification]
+/ ​reporting configuration<def:reporting-configuration>: the subset of
+    #link(<def:reporting-metadata>)[reporting metadata] that a
+    #link(<def:static-analysis-tool>)[tool] can configure at runtime,
+    before performing its scan \ Examples: severity level, rank
+/ ​reporting descriptor<def:reporting-descriptor>: container for
+    #link(<def:reporting-metadata>)[reporting metadata]
+/ ​reporting metadata<def:reporting-metadata>: information that describes
+    a class of related #link(<def:reporting-item>)[reporting items] \
+    Examples: id, description
+/ ​repository<def:repository>: container for a related set of files in a
+    version control system
+/ ​response file<def:response-file>: file containing arguments for a
+    #link(<def:static-analysis-tool>)[tool], which are interpreted as if
+    they had appeared directly on the command line
+/ ​result<def:result>: #link(<def:reporting-item>)[reporting item] that
+    describes a condition present in an #link(<def:artifact>)[artifact]
+/ ​result file<def:result-file>: #link(<def:artifact>)[artifact] in which
+    an #link(<def:static-analysis-tool>)[analysis tool] detects a
+    #link(<def:result>)[result]
+/ ​result management system<def:result-management-system>: software
+    system that consumes the #link(<def:log-file>)[log files] produced
+    by #link(<def:static-analysis-tool>)[analysis tools], produces
+    reports that enable engineering teams to assess the quality of their
+    software #link(<def:artifact>)[artifacts] at a point in time and to
+    observe trends in the quality over time, and performs functions such
+    as filing bugs and displaying information about individual
+    #link(<def:result>)[results] NOTE: A result management system can
+    interact with a #link(<def:log-file-viewer>)[log file viewer] to
+    display information about individual defects.
+/ ​result matching<def:result-matching>: process of determining whether
+    two #link(<def:result>)[results] are reporting the same condition in
+    the code
+/ ​root file<def:root-file>: #link(<def:log-file>)[SARIF log file] to
+    which one or more
+    #link(<def:external-property-file>)[external property files]
+    logically belong
+/ ​rule<def:rule>: specific criterion for correctness verified by an
+    #link(<def:static-analysis-tool>)[analysis tool] NOTE 1: Many
+    analysis tools associate a #link(<def:rule-id>)[rule id] with each
+    #link(<def:result>)[result] they report, but some do not. NOTE 2:
+    Some rules verify generally accepted criteria for correctness;
+    others verify conventions in use in a particular team or
+    organization. Examples: "Variables must be initialized before use.",
+    "Class names must begin with an uppercase letter.".
+/ ​rule configuration<def:rule-configuration>: #link(<def:reporting-configuration>)[reporting configuration]
+    that applies to a #link(<def:rule>)[rule]
+/ ​rule id<def:rule-id>: #link(<def:stable-value>)[stable value] which an
+    #link(<def:static-analysis-tool>)[analysis tool] associates with a
+    #link(<def:rule>)[rule] NOTE: A rule id is more likely to remain
+    stable if it is a symbolic or numeric value, as opposed to a
+    descriptive string. Example: `CA2001`
+/ ​rule metadata<def:rule-metadata>: #link(<def:reporting-metadata>)[reporting metadata]
+    that describes a #link(<def:rule>)[rule]
 / ​run<def:run>: #block[
 + invocation of a specified
   #link(<def:static-analysis-tool>)[analysis tool] on a specified
@@ -625,112 +460,65 @@ string. Example: `CA2001`
 + set of #link(<def:result>)[results] produced by such an invocation
 ]
 
-/ ​SARIF consumer<def:sarif-consumer>: #block[
-program that reads and interprets a SARIF log file
-]
-
-/ ​SARIF log file<def:sarif-log-file>: #block[
-#link(<def:log-file>)[log file] in the format defined by this document
-]
-
-/ ​SARIF post-processor<def:sarif-post-processor>: #block[
-#link(<def:sarif-producer>)[SARIF producer] that transforms an existing
-#link(<def:sarif-log-file>)[SARIF log file] into a new SARIF log file,
-for example, by removing or redacting security-sensitive elements.
-]
-
-/ ​SARIF producer<def:sarif-producer>: #block[
-program that emits output in the SARIF format
-]
-
-/ ​stable value<def:stable-value>: #block[
-value which, once established, never changes over time
-]
-
-/ ​standard taxonomy<def:standard-taxonomy>: #block[
-#link(<def:taxonomy>)[taxonomy] defined without reference to a
-particular #link(<def:static-analysis-tool>)[analysis tool]
-]
-
-/ ​\(static analysis) tool<def:static-analysis-tool>: #block[
-program that examines #link(<def:artifact>)[artifacts] to detect
-problems, without executing the program Example: Lint
-]
-
-/ ​taxon (pl. taxa)<def:taxon-pl-taxa>: #block[
-one of a set of categories which together comprise a
-#link(<def:taxonomy>)[taxonomy]
-]
-
-/ ​tag<def:tag>: #block[
-string that conveys additional information about the SARIF
-#link(<def:log-file>)[log file] element to which it applies
-]
-
-/ ​text artifact<def:text-artifact>: #block[
-#link(<def:artifact>)[artifact] considered as a sequence of characters
-organized into #link(<def:line>)[lines] and
-#link(<def:column-number>)[columns]
-]
-
-/ ​text region<def:text-region>: #block[
-#link(<def:region>)[region] representing a contiguous range of zero or
-more characters in a #link(<def:text-artifact>)[text artifact]
-]
-
-/ ​thread flow<def:thread-flow>: #block[
-temporally ordered set of code locations specifying a possible execution
-path through the code, which occur within a single thread of execution,
-such as an operating system thread or a fiber
-]
-
-/ ​tool component<def:tool-component>: #block[
-component of an #link(<def:static-analysis-tool>)[analysis tool] or
-#link(<def:converter>)[converter], either its
-#link(<def:driver>)[driver] or an #link(<def:extension>)[extension],
-consisting of one or more files
-]
-
-/ ​top-level artifact<def:top-level-artifact>: #block[
-#link(<def:artifact>)[artifact] which is not contained within any other
-artifact
-]
-
-/ ​top-level logical location<def:top-level-logical-location>: #block[
-#link(<def:logical-location>)[logical location] that is not nested
-within another logical location Example: A global function in C++
-]
-
-/ ​translation<def:translation>: #block[
-rendering of a #link(<def:tool-component>)[tool component]'s
-#link(<def:localizable>)[localizable] strings into another language
-]
-
-/ ​triage<def:triage>: #block[
-decide whether a #link(<def:result>)[result] indicates a
-#link(<def:problem>)[problem] that needs to be corrected
-]
-
-/ ​user<def:user>: #block[
-see #link(<def:end-user>)[end user].
-]
-
-/ ​viewer<def:viewer>: #block[
-see #link(<def:log-file-viewer>)[log file viewer].
-]
-
-/ ​web analysis tool<def:web-analysis-tool>: #block[
-#link(<def:web-analysis-tool>)[analysis tool] that models and analyzes
-the interaction between a web client and a server.
-]
+/ ​SARIF consumer<def:sarif-consumer>: program that reads and interprets
+    a SARIF log file
+/ ​SARIF log file<def:sarif-log-file>: #link(<def:log-file>)[log file] in
+    the format defined by this document
+/ ​SARIF post-processor<def:sarif-post-processor>: #link(<def:sarif-producer>)[SARIF producer]
+    that transforms an existing
+    #link(<def:sarif-log-file>)[SARIF log file] into a new SARIF log
+    file, for example, by removing or redacting security-sensitive
+    elements.
+/ ​SARIF producer<def:sarif-producer>: program that emits output in the
+    SARIF format
+/ ​stable value<def:stable-value>: value which, once established, never
+    changes over time
+/ ​standard taxonomy<def:standard-taxonomy>: #link(<def:taxonomy>)[taxonomy]
+    defined without reference to a particular
+    #link(<def:static-analysis-tool>)[analysis tool]
+/ ​\(static analysis) tool<def:static-analysis-tool>: program that
+    examines #link(<def:artifact>)[artifacts] to detect problems,
+    without executing the program Example: Lint
+/ ​taxon (pl. taxa)<def:taxon-pl-taxa>: one of a set of categories which
+    together comprise a #link(<def:taxonomy>)[taxonomy]
+/ ​tag<def:tag>: string that conveys additional information about the
+    SARIF #link(<def:log-file>)[log file] element to which it applies
+/ ​text artifact<def:text-artifact>: #link(<def:artifact>)[artifact]
+    considered as a sequence of characters organized into
+    #link(<def:line>)[lines] and #link(<def:column-number>)[columns]
+/ ​text region<def:text-region>: #link(<def:region>)[region] representing
+    a contiguous range of zero or more characters in a
+    #link(<def:text-artifact>)[text artifact]
+/ ​thread flow<def:thread-flow>: temporally ordered set of code locations
+    specifying a possible execution path through the code, which occur
+    within a single thread of execution, such as an operating system
+    thread or a fiber
+/ ​tool component<def:tool-component>: component of an
+    #link(<def:static-analysis-tool>)[analysis tool] or
+    #link(<def:converter>)[converter], either its
+    #link(<def:driver>)[driver] or an #link(<def:extension>)[extension],
+    consisting of one or more files
+/ ​top-level artifact<def:top-level-artifact>: #link(<def:artifact>)[artifact]
+    which is not contained within any other artifact
+/ ​top-level logical location<def:top-level-logical-location>: #link(<def:logical-location>)[logical location]
+    that is not nested within another logical location Example: A global
+    function in C++
+/ ​translation<def:translation>: rendering of a
+    #link(<def:tool-component>)[tool component]'s
+    #link(<def:localizable>)[localizable] strings into another language
+/ ​triage<def:triage>: decide whether a #link(<def:result>)[result]
+    indicates a #link(<def:problem>)[problem] that needs to be corrected
+/ ​user<def:user>: see #link(<def:end-user>)[end user].
+/ ​viewer<def:viewer>: see #link(<def:log-file-viewer>)[log file viewer].
+/ ​web analysis tool<def:web-analysis-tool>: #link(<def:web-analysis-tool>)[analysis tool]
+    that models and analyzes the interaction between a web client and a
+    server.
 
 == Abbreviations and Acronyms
 <abbreviations-and-acronyms>
 This document uses the following abbreviations and acronyms:
 
-/ ​VCS<def:vcs>: #block[
-version control system
-]
+/ ​VCS<def:vcs>: version control system
 
 #pagebreak(weak: true)
 = Document Conventions
@@ -763,7 +551,7 @@ are not part of the JSON or SARIF formats:
 - An ellipsis (…) is used to indicate that portions of the log file text
   required by this document have been omitted for brevity.
 
-- A '`#`' character introduces a comment that extends to the end of the
+- A ‘`#`' character introduces a comment that extends to the end of the
   line.
 
 - When a JSON string is too long to fit on a line, it is broken into
@@ -931,33 +719,33 @@ and does not constitute an endorsement by OASIS of any of the products
 named. Equivalent products may be used if they can be shown to lead to
 the same results.
 
-== Changes From the Previous Version 2.1
+== Changes From the Previous Version (2.1)
 <changes-from-the-previous-version-2-1>
 === File Format Extensions
 <file-format-extensions>
-- 2.5 (now 3.2.4): added `"theLocationOwner"` to generalize
+- Section 2.5 (now 3.2.4): added `"theLocationOwner"` to generalize
   location-handling between `result` and `notification` objects (\#540)
   (\#736)
 
-- 3.9 (now 5.9): added examples of expiry dates (\#492) (\#644)
+- Section 3.9 (now 5.9): added examples of expiry dates (\#492) (\#644)
 
-- 3.12 (now 5.12) `multiformatMessage` object: `"text"` property can now
-  contain embedded links (\#471) (\#636)
+- Section 3.12 (now 5.12) `multiformatMessage` object: `"text"` property
+  can now contain embedded links (\#471) (\#636)
 
-- 3.13 (now 5.13) `sarifLog` object: added `"guid"` property (\#483)
-  (\#641)
+- Section 3.13 (now 5.13) `sarifLog` object: added `"guid"` property
+  (\#483) (\#641)
 
-- 3.14 (now 5.14) `run` object: added `"bytes"` as a value for the
-  `columnKind` property (\#466) (\#740)
+- Section 3.14 (now 5.14) `run` object: added `"bytes"` as a value for
+  the `columnKind` property (\#466) (\#740)
 
-- 3.23 (now 5.23) `artefact` object: added `"scannedFile"` as a value
-  for the `role` property (\#459) (\#642)
+- Section 3.23 (now 5.23) `artefact` object: added `"scannedFile"` as a
+  value for the `role` property (\#459) (\#642)
 
-- 3.35 (now 5.35) `suppression` object: added `"justificationType"`
-  property (\#574) (\#672)
+- Section 3.35 (now 5.35) `suppression` object: added
+  `"justificationType"` property (\#574) (\#672)
 
-- 3.38 (now 5.38) `threadflowlocation` object: added new values to
-  `"kinds`":
+- Section 3.38 (now 5.38) `threadflowlocation` object: added new values
+  to `"kinds`“:
 
   - `"catch"` for catching an exception (\#735) (\#756)
   - `"expose"`: for exposure of a secret across a trust boundary
@@ -974,8 +762,8 @@ the same results.
   - `"unwind"` for unwinding stack frame(s) during exception-handling
     (\#735) (\#756)
 
-- 3.58 (now 5.58) `notification` object: added `"relatedLocations"`
-  property (\#491) (\#643)
+- Section 3.58 (now 5.58) `notification` object: added
+  `"relatedLocations"` property (\#491) (\#643)
 
 - Appendix J (now Appendix 9): #strong[Sample `"sourceLanguage"`
   Values]: added:
@@ -1203,9 +991,9 @@ parent container can be expressed by a path from the root of the
 container, then if `uri` is present, it #strong[SHALL] specify a
 relative-path reference per section 4.2 of \[#link(<RFC3986>)[RFC3986]\]
 expressing that path. A relative reference #strong[SHALL NOT] begin with
-two slash characters (a 'network-path' reference per section 4.2 of
+two slash characters (a ‘network-path' reference per section 4.2 of
 \[#link(<RFC3986>)[RFC3986]\]. A relative reference #strong[SHALL NOT]
-begin with a single slash character (an 'absolute-path' reference per
+begin with a single slash character (an ‘absolute-path' reference per
 section 4.2 of \[#link(<RFC3986>)[RFC3986]\]) unless doing so is
 required to distinguish between distinct items in archive formats, such
 as zip and tar.
@@ -1370,7 +1158,7 @@ if any, that describes the artifact specified by this `artifactLocation`
 object.
 
 If `thisObject` occurs as the `location` property (\[5.24.2
-"`location property"](#artifact-object--location-property)) of an`artifact`object in`theRun.artifacts`, then`index`**MAY** be present. If present, it **SHALL** equal the array index within`theRun.artifacts`of the containing`artifact\`
+“`location property"](#artifact-object--location-property)) of an`artifact`object in`theRun.artifacts`, then`index`**MAY** be present. If present, it **SHALL** equal the array index within`theRun.artifacts`of the containing`artifact\`
 object.
 
 Otherwise, if `theRun.artifacts` is absent or does not contain an
@@ -2459,8 +2247,29 @@ A SARIF viewer would render it as follows:
 Prohibited term used in para\[0\]\\spans\[2\].
 ]
 
-Literal square brackets and (doubled) backslashes #strong[MAY] appear
-anywhere else in a plain text message without being escaped.
+Literal square brackets and backslashes anywhere else in a plain text
+message #strong[MAY] be written either without escaping, or escaped with
+a backslash (`"\"`). However, if a sequence of literal characters in a
+plain text message could be parsed as an embedded link, a SARIF producer
+#strong[SHOULD] escape the literal square brackets with a backslash
+(`"\"`) to avoid ambiguity.
+
+#quote(block: true)[
+EXAMPLE 2: Consider a message describing an out-of-bounds access to the
+source code expression `callbacks[42](0)` (where `callbacks` is an array
+of functions, `callbacks[42]` indexes into this array, and
+`callbacks[42](0)` attempts to call this function with argument `0`).
+Without escaping, this is ambiguous because `[42](0)` matches the
+embedded link syntax with `42` as the link text and `0` as the link
+destination. SARIF producers should escape the square brackets to remove
+the ambiguity:
+
+```
+  "message": {
+    "text": "out-of-bounds accessing \"callbacks\\[42\\](0)\""
+  }
+```
+]
 
 In both plain text and formatted messages, if `link destination` is a
 non-negative integer, it #strong[SHALL] refer to a `location` object
@@ -2476,7 +2285,7 @@ values.
 ]
 
 #quote(block: true)[
-EXAMPLE 2: In this example, a plain text message contains an embedded
+EXAMPLE 3: In this example, a plain text message contains an embedded
 link to a location with a file. The `result` object contains exactly one
 `location` object whose `id` property matches the `link destination`.
 
@@ -3422,7 +3231,7 @@ elements representing all artifacts examined by the tool (whether or not
 results were detected in those artifacts), or any subset of those
 artifacts. It #strong[MAY] also include other artifacts relevant to the
 run, such as attachments
-(#link(<attachments-property>)[5.27.26 "`attachments` Property"]).
+(#link(<attachments-property>)[5.27.28 "`attachments` Property"]).
 
 #quote(block: true)[
 NOTE: `artifact` objects contain information that is useful for viewers.
@@ -4556,7 +4365,7 @@ violates the driver's rule `"CA2101"` falls into the
 `"superset"` relationship from the `"MemoryManagement"` taxon to the
 rule (which is interpreted as "The `MemoryManagement` taxon is a
 superset of rule `CA2101`"). For more information on relationships, see
-#link(<reportingdescriptor-object--relationships-property>)[5.49.15 "`relationships` Property"]
+#link(<reportingdescriptor-object--relationships-property>)[5.49.17 "`relationships` Property"]
 and
 #link(<reportingdescriptorrelationship-object>)[5.53 "`reportingDescriptorRelationship` Object"].
 
@@ -4574,7 +4383,7 @@ and
           "shortDescription": {
             "text": "Failed to release dynamic memory."
           },
-          "relationships": [       # See 5.49.15.
+          "relationships": [       # See 5.49.17.
             {              # A reportingDescriptorRelationship object (5.53).
               "target": {          # See 5.53.2
                 "id": "MemoryManagement",
@@ -5383,7 +5192,7 @@ classify results.
 A `toolComponent` object that contains a `supportedTaxonomies` property
 #strong[SHALL] declare which taxa (if any) each of its rules falls into
 by providing the `relationships` property
-(#link(<reportingdescriptor-object--relationships-property>)[5.49.15 "`relationships` Property"])
+(#link(<reportingdescriptor-object--relationships-property>)[5.49.17 "`relationships` Property"])
 as appropriate on each `reportingDescriptor` object
 (#link(<reportingdescriptor-object>)[5.49 "`reportingDescriptor` Object"])
 in its `rules` array
@@ -6267,7 +6076,7 @@ providing a value for `artifact.contents`
 <attachment-object--general>
 An `attachment` object describes an artifact relevant to the detection
 of a result (see
-#link(<attachments-property>)[5.27.26 "`attachments` Property"]).
+#link(<attachments-property>)[5.27.28 "`attachments` Property"]).
 
 A SARIF producer #strong[MAY] embed the contents of an attachment in the
 log file by mentioning the attachment in `theRun.artifacts`
@@ -6284,7 +6093,7 @@ a static analysis tool.
 ```json
 {                                             # A result object (5.27).
   ...
-  "attachments": [                            # See 5.27.26.
+  "attachments": [                            # See 5.27.28.
     {                                         # An attachment object.
       "description": {                        # See 5.21.2.
         "text": "Screen shot"
@@ -6773,7 +6582,7 @@ If the `artifact` object represents a nested artifact whose location
 within its parent can be expressed either by means of a path or by means
 of a byte offset from the start of the parent, then `offset`
 #strong[MAY] be present; if it is absent, then `location` (\[5.24.2
-"`location property"](#artifact-object--location-property)) **SHALL** be present. If`offset\`
+“`location property"](#artifact-object--location-property)) **SHALL** be present. If`offset\`
 is present, its value #strong[SHALL] be that byte offset.
 
 === `length` Property
@@ -6801,7 +6610,7 @@ the specified meanings:
 
 - `"attachment"`: The artifact is an attachment mentioned in
   `result.attachments`
-  (#link(<attachments-property>)[5.27.26 "`attachments` Property"]).
+  (#link(<attachments-property>)[5.27.28 "`attachments` Property"]).
 
 - `"conversionSource"`: The artifact is an output from an analysis tool
   in a non-SARIF format that was converted to SARIF.
@@ -7721,7 +7530,7 @@ If the `toolComponent` object
 (#link(<rules-property>)[5.19.23 "`rules` Property"])) that describes
 that rule, then `thisObject.taxa` #strong[SHALL] contain elements
 corresponding to those elements of `theDescriptor.relationships`
-(#link(<reportingdescriptor-object--relationships-property>)[5.49.15 "`relationships` Property"])
+(#link(<reportingdescriptor-object--relationships-property>)[5.49.17 "`relationships` Property"])
 that describe taxa into which this result falls. `thisObject.taxa` does
 not need to contain elements which correspond to `superset` or `equals`
 relationships; rather, the result #strong[SHALL] implicitly be taken to
@@ -8023,7 +7832,7 @@ that it specifies.
   \# Is there a configuration override for the `level` property?
 
   IF `result.provenance.invocationIndex`
-(#link(<provenance-property>)[5.27.29 "`provenance` Property"],
+(#link(<provenance-property>)[5.27.31 "`provenance` Property"],
 #link(<invocationindex-property>)[5.48.6 "`invocationIndex` Property"])
 is \>= 0 THEN
 
@@ -8797,6 +8606,62 @@ higher priority than the result produced by Tool A. In an engineering
 system that aggregates results from multiple tools, rank values might
 need to be adjusted, either automatically or by end users, so that rank
 values from different tools can be interleaved in a meaningful way.
+]
+
+=== `precision` Property
+<result-object--precision-property>
+A `result` object #strong[MAY] contain a property named `precision`
+whose value is a number between `0.0` and `100.0` inclusive,
+representing the tool or tool maintainer's confidence that this result
+is a true positive. This value #strong[MAY] be represented as a
+floating-point number. `0.0` is the lowest confidence, indicating that
+the result is likely to be a false positive, and `100.0` is the highest
+confidence, indicating that the result is likely to be a true positive.
+
+If `precision` is absent on a `result` object, and `theDescriptor`
+exists and specifies a `precision` property
+(#link(<reportingdescriptor-object--precision-property>)[5.49.15 "`precision` Property"]),
+the `precision` of the result is inherited from `theDescriptor`.
+
+#quote(block: true)[
+NOTE: `precision` values are in general only commensurable when they
+refer to results of the same rule from the same tool, or equivalent
+rules from different tools. In an engineering system that aggregates
+results from multiple tools, precision values might need to be adjusted,
+either automatically or by end users, so that precision values from
+different tools can be interleaved in a meaningful way.
+]
+
+=== `securitySeverity` Property
+<result-object--securityseverity-property>
+A `result` object #strong[MAY] contain a property named
+`securitySeverity` whose value is a number between `0.0` and `100.0`
+inclusive, representing a numerical estimate of the severity of the
+class of vulnerabilities found by this result. This value #strong[MAY]
+be represented as a floating-point number. `0.0` is the lowest severity
+and `100.0` is the highest severity.
+
+If `securitySeverity` is absent on a `result` object, and
+`theDescriptor` exists and specifies a `securitySeverity` property
+(#link(<reportingdescriptor-object--securityseverity-property>)[5.49.16 "`securitySeverity` Property"]),
+the `securitySeverity` of the result is inherited from `theDescriptor`.
+
+#quote(block: true)[
+NOTE: `securitySeverity` values are in general only commensurable when
+they refer to results of the same rule from the same tool, or equivalent
+rules from different tools. In an engineering system that aggregates
+results from multiple tools, `securitySeverity` values might need to be
+adjusted, either automatically or by end users, so that
+`securitySeverity` values from different tools can be interleaved in a
+meaningful way.
+]
+
+#quote(block: true)[
+NOTE: To make `securitySeverity` values easier to compare between
+different results and rules, a tool may set the value by aggregating
+external metrics for security severity, such as the Common Vulnerability
+Scoring System (CVSS) (#link("https://www.first.org/cvss")) scores, for
+security vulnerabilities identified by similar results and rules.
 ]
 
 === `attachments` Property
@@ -13080,7 +12945,7 @@ a SARIF converter might transform it into the following SARIF log file:
             "text": "Assertions are unreliable. ..."
           },
           ...
-          "provenance": {              # See 5.27.29.
+          "provenance": {              # See 5.27.31.
             "conversionSources": [     # An array of physicalLocation objects 
               {                        # ((#physicallocation-object)).
                 "artifactLocation": {  # See 5.29.3.
@@ -13165,7 +13030,7 @@ change so that "Y" is now acceptable, and suppose the implementation of
 the rule changes accordingly. Because the rule id must not change, the
 string `"DoNotDoXOrY"` will continue to be persisted to logs, where it
 will convey outdated guidance to users in a way that an opaque
-identifier such as "`CA2101"` would not.
+identifier such as “`CA2101"` would not.
 ]
 
 #quote(block: true)[
@@ -13543,6 +13408,79 @@ property bag (#link(<property-bags>)[5.8 "Property Bags"]) Rather, they
 #strong[SHALL] be stored in `defaultConfiguration.parameters`
 (#link(<reportingconfiguration-object--parameters-property>)[5.50.5 "`parameters` Property"]).
 
+=== `precision` Property
+<reportingdescriptor-object--precision-property>
+A `reportingDescriptor` object that describes a rule #strong[MAY]
+contain a property named `precision` whose value is a number between
+`0.0` and `100.0` inclusive, representing the tool or tool maintainer's
+confidence that results produced by the rule are true positives. This
+value #strong[MAY] be represented as a floating-point number. `0.0` is
+the lowest confidence, indicating that results are likely to be false
+positives, and `100.0` is the highest confidence, indicating that
+results are likely to be true positives.
+
+If `precision` is present, it acts as the value of `result.precision`
+(#link(<result-object--precision-property>)[5.27.26 "`precision` Property"])
+for any `result` object (#link(<result-object>)[5.27 "`result` Object"])
+whose `ruleIndex`
+(#link(<ruleindex-property>)[5.27.6 "`ruleIndex` Property"]) or `rule`
+property (#link(<rule-property>)[5.27.7 "`rule` Property"]), either
+explicitly supplied or inferred from its default, references this
+`reportingDescriptor`, and which does not itself specify a `precision`
+property.
+
+`precision` is not applicable to notifications.
+
+#quote(block: true)[
+NOTE: `precision` values are in general only commensurable when they
+refer to results of the same rule from the same tool, or equivalent
+rules from different tools. In an engineering system that aggregates
+results from multiple tools, precision values might need to be adjusted,
+either automatically or by end users, so that precision values from
+different tools can be interleaved in a meaningful way.
+]
+
+=== `securitySeverity` Property
+<reportingdescriptor-object--securityseverity-property>
+A `reportingDescriptor` object that describes a rule #strong[MAY]
+contain a property named `securitySeverity` whose value is a number
+between `0.0` and `100.0` inclusive, representing a numerical estimate
+of the severity of the class of vulnerabilities found by results
+produced by the rule. This value #strong[MAY] be represented as a
+floating-point number. `0.0` is the lowest severity and `100.0` is the
+highest severity.
+
+If `securitySeverity` is present, it acts as the value of
+`result.securitySeverity`
+(#link(<result-object--securityseverity-property>)[5.27.27 "`securitySeverity` Property"])
+for any `result` object (#link(<result-object>)[5.27 "`result` Object"])
+whose `ruleIndex`
+(#link(<ruleindex-property>)[5.27.6 "`ruleIndex` Property"]) or `rule`
+property (#link(<rule-property>)[5.27.7 "`rule` Property"]), either
+explicitly supplied or inferred from its default, references this
+`reportingDescriptor`, and which does not itself specify a
+`securitySeverity` property.
+
+`securitySeverity` is not applicable to notifications.
+
+#quote(block: true)[
+NOTE: `securitySeverity` values are in general only commensurable when
+they refer to results of the same rule from the same tool, or equivalent
+rules from different tools. In an engineering system that aggregates
+results from multiple tools, `securitySeverity` values might need to be
+adjusted, either automatically or by end users, so that
+`securitySeverity` values from different tools can be interleaved in a
+meaningful way.
+]
+
+#quote(block: true)[
+NOTE: To make `securitySeverity` values easier to compare between
+different results and rules, a tool may set the value by aggregating
+external metrics for security severity, such as the Common Vulnerability
+Scoring System (CVSS) (#link("https://www.first.org/cvss")) scores, for
+security vulnerabilities identified by similar results and rules.
+]
+
 === `relationships` Property
 <reportingdescriptor-object--relationships-property>
 A `reportingDescriptor` object #strong[MAY] contain a property named
@@ -13891,6 +13829,7 @@ according to this table:
   `theDescriptor`]
   , kind: table
   )
+<tab:reporting-descriptor-consequences>
 
 === `id` Property
 <reportingdescriptorreference-object--id-property>
@@ -14055,7 +13994,7 @@ which we refer to as `theSource`, to another one, which we refer to as
 
 `reportingDescriptorRelationship` objects appear as elements of the
 `reportingDescriptor.relationships` array
-(#link(<reportingdescriptor-object--relationships-property>)[5.49.15 "`relationships` Property"]).
+(#link(<reportingdescriptor-object--relationships-property>)[5.49.17 "`relationships` Property"]).
 The `reportingDescriptor` object containing this property is
 `theSource`.
 
@@ -14315,7 +14254,7 @@ EXAMPLE 1:
 
 ```json
 {                                   # A result object (5.27).
-  "fixes": [                        # See 5.27.30.
+  "fixes": [                        # See 5.27.32.
     {                               # A fix object.
       "description": {              # See 5.55.2.
         "text": "Private member names begin with '_'"
@@ -15430,7 +15369,7 @@ The limited permissions granted above are perpetual and will not be
 revoked by OASIS or its successors or assigns, as provided in the OASIS
 IPR Policy.
 
-This document is provided under the "Non-Assertion" IPR mode that was
+This document is provided under the “Non-Assertion” IPR mode that was
 chosen when the project was established, as defined in the IPR Policy.
 For information on whether any patents have been disclosed that may be
 essential to implementing this document, and any offers of patent
@@ -15611,8 +15550,8 @@ Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI
 10.17487/RFC8174, May 2017,
 #link("http://www.rfc-editor.org/info/rfc8174").
 
-#strong[\[]<RFC8089>#strong[RFC8089\]] Kerwin, M., "The"file" URI
-Scheme", RFC 8089, DOI 10.17487/RFC8089, February 2017,
+#strong[\[]<RFC8089>#strong[RFC8089\]] Kerwin, M., "The"file” URI
+Scheme”, RFC 8089, DOI 10.17487/RFC8089, February 2017,
 #link("http://www.rfc-editor.org/info/rfc8089").
 
 #strong[\[]<RFC8259>#strong[RFC8259\]] Bray, T., "The JavaScript Object
@@ -17763,7 +17702,7 @@ conform to this specification, registered according to
     external property files
     (#link(<external-property-file-format>)[6 "External property file format"])],
   )]
-  , caption: [MIME Types and File Name
-  Extensions{tab:mime-type-and-file-name-extensions}]
+  , caption: [MIME Types and File Name Extensions]
   , kind: table
   )
+<tab:mime-type-and-file-name-extensions>
