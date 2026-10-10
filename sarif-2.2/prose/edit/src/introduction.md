@@ -41,16 +41,16 @@ This information is given for the convenience of users of this document and does
 
 ### File Format Extensions
 
-* 2.5 (now 3.2.4): added `"theLocationOwner"` to generalize location-handling between `result` and `notification` objects (#540) (#736)
+* Section 2.5 (now 3.2.4): added `"theLocationOwner"` to generalize location-handling between `result` and `notification` objects (#540) (#736)
 
-* 3.9 (now 5.9): added examples of expiry dates (#492) (#644)
-* 3.12 (now 5.12) `multiformatMessage` object: `"text"` property can now contain embedded links (#471) (#636)
-* 3.13 (now 5.13) `sarifLog` object: added `"guid"` property (#483) (#641)
-* 3.14 (now 5.14) `run` object: added `"bytes"` as a value for the `columnKind` property (#466) (#740)
-* 3.23 (now 5.23) `artefact` object: added `"scannedFile"` as a value for the `role` property (#459) (#642)
-* 3.35 (now 5.35) `suppression` object: added `"justificationType"` property (#574) (#672)
+* Section 3.9 (now 5.9): added examples of expiry dates (#492) (#644)
+* Section 3.12 (now 5.12) `multiformatMessage` object: `"text"` property can now contain embedded links (#471) (#636)
+* Section 3.13 (now 5.13) `sarifLog` object: added `"guid"` property (#483) (#641)
+* Section 3.14 (now 5.14) `run` object: added `"bytes"` as a value for the `columnKind` property (#466) (#740)
+* Section 3.23 (now 5.23) `artefact` object: added `"scannedFile"` as a value for the `role` property (#459) (#642)
+* Section 3.35 (now 5.35) `suppression` object: added `"justificationType"` property (#574) (#672)
 
-* 3.38 (now 5.38) `threadflowlocation` object: added new values to `"kinds`":
+* Section 3.38 (now 5.38) `threadflowlocation` object: added new values to `"kinds`":
   * `"catch"` for catching an exception (#735) (#756)
   * `"expose"`: for exposure of a secret across a trust boundary (e.g. password written to a logfile or an uninitialized stack copied from kernel back to user space) (#530) (#671)
   * `"longjmp"` for calls to `longjmp` that rewind the program counter/stack to the location of a previous `setjmp` call (#735) (#756)
@@ -60,7 +60,7 @@ This information is given for the convenience of users of this document and does
   * `"uninitialized"`: for uninitialized memory (#530) (#671)
   * `"unwind"` for unwinding stack frame(s) during exception-handling (#735) (#756)
 
-* 3.58 (now 5.58) `notification` object: added `"relatedLocations"` property (#491) (#643)
+* Section 3.58 (now 5.58) `notification` object: added `"relatedLocations"` property (#491) (#643)
 
 * Appendix J (now Appendix 9): **Sample `"sourceLanguage"` Values**: added:
   * `"algol68"` (#751) (#754)
