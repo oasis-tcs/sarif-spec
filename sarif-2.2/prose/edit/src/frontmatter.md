@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01
 
-## 05 February 2026
+## 09 October 2026
 
 ### This version
 <https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.md> (Authoritative) \
@@ -40,7 +40,7 @@ When referencing this specification, the following citation format should be use
 
 **\[SARIF-v2.2\]**
 
-_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 05 February 2026. Committees Specification Draft. <https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html>. Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html>.
+_Static Analysis Results Interchange Format (SARIF) Version 2.2_. Edited by Michael Fanning and Stefan Hagen. 09 October 2026. Committees Specification Draft. <https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/sarif-v2.2-csd01.html>. Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.html>.
 
 #### Additional artifacts
 This prose specification is one component of a Work Product that also includes:
