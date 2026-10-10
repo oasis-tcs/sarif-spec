@@ -46,7 +46,7 @@ If metadata is present, at least one of `index` ([sec](#reportingdescriptorrefer
 | `notification.descriptor` ([sec](#notification-object--descriptor-property))                          | `notifications`                            |
 | `notification.associatedRule` ([sec](#associatedrule-property))                                       | `rules`                                    |
 
-Table: Relationships between `reportingDescriptorReference` and `theDescriptor`{#tab:reporting-descriptor-consequences}
+Table: Relationships between `reportingDescriptorReference` and `theDescriptor` {#tab:reporting-descriptor-consequences}
 
 ### `id` Property{#reportingdescriptorreference-object--id-property}
 

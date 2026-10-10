@@ -66,7 +66,7 @@ gfm-plus: sections
 html: gfm-plus
 	command -v pandoc >/dev/null 2>&1 || { echo >&2 "make html requires pandoc but it's not installed - you can get help on installing at https://pandoc.org.  Aborting."; exit 1; }
 	nide render -t html && \
-	  pandoc -f gfm+definition_lists -t html build/html.md --columns=345 \
+	  pandoc -f markdown+definition_lists -t html build/html.md --columns=345 \
 	  --css style/base.css --css style/skin.css --standalone -o build/pandoc.html && \
 	  nide inject && \
 	  cp -p build/injected.html $(out_html) && \
