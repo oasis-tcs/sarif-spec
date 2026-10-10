@@ -45,6 +45,8 @@ The following table lists all the externalizable properties together with their 
 | `run.tool.driver`         | `driver`                 | object |
 | `run.tool.extensions`     | `extensions`             | array  |
 
+Table: All externalizable properties together with their corresponding property names in the `externalPropertyFileReferences` object{#tab:properties}
+
 > NOTE 1: `run.properties` is externalized under the property name `externalizedProperties` to allow this object to have a property bag named `properties`, consistent with all other objects in this document.
 
 > NOTE 2: Note that `run.conversion.tool.driver` and `run.conversion.tool.extensions` are not separately externalizable. Rather, the `run.conversion` property as a whole is externalizable.
