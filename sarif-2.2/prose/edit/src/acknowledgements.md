@@ -1,4 +1,4 @@
-# Appendix A. (Informative) Acknowledgments
+# Appendix 1 Acknowledgments
 
 **The following individuals have participated in the creation of this document and are gratefully acknowledged:**
 

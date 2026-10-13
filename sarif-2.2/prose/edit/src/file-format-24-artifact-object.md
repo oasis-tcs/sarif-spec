@@ -145,7 +145,7 @@ Each array element **SHALL** have one of the following values, with the specifie
 
 ### `mimeType` Property
 
-An `artifact` object **MAY** contain a property named `mimeType` whose value is a string that specifies the artifact’s MIME type [cite](#RFC2045). For information about the use of mimeType by SARIF viewers, see Appendix C.
+An `artifact` object **MAY** contain a property named `mimeType` whose value is a string that specifies the artifact’s MIME type [cite](#RFC2045). For information about the use of mimeType by SARIF viewers, see Appendix 3.
 
 ### `contents` Property{#artifact-object--contents-property}
 
@@ -227,7 +227,7 @@ To maximize interoperability, SARIF producers and consumers **SHOULD** conform t
 
   - Compare source language identifiers case-insensitively.
 
-[sec](#informative-sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
+[sec](#sample-sourcelanguage-values), "Sample sourceLanguage values," provides sample values for common programming languages.
 
 ### `hashes` Property
 

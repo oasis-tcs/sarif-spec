@@ -1,4 +1,4 @@
-# Appendix C. (Informative) Use of SARIF by Log File Viewers
+# Appendix 3 Use of SARIF by Log File Viewers
 
 It is frequently useful for an end user to view the results produced by an analysis tool in the context of the artifacts in which they occur. A log file viewer is a program that allows an end user to do this.
 

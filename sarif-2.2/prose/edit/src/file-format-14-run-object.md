@@ -129,7 +129,7 @@ If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be o
 >
 > - To avoid revealing sensitive information such as a user name in a URI, for example, `file:///C:/Users/Mary/code/TheProject/`.
 >
-> - To produce deterministic output (see [sec](#informative-producing-deterministic-sarif-log-files)) by avoiding path names that differ depending on the machine where the analysis tool runs.
+> - To produce deterministic output (see [sec](#producing-deterministic-sarif-log-files)) by avoiding path names that differ depending on the machine where the analysis tool runs.
 
 > EXAMPLE 1: In this example, the "top-level" property `PROJECTROOT` specifies a URI containing a username:
 >

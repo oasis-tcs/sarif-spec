@@ -1,4 +1,15 @@
-## Normative References
+
+# Annex B References{#references}
+
+(This annex forms an integral part of this Specification.)
+
+This section contains the normative and informative references that are used in this document.
+
+Normative references are specific (identified by date of publication and/or edition number or version number) and Informative references are either specific or non-specific. For specific references, only the cited version applies. For non-specific references, the latest version of the reference document (including any amendments) applies. While any hyperlinks included in this section were valid at the time of publication, OASIS cannot guarantee their long term validity.
+
+## B.1 Normative References
+
+The following documents are referenced in such a way that some or all of their content constitutes requirements of this document.
 
 BCP14
 :    Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", March 1997, <https://tools.ietf.org/html/bcp14>.
@@ -73,4 +84,38 @@ SEMVER
 :    "Semantic Versioning 2.0.0", <http://semver.org/>.
 
 UNICODE12
-:    Unicode 10.0, June 2017, <http://www.unicode.org/versions/Unicode12.0.0>.
+:    Unicode 12.0, June 2017, <http://www.unicode.org/versions/Unicode12.0.0>.
+
+## B.2 Informative References
+
+The following referenced documents are not required for the application of this document but may assist the reader with regard to a particular subject area.
+
+CMARK
+:    "CommonMark Spec", Version 0.28, (2017-08-01), <http://spec.commonmark.org/0.28/>.
+
+CWE™
+:    "Common Weakness Enumeration", <https://cwe.mitre.org>.
+
+GFMCMARK
+:    "GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C", <https://github.com/github/cmark>.
+
+GFMENG
+:    "GitHub Engineering: A formal spec for GitHub Flavored Markdown", <https://githubengineering.com/a-formal-spec-for-github-markdown/>.
+
+ISO9899:2011
+:    "Information technology – Programming languages – C", ISO/IEC 9899, December 2011, <https://www.iso.org/standard/57853.html>.
+
+ISO14882:2017
+:    "Information technology – Programming languages – C++", ISO/IEC 14882, December 2017, <https://www.iso.org/standard/68564.html>.
+
+ISO23270:2006
+:    "Information technology – Programming languages – C#", ISO/IEC 23270, September 2006, <https://www.iso.org/standard/42926.html>.
+
+PE
+:    "PE Format", March 17, 2019, <https://docs.microsoft.com/en-us/windows/desktop/debug/pe-format>.
+
+TAR
+:    "GNU tar 1.32: Basic Tar Format", <http://www.gnu.org/software/tar/manual/html_node/Standard.html>.
+
+ZIP
+:    ".ZIP File Format Specification, Version 6.3.6, Revised April 26, 2019", <https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.6.TXT>.

@@ -1,6 +1,6 @@
-# Appendix F. (Informative) Producing Deterministic SARIF Log Files
+# Appendix 5 Producing Deterministic SARIF Log Files
 
-## F.1 General
+## General
 
 In certain circumstances, it is desirable for an analysis tool to produce deterministic output; that is, for it to produce identical output when run repeatedly with identical inputs.
 
@@ -26,7 +26,7 @@ There are several issues to consider when producing deterministic output:
 
 - Handling baseline information
 
-## F.2 Non-Deterministic File Format Elements
+## Non-Deterministic File Format Elements
 
 Certain optional elements of the SARIF format are non-deterministic in most situations. A log file that includes these elements will not be deterministic except under special circumstances. For example:
 
@@ -92,7 +92,7 @@ Avoiding these elements, in conjunction with the techniques described in subsequ
 
 - `physicalLocation.address`, for the same reason as `run.addresses`.
 
-## F.3 Array and Dictionary Element Ordering
+## Array and Dictionary Element Ordering
 
 One obstacle to determinism in SARIF log files is the ordering of array elements and object properties.
 
@@ -104,7 +104,7 @@ The array of `result` objects in the `run.results` array presents more of a prob
 
 For dictionaries such as the `artifact.hashes` object, a tool might order the property names alphabetically, using a locale-insensitive ordering.
 
-## F.4 Absolute Paths
+## Absolute Paths
 
 Another obstacle to determinism is the use of absolute paths which might differ from machine to machine. For example:
 
@@ -114,13 +114,13 @@ Another obstacle to determinism is the use of absolute paths which might differ 
 
 Tools can avoid the use of absolute file paths by emitting URIs that are relative to one or more root directories (for example, a source root directory and an output root directory), and accompanying each `artifactLocation.uri` property with the corresponding `artifactLocation.uriBaseId` property.
 
-## F.5 Inherently Non-Deterministic Tools
+## Inherently Non-Deterministic Tools
 
 The algorithms used by some tools are inherently non-deterministic because, for example, they perform random sampling or random traversals of the graphs that represent the code. Generally, these tools produce mostly the same result set, but there might be small differences between runs.
 
 Such tools can avoid this source of non-determinism by, for example, providing a command-line argument to specify the random number generator seed.
 
-## F.6 Compensating for Non-Deterministic Output
+## Compensating for Non-Deterministic Output
 
 If an analysis tool does not produce deterministic output, a build system can add additional processing steps to compensate.
 
@@ -134,7 +134,7 @@ In the first scenario, a post-processing step could produce deterministic output
 
 In the second scenario, a post-processing step could intelligently compare the newly produced log to the log from a previous build by ignoring non-deterministic elements, ensuring that arrays have the same elements regardless of order, and ignoring file path prefixes.
 
-## F.7 Interaction Between Determinism and Baselining
+## Interaction Between Determinism and Baselining
 
 SARIF's baselining feature poses a particular challenge for determinism. We illustrate the problem with the following scenario:
 
