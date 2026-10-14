@@ -26,10 +26,10 @@ The top-level element of an external property file **SHALL** be an object which 
 >
 > ```json
 > {                             # An externalProperties object
->   "version": "2.1.0",         # See (#externalproperties-object--version-property).
+>   "version": "2.2",         # See (#externalproperties-object--version-property).
 > 
 >   "$schema":                  # See (#externalproperties-object--schema-property).
->     "https://docs.oasis-open.org/sarif/sarif/schema/sarif-external-property-file.json",
+>     "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json",
 > 
 >                               # See (#externalproperties-object--guid-property).
 >   "guid": "00001111-2222-1111-8888-555566667777",
@@ -70,7 +70,7 @@ If the `$schema` property is present, the JSON schema obtained from the specifie
 
 ### `version` Property{#externalproperties-object--version-property}
 
-Depending on the circumstances, an `externalProperties` object either **SHALL** or **MAY** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this external property file conforms. If present, this string **SHALL** have the value `"2.1.0"`.
+Depending on the circumstances, an `externalProperties` object either **SHALL** or **MAY** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this external property file conforms. If present, this string **SHALL** have the value `"2.2"`.
 
 If this `externalProperties` object is the root element of an external property file (see [sec](#rationale)), then `version` **SHALL** be present.
 

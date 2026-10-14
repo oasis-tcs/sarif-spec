@@ -8713,10 +8713,10 @@ the run to which they belong.</p>
 <blockquote>
 <p>EXAMPLE 1: In this example, <code>run.artifacts</code> and <code>run.properties</code> have been externalized to a file with these contents. Note that <code>run.properties</code> has been externalized under the property name <code>externalizedProperties</code>, as explained in <a href="#properties">5.15.3 “Properties”</a>.</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span>                             <span class="er">#</span> <span class="er">An</span> <span class="er">externalProperties</span> <span class="er">object</span></span>
-<span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;2.1.0&quot;</span><span class="fu">,</span>         <span class="er">#</span> <span class="er">See</span> <span class="er">6.3.3.</span></span>
+<span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;2.2&quot;</span><span class="fu">,</span>         <span class="er">#</span> <span class="er">See</span> <span class="er">6.3.3.</span></span>
 <span id="cb172-3"><a href="#cb172-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb172-4"><a href="#cb172-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;$schema&quot;</span><span class="fu">:</span>                  <span class="er">#</span> <span class="er">See</span> <span class="fl">6.3</span><span class="er">.</span><span class="dv">2</span><span class="er">.</span></span>
-<span id="cb172-5"><a href="#cb172-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://docs.oasis-open.org/sarif/sarif/schema/sarif-external-property-file.json&quot;</span><span class="fu">,</span></span>
+<span id="cb172-5"><a href="#cb172-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json&quot;</span><span class="fu">,</span></span>
 <span id="cb172-6"><a href="#cb172-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb172-7"><a href="#cb172-7" aria-hidden="true" tabindex="-1"></a>                              <span class="er">#</span> <span class="er">See</span> <span class="er">6.3.4.</span></span>
 <span id="cb172-8"><a href="#cb172-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;guid&quot;</span><span class="fu">:</span> <span class="st">&quot;00001111-2222-1111-8888-555566667777&quot;</span><span class="fu">,</span></span>
@@ -8757,7 +8757,7 @@ format.</p>
 </blockquote>
 <h3 id="version-property-4">6.3.3 <code>version</code> Property <a id='externalproperties-object--version-property'></a></h3>
 <p>Depending on the circumstances, an <code>externalProperties</code> object either <strong>SHALL</strong> or <strong>MAY</strong> contain a property named <code>version</code> whose value is a string designating the version of the SARIF specification to which this external property file conforms. If present, this string <strong>SHALL</strong>
-have the value <code>"2.1.0"</code>.</p>
+have the value <code>"2.2"</code>.</p>
 <p>If this <code>externalProperties</code> object is the root element of an external property file (see <a href="#rationale">5.15.2 “Rationale”</a>), then <code>version</code> <strong>SHALL</strong> be present.</p>
 <p>Otherwise (that is, if this <code>externalProperties</code> object is an element of <code>theSarifLog.inlineExternalProperties</code> (<a href="#inlineexternalproperties-property">5.13.5 “<code>inlineExternalProperties</code> Property”</a>)), then <code>version</code> <strong>MAY</strong> be present. If absent, it <strong>SHALL</strong>
 default to the value of <code>theSarifLog.version</code> (<a href="#sariflog-object--version-property">5.13.2 “<code>version</code> Property”</a>).</p>
