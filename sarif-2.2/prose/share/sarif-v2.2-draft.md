@@ -47,8 +47,8 @@ This prose specification is one component of a Work Product that also includes:
 
 * SARIF schema: <https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json>. \
   Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json>
-* SARIF External Property File schema: <https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json>. \
-  Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json>
+* SARIF External Property File schema: <https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file.json>. \
+  Latest stage: <https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json>
 
 ### Related Work<a id='related-work'></a>
 
@@ -2144,7 +2144,7 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 >
 > ```json
 > {
->   "version": "2.1.0", # See 5.13.2.
+>   "version": "2.2", # See 5.13.2.
 >   "runs": [           # See 5.13.4.
 >     {
 >       ...             # A run object (5.14).
@@ -2159,7 +2159,7 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 
 ### 5.13.2 `version` Property<a id='sariflog-object--version-property'></a>
 
-A `sarifLog` object **SHALL** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this log file conforms. This string **SHALL** have the value `"2.1.0"`.
+A `sarifLog` object **SHALL** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this log file conforms. This string **SHALL** have the value `"2.2"`.
 
 Although the order in which properties appear in a JSON object value is not semantically significant, the `version` property **SHOULD** appear first.
 
@@ -2167,13 +2167,13 @@ Although the order in which properties appear in a JSON object value is not sema
 
 ### 5.13.3 `$schema` Property<a id='sariflog-object--schema-property'></a>
 
-A `sarifLog` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document \[[JSCHEMA01](#JSCHEMA01)\] describing the version of the SARIF format to which this log file conforms can be obtained.
+A `sarifLog` object **MAY** contain a property named `$schema` whose value is a string containing an absolute URI from which a JSON schema document \[[JSCHEMA01](#JSCHEMA01)\] describing the version of the SARIF format to which this log file conforms can be obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([5.13.2 "`version` Property"](#sariflog-object--version-property)).
+If the `$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([5.13.2 "`version` Property"](#sariflog-object--version-property)).
 
-> NOTE 1: The purpose of the `\$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the log file. This is useful, for example, for tool authors who wish to ensure that logs produced by their tools conform to the SARIF format.
+> NOTE 1: The purpose of the `$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the log file. This is useful, for example, for tool authors who wish to ensure that logs produced by their tools conform to the SARIF format.
 
-> NOTE 2: The SARIF schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json>.
+> NOTE 2: The SARIF schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json>.
 
 ### 5.13.4 `runs` Property<a id='runs-property'></a>
 
@@ -9298,7 +9298,7 @@ The top-level element of an external property file **SHALL** be an object which 
 >   "version": "2.1.0",         # See 6.3.3.
 > 
 >   "$schema":                  # See 6.3.2.
->     "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json",
+>     "https://docs.oasis-open.org/sarif/sarif/schema/sarif-external-property-file.json",
 > 
 >                               # See 6.3.4.
 >   "guid": "00001111-2222-1111-8888-555566667777",
@@ -9329,13 +9329,13 @@ The top-level element of an external property file **SHALL** be an object which 
 
 ### 6.3.2 `$schema` Property<a id='externalproperties-object--schema-property'></a>
 
-An `externalProperties` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to which this external property file conforms can be obtained.
+An `externalProperties` object **MAY** contain a property named `$schema` whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to which this external property file conforms can be obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the external property file format corresponding to the SARIF version specified by the `version` property ([6.3.3 "`version` Property"](#externalproperties-object--version-property)).
+If the `$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the external property file format corresponding to the SARIF version specified by the `version` property ([6.3.3 "`version` Property"](#externalproperties-object--version-property)).
 
-> NOTE 1: The purpose of the `\$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the external property file. This is useful, for example, for tool authors who wish to ensure that external property files produced by their tools conform to the external property file format.
+> NOTE 1: The purpose of the `$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the external property file. This is useful, for example, for tool authors who wish to ensure that external property files produced by their tools conform to the external property file format.
 
-> NOTE 2: The SARIF external property file schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json>.
+> NOTE 2: The SARIF external property file schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json>.
 
 ### 6.3.3 `version` Property<a id='externalproperties-object--version-property'></a>
 
@@ -9561,13 +9561,13 @@ toc:
 
 Copyright &copy; OASIS Open 2026. All Rights Reserved.
 
-All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full Policy, which governs the licensure of this document, may be found at the OASIS website: [[https://www.oasis-open.org/policies-guidelines/ipr/](https://www.oasis-open.org/policies-guidelines/ipr/)]
+All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full Policy, which governs the licensure of this document, may be found at the OASIS website: <https://www.oasis-open.org/policies-guidelines/ipr/>
 
 This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.
 
 The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns, as provided in the OASIS IPR Policy.
 
-This document is provided under the “Non-Assertion” IPR mode that was chosen when the project was established, as defined in the IPR Policy. For information on whether any patents have been disclosed that may be essential to implementing this document, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the project’s web page ([https://www.oasis-open.org/committees/sarif/ipr.php](https://www.oasis-open.org/committees/sarif/ipr.php)).
+This specification is provided under the [RF on RAND Terms](https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-RAND-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr/), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (<https://www.oasis-open.org/committees/sarif/ipr.php>).
 
 This document and the information contained herein is provided on an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. OASIS AND ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.
 
@@ -9579,7 +9579,7 @@ OASIS invites any party to contact the OASIS TC Administrator if it is aware of 
 
 OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this OASIS Standards Final Deliverable or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS' procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.
 
-The name "OASIS" is a trademark of OASIS, the owner and developer of this document, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, its documents, while reserving the right to enforce its marks against misleading uses. Please see [https://www.oasis-open.org/policies-guidelines/trademark/](https://www.oasis-open.org/policies-guidelines/trademark/) for guidance.
+The name "OASIS" is a trademark of OASIS, the owner and developer of this document, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, its documents, while reserving the right to enforce its marks against misleading uses. Please see <https://www.oasis-open.org/policies-guidelines/trademark/> for guidance.
 
 
 

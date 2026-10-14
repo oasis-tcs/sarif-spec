@@ -453,8 +453,8 @@ Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/sarif-v2.2.h
 <ul>
 <li>SARIF schema: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif.json</a>.<br />
 Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json</a></li>
-<li>SARIF External Property File schema: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json</a>.<br />
-Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json</a></li>
+<li>SARIF External Property File schema: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file.json</a>.<br />
+Latest stage: <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json</a></li>
 </ul>
 <h3 id="related-work">Related Work <a id='related-work'></a></h3>
 <p>This document replaces or supersedes:</p>
@@ -2569,7 +2569,7 @@ Placeholders”</a> specifies how a SARIF consumer combines the contents of the 
 <blockquote>
 <p>EXAMPLE 1:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;2.1.0&quot;</span><span class="fu">,</span> <span class="er">#</span> <span class="er">See</span> <span class="er">5.13.2.</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;2.2&quot;</span><span class="fu">,</span> <span class="er">#</span> <span class="er">See</span> <span class="er">5.13.2.</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;runs&quot;</span><span class="fu">:</span> <span class="ot">[</span>           <span class="er">#</span> <span class="er">See</span> <span class="fl">5.13</span><span class="er">.</span><span class="dv">4</span><span class="er">.</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>      <span class="er">...</span>             <span class="er">#</span> <span class="er">A</span> <span class="er">run</span> <span class="er">object</span> <span class="er">(5.14).</span></span>
@@ -2582,19 +2582,19 @@ Placeholders”</a> specifies how a SARIF consumer combines the contents of the 
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </blockquote>
 <h3 id="version-property">5.13.2 <code>version</code> Property <a id='sariflog-object--version-property'></a></h3>
-<p>A <code>sarifLog</code> object <strong>SHALL</strong> contain a property named <code>version</code> whose value is a string designating the version of the SARIF specification to which this log file conforms. This string <strong>SHALL</strong> have the value <code>"2.1.0"</code>.</p>
+<p>A <code>sarifLog</code> object <strong>SHALL</strong> contain a property named <code>version</code> whose value is a string designating the version of the SARIF specification to which this log file conforms. This string <strong>SHALL</strong> have the value <code>"2.2"</code>.</p>
 <p>Although the order in which properties appear in a JSON object value is not semantically significant, the <code>version</code> property <strong>SHOULD</strong> appear first.</p>
 <blockquote>
 <p>NOTE: This will make it easier for parsers to handle multiple versions of the SARIF format if new versions are defined in the future.</p>
 </blockquote>
 <h3 id="schema-property">5.13.3 <code>$schema</code> Property <a id='sariflog-object--schema-property'></a></h3>
-<p>A <code>sarifLog</code> object <strong>MAY</strong> contain a property named <code>\$schema</code> whose value is a string containing an absolute URI from which a JSON schema document [<a href="#JSCHEMA01">JSCHEMA01</a>] describing the version of the SARIF format to which this log file conforms can be obtained.</p>
-<p>If the <code>\$schema</code> property is present, the JSON schema obtained from the specified URI <strong>SHALL</strong> describe the version of the SARIF format specified by the <code>version</code> property (<a href="#sariflog-object--version-property">5.13.2 “<code>version</code> Property”</a>).</p>
+<p>A <code>sarifLog</code> object <strong>MAY</strong> contain a property named <code>$schema</code> whose value is a string containing an absolute URI from which a JSON schema document [<a href="#JSCHEMA01">JSCHEMA01</a>] describing the version of the SARIF format to which this log file conforms can be obtained.</p>
+<p>If the <code>$schema</code> property is present, the JSON schema obtained from the specified URI <strong>SHALL</strong> describe the version of the SARIF format specified by the <code>version</code> property (<a href="#sariflog-object--version-property">5.13.2 “<code>version</code> Property”</a>).</p>
 <blockquote>
-<p>NOTE 1: The purpose of the <code>\$schema</code> property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the log file. This is useful, for example, for tool authors who wish to ensure that logs produced by their tools conform to the SARIF format.</p>
+<p>NOTE 1: The purpose of the <code>$schema</code> property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the log file. This is useful, for example, for tool authors who wish to ensure that logs produced by their tools conform to the SARIF format.</p>
 </blockquote>
 <blockquote>
-<p>NOTE 2: The SARIF schema is available at <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json</a>.</p>
+<p>NOTE 2: The SARIF schema is available at <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json</a>.</p>
 </blockquote>
 <h3 id="runs-property">5.13.4 <code>runs</code> Property <a id='runs-property'></a></h3>
 <p>A <code>sarifLog</code> object <strong>SHALL</strong> contain a property named <code>runs</code> whose value is either <code>null</code> or an array of zero or more <code>run</code> objects (<a href="#run-object">5.14 “<code>run</code> Object”</a>).</p>
@@ -8716,7 +8716,7 @@ the run to which they belong.</p>
 <span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;2.1.0&quot;</span><span class="fu">,</span>         <span class="er">#</span> <span class="er">See</span> <span class="er">6.3.3.</span></span>
 <span id="cb172-3"><a href="#cb172-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb172-4"><a href="#cb172-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;$schema&quot;</span><span class="fu">:</span>                  <span class="er">#</span> <span class="er">See</span> <span class="fl">6.3</span><span class="er">.</span><span class="dv">2</span><span class="er">.</span></span>
-<span id="cb172-5"><a href="#cb172-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json&quot;</span><span class="fu">,</span></span>
+<span id="cb172-5"><a href="#cb172-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://docs.oasis-open.org/sarif/sarif/schema/sarif-external-property-file.json&quot;</span><span class="fu">,</span></span>
 <span id="cb172-6"><a href="#cb172-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb172-7"><a href="#cb172-7" aria-hidden="true" tabindex="-1"></a>                              <span class="er">#</span> <span class="er">See</span> <span class="er">6.3.4.</span></span>
 <span id="cb172-8"><a href="#cb172-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;guid&quot;</span><span class="fu">:</span> <span class="st">&quot;00001111-2222-1111-8888-555566667777&quot;</span><span class="fu">,</span></span>
@@ -8745,15 +8745,15 @@ the run to which they belong.</p>
 <span id="cb172-31"><a href="#cb172-31" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </blockquote>
 <h3 id="schema-property-1">6.3.2 <code>$schema</code> Property <a id='externalproperties-object--schema-property'></a></h3>
-<p>An <code>externalProperties</code> object <strong>MAY</strong> contain a property named <code>\$schema</code> whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to which this external property file conforms can be obtained.</p>
-<p>If the <code>\$schema</code> property is present, the JSON schema obtained from the specified URI <strong>SHALL</strong> describe the version of the external property file format corresponding to the SARIF version specified by the <code>version</code> property (<a href="#externalproperties-object--version-property">6.3.3
+<p>An <code>externalProperties</code> object <strong>MAY</strong> contain a property named <code>$schema</code> whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to which this external property file conforms can be obtained.</p>
+<p>If the <code>$schema</code> property is present, the JSON schema obtained from the specified URI <strong>SHALL</strong> describe the version of the external property file format corresponding to the SARIF version specified by the <code>version</code> property (<a href="#externalproperties-object--version-property">6.3.3
 “<code>version</code> Property”</a>).</p>
 <blockquote>
-<p>NOTE 1: The purpose of the <code>\$schema</code> property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the external property file. This is useful, for example, for tool authors who wish to ensure that external property files produced by their tools conform to the external property file
+<p>NOTE 1: The purpose of the <code>$schema</code> property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the external property file. This is useful, for example, for tool authors who wish to ensure that external property files produced by their tools conform to the external property file
 format.</p>
 </blockquote>
 <blockquote>
-<p>NOTE 2: The SARIF external property file schema is available at <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json</a>.</p>
+<p>NOTE 2: The SARIF external property file schema is available at <a href="https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json" class="uri">https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json</a>.</p>
 </blockquote>
 <h3 id="version-property-4">6.3.3 <code>version</code> Property <a id='externalproperties-object--version-property'></a></h3>
 <p>Depending on the circumstances, an <code>externalProperties</code> object either <strong>SHALL</strong> or <strong>MAY</strong> contain a property named <code>version</code> whose value is a string designating the version of the SARIF specification to which this external property file conforms. If present, this string <strong>SHALL</strong>
@@ -8913,14 +8913,14 @@ toc:
 <h2 id="a.2-license-and-notices">A.2 License and Notices <a id='license-and-notices'></a></h2>
 <!-- Required section. Do not modify. -->
 <p>Copyright © OASIS Open 2026. All Rights Reserved.</p>
-<p>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the “OASIS IPR Policy”). The full Policy, which governs the licensure of this document, may be found at the OASIS website: [<a
-href="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</a>]</p>
+<p>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the “OASIS IPR Policy”). The full Policy, which governs the licensure of this document, may be found at the OASIS website: <a href="https://www.oasis-open.org/policies-guidelines/ipr/"
+class="uri">https://www.oasis-open.org/policies-guidelines/ipr/</a></p>
 <p>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this section are
 included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights,
 as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.</p>
 <p>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns, as provided in the OASIS IPR Policy.</p>
-<p>This document is provided under the “Non-Assertion” IPR mode that was chosen when the project was established, as defined in the IPR Policy. For information on whether any patents have been disclosed that may be essential to implementing this document, and any offers of patent licensing terms, please refer to the Intellectual Property
-Rights section of the project’s web page (<a href="https://www.oasis-open.org/committees/sarif/ipr.php">https://www.oasis-open.org/committees/sarif/ipr.php</a>).</p>
+<p>This specification is provided under the <a href="https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-RAND-Mode">RF on RAND Terms</a> Mode of the <a href="https://www.oasis-open.org/policies-guidelines/ipr/">OASIS IPR Policy</a>, the mode chosen when the Technical Committee was established. For information on whether any patents have
+been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC’s web page (<a href="https://www.oasis-open.org/committees/sarif/ipr.php" class="uri">https://www.oasis-open.org/committees/sarif/ipr.php</a>).</p>
 <p>This document and the information contained herein is provided on an “AS IS” basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 OASIS AND ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.</p>
 <p>As stated in the OASIS IPR Policy, the following three paragraphs in brackets apply to OASIS Standards Final Deliverable documents (Committee Specifications, OASIS Standards, or Approved Errata).</p>
@@ -8933,7 +8933,7 @@ represent that it has made any effort to identify any such rights. Information o
 the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be
 complete, or that any claims in such list are, in fact, Essential Claims.</p>
 <p>The name “OASIS” is a trademark of OASIS, the owner and developer of this document, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, its documents, while reserving the right to enforce its marks against misleading uses. Please see <a
-href="https://www.oasis-open.org/policies-guidelines/trademark/">https://www.oasis-open.org/policies-guidelines/trademark/</a> for guidance.</p>
+href="https://www.oasis-open.org/policies-guidelines/trademark/" class="uri">https://www.oasis-open.org/policies-guidelines/trademark/</a> for guidance.</p>
 <h1 id="annex-b.-references">Annex B. References <a id='references'></a></h1>
 <p>(This annex forms an integral part of this Specification.)</p>
 <p>This section contains the normative and informative references that are used in this document.</p>

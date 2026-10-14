@@ -8,7 +8,7 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 >
 > ```json
 > {
->   "version": "2.1.0", # See (#sariflog-object--version-property).
+>   "version": "2.2", # See (#sariflog-object--version-property).
 >   "runs": [           # See (#runs-property).
 >     {
 >       ...             # A run object ((#run-object)).
@@ -23,7 +23,7 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 
 ### `version` Property{#sariflog-object--version-property}
 
-A `sarifLog` object **SHALL** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this log file conforms. This string **SHALL** have the value `"2.1.0"`.
+A `sarifLog` object **SHALL** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this log file conforms. This string **SHALL** have the value `"2.2"`.
 
 Although the order in which properties appear in a JSON object value is not semantically significant, the `version` property **SHOULD** appear first.
 
@@ -31,13 +31,13 @@ Although the order in which properties appear in a JSON object value is not sema
 
 ### `$schema` Property{#sariflog-object--schema-property}
 
-A `sarifLog` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document [cite](#JSCHEMA01) describing the version of the SARIF format to which this log file conforms can be obtained.
+A `sarifLog` object **MAY** contain a property named `$schema` whose value is a string containing an absolute URI from which a JSON schema document [cite](#JSCHEMA01) describing the version of the SARIF format to which this log file conforms can be obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([sec](#sariflog-object--version-property)).
+If the `$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the SARIF format specified by the `version` property ([sec](#sariflog-object--version-property)).
 
-> NOTE 1: The purpose of the `\$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the log file. This is useful, for example, for tool authors who wish to ensure that logs produced by their tools conform to the SARIF format.
+> NOTE 1: The purpose of the `$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the log file. This is useful, for example, for tool authors who wish to ensure that logs produced by their tools conform to the SARIF format.
 
-> NOTE 2: The SARIF schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json>.
+> NOTE 2: The SARIF schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json>.
 
 ### `runs` Property
 
