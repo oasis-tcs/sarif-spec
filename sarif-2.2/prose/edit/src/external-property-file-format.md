@@ -26,10 +26,10 @@ The top-level element of an external property file **SHALL** be an object which 
 >
 > ```json
 > {                             # An externalProperties object
->   "version": "2.1.0",         # See (#externalproperties-object--version-property).
+>   "version": "2.2",         # See (#externalproperties-object--version-property).
 > 
 >   "$schema":                  # See (#externalproperties-object--schema-property).
->     "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json",
+>     "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json",
 > 
 >                               # See (#externalproperties-object--guid-property).
 >   "guid": "00001111-2222-1111-8888-555566667777",
@@ -60,17 +60,17 @@ The top-level element of an external property file **SHALL** be an object which 
 
 ### `$schema` Property{#externalproperties-object--schema-property}
 
-An `externalProperties` object **MAY** contain a property named `\$schema` whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to which this external property file conforms can be obtained.
+An `externalProperties` object **MAY** contain a property named `$schema` whose value is a string containing an absolute URI from which a JSON schema document describing the version of the external property file format to which this external property file conforms can be obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the external property file format corresponding to the SARIF version specified by the `version` property ([sec](#externalproperties-object--version-property)).
+If the `$schema` property is present, the JSON schema obtained from the specified URI **SHALL** describe the version of the external property file format corresponding to the SARIF version specified by the `version` property ([sec](#externalproperties-object--version-property)).
 
-> NOTE 1: The purpose of the `\$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the external property file. This is useful, for example, for tool authors who wish to ensure that external property files produced by their tools conform to the external property file format.
+> NOTE 1: The purpose of the `$schema` property is to allow JSON schema validation tools to locate an appropriate schema against which to validate the external property file. This is useful, for example, for tool authors who wish to ensure that external property files produced by their tools conform to the external property file format.
 
-> NOTE 2: The SARIF external property file schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json>.
+> NOTE 2: The SARIF external property file schema is available at <https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json>.
 
 ### `version` Property{#externalproperties-object--version-property}
 
-Depending on the circumstances, an `externalProperties` object either **SHALL** or **MAY** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this external property file conforms. If present, this string **SHALL** have the value `"2.1.0"`.
+Depending on the circumstances, an `externalProperties` object either **SHALL** or **MAY** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this external property file conforms. If present, this string **SHALL** have the value `"2.2"`.
 
 If this `externalProperties` object is the root element of an external property file (see [sec](#rationale)), then `version` **SHALL** be present.
 

@@ -126,9 +126,9 @@ includes:
   \ Latest stage:
   #link("https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json")
 - SARIF External Property File schema:
-  #link("https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file-schema-2.2.json").
+  #link("https://docs.oasis-open.org/sarif/sarif/v2.2/csd01/schema/sarif-external-property-file.json").
   \ Latest stage:
-  #link("https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file-schema-2.2.json")
+  #link("https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json")
 
 #heading(level: 3, outlined: false, numbering: none)[Related Work]
 <related-work>
@@ -2616,7 +2616,7 @@ EXAMPLE 1:
 
 ```json
 {
-  "version": "2.1.0", # See 5.13.2.
+  "version": "2.2", # See 5.13.2.
   "runs": [           # See 5.13.4.
     {
       ...             # A run object (5.14).
@@ -2635,7 +2635,7 @@ EXAMPLE 1:
 A `sarifLog` object #strong[SHALL] contain a property named `version`
 whose value is a string designating the version of the SARIF
 specification to which this log file conforms. This string
-#strong[SHALL] have the value `"2.1.0"`.
+#strong[SHALL] have the value `"2.2"`.
 
 Although the order in which properties appear in a JSON object value is
 not semantically significant, the `version` property #strong[SHOULD]
@@ -2648,18 +2648,18 @@ of the SARIF format if new versions are defined in the future.
 
 === `$schema` Property
 <sariflog-object--schema-property>
-A `sarifLog` object #strong[MAY] contain a property named `\$schema`
+A `sarifLog` object #strong[MAY] contain a property named `$schema`
 whose value is a string containing an absolute URI from which a JSON
 schema document \[#link(<JSCHEMA01>)[JSCHEMA01]\] describing the version
 of the SARIF format to which this log file conforms can be obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the
+If the `$schema` property is present, the JSON schema obtained from the
 specified URI #strong[SHALL] describe the version of the SARIF format
 specified by the `version` property
 (#link(<sariflog-object--version-property>)[5.13.2 "`version` Property"]).
 
 #quote(block: true)[
-NOTE 1: The purpose of the `\$schema` property is to allow JSON schema
+NOTE 1: The purpose of the `$schema` property is to allow JSON schema
 validation tools to locate an appropriate schema against which to
 validate the log file. This is useful, for example, for tool authors who
 wish to ensure that logs produced by their tools conform to the SARIF
@@ -2668,7 +2668,7 @@ format.
 
 #quote(block: true)[
 NOTE 2: The SARIF schema is available at
-#link("https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-schema-2.1.0.json").
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json").
 ]
 
 === `runs` Property
@@ -14925,10 +14925,10 @@ been externalized to a file with these contents. Note that
 
 ```json
 {                             # An externalProperties object
-  "version": "2.1.0",         # See 6.3.3.
+  "version": "2.2",         # See 6.3.3.
 
   "$schema":                  # See 6.3.2.
-    "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json",
+    "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json",
 
                               # See 6.3.4.
   "guid": "00001111-2222-1111-8888-555566667777",
@@ -14961,19 +14961,19 @@ been externalized to a file with these contents. Note that
 === `$schema` Property
 <externalproperties-object--schema-property>
 An `externalProperties` object #strong[MAY] contain a property named
-`\$schema` whose value is a string containing an absolute URI from which
+`$schema` whose value is a string containing an absolute URI from which
 a JSON schema document describing the version of the external property
 file format to which this external property file conforms can be
 obtained.
 
-If the `\$schema` property is present, the JSON schema obtained from the
+If the `$schema` property is present, the JSON schema obtained from the
 specified URI #strong[SHALL] describe the version of the external
 property file format corresponding to the SARIF version specified by the
 `version` property
 (#link(<externalproperties-object--version-property>)[6.3.3 "`version` Property"]).
 
 #quote(block: true)[
-NOTE 1: The purpose of the `\$schema` property is to allow JSON schema
+NOTE 1: The purpose of the `$schema` property is to allow JSON schema
 validation tools to locate an appropriate schema against which to
 validate the external property file. This is useful, for example, for
 tool authors who wish to ensure that external property files produced by
@@ -14982,7 +14982,7 @@ their tools conform to the external property file format.
 
 #quote(block: true)[
 NOTE 2: The SARIF external property file schema is available at
-#link("https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/csd01/schemas/sarif-external-property-file-schema-2.1.0.json").
+#link("https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif-external-property-file.json").
 ]
 
 === `version` Property
@@ -14991,7 +14991,7 @@ Depending on the circumstances, an `externalProperties` object either
 #strong[SHALL] or #strong[MAY] contain a property named `version` whose
 value is a string designating the version of the SARIF specification to
 which this external property file conforms. If present, this string
-#strong[SHALL] have the value `"2.1.0"`.
+#strong[SHALL] have the value `"2.2"`.
 
 If this `externalProperties` object is the root element of an external
 property file (see #link(<rationale>)[5.15.2 "Rationale"]), then
@@ -15350,7 +15350,7 @@ All capitalized terms in the following text have the meanings assigned
 to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR
 Policy"). The full Policy, which governs the licensure of this document,
 may be found at the OASIS website:
-\[#link("https://www.oasis-open.org/policies-guidelines/ipr/")\]
+#link("https://www.oasis-open.org/policies-guidelines/ipr/")
 
 This document and translations of it may be copied and furnished to
 others, and derivative works that comment on or otherwise explain it or
@@ -15369,12 +15369,15 @@ The limited permissions granted above are perpetual and will not be
 revoked by OASIS or its successors or assigns, as provided in the OASIS
 IPR Policy.
 
-This document is provided under the “Non-Assertion” IPR mode that was
-chosen when the project was established, as defined in the IPR Policy.
-For information on whether any patents have been disclosed that may be
-essential to implementing this document, and any offers of patent
+This specification is provided under the
+#link("https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-RAND-Mode")[RF on RAND Terms]
+Mode of the
+#link("https://www.oasis-open.org/policies-guidelines/ipr/")[OASIS IPR Policy],
+the mode chosen when the Technical Committee was established. For
+information on whether any patents have been disclosed that may be
+essential to implementing this specification, and any offers of patent
 licensing terms, please refer to the Intellectual Property Rights
-section of the project's web page
+section of the TC's web page
 (#link("https://www.oasis-open.org/committees/sarif/ipr.php")).
 
 This document and the information contained herein is provided on an "AS
