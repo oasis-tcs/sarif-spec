@@ -527,7 +527,7 @@
         "version": {
           "description": "The SARIF format version of this external properties object.",
           "enum": [
-            "2.1.0"
+            "2.2"
           ],
           "type": "string"
         },
