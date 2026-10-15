@@ -39,7 +39,7 @@ ISO14977:1996
 :    "Information technology – Syntactic metalanguage – Extended BNF", ISO/IEC 14977:1996(E), December 1996, <https://www.iso.org/standard/26153.html>.
 
 JSCHEMA01
-:    Wright, A., "JSON Schema: A Media Type for Describing JSON Documents", April 2017 (expires October 2017), <http://json-schema.org/latest/json-schema-core.html>.
+:    Wright, A., "JSON Schema: A Media Type for Describing JSON Documents", April 2017 (expires October 2017), <https://json-schema.org/draft/2020-12/json-schema-core>.
 
 RFC2119
 :    Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <http://www.ietf.org/rfc/rfc2119.txt>.
