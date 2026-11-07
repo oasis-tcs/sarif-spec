@@ -197,7 +197,8 @@ derived snippet by its key, and refuses a key without a record, a record without
    markers, note references, validity as the host definition (the 14 TC findings as `known`) and that every block
    is derived. The configuration is the `twins` section of `prose/edit/etc/nide.yaml`: the marker grammar
    (formerly `records/markers.yaml`) and the margin-note templates. `bin/vision.py` keeps the views, the
-   constraint sentences and, until nide can learn displays, `migrate-snippets`.
+   constraint sentences; learning a display (`migrate-snippets`) and keying the blocks (`annotate-fences`) are
+   nide's too now (`nide examples learn`, `nide examples adopt`), and left `bin/vision.py`.
 
 ## Next steps
 
