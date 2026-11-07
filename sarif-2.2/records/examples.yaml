@@ -5,7 +5,9 @@
 # `display` (seeded by `bin/vision.py migrate-snippets`): the snippet in the prose derived from this twin.
 # file/fence: the prose file and the number of its JSON code block (from 0); root: member shows the members
 # without braces; column: where margin notes start; notes: a margin note at a JSON pointer (#end: the closing
-# line; line: a continuation line); breaks: a long line continued on the next line, [cut, indent] per break.
+# line; line: a continuation line); breaks: a long line continued on the next line, [cut, indent] per break;
+# inline: arrays on one line; open: an elided object as { ... }; spacing: a line spaced differently (whitespace
+# only, the twin still wins); expanded: [] written over two lines; before: blank and note-only lines, verbatim.
 # `snippet`: why the snippet is still hand-written.
 
 examples:
@@ -15,9 +17,6 @@ examples:
     file: diagnosing-results.md
     fence: 0
     column: 44
-    blank-before:
-    - /results
-    - /...member-inject
     notes:
     - at: ''
       note: '# A run object ((#run-object)).'
@@ -43,15 +42,17 @@ examples:
       /results/0/locations/0/physicalLocation/contextRegion/snippet/text:
       - - 23
         - 17
+    before:
+      /results:
+      - '> '
+      /...member-inject:
+      - '> '
 - twin: diagnosing-results_example-2.json
   host: run
   display:
     file: diagnosing-results.md
     fence: 1
     column: 44
-    blank-before:
-    - /results
-    - /artifacts
     notes:
     - at: /artifacts
       note: '# See (#artifacts-property).'
@@ -63,24 +64,35 @@ examples:
       note: '# See (#artifact-object--contents-property).'
     - at: /artifacts/0/contents/text
       note: '# See (#artifactcontent-object--text-property).'
+    before:
+      /results:
+      - '> '
+      /artifacts:
+      - '> '
 - twin: diagnosing-results_example-3.json
   host: run
   display:
     file: diagnosing-results.md
     fence: 2
     column: 42
-    blank-before:
-    - /results
-    - /artifacts
-    - /artifacts/1
     notes:
     - at: /results/0/locations/0/physicalLocation/artifactLocation/index
       note: '# Points to the appropriate instance'
     - at: /results/0/locations/0/physicalLocation/artifactLocation#end
       note: '#  of the generated file.'
+    before:
+      /results:
+      - '> '
+      /artifacts:
+      - '> '
+      /artifacts/1:
+      - '> '
 - twin: examples_comprehensive-sarif-file_codeblock-json-1.sarif.json
   host: sarifLog
   snippet: 'closest is code block 3, whose line 6 differs from the twin: ''"addresses": ['' vs ''"automationDetails": {'''
+  display:
+    file: examples.md
+    fence: 3
 - twin: examples_minimal-recommended-sarif-log-file-with-source-information_codeblock-json-1.sarif.json
   host: sarifLog
   display:
@@ -98,17 +110,51 @@ examples:
 - twin: examples_minimal-valid-sarif-log-file_codeblock-json-1.sarif.json
   host: sarifLog
   snippet: 'closest is code block 0, whose line 10 differs from the twin: ''"results": ['' vs ''"results": []'''
+  display:
+    file: examples.md
+    fence: 0
+    expanded:
+      /runs/0/results: 6
 - twin: external-property-file-format_externalproperties-object_general_example-1.json
   host: externalProperties
-  snippet: 'closest is code block 0, whose line 7 differs from the twin: '''' vs ''"guid": "00001111-2222-1111-8888-555566667777",'''
+  snippet: block 0 renders differently
+  display:
+    file: external-property-file-format.md
+    fence: 0
+    column: 30
+    notes:
+    - at: ''
+      note: '# An externalProperties object'
+    - at: /version
+      note: '# See (#externalproperties-object--version-property).'
+      column: 28
+    - at: /$schema
+      note: '# See (#externalproperties-object--schema-property).'
+    - at: /artifacts
+      note: '# See (#the-property-value-properties).'
+    breaks:
+      /$schema:
+      - - 12
+        - 4
+    before:
+      /$schema:
+      - '> '
+      /guid:
+      - '> '
+      - '>                               # See (#externalproperties-object--guid-property).'
+      /runGuid:
+      - '> '
+      - '>                               # See (#runguid-property).'
+      /artifacts:
+      - '> '
+      /externalizedProperties:
+      - '> '
 - twin: file-format-03-artifactcontent-object_rendered-property_example-1.json
   host: physicalLocation
   display:
     file: file-format-03-artifactcontent-object.md
     fence: 0
     column: 33
-    blank-before:
-    - /region
     notes:
     - at: ''
       note: '# A physicalLocation object ((#physicallocation-object)).'
@@ -124,6 +170,9 @@ examples:
       note: '# An artifactContent object. See (#snippet-property).'
     - at: /region/snippet/rendered
       note: '# A multiformatMessageString object ((#multiformatmessagestring-object)).'
+    before:
+      /region:
+      - '> '
 - twin: file-format-04-artifactlocation-object_description-property_example-1.json
   host: run
   display:
@@ -141,8 +190,6 @@ examples:
     file: file-format-04-artifactlocation-object.md
     fence: 3
     column: 49
-    blank-before:
-    - /results
     notes:
     - at: ''
       note: '# A run object ((#run-object)).'
@@ -160,6 +207,9 @@ examples:
       note: '# See (#physicallocation-property).'
     - at: /results/0/locations/0/physicalLocation/artifactLocation
       note: '# An artifactLocation object.'
+    before:
+      /results:
+      - '> '
 - twin: file-format-04-artifactlocation-object_index-property_example-1.json
   host: run
   display:
@@ -179,7 +229,7 @@ examples:
   host: result
   display:
     file: file-format-05-string-properties.md
-    fence: 0
+    fence: 1
     column: 34
     notes:
     - at: ''
@@ -235,7 +285,7 @@ examples:
   host: result
   display:
     file: file-format-11-message-object.md
-    fence: 1
+    fence: 2
     column: 35
     notes:
     - at: ''
@@ -291,9 +341,44 @@ examples:
 - twin: file-format-13-sariflog-object_inlineexternalproperties-property_example-1.json
   host: sarifLog
   snippet: 'closest is code block 1, whose line 43 differs from the twin: ''...'' vs ''{'''
+  display:
+    file: file-format-13-sariflog-object.md
+    fence: 1
+    column: 54
+    notes:
+    - at: /inlineExternalProperties/0/guid
+      note: '# See (#externalproperties-object--guid-property).'
+    - at: /inlineExternalProperties/0/artifacts
+      note: '# See (#the-property-value-properties).'
+    - at: /runs
+      note: '# See (#runs-property).'
+    - at: /runs/0
+      note: '# A run object ((#run-object)).'
+    - at: /runs/0/tool
+      note: '# See (#run-object--tool-property).'
+    - at: /runs/0/externalPropertyFileReferences
+      note: '# See (#externalpropertyfilereferences-property).'
+    trailing:
+    - - /inlineExternalProperties/0
+      - 0
+      - 44
+    before:
+      /inlineExternalProperties:
+      - '> '
+      /inlineExternalProperties/0/artifacts:
+      - '> '
+      /runs:
+      - '> '
 - twin: file-format-14-run-object_artifacts-property_example-1.json
   host: run
-  snippet: 'closest is code block 6, whose line 2 differs from the twin: ''...'' vs ''"artifacts": ['''
+  snippet: 'closest is code block 0, whose line 2 differs from the twin: ''"tool": {'' vs ''"artifacts": ['''
+  display:
+    file: file-format-14-run-object.md
+    fence: 5
+    root: member
+    spacing:
+      /artifacts/0/location/uri: '        "uri": "file:///C:/Code/main.c"'
+      /artifacts/0/hashes/sha-256: '         "sha-256": "b13ce2678a8807ba0765ab94a0ecd394f869bc81"'
 - twin: file-format-14-run-object_general_example-1.json
   host: run
   display:
@@ -324,23 +409,37 @@ examples:
   host: run
   display:
     file: file-format-14-run-object.md
-    fence: 5
+    fence: 6
     root: member
 - twin: file-format-14-run-object_newlinesequences-property_example-2.json
   host: run
   snippet: 'closest is code block 6, whose line 3 differs from the twin: ''"newlineSequences": [ "\\r\\n", "\\n", "\\u0085", "\\u2028" ],'' vs ''"newlineSequences":
     ['''
+  display:
+    file: file-format-14-run-object.md
+    fence: 7
+    column: 10
+    inline:
+    - /newlineSequences
+    notes:
+    - at: ''
+      note: '# A run object ((#run-object)).'
 - twin: file-format-14-run-object_originaluribaseIds-property_example-1.json
   host: run
   snippet: 'closest is code block 2, whose line 2 differs from the twin: ''"PROJECTROOT": {'' vs ''"PROJECTROOT": {'''
+  display:
+    file: file-format-14-run-object.md
+    fence: 2
+    root: member
+    spacing:
+      /originalUriBaseIds/PROJECTROOT: ' "PROJECTROOT": {'
+      /originalUriBaseIds/PROJECTROOT#end: ' },'
 - twin: file-format-14-run-object_originaluribaseIds-property_example-2.json
   host: run
   display:
     file: file-format-14-run-object.md
     fence: 4
     column: 42
-    blank-before:
-    - /results
     notes:
     - at: ''
       note: '# A run object.'
@@ -352,20 +451,53 @@ examples:
       note: '# See (#physicallocation-property).'
     - at: /results/0/locations/0/physicalLocation/artifactLocation
       note: '# An artifactLocation object ((#artifactlocation-object)).'
+    before:
+      /results:
+      - '> '
 - twin: file-format-14-run-object_redactiontokens-property_example-1.json
   host: run
   display:
     file: file-format-14-run-object.md
-    fence: 7
+    fence: 8
     column: 22
-    blank-before:
-    - /invocation
     notes:
     - at: ''
       note: '# A run object ((#run-object)).'
+    before:
+      /invocation:
+      - '> '
 - twin: file-format-14-run-object_versioncontrolprovenance-property_example-1.json
   host: run
   snippet: 'closest is code block 6, whose line 2 differs from the twin: ''...'' vs ''"versionControlProvenance": ['''
+  display:
+    file: file-format-14-run-object.md
+    fence: 1
+    column: 39
+    notes:
+    - at: ''
+      note: '# A run object.'
+    - at: /versionControlProvenance/0
+      note: '# A versionControlDetails object ((#versioncontroldetails-object)).'
+    - at: /versionControlProvenance/0/repositoryUri
+      note: '# See (#repositoryuri-property).'
+      column: 67
+    - at: /versionControlProvenance/0/revisionId
+      note: '# See (#revisionid-property).'
+      column: 68
+    - at: /versionControlProvenance/0/branch
+      note: '# See (#branch-property).'
+      column: 41
+    spacing:
+      ? ''
+      : '  {'
+      /versionControlProvenance: '     "versionControlProvenance": ['
+      /versionControlProvenance/0: '      {'
+      /versionControlProvenance/0/repositoryUri: '          "repositoryUri": "https://github.com/example/browser",'
+      /versionControlProvenance/0/revisionId: '          "revisionId": "1a0c6554caa37144459cb97cb15429b27831476e",'
+      /versionControlProvenance/0/branch: '          "branch": "master"'
+      /versionControlProvenance/0#end: '      }'
+      /versionControlProvenance#end: '      ]'
+      '#end': '  }'
 - twin: file-format-15-externalpropertyfilereferences-object_properties_example-1.json
   host: run
   display:
@@ -579,9 +711,6 @@ examples:
     file: file-format-19-toolcomponent-object.md
     fence: 0
     column: 35
-    blank-before:
-    - /taxonomies
-    - /...member-inject
     notes:
     - at: ''
       note: '# A run object ((#run-object)).'
@@ -600,6 +729,11 @@ examples:
       note: '# See (#reportingdescriptorrelationship-object).2'
     - at: /tool/driver/rules/0/relationships/0/kinds
       note: '# See (#reportingdescriptorrelationship-object--kinds-property).'
+    before:
+      /taxonomies:
+      - '> '
+      /...member-inject:
+      - '> '
 - twin: file-format-19-toolcomponent-object_translations_example-1.json
   host: run
   display:
@@ -621,17 +755,8 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 5
+    fence: 6
 - twin: file-format-20-invocation-object_exitcodedescription-property_example-1.json
-  host: invocation
-  display:
-    file: file-format-20-invocation-object.md
-    fence: 1
-    column: 24
-    notes:
-    - at: ''
-      note: '# An invocation object'
-- twin: file-format-20-invocation-object_exitcodedescription-property_example-2.json
   host: invocation
   display:
     file: file-format-20-invocation-object.md
@@ -640,7 +765,7 @@ examples:
     notes:
     - at: ''
       note: '# An invocation object'
-- twin: file-format-20-invocation-object_exitsignalnumber-property_example-1.json
+- twin: file-format-20-invocation-object_exitcodedescription-property_example-2.json
   host: invocation
   display:
     file: file-format-20-invocation-object.md
@@ -649,7 +774,7 @@ examples:
     notes:
     - at: ''
       note: '# An invocation object'
-- twin: file-format-20-invocation-object_processstartfailuremessage-property_example-1.json
+- twin: file-format-20-invocation-object_exitsignalnumber-property_example-1.json
   host: invocation
   display:
     file: file-format-20-invocation-object.md
@@ -658,15 +783,53 @@ examples:
     notes:
     - at: ''
       note: '# An invocation object'
+- twin: file-format-20-invocation-object_processstartfailuremessage-property_example-1.json
+  host: invocation
+  display:
+    file: file-format-20-invocation-object.md
+    fence: 5
+    column: 24
+    notes:
+    - at: ''
+      note: '# An invocation object'
 - twin: file-format-20-invocation-object_responsefiles-property_example-1.json
   host: invocation
   snippet: 'closest is code block 0, whose line 2 differs from the twin: ''"commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rs'' vs ''"commandLine":
     "/quiet @analyzer.rsp @strict.rsp @options.rs'''
+  display:
+    file: file-format-20-invocation-object.md
+    fence: 1
+    column: 24
+    notes:
+    - at: ''
+      note: '# An invocation object.'
+    - at: /responseFiles/0
+      note: '# An artifactLocation object ((#artifactlocation-object)).'
+    spacing:
+      /commandLine: '    "commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rsp",'
+      /responseFiles: '    "responseFiles": ['
+      /responseFiles/0: '      {'
+      /responseFiles/0/uri: '        "uri": "analyzer.rsp",'
+      /responseFiles/0/uriBaseId: '        "uriBaseId": "RESPONSEFILEDIR"'
+      /responseFiles/0#end: '      },'
+      /responseFiles/1: '      {'
+      /responseFiles/1/uri: '        "uri": "strict.rsp",'
+      /responseFiles/1/uriBaseId: '        "uriBaseId": "RESPONSEFILEDIR"'
+      /responseFiles/1#end: '      },'
+      /responseFiles/2: '      {'
+      /responseFiles/2/uri: '        "uri": "options.rsp",'
+      /responseFiles/2/uriBaseId: '        "uriBaseId": "RESPONSEFILEDIR"'
+      /responseFiles/2#end: '      }'
+      /responseFiles#end: '    ],'
+      /...member-inject: '    ...'
+    before:
+      /responseFiles:
+      - '> '
 - twin: file-format-20-invocation-object_toolconfigurationnotifications-property_example-1.json
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 6
+    fence: 7
     root: member
     column: 36
     notes:
@@ -680,7 +843,7 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 7
+    fence: 8
     root: member
     column: 36
     notes:
@@ -690,7 +853,7 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 8
+    fence: 9
     root: member
     column: 36
     notes:
@@ -716,17 +879,62 @@ examples:
 - twin: file-format-22-conversion-object_general_example-1.json
   host: sarifLog
   snippet: 'closest is code block 0, whose line 16 differs from the twin: '''' vs ''"invocation": "Sarif.Multitool.exe convert -t AndroidStudio '''
+  display:
+    file: file-format-22-conversion-object.md
+    fence: 0
+    column: 53
+    notes:
+    - at: /runs/0/conversion/tool
+      note: '# See (#conversion-object--tool-property).'
+    - at: /runs/0/conversion/analysisToolLogFileLocation
+      note: '# See (#analysistoollogfiles-property).'
+    breaks:
+      /runs/0/conversion/invocation:
+      - - 21
+        - 10
+    trailing:
+    - - /runs/0/conversion/analysisToolLogFileLocation/uri
+      - 0
+      - 3
+    - - /runs/0/conversion/analysisToolLogFileLocation#end
+      - 0
+      - 1
+    before:
+      /runs/0/conversion/invocation:
+      - '>                                                      # See (#invocation-property).'
+      /runs/0/conversion/analysisToolLogFileLocation:
+      - '> '
 - twin: file-format-23-versioncontroldetails-object_mappedto-property_example-1.json
   host: run
   display:
     file: file-format-23-versioncontroldetails-object.md
     fence: 0
-    blank-before:
-    - /versionControlProvenance
-    - /results
+    before:
+      /versionControlProvenance:
+      - '> '
+      /results:
+      - '> '
 - twin: file-format-24-artifact-object_encoding-property_example-1.json
   host: run
   snippet: 'closest is code block 1, whose line 9 differs from the twin: '''' vs ''},'''
+  display:
+    file: file-format-24-artifact-object.md
+    fence: 1
+    column: 39
+    notes:
+    - at: ''
+      note: '# A run object ((#run-object)).'
+    - at: /defaultEncoding
+      note: '# See (#defaultencoding-property).'
+    - at: /artifacts
+      note: '# See (#artifacts-property).'
+    before:
+      /artifacts:
+      - '> '
+      /artifacts/0#end:
+      - '>       # encoding property omitted'
+      /artifacts/1:
+      - '> '
 - twin: file-format-24-artifact-object_hashes-property_example-1.json
   host: artifact
   display:
@@ -749,15 +957,31 @@ examples:
 - twin: file-format-25-speciallocations-object_displaybase-property_example-1.json
   host: run
   snippet: 'closest is code block 0, whose line 10 differs from the twin: ''"uri": "/home/user/",'' vs ''"uri": "/home/user/",'''
+  display:
+    file: file-format-25-speciallocations-object.md
+    fence: 0
+    column: 28
+    notes:
+    - at: ''
+      note: '# A run object ((#run-object)).'
+    - at: /originalUriBaseIds
+      note: '# See (#originaluribaseids-property).'
+    - at: /specialLocations/displayBase
+      note: '# An artifactLocation object ((#artifactlocation-object)).'
+    - at: /specialLocations/displayBase/uri
+      note: '# Empty string is valid relative reference.'
+    spacing:
+      /originalUriBaseIds/HOME/uri: '     "uri": "/home/user/",'
+      /originalUriBaseIds/HOME/uriBaseId: '     "uriBaseId": "ROOT"'
+    before:
+      /specialLocations:
+      - '> '
 - twin: file-format-26-translationmetadata-object_general_example-1.json
   host: toolComponent
   display:
     file: file-format-26-translationmetadata-object.md
     fence: 0
     column: 28
-    blank-before:
-    - /translationMetadata
-    - /name
     notes:
     - at: ''
       note: '# A toolComponent object ((#toolcomponent-object)).'
@@ -765,15 +989,17 @@ examples:
       note: '# The language of the translation (see (#language-property)).'
     - at: /translationMetadata
       note: '# A translation metadata object.'
+    before:
+      /translationMetadata:
+      - '> '
+      /name:
+      - '> '
 - twin: file-format-27-result-object_analysistarget-property_example-1.json
   host: result
   display:
     file: file-format-27-result-object.md
     fence: 6
     column: 34
-    blank-before:
-    - /locations
-    - /locations/0/physicalLocation/region
     notes:
     - at: ''
       note: '# A result object ((#result-object)).'
@@ -787,9 +1013,21 @@ examples:
       note: '# See (#physicallocation-property).'
     - at: /locations/0/physicalLocation/artifactLocation
       note: '# An artifactLocation object.'
+    before:
+      /locations:
+      - '> '
+      /locations/0/physicalLocation/region:
+      - '> '
 - twin: file-format-27-result-object_fingerprints-property_example-1.json
   host: result
   snippet: 'closest is code block 7, whose line 2 differs from the twin: ''"fingerprints": {'' vs ''"fingerprints": {'''
+  display:
+    file: file-format-27-result-object.md
+    fence: 7
+    spacing:
+      /fingerprints: '    "fingerprints": {'
+      /fingerprints/stableResultHash~1v2: '      "stableResultHash/v2": "097886bc876fe"'
+      /fingerprints#end: '    }'
 - twin: file-format-27-result-object_fingerprints-property_example-2.json
   host: run
   display:
@@ -904,10 +1142,35 @@ examples:
         - 6
 - twin: file-format-27-result-object_partialfingerprints-property_example-4.json
   host: result
-  snippet: 'closest is code block 7, whose line 2 differs from the twin: ''"fingerprints": {'' vs ''...'''
+  snippet: 'closest is code block 0, whose line 2 differs from the twin: ''"tool": {'' vs ''...'''
+  display:
+    file: file-format-27-result-object.md
+    fence: 12
+    column: 28
+    notes:
+    - at: ''
+      note: '# A result object'
 - twin: file-format-27-result-object_relatedlocations-property_example-1.json
   host: run
   snippet: 'closest is code block 12, whose line 37 differs from the twin: ''...'' vs ''...'''
+  display:
+    file: file-format-27-result-object.md
+    fence: 13
+    root: member
+    column: 28
+    notes:
+    - at: /results/0/relatedLocations
+      note: '# An array of location objects ((#location-object)).'
+    - at: /results/0/relatedLocations/0
+      note: '# A location object.'
+    breaks:
+      /results/0/message/text:
+      - - 64
+        - 15
+      - - 109
+        - 15
+    spacing:
+      /results/1: '    ...'
 - twin: file-format-27-result-object_ruleid-property_example-1.json
   host: run
   display:
@@ -919,11 +1182,12 @@ examples:
     file: file-format-27-result-object.md
     fence: 1
     column: 38
-    blank-before:
-    - /tool/driver/taxa/0/...member-inject
     notes:
     - at: ''
       note: '# A run object ((#run-object)).'
+    before:
+      /tool/driver/taxa/0/...member-inject:
+      - '> '
 - twin: file-format-28-location-object_annotations-property_example-1.json
   host: location
   display:
@@ -942,9 +1206,6 @@ examples:
     file: file-format-29-physicallocation-object.md
     fence: 1
     column: 40
-    blank-before:
-    - /locations/0/physicalLocation/region
-    - /locations/0/physicalLocation/contextRegion
     notes:
     - at: ''
       note: '# A result object ((#result-object)).'
@@ -959,14 +1220,17 @@ examples:
     - at: /locations/0/physicalLocation/region
       note: '# See (#region-property).'
       column: 41
+    before:
+      /locations/0/physicalLocation/region:
+      - '> '
+      /locations/0/physicalLocation/contextRegion:
+      - '> '
 - twin: file-format-29-physicallocation-object_region-property_example-1.json
   host: result
   display:
     file: file-format-29-physicallocation-object.md
     fence: 0
     column: 31
-    blank-before:
-    - /locations/0/physicalLocation/region
     notes:
     - at: ''
       note: '# A result object ((#result-object)).'
@@ -982,6 +1246,9 @@ examples:
       note: '# The region specifies the portion of the file'
     - at: /locations/0/physicalLocation/region/startLine
       note: '# where the result was detected.'
+    before:
+      /locations/0/physicalLocation/region:
+      - '> '
 - twin: file-format-32-address-object_parent-child-relationships_example-1.json
   host: run
   display:
@@ -1028,9 +1295,65 @@ examples:
   host: run
   snippet: 'closest is code block 3, whose line 51 differs from the twin: ''"fullyQualifiedName": "/orders/order[1]/total/text()",'' vs ''"fullyQualifiedName":
     "/orders/order[1]/text()",'''
+  display:
+    file: file-format-33-logicallocation-object.md
+    fence: 3
+    column: 34
+    notes:
+    - at: ''
+      note: '# A run object ((#run-object)).'
+    - at: /results
+      note: '# See (#results-property).'
+    - at: /results/0
+      note: '# A result object ((#result-object)).'
+    - at: /results/0/locations
+      note: '# See (#result-object--locations-property).'
+    - at: /results/0/locations/0
+      note: '# A location object ((#location-object)).'
+    - at: /results/0/locations/0/logicalLocations
+      note: '# See (#location-object--logicallocations-property).'
+    - at: /results/0/locations/0/logicalLocations/0
+      note: '# A logicalLocation object.'
+    - at: /logicalLocations
+      note: '# See (#run-object--logicallocations-property).'
+    - at: /logicalLocations/0
+      note: '# A logicalLocation object.'
+    before:
+      /logicalLocations:
+      - '> '
 - twin: file-format-33-logicallocation-object_kind-property_example-2.json
   host: run
   snippet: 'closest is code block 3, whose line 6 differs from the twin: ''"logicalLocations": ['' vs ''"logicalLocation": {'''
+  display:
+    file: file-format-33-logicallocation-object.md
+    fence: 5
+    column: 34
+    notes:
+    - at: ''
+      note: '# A run object ((#run-object)).'
+    - at: /results
+      note: '# See (#results-property).'
+    - at: /results/0
+      note: '# A result object ((#result-object)).'
+    - at: /results/0/locations
+      note: '# See (#result-object--locations-property).'
+    - at: /results/0/locations/0
+      note: '# A location object ((#location-object)).'
+    - at: /results/0/locations/0/logicalLocations
+      note: '# See (#location-object--logicallocations-property).'
+    - at: /results/0/locations/0/logicalLocations/0
+      note: '# A logicallocation object ((#logicallocation-object)).'
+    - at: /logicalLocations
+      note: '# See (#run-object--logicallocations-property).'
+    - at: /logicalLocations/0
+      note: '# A logicalLocation object ((#logicallocation-object)).'
+    trailing:
+    - - '#end'
+      - 0
+      - 1
+    before:
+      /logicalLocations:
+      - '> '
 - twin: file-format-33-logicallocation-object_name-property_example-1.json
   host: logicalLocation
   display:
@@ -1067,8 +1390,6 @@ examples:
     file: file-format-34-locationrelationship-object.md
     fence: 0
     column: 41
-    blank-before:
-    - /relatedLocations
     inline:
     - /locations/0/relationships/0/kinds
     - /relatedLocations/0/relationships/0/kinds
@@ -1097,18 +1418,15 @@ examples:
       note: '# The line that includes f.h.'
     - at: /relatedLocations/1/physicalLocation/region/startLine
       note: '# The line that includes g.h.'
+    before:
+      /relatedLocations:
+      - '> '
 - twin: file-format-36-codeflow-object_general_example-1.json
   host: result
   display:
     file: file-format-36-codeflow-object.md
     fence: 0
     column: 40
-    blank-before:
-    - /codeFlows/0/threadFlows
-    - /codeFlows/0/threadFlows/0/locations
-    - /codeFlows/0/threadFlows/0/locations/0/location/physicalLocation/region
-    - /codeFlows/0/threadFlows/0/locations/0/state
-    - /codeFlows/0/threadFlows/0/locations/0/nestingLevel
     notes:
     - at: ''
       note: '# A result object ((#result-object)).'
@@ -1140,6 +1458,17 @@ examples:
       note: '# See (#nestinglevel-property).'
     - at: /codeFlows/0/threadFlows/0/locations/0/executionOrder
       note: '# See (#executionorder-property).'
+    before:
+      /codeFlows/0/threadFlows:
+      - '> '
+      /codeFlows/0/threadFlows/0/locations:
+      - '> '
+      /codeFlows/0/threadFlows/0/locations/0/location/physicalLocation/region:
+      - '> '
+      /codeFlows/0/threadFlows/0/locations/0/state:
+      - '> '
+      /codeFlows/0/threadFlows/0/locations/0/nestingLevel:
+      - '> '
 - twin: file-format-37-threadflow-object_immutablestate-property_example-1.json
   host: threadFlow
   display:
@@ -1240,7 +1569,11 @@ examples:
     root: member
 - twin: file-format-38-threadflowlocation-object_kinds-property_example-3.json
   host: threadFlowLocation
-  snippet: no code block of its file matches
+  snippet: 'closest is code block 3, whose line 2 differs from the twin: ''"threadFlows": ['' vs ''"kinds": ['''
+  display:
+    file: file-format-38-threadflowlocation-object.md
+    fence: 6
+    root: member
 - twin: file-format-38-threadflowlocation-object_location-property_example-1.json
   host: codeFlow
   display:
@@ -1272,7 +1605,7 @@ examples:
   host: threadFlowLocation
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 6
+    fence: 11
     column: 31
     notes:
     - at: ''
@@ -1281,10 +1614,8 @@ examples:
   host: run
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 7
+    fence: 12
     column: 33
-    blank-before:
-    - /results
     notes:
     - at: ''
       note: '# A run object ((#run-object)).'
@@ -1319,6 +1650,9 @@ examples:
       /tool/driver/taxa/0/shortDescription/text:
       - - 62
         - 21
+    before:
+      /results:
+      - '> '
 - twin: file-format-40-node-object_id-property_example-1.json
   host: graph
   display:
@@ -1363,13 +1697,6 @@ examples:
     file: file-format-42-graphtraversal-object.md
     fence: 1
     column: 43
-    blank-before:
-    - /graphs/0/edges
-    - /graphTraversals
-    - /graphTraversals/0/initialState
-    - /graphTraversals/0/edgeTraversals
-    - /graphTraversals/0/edgeTraversals/0/finalState
-    - /graphTraversals/0/edgeTraversals/1/finalState
     inline:
     - /graphs/0/nodes/0
     - /graphs/0/nodes/1
@@ -1412,6 +1739,19 @@ examples:
       note: '# See (#edgeid-property).'
     - at: /graphTraversals/0/edgeTraversals/0/finalState
       note: '# See (#finalstate-property).'
+    before:
+      /graphs/0/edges:
+      - '> '
+      /graphTraversals:
+      - '> '
+      /graphTraversals/0/initialState:
+      - '> '
+      /graphTraversals/0/edgeTraversals:
+      - '> '
+      /graphTraversals/0/edgeTraversals/0/finalState:
+      - '> '
+      /graphTraversals/0/edgeTraversals/1/finalState:
+      - '> '
 - twin: file-format-42-graphtraversal-object_immutablestate-property_example-1.json
   host: graphTraversal
   display:
@@ -1427,8 +1767,6 @@ examples:
     file: file-format-43-edgetraversal-object.md
     fence: 0
     column: 44
-    blank-before:
-    - /graphTraversals
     inline:
     - /graphs/0/nodes/0/children/0
     - /graphs/0/nodes/0/children/1
@@ -1462,6 +1800,9 @@ examples:
       note: '# A graphTraversal object ((#graphtraversal-object)).'
     - at: /graphTraversals/0/resultGraphIndex
       note: '# The graph being traversed.'
+    before:
+      /graphTraversals:
+      - '> '
 - twin: file-format-48-resultprovenance-object_conversionsources-property_example-1.json
   host: sarifLog
   display:
@@ -1490,6 +1831,41 @@ examples:
 - twin: file-format-49-reportingdescriptor-object_messagestrings-property_example-1.json
   host: reportingDescriptor
   snippet: 'closest is code block 3, whose line 3 differs from the twin: ''"objectCreation":  {'' vs ''"objectCreation": {'''
+  display:
+    file: file-format-49-reportingdescriptor-object.md
+    fence: 3
+    column: 26
+    notes:
+    - at: ''
+      note: '# A reportingDescriptor object for a rule.'
+    - at: /messageStrings/objectCreation
+      note: '# A multiformatMessageString object ((#multiformatmessagestring-object)).'
+    breaks:
+      /messageStrings/objectCreation/text:
+      - - 69
+        - 14
+      - - 121
+        - 14
+      - - 156
+        - 14
+      /messageStrings/stringReturnValue/text:
+      - - 60
+        - 14
+      - - 94
+        - 14
+      - - 146
+        - 14
+      - - 181
+        - 14
+    trailing:
+    - - /messageStrings/objectCreation#end
+      - 0
+      - 2
+    - - /messageStrings#end
+      - 0
+      - 4
+    spacing:
+      /messageStrings/objectCreation: '    "objectCreation":  {'
 - twin: file-format-49-reportingdescriptor-object_shortdescription-property_example-1.json
   host: reportingDescriptor
   display:
@@ -1510,7 +1886,41 @@ examples:
       note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
 - twin: file-format-51-configurationoverride-object_general_example-1.json
   host: run
-  snippet: 'closest is code block 0, whose line 20 differs from the twin: '''' vs ''"descriptor": {'''
+  snippet: block 0 renders differently
+  display:
+    file: file-format-51-configurationoverride-object.md
+    fence: 0
+    column: 44
+    notes:
+    - at: ''
+      note: '# A run object ((#run-object)).'
+    - at: /tool
+      note: '# See (#run-object--tool-property).'
+    - at: /tool/driver
+      note: '# See (#driver-property).'
+    - at: /tool/driver/rules
+      note: '# See (#rules-property).'
+    - at: /tool/driver/rules/0
+      note: '# A reportingDescriptor object'
+    - at: /tool/driver/rules/0/id
+      note: '#  ((#reportingdescriptor-object)).'
+    - at: /invocations
+      note: '# See (#invocations-property).'
+    - at: /invocations/0
+      note: '# An invocation object ((#invocation-object)).'
+    - at: /invocations/0/ruleConfigurationOverrides
+      note: '# See (#ruleconfigurationoverrides-property).'
+    - at: /invocations/0/ruleConfigurationOverrides/0
+      note: '# A configurationOverride object'
+    - at: /invocations/0/ruleConfigurationOverrides/0/descriptor
+      note: '# See (#configurationoverride-object--descriptor-property).'
+    - at: /invocations/0/ruleConfigurationOverrides/0/configuration
+      note: '# See (#configuration-property).'
+    before:
+      /invocations:
+      - '>'
+      /invocations/0/ruleConfigurationOverrides/0/descriptor:
+      - '>                                             #  ((#configurationoverride-object)).'
 - twin: file-format-52-reportingdescriptorreference-object_general_example-1.json
   host: invocation
   display:
@@ -1565,16 +1975,44 @@ examples:
       note: '# INVALID: Not equal to ruleId.'
 - twin: file-format-52-reportingdescriptorreference-object_index-property_example-1.json
   host: run
-  snippet: 'closest is code block 2, whose line 21 differs from the twin: '''' vs ''"rule": {'''
+  snippet: block 2 renders differently
+  display:
+    file: file-format-52-reportingdescriptorreference-object.md
+    fence: 2
+    column: 29
+    notes:
+    - at: ''
+      note: '# A run object ((#run-object)).'
+    - at: /tool
+      note: '# See (#run-object--tool-property).'
+    - at: /tool/driver
+      note: '# See (#driver-property).'
+    - at: /tool/driver/rules
+      note: '# See (#rules-property).'
+    - at: /tool/driver/rules/0
+      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+    - at: /tool/driver/rules/0/id
+      note: '# See (#reportingdescriptor-object--id-property).'
+    - at: /tool/driver/rules/1
+      note: '# Another reportingDescriptor with the same id.'
+    - at: /tool/driver/rules/1/id
+      note: '#  rule.index points to this one.'
+    - at: /results
+      note: '# See (#results-property).'
+    - at: /results/0
+      note: '# A result object ((#result-object)).'
+    - at: /results/0/ruleId
+      note: '# See (#ruleid-property).'
+    before:
+      /results/0/rule:
+      - '> '
+      - '>                              # A reportingDescriptorReference object.'
 - twin: file-format-53-reportingdescriptorrelationship-object_general_example-1.json
   host: run
   display:
     file: file-format-53-reportingdescriptorrelationship-object.md
     fence: 0
     column: 31
-    blank-before:
-    - /taxonomies
-    - /...member-inject
     notes:
     - at: ''
       note: '# A run object ((#run-object)).'
@@ -1590,9 +2028,33 @@ examples:
       note: '# A reportingDescriptorRelationship object.'
     - at: /tool/driver/rules/0/relationships/0/target
       note: '# See (#reportingdescriptorrelationship-object--target-property).'
+    before:
+      /taxonomies:
+      - '> '
+      /...member-inject:
+      - '> '
 - twin: file-format-53-reportingdescriptorrelationship-object_general_example-2.json
   host: run
   snippet: 'closest is code block 1, whose line 23 differs from the twin: ''"guid": "11111111-0000-1111-8888-000000000002"'' vs ''"guid": "11111111-0000-1111-8888-000000000002",'''
+  display:
+    file: file-format-53-reportingdescriptorrelationship-object.md
+    fence: 1
+    column: 31
+    notes:
+    - at: ''
+      note: '# A run object ((#run-object)).'
+    - at: /tool
+      note: '# See (#run-object--tool-property).'
+    - at: /tool/driver
+      note: '# See (#driver-property).'
+    - at: /tool/driver/rules
+      note: '# See (#rules-property).'
+    - at: /tool/driver/rules/0
+      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+    - at: /tool/driver/rules/0/relationships/0
+      note: '# A reportingDescriptorRelationship object ((#reportingdescriptorrelationship-object)).'
+    - at: /tool/driver/rules/0/relationships/0/target
+      note: '# See (#reportingdescriptorrelationship-object--target-property).'
 - twin: file-format-55-fix-object_artifactchanges-property_example-1.json
   host: fix
   display:

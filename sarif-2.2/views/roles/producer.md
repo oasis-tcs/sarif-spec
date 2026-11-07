@@ -489,8 +489,8 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-53-reportingdescriptorrelationship-object.md`
 
-- When possible, SARIF producers **SHOULD** use the following values, with the specified meanings. (line 109)
-- If none of these values are appropriate, a SARIF producer **MAY** use any value. (line 131)
+- When possible, SARIF producers **SHOULD** use the following values, with the specified meanings. (line 110)
+- If none of these values are appropriate, a SARIF producer **MAY** use any value. (line 132)
 
 ## General
 

@@ -3,8 +3,8 @@
   "newlineSequences": [
     "\r\n",
     "\n",
-    "",
-    " "
+    "\u0085",
+    "\u2028"
   ],
   "...member-inject-2": "..."
 }

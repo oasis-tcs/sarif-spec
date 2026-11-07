@@ -47,7 +47,7 @@
     },
     {
       "name": "text",
-      "fullyQualifiedName": "/orders/order[1]/text()",
+      "fullyQualifiedName": "/orders/order[1]/total/text()",
       "kind": "text",
       "parentIndex": 1
     }

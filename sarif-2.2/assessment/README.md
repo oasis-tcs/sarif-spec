@@ -113,11 +113,11 @@ A marker grammar with a check would remove the typos and make the kinds explicit
 |---|---|---|
 | `physicalLocation.uri` (pre-2.1 form; now `physicalLocation.artifactLocation.uri`) | message-object embedded links ex. 2, result `kind` ex. 1, result `level` ex. 1, result `relatedLocations` ex. 1 | the most frequent fossil |
 | region line and column numbers as strings (`"6"`) | result `relatedLocations` ex. 1 | |
-| `associatedRule.ruleId` (the property is `id`) | invocation `toolConfigurationNotifications` ex. 1, and the comprehensive example | |
-| `result.addresses` (addresses live in `run.addresses`; a result refers to them through locations) | the comprehensive example | so the comprehensive SARIF file in the prose fails twice |
+| `associatedRule.ruleId` (the property is `id`) | invocation `toolConfigurationNotifications` ex. 1 (and the comprehensive example's twin only, see correction below) | |
+| `result.addresses` (addresses live in `run.addresses`; a result refers to them through locations) | the comprehensive example's twin only | see correction below |
 | notification descriptors with `level` and string `messageStrings` | toolComponent `notifications` ex. 1 | level belongs in `defaultConfiguration`; message strings are objects |
 | `reportingDescriptor.name` as an object | reportingConfiguration `parameters` ex. 1 | `name` is a string |
-| `location.logicalLocation` (singular; the property is `logicalLocations`) | logicalLocation `kind` ex. 2 | |
+| `location.logicalLocation` (singular; the property is `logicalLocations`) | logicalLocation `kind` ex. 2, twin only | see correction below |
 | `address` with `baseAddress` and `offset` | artifactContent `rendered` ex. 1 | neither exists in `address` |
 | graph nodes with string labels and nested `nodes` | edgeTraversal `stepOverEdgeCount` ex. 1 | `label` is a message, children are `children` |
 | replacements written as artifact changes | replacement general ex. 1 | either elided a level or nested wrongly; to decide |
@@ -184,3 +184,12 @@ constrain interpretation.
 3. Heading keys: fix the four headings, then a check that every property heading maps to a schema property and back.
 4. Presence rules as constraint records (start with the 19 "Depending on the circumstances" groups).
 5. Subjects for statements, then role views.
+
+## Correction (2026-11-07, vision step 3)
+
+The example findings above were made on the twins. When every twin was compared with its prose snippet, three of
+them turned out to be the twin's own drift, not the prose's: the comprehensive SARIF file in the prose is valid
+against the schema (its twin had invented `associatedRule.ruleId` and `result.addresses`), and logicalLocation
+`kind` example 2 uses `logicalLocations` in the prose. The twins now follow the prose. The other example findings
+hold for the prose too: there the twin and the snippet say the same. See `VISION.md`, step 3.
+

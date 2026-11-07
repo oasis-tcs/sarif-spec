@@ -2324,20 +2324,20 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-53-reportingdescriptorrelationship-object.md`
 
-- A `reportingDescriptorRelationship` object **SHALL** contain a property named `target` whose value is a `reportingDescriptorReference` object which identifies `theTarget` (see [sec](#reportingdescriptorrelationship-object--general)). (line 103)
+- A `reportingDescriptorRelationship` object **SHALL** contain a property named `target` whose value is a `reportingDescriptorReference` object which identifies `theTarget` (see [sec](#reportingdescriptorrelationship-object--general)). (line 104)
 
 ## `kinds` Property
 
 `file-format-53-reportingdescriptorrelationship-object.md`
 
-- A `reportingDescriptorRelationship` object **MAY** contain a property named `kinds` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) strings each of which specifies a relationship between `theSource` and `theTarget` (see [sec](#reportingdescriptorrelationship-object--general)). (line 107)
-- If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`). (line 107)
+- A `reportingDescriptorRelationship` object **MAY** contain a property named `kinds` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) strings each of which specifies a relationship between `theSource` and `theTarget` (see [sec](#reportingdescriptorrelationship-object--general)). (line 108)
+- If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`). (line 108)
 
 ## `description` Property
 
 `file-format-53-reportingdescriptorrelationship-object.md`
 
-- A `reportingDescriptorRelationship` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the relationship. (line 138)
+- A `reportingDescriptorRelationship` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the relationship. (line 139)
 
 ## Toolcomponent Lookup
 

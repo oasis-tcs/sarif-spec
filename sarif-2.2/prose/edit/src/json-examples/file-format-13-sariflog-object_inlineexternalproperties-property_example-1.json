@@ -38,9 +38,7 @@
       },
       "results": [
         {
-          "message": {
-            "id": "..."
-          }
+          "...object-inject": "..."
         }
       ]
     },
@@ -59,9 +57,7 @@
       },
       "results": [
         {
-          "message": {
-            "id": "..."
-          }
+          "...object-inject": "..."
         }
       ]
     }

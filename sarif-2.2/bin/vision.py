@@ -13,6 +13,7 @@ schema definition that hosts them; statements by bold BCP 14 keywords. See VISIO
 
 import copy
 import json
+import unicodedata
 import pathlib
 import re
 import sys
@@ -459,6 +460,13 @@ def _parses(body):
 # ── snippets: the prose's JSON code blocks derived from the twins ─────────────
 
 QUOTE = re.compile(r'^(> ?)?')
+SPACES = re.compile(r'\s+')
+
+
+def _dumps(value):
+    """JSON as the prose writes it: non-ASCII as is, control and separator characters escaped."""
+    text = json.dumps(value, ensure_ascii=False)
+    return ''.join(f'\\u{ord(c):04x}' if unicodedata.category(c) in ('Cc', 'Zl', 'Zp') else c for c in text)
 
 
 def _pointer(parent, key):
@@ -481,7 +489,7 @@ def render_twin(data, root):
             members(pairs, ptr, ind + 2, isinstance(v, dict))
             out.append((ptr + '#end', pad + ('}' if isinstance(v, dict) else ']') + comma))
         else:
-            out.append((ptr, pad + prefix + json.dumps(v, ensure_ascii=False) + comma))
+            out.append((ptr, pad + prefix + _dumps(v) + comma))
 
     def members(pairs, ptr, ind, named):
         for n, (k, x) in enumerate(pairs):
@@ -510,21 +518,31 @@ def split_note(line):
     return line.rstrip(), None, None
 
 
-def json_fences(name):
-    """The JSON code blocks of a prose file: (first body line index, end index, quote prefix) per block."""
+def json_fences(name, unmarked=False):
+    """The JSON code blocks of a prose file: (first body line index, end index, line prefix) per block.
+
+    The prefix is what stands before the fence: a quote marker and any indentation (`>   ```json`). With `unmarked`,
+    code blocks without a language count too (they hold JSON in a few places, but render without highlighting).
+    """
     lines = (SRC / name).read_text(encoding='utf-8').splitlines()
     out, start, prefix = [], None, ''
     for i, line in enumerate(lines):
-        m = QUOTE.match(line)
-        bare = line[m.end():]
-        if bare.startswith('```'):
-            if start is None:
-                start, prefix, lang = i + 1, m.group(0), bare[3:].strip()
-            else:
-                if lang == 'json':
-                    out.append((start, i, prefix))
-                start = None
+        m = re.match(r'^((?:> ?)?\s*)```(\w*)\s*$', line)
+        if not m:
+            continue
+        if start is None:
+            start, prefix, lang = i + 1, m.group(1), m.group(2)
+        else:
+            if lang == 'json' or (unmarked and lang == ''):
+                out.append((start, i, prefix))
+            start = None
     return lines, out
+
+
+def _unprefix(line, prefix):
+    if line.startswith(prefix):
+        return line[len(prefix):]
+    return QUOTE.sub('', line, count=1) if prefix else line
 
 
 def _closing(canon, i):
@@ -545,22 +563,25 @@ def _inline(canon, i):
 
 def learn_display(twin, body, prefix):
     """Migrate one snippet: its display record against the twin's canonical lines, or (None, reason)."""
-    snippet = [QUOTE.sub('', line, count=1) if prefix else line for line in body]
+    snippet = [_unprefix(line, prefix) for line in body]
     parsed = [split_note(line) for line in snippet]
     first = next((p[0] for p in parsed if p[0].strip()), '')
     root = 'member' if first.lstrip().startswith('"') else None
     canon = render_twin(twin, root)
-    notes, breaks, blanks, inline, opened, trailing = [], {}, [], [], {}, []
+    notes, breaks, before, inline, opened, trailing, spacing, expanded = [], {}, {}, [], {}, [], {}, {}
+    pending = []  # blank lines and lines with only a note, verbatim, until the next line of the twin
     cols = Counter(c for _, n, c in parsed if n)
     default_col = cols.most_common(1)[0][0] if cols else None
     i = j = 0
     while i < len(canon) and j < len(parsed):
         ptr, text = canon[i]
         code = parsed[j][0]
-        if not code.strip() and not parsed[j][1]:
-            blanks.append(ptr)
+        if not code.strip():
+            pending.append(body[j])
             j += 1
             continue
+        if pending:
+            before[ptr], pending = pending, []
         span, step = [j], 1
         if code != text:
             if text.rstrip().endswith(('[', '{')) and (one := _inline(canon, i))[0] == code:
@@ -569,6 +590,12 @@ def learn_display(twin, body, prefix):
             elif text.strip() == '...' and code.strip() in ('{', '[') and j + 2 < len(parsed) and parsed[j + 1][0].strip() == '...':
                 opened[ptr] = [code.strip(), parsed[j + 2][0].strip()]
                 span = [j, j + 1, j + 2]
+            elif SPACES.sub(' ', code.strip()) == SPACES.sub(' ', text.strip()):
+                spacing[ptr] = code  # the same line, spaced differently
+            elif (m := re.match(r'^(.*[\[{])([\]}],?)$', text)) and code == m.group(1) and j + 1 < len(parsed) \
+                    and parsed[j + 1][0].strip() == m.group(2):
+                expanded[ptr] = len(parsed[j + 1][0]) - len(parsed[j + 1][0].lstrip())  # [] written as [ and ]
+                span = [j, j + 1]
             else:
                 acc, cuts = code, []
                 while acc != text and text.startswith(acc) and span[-1] + 1 < len(parsed):
@@ -592,14 +619,17 @@ def learn_display(twin, body, prefix):
                     rec['column'] = col
                 notes.append(rec)
         i, j = i + step, span[-1] + 1
-    while j < len(parsed) and not parsed[j][0].strip() and not parsed[j][1]:
-        blanks.append('#tail')
+    while j < len(parsed) and not parsed[j][0].strip():
+        pending.append(body[j])
         j += 1
+    if pending:
+        before['#tail'] = pending
     if i < len(canon) or j < len(parsed):
         return None, 'the snippet and the twin have a different number of lines'
     display = {'root': root} if root else {}
-    for key, value in (('column', default_col), ('blank-before', blanks), ('inline', inline), ('open', opened),
-                       ('notes', notes), ('breaks', breaks), ('trailing', trailing)):
+    for key, value in (('column', default_col), ('inline', inline), ('open', opened), ('notes', notes),
+                       ('breaks', breaks), ('trailing', trailing), ('spacing', spacing), ('expanded', expanded),
+                       ('before', before)):
         if value or value == 0:
             display[key] = value
     return display, None
@@ -608,10 +638,10 @@ def learn_display(twin, body, prefix):
 def render_snippet(twin, display, prefix):
     canon = render_twin(twin, display.get('root'))
     lines, i = [], 0
-    blanks = Counter(display.get('blank-before', []))
+    before = display.get('before', {})
     while i < len(canon):
         ptr, text = canon[i]
-        lines += [(None, 0, '')] * blanks[ptr]
+        lines += [(None, -1, raw) for raw in before.get(ptr, [])]
         if ptr in display.get('inline', []):
             text, c = _inline(canon, i)
             lines.append((ptr, 0, text))
@@ -622,6 +652,14 @@ def render_snippet(twin, display, prefix):
             lines += [(ptr, 0, pad + display['open'][ptr][0]), (ptr, 1, pad + '  ...'), (ptr, 2, pad + display['open'][ptr][1])]
             i += 1
             continue
+        if ptr in display.get('expanded', {}):
+            m = re.match(r'^(.*[\[{])([\]}],?)$', text)
+            lines += [(ptr, 0, m.group(1)), (ptr, 1, ' ' * display['expanded'][ptr] + m.group(2))]
+            i += 1
+            continue
+        own = display.get('spacing', {}).get(ptr)
+        if own is not None and SPACES.sub(' ', own.strip()) == SPACES.sub(' ', text.strip()):
+            text = own  # spacing only: the twin's content still wins
         cuts = display.get('breaks', {}).get(ptr)
         if cuts:
             pieces, prev = [], 0
@@ -633,11 +671,14 @@ def render_snippet(twin, display, prefix):
         else:
             lines.append((ptr, 0, text))
         i += 1
-    lines += [(None, 0, '')] * blanks['#tail']
+    lines += [(None, -1, raw) for raw in before.get('#tail', [])]
     notes = {(n['at'], n.get('line', 0)): n for n in display.get('notes', [])}
     trail = {(p, k): n for p, k, n in display.get('trailing', [])}
     rendered = []
     for ptr, k, line in lines:
+        if k == -1:
+            rendered.append(line)  # verbatim, with its own quote prefix
+            continue
         n = notes.get((ptr, k))
         if n:
             col = n.get('column', display.get('column'))
@@ -658,7 +699,7 @@ def derive_prose():
         by_file[rec['display']['file']].append(rec)
     files = {}
     for name, recs in by_file.items():
-        lines, fences = json_fences(name)
+        lines, fences = json_fences(name, unmarked=True)
         for rec in sorted(recs, key=lambda r: -r['display']['fence']):
             start, end, prefix = fences[rec['display']['fence']]
             twin = json.loads((TWINS / rec['twin']).read_text(encoding='utf-8'))
@@ -683,7 +724,7 @@ def migrate_snippets():
         if not (SRC / name).is_file():
             report['no prose file'] += 1
             continue
-        lines, fences = json_fences(name)
+        lines, fences = json_fences(name, unmarked=True)
         reason, depth = 'no code block of its file matches', -1
         for n, (start, end, prefix) in enumerate(fences):
             if (name, n) in taken:
@@ -708,7 +749,9 @@ def migrate_snippets():
         '# `display` (seeded by `bin/vision.py migrate-snippets`): the snippet in the prose derived from this twin.',
         '# file/fence: the prose file and the number of its JSON code block (from 0); root: member shows the members',
         '# without braces; column: where margin notes start; notes: a margin note at a JSON pointer (#end: the closing',
-        '# line; line: a continuation line); breaks: a long line continued on the next line, [cut, indent] per break.',
+        '# line; line: a continuation line); breaks: a long line continued on the next line, [cut, indent] per break;',
+        '# inline: arrays on one line; open: an elided object as { ... }; spacing: a line spaced differently (whitespace',
+        '# only, the twin still wins); expanded: [] written over two lines; before: blank and note-only lines, verbatim.',
         '# `snippet`: why the snippet is still hand-written.',
     ]
     body = yaml.safe_dump({'examples': records}, sort_keys=False, allow_unicode=True, width=150)

@@ -75,7 +75,7 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 >           "id": "CA1000",
 >           "guid": "11111111-0000-1111-8888-000000000001",
 >           "relationships": [
->             {                  # A reportingDescriptor object.
+>             {                  # A reportingDescriptorRelationship object ((#reportingdescriptorrelationship-object)).
 >               "target": {      # See (#reportingdescriptorrelationship-object--target-property).
 >                 "id": "CA2000",
 >                 "guid": "11111111-0000-1111-8888-000000000002"
@@ -88,13 +88,14 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 >         },
 >         {
 >           "id": "CA2000",
->           "guid": "11111111-0000-1111-8888-000000000002"
+>           "guid": "11111111-0000-1111-8888-000000000002",
 >           ...
 >         }
 >       ]
 >     }
 >   },
 >   ...
+> }
 > ```
 
 ### `target` Property{#reportingdescriptorrelationship-object--target-property}

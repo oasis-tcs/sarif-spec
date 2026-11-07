@@ -30,7 +30,7 @@ vendors can carry their own ideas into. The many **MAY** are intended and not co
 | You edit | Derived from it (never edit) |
 |---|---|
 | `schema/sarif.json` (unchanged) | the schema side of every check |
-| the twins `prose/edit/src/json-examples/*.json` | the prose snippets of 98 examples, byte for byte; `views/examples.md` |
+| the twins `prose/edit/src/json-examples/*.json` | the prose snippets of all 120 examples, byte for byte; `views/examples.md` |
 | `records/examples.yaml`: one record per twin: its host definition, and its `display` | the validation of each twin; the snippet's layout and margin notes |
 | `records/markers.yaml`: the grammar of the elision markers | the marker checks; the elision in a future snippet |
 | `records/roles.yaml`: the roles and the words the prose uses for them | `views/roles/<role>.md`: the statements per role |
@@ -92,23 +92,36 @@ its record with `host`, and run `python -I bin/vision.py migrate-snippets` after
    `guid`, `results: []` against an elided list, `logicalLocation` against `logicalLocations`, other URIs and
    paths), a few layout habits a later round can learn (a double space before `{`).
 
+3. **The remaining snippets decided (2026-11-07).** The learner gained the notations the last snippets use: lines
+   spaced differently (kept only while the twin's line says the same apart from whitespace), empty arrays over two
+   lines, escaped separator characters, blank and note-only lines kept verbatim, indented code blocks inside quotes
+   and code blocks without a language. Four twins had drifted from the prose and now follow it (the prose was right):
+   the comprehensive SARIF file (valid in the prose; the twin had invented `associatedRule.ruleId` and
+   `result.addresses`), the two logicalLocation `kind` examples (`/orders/order[1]/total/text()`; `logicalLocations`),
+   and the `inlineExternalProperties` example (the prose elides two results). Each change left the prose untouched.
+   One snippet was wrong in the prose, relationship example 2: its outer object was never closed, a comma before an
+   elision was missing, and a margin note called the relationship "A reportingDescriptor object". Decided with the
+   editor: the snippet follows its twin, the note now reads "A reportingDescriptorRelationship object". The only
+   change to the published prose in this step: those three lines.
+   State: all 120 snippets derived; 105 of 120 twins valid after injection, 14 contradict the schema in prose and
+   twin alike (findings marked **TC**).
+
 ## Next steps
 
-3. **The remaining 22 snippets.** Decide per example which side drifted, correct the twin or the snippet, derive.
-   Then the margin notes: today they are text (`((#artifact-object))`); as keys (a section label checked against the
-   prose) a renamed section is a broken key found by the build, not a stale note found by a reader.
-4. **Heading keys.** Fix the four property headings that do not give their property as `` `name` Property ``, then
+4. **Margin notes as keys.** Today the notes are text (`((#artifact-object))`); as keys (a section label checked
+   against the prose) a renamed section is a broken key found by the build, not a stale note found by a reader.
+5. **Heading keys.** Fix the four property headings that do not give their property as `` `name` Property ``, then
    let `check` refuse such a heading, and refuse a property section without a schema property (and back).
-5. **Constraint records (A2).** The presence rules and conditional defaults as records: one record per rule, from
+6. **Constraint records (A2).** The presence rules and conditional defaults as records: one record per rule, from
    which the sentences, a JSON Schema `if`/`then` where the schema can say it, and one test fixture per branch are
    derived. Start with the 15 statements that announce a set of keywords ("either **SHALL** or **MAY**").
-6. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
+7. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
    consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
-7. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
+8. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
    The largest: `suppression.justificationType` (#672) and the `columnKind` value `"bytes"` (#740) exist only in the
-   prose; `attachment.location` and `externalProperties.$schema` differ from the schema's names; 16 example twins
-   contradict the schema (most often the pre-2.1 form `physicalLocation.uri`; the conversion example, hidden behind
-   a malformed marker in the assessment, has two more).
+   prose; `attachment.location` and `externalProperties.$schema` differ from the schema's names; 14 examples
+   contradict the schema in prose and twin alike (most often the pre-2.1 form `physicalLocation.uri`; the
+   conversion example, hidden behind a malformed marker in the assessment, has two more).
 
 ## Files
 
