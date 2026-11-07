@@ -161,14 +161,22 @@ derived snippet by its key, and refuses a key without a record, a record without
    have ("Otherwise, if `index` is absent, `uri` **SHALL** be present."): a proposal for the TC; the `when` texts
    mark property names in backticks for it.
 
+9. **Defaults as records (2026-11-07).** `bin/vision.py migrate-defaults` seeded `records/defaults.yaml`: 48
+   sentences "... **SHALL** default to ...", 29 with a constant `value`, 19 that depend on a condition or other
+   values. `check` refuses a default sentence without a record, and a record whose sentence the prose lacks. The
+   findings compare them with the schema's `default` (a `null` default stays unreported: absent means unknown):
+   besides `run.language` and `toolComponent.language` the prose gives `startColumn` 1 and `charLength`/`byteLength`
+   0 that the schema lacks, and five properties have a conditional default in the prose but a constant one in the
+   schema (`result.level`, `result.rank`, `notification.level`, `resultProvenance.invocationIndex`,
+   `reportingDescriptorReference.index`).
+
 ## Next steps
 
-9. **Constraint records, third part.** The defaults as records (the prose's "If absent, it **SHALL** default to
-   ..." against the schema's `default`), then the presence rules that are not announced with a set of keywords
-   ("If ..., `x` **SHALL** be present" elsewhere), with records of the same shape.
-10. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
+10. **Presence rules without an announcement.** The "If ..., `x` **SHALL** be present" statements outside the 15
+   announced sections, as constraint records of the same shape (with an empty `announce`).
+11. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
    consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
-11. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
+12. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
    The largest: `suppression.justificationType` (#672) and the `columnKind` value `"bytes"` (#740) exist only in the
    prose; `attachment.location` and `externalProperties.$schema` differ from the schema's names; 14 examples
    contradict the schema in prose and twin alike (most often the pre-2.1 form `physicalLocation.uri`; the
@@ -177,6 +185,6 @@ derived snippet by its key, and refuses a key without a record, a record without
 ## Files
 
 - `bin/vision.py`: migrate, derive, check (Python with jsonschema and PyYAML, the repository's pyenv environment)
-- `records/`: examples, markers, roles, drift, constraints
+- `records/`: examples, markers, roles, drift, constraints, defaults
 - `views/`: findings, examples, constraints (and its schema proposal), `roles/<role>.md` (derived, never edit)
 - `makefile`: derive, check, prose

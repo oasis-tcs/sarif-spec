@@ -9,9 +9,17 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 - **TC** `externalProperties.$schema`: a property section in the prose, no such property in the schema (S4, records/drift.yaml)
 - **TC** `externalProperties.schema`: in the schema, not described in the prose (S4, records/drift.yaml)
 - **TC** `suppression.justificationType`: a property section in the prose, no such property in the schema (S1, records/drift.yaml)
-- `run.language`: the prose gives the default `"en-US"`, the schema gives none
 - **TC** `run.columnKind`: the prose lists the value `"bytes"`, the schema enum does not have it
+- `run.language`: the prose gives the default `"en-US"`, the schema gives none
 - `toolComponent.language`: the prose gives the default `"en-US"`, the schema gives none
+- `result.level`: the prose default depends on other values, the schema gives the constant `"warning"`
+- `result.rank`: the prose default depends on other values, the schema gives the constant `-1.0`
+- `region.startColumn`: the prose gives the default `1`, the schema gives none
+- `region.charLength`: the prose gives the default `0`, the schema gives none
+- `region.byteLength`: the prose gives the default `0`, the schema gives none
+- `resultProvenance.invocationIndex`: the prose default depends on other values, the schema gives the constant `-1`
+- `reportingDescriptorReference.index`: the prose default depends on other values, the schema gives the constant `-1`
+- `notification.level`: the prose default depends on other values, the schema gives the constant `"warning"`
 
 ## Examples
 

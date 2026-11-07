@@ -1,0 +1,177 @@
+# Defaults: what a property means when it is absent, as the prose says it (A3), against the schema's `default` (A1).
+#   property  object.property of the section that gives the default
+#   value     a constant default (JSON); compared with the schema's `default` in views/findings.md
+#   depends   instead of value: the default follows other values (in words)
+#   sentence  the prose sentence, verbatim; check refuses a default sentence without a record, and back
+
+defaults:
+- property: run.language
+  value: en-US
+  sentence: If this property is absent, it **SHALL** default to `"en-US"`.
+- property: run.results
+  value: null
+  sentence: If `results` is absent, it **SHALL** default to `null`.
+- property: run.newlineSequences
+  value:
+  - "\r\n"
+  - '
+
+    '
+  sentence: If this property is absent, it **SHALL** default to the array `[ "\r\n", "\n" ]`.
+- property: externalPropertyFileReference.itemCount
+  value: -1
+  sentence: If `itemCount` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: toolComponent.language
+  value: en-US
+  sentence: If this property is absent, it **SHALL** default to `"en-US"`.
+- property: toolComponent.contents
+  value:
+  - localizedData
+  - nonLocalizedData
+  sentence: If `contents` is absent, it **SHALL** default to `[ "localizedData", "nonLocalizedData" ]`.
+- property: toolComponent.isComprehensive
+  value: false
+  sentence: If `isComprehensive` is absent, it **SHALL** default to `false`.
+- property: toolComponent.localizedDataSemanticVersion
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `localizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([sec](#semanticversion-property)).
+- property: toolComponent.minimumRequiredLocalizedDataSemanticVersion
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `minimumRequiredLocalizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion`
+    ([sec](#semanticversion-property)).
+- property: toolComponent.associatedComponent
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `associatedComponent` is absent, it **SHALL** default to a reference to `theTool.driver`.
+- property: invocation.arguments
+  value: null
+  sentence: If `arguments` is absent, it **SHALL** default to `null`.
+- property: invocation.responseFiles
+  value: null
+  sentence: If `responseFiles` is absent, it **SHALL** default to `null`.
+- property: artifact.length
+  value: -1
+  sentence: If `length` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: artifact.encoding
+  depends: 'a condition or other values: see the sentence'
+  sentence: If the `artifact` object represents a text artifact and this property is absent, it **SHALL** default to the value
+    of `theRun.defaultEncoding` ([sec](#defaultencoding-property)), if that property is present; otherwise, the artifact’s
+    encoding **SHALL** be taken to be unknown.
+- property: result.rule
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `rule.id` ([sec](#reportingdescriptorreference-object--id-property)) is absent, it **SHALL** default to `thisObject.ruleId`.
+- property: result.rule
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `rule.index` ([sec](#reportingdescriptorreference-object--index-property)) is absent, it **SHALL** default
+    to `thisObject.ruleIndex`.
+- property: result.rule
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `rule` is absent, it **SHALL** default to a `reportingDescriptorReference` object whose `id` property is set
+    to `thisObject.ruleId` and whose `index` property is set to `thisObject.ruleIndex`.
+- property: result.kind
+  value: fail
+  sentence: If `kind` is absent, it **SHALL** default to `"fail"`.
+- property: result.level
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `kind` ([sec](#result-object--kind-property)) has any value other than `"fail"`, then if `level` is absent,
+    it **SHALL** default to `"none"`, and if it is present, it **SHALL** have the value `"none"`.
+- property: result.suppressions
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `suppressions` is absent, it **SHALL** default to `null.`
+- property: result.rank
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `kind` has the value `"fail"`, then if `rank` is absent, it **SHALL** default to the value determined by the
+    procedure defined for `level` ([sec](#result-object--level-property)), except throughout the procedure, replace `"level"`
+    with `"rank"` and replace `"warning"` with `-1.0`.
+- property: result.rank
+  value: -1.0
+  sentence: If `rank` is absent, it **SHALL** default to `-1.0`, which indicates that the value is unknown (not set).
+- property: result.workItemUris
+  value: null
+  sentence: If `workItemUris` is absent, it **SHALL** default to `null`.
+- property: location.id
+  value: -1
+  sentence: If `id` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: region.startColumn
+  value: 1
+  sentence: If `startColumn` is absent, it **SHALL** default to 1.
+- property: region.endLine
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `endLine` is absent, its value **SHALL** default to `startLine`.
+- property: region.endColumn
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `endColumn` is absent, it **SHALL** default to a value one greater than the column number of the last character
+    on the line, excluding any newline sequence.
+- property: region.charOffset
+  value: -1
+  sentence: If `charOffset` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: region.charLength
+  value: 0
+  sentence: If `charLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at
+    the position specified by `charOffset` ([sec](#charoffset-property))
+- property: region.byteOffset
+  value: -1
+  sentence: If `byteOffset` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: region.byteLength
+  value: 0
+  sentence: If `byteLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at
+    the position specified by `byteOffset` ([sec](#byteoffset-property)).
+- property: region.sourceLanguage
+  depends: 'a condition or other values: see the sentence'
+  sentence: if `sourceLanguage` is absent, it **SHALL** default to the value of the `sourceLanguage` property ([sec](#artifact-object--sourcelanguage-property))
+    of the `artifact` object ([sec](#artifact-object)) which describes the artifact that contains the region.
+- property: address.absoluteAddress
+  value: -1
+  sentence: If `absoluteAddress` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: address.relativeAddress
+  value: null
+  sentence: If `relativeAddress` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not
+    set).
+- property: address.offsetFromParent
+  value: null
+  sentence: If `offsetFromParent` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not
+    set).
+- property: address.length
+  value: null
+  sentence: If `length` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not set).
+- property: logicalLocation.fullyQualifiedName
+  depends: 'a condition or other values: see the sentence'
+  sentence: If present, it **SHALL** equal `name`; if absent, it **SHALL** default to `name`.
+- property: locationRelationship.kinds
+  value:
+  - relevant
+  sentence: If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`).
+- property: threadFlowLocation.executionOrder
+  value: -1
+  sentence: If `executionOrder` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: resultProvenance.invocationIndex
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `invocationIndex` is absent and `theRun.invocations` is present and contains a single element, it **SHALL**
+    default to 0; otherwise it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: reportingConfiguration.enabled
+  value: true
+  sentence: If this property is absent, it **SHALL** default to `true`.
+- property: reportingConfiguration.level
+  value: warning
+  sentence: If `level` is absent, it **SHALL** default to `"warning"`.
+- property: reportingConfiguration.rank
+  value: -1.0
+  sentence: If `rank` is absent, it **SHALL** default to `-1.0`, which indicates that the value is unknown (not set).
+- property: reportingDescriptorReference.id
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `id` is absent and `theResult.ruleId` ([sec](#ruleid-property)) is present, then `id` **SHALL** default to
+    `theResult.ruleId`.
+- property: reportingDescriptorReference.index
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `index` is absent and `theResult.ruleIndex` ([sec](#ruleindex-property)) is present, `index` **SHALL** default
+    to `theResult.ruleIndex`.
+- property: reportingDescriptorRelationship.kinds
+  value:
+  - relevant
+  sentence: If `kinds` is absent, it **SHALL** default to `[ "relevant" ]` (see below for the meaning of `"relevant"`).
+- property: notification.level
+  depends: 'a condition or other values: see the sentence'
+  sentence: If `level` is absent, it **SHALL** default to the value determined by the procedure defined for `result.level`
+    ([sec](#result-object--level-property)), except throughout the procedure, replace `ruleConfigurationOverrides` with `notificationConfigurationOverrides`.
+- property: externalProperties.version
+  depends: 'a condition or other values: see the sentence'
+  sentence: If absent, it **SHALL** default to the value of `theSarifLog.version` ([sec](#sariflog-object--version-property)).

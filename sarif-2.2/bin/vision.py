@@ -6,6 +6,7 @@ Usage (from sarif-2.2/):
   python -I bin/vision.py migrate-notes      turn margin notes into keys (see, object, ref) where the text round-trips
   python -I bin/vision.py annotate-fences    key each derived snippet's code block by its twin (```{.json twin="..."})
   python -I bin/vision.py migrate-constraints  seed records/constraints.yaml from the keyword-set statements (once)
+  python -I bin/vision.py migrate-defaults     seed records/defaults.yaml from the default sentences (once)
   python -I bin/vision.py derive    write views/ from the schema, the records, the twins and the prose
   python -I bin/vision.py check     fail when a view differs from what derive would write, or a record is incomplete
 
@@ -397,17 +398,7 @@ def findings(sections, headings, statements, fences, items, constraints=()):
                 for v in enum:
                     if v not in listed and f'"{v}"' not in text:
                         out.append(f'- `{obj}.{prop}`: the schema value `"{v}"` is not described in the prose')
-            for s in sentences(text):
-                m = DEFAULT.search(s)
-                if not m or (m.group(1) and m.group(1) != prop) or re.search(r'thisObject|theResult|theRun', m.group(2)):
-                    continue  # a default that depends on other values is a constraint, not a schema default
-                prose_default = _json_or_text(m.group(2).rstrip('.'))
-                if 'default' not in ps and prose_default is None:
-                    continue  # "default to null": absent means not known, which the schema cannot say for an array
-                if 'default' not in ps:
-                    out.append(f'- `{obj}.{prop}`: the prose gives the default `{m.group(2)}`, the schema gives none')
-                elif prose_default != ps['default']:
-                    out.append(f'- **TC** `{obj}.{prop}`: default `{m.group(2)}` in the prose, `{json.dumps(ps["default"])}` in the schema')
+    out += default_findings()  # records/defaults.yaml against the schema
     out.append('')
 
     # A4 against A1: the examples
@@ -1084,6 +1075,68 @@ def derive_sentences(name, text, statements):
     return text
 
 
+DEFAULT_ANY = re.compile(r'\*\*SHALL\*\* default to ')
+
+
+def default_statements(statements):
+    """Each statement that gives a default, with its property: `object.property` of its section."""
+    return [(f'{s["obj"]}.{s["prop"]}', s) for s in statements if s['obj'] and s['prop'] and DEFAULT_ANY.search(s['text'])]
+
+
+def default_records():
+    path = RECORDS / 'defaults.yaml'
+    return yaml.safe_load(path.read_text(encoding='utf-8'))['defaults'] if path.is_file() else []
+
+
+def default_keys():
+    """Refusals: a default sentence of the prose without a record, a record whose sentence the prose lacks."""
+    _, _, statements, _ = read_prose()
+    found = {(k, s['text']) for k, s in default_statements(statements)}
+    recorded = {(r['property'], r['sentence']) for r in default_records()}
+    return ([f'`{k}`: a default in the prose without a record in records/defaults.yaml: {t[:80]}' for k, t in sorted(found - recorded)]
+            + [f'records/defaults.yaml: `{k}`: its sentence is not in the property section: {t[:80]}' for k, t in sorted(recorded - found)])
+
+
+def default_findings():
+    out = []
+    for r in default_records():
+        obj, prop = r['property'].split('.', 1)
+        ps = (schema_of(obj) or {}).get('properties', {}).get(prop, {})
+        if 'value' not in r:
+            if 'default' in ps:
+                out.append(f'- `{r["property"]}`: the prose default depends on other values, the schema gives the constant `{json.dumps(ps["default"])}`')
+        elif 'default' not in ps and r['value'] is not None:  # "default to null": absent means unknown, which a schema cannot say
+            out.append(f'- `{r["property"]}`: the prose gives the default `{json.dumps(r["value"])}`, the schema gives none')
+        elif 'default' in ps and r['value'] != ps['default']:
+            out.append(f'- **TC** `{r["property"]}`: default `{json.dumps(r["value"])}` in the prose, `{json.dumps(ps["default"])}` in the schema')
+    return out
+
+
+def migrate_defaults():
+    target = RECORDS / 'defaults.yaml'
+    if target.exists():
+        sys.exit(f'{target.relative_to(ROOT)} exists: migrate-defaults seeds it once')
+    _, _, statements, _ = read_prose()
+    records = []
+    for key, s in default_statements(statements):
+        prop = key.split('.', 1)[1]
+        m = re.match(rf'^If (?:`{re.escape(prop)}`|this property) is absent, it \*\*SHALL\*\* default to (?:the array )?(?:`([^`]+)`|(-?\d+)\b)', s['text'])
+        rec = {'property': key}
+        try:
+            rec['value'] = json.loads(m.group(1) or m.group(2))
+        except (AttributeError, TypeError, ValueError):
+            rec['depends'] = 'a condition or other values: see the sentence'
+        rec['sentence'] = s['text']
+        records.append(rec)
+    head = ('# Defaults: what a property means when it is absent, as the prose says it (A3), against the schema\'s `default` (A1).\n'
+            '#   property  object.property of the section that gives the default\n'
+            '#   value     a constant default (JSON); compared with the schema\'s `default` in views/findings.md\n'
+            '#   depends   instead of value: the default follows other values (in words)\n'
+            '#   sentence  the prose sentence, verbatim; check refuses a default sentence without a record, and back\n\n')
+    target.write_text(head + yaml.safe_dump({'defaults': records}, sort_keys=False, allow_unicode=True, width=120), encoding='utf-8')
+    print(f'seeded {len(records)} default records')
+
+
 def constraint_records():
     path = RECORDS / 'constraints.yaml'
     return yaml.safe_load(path.read_text(encoding='utf-8'))['constraints'] if path.is_file() else []
@@ -1363,7 +1416,10 @@ def main():
     if command == 'migrate-constraints':
         migrate_constraints()
         return
-    problems = check_records() + broken_keys() + heading_keys() + constraint_keys() + (fence_keys() if command != 'annotate-fences' else [])
+    if command == 'migrate-defaults':
+        migrate_defaults()
+        return
+    problems = check_records() + broken_keys() + heading_keys() + constraint_keys() + default_keys() + (fence_keys() if command != 'annotate-fences' else [])
     if problems:
         sys.exit('\n'.join(problems))
     views = derive_all()
