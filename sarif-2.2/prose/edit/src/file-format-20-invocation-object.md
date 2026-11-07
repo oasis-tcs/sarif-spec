@@ -34,7 +34,7 @@ The `commandLine` property might describe a command that would be harmful if it 
 >   }
 > ```
 
-### arguments property{#invocation-object--arguments-property}
+### `arguments` Property{#invocation-object--arguments-property}
 
 An `invocation` object **MAY** contain a property named `arguments` whose value is either `null` or an array of zero or more strings, containing in order the command line arguments passed to the tool from the operating system.
 

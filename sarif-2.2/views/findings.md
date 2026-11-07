@@ -5,14 +5,10 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 
 ## Prose and schema
 
-- **TC** `attachment.location`: a property section in the prose, no such property in the schema
-- **TC** `externalProperties.$schema`: a property section in the prose, no such property in the schema
-- `externalProperties.schema`: in the schema, not described in the prose
-- **TC** `suppression.justificationType`: a property section in the prose, no such property in the schema
-- file-format-20-invocation-object.md:37: heading "arguments property" does not give its property as `` `name` Property ``
-- file-format-23-versioncontroldetails-object.md:19: heading "revisionId` Property" does not give its property as `` `name` Property ``
-- file-format-24-artifact-object.md:7: heading "`location property" does not give its property as `` `name` Property ``
-- file-format-27-result-object.md:23: heading "guid property" does not give its property as `` `name` Property ``
+- **TC** `attachment.location`: a property section in the prose, no such property in the schema (S3, records/drift.yaml)
+- **TC** `externalProperties.$schema`: a property section in the prose, no such property in the schema (S4, records/drift.yaml)
+- **TC** `externalProperties.schema`: in the schema, not described in the prose (S4, records/drift.yaml)
+- **TC** `suppression.justificationType`: a property section in the prose, no such property in the schema (S1, records/drift.yaml)
 - `run.language`: the prose gives the default `"en-US"`, the schema gives none
 - **TC** `run.columnKind`: the prose lists the value `"bytes"`, the schema enum does not have it
 - `toolComponent.language`: the prose gives the default `"en-US"`, the schema gives none
@@ -74,7 +70,7 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
   - file-format-16-externalpropertyfilereference-object.md:16 (`location` Property)
   - file-format-16-externalpropertyfilereference-object.md:24 (`guid` Property)
   - file-format-19-toolcomponent-object.md:379 (`language` Property)
-  - file-format-24-artifact-object.md:10 (`location property)
+  - file-format-24-artifact-object.md:10 (`location` Property)
   - file-format-24-artifact-object.md:59 (`offset` Property)
   - file-format-27-result-object.md:42 (`ruleId` Property)
   - file-format-27-result-object.md:114 (`rule` Property)

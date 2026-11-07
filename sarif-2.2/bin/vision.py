@@ -99,9 +99,10 @@ def read_prose():
                 elif obj and (m := PROP_H.match(line)) and re.search(r'[Pp]ropert(?:y|ies)\s*$', m.group(2)):
                     text = m.group(2)
                     names = NAMES.findall(text) if WELL_FORMED.match(text) else []
-                    broken = None
-                    if not names and (b := BROKEN_KEY.match(text)):
-                        names, broken = [b.group(1)], text
+                    b = None if names else BROKEN_KEY.match(text)
+                    broken = text if not names and (b or '`' in text) else None  # names a property, not as `` `name` Property ``
+                    if b:
+                        names = [b.group(1)]
                     headings.append({'file': name, 'line': i, 'obj': obj, 'names': names, 'text': text, 'broken': broken})
                     prop = names[0] if names else None
                     for n in names[1:]:
@@ -358,26 +359,12 @@ def findings(sections, headings, statements, fences, items):
     out = ['# Findings', '', 'What `bin/vision.py derive` noticed in the prose, the twins and the schema; do not edit.',
            'Each finding names the place to change; decisions for the TC are marked **TC**.', '']
 
-    # A3 against A1: properties and their headings
+    # A3 against A1: properties and their headings (check refuses every difference that records/drift.yaml lacks)
     out += ['## Prose and schema', '']
-    for obj, props in sorted(sections.items()):
-        sch = schema_of(obj)
-        if sch is None:
-            out.append(f'- `{obj}`: an object section without a schema definition')
-            continue
-        schema_props = set(sch.get('properties', {}))
-        prose_props = {p for p in props if p}
-        files = {h['file'] for h in headings if h['obj'] == obj}
-        text = '\n'.join((SRC / f).read_text(encoding='utf-8') for f in files)
-        for p in sorted(prose_props - schema_props):
-            out.append(f'- **TC** `{obj}.{p}`: a property section in the prose, no such property in the schema')
-        for p in sorted(schema_props - prose_props - {'properties'}):
-            if f'`{p}`' in text or f'`{p}`' in TABLE_ROWS:
-                continue  # described together with others: in the same file, or in a table (the externalized properties)
-            out.append(f'- `{obj}.{p}`: in the schema, not described in the prose')
-    for h in headings:
-        if h['broken']:
-            out.append(f'- {h["file"]}:{h["line"]}: heading "{h["text"]}" does not give its property as `` `name` Property ``')
+    recorded = {(d['property'], d['kind']): d['id'] for d in drift_records()}
+    for prop, kind in property_drift(sections, headings):
+        what = PROSE_ONLY if kind == 'prose-only' else SCHEMA_ONLY
+        out.append(f'- **TC** `{prop}`: {what} ({recorded.get((prop, kind), "not recorded")}, records/drift.yaml)')
     for obj, props in sorted(sections.items()):
         for prop, lines in props.items():
             ps = (schema_of(obj) or {}).get('properties', {}).get(prop) if prop else None
@@ -447,6 +434,48 @@ def findings(sections, headings, statements, fences, items):
             if not line.lstrip().startswith(('>', '|', '#')) and re.search(r'(?<![`*\w])shall(?![`*\w])', line):
                 out.append(f'- {name}:{i}: normative "shall" in lower case')
     return '\n'.join(out) + '\n'
+
+
+PROSE_ONLY = 'a property section in the prose, no such property in the schema'
+SCHEMA_ONLY = 'in the schema, not described in the prose'
+
+
+def property_drift(sections, headings):
+    """(object.property, kind) for each property section without a schema property, and back."""
+    out = []
+    for obj, props in sorted(sections.items()):
+        sch = schema_of(obj)
+        if sch is None:
+            out.append((obj, 'object-only'))
+            continue
+        schema_props = set(sch.get('properties', {}))
+        prose_props = {p for p in props if p}
+        files = {h['file'] for h in headings if h['obj'] == obj}
+        text = '\n'.join((SRC / f).read_text(encoding='utf-8') for f in files)
+        out += [(f'{obj}.{p}', 'prose-only') for p in sorted(prose_props - schema_props)]
+        out += [(f'{obj}.{p}', 'schema-only') for p in sorted(schema_props - prose_props - {'properties'})
+                if f'`{p}`' not in text and f'`{p}`' not in TABLE_ROWS]  # else described with others: same file or a table
+    return out
+
+
+def drift_records():
+    return yaml.safe_load((RECORDS / 'drift.yaml').read_text(encoding='utf-8'))['drift']
+
+
+def heading_keys():
+    """Refusals: a property heading that is not `` `name` Property ``, a difference to the schema not in records/drift.yaml."""
+    sections, headings, *_ = read_prose()
+    problems = [f'prose/edit/src/{h["file"]}:{h["line"]}: heading "{h["text"]}" does not give its property as `` `name` Property ``'
+                for h in headings if h['broken']]
+    found = property_drift(sections, headings)
+    recorded = {(d['property'], d['kind']) for d in drift_records()}
+    for prop, kind in found:
+        if kind == 'object-only':
+            problems.append(f'`{prop}`: an object section without a schema definition')
+        elif (prop, kind) not in recorded:
+            problems.append(f'`{prop}`: {PROSE_ONLY if kind == "prose-only" else SCHEMA_ONLY} (not in records/drift.yaml)')
+    problems += [f'records/drift.yaml: `{prop}` ({kind}) no longer differs: remove the entry' for prop, kind in sorted(recorded - set(found))]
+    return problems
 
 
 def _json_or_text(text):
@@ -1038,7 +1067,7 @@ def main():
     if command == 'annotate-fences':
         annotate_fences()
         return
-    problems = check_records() + broken_keys() + (fence_keys() if command != 'annotate-fences' else [])
+    problems = check_records() + broken_keys() + heading_keys() + (fence_keys() if command != 'annotate-fences' else [])
     if problems:
         sys.exit('\n'.join(problems))
     views = derive_all()

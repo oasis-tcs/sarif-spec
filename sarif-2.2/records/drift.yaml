@@ -1,0 +1,27 @@
+# Known differences between the property sections of the prose and the properties of the schema.
+# Each waits for a TC decision (marked TC in views/findings.md); the ids are those of the assessment
+# (assessment/README.md, "Prose and schema").
+#
+# check refuses any other such difference, and an entry here that no longer holds: when the TC has decided
+# and the prose or the schema follows, the entry goes.
+#   prose-only   a `name` Property section, no such property in the schema
+#   schema-only  a property in the schema that the prose does not describe (in a section, in the text of the
+#                object's file, or in a table)
+
+drift:
+  - id: S1
+    property: suppression.justificationType
+    kind: prose-only
+    origin: prose added by #672 (issue 574); the schema never followed
+  - id: S3
+    property: attachment.location
+    kind: prose-only
+    origin: the schema calls it artifactLocation; the attachment example uses location and fails
+  - id: S4
+    property: externalProperties.$schema
+    kind: prose-only
+    origin: the schema calls it schema, while sarifLog uses $schema
+  - id: S4
+    property: externalProperties.schema
+    kind: schema-only
+    origin: the other side of S4

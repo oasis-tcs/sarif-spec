@@ -20,7 +20,7 @@ Still other result management systems compute a fingerprint, associate an arbitr
 
 SARIF accommodates all these types of result management systems. Result management systems that compute fingerprints **SHOULD** populate the `fingerprints` property ([sec](#fingerprints-property)). Result management systems that group results into equivalence classes based on an arbitrary unique identifier **SHOULD** populate the `correlationGuid` property ([sec](#result-object--correlationguid-property)), regardless of whether they also compute a fingerprint.
 
-### guid property{#result-object--guid-property}
+### `guid` Property{#result-object--guid-property}
 
 A `result` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) defining a unique, stable identifier for the result.
 

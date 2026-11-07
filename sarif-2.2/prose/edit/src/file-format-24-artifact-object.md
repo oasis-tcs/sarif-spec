@@ -4,7 +4,7 @@
 
 An `artifact` object represents a single artifact.
 
-### `location property{#artifact-object--location-property}
+### `location` Property{#artifact-object--location-property}
 
 Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `location` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)).
 

@@ -146,7 +146,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - A `specialLocations` object **MAY** contain a property named `displayBase` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) which provides a suggestion to consumers to display file paths relative to the specified location. (line 12)
 - A consumer **MAY** act on this hint as follows: (line 14)
 
-## guid property
+## `guid` Property
 
 `file-format-27-result-object.md`
 

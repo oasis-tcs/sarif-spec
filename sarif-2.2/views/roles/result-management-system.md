@@ -23,7 +23,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - Result management systems that compute fingerprints **SHOULD** populate the `fingerprints` property ([sec](#fingerprints-property)). (line 22)
 - Result management systems that group results into equivalence classes based on an arbitrary unique identifier **SHOULD** populate the `correlationGuid` property ([sec](#result-object--correlationguid-property)), regardless of whether they also compute a fingerprint. (line 22)
 
-## guid property
+## `guid` Property
 
 `file-format-27-result-object.md`
 

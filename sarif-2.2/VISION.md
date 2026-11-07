@@ -34,11 +34,12 @@ vendors can carry their own ideas into. The many **MAY** are intended and not co
 | `records/examples.yaml`: one record per twin: its host definition, and its `display` | the validation of each twin; the snippet's layout and margin notes |
 | `records/markers.yaml`: the grammar of the elision markers | the marker checks; the elision in a future snippet |
 | `records/roles.yaml`: the roles and the words the prose uses for them | `views/roles/<role>.md`: the statements per role |
+| `records/drift.yaml`: the known differences between property sections and schema properties, each waiting for the TC | the refusal of every other difference; the TC entries of `views/findings.md` |
 | the prose (hand-written Markdown, except the derived snippets) | `views/findings.md`: what disagrees with the schema |
 
 Workflow: edit a source, run `make derive`, review the diff of the views, run `make check` before committing.
 `make check` fails when a view is stale or a record is incomplete (a twin without a record, a host that is no schema
-definition). `make prose` runs the check and then the usual nide build in `prose/edit`.
+definition), and when a property heading or section has no key in the schema (below, step 6). `make prose` runs the check and then the usual nide build in `prose/edit`.
 
 ### How an example is validated
 
@@ -123,10 +124,16 @@ derived snippet by its key, and refuses a key without a record, a record without
    quoted examples, vyyhti now scans fences inside block quotes (`Location.quote`), and nide's legacy-syntax rewrite
    keeps a quote prefix; both wait for their releases.
 
+6. **Heading keys (2026-11-07).** The four property headings that did not give their property as
+   `` `name` Property `` now do (`arguments`, `revisionId`, `location`, `guid`); their labels are unchanged, only the
+   heading texts in `prose/edit/etc/section-display-to-text.json` changed (`nide harvest`). `check` refuses a heading
+   that names a property in another form (a backtick, or `x property`), a property section without a schema property,
+   and a schema property the prose does not describe, unless `records/drift.yaml` records the difference; it also
+   refuses an entry there that no longer holds. The four recorded ones are the assessment's S1, S3 and S4 (both
+   sides), all **TC**. Group headings such as "Product hierarchy properties" name no property and stay free.
+
 ## Next steps
 
-6. **Heading keys.** Fix the four property headings that do not give their property as `` `name` Property ``, then
-   let `check` refuse such a heading, and refuse a property section without a schema property (and back).
 7. **Constraint records (A2).** The presence rules and conditional defaults as records: one record per rule, from
    which the sentences, a JSON Schema `if`/`then` where the schema can say it, and one test fixture per branch are
    derived. Start with the 15 statements that announce a set of keywords ("either **SHALL** or **MAY**").
@@ -141,6 +148,6 @@ derived snippet by its key, and refuses a key without a record, a record without
 ## Files
 
 - `bin/vision.py`: migrate, derive, check (Python with jsonschema and PyYAML, the repository's pyenv environment)
-- `records/`: examples, markers, roles
+- `records/`: examples, markers, roles, drift
 - `views/`: findings, examples, `roles/<role>.md` (derived, never edit)
 - `makefile`: derive, check, prose

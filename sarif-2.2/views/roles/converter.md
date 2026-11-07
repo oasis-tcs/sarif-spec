@@ -34,7 +34,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A `conversion` object **MAY** contain a property named `invocation` whose value is an `invocation` object ([sec](#invocation-object)) that describes the invocation of the converter. (line 50)
 
-## guid property
+## `guid` Property
 
 `file-format-27-result-object.md`
 

@@ -704,7 +704,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - If `associatedComponent` is absent, it **SHALL** default to a reference to `theTool.driver`. (line 669)
 - The associated `toolComponent` object **MAY** itself contain an `associatedComponent` property; for example, a translation might be associated with a plugin which in turn is associated with the driver (see [sec](#tool-object--general)). (line 672)
 
-## arguments property
+## `arguments` Property
 
 `file-format-20-invocation-object.md`
 
@@ -839,7 +839,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A `versionControlDetails` object **SHALL** contain a property named `repositoryUri` whose value is a string containing an absolute URI [cite](#RFC3986) that specifies the location of the repository containing the scanned files. (line 18)
 
-## revisionId` Property
+## `revisionId` Property
 
 `file-format-23-versioncontroldetails-object.md`
 
@@ -870,7 +870,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - A `versionControlDetails` object **MAY** contain a property named `mappedTo` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies the location in the local file system to which the root of the repository was mapped at the time of the analysis. (line 44)
 - The mapping algorithm **SHALL** be as follows, or any algorithm with the same result (a clarifying example follows): (line 46)
 
-## `location property
+## `location` Property
 
 `file-format-24-artifact-object.md`
 
@@ -1004,7 +1004,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A `translationMetadata` object **MAY** contain a property named `informationUri` whose value is a string containing the absolute URI [cite](#RFC3986) at which information about the translation can be found. (line 54)
 
-## guid property
+## `guid` Property
 
 `file-format-27-result-object.md`
 

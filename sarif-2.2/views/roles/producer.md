@@ -257,7 +257,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - An `invocation` object **MAY** contain a property named `commandLine` whose value is a string containing the completely specified command line used to invoke the tool, starting with the name of the tool's executable or script file, optionally qualified by the relative or absolute path to the file. (line 10)
 
-## arguments property
+## `arguments` Property
 
 `file-format-20-invocation-object.md`
 
@@ -349,7 +349,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - The string **SHALL** conform to the format produced by the hash algorithm (for example, if the hash algorithm produces a string of hexadecimal digits, the producer would not prepend "0x" to it). (line 258)
 
-## guid property
+## `guid` Property
 
 `file-format-27-result-object.md`
 
