@@ -106,10 +106,18 @@ its record with `host`, and run `python -I bin/vision.py migrate-snippets` after
    State: all 120 snippets derived; 105 of 120 twins valid after injection, 14 contradict the schema in prose and
    twin alike (findings marked **TC**).
 
+4. **Margin notes as keys (2026-11-07).** `bin/vision.py migrate-notes` turned 407 of 471 margin notes into keys:
+   `see: <label>` renders "# See (#label).", `object: <name>` with `ref: <label>` renders "# A name object ((#label))."
+   (64 notes stay free text, their references are still checked). The prose stayed byte-identical. Three checks:
+   every referenced label exists (`check` refuses a broken key), an object note names the schema definition at its
+   JSON pointer, and a "See" note on a member line names that member's property section. First findings: three
+   examples whose own notes name the right property while the code holds a wrong one (`baseAddress` where the note
+   says `absoluteAddress`, `offset` / `offsetFromParent`, `analysisToolLogFileLocation` / `analysisToolLogFiles`),
+   a `taxonomies` element called "A toolComponentReference object", a SARIF 1.0 "file object", four remnants of
+   section numbers after a reference (`(#run-object).14`), and 43 object notes without a reference.
+
 ## Next steps
 
-4. **Margin notes as keys.** Today the notes are text (`((#artifact-object))`); as keys (a section label checked
-   against the prose) a renamed section is a broken key found by the build, not a stale note found by a reader.
 5. **Heading keys.** Fix the four property headings that do not give their property as `` `name` Property ``, then
    let `check` refuse such a heading, and refuse a property section without a schema property (and back).
 6. **Constraint records (A2).** The presence rules and conditional defaults as records: one record per rule, from

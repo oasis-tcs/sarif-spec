@@ -52,6 +52,19 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 - **TC** `file-format-57-replacement-object_general_example-1.json` as fix: /artifactChanges/2: Additional properties are not allowed ('deletedRegion', 'insertedContent' were unexpected)
 - example/graft.json: /version: '2.1.0' is not one of ['2.2']
 
+## Margin notes
+
+- `diagnosing-results_example-1.json` at `/originalUriBaseIds`: stray text after the reference: "# See (#run-object).14" (a remnant of a section number)
+- `file-format-03-artifactcontent-object_rendered-property_example-1.json` at `/address/baseAddress`: "See (#absoluteaddress-property)" names the property `absoluteAddress`, the line holds `baseAddress`
+- `file-format-03-artifactcontent-object_rendered-property_example-1.json` at `/address/offset`: "See (#offsetfromparent-property)" names the property `offsetFromParent`, the line holds `offset`
+- `file-format-19-toolcomponent-object_supportedtaxonomies-property_example-1.json` at `/taxonomies/0`: the note says "toolComponentReference object", the schema says `toolComponent`
+- `file-format-19-toolcomponent-object_taxonomies_example-1.json` at `/tool/driver/rules/0/relationships/0/target`: stray text after the reference: "# See (#reportingdescriptorrelationship-object).2" (a remnant of a section number)
+- `file-format-22-conversion-object_general_example-1.json` at `/runs/0/conversion/analysisToolLogFileLocation`: "See (#analysistoollogfiles-property)" names the property `analysisToolLogFiles`, the line holds `analysisToolLogFileLocation`
+- `file-format-24-artifact-object_hashes-property_example-1.json` at `/`: the note says "file object", the schema says `artifact`
+- `file-format-33-logicallocation-object_name-property_example-1.json` at `/kind`: stray text after the reference: "# See (#logicallocation-object).7" (a remnant of a section number)
+- `file-format-34-locationrelationship-object_general_example-1.json` at `/locations/0/relationships`: stray text after the reference: "# See (#location-object).7" (a remnant of a section number)
+- 43 object notes name their object without a reference ("A run object."); a key `ref` would link them like the others
+
 ## Statements
 
 - 15 statements announce a set of keywords ("either **SHALL** or **MAY**"); the rule is the sum of the sentences that follow (constraint record candidates):

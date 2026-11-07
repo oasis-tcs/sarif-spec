@@ -3,6 +3,7 @@
 Usage (from sarif-2.2/):
   python -I bin/vision.py migrate   seed records/examples.yaml from the twins (once; review the hosts afterwards)
   python -I bin/vision.py migrate-snippets   seed the `display` of each twin whose prose snippet round-trips exactly
+  python -I bin/vision.py migrate-notes      turn margin notes into keys (see, object, ref) where the text round-trips
   python -I bin/vision.py derive    write views/ from the schema, the records, the twins and the prose
   python -I bin/vision.py check     fail when a view differs from what derive would write, or a record is incomplete
 
@@ -428,6 +429,11 @@ def findings(sections, headings, statements, fences, items):
             out.append(f'- example/{f.name}: /{"/".join(map(str, e.absolute_path))}: {e.message[:120]}')
     out.append('')
 
+    # A4 against A1 and the prose: what the margin notes claim
+    out += ['## Margin notes', '']
+    out += note_findings() or ['- none']
+    out.append('')
+
     # A3: statements
     out += ['## Statements', '']
     sets = [s for s in statements if KEYWORD_SET.search(s['text'])]
@@ -682,10 +688,153 @@ def render_snippet(twin, display, prefix):
         n = notes.get((ptr, k))
         if n:
             col = n.get('column', display.get('column'))
-            line = line + ' ' * max(col - len(line), 1) + n['note']
+            line = line + ' ' * max(col - len(line), 1) + note_text(n)
         line += ' ' * trail.get((ptr, k), 0)
         rendered.append(prefix + line)
     return rendered
+
+
+# ── margin notes as keys ──────────────────────────────────────────────────────
+
+SEE_NOTE = re.compile(r'^# See \(#([\w.-]+)\)\.$')
+OBJECT_NOTE = re.compile(r'^# (An?) (\w+) object(?: \(\(#([\w.-]+)\)\))?(\.?)$')
+REFERENCE = re.compile(r'\(#([\w.-]+)\)')
+
+
+def note_text(n):
+    """A margin note as the prose shows it: from its keys (`see`, `object`/`ref`) or its free `note` text."""
+    if 'see' in n:
+        return f'# See (#{n["see"]}).'
+    if 'object' in n:
+        name = n['object']
+        text = f'# {"An" if name[0] in "aeiouAEIOU" else "A"} {name} object'
+        text += f' ((#{n["ref"]}))' if n.get('ref') else ''
+        return text + ('' if n.get('dot') is False else '.')
+    return n['note']
+
+
+def note_keys(note):
+    """The keys of a note's text, when its text can be regenerated from them exactly; else None."""
+    if m := SEE_NOTE.match(note):
+        keys = {'see': m.group(1)}
+    elif m := OBJECT_NOTE.match(note):
+        keys = {'object': m.group(2)} | ({'ref': m.group(3)} if m.group(3) else {}) | ({} if m.group(4) else {'dot': False})
+    else:
+        return None
+    return keys if note_text(keys) == note else None
+
+
+def label_index():
+    """Every section label of the prose: its heading text and the object section it belongs to."""
+    etc = PROSE / 'etc'
+    labels = json.loads((etc / 'section-display-to-label.json').read_text(encoding='utf-8'))
+    texts = json.loads((etc / 'section-display-to-text.json').read_text(encoding='utf-8'))
+    out = {}
+    for display, label in labels.items():
+        text = texts.get(display, '').replace('`', '')
+        owner, parts = None, display.split('.')
+        for n in range(len(parts), 0, -1):
+            m = re.match(r'^(\w+) Object$', texts.get('.'.join(parts[:n]), '').replace('`', ''))
+            if m:
+                owner = m.group(1)
+                break
+        out[label] = {'display': display, 'text': text, 'object': owner}
+    return out
+
+
+def schema_at(host, pointer):
+    """The schema definition name of the value at `pointer` in a twin hosted by `host` (None when unknown)."""
+    node, name = (SCHEMA, LOG) if host == LOG else (DEFS[host], host)
+    for token in [t for t in pointer.split('/')[1:]]:
+        token = token.replace('~1', '/').replace('~0', '~')
+        while '$ref' in node:
+            name = node['$ref'].rsplit('/', 1)[-1]
+            node = DEFS[name]
+        if node.get('type') == 'array' or 'items' in node:
+            node, name = node.get('items', {}), None
+        elif token in node.get('properties', {}):
+            node, name = node['properties'][token], None
+        elif isinstance(node.get('additionalProperties'), dict):
+            node, name = node['additionalProperties'], None
+        else:
+            return None
+    while '$ref' in node:
+        name = node['$ref'].rsplit('/', 1)[-1]
+        node = DEFS[name]
+    if name is None and node.get('type') == 'object' and node is SCHEMA:
+        name = LOG
+    return name
+
+
+def note_findings():
+    """What the margin notes claim, checked against the section labels and the schema."""
+    labels = label_index()
+    object_label = {v['text'][:-len(' Object')]: k for k, v in labels.items() if v['text'].endswith(' Object')}
+    out, unreferenced = [], 0
+    for rec in snippet_records():
+        twin, host = rec['twin'], rec.get('host')
+        notes = list(rec['display'].get('notes', []))
+        notes += [{'at': None, 'note': line.split('#', 1)[1].join(['#', ''])} for lines in rec['display'].get('before', {}).values()
+                  for line in lines if '#' in line]
+        for n in notes:
+            where = f'`{twin}` at ' + ('a line of its own' if n['at'] is None else f'`{n["at"] or "/"}`')
+            text = note_text(n)
+            for label in REFERENCE.findall(text):
+                if label not in labels:
+                    out.append(f'- {where}: the note refers to `#{label}`, which no section has (a broken key)')
+            if re.search(r'\(#[\w.-]+\)\.\d+', text):
+                out.append(f'- {where}: stray text after the reference: "{text}" (a remnant of a section number)')
+            if 'object' in n and host and n['at'] is not None:
+                actual = schema_at(host, n['at'])
+                if actual and actual.lower() != n['object'].lower():
+                    out.append(f'- {where}: the note says "{n["object"]} object", the schema says `{actual}`')
+                if n.get('ref') and object_label.get(n['object']) not in (None, n['ref']):
+                    out.append(f'- {where}: "{n["object"]} object" refers to `#{n["ref"]}`, its section is `#{object_label[n["object"]]}`')
+                if not n.get('ref'):
+                    unreferenced += 1
+            if 'see' in n and host and n['at']:
+                key = n['at'].rsplit('/', 1)[-1]
+                target = labels.get(n['see'])
+                m = re.match(r'^(\w+) Property$', target['text']) if target else None
+                if m and key != m.group(1) and not key.isdigit():
+                    out.append(f'- {where}: "See (#{n["see"]})" names the property `{m.group(1)}`, the line holds `{key}`')
+    if unreferenced:
+        out.append(f'- {unreferenced} object notes name their object without a reference ("A run object."); a key '
+                   '`ref` would link them like the others')
+    return out
+
+
+def broken_keys():
+    """Margin-note references to sections that do not exist: check refuses them."""
+    labels = label_index()
+    out = []
+    for rec in snippet_records():
+        texts = [note_text(n) for n in rec['display'].get('notes', [])]
+        texts += [line for lines in rec['display'].get('before', {}).values() for line in lines]
+        out += [f'{rec["twin"]}: margin note refers to #{label}, which no section has'
+                for t in texts for label in REFERENCE.findall(t) if label not in labels]
+    return out
+
+
+def migrate_notes():
+    """Turn margin notes into keys where their text can be regenerated from the keys exactly."""
+    path = RECORDS / 'examples.yaml'
+    data = yaml.safe_load(path.read_text(encoding='utf-8'))
+    counts = Counter()
+    for rec in data['examples']:
+        for n in rec.get('display', {}).get('notes', []):
+            if 'note' in n and (keys := note_keys(n['note'])):
+                del n['note']
+                n.update(keys)
+                counts['keyed'] += 1
+            elif 'note' in n:
+                counts['text'] += 1
+    header = [line for line in path.read_text(encoding='utf-8').splitlines() if line.startswith('#')]
+    if not any('see:' in line for line in header):
+        header.append('# Notes as keys (`bin/vision.py migrate-notes`): `see: <label>` renders "# See (#<label>).", `object: <name>`')
+        header.append('# with optional `ref: <label>` renders "# A <name> object ((#<label>))."; `note` keeps free text.')
+    path.write_text('\n'.join(header) + '\n\n' + yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=150), encoding='utf-8')
+    print(', '.join(f'{v} {k}' for k, v in counts.items()))
 
 
 def snippet_records():
@@ -825,7 +974,10 @@ def main():
     if command == 'migrate-snippets':
         migrate_snippets()
         return
-    problems = check_records()
+    if command == 'migrate-notes':
+        migrate_notes()
+        return
+    problems = check_records() + broken_keys()
     if problems:
         sys.exit('\n'.join(problems))
     views = derive_all()

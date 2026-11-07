@@ -9,6 +9,8 @@
 # inline: arrays on one line; open: an elided object as { ... }; spacing: a line spaced differently (whitespace
 # only, the twin still wins); expanded: [] written over two lines; before: blank and note-only lines, verbatim.
 # `snippet`: why the snippet is still hand-written.
+# Notes as keys (`bin/vision.py migrate-notes`): `see: <label>` renders "# See (#<label>).", `object: <name>`
+# with optional `ref: <label>` renders "# A <name> object ((#<label>))."; `note` keeps free text.
 
 examples:
 - twin: diagnosing-results_example-1.json
@@ -19,23 +21,26 @@ examples:
     column: 44
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /originalUriBaseIds
       note: '# See (#run-object).14'
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/ruleId
-      note: '# See (#ruleid-property).'
+      see: ruleid-property
     - at: /results/0/message
-      note: '# See (#result-object--message-property).'
+      see: result-object--message-property
     - at: /results/0/locations
-      note: '# See (#result-object--locations-property).'
+      see: result-object--locations-property
     - at: /results/0/locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /results/0/locations/0/physicalLocation
-      note: '# See (#physicallocation-property).'
+      see: physicallocation-property
     - at: /results/0/locations/0/physicalLocation/artifactLocation/uri
       note: '# A generated file (".g").'
     breaks:
@@ -55,15 +60,16 @@ examples:
     column: 44
     notes:
     - at: /artifacts
-      note: '# See (#artifacts-property).'
+      see: artifacts-property
     - at: /artifacts/0
-      note: '# An artifact object ((#artifact-object)).'
+      object: artifact
+      ref: artifact-object
     - at: /artifacts/0/location
-      note: '# See (#artifact-object--location-property).'
+      see: artifact-object--location-property
     - at: /artifacts/0/contents
-      note: '# See (#artifact-object--contents-property).'
+      see: artifact-object--contents-property
     - at: /artifacts/0/contents/text
-      note: '# See (#artifactcontent-object--text-property).'
+      see: artifactcontent-object--text-property
     before:
       /results:
       - '> '
@@ -124,14 +130,15 @@ examples:
     column: 30
     notes:
     - at: ''
-      note: '# An externalProperties object'
+      object: externalProperties
+      dot: false
     - at: /version
-      note: '# See (#externalproperties-object--version-property).'
       column: 28
+      see: externalproperties-object--version-property
     - at: /$schema
-      note: '# See (#externalproperties-object--schema-property).'
+      see: externalproperties-object--schema-property
     - at: /artifacts
-      note: '# See (#the-property-value-properties).'
+      see: the-property-value-properties
     breaks:
       /$schema:
       - - 12
@@ -157,19 +164,21 @@ examples:
     column: 33
     notes:
     - at: ''
-      note: '# A physicalLocation object ((#physicallocation-object)).'
+      object: physicalLocation
+      ref: physicallocation-object
     - at: /address
-      note: '# See (#address-property).'
+      see: address-property
     - at: /address/baseAddress
-      note: '# See (#absoluteaddress-property).'
+      see: absoluteaddress-property
     - at: /address/offset
-      note: '# See (#offsetfromparent-property).'
+      see: offsetfromparent-property
     - at: /region
-      note: '# See (#region-property).'
+      see: region-property
     - at: /region/snippet
       note: '# An artifactContent object. See (#snippet-property).'
     - at: /region/snippet/rendered
-      note: '# A multiformatMessageString object ((#multiformatmessagestring-object)).'
+      object: multiformatMessageString
+      ref: multiformatmessagestring-object
     before:
       /region:
       - '> '
@@ -181,9 +190,10 @@ examples:
     column: 49
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /originalUriBaseIds
-      note: '# See (#originaluribaseids-property).'
+      see: originaluribaseids-property
 - twin: file-format-04-artifactlocation-object_guidance-on-the-use-of-artifactlocation-objects_example-1.json
   host: run
   display:
@@ -192,21 +202,23 @@ examples:
     column: 49
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /originalUriBaseIds
-      note: '# See (#originaluribaseids-property).'
+      see: originaluribaseids-property
     - at: /results
       note: '# See (#results-property).                                     '
     - at: /results/0
       note: '# A result object ((#result-object)). '
     - at: /results/0/locations
-      note: '# See (#result-object--locations-property).'
+      see: result-object--locations-property
     - at: /results/0/locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /results/0/locations/0/physicalLocation
-      note: '# See (#physicallocation-property).'
+      see: physicallocation-property
     - at: /results/0/locations/0/physicalLocation/artifactLocation
-      note: '# An artifactLocation object.'
+      object: artifactLocation
     before:
       /results:
       - '> '
@@ -218,7 +230,8 @@ examples:
     column: 37
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
 - twin: file-format-04-artifactlocation-object_uribaseid-property_example-2.json
   host: artifactChange
   display:
@@ -233,9 +246,10 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /partialFingerprints
-      note: '# See (#partialfingerprints-property).'
+      see: partialfingerprints-property
 - twin: file-format-08-property-bags_tags_general_example-2.json
   host: run
   display:
@@ -244,13 +258,15 @@ examples:
     column: 31
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /artifacts
-      note: '# See (#artifacts-property).'
+      see: artifacts-property
     - at: /artifacts/0
-      note: '# An artifact object ((#artifact-object)).'
+      object: artifact
+      ref: artifact-object
     - at: /artifacts/0/location
-      note: '# See (#artifact-object--location-property).'
+      see: artifact-object--location-property
 - twin: file-format-08-property-bags_tags_tag-metadata_example-1.json
   host: artifact
   display:
@@ -259,7 +275,8 @@ examples:
     column: 31
     notes:
     - at: ''
-      note: '# An artifact object ((#artifact-object)).'
+      object: artifact
+      ref: artifact-object
     breaks:
       /properties/openSource/informationUri:
       - - 23
@@ -272,9 +289,11 @@ examples:
     column: 31
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /artifacts/0
-      note: '# An artifact object ((#artifact-object)).'
+      object: artifact
+      ref: artifact-object
     - at: /properties
       note: '# The property bag of the containing run.'
     breaks:
@@ -289,7 +308,8 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
 - twin: file-format-11-message-object_messages-with-placeholders_example-2.json
   host: run
   display:
@@ -300,19 +320,21 @@ examples:
     - /results/0/message/arguments
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/ruleId
-      note: '# See (#ruleid-property).'
+      see: ruleid-property
     - at: /results/0/message
-      note: '# See (#result-object--message-property).'
+      see: result-object--message-property
     - at: /results/0/message/text
-      note: '# See (#message-object--text-property).'
+      see: message-object--text-property
     - at: /results/0/message/arguments
-      note: '# See (#message-object--arguments-property).'
+      see: message-object--arguments-property
 - twin: file-format-13-sariflog-object_general_example-1.json
   host: sarifLog
   display:
@@ -328,13 +350,14 @@ examples:
       - '}'
     notes:
     - at: /version
-      note: '# See (#sariflog-object--version-property).'
       column: 20
+      see: sariflog-object--version-property
     - at: /runs
-      note: '# See (#runs-property).'
+      see: runs-property
     - at: /runs/0
-      note: '# A run object ((#run-object)).'
       line: 1
+      object: run
+      ref: run-object
     - at: /runs/2
       note: '# Another run object.'
       line: 1
@@ -347,17 +370,18 @@ examples:
     column: 54
     notes:
     - at: /inlineExternalProperties/0/guid
-      note: '# See (#externalproperties-object--guid-property).'
+      see: externalproperties-object--guid-property
     - at: /inlineExternalProperties/0/artifacts
-      note: '# See (#the-property-value-properties).'
+      see: the-property-value-properties
     - at: /runs
-      note: '# See (#runs-property).'
+      see: runs-property
     - at: /runs/0
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /runs/0/tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /runs/0/externalPropertyFileReferences
-      note: '# See (#externalpropertyfilereferences-property).'
+      see: externalpropertyfilereferences-property
     trailing:
     - - /inlineExternalProperties/0
       - 0
@@ -394,14 +418,16 @@ examples:
       - '}'
     notes:
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/...member-inject
-      note: '# A tool object ((#tool-object)).'
+      object: tool
+      ref: tool-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
       line: 1
+      object: result
+      ref: result-object
     - at: /results/2
       note: '# Another result object.'
       line: 1
@@ -423,7 +449,8 @@ examples:
     - /newlineSequences
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
 - twin: file-format-14-run-object_originaluribaseIds-property_example-1.json
   host: run
   snippet: 'closest is code block 2, whose line 2 differs from the twin: ''"PROJECTROOT": {'' vs ''"PROJECTROOT": {'''
@@ -442,15 +469,18 @@ examples:
     column: 42
     notes:
     - at: ''
-      note: '# A run object.'
+      object: run
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /results/0/locations/0/physicalLocation
-      note: '# See (#physicallocation-property).'
+      see: physicallocation-property
     - at: /results/0/locations/0/physicalLocation/artifactLocation
-      note: '# An artifactLocation object ((#artifactlocation-object)).'
+      object: artifactLocation
+      ref: artifactlocation-object
     before:
       /results:
       - '> '
@@ -462,7 +492,8 @@ examples:
     column: 22
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     before:
       /invocation:
       - '> '
@@ -475,18 +506,19 @@ examples:
     column: 39
     notes:
     - at: ''
-      note: '# A run object.'
+      object: run
     - at: /versionControlProvenance/0
-      note: '# A versionControlDetails object ((#versioncontroldetails-object)).'
+      object: versionControlDetails
+      ref: versioncontroldetails-object
     - at: /versionControlProvenance/0/repositoryUri
-      note: '# See (#repositoryuri-property).'
       column: 67
+      see: repositoryuri-property
     - at: /versionControlProvenance/0/revisionId
-      note: '# See (#revisionid-property).'
       column: 68
+      see: revisionid-property
     - at: /versionControlProvenance/0/branch
-      note: '# See (#branch-property).'
       column: 41
+      see: branch-property
     spacing:
       ? ''
       : '  {'
@@ -506,16 +538,17 @@ examples:
     column: 28
     notes:
     - at: ''
-      note: '# A run object.'
+      object: run
     - at: /originalUriBaseIds
-      note: '# See (#originaluribaseids-property).'
+      see: originaluribaseids-property
     - at: /externalPropertyFileReferences/conversion
-      note: '# An externalPropertyFileReference object ((#externalpropertyfilereference-object)).'
+      object: externalPropertyFileReference
+      ref: externalpropertyfilereference-object
     - at: /externalPropertyFileReferences/conversion/location
-      note: '# See (#externalpropertyfilereference-object--location-property).'
+      see: externalpropertyfilereference-object--location-property
     - at: /externalPropertyFileReferences/conversion/guid
-      note: '# See (#externalpropertyfilereference-object--guid-property).'
       column: 53
+      see: externalpropertyfilereference-object--guid-property
 - twin: file-format-15-externalpropertyfilereferences-object_properties_example-2.json
   host: run
   display:
@@ -524,17 +557,18 @@ examples:
     column: 29
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /originalUriBaseIds
-      note: '# See (#originaluribaseids-property).'
+      see: originaluribaseids-property
     - at: /externalPropertyFileReferences/conversion
       note: '# An externalPropertyFileReference object (see (#externalpropertyfilereference-object)).'
       column: 24
     - at: /externalPropertyFileReferences/conversion/location
-      note: '# See (#externalpropertyfilereference-object--location-property).'
+      see: externalpropertyfilereference-object--location-property
     - at: /externalPropertyFileReferences/conversion/guid
-      note: '# See (#externalpropertyfilereference-object--guid-property).'
       column: 53
+      see: externalpropertyfilereference-object--guid-property
 - twin: file-format-15-externalpropertyfilereferences-object_properties_example-3.json
   host: run
   display:
@@ -543,9 +577,10 @@ examples:
     column: 29
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /originalUriBaseIds
-      note: '# See (#originaluribaseids-property).'
+      see: originaluribaseids-property
     - at: /externalPropertyFileReferences/results/0
       note: '# An externalPropertyFileReference object (see (#externalpropertyfilereference-object)).'
       column: 24
@@ -560,11 +595,12 @@ examples:
     column: 31
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /automationDetails
-      note: '# See (#automationdetails-property).'
+      see: automationdetails-property
     - at: /runAggregates
-      note: '# See (#runaggregates-property).'
+      see: runaggregates-property
     breaks:
       /automationDetails/description/text:
       - - 76
@@ -582,11 +618,11 @@ examples:
     column: 27
     notes:
     - at: ''
-      note: '# A tool object.'
+      object: tool
     - at: /driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /extensions
-      note: '# See (#extensions-property).'
+      see: extensions-property
 - twin: file-format-19-toolcomponent-object_globalmessagestrings-property_example-1.json
   host: tool
   display:
@@ -596,9 +632,11 @@ examples:
     column: 34
     notes:
     - at: /driver
-      note: '# A toolComponent object ((#toolcomponent-object)).'
+      object: toolComponent
+      ref: toolcomponent-object
     - at: /driver/globalMessageStrings/call
-      note: '# A multiformatMessageString object ((#multiformatmessagestring-object)).'
+      object: multiformatMessageString
+      ref: multiformatmessagestring-object
 - twin: file-format-19-toolcomponent-object_minimumrequiredlocalizeddatasemanticversion-property_example-1.json
   host: run
   display:
@@ -607,15 +645,16 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/semanticVersion
-      note: '# See (#semanticversion-property).'
+      see: semanticversion-property
     - at: /translations/0
-      note: '# A toolComponent object.'
+      object: toolComponent
 - twin: file-format-19-toolcomponent-object_notifications-property_example-1.json
   host: tool
   display:
@@ -625,9 +664,11 @@ examples:
     column: 33
     notes:
     - at: /driver
-      note: '# A toolComponent object ((#toolcomponent-object)).'
+      object: toolComponent
+      ref: toolcomponent-object
     - at: /driver/notifications/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
 - twin: file-format-19-toolcomponent-object_policies_example-1.json
   host: run
   display:
@@ -636,20 +677,23 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/rules/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     - at: /tool/driver/rules/0/defaultConfiguration
-      note: '# See (#defaultconfiguration-property).'
       column: 36
+      see: defaultconfiguration-property
     - at: /policies/0
-      note: '# A toolComponent object ((#toolcomponent-object)).'
+      object: toolComponent
+      ref: toolcomponent-object
 - twin: file-format-19-toolcomponent-object_rules-property_example-1.json
   host: tool
   display:
@@ -659,9 +703,11 @@ examples:
     column: 34
     notes:
     - at: /driver
-      note: '# A toolComponent object ((#toolcomponent-object)).'
+      object: toolComponent
+      ref: toolcomponent-object
     - at: /driver/rules/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     breaks:
       /driver/rules/1/messageStrings/default/text:
       - - 76
@@ -676,26 +722,28 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/taxa
       note: '# See (#toolcomponent-object--taxa-property). Here, defines a custom'
     - at: /tool/driver/taxa/0
       note: '#  taxonomy.'
     - at: /tool/driver/supportedTaxonomies/0
-      note: '# A toolComponentReference object ((#toolcomponentreference-object)).'
+      object: toolComponentReference
+      ref: toolcomponentreference-object
     - at: /tool/driver/supportedTaxonomies/0/name
       note: '# Declares support for CWE.'
     - at: /tool/driver/supportedTaxonomies/1/name
       note: '# Declares support for its custom taxonomy.'
     - at: /taxonomies/0
-      note: '# A toolComponentReference object.'
       column: 32
+      object: toolComponentReference
 - twin: file-format-19-toolcomponent-object_taxa-property_example-1.json
   host: toolComponent
   display:
@@ -704,7 +752,7 @@ examples:
     column: 36
     notes:
     - at: ''
-      note: '# A toolComponent object.'
+      object: toolComponent
 - twin: file-format-19-toolcomponent-object_taxonomies_example-1.json
   host: run
   display:
@@ -713,22 +761,24 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/semanticVersion
-      note: '# See (#semanticversion-property).'
+      see: semanticversion-property
     - at: /tool/driver/rules/0/relationships
-      note: '# See (#reportingdescriptor-object--relationships-property).'
+      see: reportingdescriptor-object--relationships-property
     - at: /tool/driver/rules/0/relationships/0
-      note: '# A reportingDescriptorRelationship object ((#reportingdescriptorrelationship-object)).'
       column: 27
+      object: reportingDescriptorRelationship
+      ref: reportingdescriptorrelationship-object
     - at: /tool/driver/rules/0/relationships/0/target
       note: '# See (#reportingdescriptorrelationship-object).2'
     - at: /tool/driver/rules/0/relationships/0/kinds
-      note: '# See (#reportingdescriptorrelationship-object--kinds-property).'
+      see: reportingdescriptorrelationship-object--kinds-property
     before:
       /taxonomies:
       - '> '
@@ -742,15 +792,16 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/semanticVersion
-      note: '# See (#semanticversion-property).'
+      see: semanticversion-property
     - at: /translations/0
-      note: '# A toolComponent object.'
+      object: toolComponent
 - twin: file-format-20-invocation-object_executionsuccessful-property_example-1.json
   host: invocation
   display:
@@ -764,7 +815,8 @@ examples:
     column: 24
     notes:
     - at: ''
-      note: '# An invocation object'
+      object: invocation
+      dot: false
 - twin: file-format-20-invocation-object_exitcodedescription-property_example-2.json
   host: invocation
   display:
@@ -773,7 +825,8 @@ examples:
     column: 24
     notes:
     - at: ''
-      note: '# An invocation object'
+      object: invocation
+      dot: false
 - twin: file-format-20-invocation-object_exitsignalnumber-property_example-1.json
   host: invocation
   display:
@@ -782,7 +835,8 @@ examples:
     column: 24
     notes:
     - at: ''
-      note: '# An invocation object'
+      object: invocation
+      dot: false
 - twin: file-format-20-invocation-object_processstartfailuremessage-property_example-1.json
   host: invocation
   display:
@@ -791,7 +845,8 @@ examples:
     column: 24
     notes:
     - at: ''
-      note: '# An invocation object'
+      object: invocation
+      dot: false
 - twin: file-format-20-invocation-object_responsefiles-property_example-1.json
   host: invocation
   snippet: 'closest is code block 0, whose line 2 differs from the twin: ''"commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rs'' vs ''"commandLine":
@@ -802,9 +857,10 @@ examples:
     column: 24
     notes:
     - at: ''
-      note: '# An invocation object.'
+      object: invocation
     - at: /responseFiles/0
-      note: '# An artifactLocation object ((#artifactlocation-object)).'
+      object: artifactLocation
+      ref: artifactlocation-object
     spacing:
       /commandLine: '    "commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rsp",'
       /responseFiles: '    "responseFiles": ['
@@ -834,7 +890,8 @@ examples:
     column: 36
     notes:
     - at: /toolConfigurationNotifications/0
-      note: '# A notification object ((#notification-object)).'
+      object: notification
+      ref: notification-object
     breaks:
       /toolConfigurationNotifications/0/message/text:
       - - 49
@@ -848,7 +905,8 @@ examples:
     column: 36
     notes:
     - at: /toolConfigurationNotifications/0
-      note: '# A notification object ((#notification-object)).'
+      object: notification
+      ref: notification-object
 - twin: file-format-20-invocation-object_toolconfigurationnotifications-property_example-3.json
   host: invocation
   display:
@@ -858,7 +916,8 @@ examples:
     column: 36
     notes:
     - at: /toolConfigurationNotifications/0
-      note: '# A notification object ((#notification-object)).'
+      object: notification
+      ref: notification-object
 - twin: file-format-21-attachment-object_general_example-1.json
   host: result
   display:
@@ -867,15 +926,16 @@ examples:
     column: 46
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /attachments
-      note: '# See (#attachments-property).'
+      see: attachments-property
     - at: /attachments/0
-      note: '# An attachment object.'
+      object: attachment
     - at: /attachments/0/description
-      note: '# See (#attachment-object--description-property).'
+      see: attachment-object--description-property
     - at: /attachments/0/location
-      note: '# See (#attachment-object--location-property).'
+      see: attachment-object--location-property
 - twin: file-format-22-conversion-object_general_example-1.json
   host: sarifLog
   snippet: 'closest is code block 0, whose line 16 differs from the twin: '''' vs ''"invocation": "Sarif.Multitool.exe convert -t AndroidStudio '''
@@ -885,9 +945,9 @@ examples:
     column: 53
     notes:
     - at: /runs/0/conversion/tool
-      note: '# See (#conversion-object--tool-property).'
+      see: conversion-object--tool-property
     - at: /runs/0/conversion/analysisToolLogFileLocation
-      note: '# See (#analysistoollogfiles-property).'
+      see: analysistoollogfiles-property
     breaks:
       /runs/0/conversion/invocation:
       - - 21
@@ -923,11 +983,12 @@ examples:
     column: 39
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /defaultEncoding
-      note: '# See (#defaultencoding-property).'
+      see: defaultencoding-property
     - at: /artifacts
-      note: '# See (#artifacts-property).'
+      see: artifacts-property
     before:
       /artifacts:
       - '> '
@@ -943,7 +1004,7 @@ examples:
     column: 20
     notes:
     - at: ''
-      note: '# A file object.'
+      object: file
 - twin: file-format-24-artifact-object_parentindex-property_example-1.json
   host: run
   display:
@@ -963,11 +1024,13 @@ examples:
     column: 28
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /originalUriBaseIds
-      note: '# See (#originaluribaseids-property).'
+      see: originaluribaseids-property
     - at: /specialLocations/displayBase
-      note: '# An artifactLocation object ((#artifactlocation-object)).'
+      object: artifactLocation
+      ref: artifactlocation-object
     - at: /specialLocations/displayBase/uri
       note: '# Empty string is valid relative reference.'
     spacing:
@@ -984,7 +1047,8 @@ examples:
     column: 28
     notes:
     - at: ''
-      note: '# A toolComponent object ((#toolcomponent-object)).'
+      object: toolComponent
+      ref: toolcomponent-object
     - at: /language
       note: '# The language of the translation (see (#language-property)).'
     - at: /translationMetadata
@@ -1002,17 +1066,20 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /analysisTarget
-      note: '# An artifactLocation object ((#artifactlocation-object)).'
+      object: artifactLocation
+      ref: artifactlocation-object
     - at: /locations
-      note: '# See (#result-object--locations-property).'
+      see: result-object--locations-property
     - at: /locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /locations/0/physicalLocation
-      note: '# See (#physicallocation-property).'
+      see: physicallocation-property
     - at: /locations/0/physicalLocation/artifactLocation
-      note: '# An artifactLocation object.'
+      object: artifactLocation
     before:
       /locations:
       - '> '
@@ -1036,11 +1103,12 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object.'
+      object: result
 - twin: file-format-27-result-object_kind-property_example-1.json
   host: run
   display:
@@ -1092,19 +1160,23 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/rules/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     - at: /tool/driver/rules/0/messageStrings/default
-      note: '# A multiformatMessageString object ((#multiformatmessagestring-object)).'
+      object: multiformatMessageString
+      ref: multiformatmessagestring-object
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
 - twin: file-format-27-result-object_partialfingerprints-property_example-1.json
   host: result
   display:
@@ -1113,7 +1185,8 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
 - twin: file-format-27-result-object_partialfingerprints-property_example-2.json
   host: run
   display:
@@ -1122,11 +1195,12 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object.'
+      object: result
 - twin: file-format-27-result-object_partialfingerprints-property_example-3.json
   host: result
   display:
@@ -1135,7 +1209,7 @@ examples:
     column: 28
     notes:
     - at: ''
-      note: '# A result object.'
+      object: result
     breaks:
       /partialFingerprints/wordPlusLangHash:
       - - 23
@@ -1149,7 +1223,8 @@ examples:
     column: 28
     notes:
     - at: ''
-      note: '# A result object'
+      object: result
+      dot: false
 - twin: file-format-27-result-object_relatedlocations-property_example-1.json
   host: run
   snippet: 'closest is code block 12, whose line 37 differs from the twin: ''...'' vs ''...'''
@@ -1162,7 +1237,7 @@ examples:
     - at: /results/0/relatedLocations
       note: '# An array of location objects ((#location-object)).'
     - at: /results/0/relatedLocations/0
-      note: '# A location object.'
+      object: location
     breaks:
       /results/0/message/text:
       - - 64
@@ -1184,7 +1259,8 @@ examples:
     column: 38
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     before:
       /tool/driver/taxa/0/...member-inject:
       - '> '
@@ -1199,7 +1275,8 @@ examples:
     - at: /annotations
       note: '# An array of region objects.'
     - at: /annotations/0
-      note: '# A region object ((#region-object)).'
+      object: region
+      ref: region-object
 - twin: file-format-29-physicallocation-object_contextregion-property_example-1.json
   host: result
   display:
@@ -1208,18 +1285,22 @@ examples:
     column: 40
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /locations
-      note: '# See (#result-object--locations-property).'
+      see: result-object--locations-property
     - at: /locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /locations/0/physicalLocation
-      note: '# A physicalLocation object ((#physicallocation-object)).'
+      object: physicalLocation
+      ref: physicallocation-object
     - at: /locations/0/physicalLocation/artifactLocation
-      note: '# An artifactLocation object ((#artifactlocation-object)).'
+      object: artifactLocation
+      ref: artifactlocation-object
     - at: /locations/0/physicalLocation/region
-      note: '# See (#region-property).'
       column: 41
+      see: region-property
     before:
       /locations/0/physicalLocation/region:
       - '> '
@@ -1233,13 +1314,15 @@ examples:
     column: 31
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /locations
-      note: '# See (#result-object--locations-property).'
+      see: result-object--locations-property
     - at: /locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /locations/0/physicalLocation
-      note: '# See (#physicallocation-property).'
+      see: physicallocation-property
     - at: /locations/0/physicalLocation/artifactLocation
       note: '# A artifactLocation object.'
     - at: /locations/0/physicalLocation/region
@@ -1257,21 +1340,22 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /addresses
-      note: '# See (#addresses-property).'
+      see: addresses-property
     - at: /addresses/0/name
-      note: '# See (#address-object--name-property).'
+      see: address-object--name-property
     - at: /addresses/0/kind
-      note: '# See (#address-object--kind-property).'
+      see: address-object--kind-property
     - at: /addresses/0/absoluteAddress
-      note: '# See (#absoluteaddress-property).'
+      see: absoluteaddress-property
     - at: /addresses/1/parentIndex
-      note: '# See (#address-object--parentindex-property).'
+      see: address-object--parentindex-property
     - at: /addresses/1/offsetFromParent
-      note: '# See (#offsetfromparent-property).'
+      see: offsetfromparent-property
     - at: /addresses/1/relativeAddress
-      note: '# See (#relativeaddress-property).'
+      see: relativeaddress-property
 - twin: file-format-33-logicallocation-object_decoratedname-property_example-1.json
   host: logicalLocation
   display:
@@ -1280,7 +1364,8 @@ examples:
     column: 47
     notes:
     - at: ''
-      note: '# A logicalLocation object'
+      object: logicalLocation
+      dot: false
 - twin: file-format-33-logicallocation-object_fullyqualifiedname-property_example-1.json
   host: run
   display:
@@ -1301,23 +1386,26 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/locations
-      note: '# See (#result-object--locations-property).'
+      see: result-object--locations-property
     - at: /results/0/locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /results/0/locations/0/logicalLocations
-      note: '# See (#location-object--logicallocations-property).'
+      see: location-object--logicallocations-property
     - at: /results/0/locations/0/logicalLocations/0
-      note: '# A logicalLocation object.'
+      object: logicalLocation
     - at: /logicalLocations
-      note: '# See (#run-object--logicallocations-property).'
+      see: run-object--logicallocations-property
     - at: /logicalLocations/0
-      note: '# A logicalLocation object.'
+      object: logicalLocation
     before:
       /logicalLocations:
       - '> '
@@ -1330,23 +1418,28 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/locations
-      note: '# See (#result-object--locations-property).'
+      see: result-object--locations-property
     - at: /results/0/locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /results/0/locations/0/logicalLocations
-      note: '# See (#location-object--logicallocations-property).'
+      see: location-object--logicallocations-property
     - at: /results/0/locations/0/logicalLocations/0
-      note: '# A logicallocation object ((#logicallocation-object)).'
+      object: logicallocation
+      ref: logicallocation-object
     - at: /logicalLocations
-      note: '# See (#run-object--logicallocations-property).'
+      see: run-object--logicallocations-property
     - at: /logicalLocations/0
-      note: '# A logicalLocation object ((#logicallocation-object)).'
+      object: logicalLocation
+      ref: logicallocation-object
     trailing:
     - - '#end'
       - 0
@@ -1362,9 +1455,9 @@ examples:
     column: 39
     notes:
     - at: ''
-      note: '# A logicalLocation object.'
+      object: logicalLocation
     - at: /fullyQualifiedName
-      note: '# See (#logicallocation-object--fullyqualifiedname-property).'
+      see: logicallocation-object--fullyqualifiedname-property
     - at: /kind
       note: '# See (#logicallocation-object).7'
 - twin: file-format-33-logicallocation-object_parentindex-property_example-1.json
@@ -1375,15 +1468,16 @@ examples:
     column: 45
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /logicalLocations
-      note: '# See (#run-object--logicallocations-property).'
+      see: run-object--logicallocations-property
     - at: /logicalLocations/0/name
-      note: '# See (#logicallocation-object--name-property).'
+      see: logicallocation-object--name-property
     - at: /logicalLocations/0/fullyQualifiedName
-      note: '# See (#logicallocation-object--fullyqualifiedname-property).'
+      see: logicallocation-object--fullyqualifiedname-property
     - at: /logicalLocations/0/kind
-      note: '# See (#logicallocation-object--kind-property).'
+      see: logicallocation-object--kind-property
 - twin: file-format-34-locationrelationship-object_general_example-1.json
   host: result
   display:
@@ -1397,23 +1491,25 @@ examples:
     - /relatedLocations/1/relationships/0/kinds
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /locations
-      note: '# See (#result-object--locations-property).'
+      see: result-object--locations-property
     - at: /locations/0
-      note: '# A location object ((#location-object)).'
+      object: location
+      ref: location-object
     - at: /locations/0/id
-      note: '# See (#location-object--id-property).'
+      see: location-object--id-property
     - at: /locations/0/relationships
       note: '# See (#location-object).7'
     - at: /locations/0/relationships/0
-      note: '# A locationRelationship object.'
+      object: locationRelationship
     - at: /locations/0/relationships/0/target
-      note: '# See (#locationrelationship-object--target-property).'
+      see: locationrelationship-object--target-property
     - at: /locations/0/relationships/0/kinds
-      note: '# See (#locationrelationship-object--kinds-property).'
+      see: locationrelationship-object--kinds-property
     - at: /relatedLocations
-      note: '# See (#relatedlocations-property).'
+      see: relatedlocations-property
     - at: /relatedLocations/0/physicalLocation/region/startLine
       note: '# The line that includes f.h.'
     - at: /relatedLocations/1/physicalLocation/region/startLine
@@ -1429,35 +1525,38 @@ examples:
     column: 40
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /codeFlows
-      note: '# See (#codeflows-property).'
+      see: codeflows-property
     - at: /codeFlows/0
-      note: '# A codeFlow object.'
+      object: codeFlow
     - at: /codeFlows/0/message
-      note: '# See (#codeflow-object--message-property).'
+      see: codeflow-object--message-property
     - at: /codeFlows/0/threadFlows
-      note: '# See (#threadflows-property).'
+      see: threadflows-property
     - at: /codeFlows/0/threadFlows/0
-      note: '# A threadFlow object ((#threadflow-object)).'
+      object: threadFlow
+      ref: threadflow-object
     - at: /codeFlows/0/threadFlows/0/id
-      note: '# See (#threadflow-object--id-property).'
+      see: threadflow-object--id-property
     - at: /codeFlows/0/threadFlows/0/message
-      note: '# See (#threadflow-object--message-property).'
+      see: threadflow-object--message-property
     - at: /codeFlows/0/threadFlows/0/locations
-      note: '# See (#threadflow-object--locations-property).'
+      see: threadflow-object--locations-property
     - at: /codeFlows/0/threadFlows/0/locations/0
-      note: '# A threadFlowLocation object ((#threadflowlocation-object)).'
+      object: threadFlowLocation
+      ref: threadflowlocation-object
     - at: /codeFlows/0/threadFlows/0/locations/0/location
-      note: '# See (#threadflowlocation-object--location-property).'
+      see: threadflowlocation-object--location-property
     - at: /codeFlows/0/threadFlows/0/locations/0/location/physicalLocation
-      note: '# See (#physicallocation-property).'
+      see: physicallocation-property
     - at: /codeFlows/0/threadFlows/0/locations/0/state
-      note: '# See (#state-property).'
+      see: state-property
     - at: /codeFlows/0/threadFlows/0/locations/0/nestingLevel
-      note: '# See (#nestinglevel-property).'
+      see: nestinglevel-property
     - at: /codeFlows/0/threadFlows/0/locations/0/executionOrder
-      note: '# See (#executionorder-property).'
+      see: executionorder-property
     before:
       /codeFlows/0/threadFlows:
       - '> '
@@ -1477,7 +1576,7 @@ examples:
     column: 43
     notes:
     - at: ''
-      note: '# A threadFlow object.'
+      object: threadFlow
 - twin: file-format-38-threadflowlocation-object_index-property_example-1.json
   host: run
   display:
@@ -1486,9 +1585,10 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /threadFlowLocations
-      note: '# See (#threadflowlocations-property).'
+      see: threadflowlocations-property
     - at: /threadFlowLocations/1
       note: '# A threadFlowLocation object: thisObject.'
     - at: /threadFlowLocations/1/index
@@ -1501,27 +1601,31 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/codeFlows
-      note: '# See (#codeflows-property).'
+      see: codeflows-property
     - at: /results/0/codeFlows/0
-      note: '# A codeFlow object ((#codeflow-object)).'
+      object: codeFlow
+      ref: codeflow-object
     - at: /results/0/codeFlows/0/threadFlows
-      note: '# See (#threadflows-property).'
+      see: threadflows-property
     - at: /results/0/codeFlows/0/threadFlows/0
-      note: '# A threadFlow object ((#threadflow-object)).'
+      object: threadFlow
+      ref: threadflow-object
     - at: /results/0/codeFlows/0/threadFlows/0/locations
-      note: '# See (#threadflow-object--locations-property).'
+      see: threadflow-object--locations-property
     - at: /results/0/codeFlows/0/threadFlows/0/locations/0
       note: '# A threadFlowLocation object (thisObject).'
     - at: /results/0/codeFlows/0/threadFlows/0/locations/0/location
-      note: '# See (#threadflowlocation-object--location-property).'
+      see: threadflowlocation-object--location-property
     - at: /threadFlowLocations
-      note: '# See (#threadflowlocations-property).'
+      see: threadflowlocations-property
 - twin: file-format-38-threadflowlocation-object_index-property_example-3.json
   host: run
   display:
@@ -1530,31 +1634,35 @@ examples:
     column: 34
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/codeFlows
-      note: '# See (#codeflows-property).'
+      see: codeflows-property
     - at: /results/0/codeFlows/0
-      note: '# A codeFlow object ((#codeflow-object)).'
+      object: codeFlow
+      ref: codeflow-object
     - at: /results/0/codeFlows/0/threadFlows
-      note: '# See (#threadflows-property).'
+      see: threadflows-property
     - at: /results/0/codeFlows/0/threadFlows/0
-      note: '# A threadFlow object ((#threadflow-object)).'
+      object: threadFlow
+      ref: threadflow-object
     - at: /results/0/codeFlows/0/threadFlows/0/locations
-      note: '# See (#threadflow-object--locations-property).'
+      see: threadflow-object--locations-property
     - at: /results/0/codeFlows/0/threadFlows/0/locations/0
       note: '# An threadFlowLocation object: thisObject.'
     - at: /results/0/codeFlows/0/threadFlows/0/locations/0/index
       note: '# index is present so no other properties.'
     - at: /threadFlowLocations
-      note: '# See (#threadflowlocations-property).'
+      see: threadflowlocations-property
     - at: /threadFlowLocations/0
       note: '# The cached threadFlowLocation object.'
     - at: /threadFlowLocations/0/location
-      note: '# See (#threadflowlocation-object--location-property).'
+      see: threadflowlocation-object--location-property
 - twin: file-format-38-threadflowlocation-object_kinds-property_example-1.json
   host: threadFlowLocation
   display:
@@ -1582,17 +1690,19 @@ examples:
     column: 38
     notes:
     - at: ''
-      note: '# A codeFlow object ((#codeflow-object)).'
+      object: codeFlow
+      ref: codeflow-object
     - at: /threadFlows
-      note: '# See (#threadflows-property).'
+      see: threadflows-property
     - at: /threadFlows/0
-      note: '# A threadFlow object ((#threadflow-object)).'
+      object: threadFlow
+      ref: threadflow-object
     - at: /threadFlows/0/message
-      note: '# See (#threadflow-object--message-property).'
+      see: threadflow-object--message-property
     - at: /threadFlows/0/locations
-      note: '# See (#threadflow-object--locations-property).'
+      see: threadflow-object--locations-property
     - at: /threadFlows/0/locations/0
-      note: '# A threadFlowLocation object.'
+      object: threadFlowLocation
     - at: /threadFlows/0/locations/0/location
       note: '# A location object with only a message.'
     - at: /threadFlows/1
@@ -1609,7 +1719,7 @@ examples:
     column: 31
     notes:
     - at: ''
-      note: '# A threadFlowLocation object.'
+      object: threadFlowLocation
 - twin: file-format-38-threadflowlocation-object_taxa-property_example-1.json
   host: run
   display:
@@ -1618,34 +1728,39 @@ examples:
     column: 33
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver/taxa
       note: '# Custom taxonomy ((#taxonomies)) for helper rules.'
     - at: /tool/driver/taxa/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
       note: '# A result object (#result-object).'
     - at: /results/0/codeFlows
-      note: '# See (#codeflows-property).'
+      see: codeflows-property
     - at: /results/0/codeFlows/0
-      note: '# A codeFlow object ((#codeflow-object)).'
+      object: codeFlow
+      ref: codeflow-object
     - at: /results/0/codeFlows/0/threadFlows
-      note: '# See (#threadflows-property).'
+      see: threadflows-property
     - at: /results/0/codeFlows/0/threadFlows/0
-      note: '# A threadFlow object ((#threadflow-object)).'
+      object: threadFlow
+      ref: threadflow-object
     - at: /results/0/codeFlows/0/threadFlows/0/locations
-      note: '# See (#threadflow-object--locations-property).'
+      see: threadflow-object--locations-property
     - at: /results/0/codeFlows/0/threadFlows/0/locations/1
-      note: '# A threadFlowLocation object.'
+      object: threadFlowLocation
     - at: /results/0/codeFlows/0/threadFlows/0/locations/1/location
-      note: '# See (#threadflowlocation-object--location-property).'
+      see: threadflowlocation-object--location-property
     - at: /results/0/codeFlows/0/threadFlows/0/locations/1/taxa/0
-      note: '# A reportingDescriptorReference object ((#reportingdescriptorreference-object)).'
       column: 29
+      object: reportingDescriptorReference
+      ref: reportingdescriptorreference-object
     breaks:
       /tool/driver/taxa/0/shortDescription/text:
       - - 62
@@ -1661,13 +1776,14 @@ examples:
     column: 30
     notes:
     - at: ''
-      note: '# A graph object ((#graph-object)).'
+      object: graph
+      ref: graph-object
     - at: /nodes
-      note: '# See (#nodes-property).'
+      see: nodes-property
     - at: /nodes/0
-      note: '# A node object.'
+      object: node
     - at: /nodes/0/children
-      note: '# See (#children-property).'
+      see: children-property
     - at: /nodes/1/children/0/id
       note: '# INVALID: duplicate id.'
 - twin: file-format-41-edge-object_sourcenodeid-property_example-1.json
@@ -1678,15 +1794,16 @@ examples:
     column: 30
     notes:
     - at: ''
-      note: '# A graph object ((#graph-object)).'
+      object: graph
+      ref: graph-object
     - at: /nodes
-      note: '# See (#nodes-property).'
+      see: nodes-property
     - at: /nodes/0
-      note: '# A node object.'
+      object: node
     - at: /nodes/0/children
-      note: '# See (#children-property).'
+      see: children-property
     - at: /edges
-      note: '# See (#edges-property).'
+      see: edges-property
     - at: /edges/0/sourceNodeId
       note: '# Source node and target node are in separate'
     - at: /edges/0/targetNodeId
@@ -1704,41 +1821,47 @@ examples:
     - /graphs/0/nodes/3
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /graphs
-      note: '# See (#result-object--graphs-property).'
+      see: result-object--graphs-property
     - at: /graphs/0
-      note: '# A graph object ((#graph-object)).'
+      object: graph
+      ref: graph-object
     - at: /graphs/0/nodes
-      note: '# See (#nodes-property).'
+      see: nodes-property
     - at: /graphs/0/nodes/0
-      note: '# A node object ((#node-object)).'
+      object: node
+      ref: node-object
     - at: /graphs/0/edges
-      note: '# See (#edges-property).'
+      see: edges-property
     - at: /graphs/0/edges/0
-      note: '# An edge object ((#edge-object)).'
+      object: edge
+      ref: edge-object
     - at: /graphs/0/edges/0/id
-      note: '# See (#edge-object--id-property).'
+      see: edge-object--id-property
     - at: /graphs/0/edges/0/sourceNodeId
-      note: '# See (#sourcenodeid-property).'
+      see: sourcenodeid-property
     - at: /graphs/0/edges/0/targetNodeId
-      note: '# See (#targetnodeid-property).'
+      see: targetnodeid-property
     - at: /graphTraversals
-      note: '# See (#graphtraversals-property).'
+      see: graphtraversals-property
     - at: /graphTraversals/0
-      note: '# A graphTraversal object ((#graphtraversal-object)).'
+      object: graphTraversal
+      ref: graphtraversal-object
     - at: /graphTraversals/0/resultGraphIndex
-      note: '# See (#resultgraphindex-property).'
+      see: resultgraphindex-property
     - at: /graphTraversals/0/initialState
-      note: '# See (#graphtraversal-object--initialstate-property).'
+      see: graphtraversal-object--initialstate-property
     - at: /graphTraversals/0/edgeTraversals
-      note: '# See (#edgetraversals-property).'
+      see: edgetraversals-property
     - at: /graphTraversals/0/edgeTraversals/0
-      note: '# An edgeTraversal object ((#edgetraversal-object)).'
+      object: edgeTraversal
+      ref: edgetraversal-object
     - at: /graphTraversals/0/edgeTraversals/0/edgeId
-      note: '# See (#edgeid-property).'
+      see: edgeid-property
     - at: /graphTraversals/0/edgeTraversals/0/finalState
-      note: '# See (#finalstate-property).'
+      see: finalstate-property
     before:
       /graphs/0/edges:
       - '> '
@@ -1760,7 +1883,7 @@ examples:
     column: 43
     notes:
     - at: ''
-      note: '# A graphTraversal object.'
+      object: graphTraversal
 - twin: file-format-43-edgetraversal-object_stepoveredgecount-property_example-1.json
   host: result
   display:
@@ -1789,15 +1912,18 @@ examples:
     - /graphTraversals/0/edgeTraversals/5
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /graphs
-      note: '# See (#result-object--graphs-property).'
+      see: result-object--graphs-property
     - at: /graphs/0
-      note: '# A graph object ((#graph-object)).'
+      object: graph
+      ref: graph-object
     - at: /graphTraversals
-      note: '# See (#graphtraversals-property).'
+      see: graphtraversals-property
     - at: /graphTraversals/0
-      note: '# A graphTraversal object ((#graphtraversal-object)).'
+      object: graphTraversal
+      ref: graphtraversal-object
     - at: /graphTraversals/0/resultGraphIndex
       note: '# The graph being traversed.'
     before:
@@ -1814,15 +1940,15 @@ examples:
       note: '# A conversion object (see (#conversion-object)).'
       column: 23
     - at: /runs/0/results/0/provenance
-      note: '# See (#provenance-property).'
+      see: provenance-property
     - at: /runs/0/results/0/provenance/conversionSources
       note: '# An array of physicalLocation objects '
     - at: /runs/0/results/0/provenance/conversionSources/0
       note: '# ((#physicallocation-object)).'
     - at: /runs/0/results/0/provenance/conversionSources/0/artifactLocation
-      note: '# See (#physicallocation-object--artifactlocation-property).'
+      see: physicallocation-object--artifactlocation-property
     - at: /runs/0/results/0/provenance/conversionSources/0/region
-      note: '# See (#region-property).'
+      see: region-property
 - twin: file-format-49-reportingdescriptor-object_deprecatedids-property_example-1.json
   host: run
   display:
@@ -1839,7 +1965,8 @@ examples:
     - at: ''
       note: '# A reportingDescriptor object for a rule.'
     - at: /messageStrings/objectCreation
-      note: '# A multiformatMessageString object ((#multiformatmessagestring-object)).'
+      object: multiformatMessageString
+      ref: multiformatmessagestring-object
     breaks:
       /messageStrings/objectCreation/text:
       - - 69
@@ -1874,7 +2001,8 @@ examples:
     column: 26
     notes:
     - at: ''
-      note: '# A reportingDescriptor object'
+      object: reportingDescriptor
+      dot: false
 - twin: file-format-50-reportingconfiguration-object_parameters-property_example-1.json
   host: reportingDescriptor
   display:
@@ -1883,7 +2011,8 @@ examples:
     column: 35
     notes:
     - at: ''
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
 - twin: file-format-51-configurationoverride-object_general_example-1.json
   host: run
   snippet: block 0 renders differently
@@ -1893,29 +2022,33 @@ examples:
     column: 44
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/rules/0
-      note: '# A reportingDescriptor object'
+      object: reportingDescriptor
+      dot: false
     - at: /tool/driver/rules/0/id
       note: '#  ((#reportingdescriptor-object)).'
     - at: /invocations
-      note: '# See (#invocations-property).'
+      see: invocations-property
     - at: /invocations/0
-      note: '# An invocation object ((#invocation-object)).'
+      object: invocation
+      ref: invocation-object
     - at: /invocations/0/ruleConfigurationOverrides
-      note: '# See (#ruleconfigurationoverrides-property).'
+      see: ruleconfigurationoverrides-property
     - at: /invocations/0/ruleConfigurationOverrides/0
-      note: '# A configurationOverride object'
+      object: configurationOverride
+      dot: false
     - at: /invocations/0/ruleConfigurationOverrides/0/descriptor
-      note: '# See (#configurationoverride-object--descriptor-property).'
+      see: configurationoverride-object--descriptor-property
     - at: /invocations/0/ruleConfigurationOverrides/0/configuration
-      note: '# See (#configuration-property).'
+      see: configuration-property
     before:
       /invocations:
       - '>'
@@ -1929,15 +2062,17 @@ examples:
     column: 45
     notes:
     - at: ''
-      note: '# An invocation object ((#invocation-object)).'
+      object: invocation
+      ref: invocation-object
     - at: /toolExecutionNotifications
-      note: '# See (#toolexecutionnotifications-property).'
+      see: toolexecutionnotifications-property
     - at: /toolExecutionNotifications/0
-      note: '# A notification object ((#notification-object)).'
+      object: notification
+      ref: notification-object
     - at: /toolExecutionNotifications/0/descriptor
-      note: '# See (#notification-object--descriptor-property).'
+      see: notification-object--descriptor-property
     - at: /toolExecutionNotifications/0/associatedRule
-      note: '# See (#associatedrule-property).'
+      see: associatedrule-property
     breaks:
       /toolExecutionNotifications/0/message/text:
       - - 66
@@ -1950,23 +2085,26 @@ examples:
     column: 30
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/rules/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     - at: /tool/driver/rules/0/id
-      note: '# See (#reportingdescriptor-object--id-property).'
+      see: reportingdescriptor-object--id-property
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/ruleId
-      note: '# See (#ruleid-property).'
+      see: ruleid-property
     - at: /results/2/rule/id
       note: '# INVALID: theDescriptor.id is not a'
     - at: /results/2/rule/index
@@ -1982,27 +2120,30 @@ examples:
     column: 29
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/rules/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     - at: /tool/driver/rules/0/id
-      note: '# See (#reportingdescriptor-object--id-property).'
+      see: reportingdescriptor-object--id-property
     - at: /tool/driver/rules/1
       note: '# Another reportingDescriptor with the same id.'
     - at: /tool/driver/rules/1/id
       note: '#  rule.index points to this one.'
     - at: /results
-      note: '# See (#results-property).'
+      see: results-property
     - at: /results/0
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /results/0/ruleId
-      note: '# See (#ruleid-property).'
+      see: ruleid-property
     before:
       /results/0/rule:
       - '> '
@@ -2015,19 +2156,21 @@ examples:
     column: 31
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/rules/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     - at: /tool/driver/rules/0/relationships/0
-      note: '# A reportingDescriptorRelationship object.'
+      object: reportingDescriptorRelationship
     - at: /tool/driver/rules/0/relationships/0/target
-      note: '# See (#reportingdescriptorrelationship-object--target-property).'
+      see: reportingdescriptorrelationship-object--target-property
     before:
       /taxonomies:
       - '> '
@@ -2042,19 +2185,22 @@ examples:
     column: 31
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/rules/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     - at: /tool/driver/rules/0/relationships/0
-      note: '# A reportingDescriptorRelationship object ((#reportingdescriptorrelationship-object)).'
+      object: reportingDescriptorRelationship
+      ref: reportingdescriptorrelationship-object
     - at: /tool/driver/rules/0/relationships/0/target
-      note: '# See (#reportingdescriptorrelationship-object--target-property).'
+      see: reportingdescriptorrelationship-object--target-property
 - twin: file-format-55-fix-object_artifactchanges-property_example-1.json
   host: fix
   display:
@@ -2063,19 +2209,21 @@ examples:
     column: 37
     notes:
     - at: ''
-      note: '# A fix object.'
+      object: fix
     - at: /artifactChanges/0
-      note: '# An artifactChange object ((#artifactchange-object)).'
+      object: artifactChange
+      ref: artifactchange-object
     - at: /artifactChanges/0/artifactLocation
-      note: '# See (#artifactchange-object--artifactlocation-property).'
+      see: artifactchange-object--artifactlocation-property
     - at: /artifactChanges/0/replacements
-      note: '# See (#replacements-property).'
+      see: replacements-property
     - at: /artifactChanges/0/replacements/0
-      note: '# A replacement object ((#replacement-object)).'
+      object: replacement
+      ref: replacement-object
     - at: /artifactChanges/0/replacements/0/deletedRegion
-      note: '# See (#deletedregion-property).'
+      see: deletedregion-property
     - at: /artifactChanges/0/replacements/0/insertedContent
-      note: '# See (#insertedcontent-property).'
+      see: insertedcontent-property
     trailing:
     - - /artifactChanges
       - 0
@@ -2088,19 +2236,21 @@ examples:
     column: 37
     notes:
     - at: ''
-      note: '# A fix object.'
+      object: fix
     - at: /artifactChanges/0
-      note: '# An artifactChange object ((#artifactchange-object)).'
+      object: artifactChange
+      ref: artifactchange-object
     - at: /artifactChanges/0/artifactLocation
-      note: '# See (#artifactchange-object--artifactlocation-property).'
+      see: artifactchange-object--artifactlocation-property
     - at: /artifactChanges/0/replacements
-      note: '# See (#replacements-property).'
+      see: replacements-property
     - at: /artifactChanges/0/replacements/0
-      note: '# A replacement object ((#replacement-object)).'
+      object: replacement
+      ref: replacement-object
     - at: /artifactChanges/0/replacements/0/deletedRegion
-      note: '# See (#deletedregion-property).'
+      see: deletedregion-property
     - at: /artifactChanges/0/replacements/0/insertedContent
-      note: '# See (#insertedcontent-property).'
+      see: insertedcontent-property
     - at: /artifactChanges/1/artifactLocation/uri
       note: '# Invalid: refers to the same file.'
     - at: /artifactChanges/1/replacements/0/deletedRegion/startLine
@@ -2130,17 +2280,19 @@ examples:
       - '}'
     notes:
     - at: ''
-      note: '# A result object ((#result-object)).'
+      object: result
+      ref: result-object
     - at: /fixes
-      note: '# See (#fixes-property).'
+      see: fixes-property
     - at: /fixes/0
-      note: '# A fix object.'
+      object: fix
     - at: /fixes/0/description
-      note: '# See (#fix-object--description-property).'
+      see: fix-object--description-property
     - at: /fixes/0/artifactChanges
-      note: '# See (#artifactchanges-property).'
+      see: artifactchanges-property
     - at: /fixes/0/artifactChanges/0
-      note: '# An artifactChange object ((#artifactchange-object)).'
+      object: artifactChange
+      ref: artifactchange-object
 - twin: file-format-56-artifactchange-object_general_example-1.json
   host: fix
   display:
@@ -2156,15 +2308,17 @@ examples:
       - '}'
     notes:
     - at: ''
-      note: '# A fix object ((#fix-object)).'
+      object: fix
+      ref: fix-object
     - at: /artifactChanges
-      note: '# See (#artifactchanges-property).'
+      see: artifactchanges-property
     - at: /artifactChanges/0/artifactLocation
-      note: '# See (#artifactchange-object--artifactlocation-property).'
+      see: artifactchange-object--artifactlocation-property
     - at: /artifactChanges/0/replacements
-      note: '# See (#replacements-property).'
+      see: replacements-property
     - at: /artifactChanges/0/replacements/0
-      note: '# A replacement object ((#replacement-object)).'
+      object: replacement
+      ref: replacement-object
     - at: /artifactChanges/0/replacements/1
       note: '# Another replacement object.'
     trailing:
@@ -2200,15 +2354,17 @@ examples:
     column: 39
     notes:
     - at: ''
-      note: '# A run object ((#run-object)).'
+      object: run
+      ref: run-object
     - at: /tool
-      note: '# See (#run-object--tool-property).'
+      see: run-object--tool-property
     - at: /tool/driver
-      note: '# See (#driver-property).'
+      see: driver-property
     - at: /tool/driver/rules
-      note: '# See (#rules-property).'
+      see: rules-property
     - at: /tool/driver/rules/0
-      note: '# A reportingDescriptor object ((#reportingdescriptor-object)).'
+      object: reportingDescriptor
+      ref: reportingdescriptor-object
     - at: /tool/driver/rules/1
       note: '# Another reportingDescriptor object'
     - at: /tool/driver/rules/1/id
@@ -2216,14 +2372,16 @@ examples:
     - at: /tool/driver/rules/1/...member-inject
       note: '#  identifies this one.'
     - at: /invocations
-      note: '# See (#invocations-property).'
       column: 40
+      see: invocations-property
     - at: /invocations/0
-      note: '# An invocation object ((#invocation-object)).'
       column: 40
+      object: invocation
+      ref: invocation-object
     - at: /invocations/0/toolConfigurationNotifications
-      note: '# See (#toolconfigurationnotifications-property).'
       column: 42
+      see: toolconfigurationnotifications-property
     - at: /invocations/0/toolConfigurationNotifications/0
-      note: '# A notification object ((#notification-object)).'
       column: 40
+      object: notification
+      ref: notification-object
