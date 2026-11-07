@@ -6,7 +6,7 @@ A `fix` object represents a proposed fix for the problem indicated by `theResult
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-55-fix-object_general_example-1.json"}
 > {                                   # A result object ((#result-object)).
 >   "fixes": [                        # See (#fixes-property).
 >     {                               # A fix object.
@@ -32,7 +32,7 @@ A `fix` object **SHOULD** contain a property named `description` whose value is 
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-55-fix-object_description-property_example-1.json"}
 > "fix": {
 >   "description": {
 >     "text": "Combine declaration and initialization of variable 'x'."
@@ -51,7 +51,7 @@ The array elements **SHALL** refer to distinct artifacts.
 
 > EXAMPLE 1: In this example, two `artifactChange` objects make identical changes (commenting out the first line) in two distinct C-language files, `src/a.c` and `src/b.c`.
 >
-> ```json
+> ```{.json twin="file-format-55-fix-object_artifactchanges-property_example-1.json"}
 > {                                    # A fix object.
 >   "artifactChanges": [                   
 >     {                                # An artifactChange object ((#artifactchange-object)).
@@ -94,7 +94,7 @@ The array elements **SHALL** refer to distinct artifacts.
 
 > EXAMPLE 2: This example represents invalid SARIF because the two `artifactChange` objects refer to the same file, `src/a.c`. It is invalid even though the `artifactChange` objects are distinguished by their `replacements` properties.
 >
-> ```json
+> ```{.json twin="file-format-55-fix-object_artifactchanges-property_example-2.json"}
 > {                                    # A fix object.
 >   "artifactChanges": [                   
 >     {                                # An artifactChange object ((#artifactchange-object)).

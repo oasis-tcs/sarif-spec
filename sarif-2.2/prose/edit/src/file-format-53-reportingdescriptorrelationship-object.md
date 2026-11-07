@@ -12,7 +12,7 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 
 > EXAMPLE 1: In this example, the definition of rule `CA1000` states that every result that violates this rule falls into the taxonomic category ("taxon") specified by ID 327 of the Common Weakness Enumeration \[[CWE](#CWE)\]:
 >
-> ```json
+> ```{.json twin="file-format-53-reportingdescriptorrelationship-object_general_example-1.json"}
 > {                              # A run object ((#run-object)).
 >   "tool": {                    # See (#run-object--tool-property).
 >     "driver": {                # See (#driver-property).
@@ -65,7 +65,7 @@ A `reportingDescriptorRelationship` object specifies one or more directed relati
 
 > EXAMPLE 2: In this example, the definition of rule `CA1000` states that every violation of this rule will lead to a violation of rule `CA2000`.
 >
-> ```json
+> ```{.json twin="file-format-53-reportingdescriptorrelationship-object_general_example-2.json"}
 > {                              # A run object ((#run-object)).
 >   "tool": {                    # See (#run-object--tool-property).
 >     "driver": {                # See (#driver-property).

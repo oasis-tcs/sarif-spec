@@ -10,7 +10,7 @@ The `configurationOverride` object’s `descriptor` property ([sec](#configurati
 
 > EXAMPLE 1: In this example, rule `CA2101` is treated as a warning rather than an error.
 >
-> ```json
+> ```{.json twin="file-format-51-configurationoverride-object_general_example-1.json"}
 > {                                           # A run object ((#run-object)).
 >   "tool": {                                 # See (#run-object--tool-property).
 >     "driver": {                             # See (#driver-property).

@@ -36,7 +36,7 @@ Now the result management system has the problem of matching results between the
 
 > EXAMPLE 1: In this example, version 1 of an analysis tool defines rule `CA1000`. A run of this tool finds two results. The result management system decides that neither result was previously detected, so it marks them as with `"baselineState": "new"` ([sec](#baselinestate-property)), producing this log:
 >
-> ```json
+> ```{.json twin="file-format-49-reportingdescriptor-object_deprecatedids-property_example-1.json"}
 > {
 >   "tool": {
 >     "driver": {
@@ -170,7 +170,7 @@ A `reportingDescriptor` object **MAY** contain a property named `shortDescriptio
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-49-reportingdescriptor-object_shortdescription-property_example-1.json"}
 > {                         # A reportingDescriptor object
 >   "shortDescription": {
 >     "text": "Specify marshaling for P/Invoke string arguments."
@@ -200,7 +200,7 @@ If the `reportingDescriptor` object describes a notification, the set of propert
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-49-reportingdescriptor-object_messagestrings-property_example-1.json"}
 > {                         # A reportingDescriptor object for a rule.
 >   "messageStrings": {
 >     "objectCreation":  {  # A multiformatMessageString object ((#multiformatmessagestring-object)).

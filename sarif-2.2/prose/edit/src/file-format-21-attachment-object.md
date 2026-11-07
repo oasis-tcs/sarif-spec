@@ -8,7 +8,7 @@ A SARIF producer **MAY** embed the contents of an attachment in the log file by 
 
 > EXAMPLE 1: In this example, `image001.png` is a screen shot of the program being analyzed at the point where the result was detected. Note that this example is more appropriate to a dynamic analysis tool than to a static analysis tool.
 >
-> ```json
+> ```{.json twin="file-format-21-attachment-object_general_example-1.json"}
 > {                                             # A result object ((#result-object)).
 >   ...
 >   "attachments": [                            # See (#attachments-property).

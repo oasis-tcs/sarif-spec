@@ -19,7 +19,7 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 
 ## Examples
 
-- 119 of 127 JSON code blocks in the prose are not JSON (margin comments, elisions): only their twins can be validated
+- 9 of 10 JSON code blocks in the prose are not JSON (margin comments, elisions): only their twins can be validated
 - file-format-30-region-object.md: JSON code blocks without a twin
 - **TC** `external-property-file-format_externalproperties-object_general_example-1.json` as externalProperties: /: Additional properties are not allowed ('$schema' was unexpected)
 - **TC** `file-format-03-artifactcontent-object_rendered-property_example-1.json` as physicalLocation: /address: Additional properties are not allowed ('baseAddress', 'offset' were unexpected)

@@ -18,7 +18,7 @@ If another tool post-processes the log file (for example, by removing certain re
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-18-tool-object_general_example-1.json"}
 > {                          # A tool object.
 >   "driver": {              # See (#driver-property).
 >     "name": "CodeScanner",

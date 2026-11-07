@@ -58,7 +58,7 @@ The `uriBaseId` property can be any string; it does not need to have any particu
 
 > EXAMPLE 2: In this example, the analysis tool has set the `uri` property of an `artifactLocation` object ([sec](#artifactlocation-object)) to a relative reference. The tool has also set the `uriBaseId` property to `"%srcroot%"`. The analysis tool and the SARIF consumers have agreed upon a convention whereby this indicates that the relative reference is expressed relative to the root of the source tree in which the file appears.
 >
-> ```json
+> ```{.json twin="file-format-04-artifactlocation-object_uribaseid-property_example-2.json"}
 > "artifactLocation": {
 >   "uri": "drivers/video/hidef/driver.c",
 >   "uriBaseId": "%srcroot%"
@@ -97,7 +97,7 @@ Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` obj
 
 > EXAMPLE 1: In this example, `results[0].locations[0].physicalLocation.artifactLocation.index` specifies the `artifact` object located at `artifacts[0]`.
 >
-> ```json
+> ```{.json twin="file-format-04-artifactlocation-object_index-property_example-1.json"}
 > {                                    # A run object ((#run-object)).
 >   "artifacts": [
 >     {
@@ -136,7 +136,7 @@ An `artifactLocation` object **MAY** have a property named `description` whose v
 
 > EXAMPLE 1: In this example, the property values in `run.originalUriBaseIds` ([sec](#originaluribaseids-property)), which are `artifactLocation` objects, have `description` properties. This allows a SARIF viewer to display helpful information when prompting a user to supply values for the base id symbols.
 >
-> ```json
+> ```{.json twin="file-format-04-artifactlocation-object_description-property_example-1.json"}
 > {                                                # A run object ((#run-object)).
 >   "originalUriBaseIds": {                        # See (#originaluribaseids-property).
 >     "PROJROOT": {
@@ -171,7 +171,7 @@ In contrast, file system paths are typically non-deterministic. For example, a s
 
 > EXAMPLE 1: In this example, the location of a result detected by a tool is specified by a relative reference together with a `uriBaseId` that specifies the root of the source code enlistment.
 >
-> ```json
+> ```{.json twin="file-format-04-artifactlocation-object_guidance-on-the-use-of-artifactlocation-objects_example-1.json"}
 > {                                                # A run object ((#run-object)).
 >   "originalUriBaseIds": {                        # See (#originaluribaseids-property).
 >     "SRCROOT": {

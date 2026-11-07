@@ -18,7 +18,7 @@ An `edge` object **SHALL** contain a property named `sourceNodeId` whose value i
 
 > EXAMPLE 1: In this example, an edge connects two nodes defined in unrelated nested graphs.
 >
-> ```json
+> ```{.json twin="file-format-41-edge-object_sourcenodeid-property_example-1.json"}
 > {                             # A graph object ((#graph-object)).
 >   "nodes": [                  # See (#nodes-property).
 >     {                         # A node object.

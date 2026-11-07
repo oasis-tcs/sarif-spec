@@ -48,7 +48,7 @@ A SARIF viewer or result management system **MAY** use the additional hierarchic
 >
 > A SARIF viewer or result management system might allow a user to suppress, for example, only those violations of rule `CA5350` which specify `md5` as the second hierarchical component of `ruleId`; that is, to allow the use of MD5 but still warn about the uses of other weak cryptographic algorithms.
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_ruleid-property_example-1.json"}
 > {
 >   "tool": {
 >     "driver": {
@@ -150,7 +150,7 @@ In either case, if there is no `toolComponent` that defines the taxonomy to whic
 
 > EXAMPLE 1: In this example, a tool defines a custom taxonomy (see [sec](#taxonomies)) consisting of three taxa with ids `"SUP"`, `"INC1"`, and `"INC2"`. The tool emits a result that falls into the taxa `"SUP"` and `"INC2"`, but not into `"INC1"`. According to `relationships[0]`, `"SUP"` is a superset of `"CA2101"`; that is, every result that violates `"CA2101"` falls into the taxon `"SUP"`. Therefore, it is not necessary to mention `"SUP"` in `theResult.taxa`. On the other hand, according to `relationships[2]`, `"INC2"` is incomparable to `"CA2101"`; that is, the set of results that violate `"CA2101"` intersects with but is neither a superset nor a subset of the set of results that fall into the taxon `"INC2"`. Therefore, it is necessary to mention `"INC2"` in `theResult.taxa`.
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_taxa-property_example-1.json"}
 > {                                     # A run object ((#run-object)).
 >   "tool": {
 >     "driver": {
@@ -246,7 +246,7 @@ If present, the `kind` property **SHALL** have one of the following values, with
 
 > EXAMPLE 1: In this example, a binary checker has a rule that applies to 32-bit binaries only. It produces a `"notApplicable"` result if it is run on a 64-bit binary. It also has a rule that checks the compiler version and produces an informational result:
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_kind-property_example-1.json"}
 > "results": [
 >   {
 >     "ruleId": "ABC0001",
@@ -307,7 +307,7 @@ If present, the `level` property **SHALL** have one of the following values, wit
 
 > EXAMPLE 1: In this example, the tool reports an opportunity to improve the code.
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_level-property_example-1.json"}
 > "results": [
 >   {
 >     "ruleId": "ABC0003",
@@ -389,7 +389,7 @@ The `message` property **SHOULD** provide sufficient details to allow an end use
 
 > EXAMPLE 1: This is an example of a `message`:
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_message-property_example-1.json"}
 > "results": [
 >   {
 >     "message": {
@@ -409,7 +409,7 @@ See [sec](#message-string-lookup) for the procedure for looking up a message str
 
 > EXAMPLE 2: In this example, `message.id` refers to the property named `default` defined in the `messageStrings` property of the `reportingDescriptor` object identified by `"CA2101"`.
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_message-property_example-2.json"}
 > {                                 # A run object ((#run-object)).
 >   "tool": {                       # See (#run-object--tool-property).
 >     "driver": {                   # See (#driver-property).
@@ -474,7 +474,7 @@ If the analysis target and the result file are the same, the `analysisTarget` pr
 
 > EXAMPLE 1: In this example, the tool’s analysis target was the file mouse.c. During the scan, the tool detected a result in the included file mouse.h.
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_analysistarget-property_example-1.json"}
 > {                                 # A result object ((#result-object)).
 >   "analysisTarget": {             # An artifactLocation object ((#artifactlocation-object)).
 >     "uri": "input/mouse.c",
@@ -520,7 +520,7 @@ Each property name in this object **SHALL** be a versioned hierarchical string (
 
 > EXAMPLE 1: In this example, the producer has calculated a fingerprint using version 2 of a fingerprinting method it refers to as `"stableResultHash"`:
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_fingerprints-property_example-1.json"}
 > {
 >     "fingerprints": {
 >       "stableResultHash/v2": "097886bc876fe"
@@ -532,7 +532,7 @@ When a result management system uses fingerprint information to determine whethe
 
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the "context region hash" fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_fingerprints-property_example-2.json"}
 > {                                  # A run object ((#run-object)).
 >   "results": [                     # See (#results-property).
 >     {                              # A result object.
@@ -573,7 +573,7 @@ Each property name in this object **SHALL** be a versioned hierarchical string (
 
 > EXAMPLE 1: In this example, the producer has calculated a partial fingerprint using version 3 of a partial fingerprint value it refers to as `"prohibitedWordHash"`:
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_partialfingerprints-property_example-1.json"}
 > {                                 # A result object ((#result-object)).
 >   "partialFingerprints": {
 >     "prohibitedWordHash/v3": "097886bc876fe"
@@ -585,7 +585,7 @@ When a result management system uses partial fingerprint information to determin
 
 > EXAMPLE 2: In this example, one result has values for versions 1 and 2 of the "prohibited word hash" partial fingerprint. Another result has values for versions 2 and 3. A result management system would use version 2 (the greatest common version) to compare the two results.
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_partialfingerprints-property_example-2.json"}
 > {                                  # A run object ((#run-object)).
 >   "results": [                     # See (#results-property).
 >     {                              # A result object.
@@ -620,7 +620,7 @@ Because result management systems might come to depend on the choice of property
 
 > EXAMPLE 3: In this example, a SARIF-producing document checker has computed a partial fingerprint that hashes a word that should not appear in a document together with the document’s language.
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_partialfingerprints-property_example-3.json"}
 > {                           # A result object.
 >   ...
 >   "partialFingerprints": {
@@ -632,7 +632,7 @@ Because result management systems might come to depend on the choice of property
 
 > EXAMPLE 4. In this example, the SARIF producer has chosen an arbitrary value for the property name.
 >
-> ```
+> ```{.json twin="file-format-27-result-object_partialfingerprints-property_example-4.json"}
 > {                           # A result object
 >   ...
 >   "partialFingerprints": {
@@ -671,7 +671,7 @@ A `result` object **MAY** contain a property named `relatedLocations` whose valu
 >
 > The result might appear in the log file like this:
 >
-> ```json
+> ```{.json twin="file-format-27-result-object_relatedlocations-property_example-1.json"}
 > "results": [
 >   {
 >     "ruleId": "JS3056",

@@ -4,6 +4,7 @@ Usage (from sarif-2.2/):
   python -I bin/vision.py migrate   seed records/examples.yaml from the twins (once; review the hosts afterwards)
   python -I bin/vision.py migrate-snippets   seed the `display` of each twin whose prose snippet round-trips exactly
   python -I bin/vision.py migrate-notes      turn margin notes into keys (see, object, ref) where the text round-trips
+  python -I bin/vision.py annotate-fences    key each derived snippet's code block by its twin (```{.json twin="..."})
   python -I bin/vision.py derive    write views/ from the schema, the records, the twins and the prose
   python -I bin/vision.py check     fail when a view differs from what derive would write, or a record is incomplete
 
@@ -524,25 +525,39 @@ def split_note(line):
     return line.rstrip(), None, None
 
 
-def json_fences(name, unmarked=False):
-    """The JSON code blocks of a prose file: (first body line index, end index, line prefix) per block.
+FENCE = re.compile(r'^((?:> ?)?\s*)(```+)(\w*|\{\.(\w+)((?:\s+[\w-]+="[^"]*")*)\s*\})\s*$')
+FENCE_ATTR = re.compile(r'([\w-]+)="([^"]*)"')
 
-    The prefix is what stands before the fence: a quote marker and any indentation (`>   ```json`). With `unmarked`,
-    code blocks without a language count too (they hold JSON in a few places, but render without highlighting).
+
+def json_fences(name, unmarked=False):
+    """The JSON code blocks of a prose file: (first body line, end line, line prefix, twin key) per block.
+
+    The prefix is what stands before the fence: a quote marker and any indentation (`>   ```json`). The twin key is
+    the block's `twin` attribute (```` ```{.json twin="name.json"} ````), None for a block without one. With
+    `unmarked`, code blocks without a language count too.
     """
     lines = (SRC / name).read_text(encoding='utf-8').splitlines()
-    out, start, prefix = [], None, ''
+    out, start = [], None
     for i, line in enumerate(lines):
-        m = re.match(r'^((?:> ?)?\s*)```(\w*)\s*$', line)
+        m = FENCE.match(line)
         if not m:
             continue
         if start is None:
-            start, prefix, lang = i + 1, m.group(1), m.group(2)
+            start, prefix = i + 1, m.group(1)
+            lang = m.group(4) if m.group(4) else m.group(3)
+            twin = dict(FENCE_ATTR.findall(m.group(5) or '')).get('twin')
         else:
             if lang == 'json' or (unmarked and lang == ''):
-                out.append((start, i, prefix))
+                out.append((start, i, prefix, twin))
             start = None
     return lines, out
+
+
+def fence_of(name, twin):
+    """The code block keyed by `twin` in prose file `name`, as (lines, start, end, prefix), or None."""
+    lines, fences = json_fences(name, unmarked=True)
+    found = [f for f in fences if f[3] == twin]
+    return (lines, *found[0][:3]) if len(found) == 1 else None
 
 
 def _unprefix(line, prefix):
@@ -849,22 +864,64 @@ def derive_prose():
     files = {}
     for name, recs in by_file.items():
         lines, fences = json_fences(name, unmarked=True)
-        for rec in sorted(recs, key=lambda r: -r['display']['fence']):
-            start, end, prefix = fences[rec['display']['fence']]
+        where = {f[3]: f for f in fences if f[3]}
+        for rec in sorted(recs, key=lambda r: -where[r['twin']][0]):
+            start, end, prefix, _ = where[rec['twin']]
             twin = json.loads((TWINS / rec['twin']).read_text(encoding='utf-8'))
             lines[start:end] = render_snippet(twin, rec['display'], prefix)
         files[name] = '\n'.join(lines) + '\n'
     return files
 
 
+def _keyed_fence(line, twin):
+    """The opening fence line with the twin key: `> ```json` becomes `> ```{.json twin="name.json"}`."""
+    m = FENCE.match(line)
+    return f'{m.group(1)}{m.group(2)}{{.json twin="{twin}"}}'
+
+
+def annotate_fences():
+    """Key every derived snippet's code block by its twin, replacing the block numbers in the records."""
+    path = RECORDS / 'examples.yaml'
+    data = yaml.safe_load(path.read_text(encoding='utf-8'))
+    by_file = defaultdict(list)
+    for rec in data['examples']:
+        if 'fence' in rec.get('display', {}):
+            by_file[rec['display']['file']].append(rec)
+    count = 0
+    for name, recs in by_file.items():
+        lines, fences = json_fences(name, unmarked=True)
+        for rec in recs:
+            start = fences[rec['display'].pop('fence')][0]
+            lines[start - 1] = _keyed_fence(lines[start - 1], rec['twin'])
+            count += 1
+        (SRC / name).write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    header = [line for line in path.read_text(encoding='utf-8').splitlines() if line.startswith('#')]
+    header = [h.replace('file/fence: the prose file and the number of its JSON code block (from 0)',
+                        'file: the prose file; its code block carries the key ```{.json twin="<twin>"}') for h in header]
+    path.write_text('\n'.join(header) + '\n\n' + yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=150), encoding='utf-8')
+    print(f'keyed {count} code blocks by their twins')
+
+
+def fence_keys():
+    """Refusals: a derived snippet whose key is missing, a key without a record, a key used twice."""
+    problems, records = [], {r['twin']: r for r in snippet_records()}
+    seen = Counter()
+    for name in bound_files():
+        for *_, twin in json_fences(name, unmarked=True)[1]:
+            if twin:
+                seen[twin] += 1
+                if twin not in records:
+                    problems.append(f'prose/edit/src/{name}: code block keyed twin="{twin}" has no derived record')
+    problems += [f'twin="{t}" keys {n} code blocks' for t, n in seen.items() if n > 1]
+    problems += [f'{r["display"]["file"]}: no code block keyed twin="{t}"' for t, r in records.items() if seen[t] == 0]
+    return problems
+
+
 def migrate_snippets():
     """Seed `display` for every twin whose snippet round-trips byte for byte; report the others."""
     path = RECORDS / 'examples.yaml'
     records = yaml.safe_load(path.read_text(encoding='utf-8'))['examples']
-    taken, report = set(), Counter()
-    for rec in records:
-        if rec.get('display'):
-            taken.add((rec['display']['file'], rec['display']['fence']))
+    report = Counter()
     for rec in records:
         if rec.get('display'):
             continue
@@ -874,10 +931,9 @@ def migrate_snippets():
             report['no prose file'] += 1
             continue
         lines, fences = json_fences(name, unmarked=True)
+        keyed = [f for f in fences if f[3] == rec['twin']]
         reason, depth = 'no code block of its file matches', -1
-        for n, (start, end, prefix) in enumerate(fences):
-            if (name, n) in taken:
-                continue
+        for n, (start, end, prefix, key) in enumerate(keyed or [f for f in fences if not f[3]]):
             display, why = learn_display(twin, lines[start:end], prefix)
             if display is None:
                 m = re.match(r'line (\d+)', why)
@@ -887,8 +943,10 @@ def migrate_snippets():
             if render_snippet(twin, display, prefix) != lines[start:end]:
                 reason = f'block {n} renders differently'
                 continue
-            rec['display'] = {'file': name, 'fence': n} | display
-            taken.add((name, n))
+            if not key:  # key the block now: ```{.json twin="..."}
+                lines[start - 1] = _keyed_fence(lines[start - 1], rec['twin'])
+                (SRC / name).write_text('\n'.join(lines) + '\n', encoding='utf-8')
+            rec['display'] = {'file': name} | display
             break
         else:
             rec['snippet'] = reason
@@ -977,7 +1035,10 @@ def main():
     if command == 'migrate-notes':
         migrate_notes()
         return
-    problems = check_records() + broken_keys()
+    if command == 'annotate-fences':
+        annotate_fences()
+        return
+    problems = check_records() + broken_keys() + (fence_keys() if command != 'annotate-fences' else [])
     if problems:
         sys.exit('\n'.join(problems))
     views = derive_all()

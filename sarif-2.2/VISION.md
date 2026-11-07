@@ -56,9 +56,10 @@ members were injected, the result, and whether its prose snippet is derived or s
 
 ### How a snippet is derived
 
-The `display` of an example record says how its twin appears in the prose: the prose file and the number of its JSON
-code block (`file`, `fence`, counted from 0), `root: member` for a snippet that shows members without the enclosing
-braces, and then the layout, keyed by JSON pointers into the twin, never by line numbers:
+The `display` of an example record says how its twin appears in the prose: the prose file (`file`), whose code block
+carries the twin as its key (```` ```{.json twin="<twin file>"} ````, an attribute pandoc renders as a JSON block and
+nide's quality engine ignores until it has a definition for it), `root: member` for a snippet that shows members
+without the enclosing braces, and then the layout, keyed by JSON pointers into the twin, never by line numbers:
 
 - `notes`: the margin notes (`# An artifact object ((#artifact-object)).`) at a pointer (`#end` for the closing line,
   `line` for a continuation line), all starting at `column` unless a note says otherwise;
@@ -69,8 +70,8 @@ braces, and then the layout, keyed by JSON pointers into the twin, never by line
 Edit the twin to change what an example says; edit its `display` to change how it looks; run `make derive`, and the
 prose snippet follows. Never edit a derived snippet in the prose: `make check` fails. To add an example, add the twin,
 its record with `host`, and run `python -I bin/vision.py migrate-snippets` after writing the snippet once by hand
-(or write the `display` directly). Inserting a JSON code block before a derived one in the same file shifts the
-`fence` numbers: `make check` then fails and names the file.
+(or write the `display` directly); it keys the code block for you. Code blocks can move freely: `check` finds each
+derived snippet by its key, and refuses a key without a record, a record without its key, and a key used twice.
 
 ## Done
 
@@ -116,16 +117,22 @@ its record with `host`, and run `python -I bin/vision.py migrate-snippets` after
    a `taxonomies` element called "A toolComponentReference object", a SARIF 1.0 "file object", four remnants of
    section numbers after a reference (`(#run-object).14`), and 43 object notes without a reference.
 
+5. **Code blocks keyed by their twins (2026-11-07).** `bin/vision.py annotate-fences` replaced the block numbers in
+   the records by a key in the prose: 120 opening fence lines now read ```` ```{.json twin="..."} ```` (two of them had
+   no language before and now render as JSON). The last positional key is gone. For tools to see these keys inside
+   quoted examples, vyyhti now scans fences inside block quotes (`Location.quote`), and nide's legacy-syntax rewrite
+   keeps a quote prefix; both wait for their releases.
+
 ## Next steps
 
-5. **Heading keys.** Fix the four property headings that do not give their property as `` `name` Property ``, then
+6. **Heading keys.** Fix the four property headings that do not give their property as `` `name` Property ``, then
    let `check` refuse such a heading, and refuse a property section without a schema property (and back).
-6. **Constraint records (A2).** The presence rules and conditional defaults as records: one record per rule, from
+7. **Constraint records (A2).** The presence rules and conditional defaults as records: one record per rule, from
    which the sentences, a JSON Schema `if`/`then` where the schema can say it, and one test fixture per branch are
    derived. Start with the 15 statements that announce a set of keywords ("either **SHALL** or **MAY**").
-7. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
+8. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
    consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
-8. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
+9. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
    The largest: `suppression.justificationType` (#672) and the `columnKind` value `"bytes"` (#740) exist only in the
    prose; `attachment.location` and `externalProperties.$schema` differ from the schema's names; 14 examples
    contradict the schema in prose and twin alike (most often the pre-2.1 form `physicalLocation.uri`; the

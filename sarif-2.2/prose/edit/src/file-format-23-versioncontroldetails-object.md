@@ -55,7 +55,7 @@ This property makes it possible to map any `artifactLocation` to the repository,
 5.  Otherwise, the file specified by `artifactLocation` belongs to the repository specified by the member of S with the longest `v.uri`.
 
 > EXAMPLE 1: This example illustrates the mapping algorithm. Consider this SARIF file:
-> ```json
+> ```{.json twin="file-format-23-versioncontroldetails-object_mappedto-property_example-1.json"}
 > {
 >   "originalUriBaseIds": {
 >     "HOME": {

@@ -20,7 +20,7 @@ A `physicalLocation` object **MAY** contain a property named `region` whose valu
 
 > EXAMPLE 1: In this example, a `physicalLocation` object specifies the location where a result was detected. Its `region` property specifies the portion of the file where the result was detected.
 >
-> ```json
+> ```{.json twin="file-format-29-physicallocation-object_region-property_example-1.json"}
 > {                              # A result object ((#result-object)).
 >   "locations": [               # See (#result-object--locations-property).
 >     {                          # A location object ((#location-object)).
@@ -53,7 +53,7 @@ If a `physicalLocation` object contains a `region` property ([sec](#region-prope
 
 > EXAMPLE In this example, an analysis tool detected a result on line 42. The tool provides additional context for SARIF viewers by specifying a range of content surrounding the result line.
 >
-> ```json
+> ```{.json twin="file-format-29-physicallocation-object_contextregion-property_example-1.json"}
 > {                                       # A result object ((#result-object)).
 >   "locations": [                        # See (#result-object--locations-property).
 >     {                                   # A location object ((#location-object)).

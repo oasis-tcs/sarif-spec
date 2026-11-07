@@ -82,7 +82,7 @@ Per-run files are handled by the `conversion.analysisToolLogFiles` property ([se
 >
 > a SARIF converter might transform it into the following SARIF log file:
 >
-> ```json
+> ```{.json twin="file-format-48-resultprovenance-object_conversionsources-property_example-1.json"}
 > {
 >   ...
 >   "runs": [

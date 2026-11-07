@@ -26,7 +26,7 @@ An `artifactContent` object **MAY** contain a property named `rendered` whose va
 
 > EXAMPLE 1: In this example, a `physicalLocation` object ([sec](#physicallocation-object)) denotes a memory address. Its `region.snippet.rendered` property ([sec](#region-property), [sec](#snippet-property)) offers a hex view of the relevant address range. The `markdown` property ([sec](#multiformatmessagestring-object--markdown-property)) emphasizes a byte of particular interest.
 >
-> ```json
+> ```{.json twin="file-format-03-artifactcontent-object_rendered-property_example-1.json"}
 > {                                # A physicalLocation object ((#physicallocation-object)).
 >   "address": {                   # See (#address-property).
 >     "baseAddress": 4202880,      # See (#absoluteaddress-property).

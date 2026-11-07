@@ -48,7 +48,7 @@ A `reportingConfiguration` object **MAY** contain a property named `parameters` 
 
 > EXAMPLE 1: In this example, a rule that specifies the maximum permitted source line length is parameterized by the maximum length.
 >
-> ```json
+> ```{.json twin="file-format-50-reportingconfiguration-object_parameters-property_example-1.json"}
 > {                                  # A reportingDescriptor object ((#reportingdescriptor-object)).
 >   "id": "SA2707",
 >   "name": {

@@ -24,7 +24,7 @@ The top-level element of an external property file **SHALL** be an object which 
 
 > EXAMPLE 1: In this example, `run.artifacts` and `run.properties` have been externalized to a file with these contents. Note that `run.properties` has been externalized under the property name `externalizedProperties`, as explained in [sec](#properties).
 >
-> ```json
+> ```{.json twin="external-property-file-format_externalproperties-object_general_example-1.json"}
 > {                             # An externalProperties object
 >   "version": "2.2",         # See (#externalproperties-object--version-property).
 > 

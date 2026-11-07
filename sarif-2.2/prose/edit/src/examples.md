@@ -8,7 +8,7 @@ This is a minimal valid SARIF log file. It contains only those elements required
 
 The file contains a single `run` object ([sec](#run-object)) with an empty `results` array ([sec](#results-property)), as would happen if the tool detected no issues in any of the artifacts it scanned.
 
-```json
+```{.json twin="examples_minimal-valid-sarif-log-file_codeblock-json-1.sarif.json"}
 {
   "version": "2.2",
   "runs": [
@@ -39,7 +39,7 @@ It does not contain a `run.logicalLocations` property ([sec](#run-object--logica
 
 This example also includes a `toolComponent.rules` property ([sec](#rules-property)) containing rule metadata, even though rule metadata is optional, to show how a SARIF log file can be self-contained, in the sense of containing all the information necessary to interpret the results.
 
-```json
+```{.json twin="examples_minimal-recommended-sarif-log-file-with-source-information_codeblock-json-1.sarif.json"}
 {
   "version": "2.2",
   "runs": [
@@ -120,7 +120,7 @@ Its `run.artifacts` property ([sec](#artifacts-property)) specifies only those a
 
 It contains a `run.logicalLocations` property ([sec](#run-object--logicallocations-property)), because when physical location information is not available, that property is recommended.
 
-```json
+```{.json twin="examples_minimal-recommended-sarif-log-file-without-source-information_codeblock-json-1.sarif.json"}
 {
   "version": "2.2",
   "runs": [
@@ -186,7 +186,7 @@ The purpose of this example is to demonstrate the usage of as many SARIF element
 
 Because the purpose is to present as many elements as possible, the file as a whole does not represent best practices for SARIF usage, nor does it represent the output of a single, coherent analysis. For example, the result presented in the file involves a runtime exception, but at the same time it is marked as suppressed (to demonstrate the `result.suppressions` property), which is unrealistic.
 
-```json
+```{.json twin="examples_comprehensive-sarif-file_codeblock-json-1.sarif.json"}
 {
   "version": "2.2",
   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",

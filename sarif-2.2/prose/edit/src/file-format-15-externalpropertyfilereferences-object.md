@@ -57,7 +57,7 @@ Every externalizable property whose type is shown in the table as "array" **SHAL
 
 > EXAMPLE 1: In this example, `run.conversion` is stored in the file `C:\logs\scantool.conversion.sarif-external-properties` and `run.results` is divided into the files `C:\logs\scantools.results-1.sarif-external-properties` and `C:\logs\scantools.results-2.sarif-external-properties`.
 >
-> ```json
+> ```{.json twin="file-format-15-externalpropertyfilereferences-object_properties_example-1.json"}
 > {                           # A run object.
 >   "originalUriBaseIds": {   # See (#originaluribaseids-property).
 >     "LOGSDIR": {
@@ -99,7 +99,7 @@ With one exception described below, if a property appears inline in the root fil
 
 > EXAMPLE 2: In this example, `theRun.conversion` and `theRun.properties` are stored in the same external property file.
 >
-> ```json
+> ```{.json twin="file-format-15-externalpropertyfilereferences-object_properties_example-2.json"}
 > {                            # A run object ((#run-object)).
 >   "originalUriBaseIds": {    # See (#originaluribaseids-property).
 >     "LOGSDIR": {
@@ -130,7 +130,7 @@ With one exception described below, if a property appears inline in the root fil
 
 > EXAMPLE 3: This example represents invalid SARIF because both elements of the array belonging to the `results` property denote the same external property file.
 >
-> ```json
+> ```{.json twin="file-format-15-externalpropertyfilereferences-object_properties_example-3.json"}
 > {                            # A run object ((#run-object)).
 >   "originalUriBaseIds": {    # See (#originaluribaseids-property).
 >     "LOGSDIR": {

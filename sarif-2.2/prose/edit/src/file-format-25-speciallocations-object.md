@@ -22,7 +22,7 @@ A consumer **MAY** act on this hint as follows:
 
 > EXAMPLE 1: Given the following:
 >
-> ```json
+> ```{.json twin="file-format-25-speciallocations-object_displaybase-property_example-1.json"}
 > {                           # A run object ((#run-object)).
 >   "originalUriBaseIds": {   # See (#originaluribaseids-property).
 >     "WEBHOST": {

@@ -10,7 +10,7 @@ An `address` object describes a physical or virtual address, or a range of addre
 
 > EXAMPLE 1: In this example, the location of the Sections region of a Windows ® Portable Executable file [cite](#PE) is expressed as an offset from the start of the module. The location of the .text section is in turn expressed as an offset from Sections.
 >
-> ```json
+> ```{.json twin="file-format-32-address-object_parent-child-relationships_example-1.json"}
 > {                                  # A run object ((#run-object)).
 >   "addresses": [                   # See (#addresses-property).
 >     {

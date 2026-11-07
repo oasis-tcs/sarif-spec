@@ -6,7 +6,7 @@ A `conversion` object describes how a converter transformed the output of an ana
 
 > EXAMPLE 1: In this example, a converter has converted an AndroidStudio output file into a SARIF log file:
 >
-> ```json
+> ```{.json twin="file-format-22-conversion-object_general_example-1.json"}
 > {
 >   ...
 >   "runs": [

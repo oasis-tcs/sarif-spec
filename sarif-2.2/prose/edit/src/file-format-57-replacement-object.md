@@ -10,7 +10,7 @@ If a single `artifactChange` object ([sec](#artifactchange-object)) specifies mo
 
 > EXAMPLE 1: Suppose an `artifactChange` object contains a `replacements` property whose value is the following array of `replacement` objects:
 >
-> ```json
+> ```{.json twin="file-format-57-replacement-object_general_example-1.json"}
 > "artifactChanges": [
 >   {
 >     "deletedRegion": {
@@ -49,7 +49,7 @@ A `replacement` object can represent either a textual replacement or a binary re
 
 > EXAMPLE 2: In this example, the `replacements` property specifies a replacement in a text file.
 >
-> ```json
+> ```{.json twin="file-format-57-replacement-object_general_example-2.json"}
 > "replacements": [
 >   {
 >     "deletedRegion": { # The region object represents a text region ((#text-regions)).

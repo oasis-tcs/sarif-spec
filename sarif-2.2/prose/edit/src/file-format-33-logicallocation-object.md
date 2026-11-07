@@ -60,7 +60,7 @@ The `name` property **SHALL** be suitable for display and **SHALL** follow the n
 
 > EXAMPLE 1: In this C++ example, the fully qualified name is `"b::c(float)"`, so `"name"` is the rightmost component, `"c(float)"`.
 >
-> ```json
+> ```{.json twin="file-format-33-logicallocation-object_name-property_example-1.json"}
 > {                                      # A logicalLocation object.
 >   "name": "c(float)",
 >   "fullyQualifiedName": "b::c(float)", # See (#logicallocation-object--fullyqualifiedname-property).
@@ -100,7 +100,7 @@ It is possible for two or more distinct logical locations to have the same fully
 >
 > If the tool detected one result in `class B` in *file1.cpp*, and another result in `namespace B` in *file2.cpp*, the `fullyQualifiedName` for both would be `A::B`. However, they would be distinguished by their `parentIndex` properties:
 >
-> ```json
+> ```{.json twin="file-format-33-logicallocation-object_fullyqualifiedname-property_example-1.json"}
 > "logicalLocations": [
 >   {
 >     "name": "B",
@@ -145,7 +145,7 @@ A `logicalLocation` object **MAY** contain a property named `decoratedName` whos
 
 > EXAMPLE 1: In this example, the `decoratedName` property contains a "mangled" name emitted by a C++ compiler:
 >
-> ```json
+> ```{.json twin="file-format-33-logicallocation-object_decoratedname-property_example-1.json"}
 > {                                              # A logicalLocation object
 >   "name": "c(float)",
 >   "fullyQualifiedName": "b::c(float)",
@@ -208,7 +208,7 @@ Although the values suggested here are useful in the specified categories (for e
 >
 > Suppose that an analysis tool detects errors on line 3 (the order number is blank) and line 4 (the total is negative). It might represent the logical locations of these errors as XML Paths (although this is not required), as follows:
 >
-> ```json
+> ```{.json twin="file-format-33-logicallocation-object_kind-property_example-1.json"}
 > {                                 # A run object ((#run-object)).
 >   "results": [                    # See (#results-property).
 >     {                             # A result object ((#result-object)).
@@ -292,7 +292,7 @@ Although the values suggested here are useful in the specified categories (for e
 >
 > Suppose that an analysis tool detects errors on line 4 (one of the product ids blank) and line 5 (the total is negative). It might represent the logical locations of these errors as JSON Pointers (although this is not required), as follows:
 >
-> ```json
+> ```{.json twin="file-format-33-logicallocation-object_kind-property_example-2.json"}
 > {                                 # A run object ((#run-object)).
 >   "results": [                    # See (#results-property).
 >     {                             # A result object ((#result-object)).
@@ -371,7 +371,7 @@ If `thisObject` represents a top-level logical location, then `parentIndex` **SH
 
 > EXAMPLE 1: In this example, the logical location `n::f(void)` is nested within the top-level logical location `n`. The `logicalLocation` object representing `n::f(void)` contains a `parentIndex` property that points to the object representing `n`; the object representing `n` does not contain a `parentIndex` property.
 >
-> ```json
+> ```{.json twin="file-format-33-logicallocation-object_parentindex-property_example-1.json"}
 > {                                            # A run object ((#run-object)).
 >   "logicalLocations": [                      # See (#run-object--logicallocations-property).
 >     {

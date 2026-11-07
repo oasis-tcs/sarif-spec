@@ -58,7 +58,7 @@ A SARIF producer **MAY** embed the contents of a response file in the SARIF log 
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_responsefiles-property_example-1.json"}
 > {                       # An invocation object.
 >     "commandLine": "/quiet @analyzer.rsp @strict.rsp @options.rsp",
 > 
@@ -110,7 +110,7 @@ If the SARIF producer process did not exit due to a signal, an `invocation` obje
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_exitcodedescription-property_example-1.json"}
 > {                       # An invocation object
 >   "exitCode": 0,
 >   "exitCodeDescription": "Normal successful completion"
@@ -119,7 +119,7 @@ If the SARIF producer process did not exit due to a signal, an `invocation` obje
 
 > EXAMPLE 2:
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_exitcodedescription-property_example-2.json"}
 > {                       # An invocation object
 >   "exitCode": 2,
 >   "exitCodeDescription": "File not found"
@@ -142,7 +142,7 @@ If the SARIF producer process did not exit due to a signal, the `exitSignalNumbe
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_exitsignalnumber-property_example-1.json"}
 > {                       # An invocation object
 >   "exitSignalNumber": 3,
 >   "exitSignalName": "SIGQUIT"
@@ -159,7 +159,7 @@ If the analysis tool process started successfully (regardless of whether or how 
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_processstartfailuremessage-property_example-1.json"}
 > {                       # An invocation object
 >   "processStartFailureMessage": "WebScan.exe is not recognized as a command."
 > }
@@ -173,7 +173,7 @@ An `invocation` object **SHALL** contain a property named `executionSuccessful` 
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_executionsuccessful-property_example-1.json"}
 > {
 >   "exitCode": 1,
 >   "exitCodeDescription": "Scan successful; warnings detected.",
@@ -245,7 +245,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 
 > EXAMPLE 1: A tool is invoked with a configuration file which specifies that the tool should disable rule `ABC0001`, but there is no rule whose id is `ABC0001`. The tool reports the problem in `toolConfigurationNotifications`. The tool might continue to run, reporting results for the rules that are correctly configured.
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_toolconfigurationnotifications-property_example-1.json"}
 > "toolConfigurationNotifications": [
 >   {                                 # A notification object ((#notification-object)).
 >     "descriptor": {
@@ -265,7 +265,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 
 > EXAMPLE 2: A tool is invoked with an unknown command-line argument. The tool reports the problem in `toolConfigurationNotifications`. The tool might report the problem as a warning and continue to run, or it might report the problem as an error and terminate.
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_toolconfigurationnotifications-property_example-2.json"}
 > "toolConfigurationNotifications": [
 >   {                                 # A notification object ((#notification-object)).
 >     "descriptor": {
@@ -281,7 +281,7 @@ The information in `toolConfigurationNotifications` is primarily intended for th
 
 > EXAMPLE 3: A tool is invoked with a command-line argument that specifies the name of a directory containing files to analyze, but the user who invoked the tool does not have read access to that directory. The tool reports the problem as an error in `toolConfigurationNotifications` and then terminates.
 >
-> ```json
+> ```{.json twin="file-format-20-invocation-object_toolconfigurationnotifications-property_example-3.json"}
 > "toolConfigurationNotifications": [
 >   {                                 # A notification object ((#notification-object)).
 >     "descriptor": {

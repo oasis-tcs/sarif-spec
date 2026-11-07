@@ -3,7 +3,7 @@
 # `host` is a $defs name or sarifLog; derive validates the twin as that definition after removing the
 # markers (records/markers.yaml) and injecting the required context. `note` explains a missing host.
 # `display` (seeded by `bin/vision.py migrate-snippets`): the snippet in the prose derived from this twin.
-# file/fence: the prose file and the number of its JSON code block (from 0); root: member shows the members
+# file: the prose file; its code block carries the key ```{.json twin="<twin>"}; root: member shows the members
 # without braces; column: where margin notes start; notes: a margin note at a JSON pointer (#end: the closing
 # line; line: a continuation line); breaks: a long line continued on the next line, [cut, indent] per break;
 # inline: arrays on one line; open: an elided object as { ... }; spacing: a line spaced differently (whitespace
@@ -17,7 +17,6 @@ examples:
   host: run
   display:
     file: diagnosing-results.md
-    fence: 0
     column: 44
     notes:
     - at: ''
@@ -56,7 +55,6 @@ examples:
   host: run
   display:
     file: diagnosing-results.md
-    fence: 1
     column: 44
     notes:
     - at: /artifacts
@@ -79,7 +77,6 @@ examples:
   host: run
   display:
     file: diagnosing-results.md
-    fence: 2
     column: 42
     notes:
     - at: /results/0/locations/0/physicalLocation/artifactLocation/index
@@ -98,12 +95,10 @@ examples:
   snippet: 'closest is code block 3, whose line 6 differs from the twin: ''"addresses": ['' vs ''"automationDetails": {'''
   display:
     file: examples.md
-    fence: 3
 - twin: examples_minimal-recommended-sarif-log-file-with-source-information_codeblock-json-1.sarif.json
   host: sarifLog
   display:
     file: examples.md
-    fence: 1
     breaks:
       /runs/0/tool/driver/rules/0/fullDescription/text:
       - - 87
@@ -112,13 +107,11 @@ examples:
   host: sarifLog
   display:
     file: examples.md
-    fence: 2
 - twin: examples_minimal-valid-sarif-log-file_codeblock-json-1.sarif.json
   host: sarifLog
   snippet: 'closest is code block 0, whose line 10 differs from the twin: ''"results": ['' vs ''"results": []'''
   display:
     file: examples.md
-    fence: 0
     expanded:
       /runs/0/results: 6
 - twin: external-property-file-format_externalproperties-object_general_example-1.json
@@ -126,7 +119,6 @@ examples:
   snippet: block 0 renders differently
   display:
     file: external-property-file-format.md
-    fence: 0
     column: 30
     notes:
     - at: ''
@@ -160,7 +152,6 @@ examples:
   host: physicalLocation
   display:
     file: file-format-03-artifactcontent-object.md
-    fence: 0
     column: 33
     notes:
     - at: ''
@@ -186,7 +177,6 @@ examples:
   host: run
   display:
     file: file-format-04-artifactlocation-object.md
-    fence: 2
     column: 49
     notes:
     - at: ''
@@ -198,7 +188,6 @@ examples:
   host: run
   display:
     file: file-format-04-artifactlocation-object.md
-    fence: 3
     column: 49
     notes:
     - at: ''
@@ -226,7 +215,6 @@ examples:
   host: run
   display:
     file: file-format-04-artifactlocation-object.md
-    fence: 1
     column: 37
     notes:
     - at: ''
@@ -236,13 +224,11 @@ examples:
   host: artifactChange
   display:
     file: file-format-04-artifactlocation-object.md
-    fence: 0
     root: member
 - twin: file-format-05-string-properties_versioned-hierarchical-strings_example-1.json
   host: result
   display:
     file: file-format-05-string-properties.md
-    fence: 1
     column: 34
     notes:
     - at: ''
@@ -254,7 +240,6 @@ examples:
   host: run
   display:
     file: file-format-08-property-bags.md
-    fence: 0
     column: 31
     notes:
     - at: ''
@@ -271,7 +256,6 @@ examples:
   host: artifact
   display:
     file: file-format-08-property-bags.md
-    fence: 1
     column: 31
     notes:
     - at: ''
@@ -285,7 +269,6 @@ examples:
   host: run
   display:
     file: file-format-08-property-bags.md
-    fence: 2
     column: 31
     notes:
     - at: ''
@@ -304,7 +287,6 @@ examples:
   host: result
   display:
     file: file-format-11-message-object.md
-    fence: 2
     column: 35
     notes:
     - at: ''
@@ -314,7 +296,6 @@ examples:
   host: run
   display:
     file: file-format-11-message-object.md
-    fence: 0
     column: 52
     inline:
     - /results/0/message/arguments
@@ -339,7 +320,6 @@ examples:
   host: sarifLog
   display:
     file: file-format-13-sariflog-object.md
-    fence: 0
     column: 22
     open:
       /runs/0:
@@ -366,7 +346,6 @@ examples:
   snippet: 'closest is code block 1, whose line 43 differs from the twin: ''...'' vs ''{'''
   display:
     file: file-format-13-sariflog-object.md
-    fence: 1
     column: 54
     notes:
     - at: /inlineExternalProperties/0/guid
@@ -398,7 +377,6 @@ examples:
   snippet: 'closest is code block 0, whose line 2 differs from the twin: ''"tool": {'' vs ''"artifacts": ['''
   display:
     file: file-format-14-run-object.md
-    fence: 5
     root: member
     spacing:
       /artifacts/0/location/uri: '        "uri": "file:///C:/Code/main.c"'
@@ -407,7 +385,6 @@ examples:
   host: run
   display:
     file: file-format-14-run-object.md
-    fence: 0
     column: 18
     open:
       /results/0:
@@ -435,7 +412,6 @@ examples:
   host: run
   display:
     file: file-format-14-run-object.md
-    fence: 6
     root: member
 - twin: file-format-14-run-object_newlinesequences-property_example-2.json
   host: run
@@ -443,7 +419,6 @@ examples:
     ['''
   display:
     file: file-format-14-run-object.md
-    fence: 7
     column: 10
     inline:
     - /newlineSequences
@@ -456,7 +431,6 @@ examples:
   snippet: 'closest is code block 2, whose line 2 differs from the twin: ''"PROJECTROOT": {'' vs ''"PROJECTROOT": {'''
   display:
     file: file-format-14-run-object.md
-    fence: 2
     root: member
     spacing:
       /originalUriBaseIds/PROJECTROOT: ' "PROJECTROOT": {'
@@ -465,7 +439,6 @@ examples:
   host: run
   display:
     file: file-format-14-run-object.md
-    fence: 4
     column: 42
     notes:
     - at: ''
@@ -488,7 +461,6 @@ examples:
   host: run
   display:
     file: file-format-14-run-object.md
-    fence: 8
     column: 22
     notes:
     - at: ''
@@ -502,7 +474,6 @@ examples:
   snippet: 'closest is code block 6, whose line 2 differs from the twin: ''...'' vs ''"versionControlProvenance": ['''
   display:
     file: file-format-14-run-object.md
-    fence: 1
     column: 39
     notes:
     - at: ''
@@ -534,7 +505,6 @@ examples:
   host: run
   display:
     file: file-format-15-externalpropertyfilereferences-object.md
-    fence: 0
     column: 28
     notes:
     - at: ''
@@ -553,7 +523,6 @@ examples:
   host: run
   display:
     file: file-format-15-externalpropertyfilereferences-object.md
-    fence: 1
     column: 29
     notes:
     - at: ''
@@ -573,7 +542,6 @@ examples:
   host: run
   display:
     file: file-format-15-externalpropertyfilereferences-object.md
-    fence: 2
     column: 29
     notes:
     - at: ''
@@ -591,7 +559,6 @@ examples:
   host: run
   display:
     file: file-format-17-runautomationdetails-object.md
-    fence: 0
     column: 31
     notes:
     - at: ''
@@ -614,7 +581,6 @@ examples:
   host: tool
   display:
     file: file-format-18-tool-object.md
-    fence: 0
     column: 27
     notes:
     - at: ''
@@ -627,7 +593,6 @@ examples:
   host: tool
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 3
     root: member
     column: 34
     notes:
@@ -641,7 +606,6 @@ examples:
   host: run
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 8
     column: 35
     notes:
     - at: ''
@@ -659,7 +623,6 @@ examples:
   host: tool
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 5
     root: member
     column: 33
     notes:
@@ -673,7 +636,6 @@ examples:
   host: run
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 2
     column: 35
     notes:
     - at: ''
@@ -698,7 +660,6 @@ examples:
   host: tool
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 4
     root: member
     column: 34
     notes:
@@ -718,7 +679,6 @@ examples:
   host: run
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 7
     column: 34
     notes:
     - at: ''
@@ -748,7 +708,6 @@ examples:
   host: toolComponent
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 6
     column: 36
     notes:
     - at: ''
@@ -757,7 +716,6 @@ examples:
   host: run
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 0
     column: 35
     notes:
     - at: ''
@@ -788,7 +746,6 @@ examples:
   host: run
   display:
     file: file-format-19-toolcomponent-object.md
-    fence: 1
     column: 35
     notes:
     - at: ''
@@ -806,12 +763,10 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 6
 - twin: file-format-20-invocation-object_exitcodedescription-property_example-1.json
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 2
     column: 24
     notes:
     - at: ''
@@ -821,7 +776,6 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 3
     column: 24
     notes:
     - at: ''
@@ -831,7 +785,6 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 4
     column: 24
     notes:
     - at: ''
@@ -841,7 +794,6 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 5
     column: 24
     notes:
     - at: ''
@@ -853,7 +805,6 @@ examples:
     "/quiet @analyzer.rsp @strict.rsp @options.rs'''
   display:
     file: file-format-20-invocation-object.md
-    fence: 1
     column: 24
     notes:
     - at: ''
@@ -885,7 +836,6 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 7
     root: member
     column: 36
     notes:
@@ -900,7 +850,6 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 8
     root: member
     column: 36
     notes:
@@ -911,7 +860,6 @@ examples:
   host: invocation
   display:
     file: file-format-20-invocation-object.md
-    fence: 9
     root: member
     column: 36
     notes:
@@ -922,7 +870,6 @@ examples:
   host: result
   display:
     file: file-format-21-attachment-object.md
-    fence: 0
     column: 46
     notes:
     - at: ''
@@ -941,7 +888,6 @@ examples:
   snippet: 'closest is code block 0, whose line 16 differs from the twin: '''' vs ''"invocation": "Sarif.Multitool.exe convert -t AndroidStudio '''
   display:
     file: file-format-22-conversion-object.md
-    fence: 0
     column: 53
     notes:
     - at: /runs/0/conversion/tool
@@ -968,7 +914,6 @@ examples:
   host: run
   display:
     file: file-format-23-versioncontroldetails-object.md
-    fence: 0
     before:
       /versionControlProvenance:
       - '> '
@@ -979,7 +924,6 @@ examples:
   snippet: 'closest is code block 1, whose line 9 differs from the twin: '''' vs ''},'''
   display:
     file: file-format-24-artifact-object.md
-    fence: 1
     column: 39
     notes:
     - at: ''
@@ -1000,7 +944,6 @@ examples:
   host: artifact
   display:
     file: file-format-24-artifact-object.md
-    fence: 2
     column: 20
     notes:
     - at: ''
@@ -1009,7 +952,6 @@ examples:
   host: run
   display:
     file: file-format-24-artifact-object.md
-    fence: 0
     root: member
     breaks:
       /artifacts/1/mimeType:
@@ -1020,7 +962,6 @@ examples:
   snippet: 'closest is code block 0, whose line 10 differs from the twin: ''"uri": "/home/user/",'' vs ''"uri": "/home/user/",'''
   display:
     file: file-format-25-speciallocations-object.md
-    fence: 0
     column: 28
     notes:
     - at: ''
@@ -1043,7 +984,6 @@ examples:
   host: toolComponent
   display:
     file: file-format-26-translationmetadata-object.md
-    fence: 0
     column: 28
     notes:
     - at: ''
@@ -1062,7 +1002,6 @@ examples:
   host: result
   display:
     file: file-format-27-result-object.md
-    fence: 6
     column: 34
     notes:
     - at: ''
@@ -1090,7 +1029,6 @@ examples:
   snippet: 'closest is code block 7, whose line 2 differs from the twin: ''"fingerprints": {'' vs ''"fingerprints": {'''
   display:
     file: file-format-27-result-object.md
-    fence: 7
     spacing:
       /fingerprints: '    "fingerprints": {'
       /fingerprints/stableResultHash~1v2: '      "stableResultHash/v2": "097886bc876fe"'
@@ -1099,7 +1037,6 @@ examples:
   host: run
   display:
     file: file-format-27-result-object.md
-    fence: 8
     column: 35
     notes:
     - at: ''
@@ -1113,7 +1050,6 @@ examples:
   host: run
   display:
     file: file-format-27-result-object.md
-    fence: 2
     root: member
     breaks:
       /results/0/message/text:
@@ -1126,7 +1062,6 @@ examples:
   host: run
   display:
     file: file-format-27-result-object.md
-    fence: 3
     root: member
     breaks:
       /results/0/message/text:
@@ -1136,7 +1071,6 @@ examples:
   host: run
   display:
     file: file-format-27-result-object.md
-    fence: 4
     root: member
     breaks:
       /results/0/message/text:
@@ -1156,7 +1090,6 @@ examples:
   host: run
   display:
     file: file-format-27-result-object.md
-    fence: 5
     column: 34
     notes:
     - at: ''
@@ -1181,7 +1114,6 @@ examples:
   host: result
   display:
     file: file-format-27-result-object.md
-    fence: 9
     column: 34
     notes:
     - at: ''
@@ -1191,7 +1123,6 @@ examples:
   host: run
   display:
     file: file-format-27-result-object.md
-    fence: 10
     column: 35
     notes:
     - at: ''
@@ -1205,7 +1136,6 @@ examples:
   host: result
   display:
     file: file-format-27-result-object.md
-    fence: 11
     column: 28
     notes:
     - at: ''
@@ -1219,7 +1149,6 @@ examples:
   snippet: 'closest is code block 0, whose line 2 differs from the twin: ''"tool": {'' vs ''...'''
   display:
     file: file-format-27-result-object.md
-    fence: 12
     column: 28
     notes:
     - at: ''
@@ -1230,7 +1159,6 @@ examples:
   snippet: 'closest is code block 12, whose line 37 differs from the twin: ''...'' vs ''...'''
   display:
     file: file-format-27-result-object.md
-    fence: 13
     root: member
     column: 28
     notes:
@@ -1250,12 +1178,10 @@ examples:
   host: run
   display:
     file: file-format-27-result-object.md
-    fence: 0
 - twin: file-format-27-result-object_taxa-property_example-1.json
   host: run
   display:
     file: file-format-27-result-object.md
-    fence: 1
     column: 38
     notes:
     - at: ''
@@ -1268,7 +1194,6 @@ examples:
   host: location
   display:
     file: file-format-28-location-object.md
-    fence: 0
     root: member
     column: 34
     notes:
@@ -1281,7 +1206,6 @@ examples:
   host: result
   display:
     file: file-format-29-physicallocation-object.md
-    fence: 1
     column: 40
     notes:
     - at: ''
@@ -1310,7 +1234,6 @@ examples:
   host: result
   display:
     file: file-format-29-physicallocation-object.md
-    fence: 0
     column: 31
     notes:
     - at: ''
@@ -1336,7 +1259,6 @@ examples:
   host: run
   display:
     file: file-format-32-address-object.md
-    fence: 0
     column: 35
     notes:
     - at: ''
@@ -1360,7 +1282,6 @@ examples:
   host: logicalLocation
   display:
     file: file-format-33-logicallocation-object.md
-    fence: 2
     column: 47
     notes:
     - at: ''
@@ -1370,7 +1291,6 @@ examples:
   host: run
   display:
     file: file-format-33-logicallocation-object.md
-    fence: 1
     root: member
     trailing:
     - - /logicalLocations/0/fullyQualifiedName
@@ -1382,7 +1302,6 @@ examples:
     "/orders/order[1]/text()",'''
   display:
     file: file-format-33-logicallocation-object.md
-    fence: 3
     column: 34
     notes:
     - at: ''
@@ -1414,7 +1333,6 @@ examples:
   snippet: 'closest is code block 3, whose line 6 differs from the twin: ''"logicalLocations": ['' vs ''"logicalLocation": {'''
   display:
     file: file-format-33-logicallocation-object.md
-    fence: 5
     column: 34
     notes:
     - at: ''
@@ -1451,7 +1369,6 @@ examples:
   host: logicalLocation
   display:
     file: file-format-33-logicallocation-object.md
-    fence: 0
     column: 39
     notes:
     - at: ''
@@ -1464,7 +1381,6 @@ examples:
   host: run
   display:
     file: file-format-33-logicallocation-object.md
-    fence: 6
     column: 45
     notes:
     - at: ''
@@ -1482,7 +1398,6 @@ examples:
   host: result
   display:
     file: file-format-34-locationrelationship-object.md
-    fence: 0
     column: 41
     inline:
     - /locations/0/relationships/0/kinds
@@ -1521,7 +1436,6 @@ examples:
   host: result
   display:
     file: file-format-36-codeflow-object.md
-    fence: 0
     column: 40
     notes:
     - at: ''
@@ -1572,7 +1486,6 @@ examples:
   host: threadFlow
   display:
     file: file-format-37-threadflow-object.md
-    fence: 0
     column: 43
     notes:
     - at: ''
@@ -1581,7 +1494,6 @@ examples:
   host: run
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 0
     column: 34
     notes:
     - at: ''
@@ -1597,7 +1509,6 @@ examples:
   host: run
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 1
     column: 34
     notes:
     - at: ''
@@ -1630,7 +1541,6 @@ examples:
   host: run
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 2
     column: 34
     notes:
     - at: ''
@@ -1667,26 +1577,22 @@ examples:
   host: threadFlowLocation
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 4
     root: member
 - twin: file-format-38-threadflowlocation-object_kinds-property_example-2.json
   host: threadFlowLocation
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 5
     root: member
 - twin: file-format-38-threadflowlocation-object_kinds-property_example-3.json
   host: threadFlowLocation
   snippet: 'closest is code block 3, whose line 2 differs from the twin: ''"threadFlows": ['' vs ''"kinds": ['''
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 6
     root: member
 - twin: file-format-38-threadflowlocation-object_location-property_example-1.json
   host: codeFlow
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 3
     column: 38
     notes:
     - at: ''
@@ -1715,7 +1621,6 @@ examples:
   host: threadFlowLocation
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 11
     column: 31
     notes:
     - at: ''
@@ -1724,7 +1629,6 @@ examples:
   host: run
   display:
     file: file-format-38-threadflowlocation-object.md
-    fence: 12
     column: 33
     notes:
     - at: ''
@@ -1772,7 +1676,6 @@ examples:
   host: graph
   display:
     file: file-format-40-node-object.md
-    fence: 0
     column: 30
     notes:
     - at: ''
@@ -1790,7 +1693,6 @@ examples:
   host: graph
   display:
     file: file-format-41-edge-object.md
-    fence: 0
     column: 30
     notes:
     - at: ''
@@ -1812,7 +1714,6 @@ examples:
   host: result
   display:
     file: file-format-42-graphtraversal-object.md
-    fence: 1
     column: 43
     inline:
     - /graphs/0/nodes/0
@@ -1879,7 +1780,6 @@ examples:
   host: graphTraversal
   display:
     file: file-format-42-graphtraversal-object.md
-    fence: 0
     column: 43
     notes:
     - at: ''
@@ -1888,7 +1788,6 @@ examples:
   host: result
   display:
     file: file-format-43-edgetraversal-object.md
-    fence: 0
     column: 44
     inline:
     - /graphs/0/nodes/0/children/0
@@ -1933,7 +1832,6 @@ examples:
   host: sarifLog
   display:
     file: file-format-48-resultprovenance-object.md
-    fence: 0
     column: 39
     notes:
     - at: /runs/0/conversion
@@ -1953,13 +1851,11 @@ examples:
   host: run
   display:
     file: file-format-49-reportingdescriptor-object.md
-    fence: 0
 - twin: file-format-49-reportingdescriptor-object_messagestrings-property_example-1.json
   host: reportingDescriptor
   snippet: 'closest is code block 3, whose line 3 differs from the twin: ''"objectCreation":  {'' vs ''"objectCreation": {'''
   display:
     file: file-format-49-reportingdescriptor-object.md
-    fence: 3
     column: 26
     notes:
     - at: ''
@@ -1997,7 +1893,6 @@ examples:
   host: reportingDescriptor
   display:
     file: file-format-49-reportingdescriptor-object.md
-    fence: 2
     column: 26
     notes:
     - at: ''
@@ -2007,7 +1902,6 @@ examples:
   host: reportingDescriptor
   display:
     file: file-format-50-reportingconfiguration-object.md
-    fence: 0
     column: 35
     notes:
     - at: ''
@@ -2018,7 +1912,6 @@ examples:
   snippet: block 0 renders differently
   display:
     file: file-format-51-configurationoverride-object.md
-    fence: 0
     column: 44
     notes:
     - at: ''
@@ -2058,7 +1951,6 @@ examples:
   host: invocation
   display:
     file: file-format-52-reportingdescriptorreference-object.md
-    fence: 0
     column: 45
     notes:
     - at: ''
@@ -2081,7 +1973,6 @@ examples:
   host: run
   display:
     file: file-format-52-reportingdescriptorreference-object.md
-    fence: 1
     column: 30
     notes:
     - at: ''
@@ -2116,7 +2007,6 @@ examples:
   snippet: block 2 renders differently
   display:
     file: file-format-52-reportingdescriptorreference-object.md
-    fence: 2
     column: 29
     notes:
     - at: ''
@@ -2152,7 +2042,6 @@ examples:
   host: run
   display:
     file: file-format-53-reportingdescriptorrelationship-object.md
-    fence: 0
     column: 31
     notes:
     - at: ''
@@ -2181,7 +2070,6 @@ examples:
   snippet: 'closest is code block 1, whose line 23 differs from the twin: ''"guid": "11111111-0000-1111-8888-000000000002"'' vs ''"guid": "11111111-0000-1111-8888-000000000002",'''
   display:
     file: file-format-53-reportingdescriptorrelationship-object.md
-    fence: 1
     column: 31
     notes:
     - at: ''
@@ -2205,7 +2093,6 @@ examples:
   host: fix
   display:
     file: file-format-55-fix-object.md
-    fence: 2
     column: 37
     notes:
     - at: ''
@@ -2232,7 +2119,6 @@ examples:
   host: fix
   display:
     file: file-format-55-fix-object.md
-    fence: 3
     column: 37
     notes:
     - at: ''
@@ -2266,13 +2152,11 @@ examples:
   note: the fix is shown under a label key `fix`, which no SARIF object has; the twin should hold the fix itself
   display:
     file: file-format-55-fix-object.md
-    fence: 1
     root: member
 - twin: file-format-55-fix-object_general_example-1.json
   host: result
   display:
     file: file-format-55-fix-object.md
-    fence: 0
     column: 36
     open:
       /fixes/0/artifactChanges/0:
@@ -2297,7 +2181,6 @@ examples:
   host: fix
   display:
     file: file-format-56-artifactchange-object.md
-    fence: 0
     column: 30
     open:
       /artifactChanges/0/replacements/0:
@@ -2329,13 +2212,11 @@ examples:
   host: fix
   display:
     file: file-format-57-replacement-object.md
-    fence: 0
     root: member
 - twin: file-format-57-replacement-object_general_example-2.json
   host: artifactChange
   display:
     file: file-format-57-replacement-object.md
-    fence: 1
     root: member
     column: 24
     notes:
@@ -2350,7 +2231,6 @@ examples:
   host: run
   display:
     file: file-format-58-notification-object.md
-    fence: 0
     column: 39
     notes:
     - at: ''

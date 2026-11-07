@@ -34,7 +34,7 @@ A `graphTraversal` object **MAY** contain a property named `immutableState` whos
 
 > EXAMPLE 1: In this example, `immutableState` holds the value of a global variable that remains constant throughout the traversal.
 >
-> ```json
+> ```{.json twin="file-format-42-graphtraversal-object_immutablestate-property_example-1.json"}
 > {                                          # A graphTraversal object.
 >   "immutableState": {
 >     "MaxFiles": {
@@ -54,7 +54,7 @@ The `edgeTraversal` objects **SHALL** be connected end to end; that is, the targ
 >
 > This example also demonstrates the usage of `graphTraversal.initialState` ([sec](#graphtraversal-object--initialstate-property)) and `edgeTraversal.finalState` ([sec](#finalstate-property)).
 >
-> ```json
+> ```{.json twin="file-format-42-graphtraversal-object_edgetraversals-property_example-1.json"}
 > {                                          # A result object ((#result-object)).
 >   "graphs": [                              # See (#result-object--graphs-property).
 >     {                                      # A graph object ((#graph-object)).

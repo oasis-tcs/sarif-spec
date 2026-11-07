@@ -48,7 +48,7 @@ If this property is present, a SARIF viewer **MAY** provide a visual cue informi
 >
 > &emsp;&emsp;`[ na1, na2, na3, na4 ]`
 >
-> ```json
+> ```{.json twin="file-format-43-edgetraversal-object_stepoveredgecount-property_example-1.json"}
 > {                                           # A result object ((#result-object)).
 >   "graphs": [                               # See (#result-object--graphs-property).
 >     {                                       # A graph object ((#graph-object)).

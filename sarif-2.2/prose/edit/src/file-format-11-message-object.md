@@ -82,7 +82,7 @@ Within a given `message` object:
 
 > EXAMPLE 2: In this example, the SARIF consumer will replace the placeholder `{0}` in `message.text` with the value `"pBuffer"` from the 0 element of `message.arguments`.
 >
-> ```json
+> ```{.json twin="file-format-11-message-object_messages-with-placeholders_example-2.json"}
 > {                                                   # A run object ((#run-object)).
 >   "results": [                                      # See (#results-property).
 >     {                                               # A result object ((#result-object)).
@@ -150,7 +150,7 @@ In both plain text and formatted messages, if `link destination` is a non-negati
 
 > EXAMPLE 3: In this example, a plain text message contains an embedded link to a location with a file. The `result` object contains exactly one `location` object whose `id` property matches the `link destination`.
 >
-> ```json
+> ```{.json twin="file-format-11-message-object_messages-with-embedded-links_example-2.json"}
 > {                                  # A result object ((#result-object)).
 >   "ruleId": "TNT0001",
 >   "message": {

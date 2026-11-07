@@ -58,7 +58,7 @@ A `location` object **MAY** contain a property named `annotations` whose value i
 >
 > If the analysis tool wanted to emphasize the expression `(y + z)`, it might set the `annotations` property to:
 >
-> ```json
+> ```{.json twin="file-format-28-location-object_annotations-property_example-1.json"}
 > "annotations": [                  # An array of region objects.
 >   {                               # A region object ((#region-object)).
 >     "startLine": 12,

@@ -6,7 +6,7 @@ A `sarifLog` object specifies the version of the file format and contains the ou
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-13-sariflog-object_general_example-1.json"}
 > {
 >   "version": "2.2", # See (#sariflog-object--version-property).
 >   "runs": [           # See (#runs-property).
@@ -61,7 +61,7 @@ A `sarifLog` object **MAY** contain a property named `inlineExternalProperties` 
 
 > EXAMPLE 1: In this example, two tools analyze the same set of image files, stored in `sarifLog.inlineExternalProperties[0].artifacts`. The first tool locates the inline `externalProperties` object by means of a URI with the `sarif` scheme (see [sec](#uris-that-use-the-sarif-scheme)). The second tool locates the object by means of its `guid` property ([sec](#externalproperties-object--guid-property)).
 >
-> ```json
+> ```{.json twin="file-format-13-sariflog-object_inlineexternalproperties-property_example-1.json"}
 > {
 >   "version": "2.2",
 >   "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.2/schema/sarif.json",

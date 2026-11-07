@@ -32,7 +32,7 @@ A custom taxonomy is represented by providing a `toolComponent` object in `tool.
 
 > EXAMPLE 1: In this example, the tool driver supports the CWE™ taxonomy, and also supports a custom taxonomy that it defines. Any result that violates the driver’s rule `"CA2101"` falls into the `"MemoryManagement"` taxon of its custom taxonomy, as shown by the `"superset"` relationship from the `"MemoryManagement"` taxon to the rule (which is interpreted as "The `MemoryManagement` taxon is a superset of rule `CA2101`"). For more information on relationships, see [sec](#reportingdescriptor-object--relationships-property) and [sec](#reportingdescriptorrelationship-object).
 >
-> ```json
+> ```{.json twin="file-format-19-toolcomponent-object_taxonomies_example-1.json"}
 > {                                  # A run object ((#run-object)).
 >   "tool": {                        # See (#run-object--tool-property).
 >     "driver": {                    # See (#driver-property).
@@ -166,7 +166,7 @@ In many cases, a new version of a `toolComponent` defines new localizable string
 
 > EXAMPLE 1: In this example, a French translation is available. It translates localizable component-level properties such as `toolComponent.name` ([sec](#toolcomponent-object--name-property)), as well as rule-level properties such as `reportingDescriptor.shortDescription` ([sec](#reportingdescriptor-object--shortdescription-property)). The translation can be used because its `localizedDataSemanticVersion` property ([sec](#localizeddatasemanticversion-property)) is compatible with the translated component’s `minimumRequiredLocalizedDataSemantic` version property ([sec](#minimumrequiredlocalizeddatasemanticversion-property)).
 >
-> ```json
+> ```{.json twin="file-format-19-toolcomponent-object_translations_example-1.json"}
 > {                                  # A run object ((#run-object)).
 >   "tool": {                        # See (#run-object--tool-property).
 >     "driver": {                    # See (#driver-property).
@@ -228,7 +228,7 @@ A SARIF consumer **MAY** offer the user the option of treating results according
 
 > EXAMPLE 1: In this example, the tool driver defines rule `CA2101` to be a warning and disables rule `CA2551` by default. However, the corporate security policy specifies that a violation of rule `CA2101` is an error and requires rule `CA2551` to be run. The presence of `run.policies` allows a SARIF viewer to display the results according to the tool’s view or the policy’s view.
 
-```json
+```{.json twin="file-format-19-toolcomponent-object_policies_example-1.json"}
 {                                  # A run object ((#run-object)).
   "tool": {                        # See (#run-object--tool-property).
     "driver": {                    # See (#driver-property).
@@ -401,7 +401,7 @@ A `toolComponent` object **MAY** contain a property named `globalMessageStrings`
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-19-toolcomponent-object_globalmessagestrings-property_example-1.json"}
 > "driver": {                       # A toolComponent object ((#toolcomponent-object)).
 >   "globalMessageStrings": {
 >     "call": {                     # A multiformatMessageString object ((#multiformatmessagestring-object)).
@@ -426,7 +426,7 @@ Some tools use the same identifier to refer to multiple distinct (although logic
 
 > EXAMPLE 1: In this example, two distinct but related rules have the same rule id. They are distinguished by their message strings.
 >
-> ```json
+> ```{.json twin="file-format-19-toolcomponent-object_rules-property_example-1.json"}
 > "driver": {                       # A toolComponent object ((#toolcomponent-object)).
 >   "name": "CodeScaner",
 >   "rules": [
@@ -466,7 +466,7 @@ A tool might use the same identifier to refer to multiple distinct (although log
 
 > EXAMPLE 1: In this example, two distinct but related notifications have the same id. They are distinguished by their descriptions and message strings.
 >
-> ```json
+> ```{.json twin="file-format-19-toolcomponent-object_notifications-property_example-1.json"}
 > "driver": {                      # A toolComponent object ((#toolcomponent-object)).
 >   "notifications": [
 >     {                            # A reportingDescriptor object ((#reportingdescriptor-object)).
@@ -506,7 +506,7 @@ If the `toolComponent` describes a tool driver or plugin that defines its own cu
 
 > EXAMPLE 1: In this example, a `toolComponent` object represents the Common Weakness Enumeration.
 >
-> ```json
+> ```{.json twin="file-format-19-toolcomponent-object_taxa-property_example-1.json"}
 > {                                   # A toolComponent object.
 >   "name": "CWE",
 >   "version": "3.2",
@@ -546,7 +546,7 @@ If a `toolComponent` supports a custom taxonomy, it **SHOULD** include a referen
 
 > EXAMPLE 1: In this example, a `toolComponent` claims to support the Common Weakness Enumeration \[[CWE](#CWE)\], and also supports a custom taxonomy.
 >
-> ```json
+> ```{.json twin="file-format-19-toolcomponent-object_supportedtaxonomies-property_example-1.json"}
 > {                                 # A run object ((#run-object)).
 >   "tool": {                       # See (#run-object--tool-property).
 >     "driver": {                   # See (#driver-property).
@@ -641,7 +641,7 @@ When a SARIF consumer is seeking a translation for this object, it **SHALL** onl
 
 > EXAMPLE 1: In this example, the tool is at version 3.3, but it only requires strings at version 3.1, because tool versions 3.2 and 3.3 didn’t affect any user-facing localizable strings. Therefore, the translation at index 0 in `theRun.translations` ([sec](#translations-property)) is acceptable.
 >
-> ```json
+> ```{.json twin="file-format-19-toolcomponent-object_minimumrequiredlocalizeddatasemanticversion-property_example-1.json"}
 > {                                  # A run object ((#run-object)).
 >   "tool": {                        # See (#run-object--tool-property).
 >     "driver": {                    # See (#driver-property).

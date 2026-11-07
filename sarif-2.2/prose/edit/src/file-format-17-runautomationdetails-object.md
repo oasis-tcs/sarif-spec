@@ -8,7 +8,7 @@ A `runAutomationDetails` object contains information that specifies `theRun`’s
 >
 > The run in this example is part of an aggregate of runs which together comprise the nightly execution of the engineering system’s full suite of security tools. `theRun.runAggregates[0]` describes that aggregate. Its `id` and `guid` properties both identify the aggregate. Its `correlationGuid` property specifies the collection of such aggregates identified by *all but the last component* of `id`’s hierarchical string; that is, it identifies the collection of aggregates `"Nightly security tools run for sarif-sdk/master/x86/debug"`.
 >
-> ```json
+> ```{.json twin="file-format-17-runautomationdetails-object_general_example-1.json"}
 > {                              # A run object ((#run-object)).
 >   "automationDetails": {       # See (#automationdetails-property).
 >     "description": {

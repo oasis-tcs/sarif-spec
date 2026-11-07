@@ -8,7 +8,7 @@ A `locationRelationship` object specifies one or more directed relationships fro
 
 > EXAMPLE 1: In this example, the location relationships specify that the file f.h in which the result was found is included by g.h, which is in turn included by g.c. Depending on the circumstances, it might or might not be useful to include both the `"includes"` and `"isIncludedBy"` relationships, as this example does for g.h.
 >
-> ```json
+> ```{.json twin="file-format-34-locationrelationship-object_general_example-1.json"}
 > {                                        # A result object ((#result-object)).
 >   "locations": [                         # See (#result-object--locations-property).
 >     {                                    # A location object ((#location-object)).

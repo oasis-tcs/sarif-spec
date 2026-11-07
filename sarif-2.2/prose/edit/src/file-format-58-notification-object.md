@@ -27,7 +27,7 @@ a `reportingDescriptorReference` object ([sec](#reportingdescriptorreference-obj
 > EXAMPLE 1: In this example, there is more than one rule with id `CA1711`.
 > `associatedRule.index` uniquely specifies the relevant rule.
 >
-> ```json
+> ```{.json twin="file-format-58-notification-object_associatedrule-property_example-1.json"}
 > {                                      # A run object ((#run-object)).
 >   "tool": {                            # See (#run-object--tool-property).
 >     "driver": {                        # See (#driver-property).

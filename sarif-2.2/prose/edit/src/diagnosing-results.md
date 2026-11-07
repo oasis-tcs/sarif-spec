@@ -22,7 +22,7 @@ The first option is more compact; the second allows a SARIF viewer to present re
 
 > EXAMPLE 1: In this example, the analysis tool populates `region.snippet` and `contextRegion.snippet`, allowing a SARIF viewer to display just enough context (one hopes) to diagnose the result.
 >
-> ```json
+> ```{.json twin="diagnosing-results_example-1.json"}
 > {                                           # A run object ((#run-object)).
 >   "originalUriBaseIds": {                   # See (#run-object).14
 >     "GENERATED": {
@@ -69,7 +69,7 @@ The first option is more compact; the second allows a SARIF viewer to present re
 
 > EXAMPLE 2: In this example, the analysis tool populates `artifact.contents`, allowing a SARIF viewer to present the result in a larger context at the expense of a larger log file.
 >
-> ```json
+> ```{.json twin="diagnosing-results_example-2.json"}
 > {
 >   "originalUriBaseIds": {
 >     "GENERATED": {
@@ -124,7 +124,7 @@ The recommended solution is for the analysis tool to create a new entry in `theR
 
 > EXAMPLE 3: In this example, `"ui/window.g.cs"` is multiply generated. The analysis tool creates distinct entries in `theRun.artifacts` to distinguish the two versions.
 >
-> ```json
+> ```{.json twin="diagnosing-results_example-3.json"}
 > {
 >   "originalUriBaseIds": {
 >     "GENERATED": {

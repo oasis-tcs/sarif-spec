@@ -8,7 +8,7 @@ Because they occur only in `toolComponent` objects that represent translations, 
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-26-translationmetadata-object_general_example-1.json"}
 > {                           # A toolComponent object ((#toolcomponent-object)).
 >   "language": "fr-FR",      # The language of the translation (see (#language-property)).
 > 

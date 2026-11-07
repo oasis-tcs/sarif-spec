@@ -28,7 +28,7 @@ If this `artifact` object represents a top-level artifact, then `parentIndex` **
 
 > EXAMPLE 1: This example demonstrates two levels of artifact nesting. The top-level artifact is a ZIP archive represented by the `artifact` object at index 0 in the `artifacts` array. The archive contains a word processing document at the specified absolute path from its root; the document is represented by the `artifact` object at index 1. Finally, the document contains an embedded media object of the specified length at the specified offset from its beginning; the media object is represented by the `artifact` object at index 2. The media object’s `parentIndex` property refers to its parent document; the document’s `parentIndex` property refers to its parent ZIP archive, and the ZIP archive does not have a `parentIndex` property.
 >
-> ```json
+> ```{.json twin="file-format-24-artifact-object_parentindex-property_example-1.json"}
 > "artifacts": [
 >   {
 >     "location": {
@@ -161,7 +161,7 @@ If the `artifact` object represents a binary artifact, `encoding` **SHALL** be a
 
 > EXAMPLE 1: In this example, the encoding of output.txt is UTF-16BE (obtained from the default), but the encoding of data.txt is UTF-16LE:
 >
-> ```json
+> ```{.json twin="file-format-24-artifact-object_encoding-property_example-1.json"}
 > {                                      # A run object ((#run-object)).
 >   "defaultEncoding": "UTF-16BE",       # See (#defaultencoding-property).
 > 
@@ -235,7 +235,7 @@ An `artifact` object **MAY** contain a property named `hashes` whose value is a 
 
 > EXAMPLE 1: In this example, each of the hash functions SHA-256 and SHA-512 were used to compute hash values for the file.
 >
-> ```json
+> ```{.json twin="file-format-24-artifact-object_hashes-property_example-1.json"}
 > {                   # A file object.
 >   "hashes": {
 >     "sha-256": "...",

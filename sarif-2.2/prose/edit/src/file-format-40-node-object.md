@@ -10,7 +10,7 @@ A `node` object **SHALL** contain a property named `id` whose value is a string 
 
 > EXAMPLE 1: This graph is invalid because two nodes have the same `id`, even though the nodes are within unrelated nested graphs.
 >
-> ```json
+> ```{.json twin="file-format-40-node-object_id-property_example-1.json"}
 > {                             # A graph object ((#graph-object)).
 >   "nodes": [                  # See (#nodes-property).
 >     {                         # A node object.

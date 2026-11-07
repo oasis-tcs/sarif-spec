@@ -20,7 +20,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > EXAMPLE 1: In this example, `thisObject` is an element of `theRun.threadFlowLocations`. Its array index is known to be 1, so `thisObject.index` does not need to be present, but since it is present, it equals the array index, as required.
 >
-> ```json
+> ```{.json twin="file-format-38-threadflowlocation-object_index-property_example-1.json"}
 > {                                 # A run object ((#run-object)).
 >   "threadFlowLocations": [        # See (#threadflowlocations-property).
 >     ...
@@ -38,7 +38,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > EXAMPLE 2: In this example, `thisObject` is not an element of `theRun.threadFlowLocations`; rather, it is an element of `theResult.codeFlows[0].threadFlows[0].locations`. There is no cached object; that is, there is no object in `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is absent, as required.
 >
-> ```json
+> ```{.json twin="file-format-38-threadflowlocation-object_index-property_example-2.json"}
 > {                                 # A run object ((#run-object)).
 >   "results": [                    # See (#results-property).
 >     {                             # A result object ((#result-object)).
@@ -69,7 +69,7 @@ If `index` is present, `thisObject` **SHALL** take all properties present on the
 
 > EXAMPLE 3: In this example, `thisObject` is again an element of `theResult.codeFlows[0].threadFlows[0].locations`, not an element of `theRun.threadFlowLocations`. But in this example, there is a cached object, an element of `theRun.threadFlowLocations` that provides the properties for `thisObject`. Therefore, `thisObject.index` is present, as required.
 >
-> ```json
+> ```{.json twin="file-format-38-threadflowlocation-object_index-property_example-3.json"}
 > {                                 # A run object ((#run-object)).
 >   "results": [                    # See (#results-property).
 >     {                             # A result object ((#result-object)).
@@ -111,7 +111,7 @@ There are analysis tools whose native output format includes the equivalent of a
 >
 > Note the use of `executionOrder` ([sec](#executionorder-property)) to ensure that the location in the external program executes before the location in the program being analyzed.
 >
-> ```json
+> ```{.json twin="file-format-38-threadflowlocation-object_location-property_example-1.json"}
 > {                                     # A codeFlow object ((#codeflow-object)).
 >   "threadFlows": [                    # See (#threadflows-property).
 >     {                                 # A threadFlow object ((#threadflow-object)).
@@ -269,7 +269,7 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 
 > EXAMPLE 1: In this example, tainted data enters the system at this location.
 >
-> ```json
+> ```{.json twin="file-format-38-threadflowlocation-object_kinds-property_example-1.json"}
 > "kinds": [
 >   "acquire",
 >   "taint"
@@ -278,7 +278,7 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 
 > EXAMPLE 2: In this example, the "taint" state of a data item at this location is unknown:
 >
-> ```json
+> ```{.json twin="file-format-38-threadflowlocation-object_kinds-property_example-2.json"}
 > "kinds": [
 >   "taint",
 >   "unknown"
@@ -287,7 +287,7 @@ A SARIF producer **MAY** provide additional kind-dependent information by popula
 
 > EXAMPLE 3: In this example, control leaves a function at this location.
 >
-> ```
+> ```{.json twin="file-format-38-threadflowlocation-object_kinds-property_example-3.json"}
 > "kinds": [
 >   "exit",
 >   "function"
@@ -342,7 +342,7 @@ A SARIF viewer **SHALL NOT** assume that expressions mentioned in previous steps
 
 > EXAMPLE 1: In this example, the `state` property captures the values of the expressions `"x"`, `"y"`, and `"x + y"`, and a constraint on the expression `"y – x"`.
 >
-> ```json
+> ```{.json twin="file-format-38-threadflowlocation-object_state-property_example-1.json"}
 > {                              # A threadFlowLocation object.
 >   "state": {
 >     "x": {
@@ -435,7 +435,7 @@ A `threadFlowLocation` **MAY** contain a property named `taxa` whose value is an
 
 > EXAMPLE 1: This example illustrates the scenario in the above note.
 >
-> ```json
+> ```{.json twin="file-format-38-threadflowlocation-object_taxa-property_example-1.json"}
 > {                                # A run object ((#run-object)).
 >   "tool": {                      # See (#run-object--tool-property).
 >     "driver": {

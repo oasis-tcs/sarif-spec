@@ -6,7 +6,7 @@ A `run` object describes a single run of an analysis tool and contains the outpu
 
 > EXAMPLE 1:
 >
-> ```json
+> ```{.json twin="file-format-14-run-object_general_example-1.json"}
 > {
 >   "tool": {       # See (#run-object--tool-property).
 >     ...           # A tool object ((#tool-object)).
@@ -105,7 +105,7 @@ A `run` object **MAY** contain a property named `versionControlProvenance` whose
 
 > EXAMPLE 1: In this example, an analysis tool has scanned files from one repository: the GitHub repository `example/browser`.
 >
-> ```json
+> ```{.json twin="file-format-14-run-object_versioncontrolprovenance-property_example-1.json"}
 >   {                                    # A run object.
 >      "versionControlProvenance": [
 >       {                                # A versionControlDetails object ((#versioncontroldetails-object)).
@@ -133,7 +133,7 @@ If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be o
 
 > EXAMPLE 1: In this example, the "top-level" property `PROJECTROOT` specifies a URI containing a username:
 >
-> ```json
+> ```{.json twin="file-format-14-run-object_originaluribaseIds-property_example-1.json"}
 > "originalUriBaseIds": {
 >  "PROJECTROOT": {
 >     "uri": "file:///C:/Users/Mary/code/TheProject/",
@@ -212,7 +212,7 @@ A SARIF consumer **SHALL** use the following procedure to resolve a URI base id 
 
 > EXAMPLE 2: In this example, the URI base id `"SRCROOT"` on the machine where the SARIF producer ran was `"file:///C:/code/MyProject/src/"`. The producer detected a result in a file whose location relative to that URI base id was `"lib/memory.c"`. A viewer which wished to display that file would first attempt to locate it on the local file system at `"C:\code\MyProject\src\lib\memory.c"`. If the file did not exist at that location, the viewer might prompt the user for the location.
 >
-> ```json
+> ```{.json twin="file-format-14-run-object_originaluribaseIds-property_example-2.json"}
 > {                                         # A run object.
 >   "originalUriBaseIds": {
 >     "PROJECTROOT": {
@@ -252,7 +252,7 @@ The array **SHOULD** contain elements representing at least those artifacts in w
 
 > EXAMPLE 1:
 >
->   ```json
+>   ```{.json twin="file-format-14-run-object_artifacts-property_example-1.json"}
 >   "artifacts": [
 >     {
 >       "location": {
@@ -284,7 +284,7 @@ If a nested logical location appears in the `logicalLocations` array, then the `
 
 > EXAMPLE 1: In this example, a result was detected in the C++ class `namespaceA::namespaceB::classC`. The `logicalLocations` array contains not only an element describing the class, but also elements describing its containing namespaces.
 >
-> ```json
+> ```{.json twin="file-format-14-run-object_logicallocations-property_example-1.json"}
 > "logicalLocations": [
 >   {
 >     "name": "classC",
@@ -385,7 +385,7 @@ The order of the elements in the array is significant. It **SHALL** mean that at
 
 > EXAMPLE 2: In this example, the SARIF producer accepts the Unicode characters NEXT LINE (U+0085) and LINE SEPARATOR (U+2028) as line separators in addition to the usual values.
 >
-> ```json
+> ```{.json twin="file-format-14-run-object_newlinesequences-property_example-2.json"}
 > {         # A run object ((#run-object)).
 >   ...
 >   "newlineSequences": [ "\r\n", "\n", "\u0085", "\u2028" ],
@@ -424,7 +424,7 @@ If for any reason different values are used, they **MAY** be any readily identif
 
 > EXAMPLE 1: In this example, the leading portion of a full path name has been redacted from the redactable property `invocation.commandLine` to avoid revealing information about the machine’s directory layout.
 >
-> ```json
+> ```{.json twin="file-format-14-run-object_redactiontokens-property_example-1.json"}
 > {                     # A run object ((#run-object)).
 >   "redactionTokens": [
 >     "[REDACTED]"

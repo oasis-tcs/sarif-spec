@@ -24,7 +24,7 @@ Even when defining a custom classification system used within an engineering tea
 
 > EXAMPLE 2: In this example, the SARIF producer tags an artifact with the string `"openSource"`.
 >
-> ```json
+> ```{.json twin="file-format-08-property-bags_tags_general_example-2.json"}
 > {                              # A run object ((#run-object)).
 >   "artifacts": [               # See (#artifacts-property).
 >     {                          # An artifact object ((#artifact-object)).
@@ -50,7 +50,7 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 
 > EXAMPLE 1: Continuing the example from [sec](#tags--general), suppose the tool wishes to provide additional information about using open source code. It might provide that information within the property bag containing the tag (the property bag belonging to the `artifact` object):
 >
-> ```json
+> ```{.json twin="file-format-08-property-bags_tags_tag-metadata_example-1.json"}
 > {                              # An artifact object ((#artifact-object)).
 >   "location": {
 >     "uri": "http://www.example.com/libraries/jsonParser.js"
@@ -69,7 +69,7 @@ A SARIF log file **MAY** provide additional information about any tag value by i
 
 > EXAMPLE 2: There might be several open source files. To avoid duplicating information, the tool might choose to place the tag metadata in the property bag belonging to `theRun`:
 >
-> ```json
+> ```{.json twin="file-format-08-property-bags_tags_tag-metadata_example-2.json"}
 > {                              # A run object ((#run-object)).
 >   "artifacts": [
 >     {                          # An artifact object ((#artifact-object)).

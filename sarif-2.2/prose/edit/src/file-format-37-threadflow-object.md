@@ -30,7 +30,7 @@ A `threadFlow` object **MAY** contain a property named `immutableState` whose va
 
 > EXAMPLE 1: In this example, `immutableState` holds the value of a global variable that remains constant throughout the thread flow.
 >
-> ```json
+> ```{.json twin="file-format-37-threadflow-object_immutablestate-property_example-1.json"}
 > {                                          # A threadFlow object.
 >   "immutableState": {
 >     "MaxFiles": {

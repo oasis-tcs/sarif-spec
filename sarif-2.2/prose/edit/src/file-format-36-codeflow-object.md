@@ -6,7 +6,7 @@ A `codeFlow` object describes the progress of one or more programs through one o
 
 > EXAMPLE
 >
-> ```json
+> ```{.json twin="file-format-36-codeflow-object_general_example-1.json"}
 > {                                       # A result object ((#result-object)).
 >   "codeFlows": [                        # See (#codeflows-property).
 >     {                                   # A codeFlow object.

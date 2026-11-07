@@ -8,7 +8,7 @@ In some cases, there is no `reportingDescriptor` object associated with a `repor
 
 > EXAMPLE 1: In this example, a tool emits a tool execution notification that refers to a rule. The tool does not provide rule metadata. Therefore, `associatedRule` ([sec](#associatedrule-property)) contains only an `id` property, whose value is the id of the rule that failed. Similarly, the tool does not provide metadata about its notifications, so `"descriptor"` ([sec](#notification-object--descriptor-property)) contains only the id of the notification.
 >
-> ```json
+> ```{.json twin="file-format-52-reportingdescriptorreference-object_general_example-1.json"}
 > {                                            # An invocation object ((#invocation-object)).
 >   "toolExecutionNotifications": [            # See (#toolexecutionnotifications-property).
 >     {                                        # A notification object ((#notification-object)).
@@ -60,7 +60,7 @@ For more information about the semantics of `id` when `theDescriptor` is a rule,
 
 > EXAMPLE 1: In this example, the first `result` object is valid because `rule.id` (inherited from `ruleId`) equals `theDescriptor.id`. The second `result` object is also valid because `rule.id` (this time specified directly) equals `theDescriptor.id` plus one additional hierarchical component (`"ghi"`). The third `result` object is invalid because `theDescriptor.id` is not a "component-wise" prefix of `rule.id`. The fourth `result` object is invalid because `ruleId` does not equal `rule.id`.
 >
-> ```json
+> ```{.json twin="file-format-52-reportingdescriptorreference-object_id-property_example-1.json"}
 > {                             # A run object ((#run-object)).
 >   "tool": {                   # See (#run-object--tool-property).
 >     "driver": {               # See (#driver-property).
@@ -110,7 +110,7 @@ A `reportingDescriptorReference` object **MAY** contain a property named `index`
 
 > EXAMPLE 1: In this example, there is more than one rule with id `CA1711`. `index` uniquely specifies the relevant rule, whether or not there are multiple rules with the same id.
 >
-> ```json
+> ```{.json twin="file-format-52-reportingdescriptorreference-object_index-property_example-1.json"}
 > {                            # A run object ((#run-object)).
 >   "tool": {                  # See (#run-object--tool-property).
 >     "driver": {              # See (#driver-property).

@@ -101,7 +101,7 @@ A hierarchical string without a version component **SHALL** be considered older 
 > have been computed with an older version of the "prohibited word hash" algorithm than the partial fingerprint whose
 > property name is `"prohibitedWordHash/v1"`.
 >
-> ```json
+> ```{.json twin="file-format-05-string-properties_versioned-hierarchical-strings_example-1.json"}
 > {                                 # A result object ((#result-object)).
 >   "partialFingerprints": {        # See (#partialfingerprints-property).
 >     "prohibitedWordHash": "4efcc21977b55",
