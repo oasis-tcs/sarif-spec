@@ -63,7 +63,7 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 
 ## Statements
 
-- 15 statements announce a set of keywords ("either **SHALL** or **MAY**"); the rule is the sum of the sentences that follow (constraint record candidates):
+- 15 statements announce a set of keywords ("either **SHALL** or **MAY**"); the rule is the sum of the sentences that follow (records/constraints.yaml, views/constraints.md):
   - file-format-04-artifactlocation-object.md:18 (`uri` Property)
   - file-format-04-artifactlocation-object.md:83 (`index` Property)
   - file-format-14-run-object.md:347 (`results` Property)
@@ -79,4 +79,29 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
   - file-format-33-logicallocation-object.md:74 (`fullyQualifiedName` Property)
   - file-format-38-threadflowlocation-object.md:10 (`index` Property)
   - external-property-file-format.md:74 (`version` Property)
+- **TC** `run.results`: the prose allows the value null when the tool failed; the schema type of results is array only
+- **TC** `result.ruleId`: announced **SHALL NOT** is given by no branch
+- **TC** `result.ruleId`: the branches follow "Direct producers **SHALL** emit either or both of `ruleId` and `rule.id`": is a log file without both invalid, or only its direct producer at fault (a converter **SHOULD** synthesize `ruleId`)?
+  - as a rule of the log file, `example/example-3-13-5-01.json` would break it: /runs/0/results/0: 'ruleId' is a required property
+  - as a rule of the log file, `example/example-3-13-5-01.json` would break it: /runs/1/results/0: 'ruleId' is a required property
+  - as a rule of the log file, `example/example-3-3-4-01.json` would break it: /runs/0/results/0: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-04-artifactlocation-object_guidance-on-the-use-of-artifactlocation-objects_example-1.json` would break it: /results/0: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-05-string-properties_versioned-hierarchical-strings_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-27-result-object_analysistarget-property_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-27-result-object_fingerprints-property_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-27-result-object_fingerprints-property_example-2.json` would break it: /results/0: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-27-result-object_fingerprints-property_example-2.json` would break it: /results/1: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-27-result-object_message-property_example-1.json` would break it: /results/0: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-27-result-object_partialfingerprints-property_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-27-result-object_partialfingerprints-property_example-2.json` would break it: /results/0: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-27-result-object_partialfingerprints-property_example-2.json` would break it: /results/1: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-29-physicallocation-object_contextregion-property_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-29-physicallocation-object_region-property_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-33-logicallocation-object_kind-property_example-2.json` would break it: /results/0: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-33-logicallocation-object_kind-property_example-2.json` would break it: /results/1: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-34-locationrelationship-object_general_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-36-codeflow-object_general_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-42-graphtraversal-object_edgetraversals-property_example-1.json` would break it: /: 'ruleId' is a required property
+  - as a rule of the log file, `file-format-43-edgetraversal-object_stepoveredgecount-property_example-1.json` would break it: /: 'ruleId' is a required property
+- `file-format-24-artifact-object_hashes-property_example-1.json` breaks a derived presence rule: /: 'location' is a required property (if the example is a fragment, it lacks an elision marker)
 - file-format-52-reportingdescriptorreference-object.md:153: normative "shall" in lower case

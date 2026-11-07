@@ -5,6 +5,7 @@ Usage (from sarif-2.2/):
   python -I bin/vision.py migrate-snippets   seed the `display` of each twin whose prose snippet round-trips exactly
   python -I bin/vision.py migrate-notes      turn margin notes into keys (see, object, ref) where the text round-trips
   python -I bin/vision.py annotate-fences    key each derived snippet's code block by its twin (```{.json twin="..."})
+  python -I bin/vision.py migrate-constraints  seed records/constraints.yaml from the keyword-set statements (once)
   python -I bin/vision.py derive    write views/ from the schema, the records, the twins and the prose
   python -I bin/vision.py check     fail when a view differs from what derive would write, or a record is incomplete
 
@@ -161,6 +162,22 @@ def strip_markers(node, good, bad, found):
     return node
 
 
+def elided_objects(node, good, path=''):
+    """Paths (as after strip_markers) of the objects whose display elides members: what they lack is unknown."""
+    out = []
+    if isinstance(node, dict):
+        if any(good.match(k) for k in node):
+            out.append(path)
+        for k, v in node.items():
+            if not good.match(k):
+                out += elided_objects(v, good, f'{path}/{k}' if path else k)
+    elif isinstance(node, list):
+        kept = [v for v in node if not (isinstance(v, str) and good.match(v)) and not (isinstance(v, dict) and len(v) == 1 and good.match(next(iter(v))))]
+        for i, v in enumerate(kept):
+            out += elided_objects(v, good, f'{path}/{i}' if path else str(i))
+    return out
+
+
 def resolve(node):
     while '$ref' in node:
         node = DEFS[node['$ref'].rsplit('/', 1)[-1]]
@@ -282,6 +299,7 @@ def examples():
         if item['host']:
             data, item['injected'] = with_context(data, item['host'])
             item['errors'] = [f'/{"/".join(map(str, e.absolute_path))}: {e.message[:150]}' for e in content_errors(data, item['host'])]
+            item['data'], item['elided'] = data, elided_objects(raw, good)
         out.append(item)
     return out
 
@@ -355,7 +373,7 @@ def view_roles(statements):
     return views
 
 
-def findings(sections, headings, statements, fences, items):
+def findings(sections, headings, statements, fences, items, constraints=()):
     out = ['# Findings', '', 'What `bin/vision.py derive` noticed in the prose, the twins and the schema; do not edit.',
            'Each finding names the place to change; decisions for the TC are marked **TC**.', '']
 
@@ -426,9 +444,10 @@ def findings(sections, headings, statements, fences, items):
     out += ['## Statements', '']
     sets = [s for s in statements if KEYWORD_SET.search(s['text'])]
     out.append(f'- {len(sets)} statements announce a set of keywords ("either **SHALL** or **MAY**"); the rule is the sum of '
-               'the sentences that follow (constraint record candidates):')
+               'the sentences that follow (records/constraints.yaml, views/constraints.md):')
     for s in sets:
         out.append(f'  - {s["file"]}:{s["line"]} ({s["heading"]})')
+    out += list(constraints)
     for name in bound_files():
         for i, line in enumerate((SRC / name).read_text(encoding='utf-8').splitlines(), 1):
             if not line.lstrip().startswith(('>', '|', '#')) and re.search(r'(?<![`*\w])shall(?![`*\w])', line):
@@ -998,12 +1017,209 @@ def migrate_snippets():
 def derive_all():
     sections, headings, statements, fences = read_prose()
     items = examples()
-    views = {'examples.md': view_examples(items), 'findings.md': findings(sections, headings, statements, fences, items)}
+    records = constraint_records()
+    rules = schema_rules(records)
+    violations = rule_violations(items, rules)
+    bound = sorted(set(rule_violations(items, schema_rules(records, bound=True))) - set(violations))
+    views = {'examples.md': view_examples(items), 'findings.md': findings(sections, headings, statements, fences, items, constraint_findings(records, violations, bound)),
+             'constraints.md': view_constraints(records, rules, violations),
+             'constraints.schema.json': json.dumps({'$comment': 'Derived by bin/vision.py from records/constraints.yaml: presence rules the schema can say. '
+                                                    'A proposal for the TC; do not edit.',
+                                                    '$defs': {d: {'allOf': [{'if': x['if'], 'then': x['then']} for x in rules if x['def'] == d]}
+                                                              for d in dict.fromkeys(x['def'] for x in rules)}}, indent=2) + '\n'}
     views |= view_roles(statements)
     return views
 
 
 # ── commands ───────────────────────────────────────────────────────────────────
+
+# ── constraints: presence rules with conditions ───────────────────────────────
+
+ANNOUNCED = re.compile(r'\*\*([A-Z ]+)\*\*')
+
+
+def presences(sentence, prop):
+    """The presence keywords a sentence gives *prop*, in order: `p` SHALL be present, it MAY be absent, ..."""
+    subject = rf'(?:`{re.escape(prop)}`|\b{re.escape(prop)}\b|\bit\b|\bthen again `{re.escape(prop)}`)'
+    return re.findall(subject + r'[^.;`]*?\*\*(' + KW + r')\*\* be (?:present|absent)', sentence)  # no other name in between
+
+
+def constraint_sections(statements):
+    """Each keyword-set statement with the other statements of its property section, in prose order."""
+    out = []
+    for a in statements:
+        if KEYWORD_SET.search(a['text']):
+            rest = [s for s in statements if s['file'] == a['file'] and s['heading'] == a['heading'] and s is not a]
+            out.append((a, rest))
+    return out
+
+
+def constraint_records():
+    path = RECORDS / 'constraints.yaml'
+    return yaml.safe_load(path.read_text(encoding='utf-8'))['constraints'] if path.is_file() else []
+
+
+SCOPES = ('object', 'log', 'world', 'rest')
+SCHEMA_LEVELS = ('SHALL', 'SHALL NOT')
+
+
+def schema_rules(records, bound=False):
+    """The branches the schema can say, as if/then: SHALL or SHALL NOT at object scope, after object-scope branches only.
+
+    With *bound*, also those that bind a role: what the log files would break if the TC made them rules of the log file.
+    """
+    out = []
+    for r in records:
+        obj, prop = r['property'].split('.', 1)
+        earlier = []
+        for b in r['branches']:
+            if b['scope'] == 'object' and b['presence'] in SCHEMA_LEVELS and (bound or 'binds' not in b) and (not b['otherwise'] or all(e['scope'] == 'object' for e in earlier)):
+                cond = {'allOf': [b['if'], *({'not': e['if']} for e in earlier)]} if b['otherwise'] and earlier else b['if']
+                then = {'required': [prop]} if b['presence'] == 'SHALL' else {'not': {'required': [prop]}}
+                out.append({'def': obj, 'property': r['property'], 'presence': b['presence'], 'when': b['when'], 'if': cond, 'then': then})
+            earlier.append(b)
+    return out
+
+
+def schema_reason(r, i):
+    """Why branch *i* of record *r* gives no if/then, or None when it does."""
+    b = r['branches'][i]
+    if b['presence'] not in SCHEMA_LEVELS:
+        return f'{b["presence"]} does not invalidate'
+    if 'binds' in b:
+        return f'binds {b["binds"]}s, not the log file'
+    if b['scope'] != 'object':
+        return {'log': 'needs other parts of the log', 'world': 'only the producer knows', 'rest': 'follows from the other branches'}[b['scope']]
+    if b['otherwise'] and any(e['scope'] != 'object' for e in r['branches'][:i]):
+        return 'an earlier branch outside the object takes precedence'
+    return None
+
+
+def extended_schema(rules):
+    schema = copy.deepcopy(SCHEMA)
+    for rule in rules:
+        schema['$defs'][rule['def']].setdefault('allOf', []).append({'if': rule['if'], 'then': rule['then']})
+    return schema
+
+
+def rule_violations(items, rules):
+    """Errors the derived if/then rules add to the twins and example/ files (none below an injected path)."""
+    schema = extended_schema(rules)
+
+    def validator(host):
+        root = schema if host == LOG else {'$schema': schema['$schema'], '$defs': schema['$defs'], '$ref': f'#/$defs/{host}'}
+        return jsonschema.Draft202012Validator(root)
+
+    def new_errors(data, host, injected, elided=()):
+        base = {(tuple(e.absolute_path), e.message) for e in validator_for(host).iter_errors(data)}
+        out = []
+        for e in validator(host).iter_errors(data):
+            path = '/'.join(map(str, e.absolute_path))
+            if (tuple(e.absolute_path), e.message) in base or any(path == j or path.startswith(j + '/') for j in injected) or path in elided:
+                continue  # an injected object, or one whose display elides members: what it lacks is unknown
+            out.append(f'/{path}: {e.message[:150]}')
+        return out
+
+    found = [(i['twin'], err) for i in items if i.get('data') is not None for err in new_errors(i['data'], i['host'], i['injected'], i['elided'])]
+    for f in sorted((ROOT / 'example').glob('*.json')):
+        found += [(f'example/{f.name}', err) for err in new_errors(json.loads(f.read_text(encoding='utf-8')), LOG, [])]
+    return found
+
+
+def view_constraints(records, rules, violations):
+    by_scope = Counter(b['scope'] for r in records for b in r['branches'])
+    out = ['# Constraints', '', 'Derived by `bin/vision.py derive` from `records/constraints.yaml`; do not edit.', '',
+           f'{len(records)} presence rules announced with a set of keywords, {sum(by_scope.values())} branches: '
+           + ', '.join(f'{by_scope[s]} {s}' for s in SCOPES) + ' scope.',
+           f'{len(rules)} branches the schema can say are derived as `if`/`then` into `views/constraints.schema.json`, '
+           f'a proposal for the TC; against the twins and `example/` they find {len(violations)} violation(s).', '']
+    for r in records:
+        out += [f'## `{r["property"]}`', '', f'{r["file"]}; announced: ' + ', '.join(f'**{k}**' for k in r['announce']), '',
+                '| | Presence | When | Scope | Schema |', '|---|---|---|---|---|']
+        for i, b in enumerate(r['branches'], 1):
+            reason = schema_reason(r, i - 1)
+            out.append(f'| {i} | **{b["presence"]}** | {"otherwise, " if b["otherwise"] else ""}{md_escape(b["when"])} | {b["scope"]} | '
+                       f'{"if/then" if reason is None else reason} |')
+        out.append('')
+    return '\n'.join(out)
+
+
+def constraint_findings(records, violations, bound_violations=()):
+    out = []
+    for r in records:
+        missing = [k for k in r['announce'] if k not in {b['presence'] for b in r['branches']}]
+        extra = sorted({b['presence'] for b in r['branches']} - set(r['announce']))
+        if missing:
+            out.append(f'- **TC** `{r["property"]}`: announced ' + ', '.join(f'**{k}**' for k in missing) + ' is given by no branch')
+        if extra:
+            out.append(f'- **TC** `{r["property"]}`: a branch gives ' + ', '.join(f'**{k}**' for k in extra) + ', which the announcement lacks')
+        out += [f'- **TC** `{r["property"]}`: {md_escape(q)}' for q in r.get('tc', [])]
+        prop = r['property'].split('.', 1)[1]
+        if any('binds' in b for b in r['branches']):
+            out += [f'  - as a rule of the log file, `{where}` would break it: {md_escape(err)}'
+                    for where, err in bound_violations if f"'{prop}'" in err]
+    out += [f'- `{where}` breaks a derived presence rule: {md_escape(err)} (if the example is a fragment, it lacks an elision marker)'
+            for where, err in violations]
+    return out
+
+
+def constraint_keys():
+    """Refusals: a record out of step with its property section, an announcing statement without a record."""
+    _, _, statements, _ = read_prose()
+    records = {r['property']: r for r in constraint_records()}
+    problems = []
+    for a, rest in constraint_sections(statements):
+        key = f'{a["obj"]}.{a["prop"]}'
+        r = records.pop(key, None)
+        if r is None:
+            problems.append(f'{a["file"]}:{a["line"]}: `{key}` announces a set of keywords; records/constraints.yaml has no record')
+            continue
+        where = f'records/constraints.yaml: `{key}`'
+        if r['announce'] != ANNOUNCED.findall(KEYWORD_SET.search(a['text']).group(0)):
+            problems.append(f'{where}: announce differs from the prose')
+        prose = [s['text'] for s in rest]
+        recorded = list(dict.fromkeys([b['sentence'] for b in r['branches']] + r['also']))
+        problems += [f'{where}: sentence not in its section: {t[:90]}' for t in recorded if t not in prose]
+        problems += [f'{where}: statement of the section not in the record: {t[:90]}' for t in prose if t not in recorded]
+        order = [prose.index(b['sentence']) for b in r['branches'] if b['sentence'] in prose]
+        if order != sorted(order):
+            problems.append(f'{where}: branches out of prose order')
+        for i, b in enumerate(r['branches'], 1):
+            if b['presence'] not in presences(b['sentence'], a['prop']):
+                problems.append(f'{where}: branch {i}: its sentence does not give **{b["presence"]}**')
+            if b['scope'] not in SCOPES:
+                problems.append(f'{where}: branch {i}: scope {b["scope"]!r} is none of {", ".join(SCOPES)}')
+            if (b['scope'] == 'object') != ('if' in b):
+                problems.append(f'{where}: branch {i}: an object-scope branch needs its condition as `if`, and only it')
+            elif 'if' in b:
+                try:
+                    jsonschema.Draft202012Validator.check_schema(b['if'])
+                except jsonschema.SchemaError as e:
+                    problems.append(f'{where}: branch {i}: `if` is no JSON Schema: {e.message[:90]}')
+    problems += [f'records/constraints.yaml: `{key}`: no announcing statement in the prose' for key in records]
+    return problems
+
+
+def migrate_constraints():
+    target = RECORDS / 'constraints.yaml'
+    if target.exists():
+        sys.exit(f'{target.relative_to(ROOT)} exists: migrate-constraints seeds it once')
+    _, _, statements, _ = read_prose()
+    records = []
+    for a, rest in constraint_sections(statements):
+        branches, also = [], []
+        for s in rest:
+            found = presences(s['text'], a['prop'])
+            for level in found:
+                branches.append({'presence': level, 'when': 'TODO', 'scope': 'TODO', 'otherwise': s['text'].startswith('Otherwise'),
+                                 'sentence': s['text']})
+            if not found:
+                also.append(s['text'])
+        records.append({'property': f'{a["obj"]}.{a["prop"]}', 'file': a['file'],
+                        'announce': ANNOUNCED.findall(KEYWORD_SET.search(a['text']).group(0)), 'branches': branches, 'also': also})
+    target.write_text(yaml.safe_dump({'constraints': records}, sort_keys=False, allow_unicode=True, width=1000), encoding='utf-8')
+    print(f'seeded {len(records)} constraint records, {sum(len(r["branches"]) for r in records)} branches')
+
 
 def migrate():
     target = RECORDS / 'examples.yaml'
@@ -1067,7 +1283,10 @@ def main():
     if command == 'annotate-fences':
         annotate_fences()
         return
-    problems = check_records() + broken_keys() + heading_keys() + (fence_keys() if command != 'annotate-fences' else [])
+    if command == 'migrate-constraints':
+        migrate_constraints()
+        return
+    problems = check_records() + broken_keys() + heading_keys() + constraint_keys() + (fence_keys() if command != 'annotate-fences' else [])
     if problems:
         sys.exit('\n'.join(problems))
     views = derive_all()

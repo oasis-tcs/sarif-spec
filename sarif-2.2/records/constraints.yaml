@@ -1,0 +1,484 @@
+# Constraint records (A2): the presence rules the prose announces with a set of keywords
+# ("Depending on the circumstances, ... either **SHALL** or **MAY** contain a property named ...").
+# Seeded by `bin/vision.py migrate-constraints`; edited by hand since. One record per announcing statement:
+#   property   object.property whose presence the rule governs
+#   announce   the keywords of the announcing statement, in its order
+#   branches   one per condition, in prose order:
+#     presence   the keyword the branch gives the property's presence (MAY covers "MAY be absent")
+#     when       the condition, in words
+#     scope      what decides the condition: object (members of the object itself), log (other parts of the
+#                log file), world (what only the producer knows), rest (all cases no earlier branch took)
+#     otherwise  true when the branch applies only if no earlier branch did ("Otherwise, ...")
+#     if         for object scope: the condition as JSON Schema, from which a schema if/then is derived
+#     sentence   the prose sentence, verbatim (whitespace collapsed)
+#   also       the other statements of the property section, verbatim: value rules, defaults, role duties
+#     binds      the role a branch binds when the prose names one (a direct producer): no if/then, the schema
+#                validates log files, not who produced them
+#   tc         questions only the TC can answer
+# check refuses a record whose sentences are not in the prose, a statement of the section the record lacks,
+# and an announcing statement without a record.
+
+constraints:
+- property: artifactLocation.uri
+  file: file-format-04-artifactlocation-object.md
+  announce:
+  - SHALL
+  - SHALL NOT
+  - MAY
+  branches:
+  - presence: MAY
+    when: it is the value of a top-level property of theRun.originalUriBaseIds
+    scope: log
+    otherwise: false
+    sentence: If `thisObject` occurs as the value of a "top-level" property in `theRun.originalBaseIds` ([sec](#originaluribaseids-property)),
+      then `uri` **MAY** be absent.
+  - presence: SHALL
+    when: index is absent
+    scope: object
+    otherwise: true
+    if:
+      not:
+        required:
+        - index
+    sentence: If `index` ([sec](#artifactlocation-object--index-property)) is absent, `uri` **SHALL** be present.
+  - presence: SHALL NOT
+    when: it describes a nested artifact whose location within its parent can be expressed only by a byte offset
+    scope: world
+    otherwise: true
+    sentence: If `thisObject` represents a nested artifact whose location within its parent container can be expressed only
+      by means of a byte offset, then `uri` **SHALL NOT** be present.
+  - presence: MAY
+    when: in all other cases
+    scope: rest
+    otherwise: true
+    sentence: Otherwise, `uri` **MAY** be present.
+  also:
+  - If `thisObject` describes a nested artifact whose location within its parent container can be expressed by a path from
+    the root of the container, then if `uri` is present, it **SHALL** specify a relative-path reference per section 4.2 of
+    [cite](#RFC3986) expressing that path.
+  - A relative reference **SHALL NOT** begin with two slash characters (a ‘network-path’ reference per section 4.2 of [cite](#RFC3986).
+  - A relative reference **SHALL NOT** begin with a single slash character (an ‘absolute-path’ reference per section 4.2 of
+    [cite](#RFC3986)) unless doing so is required to distinguish between distinct items in archive formats, such as zip and
+    tar.
+  - If the nested artifact is a member of an archive file (for example, zip [cite](#ZIP) or tar [cite](#TAR)), `uri` **SHOULD**
+    specify the member name or path as specified by the archive.
+- property: artifactLocation.index
+  file: file-format-04-artifactlocation-object.md
+  announce:
+  - MAY
+  - SHALL NOT
+  - SHALL
+  - SHOULD
+  branches:
+  - presence: MAY
+    when: it is the location of an artifact object in theRun.artifacts
+    scope: log
+    otherwise: false
+    sentence: If `thisObject` occurs as the `location` property ([sec](#artifact-object--location-property)) of an `artifact`
+      object in `theRun.artifacts`, then `index` **MAY** be present.
+  - presence: SHALL NOT
+    when: theRun.artifacts is absent or has no element for the artifact
+    scope: log
+    otherwise: true
+    sentence: Otherwise, if `theRun.artifacts` is absent or does not contain an element that describes the artifact specified
+      by `thisObject`, then `index` **SHALL NOT** be present.
+  - presence: SHALL
+    when: uri is absent
+    scope: object
+    otherwise: true
+    if:
+      not:
+        required:
+        - uri
+    sentence: Otherwise, if the `uri` property ([sec](#uri-property)) is absent, then `index` **SHALL** be present.
+  - presence: SHOULD
+    when: uri is present and theRun.artifacts has an element for the artifact
+    scope: log
+    otherwise: true
+    sentence: Otherwise (that is, if `uri` is present but there *is* a relevant `artifact` object in `theRun.artifacts`),
+      `index` **SHOULD** be present.
+  also:
+  - If present, it **SHALL** equal the array index within `theRun.artifacts` of the containing `artifact` object.
+- property: run.results
+  file: file-format-14-run-object.md
+  announce:
+  - SHALL
+  - MAY
+  branches:
+  - presence: MAY
+    when: the tool failed to start and the engineering system synthesized the log file
+    scope: world
+    otherwise: false
+    sentence: If the tool failed to start, and if the engineering system responsible for running the tool synthesized a SARIF
+      file to record the failure, then `results` **MAY** be present.
+  - presence: MAY
+    when: the tool started but failed to begin its analysis
+    scope: world
+    otherwise: false
+    sentence: If the tool started but failed to begin its analysis (for example, because its command line was invalid), then
+      again `results` **MAY** be present, and if present **SHALL** be `null`.
+  - presence: SHALL
+    when: in all other circumstances
+    scope: rest
+    otherwise: true
+    sentence: In all other circumstances, `results` **SHALL** be present and **SHALL** contain all results detected by the
+      tool.
+  also:
+  - If it is present, its value **SHALL** be `null`.
+  - If the tool did not detect any results, `results` **SHALL** be an empty array.
+  - If `results` is absent, it **SHALL** default to `null`.
+  tc:
+  - the prose allows the value null when the tool failed; the schema type of results is array only
+- property: externalPropertyFileReference.location
+  file: file-format-16-externalpropertyfilereference-object.md
+  announce:
+  - SHALL
+  - MAY
+  branches:
+  - presence: SHALL
+    when: the externalized properties are persisted in a separate file
+    scope: log
+    otherwise: false
+    sentence: If the externalized properties are persisted in a separate file, `location` **SHALL** be present.
+  - presence: MAY
+    when: the externalized properties are an element of theSarifLog.inlineExternalProperties
+    scope: log
+    otherwise: true
+    sentence: Otherwise (that is, if the externalized properties are persisted as an element of `theSarifLog.inlineExternalProperties`
+      ([sec](#inlineexternalproperties-property))), then `location` **MAY** be present.
+  also:
+  - In that case, if the `artifactLocation` object’s `uri` property ([sec](#uri-property)) specifies a relative reference
+    and its `uriBaseId` property ([sec](#uribaseid-property)) is absent, then `uri` **SHALL** be interpreted relative to the
+    location of the root file.
+  - If `location` is present, its `uri` property **SHALL** resolve to an absolute URI using the `sarif` scheme ([sec](#uris-that-use-the-sarif-scheme)).
+  - If `location` is absent, then a SARIF consumer that needs to locate the externalized properties **SHALL** do so using
+    the `guid` property ([sec](#externalpropertyfilereference-object--guid-property)).
+- property: externalPropertyFileReference.guid
+  file: file-format-16-externalpropertyfilereference-object.md
+  announce:
+  - SHALL
+  - MAY
+  branches:
+  - presence: SHALL
+    when: the externalized properties are an element of theSarifLog.inlineExternalProperties and location is absent
+    scope: log
+    otherwise: false
+    sentence: If the externalized properties are persisted in an element of `theSarifLog.inlineExternalProperties` ([sec](#inlineexternalproperties-property))
+      and `location` ([sec](#externalpropertyfilereference-object--location-property)) is absent, then `guid` **SHALL** be
+      present.
+  - presence: MAY
+    when: in all other cases (a separate file, or inline with location present)
+    scope: rest
+    otherwise: true
+    sentence: Otherwise (that is, if the externalized properties are persisted in a separate file, in which case `location`
+      is required, or if the externalized properties are persisted in an element of `theSarifLog.inlineExternalProperties`
+      but `location` is present), guid **MAY** be present.
+  also:
+  - If `guid` is present, it **SHALL** equal the `guid` property ([sec](#externalproperties-object--guid-property)) of the
+    `externalProperties` object ([sec](#externalproperties-object)) identified by `guid` and/or `location`.
+- property: toolComponent.language
+  file: file-format-19-toolcomponent-object.md
+  announce:
+  - SHALL
+  - MAY
+  branches:
+  - presence: SHALL
+    when: it represents a translation (an element of theRun.translations)
+    scope: log
+    otherwise: false
+    sentence: If this object represents a translation (see [sec](#translations)), `language` **SHALL** be present; otherwise
+      it **MAY** be present.
+  - presence: MAY
+    when: in all other cases
+    scope: rest
+    otherwise: true
+    sentence: If this object represents a translation (see [sec](#translations)), `language` **SHALL** be present; otherwise
+      it **MAY** be present.
+  also:
+  - If this property is absent, it **SHALL** default to `"en-US"`.
+- property: artifact.location
+  file: file-format-24-artifact-object.md
+  announce:
+  - SHALL
+  - MAY
+  - SHALL NOT
+  branches:
+  - presence: SHALL
+    when: it represents a top-level artifact (parentIndex absent)
+    scope: object
+    otherwise: false
+    if: &id001
+      not:
+        required:
+        - parentIndex
+    sentence: If the `artifact` object represents a top-level artifact, then `location` **SHALL** be present.
+  - presence: SHALL
+    when: it represents a nested artifact whose location can be expressed only by a path
+    scope: world
+    otherwise: false
+    sentence: If the `artifact` object represents a nested artifact whose location relative to the root of its parent can
+      be expressed only by means of a path, then `location` **SHALL** be present, and the value of its `uri` property **SHALL**
+      be a relative reference [cite](#RFC3986) beginning with `"/"` expressing that path.
+  - presence: SHALL NOT
+    when: it represents a nested artifact whose location can be expressed only by a byte offset
+    scope: world
+    otherwise: false
+    sentence: If the `artifact` object represents a nested artifact whose location within its parent can be expressed only
+      by a byte offset from the start of the parent, and not by means of a path, then `location` **SHALL NOT** be present.
+  - presence: MAY
+    when: it represents a nested artifact whose location can be expressed either way
+    scope: world
+    otherwise: false
+    sentence: If the `artifact` object represents a nested artifact whose location within its parent can be expressed either
+      by means of a path or by means of a byte offset from the start of the parent, then `location` **MAY** be present; if
+      it is absent, then `offset` ([sec](#offset-property)) **SHALL** be present.
+  also:
+  - If `location` is present, the value of its `uri` property **SHALL** be a relative reference expressing the path of the
+    nested artifact within the parent.
+- property: artifact.offset
+  file: file-format-24-artifact-object.md
+  announce:
+  - SHALL
+  - MAY
+  - SHALL NOT
+  branches:
+  - presence: SHALL NOT
+    when: it represents a top-level artifact (parentIndex absent)
+    scope: object
+    otherwise: false
+    if: *id001
+    sentence: If the `artifact` object represents a top-level artifact, then `offset` **SHALL NOT** be present.
+  - presence: SHALL
+    when: it represents a nested artifact whose location can be expressed only by a byte offset
+    scope: world
+    otherwise: false
+    sentence: If the `artifact` object represents a nested artifact whose location relative to its parent can be expressed
+      only by means of a byte offset from the start of its parent artifact, then `offset` **SHALL** be present, and its value
+      **SHALL** be that byte offset.
+  - presence: SHALL NOT
+    when: it represents a nested artifact whose location can be expressed only by a path
+    scope: world
+    otherwise: false
+    sentence: If the `artifact` object represents a nested artifact whose location within its parent can only be expressed
+      by means of a path, and not by means of a byte offset from the start of the parent, then `offset` **SHALL NOT** be present.
+  - presence: MAY
+    when: it represents a nested artifact whose location can be expressed either way
+    scope: world
+    otherwise: false
+    sentence: If the `artifact` object represents a nested artifact whose location within its parent can be expressed either
+      by means of a path or by means of a byte offset from the start of the parent, then `offset` **MAY** be present; if it
+      is absent, then `location` ([sec](#artifact-object--location-property)) **SHALL** be present.
+  also:
+  - If `offset` is present, its value **SHALL** be that byte offset.
+- property: result.ruleId
+  file: file-format-27-result-object.md
+  announce:
+  - SHALL
+  - MAY
+  - SHALL NOT
+  branches:
+  - presence: SHALL
+    when: rule.id is absent
+    scope: object
+    binds: direct producer
+    otherwise: false
+    if:
+      not:
+        required:
+        - rule
+        properties:
+          rule:
+            required:
+            - id
+    sentence: If `rule.id` is absent, `ruleId` **SHALL** be present.
+  - presence: MAY
+    when: rule.id is present
+    scope: object
+    binds: direct producer
+    otherwise: false
+    if:
+      required:
+      - rule
+      properties:
+        rule:
+          required:
+          - id
+    sentence: If `rule.id` is present, `ruleId` **MAY** be present.
+  also:
+  - In addition to being stable, `ruleId` **SHOULD** be opaque.
+  - A SARIF viewer or result management system **MAY** use the additional hierarchical components to allow a user to suppress
+    a subset of the violations of a given rule.
+  - A result management system **MAY** also use the additional components to more precisely match results between runs.
+  - Direct producers **SHALL** emit either or both of `ruleId` and `rule.id` ([sec](#rule-property), [sec](#reportingdescriptorreference-object--id-property)).
+  - If `ruleId` and `rule.id` are both present, they **SHALL** be equal.
+  - A SARIF converter which converts the output of such an analysis tool to the SARIF format **SHOULD** synthesize `ruleId`
+    from other information available in the analysis tool's output.
+  - Therefore, a SARIF consumer **SHOULD NOT** attempt to compare or combine the output from different converters for the
+    same analysis tool.
+  tc:
+  - >-
+    the branches follow "Direct producers **SHALL** emit either or both of `ruleId` and `rule.id`": is a log file
+    without both invalid, or only its direct producer at fault (a converter **SHOULD** synthesize `ruleId`)?
+- property: result.rule
+  file: file-format-27-result-object.md
+  announce:
+  - SHALL NOT
+  - SHOULD
+  - MAY
+  branches:
+  - presence: SHALL NOT
+    when: theTool has no reportingDescriptor for the rule
+    scope: log
+    otherwise: false
+    sentence: If `theDescriptor` does not exist (that is, if `theTool` does not contain a `reportingDescriptor` object ([sec](#reportingdescriptor-object))
+      that describes the rule that was violated), then `rule` **SHALL NOT** be present.
+  - presence: SHOULD
+    when: the descriptor is in theTool.extensions
+    scope: log
+    otherwise: false
+    sentence: If `theDescriptor` occurs in `theTool.extensions` ([sec](#extensions-property)), then `rule` **SHOULD** be present.
+  - presence: SHOULD
+    when: the descriptor is in theTool.driver and ruleIndex is absent
+    scope: log
+    otherwise: false
+    sentence: If `theDescriptor` occurs in `theTool.driver` ([sec](#driver-property)) and `ruleIndex` is absent, then again
+      `rule` **SHOULD** be present.
+  - presence: MAY
+    when: the descriptor is in theTool.driver and ruleIndex is present
+    scope: log
+    otherwise: false
+    sentence: If `theDescriptor` occurs in `theTool.driver` and `ruleIndex` is present, then `rule` **MAY** be present.
+  also:
+  - If `rule.id` ([sec](#reportingdescriptorreference-object--id-property)) is absent, it **SHALL** default to `thisObject.ruleId`.
+  - If `rule.id` and `thisObject.ruleId` are both present, they **SHALL** be equal.
+  - If `rule.index` ([sec](#reportingdescriptorreference-object--index-property)) is absent, it **SHALL** default to `thisObject.ruleIndex`.
+  - If `rule.index` and `thisObject.ruleIndex` are both present, they **SHALL** be equal.
+  - If `rule` is absent, it **SHALL** default to a `reportingDescriptorReference` object whose `id` property is set to `thisObject.ruleId`
+    and whose `index` property is set to `thisObject.ruleIndex`.
+- property: location.physicalLocation
+  file: file-format-28-location-object.md
+  announce:
+  - SHALL
+  - MAY
+  - SHALL NOT
+  branches:
+  - presence: SHALL
+    when: physical location information is available and logicalLocations is absent or empty
+    scope: world
+    otherwise: false
+    sentence: If physical location information is available and the `logicalLocations` property ([sec](#location-object--logicallocations-property))
+      is absent or empty, `physicalLocation` **SHALL** be present.
+  - presence: MAY
+    when: physical location information is available and logicalLocations is non-empty
+    scope: world
+    otherwise: false
+    sentence: If physical location is available and `logicalLocations` is present and non-empty, `physicalLocation` **MAY**
+      be present.
+  - presence: SHALL NOT
+    when: physical location information is not available
+    scope: world
+    otherwise: false
+    sentence: If physical location information is not available, `physicalLocation` **SHALL NOT** be present.
+  also: []
+- property: location.logicalLocations
+  file: file-format-28-location-object.md
+  announce:
+  - SHALL
+  - MAY
+  - SHALL NOT
+  branches:
+  - presence: SHALL
+    when: logical location information is available and physicalLocation is absent
+    scope: world
+    otherwise: false
+    sentence: If logical location information is available and the `physicalLocation` property ([sec](#physicallocation-property))
+      is absent, `logicalLocations` **SHALL** be present and non-empty.
+  - presence: MAY
+    when: logical location information is available and physicalLocation is present
+    scope: world
+    otherwise: false
+    sentence: If logical location information is available and `physicalLocation` is present, `logicalLocations` **MAY** be
+      present.
+  - presence: SHALL NOT
+    when: logical location information is not available
+    scope: world
+    otherwise: false
+    sentence: If logical location information is not available, `logicalLocations` **SHALL NOT** be present.
+  also: []
+- property: logicalLocation.fullyQualifiedName
+  file: file-format-33-logicallocation-object.md
+  announce:
+  - SHOULD
+  - MAY
+  branches:
+  - presence: MAY
+    when: it represents a top-level logical location (parentIndex absent)
+    scope: object
+    otherwise: false
+    if: *id001
+    sentence: If this `logicalLocation` object represents a top-level logical location, then `fullyQualifiedName` **MAY**
+      be present.
+  - presence: SHOULD
+    when: it represents a nested logical location (parentIndex present)
+    scope: object
+    otherwise: false
+    if:
+      required:
+      - parentIndex
+    sentence: If this object does not represent a top-level logical location, `fullyQualifiedName` **SHOULD** be present.
+  also:
+  - This name **SHALL** follow the naming rules for fully qualified names described in [sec](#logical-location-naming-rules).
+  - If present, it **SHALL** equal `name`; if absent, it **SHALL** default to `name`.
+- property: threadFlowLocation.index
+  file: file-format-38-threadflowlocation-object.md
+  announce:
+  - MAY
+  - SHALL NOT
+  - SHALL
+  branches:
+  - presence: MAY
+    when: it is an element of theRun.threadFlowLocations
+    scope: log
+    otherwise: false
+    sentence: If `thisObject` is an element of `theRun.threadFlowLocations`, then `index` **MAY** be present.
+  - presence: SHALL NOT
+    when: theRun.threadFlowLocations is absent or has no cached object for it
+    scope: log
+    otherwise: true
+    sentence: Otherwise, if `theRun.threadFlowLocations` is absent, or if it does not contain a cached object for `thisObject`,
+      then `index` **SHALL NOT** be present.
+  - presence: SHALL
+    when: it belongs to a result and theRun.threadFlowLocations has a cached object for it
+    scope: log
+    otherwise: true
+    sentence: Otherwise (that is, if `thisObject` belongs to a result, and `theRun.threadFlowLocations` contains a cached
+      object for `thisObject`), then `index` **SHALL** be present, and its value **SHALL** be the index within `theRun.threadFlowLocations`
+      of the cached object.
+  also:
+  - If present, its value **SHALL** be the index of `thisObject` within `theRun.threadFlowLocations`.
+  - If `index` is present, `thisObject` **SHALL** take all properties present on the cached object.
+  - If `thisObject` contains any properties other than `index`, they **SHALL** equal the corresponding properties of the cached
+    object.
+- property: externalProperties.version
+  file: external-property-file-format.md
+  announce:
+  - SHALL
+  - MAY
+  branches:
+  - presence: SHALL
+    when: it is the root of an external property file
+    scope: log
+    otherwise: false
+    sentence: If this `externalProperties` object is the root element of an external property file (see [sec](#rationale)),
+      then `version` **SHALL** be present.
+  - presence: MAY
+    when: it is an element of theSarifLog.inlineExternalProperties
+    scope: log
+    otherwise: true
+    sentence: Otherwise (that is, if this `externalProperties` object is an element of `theSarifLog.inlineExternalProperties`
+      ([sec](#inlineexternalproperties-property))), then `version` **MAY** be present.
+  also:
+  - If present, this string **SHALL** have the value `"2.2"`.
+  - If absent, it **SHALL** default to the value of `theSarifLog.version` ([sec](#sariflog-object--version-property)).
+  - Although the order in which properties appear in a JSON object value is not semantically significant, the `version` property
+    **SHOULD** appear first.

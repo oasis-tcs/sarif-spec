@@ -1,0 +1,39 @@
+{
+  "$comment": "Derived by bin/vision.py from records/constraints.yaml: presence rules the schema can say. A proposal for the TC; do not edit.",
+  "$defs": {
+    "artifact": {
+      "allOf": [
+        {
+          "if": {
+            "not": {
+              "required": [
+                "parentIndex"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "location"
+            ]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "parentIndex"
+              ]
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "offset"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

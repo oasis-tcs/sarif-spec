@@ -34,6 +34,7 @@ vendors can carry their own ideas into. The many **MAY** are intended and not co
 | `records/examples.yaml`: one record per twin: its host definition, and its `display` | the validation of each twin; the snippet's layout and margin notes |
 | `records/markers.yaml`: the grammar of the elision markers | the marker checks; the elision in a future snippet |
 | `records/roles.yaml`: the roles and the words the prose uses for them | `views/roles/<role>.md`: the statements per role |
+| `records/constraints.yaml`: the presence rules announced with a set of keywords, one branch per condition | `views/constraints.md`; `views/constraints.schema.json` (the if/then the schema can say, a proposal for the TC); the constraint findings |
 | `records/drift.yaml`: the known differences between property sections and schema properties, each waiting for the TC | the refusal of every other difference; the TC entries of `views/findings.md` |
 | the prose (hand-written Markdown, except the derived snippets) | `views/findings.md`: what disagrees with the schema |
 
@@ -132,11 +133,29 @@ derived snippet by its key, and refuses a key without a record, a record without
    refuses an entry there that no longer holds. The four recorded ones are the assessment's S1, S3 and S4 (both
    sides), all **TC**. Group headings such as "Product hierarchy properties" name no property and stay free.
 
+7. **Constraint records, first part (2026-11-07).** `bin/vision.py migrate-constraints` seeded
+   `records/constraints.yaml` from the 15 statements that announce a set of keywords ("either **SHALL** or **MAY**
+   contain a property named ..."); the conditions, their scope and the `if` were written by hand. Each record holds
+   the announced keywords and one branch per condition, in prose order: its presence keyword, the condition in words,
+   its scope (object, log, world, rest), whether it applies only "otherwise", the condition as JSON Schema where the
+   object alone decides it, and the sentence verbatim; the other statements of the section are kept as `also`.
+   `check` refuses a record out of step with its section (a sentence changed or added, a branch whose sentence lacks
+   its keyword, a scope outside the four, an object branch without `if`) and an announcement without a record.
+   Of 44 branches, 8 are decided by the object, 17 by other parts of the log, 15 only by the producer's knowledge,
+   4 are the rest. Two become `if`/`then` (`views/constraints.schema.json`): a top-level `artifact` (no `parentIndex`)
+   has a `location` and no `offset`. Validated against the twins and `example/` (objects with an elision marker or
+   injected context excluded), they find one example that lacks an elision marker. Found on the way, all in
+   `views/findings.md`: `result.ruleId` announces **SHALL NOT** and no branch gives it; its branches bind direct
+   producers ("Direct producers **SHALL** emit either or both ...", `binds` in the record), so they stay out of the
+   schema, and the findings list what a log-file rule would reject (3 `example/` files, 18 twins); `run.results` may
+   be `null` in the prose, not in the schema; the prose names `theRun.originalBaseIds` for `originalUriBaseIds`.
+
 ## Next steps
 
-7. **Constraint records (A2).** The presence rules and conditional defaults as records: one record per rule, from
-   which the sentences, a JSON Schema `if`/`then` where the schema can say it, and one test fixture per branch are
-   derived. Start with the 15 statements that announce a set of keywords ("either **SHALL** or **MAY**").
+7. **Constraint records, second part.** Derive instead of check: the sentences from the records (as the snippets
+   from the twins), one test fixture per branch the schema can say (valid and invalid), and the defaults. Then the
+   presence rules that are not announced with a set of keywords ("If ..., `x` **SHALL** be present" elsewhere).
+
 8. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
    consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
 9. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
@@ -148,6 +167,6 @@ derived snippet by its key, and refuses a key without a record, a record without
 ## Files
 
 - `bin/vision.py`: migrate, derive, check (Python with jsonschema and PyYAML, the repository's pyenv environment)
-- `records/`: examples, markers, roles, drift
-- `views/`: findings, examples, `roles/<role>.md` (derived, never edit)
+- `records/`: examples, markers, roles, drift, constraints
+- `views/`: findings, examples, constraints (and its schema proposal), `roles/<role>.md` (derived, never edit)
 - `makefile`: derive, check, prose
