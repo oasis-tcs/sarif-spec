@@ -1,0 +1,36 @@
+# The roles SARIF statements address, in the words the prose uses for them.
+# `name` is the role's own name; `shared` the name used across the specifications of the talk where one fits
+# (CSAF, DPS PM, MQTT-SN, SARIF); `terms` are the regular expressions (case-insensitive, whole words) that name it.
+# derive writes one view per role (views/roles/<id>.md) with every normative statement that names the role.
+# A statement that names no role is listed in views/roles/no-role.md: today most of them bind the log file
+# (an object or property is their subject), which binds the producer without saying so.
+
+roles:
+- id: producer
+  name: SARIF producer
+  shared: Producer
+  terms: ['(?:SARIF )?producers?', 'direct producers?', 'analysis tools?', 'the tool']
+- id: consumer
+  name: SARIF consumer
+  shared: Consumer
+  terms: ['(?:SARIF )?consumers?']
+- id: viewer
+  name: SARIF viewer
+  shared: Viewer
+  terms: ['viewers?']
+- id: converter
+  name: converter
+  shared: Converter
+  terms: ['converters?']
+- id: result-management-system
+  name: result management system
+  shared: Result management
+  terms: ['result management systems?']
+- id: post-processor
+  name: SARIF post-processor
+  shared: Others
+  terms: ['(?:SARIF )?post-processors?']
+- id: engineering-system
+  name: engineering system
+  shared: Others
+  terms: ['engineering systems?']

@@ -1,0 +1,2093 @@
+{
+ "coverage": {
+  "objects_missing_in_prose": [
+   "propertyBag"
+  ],
+  "objects_without_schema_def": [],
+  "props_missing_in_prose": {
+   "sarifLog": [
+    "inlineExternalProperties"
+   ],
+   "externalPropertyFileReferences": [
+    "addresses",
+    "artifacts",
+    "conversion",
+    "driver",
+    "extensions",
+    "externalizedProperties",
+    "graphs",
+    "invocations",
+    "logicalLocations",
+    "policies",
+    "results",
+    "taxonomies",
+    "threadFlowLocations",
+    "translations",
+    "webRequests",
+    "webResponses"
+   ],
+   "invocation": [
+    "arguments"
+   ],
+   "attachment": [
+    "artifactLocation"
+   ],
+   "versionControlDetails": [
+    "revisionId"
+   ],
+   "artifact": [
+    "location"
+   ],
+   "result": [
+    "guid"
+   ],
+   "externalProperties": [
+    "addresses",
+    "artifacts",
+    "conversion",
+    "driver",
+    "extensions",
+    "externalizedProperties",
+    "graphs",
+    "invocations",
+    "logicalLocations",
+    "policies",
+    "results",
+    "schema",
+    "taxonomies",
+    "threadFlowLocations",
+    "translations",
+    "webRequests",
+    "webResponses"
+   ]
+  },
+  "props_without_schema": {
+   "attachment": [
+    "location"
+   ],
+   "suppression": [
+    "justificationType"
+   ],
+   "externalProperties": [
+    "$schema"
+   ]
+  }
+ },
+ "enums": [
+  {
+   "obj": "sarifLog",
+   "prop": "version",
+   "schema": [
+    "2.2"
+   ],
+   "listed": [],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "run",
+   "prop": "columnKind",
+   "schema": [
+    "utf16CodeUnits",
+    "unicodeCodePoints"
+   ],
+   "listed": [
+    "bytes",
+    "unicodeCodePoints",
+    "utf16CodeUnits"
+   ],
+   "missing": [],
+   "unknown": [
+    "bytes"
+   ]
+  },
+  {
+   "obj": "toolComponent",
+   "prop": "contents",
+   "schema": [
+    "localizedData",
+    "nonLocalizedData"
+   ],
+   "listed": [
+    "localizedData",
+    "nonLocalizedData"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "artifact",
+   "prop": "roles",
+   "schema": [
+    "analysisTarget",
+    "attachment",
+    "conversionSource",
+    "responseFile",
+    "resultFile",
+    "scannedFile",
+    "standardStream",
+    "tracedFile",
+    "unmodified",
+    "modified",
+    "added",
+    "deleted",
+    "renamed",
+    "uncontrolled",
+    "driver",
+    "extension",
+    "externalPropertyFile",
+    "translation",
+    "taxonomy",
+    "policy",
+    "referencedOnCommandLine",
+    "repositoryRoot",
+    "memoryContents",
+    "directory",
+    "userSpecifiedConfiguration",
+    "toolSpecifiedConfiguration",
+    "debugOutputFile"
+   ],
+   "listed": [
+    "added",
+    "analysisTarget",
+    "attachment",
+    "conversionSource",
+    "debugOutputFile",
+    "deleted",
+    "directory",
+    "driver",
+    "extension",
+    "externalPropertyFile",
+    "memoryContents",
+    "modified",
+    "policy",
+    "referencedOnCommandLine",
+    "renamed",
+    "repositoryRoot",
+    "responseFile",
+    "resultFile",
+    "scannedFile",
+    "standardStream",
+    "taxonomy",
+    "toolSpecifiedConfiguration",
+    "tracedFile",
+    "translation",
+    "uncontrolled",
+    "unmodified",
+    "userSpecifiedConfiguration"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "result",
+   "prop": "kind",
+   "schema": [
+    "notApplicable",
+    "pass",
+    "fail",
+    "review",
+    "open",
+    "informational"
+   ],
+   "listed": [
+    "fail",
+    "informational",
+    "notApplicable",
+    "open",
+    "pass",
+    "review"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "result",
+   "prop": "level",
+   "schema": [
+    "none",
+    "note",
+    "warning",
+    "error"
+   ],
+   "listed": [
+    "error",
+    "none",
+    "note",
+    "warning"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "result",
+   "prop": "baselineState",
+   "schema": [
+    "new",
+    "unchanged",
+    "updated",
+    "absent"
+   ],
+   "listed": [
+    "absent",
+    "new",
+    "unchanged",
+    "updated"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "suppression",
+   "prop": "kind",
+   "schema": [
+    "inSource",
+    "external"
+   ],
+   "listed": [
+    "external",
+    "inSource"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "suppression",
+   "prop": "status",
+   "schema": [
+    "accepted",
+    "underReview",
+    "rejected"
+   ],
+   "listed": [
+    "accepted",
+    "rejected",
+    "underReview"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "threadFlowLocation",
+   "prop": "importance",
+   "schema": [
+    "important",
+    "essential",
+    "unimportant"
+   ],
+   "listed": [
+    "essential",
+    "important",
+    "unimportant"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "reportingConfiguration",
+   "prop": "level",
+   "schema": [
+    "none",
+    "note",
+    "warning",
+    "error"
+   ],
+   "listed": [],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "notification",
+   "prop": "level",
+   "schema": [
+    "none",
+    "note",
+    "warning",
+    "error"
+   ],
+   "listed": [
+    "error",
+    "none",
+    "note",
+    "warning"
+   ],
+   "missing": [],
+   "unknown": []
+  },
+  {
+   "obj": "externalProperties",
+   "prop": "version",
+   "schema": [
+    "2.2"
+   ],
+   "listed": [],
+   "missing": [],
+   "unknown": []
+  }
+ ],
+ "defaults": [
+  {
+   "obj": "run",
+   "prop": "language",
+   "schema": null,
+   "prose": "en-US"
+  },
+  {
+   "obj": "run",
+   "prop": "results",
+   "schema": null,
+   "prose": "null"
+  },
+  {
+   "obj": "run",
+   "prop": "newlineSequences",
+   "schema": [
+    "\r\n",
+    "\n"
+   ],
+   "prose": "the"
+  },
+  {
+   "obj": "toolComponent",
+   "prop": "language",
+   "schema": null,
+   "prose": "en-US"
+  },
+  {
+   "obj": "toolComponent",
+   "prop": "localizedDataSemanticVersion",
+   "schema": null,
+   "prose": "thisObject.semanticVersion"
+  },
+  {
+   "obj": "toolComponent",
+   "prop": "minimumRequiredLocalizedDataSemanticVersion",
+   "schema": null,
+   "prose": "thisObject.semanticVersion"
+  },
+  {
+   "obj": "toolComponent",
+   "prop": "associatedComponent",
+   "schema": null,
+   "prose": "a"
+  },
+  {
+   "obj": "invocation",
+   "prop": "responseFiles",
+   "schema": null,
+   "prose": "null"
+  },
+  {
+   "obj": "artifact",
+   "prop": "encoding",
+   "schema": null,
+   "prose": "the"
+  },
+  {
+   "obj": "artifact",
+   "prop": "sourceLanguage",
+   "schema": null,
+   "prose": "the"
+  },
+  {
+   "obj": "result",
+   "prop": "rule",
+   "schema": null,
+   "prose": "thisObject.ruleId"
+  },
+  {
+   "obj": "result",
+   "prop": "level",
+   "schema": "warning",
+   "prose": "none"
+  },
+  {
+   "obj": "result",
+   "prop": "suppressions",
+   "schema": null,
+   "prose": "null."
+  },
+  {
+   "obj": "result",
+   "prop": "rank",
+   "schema": -1.0,
+   "prose": "the"
+  },
+  {
+   "obj": "result",
+   "prop": "workItemUris",
+   "schema": null,
+   "prose": "null"
+  },
+  {
+   "obj": "region",
+   "prop": "startColumn",
+   "schema": null,
+   "prose": "1."
+  },
+  {
+   "obj": "region",
+   "prop": "endLine",
+   "schema": null,
+   "prose": "startLine"
+  },
+  {
+   "obj": "region",
+   "prop": "endColumn",
+   "schema": null,
+   "prose": "a"
+  },
+  {
+   "obj": "region",
+   "prop": "charLength",
+   "schema": null,
+   "prose": "0"
+  },
+  {
+   "obj": "region",
+   "prop": "byteLength",
+   "schema": null,
+   "prose": "0"
+  },
+  {
+   "obj": "region",
+   "prop": "sourceLanguage",
+   "schema": null,
+   "prose": "the"
+  },
+  {
+   "obj": "address",
+   "prop": "relativeAddress",
+   "schema": null,
+   "prose": "null"
+  },
+  {
+   "obj": "address",
+   "prop": "offsetFromParent",
+   "schema": null,
+   "prose": "null"
+  },
+  {
+   "obj": "address",
+   "prop": "length",
+   "schema": null,
+   "prose": "null"
+  },
+  {
+   "obj": "logicalLocation",
+   "prop": "fullyQualifiedName",
+   "schema": null,
+   "prose": "name"
+  },
+  {
+   "obj": "resultProvenance",
+   "prop": "invocationIndex",
+   "schema": -1,
+   "prose": "0"
+  },
+  {
+   "obj": "reportingDescriptorReference",
+   "prop": "id",
+   "schema": null,
+   "prose": "theResult.ruleId"
+  },
+  {
+   "obj": "reportingDescriptorReference",
+   "prop": "index",
+   "schema": -1,
+   "prose": "theResult.ruleIndex"
+  },
+  {
+   "obj": "notification",
+   "prop": "level",
+   "schema": "warning",
+   "prose": "the"
+  },
+  {
+   "obj": "externalProperties",
+   "prop": "version",
+   "schema": null,
+   "prose": "the"
+  }
+ ],
+ "types": [],
+ "presence": [
+  {
+   "obj": "artifactLocation",
+   "prop": "uri",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, an `artifactLocation` object either **SHALL**, **SHALL NOT**, or **MAY** contain a property named `uri` whose value is a string containing a URI [cite](#RFC3986) that specifies the locatio"
+  },
+  {
+   "obj": "run",
+   "prop": "results",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, a `run` object either **SHALL** or **MAY** contain a property named `results` whose value, again depending on circumstances, is either `null` or an array of zero or more `result` objects ("
+  },
+  {
+   "obj": "externalPropertyFileReference",
+   "prop": "location",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, an `externalPropertyFileReference` object either **SHALL** or **MAY** contain a property named `location` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that"
+  },
+  {
+   "obj": "externalPropertyFileReference",
+   "prop": "guid",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, an `externalPropertyFileReference` object either **SHALL** or **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which provides a uni"
+  },
+  {
+   "obj": "toolComponent",
+   "prop": "language",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, a `toolComponent` object either **SHALL** or **MAY** contain a property named `language` whose value is a string specifying the language of the localizable strings ([sec](#localizable-stri"
+  },
+  {
+   "obj": "artifact",
+   "prop": "offset",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, an `artifact` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `offset` whose value is a non-negative integer."
+  },
+  {
+   "obj": "result",
+   "prop": "ruleId",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, a `result` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `ruleId` whose value is a hierarchical string ([sec](#hierarchical-strings)) whose leading components"
+  },
+  {
+   "obj": "location",
+   "prop": "physicalLocation",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `physicalLocation` whose value is a `physicalLocation` object ([sec](#physicallocation-object)) tha"
+  },
+  {
+   "obj": "location",
+   "prop": "logicalLocations",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, a `location` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `logicalLocations` whose value is an array of zero or more unique ([sec](#array-properties-with-uni"
+  },
+  {
+   "obj": "region",
+   "prop": "startLine",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "When a `region` object represents a text region specified by line/column properties, it **SHALL** contain a property named `startLine` whose value is a positive integer equal to the line number of the line containing the"
+  },
+  {
+   "obj": "region",
+   "prop": "charOffset",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "When a `region` object represents a text region specified by offset/length properties, it **SHALL** contain a property named `charOffset` whose value is an integer equal to the zero-based character offset of the first ch"
+  },
+  {
+   "obj": "region",
+   "prop": "byteOffset",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "When a `region` object represents a binary region, it **SHALL** contain a property named `byteOffset` whose value is an integer equal to the zero-based byte offset of the first byte in the region from the beginning of th"
+  },
+  {
+   "obj": "rectangle",
+   "prop": "top",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "A `rectangle` object **SHALL** contain properties named `top`, `left`, `bottom`, and `right`, each of which contains a number (as defined by the JSON Schema standard [cite](#JSCHEMA01)) specifying one of the coordinates "
+  },
+  {
+   "obj": "address",
+   "prop": "index",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, an `address` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.addresses` ([sec](#addres"
+  },
+  {
+   "obj": "logicalLocation",
+   "prop": "index",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, a `logicalLocation` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.logicalLocations` "
+  },
+  {
+   "obj": "webRequest",
+   "prop": "index",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, a `webRequest` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.webRequests` ([sec](#we"
+  },
+  {
+   "obj": "webResponse",
+   "prop": "index",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, a `webResponse` object either **MAY, SHALL NOT**, or **SHALL** contain a property named `index` whose value is the array index ([sec](#array-indices)) within `theRun.webResponses` ([sec](#"
+  },
+  {
+   "obj": "externalProperties",
+   "prop": "version",
+   "schema_required": false,
+   "prose_kw": "SHALL",
+   "text": "Depending on the circumstances, an `externalProperties` object either **SHALL** or **MAY** contain a property named `version` whose value is a string designating the version of the SARIF specification to which this exter"
+  }
+ ],
+ "statements": {
+  "keywords": {
+   "MUST": 1,
+   "MUST NOT": 1,
+   "REQUIRED": 1,
+   "SHALL": 475,
+   "SHALL NOT": 60,
+   "SHOULD": 145,
+   "SHOULD NOT": 20,
+   "RECOMMENDED": 1,
+   "NOT RECOMMENDED": 1,
+   "MAY": 385,
+   "OPTIONAL": 1
+  },
+  "by_role": {
+   "driver/extension": 24,
+   "producer": 122,
+   "consumer": 53,
+   "post-processor": 3,
+   "converter": 23,
+   "engineering system": 7,
+   "viewer": 16,
+   "result management system": 24
+  },
+  "statements": 996,
+  "no_role_named": 759,
+  "schema_like_in_property_sections": 543
+ },
+ "statement_samples_no_role": [],
+ "lower_kw": [
+  {
+   "file": "definitions-and-acronyms-02-int-def-list.md",
+   "line": 199,
+   "word": "must",
+   "text": "\"Variables must be initialized before use.\", \"Class names must begin with an uppercase letter.\"."
+  },
+  {
+   "file": "definitions-and-acronyms-02-int-def-list.md",
+   "line": 199,
+   "word": "must",
+   "text": "\"Variables must be initialized before use.\", \"Class names must begin with an uppercase letter.\"."
+  },
+  {
+   "file": "document-conventions.md",
+   "line": 21,
+   "word": "required",
+   "text": "- An ellipsis (\u2026) is used to indicate that portions of the log file text required by this document have been omitted for brevity."
+  },
+  {
+   "file": "file-format-01-general.md",
+   "line": 27,
+   "word": "required",
+   "text": "Regardless of future added formats, SARIF files **SHOULD NOT** contain case only variations of required properties."
+  },
+  {
+   "file": "file-format-04-artifactlocation-object.md",
+   "line": 20,
+   "word": "required",
+   "text": "A relative reference **SHALL NOT** begin with a single slash character (an \u2018absolute-path\u2019 reference per section 4.2 of [cite](#RFC3986)) unless doing so is required to distinguish between distinct items in archive formats, such as zip and tar."
+  },
+  {
+   "file": "file-format-11-message-object.md",
+   "line": 296,
+   "word": "required",
+   "text": "The `arguments` array **SHALL** contain as many elements as required by the maximum placeholder index among all the message strings specified by the `text`, `markdown`, and `id` properties."
+  },
+  {
+   "file": "file-format-14-run-object.md",
+   "line": 412,
+   "word": "required",
+   "text": "If a SARIF consumer uses a column measurement unit other than that specified by `columnKind`, and if the consumer is required to interact with the artifact\u2019s contents (for example, by displaying the artifact in an editor and highlighting a region), the consumer **SHALL** recompute column numbers in its (the consumer\u2019s) native measurement unit."
+  },
+  {
+   "file": "file-format-16-externalpropertyfilereference-object.md",
+   "line": 28,
+   "word": "required",
+   "text": "Otherwise (that is, if the externalized properties are persisted in a separate file, in which case `location` is required, or if the externalized properties are persisted in an element of `theSarifLog.inlineExternalProperties` but `location` is present), guid **MAY** be present."
+  },
+  {
+   "file": "file-format-52-reportingdescriptorreference-object.md",
+   "line": 153,
+   "word": "shall",
+   "text": "If `toolComponent` is absent, `theComponent` shall be taken to be `theTool.driver` ([sec](#driver-property))."
+  },
+  {
+   "file": "file-format-58-notification-object.md",
+   "line": 98,
+   "word": "required",
+   "text": "There is no required action."
+  },
+  {
+   "file": "annex-a-02-license-notices.md",
+   "line": 19,
+   "word": "must",
+   "text": "However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English."
+  },
+  {
+   "file": "annex-a-02-license-notices.md",
+   "line": 19,
+   "word": "required",
+   "text": "However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English."
+  },
+  {
+   "file": "references.md",
+   "line": 92,
+   "word": "required",
+   "text": "The following referenced documents are not required for the application of this document but may assist the reader with regard to a particular subject area."
+  },
+  {
+   "file": "fingerprints.md",
+   "line": 8,
+   "word": "must",
+   "text": "To determine whether a result from a subsequent run is logically the same as a result from the baseline, there must be a way to use information contained in the result to construct a stable identifier for the result."
+  },
+  {
+   "file": "locating-metadata.md",
+   "line": 13,
+   "word": "required",
+   "text": "If the SARIF log file is produced in the context of an engineering system that provides a service from which metadata can be obtained (for example, a result management system, or a web service dedicated to metadata), then tooling can be created to merge a log file with the relevant metadata when required (for example, when presenting the results in a log file viewer)."
+  },
+  {
+   "file": "diagnosing-results.md",
+   "line": 122,
+   "word": "must",
+   "text": "Multiply generated files are treated similarly, but they present an additional problem: if more than one version of a given multiply generated file appears in `theRun.artifacts` \u2013 either because the analysis tool wishes to persist the file contents, or for any other reason \u2013 then there must be a way to distinguish them."
+  },
+  {
+   "file": "examples.md",
+   "line": 8,
+   "word": "required",
+   "text": "It contains only those elements required by this document (elements which the document states **SHALL** be present)."
+  },
+  {
+   "file": "examples.md",
+   "line": 33,
+   "word": "required",
+   "text": "The file contains those elements recommended by this document (elements which the document states \"**SHOULD**\" be present), in addition to the required elements."
+  },
+  {
+   "file": "examples.md",
+   "line": 116,
+   "word": "required",
+   "text": "The file contains those elements recommended by this document (elements which the document states \"**SHOULD**\" be present), in addition to the required elements."
+  }
+ ],
+ "hedges": [
+  {
+   "file": "file-format-11-message-object.md",
+   "line": 230,
+   "hedge": "as appropriate",
+   "text": "At various points in this procedure, we state that the consumer uses an object\u2019s \"`text` property or `markdown` property, as appropriate.\" This means that if the consumer can render formatted messages, it **MAY** use the `markdown` property, if present; otherwise it **SHALL** use the `text` property, but if the consumer cannot render formatted messages, it **SHALL** use the `text` property."
+  },
+  {
+   "file": "file-format-19-toolcomponent-object.md",
+   "line": 542,
+   "hedge": "as appropriate",
+   "text": "A `toolComponent` object that contains a `supportedTaxonomies` property **SHALL** declare which taxa (if any) each of its rules falls into by providing the `relationships` property ([sec](#reportingdescriptor-object--relationships-property)) as appropriate on each `reportingDescriptor` object ([sec](#reportingdescriptor-object)) in its `rules` array ([sec](#rules-property))."
+  },
+  {
+   "file": "file-format-33-logicallocation-object.md",
+   "line": 161,
+   "hedge": "as appropriate",
+   "text": "Although the values suggested here are useful in the specified categories (for example, `\"member\"` is useful in describing executable code), they **MAY** be used in other contexts as appropriate."
+  },
+  {
+   "file": "file-format-58-notification-object.md",
+   "line": 106,
+   "hedge": "typically",
+   "text": "Analysis tools **SHOULD** treat notifications whose `level` property is `\"error\"` as failures and treat the entire run as having failed (for example, by settings the exit code to the value that the tool uses to indicate failure, typically a non-zero value)."
+  }
+ ],
+ "snippets": {
+  "fences": 148,
+  "langs": {
+   "json": 127,
+   "(none)": 14,
+   "cs": 2,
+   "console": 1,
+   "js": 1,
+   "cpp": 1,
+   "xml": 2
+  },
+  "json": 127,
+  "json_parse_ok": 8,
+  "json_elided": 50,
+  "json_with_comments": 107,
+  "json_with_section_refs": 83
+ },
+ "markers": {
+  "...member-inject": 69,
+  "...object-inject": 18,
+  "...member-inkect": 5,
+  "member-inject": 1
+ },
+ "twin_mapping": {
+  "json_fences_by_file": {
+   "file-format-03-artifactcontent-object": 1,
+   "file-format-04-artifactlocation-object": 4,
+   "file-format-05-string-properties": 1,
+   "file-format-08-property-bags": 3,
+   "file-format-11-message-object": 2,
+   "file-format-13-sariflog-object": 2,
+   "file-format-14-run-object": 8,
+   "file-format-15-externalpropertyfilereferences-object": 3,
+   "file-format-17-runautomationdetails-object": 1,
+   "file-format-18-tool-object": 1,
+   "file-format-19-toolcomponent-object": 9,
+   "file-format-20-invocation-object": 9,
+   "file-format-21-attachment-object": 1,
+   "file-format-22-conversion-object": 1,
+   "file-format-23-versioncontroldetails-object": 1,
+   "file-format-24-artifact-object": 3,
+   "file-format-25-speciallocations-object": 4,
+   "file-format-26-translationmetadata-object": 1,
+   "file-format-27-result-object": 13,
+   "file-format-28-location-object": 1,
+   "file-format-29-physicallocation-object": 2,
+   "file-format-30-region-object": 4,
+   "file-format-32-address-object": 1,
+   "file-format-33-logicallocation-object": 7,
+   "file-format-34-locationrelationship-object": 1,
+   "file-format-36-codeflow-object": 1,
+   "file-format-37-threadflow-object": 1,
+   "file-format-38-threadflowlocation-object": 8,
+   "file-format-40-node-object": 1,
+   "file-format-41-edge-object": 1,
+   "file-format-42-graphtraversal-object": 2,
+   "file-format-43-edgetraversal-object": 1,
+   "file-format-48-resultprovenance-object": 1,
+   "file-format-49-reportingdescriptor-object": 4,
+   "file-format-50-reportingconfiguration-object": 1,
+   "file-format-51-configurationoverride-object": 1,
+   "file-format-52-reportingdescriptorreference-object": 3,
+   "file-format-53-reportingdescriptorrelationship-object": 2,
+   "file-format-55-fix-object": 4,
+   "file-format-56-artifactchange-object": 1,
+   "file-format-57-replacement-object": 2,
+   "file-format-58-notification-object": 1,
+   "external-property-file-format": 1,
+   "diagnosing-results": 3,
+   "examples": 4
+  },
+  "twins_by_file": {
+   "file-format-20-invocation-object": 9,
+   "file-format-58-notification-object": 1,
+   "file-format-14-run-object": 8,
+   "file-format-49-reportingdescriptor-object": 3,
+   "file-format-38-threadflowlocation-object": 9,
+   "file-format-27-result-object": 14,
+   "file-format-56-artifactchange-object": 1,
+   "file-format-25-speciallocations-object": 1,
+   "file-format-48-resultprovenance-object": 1,
+   "file-format-19-toolcomponent-object": 9,
+   "file-format-55-fix-object": 4,
+   "file-format-33-logicallocation-object": 6,
+   "file-format-57-replacement-object": 2,
+   "file-format-51-configurationoverride-object": 1,
+   "file-format-41-edge-object": 1,
+   "file-format-04-artifactlocation-object": 4,
+   "file-format-11-message-object": 2,
+   "file-format-13-sariflog-object": 2,
+   "file-format-05-string-properties": 1,
+   "file-format-50-reportingconfiguration-object": 1,
+   "file-format-24-artifact-object": 3,
+   "diagnosing-results": 3,
+   "file-format-29-physicallocation-object": 2,
+   "file-format-15-externalpropertyfilereferences-object": 3,
+   "file-format-17-runautomationdetails-object": 1,
+   "file-format-08-property-bags": 3,
+   "file-format-28-location-object": 1,
+   "examples": 4,
+   "file-format-42-graphtraversal-object": 2,
+   "file-format-18-tool-object": 1,
+   "file-format-36-codeflow-object": 1,
+   "file-format-53-reportingdescriptorrelationship-object": 2,
+   "file-format-32-address-object": 1,
+   "file-format-37-threadflow-object": 1,
+   "file-format-26-translationmetadata-object": 1,
+   "file-format-52-reportingdescriptorreference-object": 3,
+   "file-format-40-node-object": 1,
+   "file-format-21-attachment-object": 1,
+   "external-property-file-format": 1,
+   "file-format-03-artifactcontent-object": 1,
+   "file-format-23-versioncontroldetails-object": 1,
+   "file-format-22-conversion-object": 1,
+   "file-format-43-edgetraversal-object": 1,
+   "file-format-34-locationrelationship-object": 1
+  },
+  "files_fences_without_twin": [
+   "file-format-30-region-object"
+  ]
+ },
+ "subjects": {
+  "by_subject": {
+   "no subject found": 114,
+   "document (object/property is subject)": 645,
+   "role named": 237
+  },
+  "presence_rules": 97,
+  "conditional_presence_rules": 87
+ },
+ "twins_examples": {
+  "twins": [
+   {
+    "file": "diagnosing-results_example-1.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "diagnosing-results_example-2.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "diagnosing-results_example-3.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "examples_comprehensive-sarif-file_codeblock-json-1.sarif.json",
+    "as": "sarifLog",
+    "errors": [
+     "runs/0/invocations/0/toolConfigurationNotifications/0/associatedRule: Additional properties are not allowed ('ruleId' was unexpected)",
+     "runs/0/invocations/0/toolConfigurationNotifications/0/associatedRule: {'ruleId': 'ABC0001'} is not valid under any of the given schemas",
+     "runs/0/results/0: Additional properties are not allowed ('addresses' was unexpected)"
+    ],
+    "n_errors": 3
+   },
+   {
+    "file": "examples_minimal-recommended-sarif-log-file-with-source-information_codeblock-json-1.sarif.json",
+    "as": "sarifLog",
+    "errors": [],
+    "n_errors": 0
+   },
+   {
+    "file": "examples_minimal-recommended-sarif-log-file-without-source-information_codeblock-json-1.sarif.json",
+    "as": "sarifLog",
+    "errors": [],
+    "n_errors": 0
+   },
+   {
+    "file": "examples_minimal-valid-sarif-log-file_codeblock-json-1.sarif.json",
+    "as": "sarifLog",
+    "errors": [],
+    "n_errors": 0
+   },
+   {
+    "file": "external-property-file-format_externalproperties-object_general_example-1.json",
+    "as": null,
+    "top_keys": [
+     "$schema",
+     "artifacts",
+     "externalizedProperties",
+     "guid",
+     "runGuid",
+     "version"
+    ]
+   },
+   {
+    "file": "file-format-03-artifactcontent-object_rendered-property_example-1.json",
+    "classes": {
+     "content": 1,
+     "context": 1
+    },
+    "as": "physicalLocation",
+    "n_errors": 2,
+    "errors": [
+     "address: Additional properties are not allowed ('baseAddress', 'offset' were unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-04-artifactlocation-object_description-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-04-artifactlocation-object_guidance-on-the-use-of-artifactlocation-objects_example-1.json",
+    "classes": {
+     "context": 2
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-04-artifactlocation-object_index-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "externalProperties",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-04-artifactlocation-object_uribaseid-property_example-2.json",
+    "classes": {},
+    "as": "attachment",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-05-string-properties_versioned-hierarchical-strings_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-08-property-bags_tags_general_example-2.json",
+    "classes": {
+     "marker": 1
+    },
+    "as": "externalProperties",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-08-property-bags_tags_tag-metadata_example-1.json",
+    "classes": {},
+    "as": "artifact",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-08-property-bags_tags_tag-metadata_example-2.json",
+    "classes": {
+     "marker": 2
+    },
+    "as": "externalProperties",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-11-message-object_messages-with-embedded-links_example-2.json",
+    "classes": {
+     "content": 2,
+     "context": 2
+    },
+    "as": "result",
+    "n_errors": 4,
+    "errors": [
+     "locations/0/physicalLocation: Additional properties are not allowed ('uri' was unexpected)",
+     "relatedLocations/0/physicalLocation: Additional properties are not allowed ('uri' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-11-message-object_messages-with-placeholders_example-2.json",
+    "classes": {},
+    "as": "externalProperties",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-13-sariflog-object_general_example-1.json",
+    "as": "sarifLog",
+    "errors": [
+     "runs/0: Additional properties are not allowed ('...member-inject' was unexpected)",
+     "runs/0: 'tool' is a required property",
+     "runs/1: Additional properties are not allowed ('...object-inject' was unexpected)",
+     "runs/1: 'tool' is a required property",
+     "runs/2: Additional properties are not allowed ('...member-inject' was unexpected)"
+    ],
+    "n_errors": 6
+   },
+   {
+    "file": "file-format-13-sariflog-object_inlineexternalproperties-property_example-1.json",
+    "as": "sarifLog",
+    "errors": [],
+    "n_errors": 0
+   },
+   {
+    "file": "file-format-14-run-object_artifacts-property_example-1.json",
+    "classes": {},
+    "as": "externalProperties",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-14-run-object_general_example-1.json",
+    "classes": {
+     "marker": 4,
+     "context": 4
+    },
+    "as": "run",
+    "n_errors": 8,
+    "errors": []
+   },
+   {
+    "file": "file-format-14-run-object_logicallocations-property_example-1.json",
+    "classes": {},
+    "as": "location",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-14-run-object_newlinesequences-property_example-2.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-14-run-object_originaluribaseIds-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-14-run-object_originaluribaseIds-property_example-2.json",
+    "classes": {
+     "context": 2
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-14-run-object_redactiontokens-property_example-1.json",
+    "as": null,
+    "top_keys": [
+     "...member-inject",
+     "invocation",
+     "redactionTokens"
+    ]
+   },
+   {
+    "file": "file-format-14-run-object_versioncontrolprovenance-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-15-externalpropertyfilereferences-object_properties_example-1.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-15-externalpropertyfilereferences-object_properties_example-2.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-15-externalpropertyfilereferences-object_properties_example-3.json",
+    "classes": {
+     "marker": 2,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 3,
+    "errors": []
+   },
+   {
+    "file": "file-format-17-runautomationdetails-object_general_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-18-tool-object_general_example-1.json",
+    "classes": {
+     "marker": 2
+    },
+    "as": "tool",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_globalmessagestrings-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "tool",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_minimumrequiredlocalizeddatasemanticversion-property_example-1.json",
+    "classes": {
+     "marker": 3,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 4,
+    "errors": []
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_notifications-property_example-1.json",
+    "classes": {
+     "content": 1,
+     "context": 1
+    },
+    "as": "externalPropertyFileReferences",
+    "n_errors": 2,
+    "errors": [
+     "driver: Additional properties are not allowed ('notifications' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_policies_example-1.json",
+    "classes": {},
+    "as": "run",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_rules-property_example-1.json",
+    "classes": {},
+    "as": "tool",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_supportedtaxonomies-property_example-1.json",
+    "classes": {
+     "marker": 2,
+     "content": 3
+    },
+    "as": "run",
+    "n_errors": 5,
+    "errors": [
+     "tool/driver/rules/0: '...string-inject' is not of type 'object'",
+     "tool/driver/taxa/0: '...string-inject' is not of type 'object'",
+     "taxonomies/0/taxa/0: '...string-inject' is not of type 'object'"
+    ]
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_taxa-property_example-1.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "toolComponent",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_taxonomies_example-1.json",
+    "classes": {
+     "marker": 3,
+     "content": 1,
+     "context": 2
+    },
+    "as": "run",
+    "n_errors": 6,
+    "errors": [
+     "tool/driver: Additional properties are not allowed ('member-insert' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-19-toolcomponent-object_translations_example-1.json",
+    "classes": {
+     "marker": 3
+    },
+    "as": "run",
+    "n_errors": 3,
+    "errors": []
+   },
+   {
+    "file": "file-format-20-invocation-object_executionsuccessful-property_example-1.json",
+    "classes": {},
+    "as": "invocation",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-20-invocation-object_exitcodedescription-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "invocation",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-20-invocation-object_exitcodedescription-property_example-2.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "invocation",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-20-invocation-object_exitsignalnumber-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "invocation",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-20-invocation-object_processstartfailuremessage-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "invocation",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-20-invocation-object_responsefiles-property_example-1.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "invocation",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-20-invocation-object_toolconfigurationnotifications-property_example-1.json",
+    "classes": {
+     "content": 1,
+     "context": 2
+    },
+    "as": "invocation",
+    "n_errors": 3,
+    "errors": [
+     "toolConfigurationNotifications/0/associatedRule: Additional properties are not allowed ('ruleId' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-20-invocation-object_toolconfigurationnotifications-property_example-2.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "invocation",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-20-invocation-object_toolconfigurationnotifications-property_example-3.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "invocation",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-21-attachment-object_general_example-1.json",
+    "classes": {
+     "marker": 1,
+     "content": 1,
+     "context": 2
+    },
+    "as": "result",
+    "n_errors": 4,
+    "errors": [
+     "attachments/0: Additional properties are not allowed ('location' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-22-conversion-object_general_example-1.json",
+    "as": null,
+    "top_keys": [
+     "...member-inject",
+     "runs"
+    ]
+   },
+   {
+    "file": "file-format-23-versioncontroldetails-object_mappedto-property_example-1.json",
+    "classes": {
+     "context": 2
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-24-artifact-object_encoding-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-24-artifact-object_hashes-property_example-1.json",
+    "classes": {},
+    "as": "artifact",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-24-artifact-object_parentindex-property_example-1.json",
+    "classes": {},
+    "as": "externalProperties",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-25-speciallocations-object_displaybase-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-26-translationmetadata-object_general_example-1.json",
+    "classes": {
+     "marker": 1
+    },
+    "as": "toolComponent",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_analysistarget-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_fingerprints-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_fingerprints-property_example-2.json",
+    "classes": {
+     "context": 2
+    },
+    "as": "externalProperties",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_kind-property_example-1.json",
+    "classes": {
+     "content": 2,
+     "context": 2
+    },
+    "as": "externalProperties",
+    "n_errors": 4,
+    "errors": [
+     "results/0/locations/0/physicalLocation: Additional properties are not allowed ('uri' was unexpected)",
+     "results/1/locations/0/physicalLocation: Additional properties are not allowed ('uri' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-27-result-object_level-property_example-1.json",
+    "classes": {
+     "content": 1,
+     "context": 1
+    },
+    "as": "externalProperties",
+    "n_errors": 2,
+    "errors": [
+     "results/0/locations/0/physicalLocation: Additional properties are not allowed ('uri' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-27-result-object_message-property_example-1.json",
+    "classes": {},
+    "as": "externalProperties",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_message-property_example-2.json",
+    "classes": {
+     "marker": 1
+    },
+    "as": "run",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_partialfingerprints-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_partialfingerprints-property_example-2.json",
+    "classes": {
+     "context": 2
+    },
+    "as": "externalProperties",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_partialfingerprints-property_example-3.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_partialfingerprints-property_example-4.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_relatedlocations-property_example-1.json",
+    "classes": {
+     "content": 1,
+     "context": 2,
+     "marker": 1
+    },
+    "as": "externalPropertyFileReferences",
+    "n_errors": 4,
+    "errors": [
+     "results/0: Additional properties are not allowed ('level', 'locations', 'message', 'relatedLocations', 'ruleId' were unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-27-result-object_ruleid-property_example-1.json",
+    "classes": {
+     "context": 3
+    },
+    "as": "run",
+    "n_errors": 3,
+    "errors": []
+   },
+   {
+    "file": "file-format-27-result-object_taxa-property_example-1.json",
+    "classes": {
+     "marker": 5,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 6,
+    "errors": []
+   },
+   {
+    "file": "file-format-28-location-object_annotations-property_example-1.json",
+    "classes": {},
+    "as": "location",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-29-physicallocation-object_contextregion-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-29-physicallocation-object_region-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-32-address-object_parent-child-relationships_example-1.json",
+    "classes": {
+     "marker": 1
+    },
+    "as": "externalProperties",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-33-logicallocation-object_decoratedname-property_example-1.json",
+    "classes": {},
+    "as": "logicalLocation",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-33-logicallocation-object_fullyqualifiedname-property_example-1.json",
+    "classes": {
+     "marker": 1
+    },
+    "as": "location",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-33-logicallocation-object_kind-property_example-1.json",
+    "classes": {
+     "marker": 2,
+     "context": 2
+    },
+    "as": "externalProperties",
+    "n_errors": 4,
+    "errors": []
+   },
+   {
+    "file": "file-format-33-logicallocation-object_kind-property_example-2.json",
+    "classes": {
+     "content": 2,
+     "context": 2
+    },
+    "as": "externalProperties",
+    "n_errors": 4,
+    "errors": [
+     "results/0/locations/0: Additional properties are not allowed ('logicalLocation' was unexpected)",
+     "results/1/locations/0: Additional properties are not allowed ('logicalLocation' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-33-logicallocation-object_name-property_example-1.json",
+    "classes": {},
+    "as": "logicalLocation",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-33-logicallocation-object_parentindex-property_example-1.json",
+    "classes": {},
+    "as": "location",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-34-locationrelationship-object_general_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-36-codeflow-object_general_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-37-threadflow-object_immutablestate-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "threadFlow",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_index-property_example-1.json",
+    "classes": {
+     "marker": 5
+    },
+    "as": "externalProperties",
+    "n_errors": 5,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_index-property_example-2.json",
+    "classes": {
+     "marker": 4,
+     "context": 1
+    },
+    "as": "externalProperties",
+    "n_errors": 5,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_index-property_example-3.json",
+    "classes": {
+     "marker": 4,
+     "context": 1
+    },
+    "as": "externalProperties",
+    "n_errors": 5,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_kinds-property_example-1.json",
+    "classes": {},
+    "as": "threadFlowLocation",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_kinds-property_example-2.json",
+    "classes": {},
+    "as": "threadFlowLocation",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_kinds-property_example-3.json",
+    "classes": {},
+    "as": "threadFlowLocation",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_location-property_example-1.json",
+    "classes": {
+     "marker": 1
+    },
+    "as": "codeFlow",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_state-property_example-1.json",
+    "classes": {},
+    "as": "threadFlowLocation",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-38-threadflowlocation-object_taxa-property_example-1.json",
+    "classes": {
+     "marker": 5,
+     "context": 3
+    },
+    "as": "run",
+    "n_errors": 8,
+    "errors": []
+   },
+   {
+    "file": "file-format-40-node-object_id-property_example-1.json",
+    "classes": {
+     "marker": 1
+    },
+    "as": "graph",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-41-edge-object_sourcenodeid-property_example-1.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "graph",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-42-graphtraversal-object_edgetraversals-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-42-graphtraversal-object_immutablestate-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "graphTraversal",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-43-edgetraversal-object_stepoveredgecount-property_example-1.json",
+    "classes": {
+     "content": 2,
+     "context": 1
+    },
+    "as": "result",
+    "n_errors": 3,
+    "errors": [
+     "graphs/0/nodes/0/children/1/label: 'Call functionB' is not of type 'object'",
+     "graphs/0/nodes/1: Additional properties are not allowed ('nodes' was unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-48-resultprovenance-object_conversionsources-property_example-1.json",
+    "as": null,
+    "top_keys": [
+     "...member-inject",
+     "runs"
+    ]
+   },
+   {
+    "file": "file-format-49-reportingdescriptor-object_deprecatedids-property_example-1.json",
+    "classes": {
+     "marker": 3,
+     "context": 2
+    },
+    "as": "run",
+    "n_errors": 5,
+    "errors": []
+   },
+   {
+    "file": "file-format-49-reportingdescriptor-object_messagestrings-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "reportingDescriptor",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-49-reportingdescriptor-object_shortdescription-property_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "reportingDescriptor",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-50-reportingconfiguration-object_parameters-property_example-1.json",
+    "classes": {
+     "content": 1
+    },
+    "as": "reportingDescriptor",
+    "n_errors": 1,
+    "errors": [
+     "name: {'text': 'LimitSourceLineLength'} is not of type 'string'"
+    ]
+   },
+   {
+    "file": "file-format-51-configurationoverride-object_general_example-1.json",
+    "classes": {
+     "marker": 1,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-52-reportingdescriptorreference-object_general_example-1.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "invocation",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-52-reportingdescriptorreference-object_id-property_example-1.json",
+    "classes": {
+     "marker": 2,
+     "context": 5
+    },
+    "as": "run",
+    "n_errors": 7,
+    "errors": []
+   },
+   {
+    "file": "file-format-52-reportingdescriptorreference-object_index-property_example-1.json",
+    "classes": {
+     "marker": 3,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 4,
+    "errors": []
+   },
+   {
+    "file": "file-format-53-reportingdescriptorrelationship-object_general_example-1.json",
+    "classes": {
+     "marker": 4,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 5,
+    "errors": []
+   },
+   {
+    "file": "file-format-53-reportingdescriptorrelationship-object_general_example-2.json",
+    "classes": {
+     "marker": 2
+    },
+    "as": "run",
+    "n_errors": 2,
+    "errors": []
+   },
+   {
+    "file": "file-format-55-fix-object_artifactchanges-property_example-1.json",
+    "classes": {},
+    "as": "fix",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-55-fix-object_artifactchanges-property_example-2.json",
+    "classes": {},
+    "as": "fix",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "file-format-55-fix-object_description-property_example-1.json",
+    "as": null,
+    "top_keys": [
+     "fix"
+    ]
+   },
+   {
+    "file": "file-format-55-fix-object_general_example-1.json",
+    "classes": {
+     "marker": 2,
+     "context": 3
+    },
+    "as": "result",
+    "n_errors": 5,
+    "errors": []
+   },
+   {
+    "file": "file-format-56-artifactchange-object_general_example-1.json",
+    "classes": {
+     "marker": 2,
+     "context": 2
+    },
+    "as": "fix",
+    "n_errors": 4,
+    "errors": []
+   },
+   {
+    "file": "file-format-57-replacement-object_general_example-1.json",
+    "classes": {
+     "content": 3,
+     "context": 6
+    },
+    "as": "fix",
+    "n_errors": 9,
+    "errors": [
+     "artifactChanges/0: Additional properties are not allowed ('deletedRegion', 'insertedContent' were unexpected)",
+     "artifactChanges/1: Additional properties are not allowed ('deletedRegion' was unexpected)",
+     "artifactChanges/2: Additional properties are not allowed ('deletedRegion', 'insertedContent' were unexpected)"
+    ]
+   },
+   {
+    "file": "file-format-57-replacement-object_general_example-2.json",
+    "classes": {
+     "context": 1
+    },
+    "as": "artifactChange",
+    "n_errors": 1,
+    "errors": []
+   },
+   {
+    "file": "file-format-58-notification-object_associatedrule-property_example-1.json",
+    "classes": {
+     "marker": 4,
+     "context": 1
+    },
+    "as": "run",
+    "n_errors": 5,
+    "errors": []
+   }
+  ],
+  "examples": [
+   {
+    "file": "comprehensive.json",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "example-3-13-5-01.json",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "example-3-3-4-01.json",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "graft.json",
+    "n_errors": 1,
+    "errors": [
+     "version: '2.1.0' is not one of ['2.2']"
+    ]
+   },
+   {
+    "file": "minimal-recommended-with-source-info.json",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "minimal-recommended-without-source-info.json",
+    "n_errors": 0,
+    "errors": []
+   },
+   {
+    "file": "minimal-valid.json",
+    "n_errors": 0,
+    "errors": []
+   }
+  ]
+ },
+ "n_sections_objects": 52
+}

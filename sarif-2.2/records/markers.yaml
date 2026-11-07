@@ -1,0 +1,18 @@
+# The grammar of the elision markers in the example twins (prose/edit/src/json-examples/).
+# A twin is the full example as JSON; a marker says "the display leaves something out here", so the twin stays
+# valid JSON while the prose shows an elided snippet. For validation, derive removes the markers and injects
+# the context the schema requires (required members, required alternatives), so what remains are the example's
+# own statements about SARIF.
+#
+# A key or string that looks like a marker but does not match `pattern` is a finding (a typo is a broken key).
+
+pattern: '^\.\.\.(member|object|string)-inject(-\d+)?$'
+looks-like: '(member|object|string)-in[a-z]*ct|member-insert|-inject'
+kinds:
+  member: >-
+    A key "...member-inject" (value "...") inside an object: more members of this object are elided here.
+    Numbered variants ("...member-inject-2") allow several in one object.
+  object: >-
+    An array element {"...object-inject": "..."}: more objects of this array are elided here.
+  string: >-
+    An array element "...string-inject": more elements of this array are elided here.
