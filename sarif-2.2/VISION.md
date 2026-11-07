@@ -32,7 +32,7 @@ vendors can carry their own ideas into. The many **MAY** are intended and not co
 | `schema/sarif.json` (unchanged) | the schema side of every check |
 | the twins `prose/edit/src/json-examples/*.json` | the prose snippets of all 120 examples, byte for byte; `views/examples.md` |
 | `records/examples.yaml`: one record per twin: its host definition, and its `display` | the validation of each twin; the snippet's layout and margin notes |
-| `records/markers.yaml`: the grammar of the elision markers | the marker checks; the elision in a future snippet |
+| `twins.markers` in `prose/edit/etc/nide.yaml`: the grammar of the elision markers | the marker checks (`nide quality`, SARIF-TWINS); the elision in a future snippet |
 | `records/roles.yaml`: the roles and the words the prose uses for them | `views/roles/<role>.md`: the statements per role |
 | `records/constraints.yaml`: the presence rules announced with a set of keywords, one branch per condition | `views/constraints.md`; `views/constraints.schema.json` (the if/then the schema can say, a proposal for the TC); the constraint findings |
 | `known` of SARIF-SCHEMA-HEADINGS in `prose/edit/etc/rules/spec.rules.yaml`: the known differences between property sections and schema properties, each waiting for the TC | `nide quality` refuses every other difference (and a malformed property heading); the TC entries of `views/findings.md` |
@@ -191,11 +191,19 @@ derived snippet by its key, and refuses a key without a record, a record without
    `records/drift.yaml`. The externalized properties, described in a table of the `externalPropertyFileReferences`
    section, are declared as such (`described-in`). DPS uses the same check type for its `` Member `a.b.c` `` headings.
 
+12. **Twins in nide (2026-11-08).** The examples pipeline moved into nide (unreleased): `nide derive` writes the
+   120 snippets from their twins and display records (byte-identical to `bin/vision.py`, which derived them before),
+   `nide derive --check` runs in `make check`, and the quality check type `twins` (SARIF-TWINS) checks records,
+   markers, note references, validity as the host definition (the 14 TC findings as `known`) and that every block
+   is derived. The configuration is the `twins` section of `prose/edit/etc/nide.yaml`: the marker grammar
+   (formerly `records/markers.yaml`) and the margin-note templates. `bin/vision.py` keeps the views, the
+   constraint sentences and, until nide can learn displays, `migrate-snippets`.
+
 ## Next steps
 
-12. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
+13. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
    consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
-13. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
+14. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
    The largest: `suppression.justificationType` (#672) and the `columnKind` value `"bytes"` (#740) exist only in the
    prose; `attachment.location` and `externalProperties.$schema` differ from the schema's names; 14 examples
    contradict the schema in prose and twin alike (most often the pre-2.1 form `physicalLocation.uri`; the
@@ -204,6 +212,6 @@ derived snippet by its key, and refuses a key without a record, a record without
 ## Files
 
 - `bin/vision.py`: migrate, derive, check (Python with jsonschema and PyYAML, the repository's pyenv environment)
-- `records/`: examples, markers, roles, constraints, defaults
+- `records/`: examples, roles, constraints, defaults
 - `views/`: findings, examples, constraints (and its schema proposal), `roles/<role>.md` (derived, never edit)
 - `makefile`: derive, check, prose

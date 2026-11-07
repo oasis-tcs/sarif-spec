@@ -183,3 +183,57 @@ rules:
         - kind: schema-only
           key: externalProperties.schema
           reason: 'S4: the other side'
+
+  # ── Example twins (A4 against A1) ─────────────────────────────────────────
+
+  - id: SARIF-TWINS
+    severity: BLOCKER
+    description: >-
+      Every JSON code block keyed by a twin is derived from it (nide derive), every twin has a record and a block,
+      its markers are well-formed, its margin notes resolve to sections, and it is valid as its host definition
+      once the context its display leaves out is injected
+    check:
+      type: twins
+      known:  # twins that contradict the schema: decisions for the TC
+        - kind: content
+          key: external-property-file-format_externalproperties-object_general_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-03-artifactcontent-object_rendered-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-11-message-object_messages-with-embedded-links_example-2.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-14-run-object_redactiontokens-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-19-toolcomponent-object_notifications-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-20-invocation-object_toolconfigurationnotifications-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-21-attachment-object_general_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-22-conversion-object_general_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-27-result-object_kind-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-27-result-object_level-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-27-result-object_relatedlocations-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-43-edgetraversal-object_stepoveredgecount-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-50-reportingconfiguration-object_parameters-property_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'
+        - kind: content
+          key: file-format-57-replacement-object_general_example-1.json
+          reason: 'TC: contradicts the schema in prose and twin alike (views/findings.md)'

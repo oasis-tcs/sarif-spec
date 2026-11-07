@@ -134,7 +134,8 @@ def schema_of(obj):
 # ── examples: markers, context, validation ────────────────────────────────────
 
 def markers():
-    rec = yaml.safe_load((RECORDS / 'markers.yaml').read_text(encoding='utf-8'))
+    """The marker grammar of the twins: `twins.markers` in prose/edit/etc/nide.yaml (nide checks the twins with it)."""
+    rec = yaml.safe_load((PROSE / 'etc' / 'nide.yaml').read_text(encoding='utf-8'))['twins']['markers']
     return re.compile(rec['pattern']), re.compile(rec['looks-like'])
 
 
@@ -416,7 +417,7 @@ def findings(sections, headings, statements, fences, items, constraints=()):
         if not i['host']:
             out.append(f'- `{i["twin"]}`: no host definition{": " + i["note"] if i["note"] else ""}')
         for m in i['markers']:
-            out.append(f'- `{i["twin"]}`: malformed marker `{m}` (records/markers.yaml)')
+            out.append(f'- `{i["twin"]}`: malformed marker `{m}` (twins.markers in prose/edit/etc/nide.yaml)')
         for e in i['errors']:
             out.append(f'- **TC** `{i["twin"]}` as {i["host"]}: {md_escape(e)}')
     for i in items:
@@ -872,19 +873,11 @@ def snippet_records():
 
 
 def derive_prose():
-    """The prose files with every derived snippet rendered from its twin into its code block."""
-    by_file = defaultdict(list)
-    for rec in snippet_records():
-        by_file[rec['display']['file']].append(rec)
+    """The prose files with the constraint sentences of each record written verbatim.
+
+    The snippets of the twins are nide's: `nide derive` writes them, `nide quality` (SARIF-TWINS) checks them.
+    """
     files = {}
-    for name, recs in by_file.items():
-        lines, fences = json_fences(name, unmarked=True)
-        where = {f[3]: f for f in fences if f[3]}
-        for rec in sorted(recs, key=lambda r: -where[r['twin']][0]):
-            start, end, prefix, _ = where[rec['twin']]
-            twin = json.loads((TWINS / rec['twin']).read_text(encoding='utf-8'))
-            lines[start:end] = render_snippet(twin, rec['display'], prefix)
-        files[name] = '\n'.join(lines) + '\n'
     _, _, statements, _ = read_prose()
     for name in dict.fromkeys(r['file'] for r in constraint_records()):
         text = files.get(name) or (SRC / name).read_text(encoding='utf-8')
@@ -919,21 +912,6 @@ def annotate_fences():
                         'file: the prose file; its code block carries the key ```{.json twin="<twin>"}') for h in header]
     path.write_text('\n'.join(header) + '\n\n' + yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=150), encoding='utf-8')
     print(f'keyed {count} code blocks by their twins')
-
-
-def fence_keys():
-    """Refusals: a derived snippet whose key is missing, a key without a record, a key used twice."""
-    problems, records = [], {r['twin']: r for r in snippet_records()}
-    seen = Counter()
-    for name in bound_files():
-        for *_, twin in json_fences(name, unmarked=True)[1]:
-            if twin:
-                seen[twin] += 1
-                if twin not in records:
-                    problems.append(f'prose/edit/src/{name}: code block keyed twin="{twin}" has no derived record')
-    problems += [f'twin="{t}" keys {n} code blocks' for t, n in seen.items() if n > 1]
-    problems += [f'{r["display"]["file"]}: no code block keyed twin="{t}"' for t, r in records.items() if seen[t] == 0]
-    return problems
 
 
 def migrate_snippets():
@@ -1494,7 +1472,7 @@ def migrate():
         '# One record per example twin (prose/edit/src/json-examples/): the schema definition that hosts it.',
         '# Seeded by `bin/vision.py migrate` from the twin\'s top-level keys and its section; reviewed by hand.',
         '# `host` is a $defs name or sarifLog; derive validates the twin as that definition after removing the',
-        '# markers (records/markers.yaml) and injecting the required context. `note` explains a missing host.',
+        '# markers (twins.markers in prose/edit/etc/nide.yaml) and injecting the required context. `note` explains a missing host.',
         '',
         'examples:',
     ]
@@ -1556,7 +1534,7 @@ def main():
     if command == 'migrate-defaults':
         migrate_defaults()
         return
-    problems = check_records() + broken_keys() + constraint_keys() + default_keys() + (fence_keys() if command != 'annotate-fences' else [])
+    problems = check_records() + broken_keys() + constraint_keys() + default_keys()  # the twins' keys and snippets: nide quality
     if problems:
         sys.exit('\n'.join(problems))
     views = derive_all()
@@ -1569,14 +1547,14 @@ def main():
         for name, text in prose.items():
             (SRC / name).write_text(text, encoding='utf-8')
         sentences = sum(len(sentence_sequence(r)) for r in constraint_records())
-        print(f'derived {len(views)} views into views/, {len(snippet_records())} snippets and {sentences} constraint sentences into {len(prose)} prose files')
+        print(f'derived {len(views)} views into views/, {sentences} constraint sentences into {len(prose)} prose files (the snippets: nide derive)')
     elif command == 'check':
         stale = [rel for rel, text in views.items() if not (VIEWS / rel).is_file() or (VIEWS / rel).read_text(encoding='utf-8') != text]
         extra = sorted(str(p.relative_to(VIEWS)) for p in VIEWS.rglob('*') if p.is_file() and str(p.relative_to(VIEWS)) not in views)
         stale += [f'prose/edit/src/{name}' for name, text in prose.items() if (SRC / name).read_text(encoding='utf-8') != text]
         if stale or extra:
             sys.exit('views differ from the sources (run make derive):\n' + '\n'.join(f'  {r}' for r in stale + extra))
-        print(f'{len(views)} views and {len(snippet_records())} derived snippets match the sources')
+        print(f'{len(views)} views and the constraint sentences match the sources (the snippets: nide derive --check)')
     else:
         sys.exit(__doc__)
 

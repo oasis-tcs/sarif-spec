@@ -73,3 +73,32 @@ channels:
     logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
   typst:
     page-break-l1: true
+
+# Example twins: the JSON code blocks keyed {.json twin="..."} are derived from the complete examples in
+# src/json-examples (nide derive), laid out by the display records in records/examples.yaml.
+twins:
+  path: src/json-examples
+  records: ../../records/examples.yaml
+  schema: ../../schema/sarif.json
+  root: sarifLog
+  # A marker says "the display leaves something out here", so the twin stays valid JSON while the prose shows an
+  # elided snippet: a key "...member-inject" (value "...") in an object, more members elided (numbered variants
+  # "...member-inject-2" for several in one object); an array element {"...object-inject": "..."}, more objects;
+  # an array element "...string-inject", more elements. A key or string that looks like a marker but does not
+  # match the pattern is malformed (a typo is a broken key).
+  markers:
+    pattern: '^\.\.\.(member|object|string)-inject(-\d+)?$'
+    looks-like: '(member|object|string)-in[a-z]*ct|member-insert|-inject'
+  notes:
+    - keys: [see]
+      text: '# See (#{see}).'
+    - keys: [object]
+      text: '# {object|article} {object} object.'
+    - keys: [object, ref]
+      text: '# {object|article} {object} object ((#{ref})).'
+    - keys: [object, dot]
+      text: '# {object|article} {object} object'
+    - keys: [object, ref, dot]
+      text: '# {object|article} {object} object ((#{ref}))'
+    - keys: [note]
+      text: '{note}'
