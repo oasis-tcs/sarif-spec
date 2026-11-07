@@ -918,6 +918,10 @@ def derive_prose():
             twin = json.loads((TWINS / rec['twin']).read_text(encoding='utf-8'))
             lines[start:end] = render_snippet(twin, rec['display'], prefix)
         files[name] = '\n'.join(lines) + '\n'
+    _, _, statements, _ = read_prose()
+    for name in dict.fromkeys(r['file'] for r in constraint_records()):
+        text = files.get(name) or (SRC / name).read_text(encoding='utf-8')
+        files[name] = derive_sentences(name, text, statements)
     return files
 
 
@@ -1021,7 +1025,9 @@ def derive_all():
     rules = schema_rules(records)
     violations = rule_violations(items, rules)
     bound = sorted(set(rule_violations(items, schema_rules(records, bound=True))) - set(violations))
-    views = {'examples.md': view_examples(items), 'findings.md': findings(sections, headings, statements, fences, items, constraint_findings(records, violations, bound)),
+    fixture_files, _ = rule_fixtures(rules)
+    views = {**{f'fixtures/{name}': json.dumps(inst, indent=2) + '\n' for name, inst in fixture_files.items()},
+             'examples.md': view_examples(items), 'findings.md': findings(sections, headings, statements, fences, items, constraint_findings(records, violations, bound)),
              'constraints.md': view_constraints(records, rules, violations),
              'constraints.schema.json': json.dumps({'$comment': 'Derived by bin/vision.py from records/constraints.yaml: presence rules the schema can say. '
                                                     'A proposal for the TC; do not edit.',
@@ -1052,6 +1058,30 @@ def constraint_sections(statements):
             rest = [s for s in statements if s['file'] == a['file'] and s['heading'] == a['heading'] and s is not a]
             out.append((a, rest))
     return out
+
+
+def sentence_sequence(r):
+    """The statements a record gives its section, in prose order (a sentence shared by two branches once)."""
+    out = list(r.get('also', []))
+    for b in r['branches']:
+        if not out or out[-1] != b['sentence']:
+            out.append(b['sentence'])
+        out += b.get('also', [])
+    return out
+
+
+def derive_sentences(name, text, statements):
+    """*text* of prose file *name* with the statements of each constraint section replaced by its record's, in order."""
+    for a, rest in constraint_sections(statements):
+        r = next((r for r in constraint_records() if r['property'] == f'{a["obj"]}.{a["prop"]}'), None)
+        if a['file'] != name or r is None or len(rest) != len(sentence_sequence(r)):
+            continue  # constraint_keys refuses a missing record or a different count
+        start = text.index(a['text'].split(' whose ')[0])  # the announcement: the section's statements follow it
+        for old, new in zip((s['text'] for s in rest), sentence_sequence(r)):
+            at = text.index(old, start)
+            text = text[:at] + new + text[at + len(old):]
+            start = at + len(new)
+    return text
 
 
 def constraint_records():
@@ -1102,6 +1132,41 @@ def extended_schema(rules):
     return schema
 
 
+def rule_fixtures(rules):
+    """Two fixtures per derived if/then rule, from the definition's minimal instance with the condition true: one that
+    keeps the rule and one that breaks it.  Returns ({file name: instance}, problems)."""
+    extended = extended_schema(rules)
+    files, problems = {}, []
+    for rule in rules:
+        prop = rule['property'].split('.', 1)[1]
+        node = DEFS[rule['def']]
+        base = minimal(node)
+        stem = f'{rule["property"]}.{rule["presence"].lower().replace(" ", "-")}'
+        if not jsonschema.Draft202012Validator({'$defs': DEFS, **rule['if']}).is_valid(base):
+            problems.append(f'{stem}: the minimal {rule["def"]} does not meet the condition; no fixture can be derived')
+            continue
+        for other in rules:  # keep the other derived rules of the definition, so only this one decides
+            other_prop = other['property'].split('.', 1)[1]
+            if other is rule or other['def'] != rule['def'] or not jsonschema.Draft202012Validator({'$defs': DEFS, **other['if']}).is_valid(base):
+                continue
+            if other['presence'] == 'SHALL':
+                base.setdefault(other_prop, minimal(node['properties'][other_prop]))
+            else:
+                base.pop(other_prop, None)
+        present = {**base, prop: minimal(node['properties'][prop])}
+        absent = {k: v for k, v in base.items() if k != prop}
+        keep, brk = (present, absent) if rule['presence'] == 'SHALL' else (absent, present)
+        for kind, instance, should_fail in (('valid', keep, False), ('invalid', brk, True)):
+            files[f'{stem}.{kind}.json'] = instance
+            if not validator_for(rule['def']).is_valid(instance):
+                problems.append(f'views/fixtures/{stem}.{kind}.json: invalid under the schema as it is')
+            root = {'$schema': extended['$schema'], '$defs': extended['$defs'], '$ref': f'#/$defs/{rule["def"]}'}
+            errors = list(jsonschema.Draft202012Validator(root).iter_errors(instance))
+            if bool(errors) != should_fail:
+                problems.append(f'views/fixtures/{stem}.{kind}.json: {"passes" if should_fail else "fails"} the derived rule')
+    return files, problems
+
+
 def rule_violations(items, rules):
     """Errors the derived if/then rules add to the twins and example/ files (none below an injected path)."""
     schema = extended_schema(rules)
@@ -1126,13 +1191,26 @@ def rule_violations(items, rules):
     return found
 
 
+def generated_sentence(prop, b):
+    """The uniform wording of a branch: what a sentence derived from the record's fields would say."""
+    clause = f'`{prop}` **{b["presence"]}** be present'
+    if b['scope'] == 'rest':
+        return f'Otherwise, {clause}.'
+    return f'{"Otherwise, if" if b["otherwise"] else "If"} {b["when"]}, {clause}.'
+
+
 def view_constraints(records, rules, violations):
     by_scope = Counter(b['scope'] for r in records for b in r['branches'])
     out = ['# Constraints', '', 'Derived by `bin/vision.py derive` from `records/constraints.yaml`; do not edit.', '',
            f'{len(records)} presence rules announced with a set of keywords, {sum(by_scope.values())} branches: '
            + ', '.join(f'{by_scope[s]} {s}' for s in SCOPES) + ' scope.',
            f'{len(rules)} branches the schema can say are derived as `if`/`then` into `views/constraints.schema.json`, '
-           f'a proposal for the TC; against the twins and `example/` they find {len(violations)} violation(s).', '']
+           f'a proposal for the TC; against the twins and `example/` they find {len(violations)} violation(s).',
+           f'Each rule has a fixture that keeps it and one that breaks it (`views/fixtures/`); both pass the schema as it is. '
+           'They start from the smallest instance the schema allows, so an empty object in them (an `artifactLocation` '
+           'without `uri` and `index`) is what the schema accepts, not what the prose asks for.',
+           '', 'Below each table, the wording a sentence generated from the record would have: a proposal for the TC, '
+           'until which the prose keeps its own sentences (derived verbatim from the records).', '']
     for r in records:
         out += [f'## `{r["property"]}`', '', f'{r["file"]}; announced: ' + ', '.join(f'**{k}**' for k in r['announce']), '',
                 '| | Presence | When | Scope | Schema |', '|---|---|---|---|---|']
@@ -1140,7 +1218,8 @@ def view_constraints(records, rules, violations):
             reason = schema_reason(r, i - 1)
             out.append(f'| {i} | **{b["presence"]}** | {"otherwise, " if b["otherwise"] else ""}{md_escape(b["when"])} | {b["scope"]} | '
                        f'{"if/then" if reason is None else reason} |')
-        out.append('')
+        prop = r['property'].split('.', 1)[1]
+        out += ['', *(f'{i}. {generated_sentence(prop, b)}' for i, b in enumerate(r['branches'], 1)), '']
     return '\n'.join(out)
 
 
@@ -1177,13 +1256,9 @@ def constraint_keys():
         where = f'records/constraints.yaml: `{key}`'
         if r['announce'] != ANNOUNCED.findall(KEYWORD_SET.search(a['text']).group(0)):
             problems.append(f'{where}: announce differs from the prose')
-        prose = [s['text'] for s in rest]
-        recorded = list(dict.fromkeys([b['sentence'] for b in r['branches']] + r['also']))
-        problems += [f'{where}: sentence not in its section: {t[:90]}' for t in recorded if t not in prose]
-        problems += [f'{where}: statement of the section not in the record: {t[:90]}' for t in prose if t not in recorded]
-        order = [prose.index(b['sentence']) for b in r['branches'] if b['sentence'] in prose]
-        if order != sorted(order):
-            problems.append(f'{where}: branches out of prose order')
+        if len(rest) != len(sentence_sequence(r)):
+            problems.append(f'{where}: the section has {len(rest)} statements, the record {len(sentence_sequence(r))}: '
+                            'add or remove a sentence in the record, then make derive')
         for i, b in enumerate(r['branches'], 1):
             if b['presence'] not in presences(b['sentence'], a['prop']):
                 problems.append(f'{where}: branch {i}: its sentence does not give **{b["presence"]}**')
@@ -1197,6 +1272,8 @@ def constraint_keys():
                 except jsonschema.SchemaError as e:
                     problems.append(f'{where}: branch {i}: `if` is no JSON Schema: {e.message[:90]}')
     problems += [f'records/constraints.yaml: `{key}`: no announcing statement in the prose' for key in records]
+    if not problems:
+        problems += rule_fixtures(schema_rules(constraint_records()))[1]
     return problems
 
 
@@ -1214,9 +1291,9 @@ def migrate_constraints():
                 branches.append({'presence': level, 'when': 'TODO', 'scope': 'TODO', 'otherwise': s['text'].startswith('Otherwise'),
                                  'sentence': s['text']})
             if not found:
-                also.append(s['text'])
+                (branches[-1].setdefault('also', []) if branches else also).append(s['text'])
         records.append({'property': f'{a["obj"]}.{a["prop"]}', 'file': a['file'],
-                        'announce': ANNOUNCED.findall(KEYWORD_SET.search(a['text']).group(0)), 'branches': branches, 'also': also})
+                        'announce': ANNOUNCED.findall(KEYWORD_SET.search(a['text']).group(0)), 'also': also, 'branches': branches})
     target.write_text(yaml.safe_dump({'constraints': records}, sort_keys=False, allow_unicode=True, width=1000), encoding='utf-8')
     print(f'seeded {len(records)} constraint records, {sum(len(r["branches"]) for r in records)} branches')
 
@@ -1298,10 +1375,11 @@ def main():
             path.write_text(text, encoding='utf-8')
         for name, text in prose.items():
             (SRC / name).write_text(text, encoding='utf-8')
-        print(f'derived {len(views)} views into views/, {len(snippet_records())} snippets into {len(prose)} prose files')
+        sentences = sum(len(sentence_sequence(r)) for r in constraint_records())
+        print(f'derived {len(views)} views into views/, {len(snippet_records())} snippets and {sentences} constraint sentences into {len(prose)} prose files')
     elif command == 'check':
         stale = [rel for rel, text in views.items() if not (VIEWS / rel).is_file() or (VIEWS / rel).read_text(encoding='utf-8') != text]
-        extra = sorted(str(p.relative_to(VIEWS)) for p in VIEWS.rglob('*.md') if str(p.relative_to(VIEWS)) not in views)
+        extra = sorted(str(p.relative_to(VIEWS)) for p in VIEWS.rglob('*') if p.is_file() and str(p.relative_to(VIEWS)) not in views)
         stale += [f'prose/edit/src/{name}' for name, text in prose.items() if (SRC / name).read_text(encoding='utf-8') != text]
         if stale or extra:
             sys.exit('views differ from the sources (run make derive):\n' + '\n'.join(f'  {r}' for r in stale + extra))

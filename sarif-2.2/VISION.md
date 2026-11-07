@@ -150,15 +150,25 @@ derived snippet by its key, and refuses a key without a record, a record without
    schema, and the findings list what a log-file rule would reject (3 `example/` files, 18 twins); `run.results` may
    be `null` in the prose, not in the schema; the prose names `theRun.originalBaseIds` for `originalUriBaseIds`.
 
+8. **Constraint records, second part (2026-11-07).** The records are now the source of their sentences: each branch
+   carries the statements that follow it (`also`), so a record gives its section's statements in prose order, and
+   `make derive` writes them into the prose verbatim (78 statements in 15 sections; the prose came out
+   byte-identical). `check` fails when the prose differs and refuses a section with more or fewer statements than
+   its record: a sentence is added in the record, not in the prose. The prose typo `theRun.originalBaseIds` is now a
+   one-line record edit. Each derived `if`/`then` has two fixtures in `views/fixtures/` (one keeps the rule, one
+   breaks it, both valid under the schema as it is); `check` refuses a rule whose fixtures do not behave so.
+   `views/constraints.md` shows below each table the wording a sentence generated from the record's fields would
+   have ("Otherwise, if `index` is absent, `uri` **SHALL** be present."): a proposal for the TC; the `when` texts
+   mark property names in backticks for it.
+
 ## Next steps
 
-7. **Constraint records, second part.** Derive instead of check: the sentences from the records (as the snippets
-   from the twins), one test fixture per branch the schema can say (valid and invalid), and the defaults. Then the
-   presence rules that are not announced with a set of keywords ("If ..., `x` **SHALL** be present" elsewhere).
-
-8. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
+9. **Constraint records, third part.** The defaults as records (the prose's "If absent, it **SHALL** default to
+   ..." against the schema's `default`), then the presence rules that are not announced with a set of keywords
+   ("If ..., `x` **SHALL** be present" elsewhere), with records of the same shape.
+10. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
    consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
-9. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
+11. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
    The largest: `suppression.justificationType` (#672) and the `columnKind` value `"bytes"` (#740) exist only in the
    prose; `attachment.location` and `externalProperties.$schema` differ from the schema's names; 14 examples
    contradict the schema in prose and twin alike (most often the pre-2.1 form `physicalLocation.uri`; the
