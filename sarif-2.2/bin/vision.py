@@ -380,12 +380,11 @@ def findings(sections, headings, statements, fences, items, constraints=()):
     out = ['# Findings', '', 'What `bin/vision.py derive` noticed in the prose, the twins and the schema; do not edit.',
            'Each finding names the place to change; decisions for the TC are marked **TC**.', '']
 
-    # A3 against A1: properties and their headings (check refuses every difference that records/drift.yaml lacks)
+    # A3 against A1: properties and their headings (nide quality, SARIF-SCHEMA-HEADINGS, refuses every other difference)
     out += ['## Prose and schema', '']
-    recorded = {(d['property'], d['kind']): d['id'] for d in drift_records()}
-    for prop, kind in property_drift(sections, headings):
-        what = PROSE_ONLY if kind == 'prose-only' else SCHEMA_ONLY
-        out.append(f'- **TC** `{prop}`: {what} ({recorded.get((prop, kind), "not recorded")}, records/drift.yaml)')
+    for d in drift_records():
+        what = PROSE_ONLY if d['kind'] == 'prose-only' else SCHEMA_ONLY
+        out.append(f'- **TC** `{d["property"]}`: {what} ({d["id"]}, `known` of SARIF-SCHEMA-HEADINGS in prose/edit/etc/rules/spec.rules.yaml)')
     for obj, props in sorted(sections.items()):
         for prop, lines in props.items():
             ps = (schema_of(obj) or {}).get('properties', {}).get(prop) if prop else None
@@ -455,42 +454,14 @@ PROSE_ONLY = 'a property section in the prose, no such property in the schema'
 SCHEMA_ONLY = 'in the schema, not described in the prose'
 
 
-def property_drift(sections, headings):
-    """(object.property, kind) for each property section without a schema property, and back."""
-    out = []
-    for obj, props in sorted(sections.items()):
-        sch = schema_of(obj)
-        if sch is None:
-            out.append((obj, 'object-only'))
-            continue
-        schema_props = set(sch.get('properties', {}))
-        prose_props = {p for p in props if p}
-        files = {h['file'] for h in headings if h['obj'] == obj}
-        text = '\n'.join((SRC / f).read_text(encoding='utf-8') for f in files)
-        out += [(f'{obj}.{p}', 'prose-only') for p in sorted(prose_props - schema_props)]
-        out += [(f'{obj}.{p}', 'schema-only') for p in sorted(schema_props - prose_props - {'properties'})
-                if f'`{p}`' not in text and f'`{p}`' not in TABLE_ROWS]  # else described with others: same file or a table
-    return out
+RULES = PROSE / 'etc' / 'rules' / 'spec.rules.yaml'
 
 
 def drift_records():
-    return yaml.safe_load((RECORDS / 'drift.yaml').read_text(encoding='utf-8'))['drift']
-
-
-def heading_keys():
-    """Refusals: a property heading that is not `` `name` Property ``, a difference to the schema not in records/drift.yaml."""
-    sections, headings, *_ = read_prose()
-    problems = [f'prose/edit/src/{h["file"]}:{h["line"]}: heading "{h["text"]}" does not give its property as `` `name` Property ``'
-                for h in headings if h['broken']]
-    found = property_drift(sections, headings)
-    recorded = {(d['property'], d['kind']) for d in drift_records()}
-    for prop, kind in found:
-        if kind == 'object-only':
-            problems.append(f'`{prop}`: an object section without a schema definition')
-        elif (prop, kind) not in recorded:
-            problems.append(f'`{prop}`: {PROSE_ONLY if kind == "prose-only" else SCHEMA_ONLY} (not in records/drift.yaml)')
-    problems += [f'records/drift.yaml: `{prop}` ({kind}) no longer differs: remove the entry' for prop, kind in sorted(recorded - set(found))]
-    return problems
+    """The known differences between property sections and schema properties: the `known` of SARIF-SCHEMA-HEADINGS."""
+    rules = yaml.safe_load(RULES.read_text(encoding='utf-8'))['rules']
+    check = next(r['check'] for r in rules if r['id'] == 'SARIF-SCHEMA-HEADINGS')
+    return [{'id': k['reason'].split(':', 1)[0], 'property': k['key'], 'kind': k['kind']} for k in check['known']]
 
 
 def _json_or_text(text):
@@ -1074,7 +1045,7 @@ AT_LEAST_ONE = re.compile(r'^At least one of (.*?) \*\*SHALL\*\* be present')
 
 def definition_keys(statements):
     """Refusals: an unconditional "An `x` object **SHALL** contain a property named `p`" whose level the schema's
-    `required` contradicts (SHALL: required; any other keyword: optional), unless records/drift.yaml records `x.p`."""
+    `required` contradicts (SHALL: required; any other keyword: optional), unless SARIF-SCHEMA-HEADINGS knows `x.p`."""
     drift = {d['property'] for d in drift_records()}
     out = []
     for s in statements:
@@ -1084,7 +1055,7 @@ def definition_keys(statements):
         obj, level, prop = m.groups()
         sch = schema_of(obj)
         if sch is None or f'{obj}.{prop}' in drift or prop not in sch.get('properties', {}):
-            continue  # an object or property the schema lacks: heading_keys and records/drift.yaml speak for it
+            continue  # an object or property the schema lacks: nide quality (SARIF-SCHEMA-HEADINGS) speaks for it
         if (level == 'SHALL') != (prop in sch.get('required', [])):
             out.append(f'{s["file"]}:{s["line"]}: `{obj}.{prop}` is **{level}** in the prose, '
                        f'{"required" if prop in sch.get("required", []) else "optional"} in the schema')
@@ -1585,7 +1556,7 @@ def main():
     if command == 'migrate-defaults':
         migrate_defaults()
         return
-    problems = check_records() + broken_keys() + heading_keys() + constraint_keys() + default_keys() + (fence_keys() if command != 'annotate-fences' else [])
+    problems = check_records() + broken_keys() + constraint_keys() + default_keys() + (fence_keys() if command != 'annotate-fences' else [])
     if problems:
         sys.exit('\n'.join(problems))
     views = derive_all()

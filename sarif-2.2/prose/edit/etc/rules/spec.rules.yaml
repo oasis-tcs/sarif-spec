@@ -150,3 +150,36 @@ rules:
       type: section-present
       pattern: 'Definitions|Terms and Definitions'
       flags: IGNORECASE
+
+  # ── Headings as keys into the schema (A3 against A1) ──────────────────────
+
+  - id: SARIF-SCHEMA-HEADINGS
+    severity: BLOCKER
+    description: >-
+      Object and property headings name the schema: every `` `x` Object `` section has a definition, every
+      `` `p` Property `` section a property of it, every property of a headed object a section or a mention,
+      and a heading that seems to name a property gives it as `` `name` Property `` (four did not, 2026-11)
+    check:
+      type: schema-headings
+      schema: ../../schema/sarif.json
+      object-heading: '^`(?P<object>\w+)` Object$'
+      property-heading: '^(?P<property>(?:`\$?\w+`(?:, and |, | and )?)+) Propert(?:y|ies)$'
+      looks-like: '^(?:.*`.*|\$?\w+) [Pp]ropert(?:y|ies)$'
+      root: sarifLog
+      schema-only: true
+      ignore: [properties]
+      described-in:
+        externalProperties: externalPropertyFileReferences  # the externalized properties: a table there
+      known:  # differences waiting for the TC (the ids of assessment/README.md)
+        - kind: prose-only
+          key: suppression.justificationType
+          reason: 'S1: prose added by #672 (issue 574); the schema never followed'
+        - kind: prose-only
+          key: attachment.location
+          reason: 'S3: the schema calls it artifactLocation; the attachment example uses location and fails'
+        - kind: prose-only
+          key: externalProperties.$schema
+          reason: 'S4: the schema calls it schema, while sarifLog uses $schema'
+        - kind: schema-only
+          key: externalProperties.schema
+          reason: 'S4: the other side'

@@ -35,7 +35,7 @@ vendors can carry their own ideas into. The many **MAY** are intended and not co
 | `records/markers.yaml`: the grammar of the elision markers | the marker checks; the elision in a future snippet |
 | `records/roles.yaml`: the roles and the words the prose uses for them | `views/roles/<role>.md`: the statements per role |
 | `records/constraints.yaml`: the presence rules announced with a set of keywords, one branch per condition | `views/constraints.md`; `views/constraints.schema.json` (the if/then the schema can say, a proposal for the TC); the constraint findings |
-| `records/drift.yaml`: the known differences between property sections and schema properties, each waiting for the TC | the refusal of every other difference; the TC entries of `views/findings.md` |
+| `known` of SARIF-SCHEMA-HEADINGS in `prose/edit/etc/rules/spec.rules.yaml`: the known differences between property sections and schema properties, each waiting for the TC | `nide quality` refuses every other difference (and a malformed property heading); the TC entries of `views/findings.md` |
 | the prose (hand-written Markdown, except the derived snippets) | `views/findings.md`: what disagrees with the schema |
 
 Workflow: edit a source, run `make derive`, review the diff of the views, run `make check` before committing.
@@ -185,11 +185,17 @@ derived snippet by its key, and refuses a key without a record, a record without
    `attachment.location`), and the findings compare "At least one of ... **SHALL** be present" with `anyOf`:
    `artifactLocation` requires `uri` or `index` in the prose, not in the schema.
 
+11. **Heading keys in nide (2026-11-07).** The heading check of step 6 moved into nide as the quality check type
+   `schema-headings` (unreleased nide): SARIF-SCHEMA-HEADINGS in `prose/edit/etc/rules/spec.rules.yaml` keys
+   `` `x` Object `` and `` `p` Property `` headings to the schema (335 keyed headings), and its `known` list replaces
+   `records/drift.yaml`. The externalized properties, described in a table of the `externalPropertyFileReferences`
+   section, are declared as such (`described-in`). DPS uses the same check type for its `` Member `a.b.c` `` headings.
+
 ## Next steps
 
-11. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
+12. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
    consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
-12. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
+13. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
    The largest: `suppression.justificationType` (#672) and the `columnKind` value `"bytes"` (#740) exist only in the
    prose; `attachment.location` and `externalProperties.$schema` differ from the schema's names; 14 examples
    contradict the schema in prose and twin alike (most often the pre-2.1 form `physicalLocation.uri`; the
@@ -198,6 +204,6 @@ derived snippet by its key, and refuses a key without a record, a record without
 ## Files
 
 - `bin/vision.py`: migrate, derive, check (Python with jsonschema and PyYAML, the repository's pyenv environment)
-- `records/`: examples, markers, roles, drift, constraints, defaults
+- `records/`: examples, markers, roles, constraints, defaults
 - `views/`: findings, examples, constraints (and its schema proposal), `roles/<role>.md` (derived, never edit)
 - `makefile`: derive, check, prose

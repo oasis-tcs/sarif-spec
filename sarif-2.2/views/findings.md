@@ -5,10 +5,10 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 
 ## Prose and schema
 
-- **TC** `attachment.location`: a property section in the prose, no such property in the schema (S3, records/drift.yaml)
-- **TC** `externalProperties.$schema`: a property section in the prose, no such property in the schema (S4, records/drift.yaml)
-- **TC** `externalProperties.schema`: in the schema, not described in the prose (S4, records/drift.yaml)
-- **TC** `suppression.justificationType`: a property section in the prose, no such property in the schema (S1, records/drift.yaml)
+- **TC** `suppression.justificationType`: a property section in the prose, no such property in the schema (S1, `known` of SARIF-SCHEMA-HEADINGS in prose/edit/etc/rules/spec.rules.yaml)
+- **TC** `attachment.location`: a property section in the prose, no such property in the schema (S3, `known` of SARIF-SCHEMA-HEADINGS in prose/edit/etc/rules/spec.rules.yaml)
+- **TC** `externalProperties.$schema`: a property section in the prose, no such property in the schema (S4, `known` of SARIF-SCHEMA-HEADINGS in prose/edit/etc/rules/spec.rules.yaml)
+- **TC** `externalProperties.schema`: in the schema, not described in the prose (S4, `known` of SARIF-SCHEMA-HEADINGS in prose/edit/etc/rules/spec.rules.yaml)
 - **TC** `run.columnKind`: the prose lists the value `"bytes"`, the schema enum does not have it
 - `run.language`: the prose gives the default `"en-US"`, the schema gives none
 - `toolComponent.language`: the prose gives the default `"en-US"`, the schema gives none
