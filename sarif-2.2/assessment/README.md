@@ -6,7 +6,7 @@ Read-only: nothing in `sarif-2.2/` was changed.
 Reproduce (any Python with `jsonschema` >= 4.18):
 
 ```
-python -I assessment/assess.py sarif-2.2 assessment/assess-2026-11-07.json
+python -I assessment/assess.py . assessment/assess-2026-11-07.json   # from sarif-2.2/
 ```
 
 The raw results are in `assess-2026-11-07.json`; this page is the reading of them.

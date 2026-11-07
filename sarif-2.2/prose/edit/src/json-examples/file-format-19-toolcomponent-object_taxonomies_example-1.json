@@ -4,7 +4,7 @@
       "name": "CodeScanner",
       "semanticVersion": "3.3",
       "guid": "11111111-1111-1111-8888-111111111111",
-      "member-insert": "...",
+      "...member-inject": "...",
       "rules": [
         {
           "id": "CA2101",
@@ -107,5 +107,5 @@
       ]
     }
   ],
-  "member-inject": "..."
+  "...member-inject": "..."
 }
