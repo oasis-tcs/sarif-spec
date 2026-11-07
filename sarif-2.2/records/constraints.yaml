@@ -2,9 +2,12 @@
 # ("Depending on the circumstances, ... either **SHALL** or **MAY** contain a property named ...").
 # Seeded by `bin/vision.py migrate-constraints`; edited by hand since. One record per announcing statement:
 #   property   object.property whose presence the rule governs
-#   announce   the keywords of the announcing statement, in its order
+#   announce   the keywords of the announcing statement, in its order; empty for a section that makes conditional
+#              presence claims without announcing them (seeded by `bin/vision.py migrate-presence`)
 #   branches   one per condition, in prose order:
-#     presence   the keyword the branch gives the property's presence (MAY covers "MAY be absent")
+#     presence   the keyword the branch gives the property's presence (MAY covers "MAY be absent"; in sections
+#                without an announcement "**SHALL** be absent" reads **SHALL NOT**)
+#     property   the property the branch governs, when it is not the section's (`address` in `artifactLocation`)
 #     when       the condition, in words
 #     scope      what decides the condition: object (members of the object itself), log (other parts of the
 #                log file), world (what only the producer knows), rest (all cases no earlier branch took)
@@ -488,3 +491,1241 @@ constraints:
     - If absent, it **SHALL** default to the value of `theSarifLog.version` ([sec](#sariflog-object--version-property)).
     - Although the order in which properties appear in a JSON object value is not semantically significant, the `version`
       property **SHOULD** appear first.
+- property: address.index
+  file: file-format-32-address-object.md
+  announce:
+  - MAY
+  - SHALL NOT
+  - SHALL
+  branches:
+  - presence: MAY
+    when: it is an element of `theRun.addresses`
+    scope: log
+    otherwise: false
+    sentence: If `thisObject` is an element of `theRun.addresses`, then `index` **MAY** be present.
+    also:
+    - If present, its value **SHALL** be the index of `thisObject` within `theRun.addresses`.
+  - presence: SHALL NOT
+    when: '`theRun.addresses` is absent or has no cached object for it'
+    scope: log
+    otherwise: true
+    sentence: Otherwise, if `theRun.addresses` is absent, or if it does not contain a cached object for `thisObject`, then
+      `index` **SHALL NOT** be present.
+  - presence: SHALL
+    when: it belongs to a result and `theRun.addresses` has a cached object for it
+    scope: log
+    otherwise: true
+    sentence: Otherwise (that is, if `thisObject` belongs to a result, and `theRun.addresses` contains a cached object for
+      `thisObject`), then `index` **SHALL** be present, and its value **SHALL** be the array index within `theRun.addresses`
+      of the cached object.
+    also:
+    - If `index` is present, `thisObject` **SHALL** take all properties present on the cached object.
+    - If `thisObject` contains any properties other than `index`, they **SHALL** equal the corresponding properties of the
+      cached object.
+- property: logicalLocation.index
+  file: file-format-33-logicallocation-object.md
+  announce:
+  - MAY
+  - SHALL NOT
+  - SHALL
+  branches:
+  - presence: MAY
+    when: it is an element of `theRun.logicalLocations`
+    scope: log
+    otherwise: false
+    sentence: If `thisObject` is an element of `theRun.logicalLocations`, then `index` **MAY** be present.
+    also:
+    - If present, its value **SHALL** be the index of `thisObject` within `theRun.logicalLocations`.
+  - presence: SHALL NOT
+    when: '`theRun.logicalLocations` is absent or has no cached object for it'
+    scope: log
+    otherwise: true
+    sentence: Otherwise, if `theRun.logicalLocations` is absent, or if it does not contain a cached object for `thisObject`,
+      then `index` **SHALL NOT** be present.
+  - presence: SHALL
+    when: it belongs to a result and `theRun.logicalLocations` has a cached object for it
+    scope: log
+    otherwise: true
+    sentence: Otherwise (that is, if `thisObject` belongs to a result, and `theRun.logicalLocations` contains a cached object
+      for `thisObject`), then `index` **SHALL** be present, and its value **SHALL** be the array index within `theRun.logicalLocations`
+      of the cached object.
+    also:
+    - If `index` is present, `thisObject` **SHALL** take all properties present on the cached object.
+    - If `thisObject` contains any properties other than `index`, they **SHALL** equal the corresponding properties of the
+      cached object.
+- property: webRequest.index
+  file: file-format-46-webrequest-object.md
+  announce:
+  - MAY
+  - SHALL NOT
+  - SHALL
+  branches:
+  - presence: MAY
+    when: it is an element of `theRun.webRequests`
+    scope: log
+    otherwise: false
+    sentence: If `thisObject` is an element of `theRun.webRequests`, then `index` **MAY** be present.
+    also:
+    - If present, its value **SHALL** be the index of `thisObject` within `theRun.webRequests`.
+  - presence: SHALL NOT
+    when: '`theRun.webRequests` is absent or has no cached object for it'
+    scope: log
+    otherwise: true
+    sentence: Otherwise, if `theRun.webRequests` is absent, or if it does not contain a cached object for `thisObject`, then
+      `index` **SHALL NOT** be present.
+  - presence: SHALL
+    when: it belongs to a result and `theRun.webRequests` has a cached object for it
+    scope: log
+    otherwise: true
+    sentence: Otherwise (that is, if `thisObject` belongs to a result, and `theRun.webRequests` contains a cached object for
+      `thisObject`), then `index` **SHALL** be present, and its value **SHALL** be the array index within `theRun.webRequests`
+      of the cached object.
+    also:
+    - If `index` is present, `thisObject` **SHALL** take all properties present on the cached object.
+    - If `thisObject` contains any properties other than `index`, they **SHALL** equal the corresponding properties of the
+      cached object.
+- property: webResponse.index
+  file: file-format-47-webresponse-object.md
+  announce:
+  - MAY
+  - SHALL NOT
+  - SHALL
+  branches:
+  - presence: MAY
+    when: it is an element of `theRun.webResponses`
+    scope: log
+    otherwise: false
+    sentence: If `thisObject` is an element of `theRun.webResponses`, then `index` **MAY** be present.
+    also:
+    - If present, its value **SHALL** be the index of `thisObject` within `theRun.webResponses`.
+  - presence: SHALL NOT
+    when: '`theRun.webResponses` is absent or has no cached object for it'
+    scope: log
+    otherwise: true
+    sentence: Otherwise, if `theRun.webResponses` is absent, or if it does not contain a cached object for `thisObject`, then
+      `index` **SHALL NOT** be present.
+  - presence: SHALL
+    when: it belongs to a result and `theRun.webResponses` has a cached object for it
+    scope: log
+    otherwise: true
+    sentence: Otherwise (that is, if `thisObject` belongs to a result, and `theRun.webResponses` contains a cached object
+      for `thisObject`), then `index` **SHALL** be present, and its value **SHALL** be the array index within `theRun.webResponses`
+      of the cached object.
+    also:
+    - If `index` is present, `thisObject` **SHALL** take all properties present on the cached object.
+    - If `thisObject` contains any properties other than `index`, they **SHALL** equal the corresponding properties of the
+      cached object.
+- property: artifactContent.text
+  file: file-format-03-artifactcontent-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: the external artifact is a text artifact
+    scope: world
+    otherwise: false
+    sentence: If the external artifact is a text artifact, an `artifactContent` object **SHOULD** contain a property named
+      `text` whose value is a string containing the relevant text.
+    also:
+    - Since SARIF log files are encoded in UTF-8 ([cite](#RFC3629); see [sec](#file-format--general)), this means that if
+      the external artifact is a text artifact in any encoding other than UTF-8, the SARIF producer **SHALL** transcode the
+      text to UTF-8 before assigning it to the `text` property.
+    - The SARIF producer **SHALL** escape any characters that JSON [cite](#RFC8259) requires to be escaped.
+    - Notwithstanding any necessary transcoding and escaping, the SARIF producer **SHALL** preserve the text artifact’s line
+      breaking convention (for example, `"\n"` or `"\r\n"`).
+  - presence: SHALL NOT
+    when: the external artifact is a binary artifact
+    scope: world
+    otherwise: false
+    sentence: If the external artifact is a binary artifact, the `text` property **SHALL** be absent.
+- property: artifactContent.binary
+  file: file-format-03-artifactcontent-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: the external artifact is a binary artifact, or if the SARIF producer cannot determine whether the external artifact
+      is a text artifact or a binary artifact
+    scope: world
+    otherwise: false
+    sentence: If the external artifact is a binary artifact, or if the SARIF producer cannot determine whether the external
+      artifact is a text artifact or a binary artifact, an `artifactContent` object **SHALL** contain a property named `binary`
+      whose value is a string containing the MIME Base64 encoding [cite](#RFC2045) of the bytes in the relevant portion of
+      the artifact.
+  - presence: MAY
+    when: the external artifact is a text artifact in an encoding other than UTF-8
+    scope: world
+    otherwise: false
+    sentence: If the external artifact is a text artifact in an encoding other than UTF-8, the `binary` property **MAY** be
+      present, in which case it **SHALL** contain the MIME Base64 encoding of the bytes representing the relevant text in
+      its original encoding.
+  - presence: SHOULD NOT
+    when: the external artifact is a UTF-8 text artifact
+    scope: world
+    otherwise: false
+    sentence: If the external artifact is a UTF-8 text artifact, the `binary` property **SHOULD** be absent.
+    also:
+    - If it is present, it **SHALL** contain the MIME Base64 encoding of the UTF-8 bytes representing the relevant text.
+- property: artifactLocation.uriBaseId
+  file: file-format-04-artifactlocation-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: this `artifactLocation` object describes a top-level artifact and the value of its `uri` property ([sec](#uri-property))
+      is a relative reference
+    scope: world
+    otherwise: false
+    sentence: If this `artifactLocation` object describes a top-level artifact and the value of its `uri` property ([sec](#uri-property))
+      is a relative reference, the `artifactLocation` object **SHOULD** contain a property named `uriBaseId` whose value is
+      a string which indirectly specifies the absolute URI with respect to which that relative reference is interpreted.
+  - presence: SHALL NOT
+    when: the `uri` property contains an absolute URI
+    scope: object
+    otherwise: false
+    if:
+      required:
+      - uri
+      properties:
+        uri:
+          pattern: '^[A-Za-z][A-Za-z0-9+.-]*:'
+    sentence: If the `uri` property contains an absolute URI, the `uriBaseId` property **SHALL** be absent.
+  - presence: SHALL NOT
+    when: this `artifactLocation` object describes a nested artifact
+    scope: world
+    otherwise: false
+    sentence: If this `artifactLocation` object describes a nested artifact, `uriBaseId` **SHALL** be absent.
+    also:
+    - 'A SARIF consumer **SHALL** use the following procedure to resolve a `uriBaseId` to an absolute URI:'
+    - If the end user has configured the SARIF consumer with a value for the `uriBaseId` (for example, on the consumer’s command
+      line or through a user interface prompt), then the consumer **SHALL** use the configured value.
+    - If `uriBaseId` is not yet resolved and `theRun.originalUriBaseIds` ([sec](#originaluribaseids-property)) is present,
+      the consumer **SHALL** attempt to resolve the `uriBaseId` from the information in `originalUriBaseIds`, in the manner
+      specified in [sec](#originaluribaseids-property).
+    - If `uriBaseId` is not yet resolved, the consumer **MAY** use other information or heuristics to locate the artifact.
+- property: message.arguments
+  file: file-format-11-message-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: a message string given by `text`, `markdown` or `id` (looked up elsewhere in the log) contains placeholders
+    scope: log
+    otherwise: false
+    sentence: If the message string specified by any of the properties `text` ([sec](#message-object--text-property)), `markdown`
+      ([sec](#message-object--markdown-property)), or `id` ([sec](#message-object--id-property)) contains any placeholders
+      ([sec](#messages-with-placeholders)), the `message` object **SHALL** contain a property named `arguments` whose value
+      is an array of strings. [sec](#messages-with-placeholders) specifies how a SARIF consumer combines the contents of the
+      `arguments` array with the message string to construct the message that it presents to the end user, and provides an
+      example.
+  - presence: MAY
+    when: none of the message strings given by `text`, `markdown` or `id` contains placeholders
+    scope: log
+    otherwise: false
+    sentence: If none of the properties `text`, `markdown`, or `id` contains any placeholders, then `arguments` **MAY** be
+      absent.
+    also:
+    - The `arguments` array **SHALL** contain as many elements as required by the maximum placeholder index among all the
+      message strings specified by the `text`, `markdown`, and `id` properties.
+- property: run.conversion
+  file: file-format-14-run-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: a `run` object was produced by a converter
+    scope: world
+    otherwise: false
+    sentence: If a `run` object was produced by a converter, it **MAY** contain a property named `conversion` whose value
+      is a `conversion` object ([sec](#conversion-object)) that describes how the converter transformed the analysis tool’s
+      native output format into the SARIF format.
+    also:
+    - A direct producer **SHALL NOT** emit the `conversion` property.
+- property: run.originalUriBaseIds
+  file: file-format-14-run-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `run` object **MAY** contain a property named `originalUriBaseIds` whose value is an object ([sec](#object-properties))
+      each of whose property names designates a URI base id ([sec](#uribaseid-property)) and each of whose property values
+      is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies (in the manner described below) the
+      absolute URI [cite](#RFC3986) of that URI base id on the machine where the SARIF producer ran.
+  - presence: SHALL
+    when: the `uri` of an `artifactLocation` value is a relative reference
+    scope: log
+    otherwise: false
+    property: uriBaseId
+    sentence: If the `artifactLocation` object’s `uri` property ([sec](#uri-property)) is a relative reference, its `uriBaseId`
+      property ([sec](#uribaseid-property)) **SHALL** be present.
+  - presence: SHALL NOT
+    when: the `uri` of an `artifactLocation` value is absolute or absent
+    scope: log
+    otherwise: true
+    property: uriBaseId
+    sentence: Otherwise (that is, if `uri` is an absolute URI, or if it is absent), `uriBaseId` **SHALL** be absent.
+    also:
+    - If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be omitted.
+    - The values of the `uriBaseId` properties in the `artifactLocation` objects in `originalUriBaseIds` **SHALL NOT** form
+      a loop, in the sense described in the URI base id resolution procedure below.
+    - '- **SHALL** end with a single forward slash .'
+    - '- **SHALL NOT** include a query or fragment component as defined in URI Generic Syntax [cite](#RFC3986).'
+    - '- **SHALL NOT** include `".."` path segments.'
+    - 'A SARIF consumer **SHALL** use the following procedure to resolve a URI base id from the information in `originalUriBaseIds`:'
+- property: run.columnKind
+  file: file-format-14-run-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: a SARIF producer processes text artifacts and `theRun.results` ([sec](#results-property)) is non-empty
+    scope: log
+    otherwise: false
+    sentence: If a SARIF producer processes text artifacts and `theRun.results` ([sec](#results-property)) is non-empty, the
+      `run` object **SHALL** contain a property named `columnKind` whose value is a string that specifies the unit in which
+      the analysis tool measures columns.
+  - presence: MAY
+    when: a SARIF producer processes text artifacts and `theRun.results` is empty
+    scope: log
+    otherwise: false
+    sentence: If a SARIF producer processes text artifacts and `theRun.results` is empty, `columnKind` **MAY** be present.
+    also:
+    - '`columnKind` **SHALL** have one of the following values, with the specified meanings:'
+  - presence: SHALL NOT
+    when: the SARIF producer does not process text artifacts
+    scope: world
+    otherwise: false
+    sentence: If the SARIF producer does not process text artifacts, `columnKind` **SHALL** be absent.
+    also:
+    - If a SARIF consumer uses a column measurement unit other than that specified by `columnKind`, and if the consumer is
+      required to interact with the artifact’s contents (for example, by displaying the artifact in an editor and highlighting
+      a region), the consumer **SHALL** recompute column numbers in its (the consumer’s) native measurement unit.
+- property: run.redactionTokens
+  file: file-format-14-run-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: the value of any redactable property ([sec](#redactable-strings)) in `theRun` has been redacted
+    scope: log
+    otherwise: false
+    sentence: If the value of any redactable property ([sec](#redactable-strings)) in `theRun` has been redacted, `theRun`
+      **SHALL** contain a property named `redactionTokens` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values))
+      strings any of which can be used to replace redacted text.
+  - presence: SHALL NOT
+    when: no text in `theRun` has been redacted
+    scope: log
+    otherwise: false
+    sentence: If no text in `theRun` has been redacted, `redactionTokens` **SHALL** be absent.
+    also:
+    - If `redactionTokens` contains a single element, that element **SHOULD** be the string `"[REDACTED]"`; if it contains
+      more than one, each additional element **SHOULD** be of the form `"[REDACTED-`*n*`]"` where *n* is a positive integer.
+    - If for any reason different values are used, they **MAY** be any readily identifiable strings.
+- property: externalPropertyFileReference.itemCount
+  file: file-format-16-externalpropertyfilereference-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: an `externalPropertyFileReference` object specifies an external property file that contains all or a portion of
+      an array-valued property
+    scope: world
+    otherwise: false
+    sentence: If an `externalPropertyFileReference` object specifies an external property file that contains all or a portion
+      of an array-valued property, it **MAY** contain a property named `itemCount` whose value is a non-negative integer that
+      specifies the number of items in the externalized property array in that file.
+  - presence: SHALL NOT
+    when: the `externalPropertyFileReference` object specifies an external property file that contains an object-valued property
+    scope: world
+    otherwise: false
+    sentence: If the `externalPropertyFileReference` object specifies an external property file that contains an object-valued
+      property, `itemCount` **SHALL** be absent.
+    also:
+    - If `itemCount` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: tool.extensions
+  file: file-format-18-tool-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: the tool used any extensions during the run
+    scope: world
+    otherwise: false
+    sentence: If the tool used any extensions during the run, the `tool` object **SHOULD** contain a property named `extensions`
+      whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) `toolComponent` objects
+      ([sec](#toolcomponent-object)) that describe those extensions.
+    also:
+    - If the tool did not use any extensions during the run, then `extensions` **SHALL** either be absent or an empty array.
+- property: toolComponent.dottedQuadFileVersion
+  file: file-format-19-toolcomponent-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: the operating system on which the tool runs provides a value for the file version of the tool component's primary
+      executable file, and if that value logically consists of an ordered set of four non-negative integers
+    scope: world
+    otherwise: false
+    sentence: 'If the operating system on which the tool runs provides a value for the file version of the tool component''s
+      primary executable file, and if that value logically consists of an ordered set of four non-negative integers, then
+      the `toolComponent` object **MAY** contain a property named `dottedQuadFileVersion` whose value is a string representation
+      of that file version in this syntax:'
+  - presence: SHALL NOT
+    when: the operating system does not provide such a value
+    scope: world
+    otherwise: false
+    sentence: If the operating system does not provide such a value, the `dottedQuadFileVersion` property **SHALL** be absent.
+- property: toolComponent.translationMetadata
+  file: file-format-19-toolcomponent-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: it represents a translation (an element of `theRun.translations`)
+    scope: log
+    otherwise: false
+    sentence: If a `toolComponent` object represents a translation ([sec](#translations)), it **SHALL** contain a property
+      named `translationMetadata` whose value is a `translationMetadata` object ([sec](#translationmetadata-object)) that
+      contains descriptive information about the translation itself, as opposed to describing the component whose localizable
+      strings ([sec](#localizable-strings)) it translates.
+  - presence: SHALL NOT
+    when: in all other cases
+    scope: rest
+    otherwise: true
+    sentence: Otherwise, `translationMetadata` **SHALL** be absent.
+- property: toolComponent.localizedDataSemanticVersion
+  file: file-format-19-toolcomponent-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: it represents a translation (an element of `theRun.translations`)
+    scope: log
+    otherwise: false
+    sentence: If a `toolComponent` object represents a translation ([sec](#translations)), it **SHOULD** contain a property
+      named `localizedDataSemanticVersion` whose value is a string that specifies the semantic version [cite](#SEMVER) of
+      the translated strings.
+  - presence: MAY
+    when: in all other cases
+    scope: rest
+    otherwise: true
+    sentence: Otherwise, `localizedDataSemanticVersion` **MAY** be present, in which case it represents the semantic version
+      of the localizable strings ([sec](#localizable-strings)) that are present in this component.
+    also:
+    - If `localizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([sec](#semanticversion-property)).
+- property: toolComponent.minimumRequiredLocalizedDataSemanticVersion
+  file: file-format-19-toolcomponent-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: it does not represent a translation (no element of `theRun.translations`)
+    scope: log
+    otherwise: false
+    sentence: If a `toolComponent` object does not represent a translation ([sec](#translations)), it **SHOULD** contain a
+      property named `minimumRequiredLocalizedDataSemanticVersion` whose value is a string that specifies the minumum semantic
+      version [cite](#SEMVER) of the translated strings that it requires.
+  - presence: SHALL NOT
+    when: in all other cases
+    scope: rest
+    otherwise: true
+    sentence: Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
+    also:
+    - If `minimumRequiredLocalizedDataSemanticVersion` is absent, it **SHALL** default to `thisObject.semanticVersion` ([sec](#semanticversion-property)).
+    - When a SARIF consumer is seeking a translation for this object, it **SHALL** only accept one whose `localizedDataSemanticVersion`
+      ([sec](#localizeddatasemanticversion-property)) is greater than or equal to (in the SEMVER sense) but has the same major
+      version component as `thisObject.minimumRequiredLocalizedDataSemanticVersion`.
+- property: toolComponent.associatedComponent
+  file: file-format-19-toolcomponent-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: this `toolComponent` object represents a plugin (see [sec](#tool-object--general))
+    scope: world
+    otherwise: false
+    sentence: If this `toolComponent` object represents a plugin (see [sec](#tool-object--general)), a taxonomy ([sec](#taxonomies)),
+      a translation ([sec](#translations)), or a policy ([sec](#policies)), it **MAY** contain a property named `associatedComponent`
+      whose value is a `toolComponentReference` object ([sec](#toolcomponentreference-object)) which identifies the component
+      (either `theTool.driver` ([sec](#driver-property)) or an element of `theTool.extensions` ([sec](#extensions-property)))
+      to which this plugin, translation, or policy applies.
+    also:
+    - If `associatedComponent` is absent, it **SHALL** default to a reference to `theTool.driver`.
+    - The associated `toolComponent` object **MAY** itself contain an `associatedComponent` property; for example, a translation
+      might be associated with a plugin which in turn is associated with the driver (see [sec](#tool-object--general)).
+- property: invocation.exitCode
+  file: file-format-20-invocation-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: the SARIF producer process did not exit due to a signal
+    scope: world
+    otherwise: false
+    sentence: If the SARIF producer process did not exit due to a signal, an `invocation` object **SHOULD** contain a property
+      named `exitCode` whose value is an integer specifying the process exit code.
+  - presence: SHALL NOT
+    when: the SARIF producer process exited due to a signal
+    scope: world
+    otherwise: false
+    sentence: If the SARIF producer process exited due to a signal, the `exitCode` property **SHALL** be absent.
+- property: invocation.exitCodeDescription
+  file: file-format-20-invocation-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: the SARIF producer process did not exit due to a signal
+    scope: world
+    otherwise: false
+    sentence: If the SARIF producer process did not exit due to a signal, an `invocation` object **MAY** contain a property
+      named `exitCodeDescription` whose value is a string describing the reason for the process exit.
+- property: invocation.exitSignalName
+  file: file-format-20-invocation-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: the SARIF producer process exited due to a signal
+    scope: world
+    otherwise: false
+    sentence: If the SARIF producer process exited due to a signal, an `invocation` object **SHOULD** contain a property named
+      `exitSignalName` whose value is a string containing the name of the signal that caused the process to exit.
+  - presence: SHALL NOT
+    when: the SARIF producer process did not exit due to a signal
+    scope: world
+    otherwise: false
+    sentence: If the SARIF producer process did not exit due to a signal, the `exitSignalName` property **SHALL** be absent.
+- property: invocation.exitSignalNumber
+  file: file-format-20-invocation-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: the SARIF producer process exited due to a signal
+    scope: world
+    otherwise: false
+    sentence: If the SARIF producer process exited due to a signal, an `invocation` object **MAY** contain a property named
+      `exitSignalNumber` whose value is an integer specifying the numeric value of the signal that caused the process to exit.
+  - presence: SHALL NOT
+    when: the SARIF producer process did not exit due to a signal
+    scope: world
+    otherwise: false
+    sentence: If the SARIF producer process did not exit due to a signal, the `exitSignalNumber` property **SHALL** be absent.
+- property: invocation.processStartFailureMessage
+  file: file-format-20-invocation-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: the analysis tool process failed to start
+    scope: world
+    otherwise: false
+    sentence: If the analysis tool process failed to start, an `invocation` object **MAY** contain a property named `processStartFailureMessage`
+      whose value is a string containing the operating system’s message describing the failure.
+  - presence: SHALL NOT
+    when: the analysis tool process started successfully (regardless of whether or how it subsequently failed)
+    scope: world
+    otherwise: false
+    sentence: If the analysis tool process started successfully (regardless of whether or how it subsequently failed), the
+      `processStartFailureMessage` property **SHALL** be absent.
+- property: artifact.parentIndex
+  file: file-format-24-artifact-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: this `artifact` object represents a nested artifact
+    scope: world
+    otherwise: false
+    sentence: If this `artifact` object represents a nested artifact, then it **SHALL** contain a property named `parentIndex`
+      whose value is the array index ([sec](#array-indices)) of the parent artifact's `artifact` object within `theRun.artifacts`
+      ([sec](#artifacts-property)).
+  - presence: SHALL NOT
+    when: this `artifact` object represents a top-level artifact
+    scope: world
+    otherwise: false
+    sentence: If this `artifact` object represents a top-level artifact, then `parentIndex` **SHALL** be absent.
+- property: artifact.encoding
+  file: file-format-24-artifact-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: an `artifact` object represents a text artifact
+    scope: world
+    otherwise: false
+    sentence: If an `artifact` object represents a text artifact, it **MAY** contain a property named `encoding` whose value
+      is a case-sensitive string that specifies the artifact’s text encoding.
+    also:
+    - The string **SHALL** be one of the character set names defined by IANA [cite](#IANA-ENC).
+    - If the `artifact` object represents a text artifact and this property is absent, it **SHALL** default to the value of
+      `theRun.defaultEncoding` ([sec](#defaultencoding-property)), if that property is present; otherwise, the artifact’s
+      encoding **SHALL** be taken to be unknown.
+  - presence: SHALL NOT
+    when: the `artifact` object represents a binary artifact
+    scope: world
+    otherwise: false
+    sentence: If the `artifact` object represents a binary artifact, `encoding` **SHALL** be absent.
+- property: result.ruleIndex
+  file: file-format-27-result-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: '`theDescriptor` exists (that is, if `theTool` contains a `reportingDescriptor` object ([sec](#reportingdescriptor-object))
+      that describes the rule that was violated)'
+    scope: log
+    otherwise: false
+    sentence: If `theDescriptor` exists (that is, if `theTool` contains a `reportingDescriptor` object ([sec](#reportingdescriptor-object))
+      that describes the rule that was violated), a `result` object **MAY** contain a property named `ruleIndex` whose value
+      is the array index ([sec](#array-indices)) of `theDescriptor` within `theComponent.ruleDescriptors` ([sec](#rules-property)).
+  - presence: SHALL NOT
+    when: in all other cases
+    scope: rest
+    otherwise: true
+    sentence: Otherwise, `ruleIndex` **SHALL** be absent.
+    also:
+    - If `ruleIndex` and `rule.index` ([sec](#rule-property), [sec](#reportingdescriptorreference-object--index-property))
+      are both present, they **SHALL** be equal.
+- property: result.analysisTarget
+  file: file-format-27-result-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: the analysis target differs from the result file
+    scope: world
+    otherwise: false
+    sentence: If the analysis target differs from the result file, a `result` object **SHOULD** contain a property named `analysisTarget`
+      whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies the analysis target.
+  - presence: SHOULD NOT
+    when: the analysis target and the result file are the same
+    scope: world
+    otherwise: false
+    sentence: If the analysis target and the result file are the same, the `analysisTarget` property **SHOULD** be absent.
+- property: result.graphTraversals
+  file: file-format-27-result-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: a `result` object contains a `graphs` property ([sec](#result-object--graphs-property)), or if `theRun` contains
+      a `graphs` property ([sec](#run-object--graphs-property))
+    scope: log
+    otherwise: false
+    sentence: If a `result` object contains a `graphs` property ([sec](#result-object--graphs-property)), or if `theRun` contains
+      a `graphs` property ([sec](#run-object--graphs-property)), then the `result` object **MAY** contain a property named
+      `graphTraversals` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `graphTraversal`
+      objects ([sec](#graphtraversal-object)).
+  - presence: SHALL NOT
+    when: neither the `result` object nor `theRun` contains a `graphs` property
+    scope: log
+    otherwise: false
+    sentence: If neither the `result` object nor `theRun` contains a `graphs` property, the `graphTraversals` property **SHALL**
+      be absent.
+- property: result.baselineState
+  file: file-format-27-result-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `result` object **MAY** contain a property named `baselineState` whose value is a string that specifies the
+      state of this result with respect to some previous run, which we refer to as the "baseline run."
+    also:
+    - If `theRun.baselineGuid` ([sec](#baselineguid-property)) is present, its value **SHALL** specify the baseline run.
+    - 'This property **SHALL** have one of the following values, with the specified meanings:'
+  - presence: SHALL
+    when: '`baselineState` is present on any `result` object in `theRun`'
+    scope: log
+    otherwise: false
+    sentence: If `baselineState` is present on any `result` object in `theRun`, it **SHALL** be present on every such `result`
+      object.
+- property: result.rank
+  file: file-format-27-result-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `result` object **MAY** contain a property named `rank` whose value is a number between `0.0` and `100.0`
+      inclusive, representing the priority or importance of the result.
+    also:
+    - If `kind` has the value `"fail"`, then if `rank` is absent, it **SHALL** default to the value determined by the procedure
+      defined for `level` ([sec](#result-object--level-property)), except throughout the procedure, replace `"level"` with
+      `"rank"` and replace `"warning"` with `-1.0`.
+  - presence: SHALL NOT
+    when: '`kind` is present with a value other than `"fail"`'
+    scope: object
+    otherwise: false
+    if:
+      required:
+      - kind
+      properties:
+        kind:
+          not:
+            const: fail
+    sentence: If `kind` has any other value, then `rank` **SHALL** be absent.
+    also:
+    - If `rank` is absent, it **SHALL** default to `-1.0`, which indicates that the value is unknown (not set).
+- property: physicalLocation.artifactLocation
+  file: file-format-29-physicallocation-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `physicalLocation` object **MAY** contain a property named `artifactLocation` whose value is an `artifactLocation`
+      object ([sec](#artifactlocation-object)) that represents the location of the artifact.
+  - presence: SHALL
+    when: '`artifactLocation` is absent'
+    scope: object
+    otherwise: false
+    property: address
+    if:
+      not:
+        required:
+        - artifactLocation
+    sentence: If `artifactLocation` is absent, then `address` ([sec](#address-property)) **SHALL** be present.
+- property: physicalLocation.contextRegion
+  file: file-format-29-physicallocation-object.md
+  announce: []
+  also:
+  - If a `physicalLocation` object contains a `region` property ([sec](#region-property)), it **MAY** also contain a property
+    named `contextRegion` whose value is a `region` object ([sec](#region-object)) which specifies a region that is a proper
+    superset of the region specified by the `region` property.
+  branches:
+  - presence: SHALL NOT
+    when: '`region` is absent'
+    scope: object
+    otherwise: false
+    if:
+      not:
+        required:
+        - region
+    sentence: If `region` is absent, `contextRegion` **SHALL** be absent.
+- property: physicalLocation.address
+  file: file-format-29-physicallocation-object.md
+  announce: []
+  also:
+  - A `physicalLocation` object **MAY** contain a property named address whose value is an `address` object ([sec](#address-object))
+    that represents the physical or virtual address of this location.
+  branches:
+  - presence: SHALL
+    when: '`address` is absent'
+    scope: object
+    otherwise: false
+    property: artifactLocation
+    if:
+      not:
+        required:
+        - address
+    sentence: If `address` is absent, then `artifactLocation` ([sec](#physicallocation-object--artifactlocation-property))
+      **SHALL** be present.
+- property: region.startLine
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: a `region` object represents a text region specified by line/column properties
+    scope: world
+    otherwise: false
+    sentence: When a `region` object represents a text region specified by line/column properties, it **SHALL** contain a
+      property named `startLine` whose value is a positive integer equal to the line number of the line containing the first
+      character in the region.
+- property: region.startColumn
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: a `region` object represents a text region specified by line/column properties
+    scope: world
+    otherwise: false
+    sentence: When a `region` object represents a text region specified by line/column properties, it **MAY** contain a property
+      named `startColumn` whose value is a positive integer equal to the column number of the first character in the region.
+    also:
+    - If `startColumn` is absent, it **SHALL** default to 1.
+- property: region.endLine
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: a `region` object represents a text region specified by line/column properties
+    scope: world
+    otherwise: false
+    sentence: When a `region` object represents a text region specified by line/column properties, it **MAY** contain a property
+      named `endLine` whose value is a positive integer equal to the line number of the line containing the last character
+      in the region.
+    also:
+    - If `endLine` is absent, its value **SHALL** default to `startLine`.
+- property: region.endColumn
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: a `region` object represents a text region specified by line/column properties
+    scope: world
+    otherwise: false
+    sentence: When a `region` object represents a text region specified by line/column properties, it **MAY** contain a property
+      named `endColumn` whose value is an integer whose value is one greater than the column number of the last character
+      in the region.
+    also:
+    - If `endColumn` is absent, it **SHALL** default to a value one greater than the column number of the last character on
+      the line, excluding any newline sequence.
+- property: region.charOffset
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: a `region` object represents a text region specified by offset/length properties
+    scope: world
+    otherwise: false
+    sentence: When a `region` object represents a text region specified by offset/length properties, it **SHALL** contain
+      a property named `charOffset` whose value is an integer equal to the zero-based character offset of the first character
+      in the region from the beginning of the artifact.
+    also:
+    - If `charOffset` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: region.charLength
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: a `region` object represents a text region specified by offset/length properties
+    scope: world
+    otherwise: false
+    sentence: When a `region` object represents a text region specified by offset/length properties, it **MAY** contain a
+      property named `charLength` whose value is a non-negative integer equal to the number of characters in the region.
+    also:
+    - If `charLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at the position
+      specified by `charOffset` ([sec](#charoffset-property))
+    - The sum of `charOffset` and `charLength` **SHALL** be greater than or equal to 0 and less than or equal to the number
+      of characters in the artifact.
+    - A region whose `charOffset` is equal to the number of characters in the artifact and whose `charLength` is 0 is permitted
+      and **SHALL** represent an insertion point at the end of the artifact.
+- property: region.byteOffset
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: a `region` object represents a binary region
+    scope: world
+    otherwise: false
+    sentence: When a `region` object represents a binary region, it **SHALL** contain a property named `byteOffset` whose
+      value is an integer equal to the zero-based byte offset of the first byte in the region from the beginning of the artifact.
+    also:
+    - If `byteOffset` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: region.byteLength
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: a `region` object represents a binary region
+    scope: world
+    otherwise: false
+    sentence: When a `region` object represents a binary region, it **MAY** contain a property named `byteLength` whose value
+      is an integer equal to the number of bytes in the region.
+    also:
+    - If `byteLength` is absent, it **SHALL** default to 0, which **SHALL** be interpreted as an insertion point at the position
+      specified by `byteOffset` ([sec](#byteoffset-property)).
+    - The sum of `byteOffset` and `byteLength` **SHALL** be greater than or equal to 0 and less than or equal to the number
+      of bytes in the artifact.
+    - A `region` object whose `byteOffset` equals the number of bytes in the artifact and whose `byteLength` is 0 is permitted,
+      and **SHALL** represent an insertion point at the end of the artifact.
+- property: region.sourceLanguage
+  file: file-format-30-region-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: the `region` object represents a portion of a text artifact that contains source code
+    scope: world
+    otherwise: false
+    sentence: If the `region` object represents a portion of a text artifact that contains source code, it **MAY** contain
+      a property named `sourceLanguage` whose value is a hierarchical string ([sec](#hierarchical-strings)) that specifies
+      the programming language in which this portion of the source code is written.
+  - presence: SHALL NOT
+    when: the `region` object does not represent a portion of a text artifact containing source code
+    scope: world
+    otherwise: false
+    sentence: If the `region` object does not represent a portion of a text artifact containing source code, then `sourceLanguage`
+      **SHALL** be absent.
+    also:
+    - if `sourceLanguage` is absent, it **SHALL** default to the value of the `sourceLanguage` property ([sec](#artifact-object--sourcelanguage-property))
+      of the `artifact` object ([sec](#artifact-object)) which describes the artifact that contains the region.
+    - If all three of `region.sourceLanguage`, `artifact.sourceLanguage`, and `theRun.defaultSourceLanguage` are absent, the
+      source language of the region object **SHALL** be taken to be unknown.
+    - In that case, a SARIF viewer **MAY** use any method or heuristic to determine the region’s source language, for example,
+      by examining the file’s file name extension or MIME type, or by prompting the user.
+- property: address.relativeAddress
+  file: file-format-32-address-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: '`parentIndex` ([sec](#address-object--parentindex-property)) is present'
+    scope: object
+    otherwise: false
+    if:
+      required:
+      - parentIndex
+    sentence: If `parentIndex` ([sec](#address-object--parentindex-property)) is present, an `address` object **MAY** contain
+      a property named `relativeAddress` whose value, if present, is an integer containing the relative address (see [sec](#relative-address-calculation))
+      of `thisObject`.
+  - presence: SHALL NOT
+    when: '`parentIndex` is absent'
+    scope: object
+    otherwise: false
+    if:
+      not:
+        required:
+        - parentIndex
+    sentence: If `parentIndex` is absent, `relativeAddress` **SHALL** be absent.
+    also:
+    - If `relativeAddress` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not set).
+- property: address.offsetFromParent
+  file: file-format-32-address-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: '`parentIndex` ([sec](#address-object--parentindex-property)) is present'
+    scope: object
+    otherwise: false
+    if:
+      required:
+      - parentIndex
+    sentence: If `parentIndex` ([sec](#address-object--parentindex-property)) is present, an `address` object **MAY** contain
+      a property named `offsetFromParent` whose value, if present, is an integer containing the offset of this address from
+      the absolute address of `theParent` (see [sec](#parent-child-relationships)).
+  - presence: SHALL NOT
+    when: '`parentIndex` is absent'
+    scope: object
+    otherwise: false
+    if:
+      not:
+        required:
+        - parentIndex
+    sentence: If `parentIndex` is absent, `offsetFromParent` **SHALL** be absent.
+    also:
+    - If `offsetFromParent` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not set).
+- property: address.length
+  file: file-format-32-address-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: An `address` object **MAY** contain a property named `length` whose value, if present, is an integer whose absolute
+      value specifies the number of bytes in the range of addresses specified by this object.
+    also:
+    - A negative value for `length` **SHALL** mean that the data structure being described grows from higher addresses towards
+      lower addresses (as, for example, is often the case for a stack).
+    - If `length` is absent, it **SHALL** default to `null`, which indicates that the value is unknown (not set).
+- property: address.parentIndex
+  file: file-format-32-address-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: '`theParent` exists (that is, if `thisObject` is expressed as an offset from some other address)'
+    scope: log
+    otherwise: false
+    sentence: If `theParent` exists (that is, if `thisObject` is expressed as an offset from some other address), then an
+      `address` object **SHALL** contain a property named `parentIndex` whose value is the array index ([sec](#array-indices))
+      of `theParent` within `theRun.addresses` ([sec](#addresses-property)).
+  - presence: SHALL NOT
+    when: '`theParent` does not exist'
+    scope: log
+    otherwise: false
+    sentence: If `theParent` does not exist, then `parentIndex` **SHALL** be absent.
+- property: logicalLocation.kind
+  file: file-format-33-logicallocation-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `logicalLocation` object **SHOULD** contain a property named `kind` whose value is one of the following strings,
+      if any of those strings accurately describes the construct identified by this object.
+    also:
+    - Although the values suggested here are useful in the specified categories (for example, `"member"` is useful in describing
+      executable code), they **MAY** be used in other contexts as appropriate.
+    - If none of those strings accurately describes the construct, kind **MAY** contain any value specified by the analysis
+      tool.
+    - If a logical location is both a member and a type (for example, a nested class in C++ or C#), the value of `kind`, if
+      present, **SHALL** be `"type"`.
+- property: logicalLocation.parentIndex
+  file: file-format-33-logicallocation-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: this `logicalLocation` object represents a nested logical location
+    scope: world
+    otherwise: false
+    sentence: If this `logicalLocation` object represents a nested logical location, then it **SHALL** contain a property
+      named `parentIndex` whose value is the array index ([sec](#array-indices)) of the parent `logicalLocation` object within
+      `theRun.logicalLocations` ([sec](#run-object--logicallocations-property)).
+  - presence: SHALL NOT
+    when: '`thisObject` represents a top-level logical location'
+    scope: world
+    otherwise: false
+    sentence: If `thisObject` represents a top-level logical location, then `parentIndex` **SHALL** be absent.
+- property: graphTraversal.resultGraphIndex
+  file: file-format-42-graphtraversal-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: a `graphTraversal` object represents the traversal of a `graph` object ([sec](#graph-object)) that resides in `theResult.graphs`
+      ([sec](#result-object--graphs-property))
+    scope: log
+    otherwise: false
+    sentence: If a `graphTraversal` object represents the traversal of a `graph` object ([sec](#graph-object)) that resides
+      in `theResult.graphs` ([sec](#result-object--graphs-property)), the `graphTraversal` object **SHALL** contain a property
+      named `resultGraphIndex` whose value is the array index ([sec](#array-indices)) within `theResult.graphs` of that `graph`
+      object.
+- property: graphTraversal.runGraphIndex
+  file: file-format-42-graphtraversal-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: a `graphTraversal` object represents the traversal of a `graph` object ([sec](#graph-object)) that resides in `theRun.graphs`
+      ([sec](#run-object--graphs-property))
+    scope: log
+    otherwise: false
+    sentence: If a `graphTraversal` object represents the traversal of a `graph` object ([sec](#graph-object)) that resides
+      in `theRun.graphs` ([sec](#run-object--graphs-property)), the `graphTraversal` object **SHALL** contain a property named
+      `runGraphIndex` whose value is the array index ([sec](#array-indices)) within `theRun.graphs` of that `graph` object.
+- property: stackFrame.location
+  file: file-format-45-stackframe-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `stackFrame` object **MAY** contain a property named `location` whose value is a `location` object ([sec](#location-object))
+      specifying the location to which this stack frame refers.
+  - presence: SHOULD
+    when: location information is unavailable (as it might be, for example, when stepping from application code into library
+      code or operating system code)
+    scope: world
+    otherwise: false
+    sentence: If location information is unavailable (as it might be, for example, when stepping from application code into
+      library code or operating system code), `location` **SHOULD** be present and **SHOULD** contain a `message` property
+      ([sec](#location-object)) (for example, with a message string `"Call into external code"`).
+- property: webRequest.body
+  file: file-format-46-webrequest-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `webRequest` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([sec](#artifactcontent-object))
+      containing the body of the request.
+  - presence: SHOULD
+    when: the request body is entirely textual
+    scope: world
+    otherwise: false
+    property: body.text
+    sentence: If the request body is entirely textual, `body.text` ([sec](#artifactcontent-object--text-property)) **SHOULD**
+      be present.
+    also:
+    - If present, it **SHALL** contain the request body, transcoded to UTF-8 if necessary.
+  - presence: MAY
+    when: the request body is entirely textual
+    scope: world
+    otherwise: false
+    property: body.binary
+    sentence: If the request body is entirely textual, `body.binary` ([sec](#binary-property)) **MAY** be present.
+    also:
+    - If present, it **SHALL** contain the MIME Base64 encoding [cite](#RFC2045) of the body as it was actually transmitted.
+  - presence: SHALL
+    when: the request body consists partially or entirely of binary data
+    scope: world
+    otherwise: false
+    property: body.binary
+    sentence: If the request body consists partially or entirely of binary data, `body.binary` **SHALL** be present and **SHALL**
+      contain the MIME Base64 encoding of the body.
+  - presence: SHALL NOT
+    when: the request body consists partially or entirely of binary data
+    scope: world
+    otherwise: false
+    property: body.text
+    sentence: In this situation, `body.text` **SHALL** be absent.
+- property: webResponse.body
+  file: file-format-47-webresponse-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `webResponse` object **MAY** contain a property named `body` whose value is an `artifactContent` object ([sec](#artifactcontent-object))
+      containing the body of the response.
+  - presence: SHOULD
+    when: the response body is entirely textual
+    scope: world
+    otherwise: false
+    property: body.text
+    sentence: If the response body is entirely textual, `body.text` ([sec](#artifactcontent-object--text-property)) **SHOULD**
+      be present.
+    also:
+    - If present, it **SHALL** contain the response body, transcoded to UTF-8 if necessary.
+  - presence: MAY
+    when: the response body is entirely textual
+    scope: world
+    otherwise: false
+    property: body.binary
+    sentence: If the response body is entirely textual, `body.binary` ([sec](#binary-property)) **MAY** be present.
+    also:
+    - If present, it **SHALL** contain the MIME Base64 encoding [cite](#RFC2045) of the body as it was actually transmitted.
+  - presence: SHALL
+    when: the response body consists partially or entirely of binary data
+    scope: world
+    otherwise: false
+    property: body.binary
+    sentence: If the response body consists partially or entirely of binary data, `body.binary` **SHALL** be present and **SHALL**
+      contain the MIME Base64 encoding of the body.
+  - presence: SHALL NOT
+    when: the response body consists partially or entirely of binary data
+    scope: world
+    otherwise: false
+    property: body.text
+    sentence: In this situation, `body.text` **SHALL** be absent.
+- property: webResponse.noResponseReceived
+  file: file-format-47-webresponse-object.md
+  announce: []
+  branches:
+  - presence: SHALL
+    when: no response to the HTTP request was received (for example, because of a network failure)
+    scope: world
+    otherwise: false
+    sentence: If no response to the HTTP request was received (for example, because of a network failure), the `webResponse`
+      object **SHALL** contain a property named `noResponseReceived` whose value is a Boolean `true`.
+    also:
+    - If a response was received, `noResponseReceived` **SHALL** either be present with the value `false`, or absent, in which
+      case it defaults to `false`.
+    - If `noResponseReceived` is `true`, then `reasonPhrase` ([sec](#reasonphrase-property)), which normally contains the
+      reason phrase from the HTTP response line, **SHOULD** instead contain a string describing the reason that no response
+      was received.
+- property: resultProvenance.invocationIndex
+  file: file-format-48-resultprovenance-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: '`theRun.invocations` ([sec](#invocations-property)) is present'
+    scope: log
+    otherwise: false
+    sentence: If `theRun.invocations` ([sec](#invocations-property)) is present, a `resultProvenance` object **MAY** contain
+      a property named `invocationIndex` whose value is the array index ([sec](#array-indices)) within the `invocations` property
+      of the `invocation` object ([sec](#invocation-object)) that describes the tool invocation as a result of which `theResult`
+      was detected.
+  - presence: SHALL NOT
+    when: '`theRun.invocations` is absent'
+    scope: log
+    otherwise: false
+    sentence: If `theRun.invocations` is absent, `invocationIndex` **SHALL** be absent.
+    also:
+    - If `invocationIndex` is absent and `theRun.invocations` is present and contains a single element, it **SHALL** default
+      to 0; otherwise it **SHALL** default to -1, which indicates that the value is unknown (not set).
+- property: toolComponentReference.index
+  file: file-format-54-toolcomponentreference-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: '`theComponent` is an element of `theTool.extensions` ([sec](#extensions-property))'
+    scope: log
+    otherwise: false
+    sentence: If `theComponent` is an element of `theTool.extensions` ([sec](#extensions-property)), a `toolComponentReference`
+      object **MAY** contain a property named `index` whose value is the array index ([sec](#array-indices)) of that element.
+- property: replacement.insertedContent
+  file: file-format-57-replacement-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: A `replacement` object **MAY** contain a property named `insertedContent` whose value is an `artifactContent`
+      object ([sec](#artifactcontent-object)) that specifies the content to insert in place of the region specified by the
+      `deletedRegion` property (or at the point specified by `deletedRegion`, if `deletedRegion` has a length of zero and
+      therefore specifies an insertion point).
+    also:
+    - If the inserted content is specified as text, the text **SHALL** be transcoded from UTF-8 (the encoding of all text
+      in all SARIF log files) to the encoding of the target artifact before being inserted.
+    - If `insertedContent` is absent or its properties specify content whose length is zero, the SARIF consumer performing
+      the replacement **SHALL NOT** insert any content.
+- property: notification.associatedRule
+  file: file-format-58-notification-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: the condition described by the `notification` object is relevant to a particular analysis rule
+    scope: world
+    otherwise: false
+    sentence: If the condition described by the `notification` object is relevant to a particular analysis rule, the `notification`
+      object **SHOULD** contain a property named `associatedRule` whose value is a `reportingDescriptorReference` object ([sec](#reportingdescriptorreference-object))
+      that identifies the rule.
+- property: notification.locations
+  file: file-format-58-notification-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: the condition described by the `notification` object is relevant to one or more locations
+    scope: world
+    otherwise: false
+    sentence: If the condition described by the `notification` object is relevant to one or more locations, the `notification`
+      object **MAY** contain a property named `locations` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values))
+      `location` objects ([sec](#location-object)) that identify those locations to which the condition described by the notification
+      applies.
+- property: notification.exception
+  file: file-format-58-notification-object.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: the notification is a result of a runtime exception
+    scope: world
+    otherwise: false
+    sentence: If the notification is a result of a runtime exception, the `notification` object **MAY** contain a property
+      named `exception` whose value is an `exception` object ([sec](#exception-object)).
+  - presence: SHALL NOT
+    when: the notification is not the result of a runtime exception
+    scope: world
+    otherwise: false
+    sentence: If the notification is not the result of a runtime exception, the `exception` property **SHALL** be absent.
+- property: exception.kind
+  file: file-format-59-exception-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: An `exception` object **SHOULD** contain a property named `kind` whose value is a string describing the exception.
+    also:
+    - If the exception represents a thrown object, `kind` **SHALL** be the fully qualified type name of the object that was
+      thrown, if that information is available.
+    - If the exception represents a POSIX signal, `kind` **SHALL** be the symbolic name of the signal as specified in `<signal.h>`.
+  - presence: SHALL NOT
+    when: the tool does not have access to information about the object that was thrown
+    scope: world
+    otherwise: false
+    sentence: If the tool does not have access to information about the object that was thrown, the `kind` property **SHALL**
+      be absent.
+- property: exception.message
+  file: file-format-59-exception-object.md
+  announce: []
+  branches:
+  - presence: SHOULD
+    when: always
+    scope: rest
+    otherwise: false
+    sentence: An `exception` object **SHOULD** contain a property named `message` whose value is a string that describes the
+      exception.
+  - presence: SHALL NOT
+    when: the tool does not have access to an appropriate property of the thrown object
+    scope: world
+    otherwise: false
+    sentence: If the tool does not have access to an appropriate property of the thrown object, the `message` property **SHALL**
+      be absent.
+- property: externalProperties.runGuid
+  file: external-property-file-format.md
+  announce: []
+  branches:
+  - presence: MAY
+    when: the externalized properties contained in this `externalProperties` object are associated with a single `run` object
+      ([sec](#run-object)) `theRun`, and if `theRun` contains an `automationDetails.guid` property ([sec](#automationdetails-property),
+      [sec](#runautomationdetails-object--guid-property))
+    scope: log
+    otherwise: false
+    sentence: If the externalized properties contained in this `externalProperties` object are associated with a single `run`
+      object ([sec](#run-object)) `theRun`, and if `theRun` contains an `automationDetails.guid` property ([sec](#automationdetails-property),
+      [sec](#runautomationdetails-object--guid-property)), the `externalProperties` object **MAY** contain a property named
+      `runGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that equals `theRun.automationDetails.guid`.
+  - presence: SHALL NOT
+    when: in all other cases
+    scope: rest
+    otherwise: true
+    sentence: Otherwise (that is, if this `externalProperties` object is associated with more than one `run` object, or if
+      `theRun` does not define `automationDetails.guid`), then `runGuid` **SHALL** be absent.

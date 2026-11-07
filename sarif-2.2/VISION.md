@@ -170,10 +170,23 @@ derived snippet by its key, and refuses a key without a record, a record without
    schema (`result.level`, `result.rank`, `notification.level`, `resultProvenance.invocationIndex`,
    `reportingDescriptorReference.index`).
 
+10. **Presence rules without an announcement (2026-11-07).** Four sections did announce a set of keywords but put two
+   of them in one bold span (`**MAY, SHALL NOT**`: `address`, `logicalLocation`, `webRequest`, `webResponse`
+   `.index`); they are recognised now (the joined span is a finding) and recorded like the others. `bin/vision.py
+   migrate-presence` appended a record with an empty `announce` for each of the 60 sections that make a conditional
+   presence claim ("If ..., an `x` object **SHALL** contain a property named `p`", "`p` **SHALL** be absent");
+   when and scope came by rule, then by hand for the object-scope branches and their `if`. Together 79 records,
+   163 branches (17 object, 52 log, 73 world, 21 rest), 277 statements derived verbatim into the prose, which came
+   out byte-identical (statements spanning lines are matched across the line breaks). Of 9 branches the schema can
+   say, 2 it says already (the `anyOf` of `physicalLocation`), 7 are proposed with fixtures; they find the
+   comprehensive example's stack-frame addresses with `offsetFromParent` but neither `parentIndex` nor `index`
+   (prose twin and `example/comprehensive.json`). `check` also compares the 250 unconditional definitions
+   ("An `x` object **SHALL** contain ...") with the schema's `required` (all agree but the recorded drift
+   `attachment.location`), and the findings compare "At least one of ... **SHALL** be present" with `anyOf`:
+   `artifactLocation` requires `uri` or `index` in the prose, not in the schema.
+
 ## Next steps
 
-10. **Presence rules without an announcement.** The "If ..., `x` **SHALL** be present" statements outside the 15
-   announced sections, as constraint records of the same shape (with an empty `announce`).
 11. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
    consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
 12. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.

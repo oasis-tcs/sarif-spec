@@ -34,6 +34,110 @@
           }
         }
       ]
+    },
+    "artifactLocation": {
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "uri"
+            ],
+            "properties": {
+              "uri": {
+                "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "uriBaseId"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "result": {
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "not": {
+                  "const": "fail"
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "rank"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "physicalLocation": {
+      "allOf": [
+        {
+          "if": {
+            "not": {
+              "required": [
+                "region"
+              ]
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "contextRegion"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "address": {
+      "allOf": [
+        {
+          "if": {
+            "not": {
+              "required": [
+                "parentIndex"
+              ]
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "relativeAddress"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "required": [
+                "parentIndex"
+              ]
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "offsetFromParent"
+              ]
+            }
+          }
+        }
+      ]
     }
   }
 }

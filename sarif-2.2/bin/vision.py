@@ -7,6 +7,7 @@ Usage (from sarif-2.2/):
   python -I bin/vision.py annotate-fences    key each derived snippet's code block by its twin (```{.json twin="..."})
   python -I bin/vision.py migrate-constraints  seed records/constraints.yaml from the keyword-set statements (once)
   python -I bin/vision.py migrate-defaults     seed records/defaults.yaml from the default sentences (once)
+  python -I bin/vision.py migrate-presence     append records for sections with conditional presence claims (review after)
   python -I bin/vision.py derive    write views/ from the schema, the records, the twins and the prose
   python -I bin/vision.py check     fail when a view differs from what derive would write, or a record is incomplete
 
@@ -44,7 +45,8 @@ PROP_H = re.compile(r'^(#{3,4}) (.*?)\s*(?:\{#[^}]*\})?\s*$')
 WELL_FORMED = re.compile(r'^(?:`\$?\w+`(?:, and |, | and )?)+ Propert(?:y|ies)$')
 BROKEN_KEY = re.compile(r'^`?(\$?\w+)`? [Pp]roperty$')
 NAMES = re.compile(r'`(\$?\w+)`')
-KEYWORD_SET = re.compile(r'either \*\*[A-Z ]+\*\*(?:, \*\*[A-Z ]+\*\*)*,? or \*\*[A-Z ]+\*\*')
+KEYWORD_SET = re.compile(r'either \*\*[A-Z ,]+\*\*(?:, \*\*[A-Z ]+\*\*)*,? or \*\*[A-Z ]+\*\*')  # [A-Z ,]: "**MAY, SHALL NOT**" too
+JOINED_BOLD = re.compile(r'\*\*(?:' + KW + r'), (?:' + KW + r')\*\*')
 DEFAULT = re.compile(r'^If (?:this property|`([\w.]+)`) is absent, (?:it|`[\w.]+`) \*\*SHALL\*\* default to (?:the array )?`([^`]+)`')
 
 
@@ -399,6 +401,7 @@ def findings(sections, headings, statements, fences, items, constraints=()):
                     if v not in listed and f'"{v}"' not in text:
                         out.append(f'- `{obj}.{prop}`: the schema value `"{v}"` is not described in the prose')
     out += default_findings()  # records/defaults.yaml against the schema
+    out += at_least_one_findings(statements)
     out.append('')
 
     # A4 against A1: the examples
@@ -439,6 +442,8 @@ def findings(sections, headings, statements, fences, items, constraints=()):
     for s in sets:
         out.append(f'  - {s["file"]}:{s["line"]} ({s["heading"]})')
     out += list(constraints)
+    out += [f'- {s["file"]}:{s["line"]}: one bold span holds two keywords ({JOINED_BOLD.search(s["text"]).group(0)}): bold each keyword'
+            for s in statements if JOINED_BOLD.search(s['text'])]
     for name in bound_files():
         for i, line in enumerate((SRC / name).read_text(encoding='utf-8').splitlines(), 1):
             if not line.lstrip().startswith(('>', '|', '#')) and re.search(r'(?<![`*\w])shall(?![`*\w])', line):
@@ -1014,12 +1019,14 @@ def derive_all():
     items = examples()
     records = constraint_records()
     rules = schema_rules(records)
+    fixture_files, _ = rule_fixtures(rules)  # marks the rules the schema says already
+    in_schema = [x for x in rules if x.get('in_schema')]
+    rules = [x for x in rules if not x.get('in_schema')]
     violations = rule_violations(items, rules)
     bound = sorted(set(rule_violations(items, schema_rules(records, bound=True))) - set(violations))
-    fixture_files, _ = rule_fixtures(rules)
     views = {**{f'fixtures/{name}': json.dumps(inst, indent=2) + '\n' for name, inst in fixture_files.items()},
              'examples.md': view_examples(items), 'findings.md': findings(sections, headings, statements, fences, items, constraint_findings(records, violations, bound)),
-             'constraints.md': view_constraints(records, rules, violations),
+             'constraints.md': view_constraints(records, rules, violations, in_schema),
              'constraints.schema.json': json.dumps({'$comment': 'Derived by bin/vision.py from records/constraints.yaml: presence rules the schema can say. '
                                                     'A proposal for the TC; do not edit.',
                                                     '$defs': {d: {'allOf': [{'if': x['if'], 'then': x['then']} for x in rules if x['def'] == d]}
@@ -1032,13 +1039,81 @@ def derive_all():
 
 # ── constraints: presence rules with conditions ───────────────────────────────
 
-ANNOUNCED = re.compile(r'\*\*([A-Z ]+)\*\*')
+ANNOUNCED = re.compile(r'(?<=[*, ])(' + KW + r')(?=\*\*|,)')  # each keyword of the bold spans, joined ones included
 
 
 def presences(sentence, prop):
     """The presence keywords a sentence gives *prop*, in order: `p` SHALL be present, it MAY be absent, ..."""
     subject = rf'(?:`{re.escape(prop)}`|\b{re.escape(prop)}\b|\bit\b|\bthen again `{re.escape(prop)}`)'
     return re.findall(subject + r'[^.;`]*?\*\*(' + KW + r')\*\* be (?:present|absent)', sentence)  # no other name in between
+
+
+ABSENT = {'SHALL': 'SHALL NOT', 'SHOULD': 'SHOULD NOT', 'MUST': 'MUST NOT', 'MAY': 'MAY'}
+CLAIM = re.compile(r'\*\*(' + KW + r')\*\* contain a property named `(\$?[\w.]+)`'
+                   r'|`(\$?[\w.]+)`(?: property)?(?: \((?:[^()]|\([^()]*\))*\))? (?:\*\*[A-Z ]+\*\* be present and )?\*\*(' + KW + r')\*\* be (present|absent)'
+                   r'|\b(it|then again) \*\*(' + KW + r')\*\* be (present|absent)')
+CONDITIONAL = re.compile(r'^(?:If|Unless|When|Otherwise)\b|, (?:if|unless|when) ')
+
+
+def claims(sentence, prop):
+    """The presence claims of a sentence, in order: (property, level), "**SHALL** be absent" read as **SHALL NOT**."""
+    out = []
+    for m in CLAIM.finditer(sentence):
+        if m.group(1):
+            out.append((m.group(2), m.group(1)))
+        elif m.group(3):
+            out.append((m.group(3), m.group(4) if m.group(5) == 'present' else ABSENT.get(m.group(4), m.group(4))))
+        else:
+            out.append((prop, m.group(7) if m.group(8) == 'present' else ABSENT.get(m.group(7), m.group(7))))
+    return out
+
+
+DEFINITION = re.compile(r'^An? `(\w+)` object \*\*(' + KW + r')\*\* contain a property named `(\$?\w+)`')
+AT_LEAST_ONE = re.compile(r'^At least one of (.*?) \*\*SHALL\*\* be present')
+
+
+def definition_keys(statements):
+    """Refusals: an unconditional "An `x` object **SHALL** contain a property named `p`" whose level the schema's
+    `required` contradicts (SHALL: required; any other keyword: optional), unless records/drift.yaml records `x.p`."""
+    drift = {d['property'] for d in drift_records()}
+    out = []
+    for s in statements:
+        m = DEFINITION.match(s['text'])
+        if not m or CONDITIONAL.search(s['text']):
+            continue
+        obj, level, prop = m.groups()
+        sch = schema_of(obj)
+        if sch is None or f'{obj}.{prop}' in drift or prop not in sch.get('properties', {}):
+            continue  # an object or property the schema lacks: heading_keys and records/drift.yaml speak for it
+        if (level == 'SHALL') != (prop in sch.get('required', [])):
+            out.append(f'{s["file"]}:{s["line"]}: `{obj}.{prop}` is **{level}** in the prose, '
+                       f'{"required" if prop in sch.get("required", []) else "optional"} in the schema')
+    return out
+
+
+def at_least_one_findings(statements):
+    """An unconditional "At least one of `a` or `b` **SHALL** be present" against the `anyOf` of the object's definition."""
+    out = []
+    for s in statements:
+        m = AT_LEAST_ONE.match(s['text'])
+        if not m or not s['obj']:
+            continue
+        names = set(re.findall(r'`(\$?\w+)`', re.sub(r'\(\[sec\][^)]*\)', '', m.group(1))))
+        alts = [set(a.get('required', [])) for a in (schema_of(s['obj']) or {}).get('anyOf', [])]
+        if not (all(len(a) == 1 for a in alts) and set().union(*alts) == names):
+            out.append(f'- **TC** `{s["obj"]}`: the prose requires at least one of {", ".join(f"`{n}`" for n in sorted(names))} '
+                       f'({s["file"]}:{s["line"]}); the schema has {"no such anyOf" if not alts else "a different anyOf"}')
+    return out
+
+
+def unannounced_sections(statements):
+    """Property sections without an announcement that make a conditional presence claim: (file, obj, prop, statements)."""
+    announced = {(a['file'], a['obj'], a['prop']) for a, _ in constraint_sections(statements)}
+    groups = defaultdict(list)
+    for s in statements:
+        if s['obj'] and s['prop'] and (s['file'], s['obj'], s['prop']) not in announced:
+            groups[(s['file'], s['obj'], s['prop'])].append(s)
+    return [(*k, v) for k, v in groups.items() if any(CONDITIONAL.search(s['text']) and claims(s['text'], k[2]) for s in v)]
 
 
 def constraint_sections(statements):
@@ -1061,17 +1136,25 @@ def sentence_sequence(r):
     return out
 
 
+def _loose(sentence):
+    return re.compile(r'\s+'.join(map(re.escape, sentence.split())))
+
+
 def derive_sentences(name, text, statements):
     """*text* of prose file *name* with the statements of each constraint section replaced by its record's, in order."""
-    for a, rest in constraint_sections(statements):
-        r = next((r for r in constraint_records() if r['property'] == f'{a["obj"]}.{a["prop"]}'), None)
-        if a['file'] != name or r is None or len(rest) != len(sentence_sequence(r)):
+    sections = [(a['file'], a['obj'], a['prop'], rest, a['text'].split(' whose ')[0]) for a, rest in constraint_sections(statements)]
+    sections += [(f, o, p, rest, None) for f, o, p, rest in unannounced_sections(statements)]
+    records = {r['property']: r for r in constraint_records()}
+    for file, obj, prop, rest, anchor in sections:
+        r = records.get(f'{obj}.{prop}')
+        if file != name or r is None or len(rest) != len(sentence_sequence(r)):
             continue  # constraint_keys refuses a missing record or a different count
-        start = text.index(a['text'].split(' whose ')[0])  # the announcement: the section's statements follow it
+        start = _loose(anchor).search(text).start() if anchor else _loose(rest[0]['text']).search(text).start()
         for old, new in zip((s['text'] for s in rest), sentence_sequence(r)):
-            at = text.index(old, start)
-            text = text[:at] + new + text[at + len(old):]
-            start = at + len(new)
+            m = _loose(old).search(text, start)  # a statement may span lines: whitespace collapsed in the record
+            if old != new:
+                text = text[:m.start()] + new + text[m.end():]
+            start = m.start() + (len(new) if old != new else len(m.group(0)))
     return text
 
 
@@ -1156,10 +1239,11 @@ def schema_rules(records, bound=False):
         obj, prop = r['property'].split('.', 1)
         earlier = []
         for b in r['branches']:
+            target = b.get('property', prop)
             if b['scope'] == 'object' and b['presence'] in SCHEMA_LEVELS and (bound or 'binds' not in b) and (not b['otherwise'] or all(e['scope'] == 'object' for e in earlier)):
                 cond = {'allOf': [b['if'], *({'not': e['if']} for e in earlier)]} if b['otherwise'] and earlier else b['if']
-                then = {'required': [prop]} if b['presence'] == 'SHALL' else {'not': {'required': [prop]}}
-                out.append({'def': obj, 'property': r['property'], 'presence': b['presence'], 'when': b['when'], 'if': cond, 'then': then})
+                then = {'required': [target]} if b['presence'] == 'SHALL' else {'not': {'required': [target]}}
+                out.append({'def': obj, 'property': f'{obj}.{target}', 'presence': b['presence'], 'when': b['when'], 'if': cond, 'then': then})
             earlier.append(b)
     return out
 
@@ -1185,6 +1269,26 @@ def extended_schema(rules):
     return schema
 
 
+def _meets(instance, cond):
+    return jsonschema.Draft202012Validator({'$defs': DEFS, **cond}).is_valid(instance)
+
+
+def satisfy(base, cond, node):
+    """*base* changed so that it meets *cond*: members a negated `required` names removed, the required ones added
+    (trying the enum values of each until the condition holds)."""
+    out = dict(base)
+    for name in cond.get('not', {}).get('required', []) if set(cond.get('not', {})) == {'required'} else []:
+        out.pop(name, None)
+    props = node.get('properties', {})
+    for name in cond.get('required', []):
+        out.setdefault(name, minimal(props.get(name, {})))
+        for value in [out[name], *resolve(props.get(name, {})).get('enum', [])]:
+            if _meets({**out, name: value}, cond):
+                out[name] = value
+                break
+    return out
+
+
 def rule_fixtures(rules):
     """Two fixtures per derived if/then rule, from the definition's minimal instance with the condition true: one that
     keeps the rule and one that breaks it.  Returns ({file name: instance}, problems)."""
@@ -1193,22 +1297,25 @@ def rule_fixtures(rules):
     for rule in rules:
         prop = rule['property'].split('.', 1)[1]
         node = DEFS[rule['def']]
-        base = minimal(node)
+        base = satisfy(minimal(node), rule['if'], node)
         stem = f'{rule["property"]}.{rule["presence"].lower().replace(" ", "-")}'
-        if not jsonschema.Draft202012Validator({'$defs': DEFS, **rule['if']}).is_valid(base):
+        if not _meets(base, rule['if']):
             problems.append(f'{stem}: the minimal {rule["def"]} does not meet the condition; no fixture can be derived')
             continue
         for other in rules:  # keep the other derived rules of the definition, so only this one decides
             other_prop = other['property'].split('.', 1)[1]
-            if other is rule or other['def'] != rule['def'] or not jsonschema.Draft202012Validator({'$defs': DEFS, **other['if']}).is_valid(base):
+            if other is rule or other['def'] != rule['def'] or not _meets(base, other['if']):
                 continue
-            if other['presence'] == 'SHALL':
-                base.setdefault(other_prop, minimal(node['properties'][other_prop]))
-            else:
-                base.pop(other_prop, None)
+            kept = {**base, other_prop: base.get(other_prop, minimal(node['properties'][other_prop]))} if other['presence'] == 'SHALL' \
+                else {k: v for k, v in base.items() if k != other_prop}
+            if _meets(kept, rule['if']):  # never at the price of this rule's own condition
+                base = kept
         present = {**base, prop: minimal(node['properties'][prop])}
         absent = {k: v for k, v in base.items() if k != prop}
         keep, brk = (present, absent) if rule['presence'] == 'SHALL' else (absent, present)
+        if not validator_for(rule['def']).is_valid(brk) and validator_for(rule['def']).is_valid(keep):
+            rule['in_schema'] = True  # the schema says it already (an anyOf): no proposal, no fixture
+            continue
         for kind, instance, should_fail in (('valid', keep, False), ('invalid', brk, True)):
             files[f'{stem}.{kind}.json'] = instance
             if not validator_for(rule['def']).is_valid(instance):
@@ -1252,12 +1359,14 @@ def generated_sentence(prop, b):
     return f'{"Otherwise, if" if b["otherwise"] else "If"} {b["when"]}, {clause}.'
 
 
-def view_constraints(records, rules, violations):
+def view_constraints(records, rules, violations, in_schema=()):
     by_scope = Counter(b['scope'] for r in records for b in r['branches'])
     out = ['# Constraints', '', 'Derived by `bin/vision.py derive` from `records/constraints.yaml`; do not edit.', '',
-           f'{len(records)} presence rules announced with a set of keywords, {sum(by_scope.values())} branches: '
+           f'{len(records)} presence rules ({sum(1 for r in records if r["announce"])} announced with a set of keywords, '
+           f'{sum(1 for r in records if not r["announce"])} with conditional claims only), {sum(by_scope.values())} branches: '
            + ', '.join(f'{by_scope[s]} {s}' for s in SCOPES) + ' scope.',
-           f'{len(rules)} branches the schema can say are derived as `if`/`then` into `views/constraints.schema.json`, '
+           f'{len(rules) + len(in_schema)} branches the schema can say; {len(in_schema)} it says already '
+           f'({", ".join(f"`{x["property"]}`" for x in in_schema) or "none"}), {len(rules)} are derived as `if`/`then` into `views/constraints.schema.json`, '
            f'a proposal for the TC; against the twins and `example/` they find {len(violations)} violation(s).',
            f'Each rule has a fixture that keeps it and one that breaks it (`views/fixtures/`); both pass the schema as it is. '
            'They start from the smallest instance the schema allows, so an empty object in them (an `artifactLocation` '
@@ -1324,10 +1433,64 @@ def constraint_keys():
                     jsonschema.Draft202012Validator.check_schema(b['if'])
                 except jsonschema.SchemaError as e:
                     problems.append(f'{where}: branch {i}: `if` is no JSON Schema: {e.message[:90]}')
-    problems += [f'records/constraints.yaml: `{key}`: no announcing statement in the prose' for key in records]
+    for file, obj, prop, rest in unannounced_sections(statements):
+        key = f'{obj}.{prop}'
+        r = records.pop(key, None)
+        where = f'records/constraints.yaml: `{key}`'
+        if r is None:
+            problems.append(f'{file}:{rest[0]["line"]}: `{key}` makes a conditional presence claim; records/constraints.yaml has no record')
+            continue
+        if r['announce']:
+            problems.append(f'{where}: announce lists keywords, the prose announces none')
+        if len(rest) != len(sentence_sequence(r)):
+            problems.append(f'{where}: the section has {len(rest)} statements, the record {len(sentence_sequence(r))}: '
+                            'add or remove a sentence in the record, then make derive')
+        for i, b in enumerate(r['branches'], 1):
+            if (b.get('property', prop), b['presence']) not in claims(b['sentence'], prop):
+                problems.append(f'{where}: branch {i}: its sentence does not claim **{b["presence"]}** for `{b.get("property", prop)}`')
+            if b['scope'] not in SCOPES:
+                problems.append(f'{where}: branch {i}: scope {b["scope"]!r} is none of {", ".join(SCOPES)}')
+            if (b['scope'] == 'object') != ('if' in b):
+                problems.append(f'{where}: branch {i}: an object-scope branch needs its condition as `if`, and only it')
+    problems += [f'records/constraints.yaml: `{key}`: no section with an announcement or a conditional presence claim' for key in records]
+    problems += definition_keys(statements)
     if not problems:
-        problems += rule_fixtures(schema_rules(constraint_records()))[1]
+        problems += rule_fixtures(schema_rules(constraint_records()))[1]  # the rules the schema says already are no problem
     return problems
+
+
+WHEN = re.compile(r'^(?:Otherwise,?\s*(?:\(that is, )?)?(?:If|When|Unless)\s+(.+?),\s+(?:then\s+)?(?:it|its|the|an?|`|enough|at least|again)\b')
+LOG_WORDS = re.compile(r'\bthe(?:Run|Result|Tool|SarifLog|Component|Descriptor|Parent)\b|element of|any `?result')
+
+
+def migrate_presence():
+    """Append a record for each unannounced section with a conditional presence claim; scope by rule, review after."""
+    target = RECORDS / 'constraints.yaml'
+    have = {r['property'] for r in constraint_records()}
+    _, _, statements, _ = read_prose()
+    new = []
+    for file, obj, prop, rest in unannounced_sections(statements):
+        if f'{obj}.{prop}' in have:
+            continue
+        rec = {'property': f'{obj}.{prop}', 'file': file, 'announce': [], 'also': [], 'branches': []}
+        for st in rest:
+            found = claims(st['text'], prop)
+            m = WHEN.match(st['text'])
+            when = m.group(1) if m else ('in all other cases' if st['text'].startswith('Otherwise') else 'always')
+            scope = 'rest' if not m else ('log' if LOG_WORDS.search(when) else 'world')
+            for target_prop, level in found:
+                b = {'presence': level, 'when': when, 'scope': scope, 'otherwise': st['text'].startswith('Otherwise')}
+                if target_prop != prop:
+                    b['property'] = target_prop
+                rec['branches'].append({**b, 'sentence': st['text']})
+            if not found:
+                (rec['branches'][-1].setdefault('also', []) if rec['branches'] else rec['also']).append(st['text'])
+        if not rec['also']:
+            del rec['also']
+        new.append(rec)
+    text = target.read_text(encoding='utf-8')
+    target.write_text(text.rstrip('\n') + '\n' + yaml.safe_dump(new, sort_keys=False, allow_unicode=True, width=120), encoding='utf-8')
+    print(f'appended {len(new)} records without an announcement, {sum(len(r["branches"]) for r in new)} branches: review when and scope')
 
 
 def migrate_constraints():
@@ -1415,6 +1578,9 @@ def main():
         return
     if command == 'migrate-constraints':
         migrate_constraints()
+        return
+    if command == 'migrate-presence':
+        migrate_presence()
         return
     if command == 'migrate-defaults':
         migrate_defaults()

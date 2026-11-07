@@ -20,6 +20,7 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 - `resultProvenance.invocationIndex`: the prose default depends on other values, the schema gives the constant `-1`
 - `reportingDescriptorReference.index`: the prose default depends on other values, the schema gives the constant `-1`
 - `notification.level`: the prose default depends on other values, the schema gives the constant `"warning"`
+- **TC** `artifactLocation`: the prose requires at least one of `index`, `uri` (file-format-04-artifactlocation-object.md:10); the schema has no such anyOf
 
 ## Examples
 
@@ -71,7 +72,7 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 
 ## Statements
 
-- 15 statements announce a set of keywords ("either **SHALL** or **MAY**"); the rule is the sum of the sentences that follow (records/constraints.yaml, views/constraints.md):
+- 19 statements announce a set of keywords ("either **SHALL** or **MAY**"); the rule is the sum of the sentences that follow (records/constraints.yaml, views/constraints.md):
   - file-format-04-artifactlocation-object.md:18 (`uri` Property)
   - file-format-04-artifactlocation-object.md:83 (`index` Property)
   - file-format-14-run-object.md:347 (`results` Property)
@@ -84,8 +85,12 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
   - file-format-27-result-object.md:114 (`rule` Property)
   - file-format-28-location-object.md:38 (`physicalLocation` Property)
   - file-format-28-location-object.md:42 (`logicalLocations` Property)
+  - file-format-32-address-object.md:97 (`index` Property)
+  - file-format-33-logicallocation-object.md:40 (`index` Property)
   - file-format-33-logicallocation-object.md:74 (`fullyQualifiedName` Property)
   - file-format-38-threadflowlocation-object.md:10 (`index` Property)
+  - file-format-46-webrequest-object.md:16 (`index` Property)
+  - file-format-47-webresponse-object.md:16 (`index` Property)
   - external-property-file-format.md:74 (`version` Property)
 - **TC** `run.results`: the prose allows the value null when the tool failed; the schema type of results is array only
 - **TC** `result.ruleId`: announced **SHALL NOT** is given by no branch
@@ -111,5 +116,79 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
   - as a rule of the log file, `file-format-36-codeflow-object_general_example-1.json` would break it: /: 'ruleId' is a required property
   - as a rule of the log file, `file-format-42-graphtraversal-object_edgetraversals-property_example-1.json` would break it: /: 'ruleId' is a required property
   - as a rule of the log file, `file-format-43-edgetraversal-object_stepoveredgecount-property_example-1.json` would break it: /: 'ruleId' is a required property
+- **TC** `artifactContent.text`: a branch gives **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `artifactContent.binary`: a branch gives **MAY**, **SHALL**, **SHOULD NOT**, which the announcement lacks
+- **TC** `artifactLocation.uriBaseId`: a branch gives **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `message.arguments`: a branch gives **MAY**, **SHALL**, which the announcement lacks
+- **TC** `run.conversion`: a branch gives **MAY**, which the announcement lacks
+- **TC** `run.originalUriBaseIds`: a branch gives **MAY**, **SHALL**, **SHALL NOT**, which the announcement lacks
+- **TC** `run.columnKind`: a branch gives **MAY**, **SHALL**, **SHALL NOT**, which the announcement lacks
+- **TC** `run.redactionTokens`: a branch gives **SHALL**, **SHALL NOT**, which the announcement lacks
+- **TC** `externalPropertyFileReference.itemCount`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `tool.extensions`: a branch gives **SHOULD**, which the announcement lacks
+- **TC** `toolComponent.dottedQuadFileVersion`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `toolComponent.translationMetadata`: a branch gives **SHALL**, **SHALL NOT**, which the announcement lacks
+- **TC** `toolComponent.localizedDataSemanticVersion`: a branch gives **MAY**, **SHOULD**, which the announcement lacks
+- **TC** `toolComponent.minimumRequiredLocalizedDataSemanticVersion`: a branch gives **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `toolComponent.associatedComponent`: a branch gives **MAY**, which the announcement lacks
+- **TC** `invocation.exitCode`: a branch gives **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `invocation.exitCodeDescription`: a branch gives **MAY**, which the announcement lacks
+- **TC** `invocation.exitSignalName`: a branch gives **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `invocation.exitSignalNumber`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `invocation.processStartFailureMessage`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `artifact.parentIndex`: a branch gives **SHALL**, **SHALL NOT**, which the announcement lacks
+- **TC** `artifact.encoding`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `result.ruleIndex`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `result.analysisTarget`: a branch gives **SHOULD**, **SHOULD NOT**, which the announcement lacks
+- **TC** `result.graphTraversals`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `result.baselineState`: a branch gives **MAY**, **SHALL**, which the announcement lacks
+- **TC** `result.rank`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `physicalLocation.artifactLocation`: a branch gives **MAY**, **SHALL**, which the announcement lacks
+- **TC** `physicalLocation.contextRegion`: a branch gives **SHALL NOT**, which the announcement lacks
+- **TC** `physicalLocation.address`: a branch gives **SHALL**, which the announcement lacks
+- **TC** `region.startLine`: a branch gives **SHALL**, which the announcement lacks
+- **TC** `region.startColumn`: a branch gives **MAY**, which the announcement lacks
+- **TC** `region.endLine`: a branch gives **MAY**, which the announcement lacks
+- **TC** `region.endColumn`: a branch gives **MAY**, which the announcement lacks
+- **TC** `region.charOffset`: a branch gives **SHALL**, which the announcement lacks
+- **TC** `region.charLength`: a branch gives **MAY**, which the announcement lacks
+- **TC** `region.byteOffset`: a branch gives **SHALL**, which the announcement lacks
+- **TC** `region.byteLength`: a branch gives **MAY**, which the announcement lacks
+- **TC** `region.sourceLanguage`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `address.relativeAddress`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `address.offsetFromParent`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `address.length`: a branch gives **MAY**, which the announcement lacks
+- **TC** `address.parentIndex`: a branch gives **SHALL**, **SHALL NOT**, which the announcement lacks
+- **TC** `logicalLocation.kind`: a branch gives **SHOULD**, which the announcement lacks
+- **TC** `logicalLocation.parentIndex`: a branch gives **SHALL**, **SHALL NOT**, which the announcement lacks
+- **TC** `graphTraversal.resultGraphIndex`: a branch gives **SHALL**, which the announcement lacks
+- **TC** `graphTraversal.runGraphIndex`: a branch gives **SHALL**, which the announcement lacks
+- **TC** `stackFrame.location`: a branch gives **MAY**, **SHOULD**, which the announcement lacks
+- **TC** `webRequest.body`: a branch gives **MAY**, **SHALL**, **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `webResponse.body`: a branch gives **MAY**, **SHALL**, **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `webResponse.noResponseReceived`: a branch gives **SHALL**, which the announcement lacks
+- **TC** `resultProvenance.invocationIndex`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `toolComponentReference.index`: a branch gives **MAY**, which the announcement lacks
+- **TC** `replacement.insertedContent`: a branch gives **MAY**, which the announcement lacks
+- **TC** `notification.associatedRule`: a branch gives **SHOULD**, which the announcement lacks
+- **TC** `notification.locations`: a branch gives **MAY**, which the announcement lacks
+- **TC** `notification.exception`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- **TC** `exception.kind`: a branch gives **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `exception.message`: a branch gives **SHALL NOT**, **SHOULD**, which the announcement lacks
+- **TC** `externalProperties.runGuid`: a branch gives **MAY**, **SHALL NOT**, which the announcement lacks
+- `examples_comprehensive-sarif-file_codeblock-json-1.sarif.json` breaks a derived presence rule: /runs/0/invocations/0/toolExecutionNotifications/1/exception/stack/frames/0/location/physicalLocation/address: {'offsetFromParent': 4244988} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- `examples_comprehensive-sarif-file_codeblock-json-1.sarif.json` breaks a derived presence rule: /runs/0/invocations/0/toolExecutionNotifications/1/exception/stack/frames/1/location/physicalLocation/address: {'offsetFromParent': 4245514} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- `examples_comprehensive-sarif-file_codeblock-json-1.sarif.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/0/location/physicalLocation/address: {'offsetFromParent': 4229178} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- `examples_comprehensive-sarif-file_codeblock-json-1.sarif.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/1/location/physicalLocation/address: {'offsetFromParent': 4229268} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- `examples_comprehensive-sarif-file_codeblock-json-1.sarif.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/2/location/physicalLocation/address: {'offsetFromParent': 4229836} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
 - `file-format-24-artifact-object_hashes-property_example-1.json` breaks a derived presence rule: /: 'location' is a required property (if the example is a fragment, it lacks an elision marker)
+- `example/comprehensive.json` breaks a derived presence rule: /runs/0/invocations/0/toolExecutionNotifications/1/exception/stack/frames/0/location/physicalLocation/address: {'offsetFromParent': 4244988} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- `example/comprehensive.json` breaks a derived presence rule: /runs/0/invocations/0/toolExecutionNotifications/1/exception/stack/frames/1/location/physicalLocation/address: {'offsetFromParent': 4245514} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- `example/comprehensive.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/0/location/physicalLocation/address: {'offsetFromParent': 4229178} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- `example/comprehensive.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/1/location/physicalLocation/address: {'offsetFromParent': 4229268} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- `example/comprehensive.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/2/location/physicalLocation/address: {'offsetFromParent': 4229836} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- file-format-32-address-object.md:97: one bold span holds two keywords (**MAY, SHALL NOT**): bold each keyword
+- file-format-33-logicallocation-object.md:40: one bold span holds two keywords (**MAY, SHALL NOT**): bold each keyword
+- file-format-46-webrequest-object.md:16: one bold span holds two keywords (**MAY, SHALL NOT**): bold each keyword
+- file-format-47-webresponse-object.md:16: one bold span holds two keywords (**MAY, SHALL NOT**): bold each keyword
 - file-format-52-reportingdescriptorreference-object.md:153: normative "shall" in lower case
