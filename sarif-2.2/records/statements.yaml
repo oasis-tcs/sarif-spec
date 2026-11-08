@@ -1,0 +1,2816 @@
+# Statement records (A3): whom each normative statement binds, one record per sentence with a bold BCP 14 keyword.
+# Seeded by `bin/vision.py migrate-statements` from the subject of each sentence; reviewed by hand since.
+#   section   the statement's section: `object.property`, `object`, `object/heading`, or the heading's slug
+#   starts    the opening words of the statement, unique in its section: how check finds it in the prose
+#   binds     the conformance targets it binds (records/roles.yaml): the targets its subject names, else
+#             log-file, the default of the conformance section ("requirements for SARIF log files, except ...")
+#   via       where the statement is designated to its target, when not in its own words (a pronoun,
+#             a procedure designated in an earlier sentence); without it, a target other than log-file must
+#             be named in the statement, or the findings report it
+#   review    a question the seed could not answer; remove it once binds is right
+# migrate-statements adds records for new statements and keeps the others; it rewrites this file (comments
+# belong here, in the header). check refuses a statement without a record, a record without a statement,
+# and a target that records/roles.yaml does not define.
+#   note      why a statement binds nobody (`binds: []`)
+
+sections:
+- section: key-words
+  statements:
+  - starts: The key words "**MUST**", "**MUST NOT**",
+    binds: []
+    note: the BCP 14 boilerplate quotes the keywords; it binds nobody
+- section: file-format-01-general/general
+  statements:
+  - starts: A SARIF log file **SHALL** contain
+    binds: [log-file]
+  - starts: The top-level value in the log
+    binds: [log-file]
+  - starts: A SARIF log file **SHALL** be
+    binds: [log-file]
+  - starts: Regardless of future added formats, SARIF
+    binds: [log-file]
+- section: sarif-file-naming-convention
+  statements:
+  - starts: The file name of a SARIF
+    binds: [log-file]
+  - starts: The file name **MAY** end with
+    binds: [log-file]
+- section: artifactContent.text
+  statements:
+  - starts: If the external artifact is a text
+    binds: [log-file]
+  - starts: Since SARIF log files are encoded
+    binds: [producer]
+  - starts: The SARIF producer **SHALL** escape any
+    binds: [producer]
+  - starts: Notwithstanding any necessary transcoding and escaping,
+    binds: [producer]
+  - starts: If the external artifact is a binary
+    binds: [log-file]
+- section: artifactContent.binary
+  statements:
+  - starts: If the external artifact is a binary
+    binds: [log-file]
+  - starts: If the external artifact is a text
+    binds: [log-file]
+  - starts: If the external artifact is a UTF-8
+    binds: [log-file]
+  - starts: If it is present, it **SHALL**
+    binds: [log-file]
+- section: artifactContent.rendered
+  statements:
+  - starts: An `artifactContent` object **MAY** contain a
+    binds: [log-file]
+- section: artifactLocation/constraints
+  statements:
+  - starts: At least one of the `uri`
+    binds: [log-file]
+  - starts: In certain circumstances (see [sec](#uribaseid-property) and
+    binds: [log-file]
+  - starts: If both `uri` and `index` are
+    binds: [log-file]
+  - starts: Then URI<sub>1</sub> and URI<sub>2</sub> **SHALL** be
+    binds: [log-file]
+- section: artifactLocation.uri
+  statements:
+  - starts: Depending on the circumstances, an `artifactLocation`
+    binds: [log-file]
+  - starts: If `thisObject` describes a nested artifact
+    binds: [log-file]
+  - starts: A relative reference **SHALL NOT** begin with two
+    binds: [log-file]
+  - starts: A relative reference **SHALL NOT** begin with a
+    binds: [log-file]
+  - starts: If the nested artifact is a
+    binds: [log-file]
+  - starts: If `thisObject` occurs as the value
+    binds: [log-file]
+  - starts: If `index` ([sec](#artifactlocation-object--index-property)) is absent, `uri`
+    binds: [log-file]
+  - starts: If `thisObject` represents a nested artifact
+    binds: [log-file]
+  - starts: Otherwise, `uri` **MAY** be present.
+    binds: [log-file]
+- section: artifactLocation.uriBaseId
+  statements:
+  - starts: If this `artifactLocation` object describes a top-level
+    binds: [log-file]
+  - starts: If the `uri` property contains an
+    binds: [log-file]
+  - starts: If this `artifactLocation` object describes a nested
+    binds: [log-file]
+  - starts: A SARIF consumer **SHALL** use the
+    binds: [consumer]
+  - starts: If the end user has configured
+    binds: [consumer]
+  - starts: If `uriBaseId` is not yet resolved and
+    binds: [consumer]
+  - starts: If `uriBaseId` is not yet resolved,
+    binds: [consumer]
+- section: artifactLocation.index
+  statements:
+  - starts: Depending on the circumstances, an `artifactLocation`
+    binds: [log-file]
+  - starts: If `thisObject` occurs as the `location`
+    binds: [log-file]
+  - starts: If present, it **SHALL** equal the
+    binds: [log-file]
+  - starts: Otherwise, if `theRun.artifacts` is absent or
+    binds: [log-file]
+  - starts: Otherwise, if the `uri` property ([sec](#uri-property))
+    binds: [log-file]
+  - starts: Otherwise (that is, if `uri` is
+    binds: [log-file]
+- section: artifactLocation.description
+  statements:
+  - starts: An `artifactLocation` object **MAY** have a
+    binds: [log-file]
+- section: artifactLocation/guidance-on-the-use-of-artifactlocation-objects
+  statements:
+  - starts: '`artifactLocation` objects **MAY** represent both deterministic'
+    binds: [log-file]
+  - starts: In either case, the `uri` property
+    binds: [log-file]
+  - starts: If the URI is non-deterministic, the
+    binds: [log-file]
+- section: redactable-strings
+  statements:
+  - starts: If a SARIF producer or a
+    binds: [producer, post-processor]
+- section: file-format-05-string-properties/general
+  statements:
+  - starts: A SARIF consumer **SHALL** interpret the
+    binds: [consumer]
+  - starts: In string-valued properties and property names
+    binds: [consumer]
+- section: versioned-hierarchical-strings
+  statements:
+  - starts: then a SARIF consumer **SHALL** consider
+    binds: [consumer]
+  - starts: In string-valued properties and property names
+    binds: [consumer]
+  - starts: A hierarchical string without a version
+    binds: [log-file]
+- section: object-properties
+  statements:
+  - starts: Unless otherwise specified in the description
+    binds: [log-file]
+- section: default-value
+  statements:
+  - starts: If an array-valued property is absent,
+    binds: [log-file]
+- section: array-properties-with-unique-values
+  statements:
+  - starts: When a property is so described,
+    binds: [log-file]
+  - starts: For purposes of this document, two
+    binds: [log-file]
+- section: array-indices
+  statements:
+  - starts: If any property in this document
+    binds: [log-file]
+  - starts: If any such property is absent,
+    binds: [log-file]
+- section: file-format-08-property-bags/general
+  statements:
+  - starts: The components of the property names
+    binds: [log-file]
+  - starts: The property values **MAY** be of
+    binds: [log-file]
+  - starts: If a property value is a
+    binds: [log-file]
+  - starts: In addition to those properties that
+    binds: [log-file]
+  - starts: If a property bag contains a
+    binds: [log-file]
+  - starts: Two strings **SHALL** be considered the
+    binds: [log-file]
+  - starts: Tags **SHOULD NOT** be used to
+    binds: [log-file]
+  - starts: Instead, taxonomies ([sec](#taxonomies)) **SHOULD** be used
+    binds: [log-file]
+  - starts: Even when defining a custom classification
+    binds: [log-file]
+- section: tag-metadata
+  statements:
+  - starts: A SARIF log file **MAY** provide
+    binds: [log-file]
+  - starts: If present, this property **SHALL** be
+    binds: [log-file]
+- section: date-time-properties
+  statements:
+  - starts: The value of every such property,
+    binds: [log-file]
+  - starts: The time component of every date/time-valued
+    binds: [log-file]
+  - starts: The time components of date/time-valued properties
+    binds: [log-file]
+  - starts: A SARIF producer **SHOULD NOT** provide
+    binds: [producer]
+  - starts: A SARIF producer **SHOULD** express date/time
+    binds: [producer]
+- section: file-format-10-uri-valued-properties/general
+  statements:
+  - starts: The value of every such property,
+    binds: [log-file]
+  - starts: If a URI reference refers to a file stored in
+    binds: [log-file]
+  - starts: If a URI reference refers to a file stored on
+    binds: [log-file]
+  - starts: The URI **SHALL** specify the location
+    binds: [log-file]
+  - starts: Two URI references **SHALL** be considered
+    binds: [log-file]
+  - starts: Aside from normalization, SARIF producers **SHALL
+    binds: [producer]
+- section: normalizing-file-scheme-uris
+  statements:
+  - starts: If a URI uses the `"file"` scheme [cite](#RFC8089)
+    binds: [producer]
+  - starts: If a URI uses the `"file"` scheme and
+    binds: [producer]
+  - starts: A SARIF producer **MAY** choose to
+    binds: [producer]
+  - starts: If it does so, then to
+    binds: [log-file]
+  - starts: SARIF producers **SHALL** create `"file"` scheme
+    binds: [producer]
+- section: uris-that-use-the-sarif-scheme
+  statements:
+  - starts: The authority, query and fragment URI
+    binds: [log-file]
+- section: internationalized-resource-identifiers-iris
+  statements:
+  - starts: If a URI-valued property refers to
+    binds: [producer]
+  - starts: The string value of a URI-valued
+    binds: [log-file]
+- section: message/constraints
+  statements:
+  - starts: At least one of the `text`
+    binds: [log-file]
+- section: message/plain-text-messages
+  statements:
+  - starts: A plain text message **SHALL NOT**
+    binds: [log-file]
+  - starts: If a plain text message consists
+    binds: [log-file]
+  - starts: Line breaks **MAY** follow any convention
+    binds: [log-file]
+  - starts: A SARIF post-processor **MAY** normalize line
+    binds: [post-processor]
+  - starts: The message string **MAY** contain placeholders
+    binds: [log-file]
+  - starts: If the message consists of more
+    binds: [log-file]
+  - starts: A SARIF post-processor **SHOULD NOT** modify
+    binds: [post-processor]
+- section: message/general
+  statements:
+  - starts: Formatted messages **MAY** be of arbitrary
+    binds: [log-file]
+  - starts: The message string **MAY** also contain
+    binds: [log-file]
+  - starts: Formatted messages **SHALL** be expressed in
+    binds: [log-file]
+- section: message/security-implications
+  statements:
+  - starts: For security reasons, SARIF producers and
+    binds: [producer, consumer]
+  - starts: '- SARIF producers **SHALL NOT** emit'
+    binds: [producer]
+  - starts: To reduce this risk, SARIF consumers
+    binds: [consumer]
+  - starts: '- To reduce the risk posed'
+    binds: [consumer]
+  - starts: SARIF consumers that are not prepared
+    binds: [consumer]
+- section: message/messages-with-placeholders
+  statements:
+  - starts: A message string **MAY** include one
+    binds: [log-file]
+  - starts: When a SARIF consumer displays the
+    binds: [consumer]
+  - starts: Within both plain text and formatted
+    binds: [log-file]
+  - starts: '- The plain text and formatted'
+    binds: [log-file]
+  - starts: '- A given placeholder index **SHALL**'
+    binds: [log-file]
+- section: message/messages-with-embedded-links
+  statements:
+  - starts: A message string **MAY** include one
+    binds: [log-file]
+  - starts: Within a formatted message ([sec](#formatted-messages)), an
+    binds: [log-file]
+  - starts: Within a plain text message ([sec](#plain-text-messages)),
+    binds: [log-file]
+  - starts: Literal square brackets ("`[`" and "`]`")
+    binds: [log-file]
+  - starts: Literal square brackets and backslashes anywhere
+    binds: [log-file]
+  - starts: However, if a sequence of literal
+    binds: [producer]
+  - starts: In both plain text and formatted
+    binds: [log-file]
+  - starts: In this case, `theResult` **SHALL** contain
+    binds: [log-file]
+  - starts: The `link destination` in embedded links
+    binds: [log-file]
+  - starts: When a tool displays on the
+    binds: [log-file]
+  - starts: If the `link destination` is an
+    binds: [direct-producer]
+- section: message/message-string-lookup
+  statements:
+  - starts: When a SARIF consumer needs to
+    binds: [consumer]
+  - starts: The `run` object **SHALL** contain enough
+    binds: [log-file]
+  - starts: The lookup **SHALL** occur entirely within
+    binds: [consumer]
+    via: the previous paragraph ("When a SARIF consumer needs to locate a message string ..., it **SHALL** follow the procedure")
+  - starts: At various points in this procedure,
+    binds: [consumer]
+- section: message.text
+  statements:
+  - starts: A `message` object **MAY** contain a
+    binds: [log-file]
+- section: message.markdown
+  statements:
+  - starts: A `message` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the `markdown` property is present,
+    binds: [log-file]
+  - starts: SARIF consumers that cannot (or choose
+    binds: [consumer]
+- section: message.id
+  statements:
+  - starts: A `message` object **MAY** contain a
+    binds: [log-file]
+- section: message.arguments
+  statements:
+  - starts: If the message string specified by
+    binds: [log-file]
+  - starts: If none of the properties `text`,
+    binds: [log-file]
+  - starts: The `arguments` array **SHALL** contain as
+    binds: [log-file]
+- section: multiformatMessageString.text
+  statements:
+  - starts: A `multiformatMessageString` object **SHALL** contain a
+    binds: [log-file]
+- section: multiformatMessageString.markdown
+  statements:
+  - starts: A `multiformatMessageString` object **MAY** contain a
+    binds: [log-file]
+  - starts: SARIF consumers that cannot (or choose
+    binds: [consumer]
+- section: sarifLog.version
+  statements:
+  - starts: A `sarifLog` object **SHALL** contain a
+    binds: [log-file]
+  - starts: This string **SHALL** have the value
+    binds: [log-file]
+  - starts: Although the order in which properties
+    binds: [log-file]
+- section: sarifLog.$schema
+  statements:
+  - starts: A `sarifLog` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the `$schema` property is present,
+    binds: [log-file]
+- section: sarifLog.runs
+  statements:
+  - starts: A `sarifLog` object **SHALL** contain a
+    binds: [log-file]
+  - starts: The value of `runs` **SHALL** be
+    binds: [log-file]
+  - starts: '- If a SARIF producer finds'
+    binds: [log-file]
+  - starts: '- If a SARIF producer tries'
+    binds: [log-file]
+- section: sarifLog.inlineExternalProperties
+  statements:
+  - starts: A `sarifLog` object **MAY** contain a
+    binds: [log-file]
+- section: sarifLog.guid
+  statements:
+  - starts: A `sarifLog` object **SHOULD** contain a
+    binds: [log-file]
+- section: run.externalPropertyFileReferences
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.automationDetails
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.runAggregates
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.baselineGuid
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `baselineGuid` is present, the `result.baselineState`
+    binds: [log-file]
+- section: run.tool
+  statements:
+  - starts: A `run` object **SHALL** contain a
+    binds: [log-file]
+- section: run.language
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: If this property is absent, it
+    binds: [log-file]
+- section: run.taxonomies
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.translations
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.policies
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.invocations
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: The elements of the `invocations` array
+    binds: [log-file]
+- section: run.conversion
+  statements:
+  - starts: If a `run` object was produced
+    binds: [converter]
+  - starts: A direct producer **SHALL NOT** emit
+    binds: [direct-producer]
+- section: run.versionControlProvenance
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.originalUriBaseIds
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the `artifactLocation` object’s `uri` property
+    binds: [log-file]
+  - starts: Otherwise (that is, if `uri` is
+    binds: [log-file]
+  - starts: If the actual value of `uri`
+    binds: [log-file]
+  - starts: The values of the `uriBaseId` properties
+    binds: [log-file]
+  - starts: '- **SHALL** end with a single'
+    binds: [log-file]
+  - starts: '- **SHALL NOT** include a query'
+    binds: [log-file]
+  - starts: '- **SHALL NOT** include `".."` path'
+    binds: [log-file]
+  - starts: A SARIF consumer **SHALL** use the
+    binds: [consumer]
+- section: run.artifacts
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: The array **SHOULD** contain elements representing
+    binds: [log-file]
+  - starts: It **MAY** also include other artifacts
+    binds: [log-file]
+  - starts: If a nested artifact appears in
+    binds: [log-file]
+- section: run.specialLocations
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.logicalLocations
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: If a nested logical location appears
+    binds: [log-file]
+- section: run.addresses
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: If a nested address appears in
+    binds: [log-file]
+- section: run.threadFlowLocations
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.graphs
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: A `graph` object defined at the
+    binds: [log-file]
+- section: run.webRequests
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.webResponses
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+- section: run.results
+  statements:
+  - starts: Depending on the circumstances, a `run`
+    binds: [log-file]
+  - starts: If the tool failed to start,
+    binds: [log-file]
+  - starts: If it is present, its value
+    binds: [log-file]
+  - starts: If the tool started but failed
+    binds: [log-file]
+  - starts: In all other circumstances, `results` **SHALL**
+    binds: [log-file]
+  - starts: If the tool did not detect
+    binds: [log-file]
+  - starts: If `results` is absent, it **SHALL**
+    binds: [log-file]
+- section: run.defaultEncoding
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: The string **SHALL** be one of
+    binds: [log-file]
+  - starts: If this property is absent, it
+    binds: [log-file]
+  - starts: In that case, the encoding of
+    binds: [log-file]
+- section: run.defaultSourceLanguage
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `defaultSourceLanguage` is present, its value
+    binds: [log-file]
+  - starts: If `defaultSourceLanguage` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: In that case, the source language
+    binds: [log-file]
+  - starts: In that case, a SARIF viewer
+    binds: [viewer]
+- section: run.newlineSequences
+  statements:
+  - starts: A `run` object **MAY** contain a
+    binds: [log-file]
+  - starts: If this property is absent, it
+    binds: [log-file]
+  - starts: It **SHALL** mean that at potential
+    binds: [log-file]
+- section: run.columnKind
+  statements:
+  - starts: If a SARIF producer processes text artifacts and `theRun.results` ([sec](#results-property))
+    binds: [log-file]
+  - starts: If a SARIF producer processes text artifacts and `theRun.results` is
+    binds: [log-file]
+  - starts: '`columnKind` **SHALL** have one of the'
+    binds: [log-file]
+  - starts: If the SARIF producer does not
+    binds: [log-file]
+  - starts: If a SARIF consumer uses a
+    binds: [consumer]
+- section: run.redactionTokens
+  statements:
+  - starts: If the value of any redactable
+    binds: [log-file]
+  - starts: If no text in `theRun` has
+    binds: [log-file]
+  - starts: If `redactionTokens` contains a single element,
+    binds: [log-file]
+  - starts: If for any reason different values
+    binds: [log-file]
+- section: externalPropertyFileReferences/rationale
+  statements:
+  - starts: A SARIF consumer **SHALL** treat the value of an object-valued
+    binds: [consumer]
+  - starts: A SARIF consumer **SHALL** treat the value of an array-valued
+    binds: [consumer]
+- section: externalPropertyFileReferences/properties
+  statements:
+  - starts: Every externalizable property whose type is shown in the table as "object"
+    binds: [log-file]
+  - starts: In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an `externalPropertyFileReference`
+    binds: [log-file]
+  - starts: Every externalizable property whose type is shown in the table as "array"
+    binds: [log-file]
+  - starts: In that case, the value of the corresponding property in `externalPropertyFileReferences` **SHALL** be an array
+    binds: [log-file]
+  - starts: With one exception described below, if
+    binds: [log-file]
+  - starts: Since an external property file can
+    binds: [log-file]
+  - starts: However, if an array-valued externalizable property
+    binds: [log-file]
+  - starts: The exception is that if `run.tool.driver`
+    binds: [log-file]
+  - starts: The inline `driver` property **SHOULD** contain
+    binds: [log-file]
+- section: externalPropertyFileReference/constraints
+  statements:
+  - starts: At least one of the `location`
+    binds: [log-file]
+  - starts: If both are present, they **SHALL**
+    binds: [log-file]
+- section: externalPropertyFileReference.location
+  statements:
+  - starts: Depending on the circumstances, an `externalPropertyFileReference`
+    binds: [log-file]
+  - starts: If the externalized properties are persisted
+    binds: [log-file]
+  - starts: In that case, if the `artifactLocation`
+    binds: [log-file]
+  - starts: Otherwise (that is, if the externalized
+    binds: [log-file]
+  - starts: If `location` is present, its `uri`
+    binds: [log-file]
+  - starts: If `location` is absent, then a
+    binds: [consumer]
+- section: externalPropertyFileReference.guid
+  statements:
+  - starts: Depending on the circumstances, an `externalPropertyFileReference`
+    binds: [log-file]
+  - starts: If the externalized properties are persisted
+    binds: [log-file]
+  - starts: Otherwise (that is, if the externalized
+    binds: [log-file]
+  - starts: If `guid` is present, it **SHALL**
+    binds: [log-file]
+- section: externalPropertyFileReference.itemCount
+  statements:
+  - starts: If an `externalPropertyFileReference` object specifies an
+    binds: [log-file]
+  - starts: If the `externalPropertyFileReference` object specifies an
+    binds: [log-file]
+  - starts: If `itemCount` is absent, it **SHALL**
+    binds: [log-file]
+- section: runAutomationDetails.description
+  statements:
+  - starts: A `runAutomationDetails` object **MAY** contain a
+    binds: [log-file]
+- section: runAutomationDetails.id
+  statements:
+  - starts: A `runAutomationDetails` object **MAY** contain a
+    binds: [log-file]
+  - starts: A result management system or other
+    binds: [result-management-system, engineering-system]
+  - starts: An engineering system **MAY** define any
+    binds: [engineering-system]
+  - starts: The trailing component of `id` **MAY**
+    binds: [log-file]
+  - starts: This **SHALL** be taken to signify
+    binds: [log-file]
+  - starts: '`id` **MAY** consist of a single'
+    binds: [log-file]
+  - starts: This **SHALL** be taken to specify
+    binds: [log-file]
+- section: runAutomationDetails.guid
+  statements:
+  - starts: A `runAutomationDetails` object **MAY** contain a
+    binds: [log-file]
+  - starts: A result management system or other
+    binds: [result-management-system, engineering-system]
+- section: runAutomationDetails.correlationGuid
+  statements:
+  - starts: A `runAutomationDetails` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `id` ([sec](#runautomationdetails-object--id-property)) is present, `correlationGuid`
+    binds: [log-file]
+- section: tool/general
+  statements:
+  - starts: If another tool post-processes the log
+    binds: [log-file]
+- section: tool.driver
+  statements:
+  - starts: A `tool` object **SHALL** contain a
+    binds: [log-file]
+- section: tool.extensions
+  statements:
+  - starts: If the tool used any extensions
+    binds: [log-file]
+  - starts: If the tool did not use
+    binds: [log-file]
+- section: toolComponent/constraints
+  statements:
+  - starts: At least one of `version` ([sec](#toolcomponent-object--version-property))
+    binds: [log-file]
+- section: toolComponent/taxonomies
+  statements:
+  - starts: Standard taxonomies **SHALL** be stored in
+    binds: [log-file]
+  - starts: Every `toolComponent` object in this array
+    binds: [log-file]
+  - starts: Such a `toolComponent` object **MAY** still
+    binds: [log-file]
+- section: toolComponent/translations
+  statements:
+  - starts: Translations **SHALL** be stored in the
+    binds: [log-file]
+  - starts: A translation **SHALL** specify the component
+    binds: [log-file]
+  - starts: '`associatedComponent` **SHALL NOT** refer to another'
+    binds: [log-file]
+  - starts: A translation component **SHALL** contain the
+    binds: [log-file]
+  - starts: It **MAY** contain additional strings that
+    binds: [log-file]
+  - starts: A translation **SHOULD** include the value
+    binds: [log-file]
+  - starts: It **MAY** also include the value
+    binds: [log-file]
+  - starts: To facilitate the identification of translations
+    binds: [log-file]
+  - starts: To ensure that new translations are
+    binds: [log-file]
+- section: toolComponent/policies
+  statements:
+  - starts: A policy **SHALL** contain a `rules`
+    binds: [log-file]
+  - starts: Each element of the `rules` array
+    binds: [log-file]
+  - starts: The `rules` array **MAY** contain elements
+    binds: [log-file]
+  - starts: The elements of the `rules` array
+    binds: [log-file]
+  - starts: Policies **SHALL** be stored in the
+    binds: [log-file]
+  - starts: A SARIF consumer **MAY** offer the
+    binds: [consumer]
+  - starts: If the user selects a policy,
+    binds: [consumer]
+- section: toolComponent.guid
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+  - starts: '`guid` **SHALL NOT** vary between versions'
+    binds: [log-file]
+- section: toolComponent.name
+  statements:
+  - starts: A `toolComponent` object **SHALL** contain a
+    binds: [log-file]
+- section: toolComponent.fullName
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.product
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.productSuite
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.semanticVersion
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+  - starts: Unless the author of the converter
+    binds: [converter]
+- section: toolComponent.version
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.dottedQuadFileVersion
+  statements:
+  - starts: If the operating system on which
+    binds: [log-file]
+  - starts: If the operating system does not
+    binds: [log-file]
+- section: toolComponent.releaseDateUtc
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.downloadUri
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.informationUri
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.organization
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.shortDescription
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+  - starts: The `shortDescription` property **SHOULD** be a
+    binds: [log-file]
+- section: toolComponent.fullDescription
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+  - starts: The beginning of `fullDescription` (for example,
+    binds: [log-file]
+  - starts: Tools that do not construct `fullDescription`
+    binds: [log-file]
+- section: toolComponent.language
+  statements:
+  - starts: Depending on the circumstances, a `toolComponent`
+    binds: [log-file]
+  - starts: If this object represents a translation
+    binds: [log-file]
+  - starts: If this property is absent, it
+    binds: [log-file]
+- section: toolComponent.globalMessageStrings
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.rules
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.notifications
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.taxa
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the `toolComponent` describes a standard
+    binds: [log-file]
+  - starts: If the `toolComponent` describes a tool
+    binds: [log-file]
+- section: toolComponent.supportedTaxonomies
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+  - starts: A `toolComponent` object that contains a
+    binds: [log-file]
+  - starts: If a `toolComponent` supports a custom
+    binds: [log-file]
+- section: toolComponent.translationMetadata
+  statements:
+  - starts: If a `toolComponent` object represents a
+    binds: [log-file]
+  - starts: Otherwise, `translationMetadata` **SHALL** be absent.
+    binds: [log-file]
+- section: toolComponent.locations
+  statements:
+  - starts: A `toolComponent` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponent.contents
+  statements:
+  - starts: A `toolComponent` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: If `contents` is absent, it **SHALL**
+    binds: [log-file]
+- section: toolComponent.isComprehensive
+  statements:
+  - starts: A `toolComponent` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: If `isComprehensive` is absent, it **SHALL**
+    binds: [log-file]
+- section: toolComponent.localizedDataSemanticVersion
+  statements:
+  - starts: If a `toolComponent` object represents a
+    binds: [log-file]
+  - starts: Otherwise, `localizedDataSemanticVersion` **MAY** be present, in
+    binds: [log-file]
+  - starts: If `localizedDataSemanticVersion` is absent, it **SHALL**
+    binds: [log-file]
+- section: toolComponent.minimumRequiredLocalizedDataSemanticVersion
+  statements:
+  - starts: If a `toolComponent` object does not
+    binds: [log-file]
+  - starts: Otherwise, `minimumRequiredLocalizedDataSemanticVersion` **SHALL** be absent.
+    binds: [log-file]
+  - starts: If `minimumRequiredLocalizedDataSemanticVersion` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: When a SARIF consumer is seeking
+    binds: [consumer]
+- section: toolComponent.associatedComponent
+  statements:
+  - starts: If this `toolComponent` object represents a
+    binds: [log-file]
+  - starts: If `associatedComponent` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: The associated `toolComponent` object **MAY** itself
+    binds: [log-file]
+- section: invocation.commandLine
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: For this reason, a SARIF consumer
+    binds: [consumer]
+  - starts: In particular, an automated SARIF consumer
+    binds: [consumer]
+- section: invocation.arguments
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `arguments` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: An empty array **SHALL** mean that
+    binds: [log-file]
+  - starts: '`null` **SHALL** mean that the command'
+    binds: [log-file]
+- section: invocation.responseFiles
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `responseFiles` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: An empty array **SHALL** mean that
+    binds: [log-file]
+  - starts: '`null` **SHALL** mean that it is'
+    binds: [log-file]
+  - starts: A SARIF producer **MAY** embed the
+    binds: [producer]
+- section: invocation.ruleConfigurationOverrides
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.notificationConfigurationOverrides
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.startTimeUtc
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.endTimeUtc
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.exitCode
+  statements:
+  - starts: If the SARIF producer process did
+    binds: [log-file]
+  - starts: If the SARIF producer process exited
+    binds: [log-file]
+- section: invocation.exitCodeDescription
+  statements:
+  - starts: If the SARIF producer process did
+    binds: [log-file]
+- section: invocation.exitSignalName
+  statements:
+  - starts: If the SARIF producer process exited
+    binds: [log-file]
+  - starts: If the SARIF producer process did
+    binds: [log-file]
+- section: invocation.exitSignalNumber
+  statements:
+  - starts: If the SARIF producer process exited
+    binds: [log-file]
+  - starts: If the SARIF producer process did
+    binds: [log-file]
+- section: invocation.processStartFailureMessage
+  statements:
+  - starts: If the analysis tool process failed
+    binds: [log-file]
+  - starts: If the analysis tool process started
+    binds: [log-file]
+- section: invocation.executionSuccessful
+  statements:
+  - starts: An `invocation` object **SHALL** contain a
+    binds: [log-file]
+- section: invocation.machine
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.account
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.processId
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.executableLocation
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.workingDirectory
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+- section: invocation.environmentVariables
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: The property names in this object
+    binds: [log-file]
+  - starts: The value of each property **SHALL**
+    binds: [log-file]
+  - starts: If the value of the environment
+    binds: [log-file]
+  - starts: A distinct redaction token ([sec](#redactiontokens-property)) **SHALL**
+    binds: [log-file]
+- section: invocation.toolExecutionNotifications
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: The presence within this array of
+    binds: [log-file]
+  - starts: A SARIF consumer **SHALL NOT** assume
+    binds: [consumer]
+  - starts: However, viewers **MAY** still present tool
+    binds: [viewer]
+  - starts: At a minimum, viewers **SHOULD** make
+    binds: [viewer]
+- section: invocation.toolConfigurationNotifications
+  statements:
+  - starts: An `invocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: The presence within this array of
+    binds: [log-file]
+  - starts: However, viewers **MAY** still present configuration
+    binds: [viewer]
+  - starts: At a minimum, viewers **SHOULD** make
+    binds: [viewer]
+- section: invocation.stdin
+  statements:
+  - starts: An `invocation` object **MAY** contain any
+    binds: [log-file]
+  - starts: A SARIF producer **MAY** embed the
+    binds: [producer]
+- section: attachment/general
+  statements:
+  - starts: A SARIF producer **MAY** embed the
+    binds: [producer]
+- section: attachment.description
+  statements:
+  - starts: An `attachment` object **SHOULD** contain a
+    binds: [log-file]
+- section: attachment.location
+  statements:
+  - starts: An `attachment` object **SHALL** contain a
+    binds: [log-file]
+- section: attachment.regions
+  statements:
+  - starts: An `attachment` object **MAY** contain a
+    binds: [log-file]
+- section: attachment.rectangles
+  statements:
+  - starts: An `attachment` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the attachment is an image
+    binds: [log-file]
+  - starts: If the attachment is not an
+    binds: [log-file]
+- section: conversion.tool
+  statements:
+  - starts: A `conversion` object **SHALL** contain a
+    binds: [log-file]
+- section: conversion.invocation
+  statements:
+  - starts: A `conversion` object **MAY** contain a
+    binds: [log-file]
+- section: conversion.analysisToolLogFiles
+  statements:
+  - starts: A `conversion` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the analysis tool did not
+    binds: [log-file]
+- section: versionControlDetails/constraints
+  statements:
+  - starts: A `versionControlDetails` object **SHOULD** contain sufficient
+    binds: [log-file]
+- section: versionControlDetails.repositoryUri
+  statements:
+  - starts: A `versionControlDetails` object **SHALL** contain a
+    binds: [log-file]
+- section: versionControlDetails.revisionId
+  statements:
+  - starts: A `versionControlDetails` object **SHOULD** contain a
+    binds: [log-file]
+- section: versionControlDetails.branch
+  statements:
+  - starts: A `versionControlDetails` object **MAY** contain a
+    binds: [log-file]
+- section: versionControlDetails.revisionTag
+  statements:
+  - starts: A `versionControlDetails` object **MAY** contain a
+    binds: [log-file]
+- section: versionControlDetails.asOfTimeUtc
+  statements:
+  - starts: A `versionControlDetails` object **MAY** contain a
+    binds: [log-file]
+- section: versionControlDetails.mappedTo
+  statements:
+  - starts: A `versionControlDetails` object **MAY** contain a
+    binds: [log-file]
+  - starts: The mapping algorithm **SHALL** be as
+    binds: [log-file]
+    review: '"The mapping algorithm" is a procedure, not part of the log file: whose is it?'
+- section: artifact.location
+  statements:
+  - starts: Depending on the circumstances, an `artifact`
+    binds: [log-file]
+  - starts: If the `artifact` object represents a top-level
+    binds: [log-file]
+  - starts: If the `artifact` object represents a nested artifact whose location relative
+    binds: [log-file]
+  - starts: If the `artifact` object represents a nested artifact whose location within its parent can be expressed only
+    binds: [log-file]
+  - starts: If the `artifact` object represents a nested artifact whose location within its parent can be expressed either
+    binds: [log-file]
+  - starts: If `location` is present, the value
+    binds: [log-file]
+- section: artifact.parentIndex
+  statements:
+  - starts: If this `artifact` object represents a nested
+    binds: [log-file]
+  - starts: If this `artifact` object represents a top-level
+    binds: [log-file]
+- section: artifact.offset
+  statements:
+  - starts: Depending on the circumstances, an `artifact`
+    binds: [log-file]
+  - starts: If the `artifact` object represents a top-level
+    binds: [log-file]
+  - starts: If the `artifact` object represents a nested artifact whose location relative
+    binds: [log-file]
+  - starts: If the `artifact` object represents a nested artifact whose location within its parent can only
+    binds: [log-file]
+  - starts: If the `artifact` object represents a nested artifact whose location within its parent can be
+    binds: [log-file]
+  - starts: If `offset` is present, its value
+    binds: [log-file]
+- section: artifact.length
+  statements:
+  - starts: An `artifact` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `length` is absent, it **SHALL**
+    binds: [log-file]
+- section: artifact.roles
+  statements:
+  - starts: An `artifact` object **MAY** contain a
+    binds: [log-file]
+  - starts: Each array element **SHALL** have one
+    binds: [log-file]
+- section: artifact.mimeType
+  statements:
+  - starts: An `artifact` object **MAY** contain a
+    binds: [log-file]
+- section: artifact.contents
+  statements:
+  - starts: An `artifact` object **MAY** contain a
+    binds: [log-file]
+- section: artifact.encoding
+  statements:
+  - starts: If an `artifact` object represents a
+    binds: [log-file]
+  - starts: The string **SHALL** be one of
+    binds: [log-file]
+  - starts: If the `artifact` object represents a text
+    binds: [log-file]
+  - starts: If the `artifact` object represents a binary
+    binds: [log-file]
+- section: artifact/general
+  statements:
+  - starts: If an `artifact` object represents a
+    binds: [log-file]
+  - starts: If the `artifact` object does not
+    binds: [log-file]
+  - starts: If the artifact contains source code
+    binds: [log-file]
+  - starts: If it is not possible to
+    binds: [log-file]
+  - starts: If `sourceLanguage` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: If both `artifact.sourceLanguage` and `theRun.defaultSourceLanguage` are
+    binds: [log-file]
+  - starts: In that case, a SARIF viewer
+    binds: [viewer]
+- section: artifact/source-language-identifier-conventions-and-practices
+  statements:
+  - starts: To maximize interoperability, SARIF producers and
+    binds: [producer, consumer]
+- section: artifact.hashes
+  statements:
+  - starts: An `artifact` object **MAY** contain a
+    binds: [log-file]
+  - starts: To maximize interoperability, the property names
+    binds: [log-file]
+  - starts: SARIF consumers that need to verify hash values **SHOULD**
+    binds: [consumer]
+  - starts: The object **SHOULD** contain a property
+    binds: [log-file]
+  - starts: SARIF consumers that need to verify hash values **SHALL**
+    binds: [consumer]
+  - starts: The object **MAY** contain properties whose
+    binds: [log-file]
+  - starts: A SARIF consumer **MAY** implement any
+    binds: [consumer]
+  - starts: If the hash function is one
+    binds: [log-file]
+  - starts: SARIF consumers **SHALL** treat the property
+    binds: [consumer]
+  - starts: Each property value **SHALL** be a
+    binds: [log-file]
+  - starts: The string **SHALL** conform to the
+    binds: [log-file]
+- section: artifact.lastModifiedTimeUtc
+  statements:
+  - starts: An `artifact` object **MAY** contain a
+    binds: [log-file]
+- section: artifact.description
+  statements:
+  - starts: An `artifact` object **MAY** have a
+    binds: [log-file]
+- section: specialLocations.displayBase
+  statements:
+  - starts: A `specialLocations` object **MAY** contain a
+    binds: [log-file]
+  - starts: A consumer **MAY** act on this
+    binds: [consumer]
+- section: translationMetadata.name
+  statements:
+  - starts: A `translationMetadata` object **SHALL** contain a
+    binds: [log-file]
+- section: translationMetadata.fullName
+  statements:
+  - starts: A `translationMetadata` object **MAY** contain a
+    binds: [log-file]
+- section: translationMetadata.shortDescription
+  statements:
+  - starts: A `translationMetadata` object **MAY** contain a
+    binds: [log-file]
+- section: translationMetadata.fullDescription
+  statements:
+  - starts: A `translationMetadata` object **MAY** contain a
+    binds: [log-file]
+- section: translationMetadata.downloadUri
+  statements:
+  - starts: A `translationMetadata` object **MAY** contain a
+    binds: [log-file]
+- section: translationMetadata.informationUri
+  statements:
+  - starts: A `translationMetadata` object **MAY** contain a
+    binds: [log-file]
+- section: result/distinguishing-logically-identical-from-logically-distinct-results
+  statements:
+  - starts: Result management systems that compute fingerprints
+    binds: [result-management-system]
+  - starts: Result management systems that group results
+    binds: [result-management-system]
+- section: result.guid
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: Direct SARIF producers and SARIF converters
+    binds: [direct-producer, converter]
+  - starts: A result management system **SHOULD** set
+    binds: [result-management-system]
+  - starts: If it does so, then later,
+    binds: [result-management-system]
+  - starts: A result management system **MAY** store
+    binds: [result-management-system]
+- section: result.correlationGuid
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: Direct SARIF producers and SARIF converters
+    binds: [direct-producer, converter]
+  - starts: A result management system **MAY** set
+    binds: [result-management-system]
+  - starts: If it does so, then later,
+    binds: [result-management-system]
+- section: result.ruleId
+  statements:
+  - starts: Depending on the circumstances, a `result`
+    binds: [log-file]
+  - starts: In addition to being stable, `ruleId`
+    binds: [log-file]
+  - starts: A SARIF viewer or result management
+    binds: [viewer, result-management-system]
+  - starts: A result management system **MAY** also
+    binds: [result-management-system]
+  - starts: Direct producers **SHALL** emit either or
+    binds: [direct-producer]
+  - starts: If `rule.id` is absent, `ruleId` **SHALL**
+    binds: [direct-producer]
+  - starts: If `rule.id` is present, `ruleId` **MAY**
+    binds: [direct-producer]
+  - starts: If `ruleId` and `rule.id` are both
+    binds: [log-file]
+  - starts: A SARIF converter which converts the
+    binds: [converter]
+  - starts: Therefore, a SARIF consumer **SHOULD NOT**
+    binds: [consumer]
+- section: result.ruleIndex
+  statements:
+  - starts: If `theDescriptor` exists (that is, if
+    binds: [log-file]
+  - starts: Otherwise, `ruleIndex` **SHALL** be absent.
+    binds: [log-file]
+  - starts: If `ruleIndex` and `rule.index` ([sec](#rule-property), [sec](#reportingdescriptorreference-object--index-property))
+    binds: [log-file]
+- section: result.rule
+  statements:
+  - starts: Depending on the circumstances, a `result`
+    binds: [log-file]
+  - starts: If `theDescriptor` does not exist (that
+    binds: [log-file]
+  - starts: If `theDescriptor` occurs in `theTool.extensions` ([sec](#extensions-property)),
+    binds: [log-file]
+  - starts: If `theDescriptor` occurs in `theTool.driver` ([sec](#driver-property))
+    binds: [log-file]
+  - starts: If `theDescriptor` occurs in `theTool.driver` and
+    binds: [log-file]
+  - starts: If `rule.id` ([sec](#reportingdescriptorreference-object--id-property)) is absent, it
+    binds: [log-file]
+  - starts: If `rule.id` and `thisObject.ruleId` are both
+    binds: [log-file]
+  - starts: If `rule.index` ([sec](#reportingdescriptorreference-object--index-property)) is absent, it
+    binds: [log-file]
+  - starts: If `rule.index` and `thisObject.ruleIndex` are both
+    binds: [log-file]
+  - starts: If `rule` is absent, it **SHALL**
+    binds: [log-file]
+- section: result.taxa
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the `toolComponent` object ([sec](#toolcomponent-object)) `theComponent`
+    binds: [log-file]
+  - starts: '`thisObject.taxa` does not need to contain'
+    binds: [log-file]
+  - starts: Otherwise (that is, if `theDescriptor` does
+    binds: [log-file]
+  - starts: In either case, if there is
+    binds: [log-file]
+- section: result.kind
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: If present, the `kind` property **SHALL**
+    binds: [log-file]
+  - starts: If `kind` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: If `level` has any value other
+    binds: [log-file]
+- section: result.level
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: If present, the `level` property **SHALL**
+    binds: [log-file]
+  - starts: If `kind` ([sec](#result-object--kind-property)) has any value
+    binds: [log-file]
+  - starts: If `kind` has the value `"fail"`
+    binds: [log-file]
+- section: result.message
+  statements:
+  - starts: A `result` object **SHALL** contain a
+    binds: [log-file]
+  - starts: The `message` property **SHOULD** provide sufficient
+    binds: [log-file]
+  - starts: In particular, it **SHALL** include all
+    binds: [log-file]
+- section: result.locations
+  statements:
+  - starts: A `result` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: The `locations` array **SHALL NOT** contain
+    binds: [log-file]
+  - starts: The `locations` array **SHALL NOT** be
+    binds: [log-file]
+- section: result.analysisTarget
+  statements:
+  - starts: If the analysis target differs from
+    binds: [log-file]
+  - starts: If the analysis target and the
+    binds: [log-file]
+- section: result.webRequest
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: result.webResponse
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: result.fingerprints
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: Each property value in this object
+    binds: [log-file]
+  - starts: This identifier **SHALL**, to the extent
+    binds: [log-file]
+  - starts: Each property name in this object
+    binds: [log-file]
+  - starts: A result management system **MAY** use
+    binds: [result-management-system]
+  - starts: When a result management system uses
+    binds: [result-management-system]
+  - starts: A direct SARIF producer **SHOULD NOT**
+    binds: [direct-producer]
+  - starts: A SARIF converter **MAY** populate this
+    binds: [converter]
+  - starts: A result management system **MAY** populate
+    binds: [result-management-system]
+  - starts: If it does so, then later,
+    binds: [result-management-system]
+- section: result.partialFingerprints
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: Each property value in this object
+    binds: [log-file]
+  - starts: Each property name in this object
+    binds: [log-file]
+  - starts: A SARIF producer **MAY** use the
+    binds: [producer]
+  - starts: When a result management system uses
+    binds: [result-management-system]
+  - starts: A result management system **MAY** use
+    binds: [result-management-system]
+  - starts: A result management system with that
+    binds: [result-management-system]
+  - starts: A result management system lacking that
+    binds: [result-management-system]
+  - starts: Because result management systems might come
+    binds: [producer]
+- section: result.codeFlows
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: result.graphs
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: A `graph` object defined at the
+    binds: [log-file]
+  - starts: This contrasts with `graph` objects defined
+    binds: [log-file]
+- section: result.graphTraversals
+  statements:
+  - starts: If a `result` object contains a
+    binds: [log-file]
+  - starts: If neither the `result` object nor
+    binds: [log-file]
+- section: result.stacks
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: result.relatedLocations
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: result.suppressions
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `suppressions` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: The presence of an array value,
+    binds: [log-file]
+  - starts: In this case, if the array
+    binds: [consumer]
+  - starts: If the array is non-empty, a
+    binds: [consumer]
+  - starts: The absence of an array value,
+    binds: [log-file]
+  - starts: A SARIF consumer **SHALL** treat such
+    binds: [consumer]
+  - starts: The `suppressions` values for all `result`
+    binds: [log-file]
+- section: result.baselineState
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `theRun.baselineGuid` ([sec](#baselineguid-property)) is present, its
+    binds: [log-file]
+  - starts: This property **SHALL** have one of
+    binds: [log-file]
+  - starts: If `baselineState` is present on any
+    binds: [log-file]
+- section: result.rank
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `kind` has the value `"fail"`,
+    binds: [log-file]
+  - starts: If `kind` has any other value,
+    binds: [log-file]
+  - starts: If `rank` is absent, it **SHALL**
+    binds: [log-file]
+- section: result.precision
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: This value **MAY** be represented as
+    binds: [log-file]
+- section: result.securitySeverity
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: This value **MAY** be represented as
+    binds: [log-file]
+- section: result.attachments
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: result.workItemUris
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `workItemUris` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: An empty array **SHALL** mean that
+    binds: [log-file]
+  - starts: '`null` **SHALL** mean that the set'
+    binds: [log-file]
+  - starts: The `workItemUris` values for all `result`
+    binds: [log-file]
+- section: result.hostedViewerUri
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+  - starts: The URI **SHALL** be valid as
+    binds: [log-file]
+- section: result.provenance
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: result.fixes
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: result.occurrenceCount
+  statements:
+  - starts: A `result` object **MAY** contain a
+    binds: [log-file]
+- section: location/general
+  statements:
+  - starts: In that case, the location object
+    binds: [log-file]
+- section: location.id
+  statements:
+  - starts: A `location` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `id` is absent, it **SHALL**
+    binds: [log-file]
+- section: location.physicalLocation
+  statements:
+  - starts: Depending on the circumstances, a `location`
+    binds: [log-file]
+  - starts: If physical location information is available
+    binds: [log-file]
+  - starts: If physical location is available and
+    binds: [log-file]
+  - starts: If physical location information is not
+    binds: [log-file]
+- section: location.logicalLocations
+  statements:
+  - starts: Depending on the circumstances, a `location`
+    binds: [log-file]
+  - starts: If logical location information is available and the
+    binds: [log-file]
+  - starts: If logical location information is available and `physicalLocation`
+    binds: [log-file]
+  - starts: If logical location information is not
+    binds: [log-file]
+- section: location.message
+  statements:
+  - starts: A `location` object **MAY** contain a
+    binds: [log-file]
+- section: location.annotations
+  statements:
+  - starts: A `location` object **MAY** contain a
+    binds: [log-file]
+  - starts: Each of these `region` objects **SHOULD**
+    binds: [log-file]
+- section: location.relationships
+  statements:
+  - starts: A `location` object **MAY** contain a
+    binds: [log-file]
+- section: physicalLocation/constraints
+  statements:
+  - starts: Either the `artifactLocation` property ([sec](#physicallocation-object--artifactlocation-property)), the
+    binds: [log-file]
+  - starts: If `region.byteLength` ([sec](#region-property), [sec](#bytelength-property)) and `address.length`
+    binds: [log-file]
+- section: physicalLocation.artifactLocation
+  statements:
+  - starts: A `physicalLocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `artifactLocation` is absent, then `address`
+    binds: [log-file]
+- section: physicalLocation.region
+  statements:
+  - starts: A `physicalLocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: In particular, if the `physicalLocation` object
+    binds: [log-file]
+  - starts: If the `physicalLocation` object specifies a
+    binds: [log-file]
+- section: physicalLocation.contextRegion
+  statements:
+  - starts: If a `physicalLocation` object contains a
+    binds: [log-file]
+  - starts: If `region` is absent, `contextRegion` **SHALL**
+    binds: [log-file]
+- section: physicalLocation.address
+  statements:
+  - starts: A `physicalLocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `address` is absent, then `artifactLocation`
+    binds: [log-file]
+- section: region/general
+  statements:
+  - starts: If `startLine` ([sec](#startline-property)) > 0 or
+    binds: [log-file]
+  - starts: If `byteOffset` ([sec](#byteoffset-property)) >= 0, this
+    binds: [log-file]
+  - starts: If a `region` object defines both
+    binds: [log-file]
+  - starts: For regions in text artifacts, a
+    binds: [log-file]
+  - starts: For regions in binary artifacts, a
+    binds: [log-file]
+  - starts: If any text properties are present,
+    binds: [log-file]
+  - starts: If any binary properties are present,
+    binds: [log-file]
+- section: region/text-regions
+  statements:
+  - starts: The line number of the first
+    binds: [log-file]
+  - starts: The column number of the first
+    binds: [log-file]
+  - starts: The character offset of the first
+    binds: [log-file]
+  - starts: The values of text properties **SHALL
+    binds: [log-file]
+  - starts: A SARIF viewer **MAY** choose to
+    binds: [viewer]
+  - starts: A SARIF consumer **SHALL** consider an
+    binds: [consumer]
+  - starts: If neither is present, the consumer
+    binds: [consumer]
+  - starts: A text region **MAY** be specified
+    binds: [log-file]
+  - starts: A text region **SHALL** specify both
+    binds: [log-file]
+  - starts: A region of length 0 is
+    binds: [log-file]
+- section: region/binary-regions
+  statements:
+  - starts: The byte offset of the first
+    binds: [log-file]
+  - starts: To specify a byte region, at
+    binds: [log-file]
+  - starts: '`byteLength` ([sec](#bytelength-property)) **MAY** also be present.'
+    binds: [log-file]
+- section: region/independence-of-text-and-binary-regions
+  statements:
+  - starts: The text-related and binary-related properties in
+    binds: [log-file]
+  - starts: That is, the value of a
+    binds: [log-file]
+- section: region.startLine
+  statements:
+  - starts: When a `region` object represents a
+    binds: [log-file]
+- section: region.startColumn
+  statements:
+  - starts: When a `region` object represents a
+    binds: [log-file]
+  - starts: If `startColumn` is absent, it **SHALL**
+    binds: [log-file]
+- section: region.endLine
+  statements:
+  - starts: When a `region` object represents a
+    binds: [log-file]
+  - starts: If `endLine` is absent, its value
+    binds: [log-file]
+- section: region.endColumn
+  statements:
+  - starts: When a `region` object represents a
+    binds: [log-file]
+  - starts: If `endColumn` is absent, it **SHALL**
+    binds: [log-file]
+- section: region.charOffset
+  statements:
+  - starts: When a `region` object represents a
+    binds: [log-file]
+  - starts: If `charOffset` is absent, it **SHALL**
+    binds: [log-file]
+- section: region.charLength
+  statements:
+  - starts: When a `region` object represents a
+    binds: [log-file]
+  - starts: If `charLength` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: The sum of `charOffset` and `charLength`
+    binds: [log-file]
+  - starts: A region whose `charOffset` is equal
+    binds: [log-file]
+- section: region.byteOffset
+  statements:
+  - starts: When a `region` object represents a
+    binds: [log-file]
+  - starts: If `byteOffset` is absent, it **SHALL**
+    binds: [log-file]
+- section: region.byteLength
+  statements:
+  - starts: When a `region` object represents a
+    binds: [log-file]
+  - starts: If `byteLength` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: The sum of `byteOffset` and `byteLength`
+    binds: [log-file]
+  - starts: A `region` object whose `byteOffset` equals
+    binds: [log-file]
+- section: region.snippet
+  statements:
+  - starts: A `region` object **MAY** contain a
+    binds: [log-file]
+- section: region.message
+  statements:
+  - starts: A `region` object **MAY** contain a
+    binds: [log-file]
+  - starts: A SARIF viewer **MAY** display this
+    binds: [viewer]
+- section: region.sourceLanguage
+  statements:
+  - starts: If the `region` object represents a
+    binds: [log-file]
+  - starts: If the `region` object does not
+    binds: [log-file]
+  - starts: if `sourceLanguage` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: If all three of `region.sourceLanguage`, `artifact.sourceLanguage`,
+    binds: [log-file]
+  - starts: In that case, a SARIF viewer
+    binds: [viewer]
+- section: rectangle/general
+  statements:
+  - starts: When a SARIF viewer displays an
+    binds: [viewer]
+- section: rectangle.top
+  statements:
+  - starts: A `rectangle` object **SHALL** contain properties
+    binds: [log-file]
+  - starts: These properties **SHALL** be measured in
+    binds: [log-file]
+  - starts: These values **MAY** be positive or
+    binds: [log-file]
+  - starts: They **MAY** increase either from left
+    binds: [log-file]
+- section: rectangle.message
+  statements:
+  - starts: A `rectangle` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: A SARIF viewer **MAY** display this
+    binds: [viewer]
+- section: address/absolute-address-calculation
+  statements:
+  - starts: If both `absoluteAddress` and `offsetFromParent` exist,
+    binds: [log-file]
+- section: address/relative-address-calculation
+  statements:
+  - starts: If both `relativeAddress` and `offsetFromParent` exist,
+    binds: [log-file]
+- section: address.index
+  statements:
+  - starts: Depending on the circumstances, an `address`
+    binds: [log-file]
+  - starts: If `thisObject` is an element of
+    binds: [log-file]
+  - starts: If present, its value **SHALL** be
+    binds: [log-file]
+  - starts: Otherwise, if `theRun.addresses` is absent, or
+    binds: [log-file]
+  - starts: Otherwise (that is, if `thisObject` belongs
+    binds: [log-file]
+  - starts: If `index` is present, `thisObject` **SHALL**
+    binds: [log-file]
+  - starts: If `thisObject` contains any properties other
+    binds: [log-file]
+- section: address.absoluteAddress
+  statements:
+  - starts: An `address` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `absoluteAddress` is absent, it **SHALL**
+    binds: [log-file]
+- section: address.relativeAddress
+  statements:
+  - starts: If `parentIndex` ([sec](#address-object--parentindex-property)) is present, an
+    binds: [log-file]
+  - starts: If `parentIndex` is absent, `relativeAddress` **SHALL**
+    binds: [log-file]
+  - starts: If `relativeAddress` is absent, it **SHALL**
+    binds: [log-file]
+- section: address.offsetFromParent
+  statements:
+  - starts: If `parentIndex` ([sec](#address-object--parentindex-property)) is present, an
+    binds: [log-file]
+  - starts: If `parentIndex` is absent, `offsetFromParent` **SHALL**
+    binds: [log-file]
+  - starts: If `offsetFromParent` is absent, it **SHALL**
+    binds: [log-file]
+- section: address.length
+  statements:
+  - starts: An `address` object **MAY** contain a
+    binds: [log-file]
+  - starts: A negative value for `length` **SHALL**
+    binds: [log-file]
+  - starts: If `length` is absent, it **SHALL**
+    binds: [log-file]
+- section: address.name
+  statements:
+  - starts: An `address` object **MAY** contain a
+    binds: [log-file]
+- section: address.fullyQualifiedName
+  statements:
+  - starts: An `address` object **MAY** contain a
+    binds: [log-file]
+- section: address.kind
+  statements:
+  - starts: An `address` object **MAY** contain a
+    binds: [log-file]
+  - starts: When possible, SARIF producers **SHOULD** use
+    binds: [producer]
+  - starts: A SARIF producer **SHOULD** use the
+    binds: [producer]
+  - starts: Although a function does contain executable
+    binds: [log-file]
+  - starts: The value `"instruction"` **SHOULD** be used
+    binds: [log-file]
+  - starts: '&emsp;&emsp;If none of these values are'
+    binds: [producer]
+- section: address.parentIndex
+  statements:
+  - starts: If `theParent` exists (that is, if
+    binds: [log-file]
+  - starts: If `theParent` does not exist, then
+    binds: [log-file]
+- section: logicalLocation/logical-location-naming-rules
+  statements:
+  - starts: Whenever possible, logical names and fully
+    binds: [log-file]
+- section: logicalLocation.index
+  statements:
+  - starts: Depending on the circumstances, a `logicalLocation`
+    binds: [log-file]
+  - starts: If `thisObject` is an element of
+    binds: [log-file]
+  - starts: If present, its value **SHALL** be
+    binds: [log-file]
+  - starts: Otherwise, if `theRun.logicalLocations` is absent, or
+    binds: [log-file]
+  - starts: Otherwise (that is, if `thisObject` belongs
+    binds: [log-file]
+  - starts: If `index` is present, `thisObject` **SHALL**
+    binds: [log-file]
+  - starts: If `thisObject` contains any properties other
+    binds: [log-file]
+- section: logicalLocation.name
+  statements:
+  - starts: A `logicalLocation` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: The `name` property **SHALL** be suitable
+    binds: [log-file]
+- section: logicalLocation.fullyQualifiedName
+  statements:
+  - starts: Depending on the circumstances, a `logicalLocation`
+    binds: [log-file]
+  - starts: This name **SHALL** follow the naming
+    binds: [log-file]
+  - starts: If this `logicalLocation` object represents a
+    binds: [log-file]
+  - starts: If present, it **SHALL** equal `name`;
+    binds: [log-file]
+  - starts: If this object does not represent
+    binds: [log-file]
+- section: logicalLocation.decoratedName
+  statements:
+  - starts: A `logicalLocation` object **MAY** contain a
+    binds: [log-file]
+- section: logicalLocation.kind
+  statements:
+  - starts: A `logicalLocation` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: Although the values suggested here are
+    binds: [log-file]
+  - starts: If none of those strings accurately
+    binds: [log-file]
+  - starts: If a logical location is both
+    binds: [log-file]
+- section: logicalLocation.parentIndex
+  statements:
+  - starts: If this `logicalLocation` object represents a
+    binds: [log-file]
+  - starts: If `thisObject` represents a top-level logical
+    binds: [log-file]
+- section: locationRelationship.target
+  statements:
+  - starts: A `locationRelationship` object **SHALL** contain a
+    binds: [log-file]
+- section: locationRelationship.kinds
+  statements:
+  - starts: A `locationRelationship` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `kinds` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: When possible, SARIF producers **SHOULD** use
+    binds: [producer]
+  - starts: If none of these values are
+    binds: [producer]
+- section: locationRelationship.description
+  statements:
+  - starts: A `locationRelationship` object **MAY** contain a
+    binds: [log-file]
+- section: suppression.kind
+  statements:
+  - starts: A `suppression` object **SHALL** contain a
+    binds: [log-file]
+- section: suppression.status
+  statements:
+  - starts: A `suppression` object **MAY** contain a
+    binds: [log-file]
+- section: suppression.location
+  statements:
+  - starts: A `suppression` object **MAY** contain a
+    binds: [log-file]
+- section: suppression.guid
+  statements:
+  - starts: A `suppression` object **MAY** contain a
+    binds: [log-file]
+- section: suppression.justification
+  statements:
+  - starts: A `suppression` object **MAY** contain a
+    binds: [log-file]
+  - starts: Therefore, SARIF consumers **SHOULD** exercise appropriate
+    binds: [consumer]
+- section: codeFlow/general
+  statements:
+  - starts: The thread flows in a code
+    binds: [log-file]
+- section: codeFlow.message
+  statements:
+  - starts: A `codeFlow` object **MAY** contain a
+    binds: [log-file]
+- section: codeFlow.threadFlows
+  statements:
+  - starts: A `codeFlow` object **SHALL** contain a
+    binds: [log-file]
+- section: threadFlow.id
+  statements:
+  - starts: A `threadFlow` object **MAY** contain a
+    binds: [log-file]
+- section: threadFlow.message
+  statements:
+  - starts: A `threadFlow` object **MAY** contain a
+    binds: [log-file]
+- section: threadFlow.initialState
+  statements:
+  - starts: A `threadFlow` object **MAY** contain a
+    binds: [log-file]
+  - starts: This property **SHOULD NOT** include items
+    binds: [log-file]
+  - starts: Such items **SHOULD** be stored in
+    binds: [log-file]
+- section: threadFlow.immutableState
+  statements:
+  - starts: A `threadFlow` object **MAY** contain a
+    binds: [log-file]
+- section: threadFlow.locations
+  statements:
+  - starts: A `threadFlow` object **SHALL** contain a
+    binds: [log-file]
+  - starts: Each element of the array **SHALL**
+    binds: [log-file]
+  - starts: This array does not need to
+    binds: [log-file]
+- section: threadFlowLocation.index
+  statements:
+  - starts: Depending on the circumstances, a `threadFlowLocation`
+    binds: [log-file]
+  - starts: If `thisObject` is an element of
+    binds: [log-file]
+  - starts: If present, its value **SHALL** be
+    binds: [log-file]
+  - starts: Otherwise, if `theRun.threadFlowLocations` is absent, or
+    binds: [log-file]
+  - starts: Otherwise (that is, if `thisObject` belongs
+    binds: [log-file]
+  - starts: If `index` is present, `thisObject` **SHALL**
+    binds: [log-file]
+  - starts: If `thisObject` contains any properties other
+    binds: [log-file]
+- section: threadFlowLocation/location-propertyy
+  statements:
+  - starts: If location information is available, a
+    binds: [log-file]
+  - starts: If location information is not available,
+    binds: [log-file]
+  - starts: However, if the native output format
+    binds: [converter]
+  - starts: A SARIF direct producer which creates
+    binds: [direct-producer]
+- section: threadFlowLocation.module
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+- section: threadFlowLocation.stack
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+- section: threadFlowLocation.webRequest
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+- section: threadFlowLocation.webResponse
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+- section: threadFlowLocation.kinds
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: The strings **SHOULD** be human-readable (as
+    binds: [log-file]
+  - starts: When possible, SARIF producers **SHOULD** use
+    binds: [producer]
+  - starts: If none of these values are
+    binds: [producer]
+  - starts: A SARIF consumer that wishes to
+    binds: [consumer]
+  - starts: A SARIF producer **MAY** provide additional
+    binds: [producer]
+  - starts: A SARIF consumer that knows how
+    binds: [consumer]
+- section: threadFlowLocation.state
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: A SARIF viewer **SHALL NOT** assume
+    binds: [viewer]
+  - starts: A constraint which expresses the equality
+    binds: [log-file]
+- section: threadFlowLocation.nestingLevel
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: A viewer that renders a `threadFlow`
+    binds: [viewer]
+- section: threadFlowLocation.executionOrder
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+  - starts: For that reason, values of `executionOrder`
+    binds: [log-file]
+  - starts: If `executionOrder` is absent, it **SHALL**
+    binds: [log-file]
+- section: threadFlowLocation.executionTimeUtc
+  statements:
+  - starts: A `threadFlowLocation` object **MAY** contain a
+    binds: [log-file]
+- section: threadFlowLocation.importance
+  statements:
+  - starts: A `threadFlowLocation` **MAY** contain a property
+    binds: [log-file]
+  - starts: The `importance` property **SHALL** have one
+    binds: [log-file]
+  - starts: If this property is absent, it
+    binds: [log-file]
+- section: threadFlowLocation.taxa
+  statements:
+  - starts: A `threadFlowLocation` **MAY** contain a property
+    binds: [log-file]
+- section: graph/general
+  statements:
+  - starts: '`graph` objects **MAY** be defined both'
+    binds: [log-file]
+- section: graph.description
+  statements:
+  - starts: A `graph` object **MAY** contain a
+    binds: [log-file]
+- section: graph.nodes
+  statements:
+  - starts: A `graph` object **MAY** contain a
+    binds: [log-file]
+- section: graph.edges
+  statements:
+  - starts: A `graph` object **MAY** contain a
+    binds: [log-file]
+- section: node.id
+  statements:
+  - starts: A `node` object **SHALL** contain a
+    binds: [log-file]
+  - starts: '`id` **SHALL** be unique among all'
+    binds: [log-file]
+- section: node.label
+  statements:
+  - starts: A `node` object **MAY** contain a
+    binds: [log-file]
+- section: node.location
+  statements:
+  - starts: A `node` object **SHOULD** have a
+    binds: [log-file]
+- section: node.children
+  statements:
+  - starts: A `node` object **MAY** contain a
+    binds: [log-file]
+- section: edge.id
+  statements:
+  - starts: An `edge` object **SHALL** contain a
+    binds: [log-file]
+- section: edge.label
+  statements:
+  - starts: An `edge` object **MAY** contain a
+    binds: [log-file]
+- section: edge.sourceNodeId
+  statements:
+  - starts: An `edge` object **SHALL** contain a
+    binds: [log-file]
+  - starts: It **SHALL** equal the `id` property
+    binds: [log-file]
+  - starts: It **MAY** equal the id of
+    binds: [log-file]
+- section: edge.targetNodeId
+  statements:
+  - starts: An `edge` object **SHALL** contain a
+    binds: [log-file]
+  - starts: It **SHALL** equal the `id` property
+    binds: [log-file]
+  - starts: It **MAY** equal `sourceNodeId` ([sec](#sourcenodeid-property)).
+    binds: [log-file]
+- section: graphTraversal/constraints
+  statements:
+  - starts: Exactly one of the `resultGraphIndex` property
+    binds: [log-file]
+- section: graphTraversal.resultGraphIndex
+  statements:
+  - starts: If a `graphTraversal` object represents the
+    binds: [log-file]
+- section: graphTraversal.runGraphIndex
+  statements:
+  - starts: If a `graphTraversal` object represents the
+    binds: [log-file]
+- section: graphTraversal.description
+  statements:
+  - starts: A `graphTraversal` object **MAY** contain a
+    binds: [log-file]
+- section: graphTraversal.initialState
+  statements:
+  - starts: A `graphTraversal` object **MAY** contain a
+    binds: [log-file]
+  - starts: This property **SHOULD NOT** include items
+    binds: [log-file]
+  - starts: Such items **SHOULD** be stored in
+    binds: [log-file]
+- section: graphTraversal.immutableState
+  statements:
+  - starts: A `graphTraversal` object **MAY** contain a
+    binds: [log-file]
+- section: graphTraversal.edgeTraversals
+  statements:
+  - starts: A `graphTraversal` object **MAY** contain a
+    binds: [log-file]
+  - starts: The `edgeTraversal` objects **SHALL** be connected
+    binds: [log-file]
+- section: edgeTraversal.edgeId
+  statements:
+  - starts: An `edgeTraversal` object **SHALL** contain a
+    binds: [log-file]
+- section: edgeTraversal.message
+  statements:
+  - starts: An `edgeTraversal` object **MAY** contain a
+    binds: [log-file]
+- section: edgeTraversal.finalState
+  statements:
+  - starts: An `edgeTraversal` object **MAY** contain a
+    binds: [log-file]
+  - starts: A SARIF viewer **SHALL** display only
+    binds: &id001 [viewer]
+  - starts: It **SHALL NOT** assume that properties
+    binds: *id001
+    via: the previous sentence
+- section: edgeTraversal.stepOverEdgeCount
+  statements:
+  - starts: An `edgeTraversal` object **MAY** contain a
+    binds: [log-file]
+  - starts: Therefore, this property **SHOULD** be specified
+    binds: [log-file]
+  - starts: If this property is present, a
+    binds: [viewer]
+- section: stack.message
+  statements:
+  - starts: A `stack` object **MAY** contain a
+    binds: [log-file]
+- section: stack.frames
+  statements:
+  - starts: A stack object **SHALL** contain a
+    binds: [log-file]
+  - starts: This array **SHALL** include every function
+    binds: [log-file]
+- section: stackFrame.location
+  statements:
+  - starts: A `stackFrame` object **MAY** contain a
+    binds: [log-file]
+  - starts: If location information is unavailable (as
+    binds: [log-file]
+- section: stackFrame.module
+  statements:
+  - starts: A `stackFrame` object **MAY** contain a
+    binds: [log-file]
+- section: stackFrame.threadId
+  statements:
+  - starts: A `stackFrame` object **MAY** contain a
+    binds: [log-file]
+- section: stackFrame.parameters
+  statements:
+  - starts: A `stackFrame` object **MAY** contain a
+    binds: [log-file]
+- section: webRequest.index
+  statements:
+  - starts: Depending on the circumstances, a `webRequest`
+    binds: [log-file]
+  - starts: If `thisObject` is an element of
+    binds: [log-file]
+  - starts: If present, its value **SHALL** be
+    binds: [log-file]
+  - starts: Otherwise, if `theRun.webRequests` is absent, or
+    binds: [log-file]
+  - starts: Otherwise (that is, if `thisObject` belongs
+    binds: [log-file]
+  - starts: If `index` is present, `thisObject` **SHALL**
+    binds: [log-file]
+  - starts: If `thisObject` contains any properties other
+    binds: [log-file]
+- section: webRequest.protocol
+  statements:
+  - starts: A `webRequest` object **SHOULD** contain a
+    binds: [log-file]
+- section: webRequest.version
+  statements:
+  - starts: A `webRequest` object **SHOULD** contain a
+    binds: [log-file]
+- section: webRequest.target
+  statements:
+  - starts: A `webRequest` object **SHOULD** contain a
+    binds: [log-file]
+- section: webRequest.method
+  statements:
+  - starts: A `webRequest` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: The string **SHOULD** be one of
+    binds: [log-file]
+- section: webRequest.headers
+  statements:
+  - starts: A `webRequest` object **SHOULD** contain a
+    binds: [log-file]
+- section: webRequest.parameters
+  statements:
+  - starts: A `webRequest` object **MAY** contain a
+    binds: [log-file]
+- section: webRequest.body
+  statements:
+  - starts: A `webRequest` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the request body is entirely textual, `body.text`
+    binds: [log-file]
+  - starts: If present, it **SHALL** contain the request
+    binds: [log-file]
+  - starts: If the request body is entirely textual, `body.binary`
+    binds: [log-file]
+  - starts: If present, it **SHALL** contain the MIME
+    binds: [log-file]
+  - starts: If the request body consists partially
+    binds: [log-file]
+  - starts: In this situation, `body.text` **SHALL** be
+    binds: [log-file]
+- section: webResponse.index
+  statements:
+  - starts: Depending on the circumstances, a `webResponse`
+    binds: [log-file]
+  - starts: If `thisObject` is an element of
+    binds: [log-file]
+  - starts: If present, its value **SHALL** be
+    binds: [log-file]
+  - starts: Otherwise, if `theRun.webResponses` is absent, or
+    binds: [log-file]
+  - starts: Otherwise (that is, if `thisObject` belongs
+    binds: [log-file]
+  - starts: If `index` is present, `thisObject` **SHALL**
+    binds: [log-file]
+  - starts: If `thisObject` contains any properties other
+    binds: [log-file]
+- section: webResponse.protocol
+  statements:
+  - starts: A `webResponse` object **SHOULD** contain a
+    binds: [log-file]
+- section: webResponse.version
+  statements:
+  - starts: A `webResponse` object **SHOULD** contain a
+    binds: [log-file]
+- section: webResponse.statusCode
+  statements:
+  - starts: A `webResponse` object **SHOULD** contain a
+    binds: [log-file]
+- section: webResponse.reasonPhrase
+  statements:
+  - starts: A `webResponse` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: If `noResponseReceived` ([sec](#noresponsereceived-property)) is `true`, then
+    binds: [log-file]
+- section: webResponse.headers
+  statements:
+  - starts: A `webResponse` object **SHOULD** contain a
+    binds: [log-file]
+- section: webResponse.body
+  statements:
+  - starts: A `webResponse` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the response body is entirely textual, `body.text`
+    binds: [log-file]
+  - starts: If present, it **SHALL** contain the response
+    binds: [log-file]
+  - starts: If the response body is entirely textual, `body.binary`
+    binds: [log-file]
+  - starts: If present, it **SHALL** contain the MIME
+    binds: [log-file]
+  - starts: If the response body consists partially
+    binds: [log-file]
+  - starts: In this situation, `body.text` **SHALL** be
+    binds: [log-file]
+- section: webResponse.noResponseReceived
+  statements:
+  - starts: If no response to the HTTP
+    binds: [log-file]
+  - starts: If a response was received, `noResponseReceived`
+    binds: [log-file]
+  - starts: If `noResponseReceived` is `true`, then `reasonPhrase`
+    binds: [log-file]
+- section: resultProvenance.firstDetectionTimeUtc
+  statements:
+  - starts: A `resultProvenance` object **MAY** contain a
+    binds: [log-file]
+  - starts: It **SHOULD** specify the start time
+    binds: [log-file]
+- section: resultProvenance.lastDetectionTimeUtc
+  statements:
+  - starts: A `resultProvenance` object **MAY** contain a
+    binds: [log-file]
+  - starts: It **SHOULD** specify the start time
+    binds: [log-file]
+  - starts: If `lastDetectionTimeUtc` is absent, its default
+    binds: [log-file]
+- section: resultProvenance.firstDetectionRunGuid
+  statements:
+  - starts: A `resultProvenance` object **MAY** contain a
+    binds: [log-file]
+- section: resultProvenance.lastDetectionRunGuid
+  statements:
+  - starts: A `resultProvenance` object **MAY** contain a
+    binds: [log-file]
+- section: resultProvenance.invocationIndex
+  statements:
+  - starts: If `theRun.invocations` ([sec](#invocations-property)) is present, a
+    binds: [log-file]
+  - starts: If `theRun.invocations` is absent, `invocationIndex` **SHALL**
+    binds: [log-file]
+  - starts: If `invocationIndex` is absent and `theRun.invocations`
+    binds: [log-file]
+- section: resultProvenance.conversionSources
+  statements:
+  - starts: A `resultProvenance` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `theResult` was produced by a
+    binds: [log-file]
+  - starts: Otherwise (that is, if the `run`
+    binds: [log-file]
+- section: reportingDescriptor/constraints
+  statements:
+  - starts: Either the `shortDescription` property ([sec](#reportingdescriptor-object--shortdescription-property)) or
+    binds: [log-file]
+- section: reportingDescriptor.id
+  statements:
+  - starts: A `reportingDescriptor` object **SHALL** contain a
+    binds: [log-file]
+  - starts: In the case of a rule,
+    binds: [log-file]
+  - starts: In the case of a notification,
+    binds: [log-file]
+- section: reportingDescriptor.deprecatedIds
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+- section: reportingDescriptor.guid
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+- section: reportingDescriptor.deprecatedGuids
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+- section: reportingDescriptor.name
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+- section: reportingDescriptor.deprecatedNames
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+  - starts: The array elements **SHALL** occur in
+    binds: [log-file]
+- section: reportingDescriptor.shortDescription
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+  - starts: The `shortDescription` property **SHOULD** be a
+    binds: [log-file]
+- section: reportingDescriptor.fullDescription
+  statements:
+  - starts: A `reportingDescriptor` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: The `fullDescription` property **SHOULD**, as far
+    binds: [log-file]
+  - starts: The beginning of `fullDescription` (for example,
+    binds: [log-file]
+  - starts: Tools that do not construct `fullDescription`
+    binds: [log-file]
+- section: reportingDescriptor.messageStrings
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the `reportingDescriptor` object defines a
+    binds: [log-file]
+  - starts: The `messageStrings` property **MAY** contain additional
+    binds: [log-file]
+  - starts: If the `reportingDescriptor` object describes a
+    binds: [log-file]
+- section: reportingDescriptor.helpUri
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+- section: reportingDescriptor.help
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+- section: reportingDescriptor.defaultConfiguration
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+  - starts: If this property is absent, it
+    binds: [log-file]
+  - starts: The rule- or notification-specific configuration parameters
+    binds: [log-file]
+- section: reportingDescriptor.precision
+  statements:
+  - starts: A `reportingDescriptor` object that describes a
+    binds: [log-file]
+  - starts: This value **MAY** be represented as
+    binds: [log-file]
+- section: reportingDescriptor.securitySeverity
+  statements:
+  - starts: A `reportingDescriptor` object that describes a
+    binds: [log-file]
+  - starts: This value **MAY** be represented as
+    binds: [log-file]
+- section: reportingDescriptor.relationships
+  statements:
+  - starts: A `reportingDescriptor` object **MAY** contain a
+    binds: [log-file]
+- section: reportingConfiguration.enabled
+  statements:
+  - starts: A `reportingConfiguration` object **MAY** contain a
+    binds: [log-file]
+  - starts: If this property is absent, it
+    binds: [log-file]
+- section: reportingConfiguration.level
+  statements:
+  - starts: A `reportingConfiguration` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `level` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: If `theDescriptor` describes a rule, then
+    binds: [log-file]
+  - starts: If `theDescriptor` describes a notification, then
+    binds: [log-file]
+- section: reportingConfiguration.rank
+  statements:
+  - starts: A `reportingConfiguration` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `rank` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: If `theDescriptor` describes a rule, then
+    binds: [log-file]
+- section: reportingConfiguration.parameters
+  statements:
+  - starts: A `reportingConfiguration` object **MAY** contain a
+    binds: [log-file]
+- section: configurationOverride.descriptor
+  statements:
+  - starts: A `configurationOverride` object **SHALL** contain a
+    binds: [log-file]
+- section: configurationOverride.configuration
+  statements:
+  - starts: A `configurationOverride` object **SHALL** contain a
+    binds: [log-file]
+- section: reportingDescriptorReference/general
+  statements:
+  - starts: In that case, the `reportingDescriptorReference` object
+    binds: [log-file]
+- section: reportingDescriptorReference/constraints
+  statements:
+  - starts: If metadata is present, at least
+    binds: [log-file]
+  - starts: If both are present, they **SHALL**
+    binds: [log-file]
+- section: reportingDescriptorReference/reportingdescriptor-lookup
+  statements:
+  - starts: '`theDescriptor` **SHALL** be located within the'
+    binds: [log-file]
+  - starts: '`theDescriptor` **SHALL** be located either within'
+    binds: [log-file]
+- section: reportingDescriptorReference.id
+  statements:
+  - starts: A `reportingDescriptorReference` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `id` is absent and `theResult.ruleId`
+    binds: [log-file]
+  - starts: If both are present, they **SHALL**
+    binds: [log-file]
+- section: reportingDescriptorReference.index
+  statements:
+  - starts: A `reportingDescriptorReference` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `index` is absent and `theResult.ruleIndex`
+    binds: [log-file]
+  - starts: If both are present, they **SHALL**
+    binds: [log-file]
+- section: reportingDescriptorReference.guid
+  statements:
+  - starts: A `reportingDescriptorReference` object **MAY** contain a
+    binds: [log-file]
+- section: reportingDescriptorReference.toolComponent
+  statements:
+  - starts: A `reportingDescriptorReference` object **MAY** contain a
+    binds: [log-file]
+- section: reportingDescriptorRelationship.target
+  statements:
+  - starts: A `reportingDescriptorRelationship` object **SHALL** contain a
+    binds: [log-file]
+- section: reportingDescriptorRelationship.kinds
+  statements:
+  - starts: A `reportingDescriptorRelationship` object **MAY** contain a
+    binds: [log-file]
+  - starts: If `kinds` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: When possible, SARIF producers **SHOULD** use
+    binds: [producer]
+  - starts: If none of these values are
+    binds: [producer]
+- section: reportingDescriptorRelationship.description
+  statements:
+  - starts: A `reportingDescriptorRelationship` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponentReference/toolcomponent-lookup
+  statements:
+  - starts: If neither `index` ([sec](#toolcomponentreference-object--index-property)) nor `guid`
+    binds: [log-file]
+  - starts: If `index` is present, `theComponent` **SHALL**
+    binds: [log-file]
+  - starts: If `index` is absent and `guid`
+    binds: [log-file]
+- section: toolComponentReference.name
+  statements:
+  - starts: A `toolComponentReference` object **MAY** contain a
+    binds: [log-file]
+- section: toolComponentReference.index
+  statements:
+  - starts: If `theComponent` is an element of
+    binds: [log-file]
+- section: toolComponentReference.guid
+  statements:
+  - starts: A `toolComponentReference` object **MAY** contain a
+    binds: [log-file]
+- section: fix.description
+  statements:
+  - starts: A `fix` object **SHOULD** contain a
+    binds: [log-file]
+- section: fix.artifactChanges
+  statements:
+  - starts: A `fix` object **SHALL** contain a
+    binds: [log-file]
+  - starts: The array elements **SHALL** refer to
+    binds: [log-file]
+- section: artifactChange.artifactLocation
+  statements:
+  - starts: An `artifactChange` object **SHALL** contain a
+    binds: [log-file]
+- section: artifactChange.replacements
+  statements:
+  - starts: An `artifactChange` object **SHALL** contain a
+    binds: [log-file]
+- section: replacement/general
+  statements:
+  - starts: If a replacement object specifies both
+    binds: [log-file]
+  - starts: If a single `artifactChange` object ([sec](#artifactchange-object))
+    binds: [log-file]
+  - starts: The `deletedRegion` property of each `replacement`
+    binds: [log-file]
+  - starts: When performing a replacement in a
+    binds: [producer]
+- section: replacement/constraints
+  statements:
+  - starts: If the `deletedRegion` property ([sec](#deletedregion-property)) specifies
+    binds: [log-file]
+  - starts: If the `deletedRegion` property specifies a
+    binds: [log-file]
+  - starts: Although it is possible to construct
+    binds: [log-file]
+- section: replacement.deletedRegion
+  statements:
+  - starts: A `replacement` object **SHALL** contain a
+    binds: [log-file]
+  - starts: If the length of the region
+    binds: [consumer]
+- section: replacement.insertedContent
+  statements:
+  - starts: A `replacement` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the inserted content is specified
+    binds: [log-file]
+  - starts: If `insertedContent` is absent or its
+    binds: [consumer]
+- section: notification.descriptor
+  statements:
+  - starts: A `notification` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: If the `reportingDescriptor` object ([sec](#reportingdescriptor-object)) `theDescriptor`
+    binds: [log-file]
+- section: notification.associatedRule
+  statements:
+  - starts: If the condition described by the
+    binds: [log-file]
+- section: notification.locations
+  statements:
+  - starts: If the condition described by the
+    binds: [log-file]
+- section: notification.message
+  statements:
+  - starts: A `notification` object **SHALL** contain a
+    binds: [log-file]
+- section: notification.level
+  statements:
+  - starts: A `notification` object **MAY** contain a
+    binds: [log-file]
+  - starts: If present, the `level` property **SHALL**
+    binds: [log-file]
+  - starts: If `level` is absent, it **SHALL**
+    binds: [log-file]
+  - starts: Analysis tools **SHOULD** treat notifications whose
+    binds: [direct-producer]
+  - starts: Because a notification whose `level` property
+    binds: [direct-producer]
+- section: notification.threadId
+  statements:
+  - starts: A `notification` object **MAY** contain a
+    binds: [log-file]
+- section: notification.timeUtc
+  statements:
+  - starts: A `notification` object **MAY** contain a
+    binds: [log-file]
+- section: notification.exception
+  statements:
+  - starts: If the notification is a result
+    binds: [log-file]
+  - starts: If the notification is not the
+    binds: [log-file]
+- section: notification.relatedLocations
+  statements:
+  - starts: A `notification` object **MAY** contain a
+    binds: [log-file]
+  - starts: The `relatedLocations` property **SHOULD** allow `notification`
+    binds: [log-file]
+  - starts: '- Locations to which the condition'
+    binds: [log-file]
+- section: exception.kind
+  statements:
+  - starts: An `exception` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: If the exception represents a thrown
+    binds: [log-file]
+  - starts: If the exception represents a POSIX
+    binds: [log-file]
+  - starts: If the tool does not have
+    binds: [log-file]
+- section: exception.message
+  statements:
+  - starts: An `exception` object **SHOULD** contain a
+    binds: [log-file]
+  - starts: If the tool does not have
+    binds: [log-file]
+- section: exception.stack
+  statements:
+  - starts: An `exception` object **MAY** contain a
+    binds: [log-file]
+- section: exception.innerExceptions
+  statements:
+  - starts: An `exception` object **MAY** contain a
+    binds: [log-file]
+- section: external-property-file-format/general
+  statements:
+  - starts: An external property file **SHALL** contain
+    binds: [log-file]
+  - starts: A SARIF consumer **SHALL** treat the
+    binds: [consumer]
+- section: external-property-file-naming-convention
+  statements:
+  - starts: The file name of an external
+    binds: [log-file]
+  - starts: The file name **MAY** end with
+    binds: [log-file]
+- section: externalProperties/general
+  statements:
+  - starts: The top-level element of an external
+    binds: [log-file]
+- section: externalProperties.$schema
+  statements:
+  - starts: An `externalProperties` object **MAY** contain a
+    binds: [log-file]
+  - starts: If the `$schema` property is present,
+    binds: [log-file]
+- section: externalProperties.version
+  statements:
+  - starts: Depending on the circumstances, an `externalProperties`
+    binds: [log-file]
+  - starts: If present, this string **SHALL** have
+    binds: [log-file]
+  - starts: If this `externalProperties` object is the
+    binds: [log-file]
+  - starts: Otherwise (that is, if this `externalProperties`
+    binds: [log-file]
+  - starts: If absent, it **SHALL** default to
+    binds: [log-file]
+  - starts: Although the order in which properties
+    binds: [log-file]
+- section: externalProperties.guid
+  statements:
+  - starts: An `externalProperties` object **SHOULD** contain a
+    binds: [log-file]
+- section: externalProperties.runGuid
+  statements:
+  - starts: If the externalized properties contained in
+    binds: [log-file]
+  - starts: Otherwise (that is, if this `externalProperties`
+    binds: [log-file]
+- section: externalProperties/the-property-value-properties
+  statements:
+  - starts: An `externalProperties` object **SHALL** contain zero
+    binds: [log-file]
+- section: annex-c-use-of-fingerprints-by-result-management-systems
+  statements:
+  - starts: A result management system **SHOULD** construct
+    binds: [result-management-system]
+  - starts: A result management system **SHOULD** include
+    binds: [result-management-system]
+  - starts: An analysis tool **SHOULD NOT** include
+    binds: [direct-producer]
+  - starts: A result management system **SHOULD NOT**
+    binds: [result-management-system]
+- section: annex-d-production-of-sarif-by-converters
+  statements:
+  - starts: A converter **SHOULD** populate those elements
+    binds: [converter]
+  - starts: If the input data includes information
+    binds: [converter]
+  - starts: When populating a property bag with
+    binds: [converter]
+  - starts: When serializing SARIF as JSON, a
+    binds: [converter]
+  - starts: If the input data does not
+    binds: [converter]
+  - starts: Since each converter might synthesize SARIF
+    binds: [consumer]
+  - starts: A converter **SHOULD** populate its own
+    binds: [converter]
+  - starts: If it does, and if a
+    binds: [converter]
+  - starts: '- A converter that knows which'
+    binds: [log-file]
+  - starts: '- A converter **SHOULD NOT** populate'
+    binds: [converter]
+- section: minimal-valid-sarif-log-file
+  statements:
+  - starts: It contains only those elements required
+    binds: [log-file]
+- section: minimal-recommended-sarif-log-file-with-source-information
+  statements:
+  - starts: The file contains those elements recommended
+    binds: [log-file]
+  - starts: It does not contain a `run.logicalLocations`
+    binds: [log-file]
+- section: minimal-recommended-sarif-log-file-without-source-information
+  statements:
+  - starts: The file contains those elements recommended
+    binds: [log-file]

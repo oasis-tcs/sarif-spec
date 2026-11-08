@@ -187,6 +187,8 @@ Each finding names the place to change; decisions for the TC are marked **TC**.
 - `example/comprehensive.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/0/location/physicalLocation/address: {'offsetFromParent': 4229178} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
 - `example/comprehensive.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/1/location/physicalLocation/address: {'offsetFromParent': 4229268} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
 - `example/comprehensive.json` breaks a derived presence rule: /runs/0/results/0/stacks/0/frames/2/location/physicalLocation/address: {'offsetFromParent': 4229836} should not be valid under {'required': ['offsetFromParent']} (if the example is a fragment, it lacks an elision marker)
+- file-format-27-result-object.md:96 (`result.ruleId`): binds direct-producer without naming it; the conformance section binds the log file unless a statement designates another target **TC**
+- file-format-27-result-object.md:96 (`result.ruleId`): binds direct-producer without naming it; the conformance section binds the log file unless a statement designates another target **TC**
 - file-format-32-address-object.md:97: one bold span holds two keywords (**MAY, SHALL NOT**): bold each keyword
 - file-format-33-logicallocation-object.md:40: one bold span holds two keywords (**MAY, SHALL NOT**): bold each keyword
 - file-format-46-webrequest-object.md:16: one bold span holds two keywords (**MAY, SHALL NOT**): bold each keyword

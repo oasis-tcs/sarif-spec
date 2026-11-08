@@ -1,7 +1,8 @@
-# Statements naming: SARIF viewer
+# Statements binding: Viewer (conformance clause 7)
 
-Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do not edit.
-16 statements; SHALL 1, SHALL NOT 1, SHOULD 3, MAY 11.
+Derived by `bin/vision.py derive` from `records/statements.yaml` and `records/roles.yaml`; do not edit.
+17 statements of its own; SHALL 1, SHALL NOT 2, SHOULD 3, MAY 11.
+Its profile includes [consumer](consumer.md): 65 statements in all.
 
 
 ## `defaultSourceLanguage` Property
@@ -83,6 +84,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-43-edgetraversal-object.md`
 
 - A SARIF viewer **SHALL** display only those properties that are explicitly present in the `finalState` property of the current `edgeTraversal`. (line 22)
+- It **SHALL NOT** assume that properties present in previous steps are still present with unchanged values. (line 22)
 
 ## `stepOverEdgeCount` Property
 

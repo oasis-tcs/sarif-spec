@@ -1,14 +1,8 @@
-# Statements naming: no role named
+# Statements binding: SARIF log file (conformance clause 1)
 
-Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do not edit.
-775 statements; SHALL 378, SHALL NOT 46, SHOULD 100, SHOULD NOT 5, MAY 295.
+Derived by `bin/vision.py derive` from `records/statements.yaml` and `records/roles.yaml`; do not edit.
+851 statements of its own; SHALL 408, SHALL NOT 44, SHOULD 108, SHOULD NOT 7, MAY 333.
 
-
-## Key Words
-
-`document-conventions.md`
-
-- The key words "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", "**RECOMMENDED**", "**NOT RECOMMENDED**", "**MAY**", and "**OPTIONAL**" in this document are to be interpreted as described in BCP 14 [cite](#RFC2119) and [cite](#RFC8174) when, and only when, they appear in all capitals, as shown here. (line 9)
 
 ## General
 
@@ -37,6 +31,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-03-artifactcontent-object.md`
 
+- If the external artifact is a binary artifact, or if the SARIF producer cannot determine whether the external artifact is a text artifact or a binary artifact, an `artifactContent` object **SHALL** contain a property named `binary` whose value is a string containing the MIME Base64 encoding [cite](#RFC2045) of the bytes in the relevant portion of the artifact. (line 18)
 - If the external artifact is a text artifact in an encoding other than UTF-8, the `binary` property **MAY** be present, in which case it **SHALL** contain the MIME Base64 encoding of the bytes representing the relevant text in its original encoding. (line 20)
 - If the external artifact is a UTF-8 text artifact, the `binary` property **SHOULD** be absent. (line 22)
 - If it is present, it **SHALL** contain the MIME Base64 encoding of the UTF-8 bytes representing the relevant text. (line 22)
@@ -139,6 +134,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-08-property-bags.md`
 
+- The components of the property names **SHOULD** be camelCase strings, but see [sec](#production-of-sarif-by-converters) for exceptions. (line 8)
 - The property values **MAY** be of any JSON type, including strings, numbers, arrays, objects, Booleans, and null. (line 10)
 - If a property value is a string, it **MAY** be an empty string. (line 10)
 - In addition to those properties that are explicitly documented, every object defined in this document **MAY** contain a property named `properties` whose value is a property bag. (line 12)
@@ -243,7 +239,6 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-11-message-object.md`
 
 - The `run` object **SHALL** contain enough information for the procedure to succeed. (line 224)
-- The lookup **SHALL** occur entirely within the context of a single `toolComponent` object ([sec](#toolcomponent-object)) which we refer to as `theComponent`. (line 226)
 
 ## `text` Property
 
@@ -268,6 +263,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-11-message-object.md`
 
+- If the message string specified by any of the properties `text` ([sec](#message-object--text-property)), `markdown` ([sec](#message-object--markdown-property)), or `id` ([sec](#message-object--id-property)) contains any placeholders ([sec](#messages-with-placeholders)), the `message` object **SHALL** contain a property named `arguments` whose value is an array of strings. [sec](#messages-with-placeholders) specifies how a SARIF consumer combines the contents of the `arguments` array with the message string to construct the message that it presents to the end user, and provides an example. (line 292)
 - If none of the properties `text`, `markdown`, or `id` contains any placeholders, then `arguments` **MAY** be absent. (line 294)
 - The `arguments` array **SHALL** contain as many elements as required by the maximum placeholder index among all the message strings specified by the `text`, `markdown`, and `id` properties. (line 296)
 
@@ -304,6 +300,8 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A `sarifLog` object **SHALL** contain a property named `runs` whose value is either `null` or an array of zero or more `run` objects ([sec](#run-object)). (line 45)
 - The value of `runs` **SHALL** be an array with at least one element except in the following circumstances: (line 47)
+- - If a SARIF producer finds no data with which to populate `runs`, then its value **SHALL** be an empty array. (line 49)
+- - If a SARIF producer tries to populate `runs` but fails, then its value **SHALL** be `null`. (line 53)
 
 ## `inlineExternalProperties` Property
 
@@ -342,6 +340,12 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - A `run` object **MAY** contain a property named `baselineGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which **SHALL** equal the `automationDetails.guid` property ([sec](#automationdetails-property), [sec](#runautomationdetails-object--guid-property)) of some previous run. (line 45)
 - If `baselineGuid` is present, the `result.baselineState` property ([sec](#baselinestate-property)) of every `result` object ([sec](#result-object)) in `theRun` **SHALL** be computed with respect to the run specified by `baselineGuid`. (line 49)
 
+## `tool` Property
+
+`file-format-14-run-object.md`
+
+- A `run` object **SHALL** contain a property named `tool` whose value is a `tool` object ([sec](#tool-object)) that describes the analysis tool that was run. (line 53)
+
 ## `language` Property
 
 `file-format-14-run-object.md`
@@ -371,6 +375,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-14-run-object.md`
 
+- A `run` object **MAY** contain a property named `invocations` whose value is an array of zero or more `invocation` objects ([sec](#invocation-object)) that together describe a single run of a single analysis tool. (line 83)
 - The elements of the `invocations` array **SHOULD**, as far as possible, be arranged in chronological order according to the start time of each process. (line 87)
 
 ## `versionControlProvenance` Property
@@ -383,6 +388,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-14-run-object.md`
 
+- A `run` object **MAY** contain a property named `originalUriBaseIds` whose value is an object ([sec](#object-properties)) each of whose property names designates a URI base id ([sec](#uribaseid-property)) and each of whose property values is an `artifactLocation` object ([sec](#artifactlocation-object)) that specifies (in the manner described below) the absolute URI [cite](#RFC3986) of that URI base id on the machine where the SARIF producer ran. (line 123)
 - If the `artifactLocation` object’s `uri` property ([sec](#uri-property)) is a relative reference, its `uriBaseId` property ([sec](#uribaseid-property)) **SHALL** be present. (line 125)
 - Otherwise (that is, if `uri` is an absolute URI, or if it is absent), `uriBaseId` **SHALL** be absent. (line 125)
 - If the actual value of `uri` would have been an absolute URI, `uri` **MAY** be omitted. (line 127)
@@ -396,8 +402,15 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-14-run-object.md`
 
 - A `run` object **MAY** contain a property named `artifacts` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `artifact` objects ([sec](#artifact-object)) each of which represents an artifact relevant to the run. (line 248)
+- The array **SHOULD** contain elements representing at least those artifacts in which results were detected, but it **MAY** contain elements representing all artifacts examined by the tool (whether or not results were detected in those artifacts), or any subset of those artifacts. (line 250)
 - It **MAY** also include other artifacts relevant to the run, such as attachments ([sec](#attachments-property)). (line 250)
 - If a nested artifact appears in the `artifacts` array, then the `artifacts` array **SHALL** also contain elements describing each of its parents, up to and including the top-level artifact. (line 272)
+
+## `specialLocations` Property
+
+`file-format-14-run-object.md`
+
+- A `run` object **MAY** contain a property named `specialLocations` whose value is a `specialLocations` object ([sec](#speciallocations-object)) that defines locations of special significance to SARIF consumers. (line 276)
 
 ## `logicalLocations` Property
 
@@ -443,7 +456,11 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-14-run-object.md`
 
 - Depending on the circumstances, a `run` object either **SHALL** or **MAY** contain a property named `results` whose value, again depending on circumstances, is either `null` or an array of zero or more `result` objects ([sec](#result-object)) each of which represents a single result detected in the course of the run. (line 347)
+- If the tool failed to start, and if the engineering system responsible for running the tool synthesized a SARIF file to record the failure, then `results` **MAY** be present. (line 351)
 - If it is present, its value **SHALL** be `null`. (line 351)
+- If the tool started but failed to begin its analysis (for example, because its command line was invalid), then again `results` **MAY** be present, and if present **SHALL** be `null`. (line 353)
+- In all other circumstances, `results` **SHALL** be present and **SHALL** contain all results detected by the tool. (line 355)
+- If the tool did not detect any results, `results` **SHALL** be an empty array. (line 355)
 - If `results` is absent, it **SHALL** default to `null`. (line 357)
 
 ## `defaultEncoding` Property
@@ -468,13 +485,18 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-14-run-object.md`
 
+- A `run` object **MAY** contain a property named `newlineSequences` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) strings each of which specifies a character sequence that the tool treated as a line break during this run. (line 377)
 - If this property is absent, it **SHALL** default to the array `[ "\r\n", "\n" ]`. (line 379)
+- It **SHALL** mean that at potential line breaks, the tool "greedily" attempted to match each element of the array in order. (line 381)
 
 ## `columnKind` Property
 
 `file-format-14-run-object.md`
 
+- If a SARIF producer processes text artifacts and `theRun.results` ([sec](#results-property)) is non-empty, the `run` object **SHALL** contain a property named `columnKind` whose value is a string that specifies the unit in which the analysis tool measures columns. (line 399)
+- If a SARIF producer processes text artifacts and `theRun.results` is empty, `columnKind` **MAY** be present. (line 399)
 - `columnKind` **SHALL** have one of the following values, with the specified meanings: (line 401)
+- If the SARIF producer does not process text artifacts, `columnKind` **SHALL** be absent. (line 410)
 
 ## `redactionTokens` Property
 
@@ -497,6 +519,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - Since an external property file can contain multiple externalized properties, `externalPropertyFileReference` objects belonging to distinct properties **MAY** denote the same external property file. (line 99)
 - However, if an array-valued externalizable property is divided among multiple external property files, the `externalPropertyFileReference` objects belonging to that property **SHALL** denote distinct external property files. (line 99)
 - The exception is that if `run.tool.driver` is externalized, it **SHALL** still occur inline in the root file. (line 165)
+- The inline `driver` property **SHOULD** contain only properties that identify the tool, such as `name` ([sec](#toolcomponent-object--name-property)) and `semanticVersion` ([sec](#semanticversion-property)); it **SHOULD NOT** contain properties such as `globalMessageStrings` ([sec](#globalmessagestrings-property)), `rules` ([sec](#rules-property)), `notifications` ([sec](#notifications-property)), and `taxa` ([sec](#toolcomponent-object--taxa-property)), which take up a large amount of space. (line 165)
 
 ## Constraints
 
@@ -532,10 +555,17 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - If the `externalPropertyFileReference` object specifies an external property file that contains an object-valued property, `itemCount` **SHALL** be absent. (line 36)
 - If `itemCount` is absent, it **SHALL** default to -1, which indicates that the value is unknown (not set). (line 38)
 
+## `description` Property
+
+`file-format-17-runautomationdetails-object.md`
+
+- A `runAutomationDetails` object **MAY** contain a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the role played within the engineering system by `theRun`. (line 44)
+
 ## `id` Property
 
 `file-format-17-runautomationdetails-object.md`
 
+- A `runAutomationDetails` object **MAY** contain a property named `id` whose value is a hierarchical string ([sec](#hierarchical-strings)) that uniquely identifies `theRun` within the engineering system. (line 48)
 - The trailing component of `id` **MAY** be empty; note that the grammar for a hierarchical identifier ([sec](#hierarchical-strings--general)) permits any component to be empty. (line 58)
 - This **SHALL** be taken to signify that the run belongs to the specified category, but that the run itself has no unique identifier. (line 58)
 - `id` **MAY** consist of a single component. (line 62)
@@ -553,6 +583,25 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A `runAutomationDetails` object **MAY** contain a property named `correlationGuid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) which is shared by all such runs of the same type, and differs between any two runs of different types. (line 74)
 - If `id` ([sec](#runautomationdetails-object--id-property)) is present, `correlationGuid` **SHALL** identify the category of runs specified by all but the last hierarchical component (which **MAY** be empty according to the grammar ([sec](#hierarchical-strings--general)) for hierarchical strings) of `id`. (line 76)
+
+## General
+
+`file-format-18-tool-object.md`
+
+- If another tool post-processes the log file (for example, by removing certain results, or by adding information that was not known to the analysis tool), the post-processing tool **SHOULD NOT** alter any part of the tool object. (line 18)
+
+## `driver` Property
+
+`file-format-18-tool-object.md`
+
+- A `tool` object **SHALL** contain a property named `driver` whose value is a `toolComponent` object ([sec](#toolcomponent-object)) that describes the component containing the tool’s primary executable file. (line 43)
+
+## `extensions` Property
+
+`file-format-18-tool-object.md`
+
+- If the tool used any extensions during the run, the `tool` object **SHOULD** contain a property named `extensions` whose value is an array of one or more unique ([sec](#array-properties-with-unique-values)) `toolComponent` objects ([sec](#toolcomponent-object)) that describe those extensions. (line 46)
+- If the tool did not use any extensions during the run, then `extensions` **SHALL** either be absent or an empty array. (line 46)
 
 ## Constraints
 
@@ -599,10 +648,47 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - A `toolComponent` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that provides a unique, stable identifier for the component. (line 279)
 - `guid` **SHALL NOT** vary between versions of a given component. (line 279)
 
+## `name` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **SHALL** contain a property named `name` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the tool component. (line 287)
+
+## `fullName` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `fullName` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the tool component along with its version and any other useful identifying information, such as its locale. (line 297)
+
+## `product` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `product` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the product to which the tool component belongs. (line 303)
+
+## `productSuite` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `productSuite` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the suite of products to which the tool component belongs. (line 309)
+
+## `semanticVersion` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `semanticVersion` whose value is a string containing the tool component’s version in a format that conforms to the syntax and semantics specified by Semantic Versioning [cite](#SEMVER). (line 315)
+
+## `version` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `version` whose value is a string containing the tool component’s version in whatever format the component natively provides. (line 325)
+
 ## `dottedQuadFileVersion` Property
 
 `file-format-19-toolcomponent-object.md`
 
+- If the operating system on which the tool runs provides a value for the file version of the tool component's primary executable file, and if that value logically consists of an ordered set of four non-negative integers, then the `toolComponent` object **MAY** contain a property named `dottedQuadFileVersion` whose value is a string representation of that file version in this syntax: (line 331)
 - If the operating system does not provide such a value, the `dottedQuadFileVersion` property **SHALL** be absent. (line 337)
 
 ## `releaseDateUtc` Property
@@ -611,16 +697,37 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A `toolComponent` object **MAY** contain a property named `releaseDateUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date (and optionally, the time) of the component’s release. (line 343)
 
+## `downloadUri` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `downloadUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI [cite](#RFC3986) from which this version of the tool component can be downloaded. (line 347)
+
+## `informationUri` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `informationUri` whose value is a localizable string ([sec](#localizable-strings)) containing the absolute URI [cite](#RFC3986) at which information about this version of the tool component can be found. (line 353)
+
+## `organization` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `organization` whose value is a localizable string ([sec](#localizable-strings)) containing the name of the company or organization that produced the tool component. (line 359)
+
 ## `shortDescription` Property
 
 `file-format-19-toolcomponent-object.md`
 
+- A `toolComponent` object **MAY** contain a property named `shortDescription` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) containing a brief description of the tool component. (line 365)
 - The `shortDescription` property **SHOULD** be a single sentence that is understandable when visible space is limited to a single line of text. (line 367)
 
 ## `fullDescription` Property
 
 `file-format-19-toolcomponent-object.md`
 
+- A `toolComponent` object **MAY** contain a property named `fullDescription` whose value is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)) containing a comprehensive description of the tool component. (line 371)
+- The beginning of `fullDescription` (for example, its first sentence) **SHOULD** provide a concise description of the tool component, suitable for display in cases where available space is limited. (line 373)
 - Tools that do not construct `fullDescription` in this way **SHOULD** provide a value for `shortDescription`. (line 373)
 
 ## `language` Property
@@ -636,6 +743,18 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-19-toolcomponent-object.md`
 
 - A `toolComponent` object **MAY** contain a property named `globalMessageStrings` whose value is an object ([sec](#object-properties)) each of whose property values is a localizable `multiformatMessageString` object ([sec](#multiformatmessagestring-object), [sec](#localizable-multiformatmessagestrings)). (line 401)
+
+## `rules` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `rules` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptor` objects ([sec](#reportingdescriptor-object)) each of which provides information about an analysis rule supported by the tool component. (line 424)
+
+## `notifications` Property
+
+`file-format-19-toolcomponent-object.md`
+
+- A `toolComponent` object **MAY** contain a property named `notifications` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `reportingDescriptor` objects ([sec](#reportingdescriptor-object)) each of which provides information about a notification provided by the tool component. (line 464)
 
 ## `taxa` Property
 
@@ -704,18 +823,28 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - If `associatedComponent` is absent, it **SHALL** default to a reference to `theTool.driver`. (line 669)
 - The associated `toolComponent` object **MAY** itself contain an `associatedComponent` property; for example, a translation might be associated with a plugin which in turn is associated with the driver (see [sec](#tool-object--general)). (line 672)
 
+## `commandLine` Property
+
+`file-format-20-invocation-object.md`
+
+- An `invocation` object **MAY** contain a property named `commandLine` whose value is a string containing the completely specified command line used to invoke the tool, starting with the name of the tool's executable or script file, optionally qualified by the relative or absolute path to the file. (line 10)
+
 ## `arguments` Property
 
 `file-format-20-invocation-object.md`
 
+- An `invocation` object **MAY** contain a property named `arguments` whose value is either `null` or an array of zero or more strings, containing in order the command line arguments passed to the tool from the operating system. (line 40)
 - If `arguments` is absent, it **SHALL** default to `null`. (line 42)
+- An empty array **SHALL** mean that the tool was invoked with no command line arguments. (line 44)
 - `null` **SHALL** mean that the command line arguments, if any, are not known. (line 44)
 
 ## `responseFiles` Property
 
 `file-format-20-invocation-object.md`
 
+- An `invocation` object **MAY** contain a property named `responseFiles` whose value is either `null` or an array of zero or more unique ([sec](#array-properties-with-unique-values)) `artifactLocation` objects ([sec](#artifactlocation-object)) each of which represents a response file specified on the tool's command line. (line 52)
 - If `responseFiles` is absent, it **SHALL** default to `null`. (line 54)
+- An empty array **SHALL** mean that the tool was invoked with no command line arguments that specified response files. (line 56)
 - `null` **SHALL** mean that it is not known whether any command line arguments specified a response file. (line 56)
 
 ## `ruleConfigurationOverrides` Property
@@ -741,6 +870,46 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-20-invocation-object.md`
 
 - An `invocation` object **MAY** contain a property named `endTimeUtc` whose value is a string in the format specified in [sec](#datetime-properties), specifying the UTC date and time at which the invocation ended. (line 98)
+
+## `exitCode` Property
+
+`file-format-20-invocation-object.md`
+
+- If the SARIF producer process did not exit due to a signal, an `invocation` object **SHOULD** contain a property named `exitCode` whose value is an integer specifying the process exit code. (line 102)
+- If the SARIF producer process exited due to a signal, the `exitCode` property **SHALL** be absent. (line 104)
+
+## `exitCodeDescription` Property
+
+`file-format-20-invocation-object.md`
+
+- If the SARIF producer process did not exit due to a signal, an `invocation` object **MAY** contain a property named `exitCodeDescription` whose value is a string describing the reason for the process exit. (line 110)
+
+## `exitSignalName` Property
+
+`file-format-20-invocation-object.md`
+
+- If the SARIF producer process exited due to a signal, an `invocation` object **SHOULD** contain a property named `exitSignalName` whose value is a string containing the name of the signal that caused the process to exit. (line 132)
+- If the SARIF producer process did not exit due to a signal, the `exitSignalName` property **SHALL** be absent. (line 134)
+
+## `exitSignalNumber` Property
+
+`file-format-20-invocation-object.md`
+
+- If the SARIF producer process exited due to a signal, an `invocation` object **MAY** contain a property named `exitSignalNumber` whose value is an integer specifying the numeric value of the signal that caused the process to exit. (line 140)
+- If the SARIF producer process did not exit due to a signal, the `exitSignalNumber` property **SHALL** be absent. (line 142)
+
+## `processStartFailureMessage` Property
+
+`file-format-20-invocation-object.md`
+
+- If the analysis tool process failed to start, an `invocation` object **MAY** contain a property named `processStartFailureMessage` whose value is a string containing the operating system’s message describing the failure. (line 155)
+- If the analysis tool process started successfully (regardless of whether or how it subsequently failed), the `processStartFailureMessage` property **SHALL** be absent. (line 159)
+
+## `executionSuccessful` Property
+
+`file-format-20-invocation-object.md`
+
+- An `invocation` object **SHALL** contain a property named `executionSuccessful` whose value is a Boolean that is `true` if the engineering system that started the process knows that the analysis tool succeeded, and `false` if the engineering system knows that the tool failed. (line 171)
 
 ## `machine` Property
 
@@ -777,6 +946,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-20-invocation-object.md`
 
 - An `invocation` object **MAY** contain a property named `environmentVariables` whose value is an object. (line 215)
+- The property names in this object **SHALL** contain the names of all the environment variables in the tool's execution environment. (line 215)
 - The value of each property **SHALL** be a string containing the value of the specified environment variable. (line 215)
 - If the value of the environment variable is an empty string, the corresponding property value **SHALL** be an empty string. (line 215)
 - A distinct redaction token ([sec](#redactiontokens-property)) **SHALL** be used for each redacted property name. (line 221)
@@ -794,6 +964,12 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - An `invocation` object **MAY** contain a property named `toolConfigurationNotifications` whose value is an array of zero or more `notification` objects ([sec](#notification-object)). (line 241)
 - The presence within this array of any `notification` object whose `level` property ([sec](#notification-object--level-property)) is `"error"` **SHALL** mean that the run failed. (line 241)
+
+## `stdin`, `stdout`, `stderr`, and `stdoutStderr` Properties
+
+`file-format-20-invocation-object.md`
+
+- An `invocation` object **MAY** contain any or all of the properties `stdin`, `stdout`, `stderr`, and `stdoutStderr`, whose values are `artifactLocation` objects ([sec](#artifactlocation-object)) referring to files that contain the input to and output from the SARIF producer process. (line 301)
 
 ## `description` Property
 
@@ -821,11 +997,24 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - If the attachment is an image (for example `.png` or `.svg`), each `rectangle` object **SHALL** specify an area of interest within the image, and **SHOULD** contain a `message` property ([sec](#rectangle-object--message-property)) so a user can understand its relevance. (line 42)
 - If the attachment is not an image, and `rectangles` is present, its value **SHALL** be an empty array. (line 43)
 
+## `tool` Property
+
+`file-format-22-conversion-object.md`
+
+- A `conversion` object **SHALL** contain a property named `tool` whose value is a `tool` object ([sec](#tool-object)) that describes the converter. (line 46)
+
+## `invocation` Property
+
+`file-format-22-conversion-object.md`
+
+- A `conversion` object **MAY** contain a property named `invocation` whose value is an `invocation` object ([sec](#invocation-object)) that describes the invocation of the converter. (line 50)
+
 ## `analysisToolLogFiles` Property
 
 `file-format-22-conversion-object.md`
 
 - A `conversion` object **MAY** contain a property named `analysisToolLogFiles` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `artifactLocation` objects ([sec](#artifactlocation-object)) that specify the locations of the per-run files. (line 56)
+- If the analysis tool did not produce any per-run files, and `analysisToolLogFiles` is present, its value **SHALL** be an empty array. (line 58)
 
 ## Constraints
 
@@ -955,6 +1144,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - The object **MAY** contain properties whose names do not appear in the IANA registry, but at the expense of interoperability. (line 252)
 - If the hash function is one whose name appears in the IANA registry, the property name **SHALL** equal the name as it appears in the registry (for example, `"sha-256"` rather than `"sha256"`); otherwise the property name **MAY** be any suitable name, but it **SHALL NOT** equal any name defined in the IANA registry. (line 254)
 - Each property value **SHALL** be a string representation of the hash digest of the artifact, computed by the hash function specified by the property name. (line 258)
+- The string **SHALL** conform to the format produced by the hash algorithm (for example, if the hash algorithm produces a string of hexadecimal digits, the producer would not prepend "0x" to it). (line 258)
 
 ## `lastModifiedTimeUtc` Property
 
@@ -967,6 +1157,12 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-24-artifact-object.md`
 
 - An `artifact` object **MAY** have a property named `description` whose value is a `message` object ([sec](#message-object)) that describes the artifact. (line 277)
+
+## `displayBase` Property
+
+`file-format-25-speciallocations-object.md`
+
+- A `specialLocations` object **MAY** contain a property named `displayBase` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) which provides a suggestion to consumers to display file paths relative to the specified location. (line 12)
 
 ## `name` Property
 
@@ -1022,8 +1218,6 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - Depending on the circumstances, a `result` object either **SHALL**, **MAY**, or **SHALL NOT** contain a property named `ruleId` whose value is a hierarchical string ([sec](#hierarchical-strings)) whose leading components specify the stable identifier of the rule that was evaluated to produce the result. (line 42)
 - In addition to being stable, `ruleId` **SHOULD** be opaque. (line 42)
-- If `rule.id` is absent, `ruleId` **SHALL** be present. (line 96)
-- If `rule.id` is present, `ruleId` **MAY** be present. (line 96)
 - If `ruleId` and `rule.id` are both present, they **SHALL** be equal. (line 96)
 
 ## `ruleIndex` Property
@@ -1194,6 +1388,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-27-result-object.md`
 
+- A `result` object **MAY** contain a property named `precision` whose value is a number between `0.0` and `100.0` inclusive, representing the tool or tool maintainer's confidence that this result is a true positive. (line 783)
 - This value **MAY** be represented as a floating-point number. (line 783)
 
 ## `securitySeverity` Property
@@ -1224,6 +1419,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-27-result-object.md`
 
 - A `result` object **MAY** contain a property named `hostedViewerUri` whose value is a string containing an absolute URI [cite](#RFC3986) at which the result can be viewed. (line 819)
+- The URI **SHALL** be valid as of the time the tool generated this result. (line 819)
 
 ## `provenance` Property
 
@@ -1592,6 +1788,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A `logicalLocation` object **SHOULD** contain a property named `kind` whose value is one of the following strings, if any of those strings accurately describes the construct identified by this object. (line 159)
 - Although the values suggested here are useful in the specified categories (for example, `"member"` is useful in describing executable code), they **MAY** be used in other contexts as appropriate. (line 161)
+- If none of those strings accurately describes the construct, kind **MAY** contain any value specified by the analysis tool. (line 359)
 - If a logical location is both a member and a type (for example, a nested class in C++ or C#), the value of `kind`, if present, **SHALL** be `"type"`. (line 361)
 
 ## `parentIndex` Property
@@ -1699,6 +1896,8 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-37-threadflow-object.md`
 
 - A `threadFlow` object **SHALL** contain a property named `locations` whose value is an array of one or more `threadFlowLocation` objects ([sec](#threadflowlocation-object)). (line 46)
+- Each element of the array **SHALL** represent a single location visited by the tool in the course of producing the result. (line 46)
+- This array does not need to include every location visited by the tool, but the elements that are present **SHALL** occur in the execution order that demonstrates the problem. (line 46)
 
 ## `index` Property
 
@@ -1930,7 +2129,6 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-43-edgetraversal-object.md`
 
 - An `edgeTraversal` object **MAY** contain a property named `finalState` whose value is an object ([sec](#object-properties)) each of whose properties is a `multiformatMessageString` object ([sec](#multiformatmessagestring-object)) that represents the value of a relevant item after the edge has been traversed. (line 18)
-- It **SHALL NOT** assume that properties present in previous steps are still present with unchanged values. (line 22)
 
 ## `stepOverEdgeCount` Property
 
@@ -1950,6 +2148,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-44-stack-object.md`
 
 - A stack object **SHALL** contain a property named `frames` whose value is an array of zero or more `stackFrame` objects ([sec](#stackframe-object)). (line 14)
+- This array **SHALL** include every function call in the stack for which the tool has information, and the entries that are present **SHALL** occur in chronological order with the most recent (innermost) call first and the least recent (outermost) call last. (line 14)
 
 ## `location` Property
 
@@ -1999,6 +2198,12 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-46-webrequest-object.md`
 
 - A `webRequest` object **SHOULD** contain a property named `version` whose value is a string containing the version of the web protocol used in the request, found on the HTTP request line. (line 38)
+
+## `target` Property
+
+`file-format-46-webrequest-object.md`
+
+- A `webRequest` object **SHOULD** contain a property named `target` whose value is a string containing the target of the request, found on the HTTP request line, in the form defined by [sec](#conformance-clause-2-sarif-producer) ("Request Target") of the HTTP standard [cite](#RFC7230). (line 44)
 
 ## `method` Property
 
@@ -2125,6 +2330,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-48-resultprovenance-object.md`
 
+- If `theRun.invocations` ([sec](#invocations-property)) is present, a `resultProvenance` object **MAY** contain a property named `invocationIndex` whose value is the array index ([sec](#array-indices)) within the `invocations` property of the `invocation` object ([sec](#invocation-object)) that describes the tool invocation as a result of which `theResult` was detected. (line 44)
 - If `theRun.invocations` is absent, `invocationIndex` **SHALL** be absent. (line 46)
 - If `invocationIndex` is absent and `theRun.invocations` is present and contains a single element, it **SHALL** default to 0; otherwise it **SHALL** default to -1, which indicates that the value is unknown (not set). (line 50)
 
@@ -2133,6 +2339,8 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-48-resultprovenance-object.md`
 
 - A `resultProvenance` object **MAY** contain a property named `conversionSources` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) `physicalLocation` objects ([sec](#physicallocation-object)). (line 58)
+- If `theResult` was produced by a converter, and if the analysis tool whose output was converted to SARIF produced any per-result files for this result, then the `physicalLocation` objects in the array **SHALL** specify the relevant portions of the per-result files for this result. (line 60)
+- Otherwise (that is, if the `run` object was not produced by a converter, or if there were no per-run files for this result), then if `conversionSources` is present, its value **SHALL** be an empty array. (line 62)
 
 ## Constraints
 
@@ -2148,11 +2356,23 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - In the case of a rule, `id` **SHALL** contain a stable identifier for the rule and **SHOULD** be opaque. (line 16)
 - In the case of a notification, `id` does not need be a stable, opaque identifier; it **MAY** be a user-readable identifier. (line 16)
 
+## `deprecatedIds` Property
+
+`file-format-49-reportingdescriptor-object.md`
+
+- A `reportingDescriptor` object **MAY** contain a property named `deprecatedIds` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) strings each of which contains an id (see [sec](#reportingdescriptor-object--id-property)) by which this reporting item was known in some previous version of the analysis tool. (line 32)
+
 ## `guid` Property
 
 `file-format-49-reportingdescriptor-object.md`
 
 - A `reportingDescriptor` object **MAY** contain a property named `guid` whose value is a GUID-valued string ([sec](#guid-valued-strings)) that uniquely identifies the descriptor. (line 148)
+
+## `deprecatedGuids` Property
+
+`file-format-49-reportingdescriptor-object.md`
+
+- A `reportingDescriptor` object **MAY** contain a property named `deprecatedGuids` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) GUID-valued strings ([sec](#guid-valued-strings)) each of which was used by a previous version of the tool as the value of the `guid` property ([sec](#reportingdescriptor-object--guid-property)) for this object. (line 152)
 
 ## `name` Property
 
@@ -2164,6 +2384,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-49-reportingdescriptor-object.md`
 
+- A `reportingDescriptor` object **MAY** contain a property named `deprecatedNames` whose value is an array of zero or more unique ([sec](#array-properties-with-unique-values)) localizable ([sec](#localizable-strings)) strings each of which was used by a previous version of the tool as the value of the `name` property ([sec](#reportingdescriptor-object--name-property)) for this object. (line 164)
 - The array elements **SHALL** occur in the same order in every translation ([sec](#taxonomies)). (line 166)
 
 ## `shortDescription` Property
@@ -2215,6 +2436,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-49-reportingdescriptor-object.md`
 
+- A `reportingDescriptor` object that describes a rule **MAY** contain a property named `precision` whose value is a number between `0.0` and `100.0` inclusive, representing the tool or tool maintainer's confidence that results produced by the rule are true positives. (line 248)
 - This value **MAY** be represented as a floating-point number. (line 248)
 
 ## `securitySeverity` Property
@@ -2458,6 +2680,12 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A `notification` object **MAY** contain a property named `threadId` whose value is an integer which identifies the thread associated with this notification. (line 114)
 
+## `timeUtc` Property
+
+`file-format-58-notification-object.md`
+
+- A `notification` object **MAY** contain a property named `timeUtc` whose value is a string in the format specified [sec](#datetime-properties), specifying the UTC date and time at which the analysis tool generated the notification. (line 119)
+
 ## `exception` Property
 
 `file-format-58-notification-object.md`
@@ -2480,12 +2708,14 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - An `exception` object **SHOULD** contain a property named `kind` whose value is a string describing the exception. (line 10)
 - If the exception represents a thrown object, `kind` **SHALL** be the fully qualified type name of the object that was thrown, if that information is available. (line 12)
 - If the exception represents a POSIX signal, `kind` **SHALL** be the symbolic name of the signal as specified in `<signal.h>`. (line 16)
+- If the tool does not have access to information about the object that was thrown, the `kind` property **SHALL** be absent. (line 20)
 
 ## `message` Property
 
 `file-format-59-exception-object.md`
 
 - An `exception` object **SHOULD** contain a property named `message` whose value is a string that describes the exception. (line 24)
+- If the tool does not have access to an appropriate property of the thrown object, the `message` property **SHALL** be absent. (line 26)
 
 ## `stack` Property
 
@@ -2554,6 +2784,12 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `external-property-file-format.md`
 
 - An `externalProperties` object **SHALL** contain zero or more externalized properties. (line 94)
+
+## Annex D Production of SARIF by Converters
+
+`converters.md`
+
+- - A converter that knows which artifact a result was detected in, but not which artifact the analysis tool was originally instructed to scan, **SHOULD** populate `result.locations` ([sec](#result-object--locations-property)), but **SHOULD NOT** attempt to populate `result.analysisTarget` ([sec](#analysistarget-property)). (line 22)
 
 ## Minimal Valid SARIF Log File
 

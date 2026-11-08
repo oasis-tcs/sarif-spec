@@ -1,7 +1,8 @@
-# Statements naming: result management system
+# Statements binding: Result management system (conformance clause 8)
 
-Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do not edit.
-24 statements; SHALL 2, SHOULD 8, SHOULD NOT 3, MAY 12.
+Derived by `bin/vision.py derive` from `records/statements.yaml` and `records/roles.yaml`; do not edit.
+22 statements of its own; SHALL 2, SHOULD 7, SHOULD NOT 2, MAY 12.
+Its profile includes [consumer](consumer.md): 70 statements in all.
 
 
 ## `id` Property
@@ -62,7 +63,6 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 - A result management system **MAY** use any algorithm to combine the information contained in the various partial fingerprints. (line 608)
 - A result management system with that knowledge **MAY** use the property names to decide which partial fingerprints to include in its fingerprint computation. (line 610)
 - A result management system lacking that knowledge **SHOULD NOT** attempt to interpret the information embodied in the partial fingerprint names. (line 610)
-- Because result management systems might come to depend on the choice of property names, SARIF producers that use property names to identify the nature of the information used to compute the partial fingerprint **SHOULD** adhere to the following guidelines: (line 612)
 
 ## Annex C Use of Fingerprints by Result Management Systems
 
@@ -70,5 +70,4 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 - A result management system **SHOULD** construct a fingerprint by using information contained in the SARIF file such as (line 10)
 - A result management system **SHOULD** include the information in `partialFingerprints` in its fingerprint computation. (line 20)
-- An analysis tool **SHOULD NOT** include in `partialFingerprints` information that a result management system could deduce from other information in the SARIF file, for example, file hashes. (line 22)
 - A result management system **SHOULD NOT** include an absolute line number (or an absolute byte location in a binary artifact) in its fingerprint computation. (line 26)

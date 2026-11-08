@@ -6,6 +6,7 @@ Usage (from sarif-2.2/):
   python -I bin/vision.py migrate-constraints  seed records/constraints.yaml from the keyword-set statements (once)
   python -I bin/vision.py migrate-defaults     seed records/defaults.yaml from the default sentences (once)
   python -I bin/vision.py migrate-presence     append records for sections with conditional presence claims (review after)
+  python -I bin/vision.py migrate-statements   add a seeded record (whom it binds) for every statement without one
   python -I bin/vision.py derive    write views/ from the schema, the records, the twins and the prose
   python -I bin/vision.py check     fail when a view differs from what derive would write, or a record is incomplete
 
@@ -345,24 +346,28 @@ def role_records():
 
 
 def view_roles(statements):
+    """One view per conformance target: the statements whose record binds it, and what its profile includes."""
     roles = role_records()
-    rx = {r['id']: re.compile(r'\b(?:' + '|'.join(r['terms']) + r')\b', re.I) for r in roles}
+    pairs = matched_statements(statements)
     by_role = defaultdict(list)
-    for s in statements:
-        named = [r['id'] for r in roles if rx[r['id']].search(s['text'])]
-        for r in named or ['no-role']:
+    for s, rec in pairs:
+        for r in rec['binds']:
             by_role[r].append(s)
+    closure = included(roles)
     views = {}
-    for r in roles + [{'id': 'no-role', 'name': 'no role named', 'shared': '-'}]:
+    for r in roles:
         items = by_role.get(r['id'], [])
-        kw = Counter(k for s in items for k in set(BOLD_KW.findall(s['text'])))
         lines = [
-            f'# Statements naming: {r["name"]}',
+            f'# Statements binding: {r["name"]} (conformance clause {r["clause"]})',
             '',
-            'Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do not edit.',
-            f'{len(items)} statements; ' + ', '.join(f'{k} {kw[k]}' for k in ('SHALL', 'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'MAY') if kw[k]) + '.',
-            '',
+            'Derived by `bin/vision.py derive` from `records/statements.yaml` and `records/roles.yaml`; do not edit.',
+            f'{len(items)} statements of its own; {keyword_counts(items)}.',
         ]
+        if r['includes']:
+            more = sorted(closure[r['id']] - {r['id']}, key=[x['id'] for x in roles].index)
+            total = len({id(s) for x in closure[r['id']] for s in by_role.get(x, [])})
+            lines.append(f'Its profile includes {", ".join(f"[{x}]({x}.md)" for x in more)}: {total} statements in all.')
+        lines.append('')
         current = None
         for s in items:
             where = f'{s["file"]}: {s["heading"]}'
@@ -372,6 +377,66 @@ def view_roles(statements):
             lines.append(f'- {s["text"]} (line {s["line"]})')
         views[f'roles/{r["id"]}.md'] = '\n'.join(lines) + '\n'
     return views
+
+
+def designation_findings(statements):
+    """Statements whose record binds a target their wording does not name: the conformance section wants it named."""
+    named = target_matcher(role_records())
+    return [f'- {s["file"]}:{s["line"]} (`{rec["section"]}`): binds {", ".join(b for b in rec["binds"] if b not in named(s["text"]))} '
+            'without naming it; the conformance section binds the log file unless a statement designates another target **TC**'
+            for s, rec in matched_statements(statements)
+            if not rec.get('via') and any(b != 'log-file' and b not in named(s['text']) for b in rec['binds'])]
+
+
+def keyword_counts(items):
+    kw = Counter(k for s in items for k in set(BOLD_KW.findall(s['text'])))
+    return ', '.join(f'{k} {kw[k]}' for k in ('SHALL', 'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'MAY') if kw[k]) or 'no keywords'
+
+
+def included(roles):
+    """Each target with every target its profile includes, transitively (itself too)."""
+    inc = {r['id']: set(r['includes']) for r in roles}
+    out = {}
+    for r in inc:
+        seen, todo = {r}, list(inc[r])
+        while todo:
+            x = todo.pop()
+            if x not in seen:
+                seen.add(x)
+                todo += inc[x]
+        out[r] = seen
+    return out
+
+
+def view_statements(statements):
+    """The counts per conformance target: own statements, named or by default, and those its profile includes."""
+    roles = role_records()
+    pairs = matched_statements(statements)
+    closure = included(roles)
+    own = {r['id']: [s for s, rec in pairs if r['id'] in rec['binds']] for r in roles}
+    review = [(s, rec) for s, rec in pairs if rec.get('review')]
+    lines = [
+        '# Statements and whom they bind (A3)',
+        '',
+        'Derived by `bin/vision.py derive` from `records/statements.yaml` and `records/roles.yaml`; do not edit.',
+        '',
+        f'{len(pairs)} normative statements (a sentence with a bold BCP 14 keyword). The conformance section makes the SARIF log',
+        'file the target of every statement that designates no other; a target designated by a statement is named in it.',
+        '',
+        '| Target | Clause | Own | SHALL | SHOULD | MAY | With what its profile includes |',
+        '|---|--:|--:|--:|--:|--:|--:|',
+    ]
+    for r in roles:
+        items = own[r['id']]
+        kw = Counter(k.split()[0] for s in items for k in set(BOLD_KW.findall(s['text'])))
+        total = len({id(s) for x in closure[r['id']] for s in own[x]})
+        lines.append(f'| [{r["name"]}](roles/{r["id"]}.md) | {r["clause"]} | {len(items)} | {kw["SHALL"]} | {kw["SHOULD"]} | {kw["MAY"]} | {total} |')
+    lines += ['', 'SHALL counts **SHALL** and **SHALL NOT** (likewise SHOULD); a statement with two keywords counts in both columns.',
+              'A statement binding two targets counts for each.', '']
+    lines += [f'## Under review ({len(review)})', '',
+              'The seed could not tell whom these bind; their record carries `review`.', '']
+    lines += [f'- `{rec["section"]}`: {s["text"][:160]}{"..." if len(s["text"]) > 160 else ""} -- {rec["review"]}' for s, rec in review] or ['- none']
+    return '\n'.join(lines) + '\n'
 
 
 def findings(sections, headings, statements, fences, items, constraints=()):
@@ -439,6 +504,7 @@ def findings(sections, headings, statements, fences, items, constraints=()):
     for s in sets:
         out.append(f'  - {s["file"]}:{s["line"]} ({s["heading"]})')
     out += list(constraints)
+    out += designation_findings(statements)
     out += [f'- {s["file"]}:{s["line"]}: one bold span holds two keywords ({JOINED_BOLD.search(s["text"]).group(0)}): bold each keyword'
             for s in statements if JOINED_BOLD.search(s['text'])]
     for name in bound_files():
@@ -655,6 +721,7 @@ def derive_all():
                                                     '$defs': {d: {'allOf': [{'if': x['if'], 'then': x['then']} for x in rules if x['def'] == d]}
                                                               for d in dict.fromkeys(x['def'] for x in rules)}}, indent=2) + '\n'}
     views |= view_roles(statements)
+    views['statements.md'] = view_statements(statements)
     return views
 
 
@@ -1137,6 +1204,174 @@ def migrate_constraints():
     print(f'seeded {len(records)} constraint records, {sum(len(r["branches"]) for r in records)} branches')
 
 
+# ── statements: whom each binds (A3) ──────────────────────────────────────────
+
+STATEMENTS = RECORDS / 'statements.yaml'
+KW_SPAN = re.compile(r'\*\*(?:' + KW + r')(?:, (?:' + KW + r'))*\*\*')
+CONNECTOR = re.compile(r'^(?:|-|and|or both|if present|if any|which|whether or not .*)$', re.I)
+RELATIVE = re.compile(r'\s+(?:that|which|who|whose)\b.*$')
+PRONOUN = re.compile(r'^(?:it|they)$', re.I)
+NOT_IN_LOG = re.compile(r'^the (?:lookup|mapping algorithm)$', re.I)  # procedures a consumer runs; the seed cannot tell whose
+
+
+def slug(text):
+    return re.sub(r'[^a-z0-9]+', '-', text.replace('`', '').lower()).strip('-')
+
+
+def section_keys(statements):
+    """Each statement's section key: `object.property`, `object`, `object/heading`, or the heading (made unique by file)."""
+    def base(s):
+        if s['obj'] and s['prop']:
+            return f'{s["obj"]}.{s["prop"]}'
+        if s['obj']:
+            return s['obj'] if OBJ_H.match('## ' + s['heading']) else f'{s["obj"]}/{slug(s["heading"])}'
+        return slug(s['heading'])
+    files = defaultdict(set)
+    for s in statements:
+        files[base(s)].add(s['file'])
+    return [base(s) if len(files[base(s)]) == 1 else f'{pathlib.Path(s["file"]).stem}/{base(s)}' for s in statements]
+
+
+def _norm(text):
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+def statement_records():
+    return yaml.safe_load(STATEMENTS.read_text(encoding='utf-8'))['sections'] if STATEMENTS.is_file() else []
+
+
+def matched_statements(statements, records=None):
+    """(statement, record) in prose order; a record matches the statement of its section that its `starts` begins."""
+    pairs, _, _ = match_statements(statements, records)
+    return pairs
+
+
+def match_statements(statements, records=None):
+    """Pairs, the statements without a record, and the records without a statement ((section, record) each)."""
+    records = statement_records() if records is None else records
+    free = defaultdict(list)
+    for sec in records:
+        for rec in sec['statements']:
+            free[sec['section']].append({**rec, 'section': sec['section']})
+    pairs, missing = [], []
+    for s, key in zip(statements, section_keys(statements)):
+        text = _norm(s['text'])
+        hits = [r for r in free.get(key, []) if text.startswith(_norm(r['starts']))]
+        if hits:
+            best = max(hits, key=lambda r: len(r['starts']))
+            free[key].remove(best)
+            pairs.append((s, best))
+        else:
+            missing.append((key, s))
+    stale = [(key, r) for key, rs in free.items() for r in rs]
+    return pairs, missing, stale
+
+
+def target_matcher(roles):
+    alts = sorted(((r['id'], t) for r in roles for t in r['terms']), key=lambda p: -len(p[1]))
+    rx = re.compile('|'.join(f'(?P<g{i}>\\b{t}\\b)' for i, (_, t) in enumerate(alts)), re.I)
+
+    def named(text):
+        return list(dict.fromkeys(alts[int(m.lastgroup[1:])][0] for m in rx.finditer(text)))
+    return named
+
+
+def seed_binds(s, previous, named):
+    """The seeded fields of a statement's record: the targets its subject names, else the log file (the default)."""
+    pre = s['text'][:KW_SPAN.search(s['text']).start()]
+    subject = next((seg.strip() for seg in reversed(re.split(r',\s+|\bthen\b|;|:\s', pre)) if not CONNECTOR.match(seg.strip())), '')
+    head = RELATIVE.sub('', subject)
+    if targets := named(head):
+        return {'binds': targets}
+    if PRONOUN.match(subject):
+        if targets := named(pre):
+            return {'binds': targets}
+        if previous and previous[0]['line'] == s['line'] and previous[1] != ['log-file'] and pre.strip() == subject:
+            return {'binds': previous[1], 'via': 'the previous sentence'}  # "It **SHALL** ..." in the same paragraph
+    if NOT_IN_LOG.match(head):
+        return {'binds': ['log-file'], 'review': f'"{head}" is a procedure, not part of the log file: whose is it?'}
+    return {'binds': ['log-file']}
+
+
+def seed_starts(text, others):
+    """The shortest opening of *text* (at least six words) that no other statement of its section shares."""
+    words = _norm(text).split(' ')
+    for n in range(min(6, len(words)), len(words) + 1):
+        start = ' '.join(words[:n])
+        if not any(_norm(o).startswith(start) for o in others):
+            return start
+    return ' '.join(words)
+
+
+def migrate_statements():
+    """Add a seeded record for every statement without one; existing records stay as they are."""
+    _, _, statements, _ = read_prose()
+    roles = role_records()
+    named = target_matcher(roles)
+    pairs, missing, stale = match_statements(statements)
+    if stale:
+        sys.exit('records without a statement (fix or remove them first):\n' + '\n'.join(f'  {k}: {r["starts"]}' for k, r in stale))
+    recorded = {id(s): rec for s, rec in pairs}
+    keys = section_keys(statements)
+    sections, previous, added = {}, None, 0
+    for s, key in zip(statements, keys):
+        rec = recorded.get(id(s))
+        if rec is None:
+            others = [o['text'] for o, k in zip(statements, keys) if k == key and o is not s]
+            rec = {'starts': seed_starts(s['text'], others)} | seed_binds(s, previous, named)
+            added += 1
+        else:
+            rec = {k: v for k, v in rec.items() if k != 'section'}
+        sections.setdefault(key, []).append(rec)
+        previous = (s, rec['binds'])
+    header = [
+        '# Statement records (A3): whom each normative statement binds, one record per sentence with a bold BCP 14 keyword.',
+        '# Seeded by `bin/vision.py migrate-statements` from the subject of each sentence; reviewed by hand since.',
+        '#   section   the statement\'s section: `object.property`, `object`, `object/heading`, or the heading\'s slug',
+        '#   starts    the opening words of the statement, unique in its section: how check finds it in the prose',
+        '#   binds     the conformance targets it binds (records/roles.yaml): the targets its subject names, else',
+        '#             log-file, the default of the conformance section ("requirements for SARIF log files, except ...")',
+        '#   via       where the statement is designated to its target, when not in its own words (a pronoun,',
+        '#             a procedure designated in an earlier sentence); without it, a target other than log-file must',
+        '#             be named in the statement, or the findings report it',
+        '#   review    a question the seed could not answer; remove it once binds is right',
+        '# migrate-statements adds records for new statements and keeps the others; it rewrites this file (comments',
+        '# belong here, in the header). check refuses a statement without a record, a record without a statement,',
+        '# and a target that records/roles.yaml does not define.',
+        '#   note      why a statement binds nobody (`binds: []`)',
+        '',
+        '',
+    ]
+    data = {'sections': [{'section': k, 'statements': v} for k, v in sections.items()]}
+    STATEMENTS.write_text('\n'.join(header) + yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=10000, default_flow_style=None), encoding='utf-8')
+    print(f'records/statements.yaml: {added} statement(s) seeded, {len(pairs)} kept')
+
+
+def statement_keys():
+    """Refusals: a statement without a record, a record without a statement, an unknown target, a constraint's binds."""
+    _, _, statements, _ = read_prose()
+    if not STATEMENTS.is_file():
+        return ['records/statements.yaml is missing: run python -I bin/vision.py migrate-statements']
+    ids = {r['id'] for r in role_records()}
+    pairs, missing, stale = match_statements(statements)
+    problems = [f'{s["file"]}:{s["line"]}: `{key}`: no record in records/statements.yaml for "{_norm(s["text"])[:70]}..." '
+                '(python -I bin/vision.py migrate-statements adds one)' for key, s in missing]
+    problems += [f'records/statements.yaml: `{key}`: no statement starts "{r["starts"]}"' for key, r in stale]
+    problems += [f'records/statements.yaml: `{rec["section"]}`: "{rec["starts"]}": unknown target {b}'
+                 for _, rec in pairs for b in rec['binds'] if b not in ids]
+    problems += [f'records/statements.yaml: `{rec["section"]}`: "{rec["starts"]}": binds nobody and gives no `note` why'
+                 for _, rec in pairs if not rec['binds'] and not rec.get('note')]
+    names = {r['name'].lower(): r['id'] for r in role_records()}
+    for c in constraint_records():
+        for b in c['branches']:
+            if 'binds' in b:
+                target = names.get(b['binds'].lower())
+                for s, rec in pairs:
+                    if _norm(s['text']) == _norm(b['sentence']) and target not in rec['binds']:
+                        problems.append(f'records/statements.yaml: `{rec["section"]}`: "{rec["starts"]}": its constraint branch binds {b["binds"]}')
+    return problems
+
+
 def migrate():
     target = RECORDS / 'examples.yaml'
     if target.exists():
@@ -1202,7 +1437,10 @@ def main():
     if command == 'migrate-defaults':
         migrate_defaults()
         return
-    problems = check_records() + broken_keys() + constraint_keys() + default_keys()  # the twins' keys and snippets: nide quality
+    if command == 'migrate-statements':
+        migrate_statements()
+        return
+    problems = check_records() + broken_keys() + constraint_keys() + default_keys() + statement_keys()  # the twins' keys and snippets: nide quality
     if problems:
         sys.exit('\n'.join(problems))
     views = derive_all()

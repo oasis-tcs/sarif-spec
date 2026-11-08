@@ -1,7 +1,7 @@
-# Statements naming: SARIF consumer
+# Statements binding: SARIF consumer (conformance clause 6)
 
-Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do not edit.
-53 statements; SHALL 30, SHALL NOT 7, SHOULD 4, SHOULD NOT 3, MAY 11.
+Derived by `bin/vision.py derive` from `records/statements.yaml` and `records/roles.yaml`; do not edit.
+48 statements of its own; SHALL 29, SHALL NOT 7, SHOULD 4, SHOULD NOT 3, MAY 7.
 
 
 ## `uriBaseId` Property
@@ -47,6 +47,7 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-11-message-object.md`
 
 - When a SARIF consumer needs to locate a message string from a `message` object, it **SHALL** follow the procedure specified in this section. (line 224)
+- The lookup **SHALL** occur entirely within the context of a single `toolComponent` object ([sec](#toolcomponent-object)) which we refer to as `theComponent`. (line 226)
 - At various points in this procedure, we state that the consumer uses an object’s "`text` property or `markdown` property, as appropriate." This means that if the consumer can render formatted messages, it **MAY** use the `markdown` property, if present; otherwise it **SHALL** use the `text` property, but if the consumer cannot render formatted messages, it **SHALL** use the `text` property. (line 230)
 
 ## `markdown` Property
@@ -54,12 +55,6 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-11-message-object.md`
 
 - SARIF consumers that cannot (or choose not to) render formatted text **SHALL** ignore the `markdown` property and use the `text` property instead. (line 284)
-
-## `arguments` Property
-
-`file-format-11-message-object.md`
-
-- If the message string specified by any of the properties `text` ([sec](#message-object--text-property)), `markdown` ([sec](#message-object--markdown-property)), or `id` ([sec](#message-object--id-property)) contains any placeholders ([sec](#messages-with-placeholders)), the `message` object **SHALL** contain a property named `arguments` whose value is an array of strings. [sec](#messages-with-placeholders) specifies how a SARIF consumer combines the contents of the `arguments` array with the message string to construct the message that it presents to the end user, and provides an example. (line 292)
 
 ## `markdown` Property
 
@@ -72,12 +67,6 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 `file-format-14-run-object.md`
 
 - A SARIF consumer **SHALL** use the following procedure to resolve a URI base id from the information in `originalUriBaseIds`: (line 188)
-
-## `specialLocations` Property
-
-`file-format-14-run-object.md`
-
-- A `run` object **MAY** contain a property named `specialLocations` whose value is a `specialLocations` object ([sec](#speciallocations-object)) that defines locations of special significance to SARIF consumers. (line 276)
 
 ## `columnKind` Property
 
@@ -143,32 +132,13 @@ Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do no
 
 `file-format-25-speciallocations-object.md`
 
-- A `specialLocations` object **MAY** contain a property named `displayBase` whose value is an `artifactLocation` object ([sec](#artifactlocation-object)) which provides a suggestion to consumers to display file paths relative to the specified location. (line 12)
 - A consumer **MAY** act on this hint as follows: (line 14)
-
-## `guid` Property
-
-`file-format-27-result-object.md`
-
-- If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **SHALL** set this property to the value it assigned. (line 28)
-
-## `correlationGuid` Property
-
-`file-format-27-result-object.md`
-
-- If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **MAY** set this property to the value it assigned. (line 36)
 
 ## `ruleId` Property
 
 `file-format-27-result-object.md`
 
 - Therefore, a SARIF consumer **SHOULD NOT** attempt to compare or combine the output from different converters for the same analysis tool. (line 102)
-
-## `fingerprints` Property
-
-`file-format-27-result-object.md`
-
-- If it does so, then later, when a SARIF consumer retrieves results in SARIF format from the result management system, the result management system **MAY** set this property to the value it assigned. (line 561)
 
 ## `suppressions` Property
 

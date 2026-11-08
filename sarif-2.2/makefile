@@ -3,7 +3,7 @@
 .DEFAULT_GOAL = check
 
 # SARIF vision: the schema and records/ are authored, views/ are derived from them (see VISION.md).
-#   make derive   write views/ (findings, examples against the schema, statements per role), the constraint sentences,
+#   make derive   write views/ (findings, examples against the schema, statements per conformance target), the constraint sentences,
 #                 and (nide derive) the snippets of the twins
 #   make check    fail when a view differs from what the sources give, or a record is incomplete
 #   make prose    check, then build the specification as before (prose/edit, needs nide)

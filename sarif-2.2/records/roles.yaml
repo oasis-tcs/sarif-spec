@@ -1,36 +1,70 @@
-# The roles SARIF statements address, in the words the prose uses for them.
-# `name` is the role's own name; `shared` the name used across the specifications of the talk where one fits
-# (CSAF, DPS PM, MQTT-SN, SARIF); `terms` are the regular expressions (case-insensitive, whole words) that name it.
-# derive writes one view per role (views/roles/<id>.md) with every normative statement that names the role.
-# A statement that names no role is listed in views/roles/no-role.md: today most of them bind the log file
-# (an object or property is their subject), which binds the producer without saying so.
+# The conformance targets of SARIF (section Conformance, clauses 1 to 9): whom a statement can bind.
+# The conformance section says: the normative content defines requirements for SARIF log files, except for those
+# requirements explicitly designated as defining the behavior of another conformance target. So `log-file` is the
+# default, and every other target must be named.
+#   id        the key records/statements.yaml uses in `binds`
+#   name      the target's name in the conformance section; `clause` its conformance clause
+#   shared    the name used across the specifications of the talk where one fits (CSAF, DPS PM, MQTT-SN, SARIF)
+#   terms     regular expressions (case-insensitive, whole words) that name the target; they seed `binds`
+#             (bin/vision.py migrate-statements) and are not consulted afterwards. Clause 3 designates the
+#             requirements for "direct producers" and "analysis tools" to the direct producer, so those terms are its.
+#   includes  the profiles the target's clause makes it satisfy as well (a viewer is a SARIF consumer); the producer
+#             includes the log file, because clause 2 binds it to produce output with the semantics of the format
+# derive writes one view per target (views/roles/<id>.md) with the statements whose record binds it, and
+# views/statements.md with the counts, own and included.
 
 roles:
+- id: log-file
+  name: SARIF log file
+  clause: 1
+  shared: Log file
+  terms: []
+  includes: []
 - id: producer
   name: SARIF producer
+  clause: 2
   shared: Producer
-  terms: ['(?:SARIF )?producers?', 'direct producers?', 'analysis tools?', 'the tool']
-- id: consumer
-  name: SARIF consumer
-  shared: Consumer
-  terms: ['(?:SARIF )?consumers?']
-- id: viewer
-  name: SARIF viewer
-  shared: Viewer
-  terms: ['viewers?']
+  terms: ['(?:SARIF )?producers?']
+  includes: [log-file]
+- id: direct-producer
+  name: Direct producer
+  clause: 3
+  shared: Producer
+  terms: ['direct (?:SARIF )?producers?', 'analysis tools?', 'the tool']
+  includes: [producer]
 - id: converter
-  name: converter
+  name: Converter
+  clause: 4
   shared: Converter
-  terms: ['converters?']
-- id: result-management-system
-  name: result management system
-  shared: Result management
-  terms: ['result management systems?']
+  terms: ['(?:SARIF )?converters?']
+  includes: [producer]
 - id: post-processor
   name: SARIF post-processor
+  clause: 5
   shared: Others
   terms: ['(?:SARIF )?post-processors?']
+  includes: [consumer, producer]
+- id: consumer
+  name: SARIF consumer
+  clause: 6
+  shared: Consumer
+  terms: ['(?:SARIF )?consumers?']
+  includes: []
+- id: viewer
+  name: Viewer
+  clause: 7
+  shared: Viewer
+  terms: ['(?:SARIF )?viewers?']
+  includes: [consumer]
+- id: result-management-system
+  name: Result management system
+  clause: 8
+  shared: Result management
+  terms: ['result management systems?']
+  includes: [consumer]
 - id: engineering-system
-  name: engineering system
+  name: Engineering system
+  clause: 9
   shared: Others
   terms: ['engineering systems?']
+  includes: []

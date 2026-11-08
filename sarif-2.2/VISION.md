@@ -20,7 +20,7 @@ vendors can carry their own ideas into. The many **MAY** are intended and not co
 | A0 | Intent | TC decisions, accepted proposals | two accepted proposals reached the prose only (see findings) |
 | A1 | Shape | `schema/sarif.json` (54 definitions, 51 closed) | consistent; enums complete |
 | A2 | Constraint | rules beyond the shape: presence rules, conditional defaults | prose only, spread over several sentences |
-| A3 | Statement | 996 normative sentences | most name no role; the log file is their subject |
+| A3 | Statement | 996 normative sentences | each recorded with the conformance targets it binds; 851 bind the log file by default |
 | A4 | Illustration | 127 JSON snippets, 120 example twins, 7 example files | snippets unvalidatable as written; twins validatable |
 | A5 | Implementation | validators, converters, viewers, result management systems | outside this tree |
 | A6 | Operation | SARIF logs exchanged between tools | outside this tree |
@@ -33,7 +33,8 @@ vendors can carry their own ideas into. The many **MAY** are intended and not co
 | the twins `prose/edit/src/json-examples/*.json` | the prose snippets of all 120 examples, byte for byte; `views/examples.md` |
 | `records/examples.yaml`: one record per twin: its host definition, and its `display` | the validation of each twin; the snippet's layout and margin notes |
 | `twins.markers` in `prose/edit/etc/nide.yaml`: the grammar of the elision markers | the marker checks (`nide quality`, SARIF-TWINS); the elision in a future snippet |
-| `records/roles.yaml`: the roles and the words the prose uses for them | `views/roles/<role>.md`: the statements per role |
+| `records/roles.yaml`: the nine conformance targets (clauses 1 to 9), the profiles each includes, the words that name them | the seed of `binds`; the profile totals |
+| `records/statements.yaml`: one record per normative statement: whom it `binds`, and `via` where the designation is not in its words | `views/roles/<target>.md`: the statements per target; `views/statements.md`: the counts, own and included; the designation findings |
 | `records/constraints.yaml`: the presence rules announced with a set of keywords, one branch per condition | `views/constraints.md`; `views/constraints.schema.json` (the if/then the schema can say, a proposal for the TC); the constraint findings |
 | `known` of SARIF-SCHEMA-HEADINGS in `prose/edit/etc/rules/spec.rules.yaml`: the known differences between property sections and schema properties, each waiting for the TC | `nide quality` refuses every other difference (and a malformed property heading); the TC entries of `views/findings.md` |
 | the prose (hand-written Markdown, except the derived snippets) | `views/findings.md`: what disagrees with the schema |
@@ -46,7 +47,7 @@ definition), and when a property heading or section has no key in the schema (be
 
 A twin is the full example as JSON. Where the prose leaves something out, the twin carries a marker
 (`"...member-inject": "..."` for elided members, `{"...object-inject": "..."}` or `"...string-inject"` for elided
-array elements; see `records/markers.yaml`). For validation, derive
+array elements; see `twins.markers` in `prose/edit/etc/nide.yaml`). For validation, derive
 
 1. removes the markers (a key or string that only looks like a marker is reported as malformed),
 2. injects what the schema requires and the display leaves out: required members, the first of required
@@ -71,8 +72,8 @@ without the enclosing braces, and then the layout, keyed by JSON pointers into t
 
 Edit the twin to change what an example says; edit its `display` to change how it looks; run `make derive`, and the
 prose snippet follows. Never edit a derived snippet in the prose: `make check` fails. To add an example, add the twin,
-its record with `host`, and run `python -I bin/vision.py migrate-snippets` after writing the snippet once by hand
-(or write the `display` directly); it keys the code block for you. Code blocks can move freely: `check` finds each
+its record with `host`, write the snippet once by hand and run `nide examples adopt` (it keys the code block and
+learns the `display`), or write the `display` directly. Code blocks can move freely: `check` finds each
 derived snippet by its key, and refuses a key without a record, a record without its key, and a key used twice.
 
 ## Done
@@ -200,10 +201,30 @@ derived snippet by its key, and refuses a key without a record, a record without
    constraint sentences; learning a display (`migrate-snippets`) and keying the blocks (`annotate-fences`) are
    nide's too now (`nide examples learn`, `nide examples adopt`), and left `bin/vision.py`.
 
+13. **Statement records: whom each statement binds (2026-11-08).** The conformance section of SARIF names nine
+   conformance targets and says that "the normative content in this document defines requirements for SARIF log
+   files, except for those normative requirements that are explicitly designated as defining the behavior of another
+   conformance target". That sentence is the model: `records/roles.yaml` lists the targets with their clause and the
+   profiles each includes (a viewer is a consumer; a post-processor is a consumer and a producer; the producer
+   includes the log file, because clause 2 binds it to produce output with the format's semantics), and
+   `records/statements.yaml` gives each of the 996 statements its `binds`. `migrate-statements` seeded them from the
+   subject of each sentence (the head of the noun phrase before the keyword; a pronoun takes the target named
+   earlier in the sentence, or in the previous sentence of the paragraph, recorded as `via`), else `log-file`;
+   it adds records for new statements and keeps reviewed ones. Clause 3 designates the requirements for "analysis
+   tools" to the direct producer, so those statements now bind it rather than any producer.
+   `check` refuses a statement without a record, a record without a statement, an unknown target, a record that
+   binds nobody without a `note` (the BCP 14 boilerplate), and a constraint branch whose `binds` the statement
+   record does not carry. The role views are derived from the records, no longer from the wording, and
+   `views/statements.md` counts them per target, own and with what the profile includes: 851 statements bind the log
+   file, 32 the producer, 12 the direct producer, 15 converters, 3 post-processors, 48 consumers, 17 viewers,
+   22 result management systems, 3 engineering systems; with its profile, a direct producer answers for 895.
+   Findings: the two `result.ruleId` branches bind the direct producer (the constraint records say so, and the
+   following sentence names direct producers) but do not name it, so by the conformance section they bind every log
+   file (**TC**: 3 files in `example/` and 18 twins would violate them); one statement is still under review: who runs
+   the `mappedTo` mapping algorithm.
+
 ## Next steps
 
-13. **Statement records with subjects (A3).** Each statement records whom it binds (the log file, a producer, a
-   consumer, a viewer ...); the role views are then derived from the records instead of from the wording.
 14. **TC findings.** Bring the findings marked **TC** in `views/findings.md` to the TC: they are decisions, not edits.
    The largest: `suppression.justificationType` (#672) and the `columnKind` value `"bytes"` (#740) exist only in the
    prose; `attachment.location` and `externalProperties.$schema` differ from the schema's names; 14 examples
@@ -213,6 +234,6 @@ derived snippet by its key, and refuses a key without a record, a record without
 ## Files
 
 - `bin/vision.py`: migrate, derive, check (Python with jsonschema and PyYAML, the repository's pyenv environment)
-- `records/`: examples, roles, constraints, defaults
-- `views/`: findings, examples, constraints (and its schema proposal), `roles/<role>.md` (derived, never edit)
+- `records/`: examples, roles (the conformance targets), statements, constraints, defaults
+- `views/`: findings, examples, statements, constraints (and its schema proposal), `roles/<target>.md` (derived, never edit)
 - `makefile`: derive, check, prose

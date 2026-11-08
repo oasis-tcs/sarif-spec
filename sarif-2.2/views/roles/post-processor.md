@@ -1,7 +1,8 @@
-# Statements naming: SARIF post-processor
+# Statements binding: SARIF post-processor (conformance clause 5)
 
-Derived by `bin/vision.py derive` from the prose and `records/roles.yaml`; do not edit.
-3 statements; SHALL 1, SHOULD NOT 1, MAY 1.
+Derived by `bin/vision.py derive` from `records/statements.yaml` and `records/roles.yaml`; do not edit.
+3 statements of its own; SHALL 1, SHOULD NOT 1, MAY 1.
+Its profile includes [log-file](log-file.md), [producer](producer.md), [consumer](consumer.md): 931 statements in all.
 
 
 ## Redactable Strings
