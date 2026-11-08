@@ -187,12 +187,12 @@ derived snippet by its key, and refuses a key without a record, a record without
    `artifactLocation` requires `uri` or `index` in the prose, not in the schema.
 
 11. **Heading keys in nide (2026-11-07).** The heading check of step 6 moved into nide as the quality check type
-   `schema-headings` (unreleased nide): SARIF-SCHEMA-HEADINGS in `prose/edit/etc/rules/spec.rules.yaml` keys
+   `schema-headings` (nide 2026.11.8): SARIF-SCHEMA-HEADINGS in `prose/edit/etc/rules/spec.rules.yaml` keys
    `` `x` Object `` and `` `p` Property `` headings to the schema (335 keyed headings), and its `known` list replaces
    `records/drift.yaml`. The externalized properties, described in a table of the `externalPropertyFileReferences`
    section, are declared as such (`described-in`). DPS uses the same check type for its `` Member `a.b.c` `` headings.
 
-12. **Twins in nide (2026-11-08).** The examples pipeline moved into nide (unreleased): `nide derive` writes the
+12. **Twins in nide (2026-11-08).** The examples pipeline moved into nide (2026.11.8): `nide derive` writes the
    120 snippets from their twins and display records (byte-identical to `bin/vision.py`, which derived them before),
    `nide derive --check` runs in `make check`, and the quality check type `twins` (SARIF-TWINS) checks records,
    markers, note references, validity as the host definition (the 14 TC findings as `known`) and that every block
